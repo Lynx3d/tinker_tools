@@ -1,0 +1,15 @@
+Version 1.1.5
+- Made some cosmatic changes in the copy / paste window
+- Fixed problem with load Default sets
+
+
+Version 1.1.4
+- Fixed error on pasting items without firts copying an items, now gives msg that you have to
+  first copy an item.
+- Added possiblility to load multiple copies of saved sets at once with an offset.
+
+Version 1.1.3
+- Adjusted the Save/Load Sets option to work without errors for new installations of the addon.
+- Adjusted the Import/Export Sets option to work without errors for new installations of the addon.
+- Added the possibility under Save/Load Sets to choose if you want to load the set using new items
+  or items selected in your dimension.

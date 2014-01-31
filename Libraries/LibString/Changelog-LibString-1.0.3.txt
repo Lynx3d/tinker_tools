@@ -1,0 +1,12 @@
+tag 1.0.3
+e077ac40297ddb77a863eb4958c803e1ab23ae0e
+imhothar <imhothar@freenet.de>
+2013-07-22 19:13:34 +0200
+
+Tagging as 1.0.3
+
+
+--------------------
+
+imhothar:
+	- TOC update

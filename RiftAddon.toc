@@ -1,0 +1,52 @@
+Identifier = "Dimtools"
+Name = {
+    English = "Dimension Tools"
+}
+NameShort = "DT"
+Description = {
+    English = "This Addon is written to assist you in the creation of your dimensions. Special thanks to the original toolbox maker who inspired me, RDD members who made it possible for me to test things and keep me motivated. Type /Dt to start the addon. Type /Dt reset to reset all windows to default positions."
+}
+Author = "Kikimora"
+Website = "http://riftdreamdimensions.com/"
+Version = "1.1.5"
+Email = "Dtools@riftdreamdimensions.com"
+Environment = "2.4"
+
+RunOnStartup = {
+  "Main.lua",
+  "Defaults/Default_LoadSave.lua",
+  "Settings.lua",
+
+  "UI/Main_UI.lua",
+  "UI/CopyPaste_UI.lua",
+  "UI/Scale_UI.lua",
+  "UI/Move_UI.lua",
+  "UI/Rotate_UI.lua",
+  "UI/LoadSave_UI.lua",
+  "UI/ExpImp_UI.lua",
+  "UI/Help_UI.lua",
+
+  "Modules/Move.lua",
+  "Modules/Scale.lua",
+  "Modules/CopyPaste.lua",
+  "Modules/Rotate.lua",
+  "Modules/LoadSave.lua",
+  "Modules/ExpImp.lua",
+  "Modules/Help.lua",
+  "Modules/Itemdetails.lua"
+}
+
+Embed = {
+  ["Libraries/LibString"] = true,
+  ["Libraries/LibSimpleWidgets"] = true,
+  ["Modules/Dt_Export"] = true,
+}
+
+SavedVariables = {
+  Dta_Settings = "account",
+  Dta_Sets = "account",
+}
+
+Dependencies = {
+	Dimtools_Export = {"required", "before"},
+}
