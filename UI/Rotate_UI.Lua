@@ -18,9 +18,10 @@ function Dta.rotate_ui.createWindowRotate(name, parent, title, width, height, x,
   windowRotate.background:SetTexture("Rift", "dimension_window_bg_right_large.png.dds")
   windowRotate.background:SetLayer(3)
 
+  local background2Position = windowRotate:GetHeight()-80
   windowRotate.background2 = UI.CreateFrame("Texture", name .. "Background2", windowRotate)
   windowRotate.background2:SetPoint("CENTERX", windowRotate, "CENTERX")
-  windowRotate.background2:SetPoint("CENTERY", windowRotate, "CENTERY", nil, 30)
+  windowRotate.background2:SetPoint("CENTERY", windowRotate, "CENTERY", nil, background2Position/2)
   windowRotate.background2:SetWidth(width)
   windowRotate.background2:SetHeight(95)
   windowRotate.background2:SetAlpha(0.3)

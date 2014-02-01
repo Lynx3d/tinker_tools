@@ -18,9 +18,10 @@ function Dta.scale_ui.createWindowScale(name, parent, title, width, height, x, y
   windowScale.background:SetTexture("Rift", "dimension_window_bg_right_large.png.dds")
   windowScale.background:SetLayer(3)
 
+  local background2Position = windowScale:GetHeight()-80
   windowScale.background2 = UI.CreateFrame("Texture", name .. "Background2", windowScale)
   windowScale.background2:SetPoint("CENTERX", windowScale, "CENTERX")
-  windowScale.background2:SetPoint("CENTERY", windowScale, "CENTERY", nil, 30)
+  windowScale.background2:SetPoint("CENTERY", windowScale, "CENTERY", nil, background2Position/2)
   windowScale.background2:SetWidth(width)
   windowScale.background2:SetHeight(95)
   windowScale.background2:SetAlpha(0.3)

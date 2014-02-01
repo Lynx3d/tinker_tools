@@ -29,6 +29,7 @@ Dta.ui.windowExpImp_tbx = nil
 Dta.ui.activeExpImp_tbx = false
 
 Dta.ui.loadLoSa = "Default"
+Dta.ui.loadExpImp = "Saved"
 
 Dta.ui.needsReset = true
 
@@ -119,9 +120,10 @@ function Dta.ui.createWindow(name, parent, title, width, height, x, y, closable,
   windowtest.background:SetTexture("Rift", "dimension_window_bg_right_large.png.dds")
   windowtest.background:SetLayer(3)
 
+  local background2Position = windowtest:GetHeight()-100
   windowtest.background2 = UI.CreateFrame("Texture", name .. "Background2", windowtest)
   windowtest.background2:SetPoint("CENTERX", windowtest, "CENTERX")
-  windowtest.background2:SetPoint("CENTERY", windowtest, "CENTERY", nil, 100)
+  windowtest.background2:SetPoint("CENTERY", windowtest, "CENTERY", nil, background2Position/2)
   windowtest.background2:SetWidth(width)
   windowtest.background2:SetHeight(115)
   windowtest.background2:SetAlpha(0.3)
@@ -165,7 +167,7 @@ function Dta.ui.createWindow(name, parent, title, width, height, x, y, closable,
 
     windowtest.header = UI.CreateFrame("Text", name .. "header", windowtest.moveFrame)
     windowtest.header:SetFontSize(20)
-    windowtest.header:SetText(title)
+    windowtest.header:SetText(title .. " " .. Dta.Version)
     windowtest.header:SetFontColor(0,0,0,1)
     windowtest.header:SetPoint("CENTERX", windowtest.moveFrame, "CENTERX")
     windowtest.header:SetPoint("CENTERY", windowtest.moveFrame, "CENTERY", nil, 5)
@@ -296,6 +298,7 @@ end
 function Dta.ui.showMainWindow()
   Dta.constructions = Dta.settings.get_savedsets("SavedSets") --or {}
   Dta.constructionsdefaults = Dta.settings.get_defaultsets("SavedDefaultSets") --or {}
+  Dta.constructionstbx = Dta.settings.get_tbxsets("savedConstructions")
   Dta.ExportImport_Sets = Dta_export.get("ExportImport") --or {}
   if Dta.ui.windowtest == nil then
     Dta.ui.windowtest = Dta.ui.buildMainWindow()
@@ -303,7 +306,9 @@ function Dta.ui.showMainWindow()
     Dta.ui.windowtest:SetVisible(true)
   end
   Dta.ui.active = true
+  if #Dta.selectedItems > 0 then
     Dta.items.updateSelection()
+  end
 end
 
 -- Hide the Main window

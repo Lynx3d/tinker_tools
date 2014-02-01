@@ -1,6 +1,8 @@
 Version 1.1.5
 - Made some cosmatic changes in the copy / paste window
-- Fixed problem with load Default sets
+- Fixed error with load Default sets 
+- Added Dimension Toolbox Sets support for load sets and export sets
+- Updated the Help
 
 
 Version 1.1.4

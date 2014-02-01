@@ -18,9 +18,10 @@ function Dta.losa_ui.createWindowLoSa(name, parent, title, width, height, x, y, 
   windowLoSa.background:SetTexture("Rift", "dimension_window_bg_right_large.png.dds")
   windowLoSa.background:SetLayer(3)
 
+  local background2Position = windowLoSa:GetHeight()-80
   windowLoSa.background2 = UI.CreateFrame("Texture", name .. "Background2", windowLoSa)
   windowLoSa.background2:SetPoint("CENTERX", windowLoSa, "CENTERX")
-  windowLoSa.background2:SetPoint("CENTERY", windowLoSa, "CENTERY", nil, 125)
+  windowLoSa.background2:SetPoint("CENTERY", windowLoSa, "CENTERY", nil, background2Position/2)
   windowLoSa.background2:SetWidth(width)
   windowLoSa.background2:SetHeight(95)
   windowLoSa.background2:SetAlpha(0.3)
@@ -116,6 +117,7 @@ function Dta.losa_ui.buildLoSaWindow()
 
                                 LoSawindow.constructions.loadDeafaultSets = Dta.ui.createCheckbox("constructionLoadDeafaultSets", LoSawindow.constructions, 0, 85, "Default Sets", true, nil, Dta.losa.constructionLoadDeafaultSetsChanged)
                                 LoSawindow.constructions.loadSavedSets = Dta.ui.createCheckbox("constructionLoadSavedSets", LoSawindow.constructions, 100, 85, "Saved Sets", false, nil, Dta.losa.constructionLoadSavedSetsChanged)
+                                LoSawindow.constructions.loadTbxSets = Dta.ui.createCheckbox("constructionLoadTbxSets", LoSawindow.constructions, 200, 85, "Tbx Sets", false, nil, Dta.losa.constructionLoadTbxSetsChanged)
 
                                 LoSawindow.constructions.nameLabel2 = Dta.ui.createText("constructionsNameLabel2", LoSawindow.constructions, 0, 115, "Name:", 14)
                                 LoSawindow.constructions.nameLoad = UI.CreateFrame("SimpleSelect", "constructionsNameSelect", LoSawindow.constructions)

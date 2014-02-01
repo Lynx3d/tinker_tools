@@ -24,8 +24,8 @@ Dta.settings.defaults = {
   LoSawindowPosY = 330,
   ExpImpwindowPosX = 785,
   ExpImpwindowPosY  = 32,
-  HelpwindowPosX = 400,
-  HelpwindowPosY  = 100,
+  HelpwindowPosX = 785,
+  HelpwindowPosY  = 260,
   ExpImp_tbxwindowPosX = 785,
   ExpImp_tbxwindowPosY  = 330,
 }
@@ -113,5 +113,12 @@ function Dta.settings.set_savedsets(setting, value)
   return Dta.settings.savedsets[setting]
 end
 
+function Dta.settings.get_tbxsets(setting)
+  if tbx_Settings[setting] ~= nil then
+    return tbx_Settings[setting]
+  else
+    return nil
+  end
+end
 
 Dta.settings.main()

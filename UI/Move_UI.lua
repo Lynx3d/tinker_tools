@@ -18,9 +18,10 @@ function Dta.move_ui.createWindowMove(name, parent, title, width, height, x, y, 
   windowMove.background:SetTexture("Rift", "dimension_window_bg_right_large.png.dds")
   windowMove.background:SetLayer(3)
 
+  local background2Position = windowMove:GetHeight()-80
   windowMove.background2 = UI.CreateFrame("Texture", name .. "Background2", windowMove)
   windowMove.background2:SetPoint("CENTERX", windowMove, "CENTERX")
-  windowMove.background2:SetPoint("CENTERY", windowMove, "CENTERY", nil, 30)
+  windowMove.background2:SetPoint("CENTERY", windowMove, "CENTERY", nil, background2Position/2)
   windowMove.background2:SetWidth(width)
   windowMove.background2:SetHeight(95)
   windowMove.background2:SetAlpha(0.3)

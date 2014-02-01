@@ -1,6 +1,7 @@
 Dta.Help = {}
 
     function Dta.Help.InfoHandler(Item)
+        Dta.ui.windowHelp.ScrollInfoLoad.ScrollTo = 0
         local test = Dta.Help.helpTopic[Item]
         for i = 1, table.getn(test), 1 do
             local InfoLabel = test[i].label
@@ -248,8 +249,8 @@ Dta.Help = {}
 		{
 		label = "Load and Save",
 		text01 = "The Load / Save Sets window is all about saving the sets you created to be able\nto load them up on other places in your dimension or in other dimensions you\nhave.",
-		text02 = "<u>Descriptions:</u>\n- Name (Textbox):  Here you set the name for the set you want to save.\n- Save Set: Saves the set to file.\n\n- Default Sets: Gives you the possibility to load the default sets provided by\n    by me and the rest of the RiftDreamDimensions team. These sets are tools\n  created to aid you in your creativity.\n- Saved Sets : Gives you the possibility to load your own made sets into your\n  Dimensions.\n- Name (Drop box): A list of all the saved items. Depending on if you have chosen\n  Default Sets or Saved Sets the drop box will go to different lists.\n- Load Set: Loads the selected set into your dimension using items you have\n  selected in your dimension or using items from your bags.\n- Print Materials: Print out a list of items needed for the selected set.\n- Load New Items: Makes it possible to load the set using items from your bags.\n\nThe following items will only be available when Saved Sets is activated.\n- Remove Set: Removes the selected set from your saved list.\n- Load at original location: If this is selected the set will be loaded with the stats it\n  was originally saved with. Otherwise the set will be loaded close to your current\n  position.",
-		text03 = "<u>Descriptions for the options activated by Load New Items:</u>\n- Place Multiple Copies Of Set: This activates the possibility to load multiple copies\n  of your set into your dimension and set a X, Y or Z offset between the placed sets.\n  The options used for this are shown in the picture below here.\n- Nr. Copies: Lets you set how many copies of the set you want to place in your\n  dimension.\n-X: Sets the X offset.\n-Y: Sets the Y offset.\n-Z: Sets the Z offset.\n",
+		text02 = "<u>Descriptions:</u>\n- Name (Textbox):  Here you set the name for the set you want to save.\n- Save Set: Saves the set to file.\n\n- Default Sets: Gives you the possibility to load the default sets provided by\n  me and the rest of the RiftDreamDimensions team. These sets are tools\n  created to aid you in your creativity.\n- Saved Sets : Gives you the possibility to load your own made sets into your\n  Dimensions.\n- Tbx Sets: Gives you the possibility to load your old Toolbox Sets, explanation on\n   how that works you find later in this help.\n- Name (Drop box): A list of all the saved items. Depending on if you have chosen\n  Default Sets or Saved Sets the drop box will go to different lists.\n- Load Set: Loads the selected set into your dimension using items you have\n  selected in your dimension or using items from your bags.\n- Print Materials: Print out a list of items needed for the selected set.\n- Load New Items: Makes it possible to load the set using items from your bags.\n\nThe following items will only be active when Saved Sets or Tbx Sets are activated.\n- Remove Set: Removes the selected set from your saved list (only Saved Sets) .\n- Load at original location: If this is selected the set will be loaded with the stats it\n  was originally saved with. Otherwise the set will be loaded close to your current\n  position.\n- Place Multiple Copies Of Set: This activates the possibility to load multiple copies\n  of your set into your dimension and set a X, Y or Z offset between the placed sets.\n\nThe options used for this are shown in the picture below here.\n- Nr. Copies: Lets you set how many copies of the set you want to place in your\n  dimension.\n-X: Sets the X offset.\n-Y: Sets the Y offset.\n-Z: Sets the Z offset.",
+		text03 = "Tbx Sets is somewhat special. By default that set is empty, but for old Dimension\nToolbox users this is a way to get your sets that you made with Dimension Toolbox\nto work within Dimension Tools too.\n\nTo get your old sets loaded into Dimension Tools you need to do the following:\n1: Locate the tbx.lua File, found under:\n   /Users/[YourName]/Documents/RIFT/Interface/Saved/[YourRiftAccount]\n   /SavedVariables\n2: Copy the File and paste it in the directory Defaults from the Dimension Tools\n   Addon, this directory can be found under:\n   /Users/[YourName]/Documents/RIFT/Interface/AddOns/Dimension_Tools\n   /Defaults\n3: When asked to replace the File say [YES]\n4: Now start up rift and you should have all your old Dimension Toolbox Sets there\n   to load up and place in your dimensions.\n\nBe aware you will not be able to remove any of the set loaded under Tbx Sets, so\nI highly recommend that before you copy the file go to Dimension Toolbox and\ndelete all sets you don’t want to use in Dimension Tools anymore.",
 		pic01 = "Load_Window_01.jpg",
 		pic02 = "Load_Window_02.jpg",
 		pic03 = "Load_Window_03.jpg"
@@ -259,10 +260,10 @@ Dta.Help = {}
 	helpTopic[helpIndex[8]] = {
 		{
 		label = "Import and Export",
-		text01 = "The Import / Export Sets window is all about sharing your sets with other friends\nin the game.\nThe sets will be saved in and loaded from a file called: Dimtools_Export.lua\nThe file can be found under: Documents/RIFT/Interface/Saved/SavedVariables.",
-		text02 = "<u>Descriptions:</u>\n- Name (First drop box): Here you can select any of your own saved sets to export\n  to file.\n- Export: Exports the selected set to file.\n- Name (Second drop box): Here you can select any of the sets saved in the export\n  File.\n- Import: Imports the selected set to your own saved sets list and then removes\n  the set from the export file.\n\nTo give a set or multiple sets to a friend, you have to export them first and then\nsend the Dimtools_Export.lua file to them.\n\nIf you received a Dimtools_Export.lua file you have to copy it into the\nSavedVariables directory found under:\nDocuments/RIFT/Interface/Saved/SavedVariables.\nThen start the game or type /reloadui in your chat and then you can use the\nimport option to get the set or sets in your saved sets.",
+		text01 = "The Import / Export Sets window is all about sharing your sets with other friends\nin the game.\nThe sets will be saved in and loaded from a file called: Dimtools_Export.lua\nThe file can be found under: \n/Users/[YourName]/Documents/RIFT/Interface/Saved/SavedVariables",
+		text02 = "<u>Descriptions:</u>\n- Saved Sets: Sets the first drop box to your Dimension Tools Sets.\n- Tbx Sets: Sets the first drop box to your Toolbox Sets.\n- Name (First drop box): Here you can select any of your own saved sets to export\n  to file.\n- Export: Exports the selected set to file.\n- Name (Second drop box): Here you can select any of the sets saved in the export\n  File.\n- Import: Imports the selected set to your own saved sets list and then removes\n  the set from the export file.\n\nTo give a set or multiple sets to a friend, you have to export the sets and then\nlogout or type [/reloadui] in the chat to save the file.  After that you can send the\nDimtools_Export.lua file located at:\n/Users/[YourName]/Documents/RIFT/Interface/Saved/SavedVariables\n\nIf you received a Dimtools_Export.lua file you have to copy it into the\nSavedVariables directory found under:\n/Users/[YourName]/Documents/RIFT/Interface/Saved/SavedVariables\nThen start the game and then you can use the import option to get the set or sets\nin your saved sets. Keep in mind you can NOT copy the file into the directory if you\nare logged into the game. The game does NOT allow overwriting of files when you\nare logged in.",
 		text03 = "",
-		pic01 = "ImportExport.png",
+		pic01 = "Import_Window.jpg",
 		pic02 = "",
 		pic03 = ""
 		}
@@ -271,7 +272,7 @@ Dta.Help = {}
 	helpTopic[helpIndex[9]] = {
 		{
 		label = "Chance Log",
-		text01 = "Version 1.1.5\n- Made some cosmetic changes in the copy / paste window\n\nVersion 1.1.4\n- Fixed an error on pasting items without first copying an items, now gives a\n  message that you have to copy an item before pasting.\n- Added possibility to load multiple copies of saved sets at once with an offset.\n\nVersion 1.1.3\n- Adjusted the Save/Load Sets option to work without errors for new installations\n  of the add-on.\n- Adjusted the Import/Export Sets option to work without errors for new\n  installations of the add-on.\n- Added the possibility under Save/Load Sets to choose if you want to load the set\n  using new items or items selected in your dimension.",
+		text01 = "Version 1.1.5\n- Made some cosmatic changes in the copy / paste window\n- Fixed error with load Default sets\n- Added Dimension Toolbox Sets support for load sets and export sets\n- Updated the Help\n\nVersion 1.1.4\n- Fixed an error on pasting items without first copying an items, now gives a\n  message that you have to copy an item before pasting.\n- Added possibility to load multiple copies of saved sets at once with an offset.\n\nVersion 1.1.3\n- Adjusted the Save/Load Sets option to work without errors for new installations\n  of the add-on.\n- Adjusted the Import/Export Sets option to work without errors for new\n  installations of the add-on.\n- Added the possibility under Save/Load Sets to choose if you want to load the set\n  using new items or items selected in your dimension.",
 		text02 = "",
 		text03 = "",
 		pic01 = "",
@@ -295,7 +296,7 @@ Dta.Help = {}
 	helpTopic[helpIndex[11]] = {
 		{
 		label = "Afterword",
-		text01 = "I want to give my special thanks to the RiftDreamDimensions.com team\nfor supporting me on the making of this add-on and beta testing it for me.\n\nI hope you will all enjoy the add-on and for questions and other information visit\nus at http://riftdreamdimensions.com/ \n\nWebsites:\nhttp://riftdreamdimensions.com/ - for all your Trion game fun.\nhttp://www.curse.com/addons/rift - This Add-on and many others.\nhttp://www.riftui.com/addons.php - This Add-on and many others.\n",
+		text01 = "I want to give my special thanks to the RiftDreamDimensions.com team\nfor supporting me on the making of this add-on and beta testing it for me.\n\nI hope you will all enjoy the add-on and for questions and other information visit\nus at http://riftdreamdimensions.com/ \n\nWebsites:\nhttp://riftdreamdimensions.com/ - for all your Trion game fun.\nhttp://www.curse.com/addons/rift - This Add-on and many others.",
 		text02 = "",
 		text03 = "",
 		pic01 = "",
@@ -303,4 +304,3 @@ Dta.Help = {}
 		pic03 = ""
 		}
 	}
-

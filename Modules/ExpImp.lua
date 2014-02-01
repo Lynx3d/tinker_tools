@@ -3,6 +3,25 @@ Dta.expimp = {}
 -------------------------------
 -- IMPORT AND EXPORT BUTTON HANDLERS
 -------------------------------
+function Dta.expimp.ExportSavedCheckboxChanged()
+    if Dta.ui.windowExpImp.ImportExport.ExportSavedCheckbox:GetChecked() then
+        Dta.ui.loadExpImp = "Saved"
+        Dta.ui.windowExpImp.ImportExport.ExportTbxCheckbox:SetChecked(false)
+        Dta.expimp.refreshExportSelect()
+    elseif not Dta.ui.windowExpImp.ImportExport.ExportTbxCheckbox:GetChecked() then
+        Dta.ui.windowExpImp.ImportExport.ExportSavedCheckbox:SetChecked(true)
+    end
+end
+
+function Dta.expimp.ExportTbxCheckboxChanged()
+    if Dta.ui.windowExpImp.ImportExport.ExportTbxCheckbox:GetChecked() then
+        Dta.ui.loadExpImp = "Tbx"
+        Dta.ui.windowExpImp.ImportExport.ExportSavedCheckbox:SetChecked(false)
+        Dta.expimp.refreshExportSelect()
+    elseif not Dta.ui.windowExpImp.ImportExport.ExportSavedCheckbox:GetChecked() then
+        Dta.ui.windowExpImp.ImportExport.ExportTbxCheckbox:SetChecked(true)
+    end
+end
 
 function Dta.expimp.ImportExport_ExportClicked ()
     Dta.expimp.ExportLoadAttributes(Dta.ui.windowExpImp.ImportExport.ExportLoad:GetSelectedItem())
@@ -37,15 +56,28 @@ end
 -------------------------------
 
 function Dta.expimp.loadExport()
-    Dta.constructions = Dta.settings.get_savedsets("SavedSets") --or {}
-    if Dta.constructions == nil or Dta.constructions == {} then
-        return {}
-    else
-        local items = {}
-        for name, _ in pairs(Dta.constructions) do
-        table.insert(items, name)
+    Dta.ExportSaved = Dta.settings.get_savedsets("SavedSets")--or {}
+    Dta.ExportTbx = Dta.settings.get_tbxsets("savedConstructions")
+    if Dta.ui.loadExpImp == "Saved" then
+        if Dta.ExportSaved == nil or Dta.ExportSaved == {} then
+            return {}
+        else
+            local items = {}
+            for name, _ in pairs(Dta.ExportSaved) do
+                table.insert(items, name)
+            end
+            return items
         end
-        return items
+    elseif Dta.ui.loadExpImp == "Tbx" then
+        if Dta.ExportTbx == nil or Dta.ExportTbx == {} then
+            return {}
+        else
+            local items = {}
+            for name, _ in pairs(Dta.ExportTbx) do
+                table.insert(items, name)
+            end
+            return items
+        end
     end
 end
 
@@ -66,16 +98,30 @@ end
 -- EXPORT
 -------------------------------
 function Dta.expimp.ExportLoadAttributes(name)
-    if name ~= nil and name ~= "" then
-        if Dta.constructions[name] ~= nil then
-            Dta.ExportSet = {}
-            Dta.ExportSet = Dta.constructions[name]
-            Dta.expimp.ExportGroupItemAttributes(name)
+    if Dta.ui.loadExpImp == "Saved" then
+        if name ~= nil and name ~= "" then
+            if Dta.ExportSaved[name] ~= nil then
+                Dta.ExportSet = {}
+                Dta.ExportSet = Dta.ExportSaved[name]
+                Dta.expimp.ExportGroupItemAttributes(name)
+            else
+                print(string.format("Item set \"%s\" not found", name))
+            end
         else
-            print(string.format("Item set \"%s\" not found", name))
+            print("You must select a set in order to Export it")
         end
-    else
-        print("You must select a set in order to Export it")
+    elseif Dta.ui.loadExpImp == "Tbx" then
+        if name ~= nil and name ~= "" then
+            if Dta.ExportTbx[name] ~= nil then
+                Dta.ExportSet = {}
+                Dta.ExportSet = Dta.ExportTbx[name]
+                Dta.expimp.ExportGroupItemAttributes(name)
+            else
+                print(string.format("Item set \"%s\" not found", name))
+            end
+        else
+            print("You must select a set in order to Export it")
+        end
     end
 end
 

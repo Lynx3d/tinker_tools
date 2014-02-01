@@ -8,12 +8,13 @@ function Dta.losa.constructionLoadDeafaultSetsChanged()
     if Dta.ui.windowLoSa.constructions.loadDeafaultSets:GetChecked() then
         Dta.ui.loadLoSa = "Default"
         Dta.ui.windowLoSa.constructions.loadSavedSets:SetChecked(false)
+        Dta.ui.windowLoSa.constructions.loadTbxSets:SetChecked(false)
         Dta.ui.windowLoSa.constructions.remove:SetVisible(false)
         Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetVisible(false)
         Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetChecked(false)
         Dta.losa.constructionLoadNewItemsChanged()
         Dta.losa.refreshLoadSelect()
-  elseif not Dta.ui.windowLoSa.constructions.loadSavedSets:GetChecked() then
+  elseif not Dta.ui.windowLoSa.constructions.loadSavedSets:GetChecked() and not Dta.ui.windowLoSa.constructions.loadTbxSets:GetChecked()then
         Dta.ui.windowLoSa.constructions.loadDeafaultSets:SetChecked(true)
   end
 end
@@ -22,17 +23,35 @@ function Dta.losa.constructionLoadSavedSetsChanged()
     if Dta.ui.windowLoSa.constructions.loadSavedSets:GetChecked() then
         Dta.ui.loadLoSa = "Saved"
         Dta.ui.windowLoSa.constructions.loadDeafaultSets:SetChecked(false)
+        Dta.ui.windowLoSa.constructions.loadTbxSets:SetChecked(false)
         Dta.ui.windowLoSa.constructions.remove:SetVisible(true)
         Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetVisible(true)
+        Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetChecked(false)
         Dta.losa.constructionLoadNewItemsChanged()
         Dta.losa.refreshLoadSelect()
-    elseif not Dta.ui.windowLoSa.constructions.loadDeafaultSets:GetChecked() then
+    elseif not Dta.ui.windowLoSa.constructions.loadDeafaultSets:GetChecked() and not Dta.ui.windowLoSa.constructions.loadTbxSets:GetChecked()then
         Dta.ui.windowLoSa.constructions.loadSavedSets:SetChecked(true)
+  end
+end
+
+function Dta.losa.constructionLoadTbxSetsChanged()
+    if Dta.ui.windowLoSa.constructions.loadTbxSets:GetChecked() then
+        Dta.ui.loadLoSa = "Tbx"
+        Dta.ui.windowLoSa.constructions.loadSavedSets:SetChecked(false)
+        Dta.ui.windowLoSa.constructions.remove:SetVisible(false)
+        Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetVisible(true)
+        Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetChecked(false)
+        Dta.losa.constructionLoadNewItemsChanged()
+        Dta.losa.refreshLoadSelect()
+  elseif not Dta.ui.windowLoSa.constructions.loadSavedSets:GetChecked() and not Dta.ui.windowLoSa.constructions.loadDeafaultSets:GetChecked()then
+        Dta.ui.windowLoSa.constructions.loadTbxSets:SetChecked(true)
   end
 end
 
 function Dta.losa.constructionLoadNewItemsChanged()
     if Dta.ui.windowLoSa.constructions.LoadNewItems:GetChecked() and Dta.ui.windowLoSa.constructions.loadSavedSets:GetChecked() then
+        Dta.ui.windowLoSa.constructions.LoadMultipleSets:SetVisible(true)
+    elseif Dta.ui.windowLoSa.constructions.LoadNewItems:GetChecked() and Dta.ui.windowLoSa.constructions.loadTbxSets:GetChecked() then
         Dta.ui.windowLoSa.constructions.LoadMultipleSets:SetVisible(true)
     else
         Dta.ui.windowLoSa.constructions.LoadMultipleSets:SetVisible(false)
@@ -99,26 +118,37 @@ end
 
 function Dta.losa.loadConstructions()
     if Dta.ui.loadLoSa == "Default" then
-    if Dta.constructionsdefaults == nil or Dta.constructionsdefaults == {} then
-        return {}
-    else
-        local items = {}
-        for name, _ in pairs(Dta.constructionsdefaults) do
-        table.insert(items, name)
+        if Dta.constructionsdefaults == nil or Dta.constructionsdefaults == {} then
+            return {}
+        else
+            local items = {}
+            for name, _ in pairs(Dta.constructionsdefaults) do
+                table.insert(items, name)
+            end
+            return items
         end
-        return items
-    end
-  elseif Dta.ui.loadLoSa == "Saved" then
-    if Dta.constructions == nil or Dta.constructions == {} then
-        return {}
-    else
-        local items = {}
-        for name, _ in pairs(Dta.constructions) do
-        table.insert(items, name)
+    elseif Dta.ui.loadLoSa == "Saved" then
+        if Dta.constructions == nil or Dta.constructions == {} then
+            return {}
+        else
+            local items = {}
+            for name, _ in pairs(Dta.constructions) do
+                table.insert(items, name)
+            end
+            return items
         end
-        return items
+    elseif Dta.ui.loadLoSa == "Tbx" then
+        if Dta.constructionstbx == nil or Dta.constructionstbx == {} then
+            return {}
+        else
+            local items = {}
+            for name, _ in pairs(Dta.constructionstbx) do
+                table.insert(items, name)
+            end
+            return items
+        end
+
     end
-  end
 end
 
 --------------------------------------
@@ -195,6 +225,26 @@ function Dta.losa.printShoppingList(name)
     else
         print("You must select a set in order to print its materials")
     end
+    elseif Dta.ui.loadLoSa == "Tbx" then
+      if name ~= nil and name ~= "" then
+          if Dta.constructionstbx[name] ~= nil then
+              Dta.groupClipboard = Dta.constructionstbx[name]
+              local list = Dta.losa.getGroupShoppingList()
+              if list ~= nil and Dta.losa.tableLength(list) > 0 then
+                  print(string.format("The following items are required for loading \"%s\":", name))
+                  for id, details in pairs(list) do
+                  print(string.format("%s: %d", details.name, details.amount))
+                  end
+              else
+                  print("Could not print materials")
+              end
+          else
+              print(string.format("Item set \"%s\" not found", name))
+          end
+      else
+          print("You must select a set in order to print its materials")
+      end
+
   end
 end
 
@@ -280,6 +330,36 @@ function Dta.losa.loadGroupItemAttributes(name, pasteAtOriginalLoc, pasteNewItem
         if name ~= nil and name ~= "" then
             if Dta.constructions[name] ~= nil then
                 Dta.groupClipboard = Dta.constructions[name]
+                Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, OffsetX, OffsetY, OffsetZ, name)
+            else
+                print(string.format("Item set \"%s\" not found", name))
+            end
+        else
+            print("You must select a set in order to load it")
+        end
+    elseif Dta.ui.loadLoSa == "Tbx" then
+        local PasteMultipleCopies = Dta.ui.windowLoSa.constructions.LoadMultipleSets:GetChecked()
+        local NrCopies = Dta.ui.windowLoSa.constructions.NrCopies:GetText()
+        local OffsetX = Dta.ui.windowLoSa.constructions.x:GetText()
+        local OffsetY = Dta.ui.windowLoSa.constructions.y:GetText()
+        local OffsetZ = Dta.ui.windowLoSa.constructions.z:GetText()
+
+        if NrCopies == nil or NrCopies == "" then NrCopies = 1 end
+        if OffsetX == nil or OffsetX == "" then OffsetX = 0 end
+        if OffsetY == nil or OffsetY == "" then OffsetY = 0 end
+        if OffsetZ == nil or OffsetZ == "" then OffsetZ = 0 end
+
+        if not tonumber(NrCopies) or
+            not tonumber(OffsetX) or
+            not tonumber(OffsetY) or
+            not tonumber(OffsetZ) then
+            print("Please enter numeric values only")
+            return
+        end
+
+        if name ~= nil and name ~= "" then
+            if Dta.constructionstbx[name] ~= nil then
+                Dta.groupClipboard = Dta.constructionstbx[name]
                 Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, OffsetX, OffsetY, OffsetZ, name)
             else
                 print(string.format("Item set \"%s\" not found", name))

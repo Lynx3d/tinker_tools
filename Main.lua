@@ -1,12 +1,15 @@
 Dta = {}
 
-
+Dta.Version = Inspect.Addon.Detail(Inspect.Addon.Current()).toc.Version
 Dta.selectedItems = {}
 Dta.clipboard = {}
 Dta.groupClipboard = {}
 Dta.itemList = {}
 Dta.constructions = {}
 Dta.constructionsdefaults = {}
+Dta.constructionstbx = {}
+Dta.ExportTbx = {}
+Dta.ExportSaved = {}
 Dta.ExportImport_Sets = {}
 Dta.ExportSet = {}
 Dta.ImportSet = {}
@@ -93,8 +96,8 @@ function Dta.commandHandler(hEvent, command)
     Dta.settings.set("LoSawindowPosY", 330)
     Dta.settings.set("ExpImpwindowPosX", 785)
     Dta.settings.set("ExpImpwindowPosY", 32)
-    Dta.settings.set("HelpwindowPosX", 400)
-    Dta.settings.set("HelpwindowPosY", 100)
+    Dta.settings.set("HelpwindowPosX", 785)
+    Dta.settings.set("HelpwindowPosY", 260)
     Dta.settings.set("ExpImp_tbxwindowPosX", 785)
     Dta.settings.set("ExpImp_tbxwindowPosY", 230)
 
@@ -108,7 +111,7 @@ function Dta.commandHandler(hEvent, command)
     if Dta.ui.windowCopyPaste then Dta.ui.windowCopyPaste:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 455, 32) end
     if Dta.ui.windowLoSa then Dta.ui.windowLoSa:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 455, 330) end
     if Dta.ui.windowExpImp then Dta.ui.windowExpImp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 785, 32) end
-    if Dta.ui.windowHelp then Dta.ui.windowHelp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 400, 100) end
+    if Dta.ui.windowHelp then Dta.ui.windowHelp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 785, 260) end
     if Dta.ui.windowExpImp_tbx then Dta.ui.windowExpImp_tbx:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 785, 230) end
     print("Position reset")
   else
@@ -151,5 +154,5 @@ function Dta.tick(handle)
 
 
 end
-
+print("Dimension Tools " .. Dta.Version)
 Dta.main()

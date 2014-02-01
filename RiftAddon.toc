@@ -8,13 +8,14 @@ Description = {
 }
 Author = "Kikimora"
 Website = "http://riftdreamdimensions.com/"
-Version = "1.1.5"
+Version = "v1.1.5"
 Email = "Dtools@riftdreamdimensions.com"
 Environment = "2.4"
 
 RunOnStartup = {
   "Main.lua",
   "Defaults/Default_LoadSave.lua",
+  "Defaults/tbx.lua",
   "Settings.lua",
 
   "UI/Main_UI.lua",

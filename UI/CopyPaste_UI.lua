@@ -18,9 +18,10 @@ function Dta.copa_ui.createWindowCopyPaste(name, parent, title, width, height, x
   windowCopyPaste.background:SetTexture("Rift", "dimension_window_bg_right_large.png.dds")
   windowCopyPaste.background:SetLayer(3)
 
+  local background2Position = windowCopyPaste:GetHeight()-80
   windowCopyPaste.background2 = UI.CreateFrame("Texture", name .. "Background2", windowCopyPaste)
   windowCopyPaste.background2:SetPoint("CENTERX", windowCopyPaste, "CENTERX")
-  windowCopyPaste.background2:SetPoint("CENTERY", windowCopyPaste, "CENTERY", nil, 90)
+  windowCopyPaste.background2:SetPoint("CENTERY", windowCopyPaste, "CENTERY", nil, background2Position/2)
   windowCopyPaste.background2:SetWidth(width)
   windowCopyPaste.background2:SetHeight(95)
   windowCopyPaste.background2:SetAlpha(0.3)
