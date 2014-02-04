@@ -10,7 +10,7 @@ Author = "Kikimora"
 Website = "http://riftdreamdimensions.com/"
 Version = "v1.1.5"
 Email = "Dtools@riftdreamdimensions.com"
-Environment = "2.4"
+Environment = "2.5"
 
 RunOnStartup = {
   "Main.lua",

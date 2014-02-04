@@ -25,9 +25,6 @@ Dta.ui.activeExpImp = false
 Dta.ui.windowHelp = nil
 Dta.ui.activeHelp = false
 
-Dta.ui.windowExpImp_tbx = nil
-Dta.ui.activeExpImp_tbx = false
-
 Dta.ui.loadLoSa = "Default"
 Dta.ui.loadExpImp = "Saved"
 
@@ -287,9 +284,6 @@ function Dta.ui.buildMainWindow()
                                 Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow.itemDetails, 0, 145, nil, nil, "Copy / Paste", nil, Dta.ui.modifyCoPaButtonClicked)
                                 Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow.itemDetails, 150, 145, nil, nil, "Load / Save", nil, Dta.ui.modifySaveButtonClicked)
                                 Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 295, 145, nil, nil, "Import / Export", nil, Dta.ui.modifyImpExpButtonClicked)
-                                --Mainwindow.itemDetails.ImpExp_tbx_Btn = Dta.ui.createButton("itemDetailImpExp_tbx_Btn", Mainwindow.itemDetails, 295, 235, nil, nil, "Import Tbx", nil, Dta.ui.modifyImpExp_tbx_ButtonClicked)
-
-                                --Mainwindow.itemDetails.TestBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow.itemDetails, 5, 160, nil, nil, "Test", nil, Dta.test.Bagitems)
 
   return Mainwindow
 end
@@ -325,7 +319,6 @@ function Dta.ui.hideMainWindow()
   if Dta.ui.activeLoSa then Dta.losa_ui.hideLoSaWindow() end
   if Dta.ui.activeExpImp then Dta.expimp_ui.hideExpImpWindow() end
   if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
-  if Dta.ui.activeExpImp_tbx then Dta.expimp_tbx_ui.hideExpImp_tbxWindow() end
 end
 
 -- Toggle the Main window
@@ -372,8 +365,4 @@ end
 
 function Dta.ui.modifyImpExpButtonClicked()
 Dta.expimp_ui.toggleExpImpWindow()
-end
-
-function Dta.ui.modifyImpExp_tbx_ButtonClicked()
-    Dta.expimp_tbx_ui.toggleExpImp_tbxWindow()
 end

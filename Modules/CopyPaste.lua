@@ -303,6 +303,10 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
         end
     end
 
+    Dta.ItemsToPaste = ItemNr
+    Dta.FinishedPaste = false
+    Dta.PastingItems = true
+    Dta.items.DeselectAll()
 
     if multiplyOffset then
         Dta.copa.Co_PlaceItem = coroutine.create(function ()

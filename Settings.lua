@@ -26,8 +26,6 @@ Dta.settings.defaults = {
   ExpImpwindowPosY  = 32,
   HelpwindowPosX = 785,
   HelpwindowPosY  = 260,
-  ExpImp_tbxwindowPosX = 785,
-  ExpImp_tbxwindowPosY  = 330,
 }
 
 function Dta.settings.main()

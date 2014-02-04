@@ -28,7 +28,13 @@ function Dta.items.QueueLoad(id, x, y, z, pitch, roll, yaw, amount)
   table.insert(Dta.pendingActions, {op="losa", x=x, y=y, z=z, pitch=pitch, roll=roll, yaw=yaw, amount=amount, id=id})
 end
 
+function Dta.items.QueueSelection(id)
+  table.insert(Dta.SelectionQueue, {op="select",  id=id})
+end
 
+function Dta.items.QueueDeselection(id)
+  table.insert(Dta.SelectionQueue, {op="deselect",  id=id})
+end
 --------------------------------------
 --ITEM UPDATE
 --------------------------------------
@@ -109,6 +115,20 @@ function Dta.items.updateSelection()
 
 end
 
+function Dta.items.DeselectAll()
+    Dta.AllItems = Inspect.Dimension.Layout.List()
+    Dta.selectedItems = {}
+    for id,crate in pairs(Dta.AllItems) do
+        if not crate then
+            local detail = Inspect.Dimension.Layout.Detail(id)
+            if detail ~= nil then
+                if detail.selected then
+                    Dta.items.QueueDeselection(id)
+                end
+            end
+        end
+    end
+end
 
 function Dta.items.round(num, dp)
   return tonumber(string.format("%." .. (dp or 0) .. "f", num))

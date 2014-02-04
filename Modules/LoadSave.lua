@@ -374,6 +374,10 @@ function Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, Offset
     if pasteNewItems then
         local shoppingList = Dta.losa.getGroupShoppingList()
         local missingItems = Dta.losa.checkInventory(shoppingList, NrCopies)
+        Dta.ItemsToPlace = #Dta.groupClipboard * tonumber(NrCopies)
+        Dta.FinishedSet = false
+        Dta.items.DeselectAll()
+        Dta.Setname = name
 
         if Dta.losa.tableLength(missingItems) > 0 then
             print("Cannot construct - the following items are missing from your bags:")
@@ -389,7 +393,6 @@ function Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, Offset
                         Dta.LoadSet_Co_Active = true
                     else
                         Dta.LoadSet_Co_Active = false
-                        print(string.format("Item set \"%s\" loaded", name))
                     end
 
                     local item = details.type
@@ -411,7 +414,7 @@ function Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, Offset
                         newPlacement.coordZ = player.coordZ + (details.coordZ - cp.z)
                     end
 
-                        Dta.losa.PasteSet(item, NrCopies, OffsetX, OffsetY, OffsetZ, newPlacement.coordX, newPlacement.coordY, newPlacement.coordZ, newPlacement.yaw, newPlacement.pitch, newPlacement.roll, newPlacement.scale)
+                        Dta.losa.PasteSet(item, name, NrCopies, OffsetX, OffsetY, OffsetZ, newPlacement.coordX, newPlacement.coordY, newPlacement.coordZ, newPlacement.yaw, newPlacement.pitch, newPlacement.roll, newPlacement.scale)
                         coroutine.yield()
 
                 end
@@ -438,7 +441,7 @@ function Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, Offset
                         Dta.LoadSet_Co_Active = true
                     else
                         Dta.LoadSet_Co_Active = false
-                        print(string.format("Item set loaded", name))
+                        print(string.format("Item set \"%s\" loaded", name))
                     end
 
                     local item = table.remove(Dta.itemList[details.type],1)
@@ -469,7 +472,7 @@ function Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, Offset
 
 end
 
-function Dta.losa.PasteSet(item, NrCopies, OffsetX, OffsetY, OffsetZ, Set_x, Set_y, Set_z, Set_yaw, Set_pitch, Set_roll, Set_scale) --ToDo Split up for Bag, Bank or Both
+function Dta.losa.PasteSet(item, name, NrCopies, OffsetX, OffsetY, OffsetZ, Set_x, Set_y, Set_z, Set_yaw, Set_pitch, Set_roll, Set_scale) --ToDo Split up for Bag, Bank or Both
 
 
 
