@@ -1,4 +1,0 @@
-tbx_Settings = {
-	savedConstructions = {
-	}
-}
