@@ -1,0 +1,21 @@
+Identifier = "Dimtools_Export"
+Name = {
+    English = "Dimension Tools Export"
+}
+NameShort = "DTE"
+Description = {
+    English = "This module is written for Dimension Tools. It is used for the exporting and importing of sets"
+}
+Author = "Hecateria"
+Website = "http://riftdreamdimensions.com/"
+Version = "1.0.0"
+Email = "hecateria@hotmail.com"
+Environment = "2.4"
+
+RunOnStartup = {
+  "DtExport.lua"
+}
+
+SavedVariables = {
+  Dt_Export = "global",
+}
