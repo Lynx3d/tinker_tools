@@ -272,7 +272,7 @@ Dta.Help = {}
 	helpTopic[helpIndex[9]] = {
 		{
 		label = "Chance Log",
-		text01 = "Version 1.1.5\n- Made some cosmatic changes in the copy / paste window\n- Fixed error with load Default sets\n- Added Dimension Toolbox Sets support for load sets and export sets\n- Updated the Help\n\nVersion 1.1.4\n- Fixed an error on pasting items without first copying an items, now gives a\n  message that you have to copy an item before pasting.\n- Added possibility to load multiple copies of saved sets at once with an offset.\n\nVersion 1.1.3\n- Adjusted the Save/Load Sets option to work without errors for new installations\n  of the add-on.\n- Adjusted the Import/Export Sets option to work without errors for new\n  installations of the add-on.\n- Added the possibility under Save/Load Sets to choose if you want to load the set\n  using new items or items selected in your dimension.",
+		text01 = "Version 1.1.5\n- Made some cosmatic changes in the copy / paste window.\n- Fixed error with load Default sets.\n- Added Dimension Toolbox Sets support for load sets and export sets.\n- Updated the Help.\n- Added Automatic Selection of loaded sets and pasted items.",
 		text02 = "",
 		text03 = "",
 		pic01 = "",
@@ -284,7 +284,7 @@ Dta.Help = {}
 	helpTopic[helpIndex[10]] = {
 		{
 		label = "ToDo List",
-		text01 = "- Add auto select for loaded sets when loading new items into dimension.",
+		text01 = "",
 		text02 = "",
 		text03 = "",
 		pic01 = "",

@@ -42,7 +42,7 @@ Dta.ItemsPasted = 1
 Dta.PastingItems = false
 
 --Others
-
+Dta.Deleting = false
 
 ---------------------------------
 --CATCH COROUTINES
@@ -125,24 +125,23 @@ function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a
     end
 end
 
-function Dta.removeEventHandler(hEvent) --Executed when item is removed
+function Dta.removeEventHandler(hEvent, dimensionItem) --Executed when item is removed
     if #Dta.pendingActions == 1 then
         print("Processing Finished")
-    elseif #Dta.pendingActions == 0 and #Dta.SelectionQueue == 0 then
-        if #Dta.selectedItems > 0 then
-          Dta.items.updateSelection()
-          --print("Item Removed")
-        end
     end
+    if #Dta.selectedItems > 0 then
+        Dta.Deleting = true
+        Dta.items.updateSelection(dimensionItem)
+        --print("Item Removed")
+    end
+
 end
 
-function Dta.updateEventHandler(hEvent) --Executed on every select/ deselect or change of an dimension item
+function Dta.updateEventHandler(hEvent, dimensionItem) --Executed on every select/ deselect or change of an dimension item
     if #Dta.pendingActions == 1 then
         print("Processing Finished")
-    elseif #Dta.pendingActions == 0 and #Dta.SelectionQueue == 0 then
-        Dta.items.updateSelection()
-        --print("Item Updated")
     end
+    Dta.items.updateSelection(dimensionItem)
 
     if Dta.FinishedSet and Dta.Setname ~= "" and #Dta.SelectionQueue == 0 then
         print(string.format("Item set \"%s\" loaded", Dta.Setname))

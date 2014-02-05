@@ -86,47 +86,60 @@ function Dta.items.updateItemDetails()
   end
 end
 
-function Dta.items.updateSelection()
+function Dta.items.updateSelection(dimensionItem)
 
-    if Dta.ui ~= nil and Dta.ui.active then
-
-        Dta.AllItems = Inspect.Dimension.Layout.List()
-        Dta.selectedItems = {}
-        for id,crate in pairs(Dta.AllItems) do
-          if not crate then
-            local detail = Inspect.Dimension.Layout.Detail(id)
-                if detail ~= nil then
-                    if detail.selected then
-                        table.insert(Dta.selectedItems, detail)
-                    end
+    for id,crate in pairs(dimensionItem) do
+        local detail = Inspect.Dimension.Layout.Detail(id)
+        if detail ~= nil then
+            if detail.selected then
+                table.insert(Dta.selectedItems, detail)
+                --print("Selected: " .. detail.name)
+            else
+                if #Dta.selectedItems > 0 then
+                    local k = Dta.items.GetDimensionKey(Dta.selectedItems, id)
+                    table.remove(Dta.selectedItems, k)
+                    --print("DeSelected: " .. detail.name)
                 end
-          end
+            end
+        elseif Dta.Deleting then
+            if #Dta.selectedItems > 0 then
+                local k = Dta.items.GetDimensionKey(Dta.selectedItems, id)
+                table.remove(Dta.selectedItems, k)
+                Dta.Deleting = false
+            end
         end
+    end
 
+    Dta.items.StartDetails()
+
+end
+
+function Dta.items.StartDetails()
+    if Dta.ui ~= nil and Dta.ui.active then
         if #Dta.selectedItems < 1 then
             Dta.ui.needsReset = true
             Dta.items.updateItemDetails()
         else
             Dta.items.updateItemDetails()
         end
-
-
     end
+end
 
+function Dta.items.GetDimensionKey(t, value)
+    for k, details in pairs(t) do
+        if details.id==value then return k end
+    end
+    return nil
 end
 
 function Dta.items.DeselectAll()
-    Dta.AllItems = Inspect.Dimension.Layout.List()
-    Dta.selectedItems = {}
-    for id,crate in pairs(Dta.AllItems) do
-        if not crate then
-            local detail = Inspect.Dimension.Layout.Detail(id)
+    for id,Details in pairs(Dta.selectedItems) do
+            local detail = Inspect.Dimension.Layout.Detail(Details.id)
             if detail ~= nil then
                 if detail.selected then
-                    Dta.items.QueueDeselection(id)
+                    Dta.items.QueueDeselection(Details.id)
                 end
             end
-        end
     end
 end
 

@@ -301,7 +301,7 @@ function Dta.ui.showMainWindow()
   end
   Dta.ui.active = true
   if #Dta.selectedItems > 0 then
-    Dta.items.updateSelection()
+    Dta.items.StartDetails()
   end
 end
 
