@@ -15,7 +15,6 @@ Environment = "2.5"
 RunOnStartup = {
   "Main.lua",
   "Defaults/Default_LoadSave.lua",
-  "Defaults/tbx.lua",
   "Settings.lua",
 
   "UI/Main_UI.lua",
@@ -41,6 +40,7 @@ Embed = {
   ["Libraries/LibString"] = true,
   ["Libraries/LibSimpleWidgets"] = true,
   ["Modules/Dt_Export"] = true,
+  ["Modules/Tbx_Import"] = true,
 }
 
 SavedVariables = {
@@ -50,4 +50,5 @@ SavedVariables = {
 
 Dependencies = {
 	Dimtools_Export = {"required", "before"},
+	tbx_Import = {"required", "before"},
 }

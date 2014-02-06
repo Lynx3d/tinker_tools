@@ -292,7 +292,7 @@ end
 function Dta.ui.showMainWindow()
   Dta.constructions = Dta.settings.get_savedsets("SavedSets") --or {}
   Dta.constructionsdefaults = Dta.settings.get_defaultsets("SavedDefaultSets") --or {}
-  Dta.constructionstbx = Dta.settings.get_tbxsets("savedConstructions")
+  Dta.constructionstbx = tbx_import.get("savedConstructions")
   Dta.ExportImport_Sets = Dta_export.get("ExportImport") --or {}
   if Dta.ui.windowtest == nil then
     Dta.ui.windowtest = Dta.ui.buildMainWindow()

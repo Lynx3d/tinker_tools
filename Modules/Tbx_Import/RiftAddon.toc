@@ -1,0 +1,21 @@
+Identifier = "tbx_Import"
+Name = {
+    English = "Dimension Toolbox Import"
+}
+NameShort = "TBXI"
+Description = {
+    English = "This Module is written for Dimension Tools. It is used for the importing of TBX sets"
+}
+Author = "Hecateria"
+Website = "http://riftdreamdimensions.com/"
+Version = "1.0.0"
+Email = "hecateria@hotmail.com"
+Environment = "2.4"
+
+RunOnStartup = {
+  "Tbx_Import.lua",
+}
+
+SavedVariables = {
+  tbx_Settings = "account",
+}

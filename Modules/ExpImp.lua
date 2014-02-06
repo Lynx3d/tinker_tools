@@ -57,7 +57,7 @@ end
 
 function Dta.expimp.loadExport()
     Dta.ExportSaved = Dta.settings.get_savedsets("SavedSets")--or {}
-    Dta.ExportTbx = Dta.settings.get_tbxsets("savedConstructions")
+    Dta.ExportTbx = tbx_import.get("savedConstructions")
     if Dta.ui.loadExpImp == "Saved" then
         if Dta.ExportSaved == nil or Dta.ExportSaved == {} then
             return {}

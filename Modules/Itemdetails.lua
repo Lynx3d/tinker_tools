@@ -88,17 +88,25 @@ end
 
 function Dta.items.updateSelection(dimensionItem)
 
-    for id,crate in pairs(dimensionItem) do
+    for id,details in pairs(dimensionItem) do
         local detail = Inspect.Dimension.Layout.Detail(id)
         if detail ~= nil then
             if detail.selected then
-                table.insert(Dta.selectedItems, detail)
-                --print("Selected: " .. detail.name)
+                local k = Dta.items.GetDimensionKey(Dta.selectedItems, id)
+                if k == nil then
+                    table.insert(Dta.selectedItems, detail)
+                    --print("Selected: " .. detail.name .. ", ID:" .. detail.id)
+                else
+                    table.remove(Dta.selectedItems, k)
+                    table.insert(Dta.selectedItems, detail)
+                    --print("Selected: " .. detail.name .. ", ID:" .. detail.id)
+                end
             else
                 if #Dta.selectedItems > 0 then
                     local k = Dta.items.GetDimensionKey(Dta.selectedItems, id)
+                    Dta.AlreadySelected = false
                     table.remove(Dta.selectedItems, k)
-                    --print("DeSelected: " .. detail.name)
+                    --print("DeSelected: " .. detail.name .. ", ID:" .. detail.id)
                 end
             end
         elseif Dta.Deleting then

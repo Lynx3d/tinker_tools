@@ -1,5 +1,13 @@
-Version 1.1.5.r5
-- minor changes in code to improve performance a bit.
+Version 1.1.5.r12
+- Made changes to handle the items in dimensions better.
+- Changed the way old Toolbox Sets are handled, it is no longer needed to
+  copy the Toolbox saved variable to the Dimension Tools directory. You
+  can now copy the file in the same directory and rename the new file to
+  tbx_Import.lua
+- Updated the help
+
+Version 1.1.5.r11
+- Minor changes in code to improve performance a bit.
 
 Version 1.1.5.r4
 - Made some cosmetic changes in the copy / paste window
