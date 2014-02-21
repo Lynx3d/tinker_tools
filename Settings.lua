@@ -20,12 +20,15 @@ Dta.settings.defaults = {
   CopyPastewindowPosY = 32,
   RotatewindowPosX = 0,
   RotatewindowPosY = 545,
-  LoSawindowPosX = 455,
-  LoSawindowPosY = 330,
-  ExpImpwindowPosX = 785,
-  ExpImpwindowPosY  = 32,
-  HelpwindowPosX = 785,
-  HelpwindowPosY  = 260,
+  LoSawindowPosX = 320,
+  LoSawindowPosY = 585,
+  ExpImpwindowPosX = 320,
+  ExpImpwindowPosY  = 370,
+  HelpwindowPosX = 650,
+  HelpwindowPosY  = 335,
+  FlyingwindowPosX = 785,
+  FlyingwindowPosY = 32,
+
 }
 
 function Dta.settings.main()

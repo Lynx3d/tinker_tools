@@ -143,7 +143,6 @@ function Dta.help_ui.buildHelpWindow()
 
                                 Helpwindow.HelpInfo = UI.CreateFrame("Frame", "HelpInfo", Helpwindow.ScrollInfoLoad)
 
-
                                 Helpwindow.HeaderInfo = UI.CreateFrame("Text", "HeaderInfo", Helpwindow.HelpInfo)
                                 Helpwindow.TextInfo01 = UI.CreateFrame("Text", "TextInfo01", Helpwindow.HelpInfo)
                                 Helpwindow.TextInfo02 = UI.CreateFrame("Text", "TextInfo02", Helpwindow.HelpInfo)

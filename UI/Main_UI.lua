@@ -25,6 +25,9 @@ Dta.ui.activeExpImp = false
 Dta.ui.windowHelp = nil
 Dta.ui.activeHelp = false
 
+Dta.ui.windowFlying = nil
+Dta.ui.activeFlying = false
+
 Dta.ui.loadLoSa = "Default"
 Dta.ui.loadExpImp = "Saved"
 
@@ -284,6 +287,7 @@ function Dta.ui.buildMainWindow()
                                 Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow.itemDetails, 0, 145, nil, nil, "Copy / Paste", nil, Dta.ui.modifyCoPaButtonClicked)
                                 Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow.itemDetails, 150, 145, nil, nil, "Load / Save", nil, Dta.ui.modifySaveButtonClicked)
                                 Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 295, 145, nil, nil, "Import / Export", nil, Dta.ui.modifyImpExpButtonClicked)
+                                Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow.itemDetails, 0, 175, nil, nil, "Tribal Magic", nil, Dta.ui.modifyDFlyingButtonClicked)
 
   return Mainwindow
 end
@@ -319,6 +323,7 @@ function Dta.ui.hideMainWindow()
   if Dta.ui.activeLoSa then Dta.losa_ui.hideLoSaWindow() end
   if Dta.ui.activeExpImp then Dta.expimp_ui.hideExpImpWindow() end
   if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
+  if Dta.ui.activeFlying then Dta.flying_ui.hideFlyingWindow() end
 end
 
 -- Toggle the Main window
@@ -365,4 +370,8 @@ end
 
 function Dta.ui.modifyImpExpButtonClicked()
 Dta.expimp_ui.toggleExpImpWindow()
+end
+
+function Dta.ui.modifyDFlyingButtonClicked()
+    Dta.flying_ui.toggleFlyingWindow()
 end

@@ -228,7 +228,7 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
     if yOffset == nil or yOffset == "" or not y then yOffset = 0 end
     if zOffset == nil or zOffset == "" or not z then zOffset = 0 end
     if yawOffset == nil or yawOffset == "" or not yaw then yawOffset = 0 end
-    if pitchOffset == nil or pitchOffset == ""  or not pitch then pitchOffset = 0 end
+    if pitchOffset == nil or pitchOffset == "" or not pitch then pitchOffset = 0 end
     if rollOffset == nil or rollOffset == "" or not roll then rollOffset = 0 end
     if scaleOffset == nil or scaleOffset == "" or not scale then scaleOffset = 0 end
 
@@ -335,20 +335,20 @@ function Dta.copa.pasteNewItemAttributes(index, x, y, z, yaw, pitch, roll, scale
     local FlickerReduc = Dta.FlickerReduc
     local newPlacement = {}
       if Dta.FlickerOffset then
-          if x then newPlacement.coordX = Dta.clipboard.x + xOffset + FlickerReduc end
-          if y then newPlacement.coordY = Dta.clipboard.y + yOffset + FlickerReduc end
-          if z then newPlacement.coordZ = Dta.clipboard.z + zOffset + FlickerReduc end
+          if x then newPlacement.coordX = Dta.clipboard.x + xOffset + FlickerReduc else newPlacement.coordX = Dta.clipboard.x + FlickerReduc end
+          if y then newPlacement.coordY = Dta.clipboard.y + yOffset + FlickerReduc else newPlacement.coordY = Dta.clipboard.y + FlickerReduc end
+          if z then newPlacement.coordZ = Dta.clipboard.z + zOffset + FlickerReduc else newPlacement.coordZ = Dta.clipboard.z + FlickerReduc end
           Dta.FlickerOffset = false
       else
-          if x then newPlacement.coordX = Dta.clipboard.x + xOffset - FlickerReduc end
-          if y then newPlacement.coordY = Dta.clipboard.y + yOffset - FlickerReduc end
-          if z then newPlacement.coordZ = Dta.clipboard.z + zOffset - FlickerReduc end
+          if x then newPlacement.coordX = Dta.clipboard.x + xOffset - FlickerReduc else newPlacement.coordX = Dta.clipboard.x - FlickerReduc end
+          if y then newPlacement.coordY = Dta.clipboard.y + yOffset - FlickerReduc else newPlacement.coordY = Dta.clipboard.y - FlickerReduc end
+          if z then newPlacement.coordZ = Dta.clipboard.z + zOffset - FlickerReduc else newPlacement.coordZ = Dta.clipboard.z - FlickerReduc end
           Dta.FlickerOffset = true
       end
-    if yaw then newPlacement.yaw = Dta.clipboard.yaw + Dta.items.toRadians(yawOffset) end
-    if pitch then newPlacement.pitch = Dta.clipboard.pitch + Dta.items.toRadians(pitchOffset) end
-    if roll then newPlacement.roll = Dta.clipboard.roll + Dta.items.toRadians(rollOffset) end
-    if scale then newPlacement.scale = Dta.clipboard.scale + scaleOffset end
+    if yaw then newPlacement.yaw = Dta.clipboard.yaw + Dta.items.toRadians(yawOffset) else newPlacement.yaw = Dta.clipboard.yaw end
+    if pitch then newPlacement.pitch = Dta.clipboard.pitch + Dta.items.toRadians(pitchOffset) else newPlacement.pitch = Dta.clipboard.pitch end
+    if roll then newPlacement.roll = Dta.clipboard.roll + Dta.items.toRadians(rollOffset) else newPlacement.roll = Dta.clipboard.roll end
+    if scale then newPlacement.scale = Dta.clipboard.scale + scaleOffset else newPlacement.scale = Dta.clipboard.scale end
 
     local NewItemID = Dta.clipboard.type
 

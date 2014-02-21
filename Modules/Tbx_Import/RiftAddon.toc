@@ -6,11 +6,11 @@ NameShort = "TBXI"
 Description = {
     English = "This Module is written for Dimension Tools. It is used for the importing of TBX sets"
 }
-Author = "Hecateria"
+Author = "Kikimora"
 Website = "http://riftdreamdimensions.com/"
 Version = "1.0.0"
-Email = "hecateria@hotmail.com"
-Environment = "2.4"
+Email = "Kikimora@riftdreamdimensions.com"
+Environment = "2.5"
 
 RunOnStartup = {
   "Tbx_Import.lua",

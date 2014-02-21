@@ -6,11 +6,11 @@ NameShort = "DTE"
 Description = {
     English = "This module is written for Dimension Tools. It is used for the exporting and importing of sets"
 }
-Author = "Hecateria"
+Author = "Kikimora"
 Website = "http://riftdreamdimensions.com/"
 Version = "1.0.0"
-Email = "hecateria@hotmail.com"
-Environment = "2.4"
+Email = "Kikimora@riftdreamdimensions.com"
+Environment = "2.5"
 
 RunOnStartup = {
   "DtExport.lua"

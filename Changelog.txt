@@ -1,3 +1,7 @@
+Version 1.2.0
+- Implemented the magic carpet addon into Dimension Tools under the name
+  Tribal Magic.
+
 Version 1.1.5.r12
 - Made changes to handle the items in dimensions better.
 - Changed the way old Toolbox Sets are handled, it is no longer needed to

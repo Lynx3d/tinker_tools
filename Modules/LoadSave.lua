@@ -38,6 +38,7 @@ function Dta.losa.constructionLoadTbxSetsChanged()
     if Dta.ui.windowLoSa.constructions.loadTbxSets:GetChecked() then
         Dta.ui.loadLoSa = "Tbx"
         Dta.ui.windowLoSa.constructions.loadSavedSets:SetChecked(false)
+        Dta.ui.windowLoSa.constructions.loadDeafaultSets:SetChecked(false)
         Dta.ui.windowLoSa.constructions.remove:SetVisible(false)
         Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetVisible(true)
         Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetChecked(false)
