@@ -10,7 +10,7 @@ function Dta.rotate_ui.createWindowRotate(name, parent, title, width, height, x,
 		windowRotate:SetWidth(width)
 		windowRotate:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 		-- windowRotate:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-		windowRotate:SetLayer(1)
+		windowRotate:SetLayer(12)
 
   windowRotate.background = UI.CreateFrame("Texture", name .. "Background", windowRotate)
   windowRotate.background:SetPoint("TOPLEFT", windowRotate, "TOPLEFT", 0, 0)

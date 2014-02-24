@@ -10,7 +10,7 @@ function Dta.scale_ui.createWindowScale(name, parent, title, width, height, x, y
 		windowScale:SetWidth(width)
 		windowScale:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 		-- windowScale:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-		windowScale:SetLayer(1)
+		windowScale:SetLayer(13)
 
   windowScale.background = UI.CreateFrame("Texture", name .. "Background", windowScale)
   windowScale.background:SetPoint("TOPLEFT", windowScale, "TOPLEFT", 0, 0)

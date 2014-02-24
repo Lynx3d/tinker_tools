@@ -10,7 +10,7 @@ function Dta.help_ui.createWindowHelp(name, parent, title, width, height, x, y, 
 		windowHelp:SetWidth(width)
 		windowHelp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 		-- windowHelp:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-		windowHelp:SetLayer(1)
+		windowHelp:SetLayer(41)
 
   windowHelp.background = UI.CreateFrame("Texture", name .. "Background", windowHelp)
   windowHelp.background:SetPoint("TOPLEFT", windowHelp, "TOPLEFT", 0, 0)

@@ -14,7 +14,10 @@ Environment = "2.5"
 
 RunOnStartup = {
   "Main.lua",
+
   "Defaults/Default_LoadSave.lua",
+
+
   "Settings.lua",
 
   "UI/Main_UI.lua",
@@ -27,6 +30,7 @@ RunOnStartup = {
   "UI/Help_UI.lua",
   "UI/Flying_UI.lua",
 
+
   "Modules/Move.lua",
   "Modules/Scale.lua",
   "Modules/CopyPaste.lua",
@@ -35,6 +39,7 @@ RunOnStartup = {
   "Modules/ExpImp.lua",
   "Modules/Help.lua",
   "Modules/Flying.lua",
+
   "Modules/Itemdetails.lua"
 }
 

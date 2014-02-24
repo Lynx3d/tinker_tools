@@ -10,7 +10,7 @@ function Dta.copa_ui.createWindowCopyPaste(name, parent, title, width, height, x
 		windowCopyPaste:SetWidth(width)
 		windowCopyPaste:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 		-- windowCopyPaste:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-		windowCopyPaste:SetLayer(1)
+		windowCopyPaste:SetLayer(16)
 
   windowCopyPaste.background = UI.CreateFrame("Texture", name .. "Background", windowCopyPaste)
   windowCopyPaste.background:SetPoint("TOPLEFT", windowCopyPaste, "TOPLEFT", 0, 0)
@@ -151,9 +151,9 @@ function Dta.copa_ui.buildCopyPasteWindow()
 
                                 CopyPastewindow.copyPaste.Bags = Dta.ui.createCheckbox("copyPasteBags", CopyPastewindow.copyPaste, 0, 220, "Bags", true, nil, Dta.copa.CopaBagsChanged)
                                 CopyPastewindow.copyPaste.Bags:SetVisible(false)
-                                CopyPastewindow.copyPaste.Bank = Dta.ui.createCheckbox("copyPasteBank", CopyPastewindow.copyPaste, 110, 220, "Bank", false, nil, Dta.copa.CopaBankChanged)
+                                CopyPastewindow.copyPaste.Bank = Dta.ui.createCheckbox("copyPasteBank", CopyPastewindow.copyPaste, 110, 220, "Bank Bags", false, nil, Dta.copa.CopaBankChanged)
                                 CopyPastewindow.copyPaste.Bank:SetVisible(false)
-                                CopyPastewindow.copyPaste.Both = Dta.ui.createCheckbox("copyPasteBoth", CopyPastewindow.copyPaste, 235, 220, "Both", false, nil, Dta.copa.CopaBothChanged)
+                                CopyPastewindow.copyPaste.Both = Dta.ui.createCheckbox("copyPasteBoth", CopyPastewindow.copyPaste, 235, 220, "Vaults", false, nil, Dta.copa.CopaBothChanged)
                                 CopyPastewindow.copyPaste.Both:SetVisible(false)
 
   return CopyPastewindow

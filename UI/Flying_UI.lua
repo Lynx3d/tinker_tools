@@ -6,7 +6,7 @@ function Dta.flying_ui.createWindowFlying(name, parent, title, width, height, x,
 		windowFlying:SetWidth(width)
 		windowFlying:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 		-- windowFlying:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-		windowFlying:SetLayer(1)
+		windowFlying:SetLayer(18)
 
   windowFlying.background = UI.CreateFrame("Texture", name .. "Background", windowFlying)
   windowFlying.background:SetPoint("TOPLEFT", windowFlying, "TOPLEFT", 0, 0)

@@ -10,7 +10,7 @@ function Dta.move_ui.createWindowMove(name, parent, title, width, height, x, y, 
 		windowMove:SetWidth(width)
 		windowMove:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 		-- windowMove:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-		windowMove:SetLayer(1)
+		windowMove:SetLayer(11)
 
   windowMove.background = UI.CreateFrame("Texture", name .. "Background", windowMove)
   windowMove.background:SetPoint("TOPLEFT", windowMove, "TOPLEFT", 0, 0)

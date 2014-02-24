@@ -1,3 +1,9 @@
+Version 1.2.0.r14
+- Changed: The options Bags, Bank, Both under Copy/Paste to Bags, Bank Bags, 
+  Vaults. This to give a more precise choice of where to take the items from.
+- Added a counter to the main menu for selected items, you can now see how 
+  many items you have selected.
+
 Version 1.2.0
 - Implemented the magic carpet addon into Dimension Tools under the name
   Tribal Magic.

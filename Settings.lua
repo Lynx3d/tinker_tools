@@ -15,19 +15,21 @@ Dta.settings.defaults = {
   MovewindowPosX = 0,
   MovewindowPosY = 370,
   ScalewindowPosX = 0,
-  ScalewindowPosY = 720,
-  CopyPastewindowPosX = 455,
-  CopyPastewindowPosY = 32,
+  ScalewindowPosY = 450,
+  CopyPastewindowPosX = 320,
+  CopyPastewindowPosY = 410,
   RotatewindowPosX = 0,
-  RotatewindowPosY = 545,
+  RotatewindowPosY = 410,
   LoSawindowPosX = 320,
-  LoSawindowPosY = 585,
+  LoSawindowPosY = 450,
   ExpImpwindowPosX = 320,
   ExpImpwindowPosY  = 370,
   HelpwindowPosX = 650,
   HelpwindowPosY  = 335,
-  FlyingwindowPosX = 785,
+  FlyingwindowPosX = 455,
   FlyingwindowPosY = 32,
+  --AlphabetwindowPosX = 0,
+  --AlphabetwindowPosY = 490,
 
 }
 
@@ -103,6 +105,38 @@ function Dta.settings.get_defaultsets(setting)
     return nil
   end
 end
+
+--[[function Dta.settings.get_alphabethFonts(setting)
+  if Dta_alphabeth[setting] ~= nil then
+    return Dta_alphabeth[setting]
+  else
+    return nil
+  end
+end
+
+function Dta.settings.get_alphabethSize(setting, font)
+  if Dta_alphabeth[setting][font] ~= nil then
+    return Dta_alphabeth[setting][font]
+  else
+    return nil
+  end
+end
+
+function Dta.settings.get_alphabethLetters(setting, font, size)
+  if Dta_alphabeth[setting][font][size] ~= nil then
+    return Dta_alphabeth[setting][font][size]
+  else
+    return nil
+  end
+end
+
+function Dta.settings.get_alphabethSkins(setting)
+  if Dta_Skins[setting] ~= nil then
+    return Dta_Skins[setting]
+  else
+    return nil
+  end
+end]]--
 
 function Dta.settings.set_savedsets(setting, value)
   if Dta_defaults[setting] == value then

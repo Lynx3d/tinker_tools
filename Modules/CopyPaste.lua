@@ -259,45 +259,46 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
             end
         end
         if  Dta.copa.CountedItems < ItemNr then
-            print("You only have " .. Dta.copa.CountedItems .. ", Please lower the items you want to paste or try Bank.")
+            print("You only have " .. Dta.copa.CountedItems .. " in your Bags, lower the items or try Bank Bags / Vaults.")
             Dta.copa.CountedItems = 0
             return
         end
 
     elseif Dta.ui.windowCopyPaste.copyPaste.Bank:GetChecked() then
-        local items = Inspect.Item.Detail(Inspect.Item.List(Utility.Item.Slot.Bank()))
+        local itemsBank = Inspect.Item.Detail(Inspect.Item.List(Utility.Item.Slot.Bank("bag")))
         local NewItemID = Dta.clipboard.type
         if NewItemID == nil then
             print("Please copy an item before pasting.")
             return
         end
 
-        for _, details in pairs(items) do
+        for _, details in pairs(itemsBank) do
             if details.type == NewItemID then
                 Dta.copa.CountedItems = Dta.copa.CountedItems + details.stack
             end
         end
+
         if  Dta.copa.CountedItems < ItemNr then
-            print("You only have " .. Dta.copa.CountedItems .. ", Please lower the items you want to paste or try Bags.")
+            print("You only have " .. Dta.copa.CountedItems .. " in your Bank Bags, lower the items or try Bags / Vaults.")
             Dta.copa.CountedItems = 0
             return
         end
 
     elseif Dta.ui.windowCopyPaste.copyPaste.Both:GetChecked() then
-        local items = Inspect.Item.Detail(Inspect.Item.List())
+        local itemsVault = Inspect.Item.Detail(Inspect.Item.List(Utility.Item.Slot.Vault()))
         local NewItemID = Dta.clipboard.type
         if NewItemID == nil then
             print("Please copy an item before pasting.")
             return
         end
 
-        for _, details in pairs(items) do
+        for _, details in pairs(itemsVault) do
             if details.type == NewItemID then
                 Dta.copa.CountedItems = Dta.copa.CountedItems + details.stack
             end
         end
         if  Dta.copa.CountedItems < ItemNr then
-            print("You only have " .. Dta.copa.CountedItems .. ", Please lower the items you want to paste.")
+            print("You only have " .. Dta.copa.CountedItems .. " in your Bank Bags, lower the items or try Bags / Bank Bags.")
             Dta.copa.CountedItems = 0
             return
         end
@@ -354,8 +355,8 @@ function Dta.copa.pasteNewItemAttributes(index, x, y, z, yaw, pitch, roll, scale
 
 
     if Dta.ui.windowCopyPaste.copyPaste.Bags:GetChecked() then
-        local items = Inspect.Item.List(Utility.Item.Slot.Inventory())
-        for slot, id in pairs(items) do
+        local itemsBags = Inspect.Item.List(Utility.Item.Slot.Inventory())
+        for slot, id in pairs(itemsBags) do
             if id ~= false then
                 local data = Inspect.Item.Detail(id)
                 if data.type == NewItemID then
@@ -365,8 +366,8 @@ function Dta.copa.pasteNewItemAttributes(index, x, y, z, yaw, pitch, roll, scale
             end
         end
     elseif Dta.ui.windowCopyPaste.copyPaste.Bank:GetChecked() then
-        local items = Inspect.Item.List(Utility.Item.Slot.Bank())
-        for slot, id in pairs(items) do
+        local itemsBank = Inspect.Item.List(Utility.Item.Slot.Bank("bag"))
+        for slot, id in pairs(itemsBank) do
             if id ~= false then
                 local data = Inspect.Item.Detail(id)
                 if data.type == NewItemID then
@@ -376,8 +377,8 @@ function Dta.copa.pasteNewItemAttributes(index, x, y, z, yaw, pitch, roll, scale
             end
         end
     elseif Dta.ui.windowCopyPaste.copyPaste.Both:GetChecked() then
-        local items = Inspect.Item.List()
-        for slot, id in pairs(items) do
+        local itemsVault = Inspect.Item.List(Utility.Item.Slot.Vault())
+        for slot, id in pairs(itemsVault) do
             if id ~= false then
                 local data = Inspect.Item.Detail(id)
                 if data.type == NewItemID then

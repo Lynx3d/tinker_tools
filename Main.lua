@@ -197,30 +197,34 @@ function Dta.commandHandler(hEvent, command)
     Dta.settings.set("MovewindowPosX", 0)
     Dta.settings.set("MovewindowPosY", 370)
     Dta.settings.set("RotatewindowPosX", 0)
-    Dta.settings.set("RotatewindowPosY", 545)
+    Dta.settings.set("RotatewindowPosY", 410)
     Dta.settings.set("ScalewindowPosX", 0)
-    Dta.settings.set("ScalewindowPosY", 720)
-    Dta.settings.set("CopyPastewindowPosX", 455)
-    Dta.settings.set("CopyPastewindowPosY", 32)
+    Dta.settings.set("ScalewindowPosY", 450)
+    Dta.settings.set("CopyPastewindowPosX", 320)
+    Dta.settings.set("CopyPastewindowPosY", 410)
     Dta.settings.set("LoSawindowPosX", 320)
-    Dta.settings.set("LoSawindowPosY", 585)
+    Dta.settings.set("LoSawindowPosY", 450)
     Dta.settings.set("ExpImpwindowPosX", 320)
     Dta.settings.set("ExpImpwindowPosY", 370)
     Dta.settings.set("HelpwindowPosX", 650)
     Dta.settings.set("HelpwindowPosY", 335)
-    Dta.settings.set("FlyingwindowPosX", 785)
+    Dta.settings.set("FlyingwindowPosX", 455)
     Dta.settings.set("FlyingwindowPosY", 32)
+    --Dta.settings.set("AlphabetwindowPosX", 0)
+    --Dta.settings.set("AlphabetwindowPosY", 490)
+
 
 
     if Dta.ui.windowtest then Dta.ui.windowtest:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 32) end
     if Dta.ui.windowMove then Dta.ui.windowMove:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 370) end
-    if Dta.ui.windowRotate then Dta.ui.windowRotate:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 545) end
-    if Dta.ui.windowScale then Dta.ui.windowScale:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 720) end
-    if Dta.ui.windowCopyPaste then Dta.ui.windowCopyPaste:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 455, 32) end
-    if Dta.ui.windowLoSa then Dta.ui.windowLoSa:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 320, 585) end
+    if Dta.ui.windowRotate then Dta.ui.windowRotate:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 410) end
+    if Dta.ui.windowScale then Dta.ui.windowScale:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 450) end
+    if Dta.ui.windowCopyPaste then Dta.ui.windowCopyPaste:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 320, 410) end
+    if Dta.ui.windowLoSa then Dta.ui.windowLoSa:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 320, 450) end
     if Dta.ui.windowExpImp then Dta.ui.windowExpImp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 320, 370) end
     if Dta.ui.windowHelp then Dta.ui.windowHelp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 650, 335) end
-    if Dta.ui.windowFlying then Dta.ui.windowFlying:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 785, 32) end
+    if Dta.ui.windowFlying then Dta.ui.windowFlying:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 455, 32) end
+    --if Dta.ui.windowAlphabet then Dta.ui.windowAlphabet:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 490) end
     print("Position reset")
   else
     Dta.ui.toggleMainWindow()

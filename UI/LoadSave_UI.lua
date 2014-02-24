@@ -10,7 +10,7 @@ function Dta.losa_ui.createWindowLoSa(name, parent, title, width, height, x, y, 
 		windowLoSa:SetWidth(width)
 		windowLoSa:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 		-- windowLoSa:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-		windowLoSa:SetLayer(1)
+		windowLoSa:SetLayer(17)
 
   windowLoSa.background = UI.CreateFrame("Texture", name .. "Background", windowLoSa)
   windowLoSa.background:SetPoint("TOPLEFT", windowLoSa, "TOPLEFT", 0, 0)

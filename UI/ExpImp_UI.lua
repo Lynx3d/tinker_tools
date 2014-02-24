@@ -6,7 +6,7 @@ function Dta.expimp_ui.createWindowExpImp(name, parent, title, width, height, x,
 		windowExpImp:SetWidth(width)
 		windowExpImp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 		-- windowExpImp:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-		windowExpImp:SetLayer(1)
+		windowExpImp:SetLayer(15)
 
   windowExpImp.background = UI.CreateFrame("Texture", name .. "Background", windowExpImp)
   windowExpImp.background:SetPoint("TOPLEFT", windowExpImp, "TOPLEFT", 0, 0)
