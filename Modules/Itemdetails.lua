@@ -173,12 +173,49 @@ function Dta.items.getCentralPoint(itemsList)
   local itemsList = itemsList or {}
   if #itemsList > 0 then
     local centralPoint = {x = 0, y = 0, z = 0}
+    local allX = {}
+    local allY = {}
+    local allZ = {}
     for k, details in pairs(itemsList) do
-      centralPoint.x = centralPoint.x + details.coordX
-      centralPoint.y = centralPoint.y + details.coordY
-      centralPoint.z = centralPoint.z + details.coordZ
+        table.insert(allX, details.coordX)
+        table.insert(allY, details.coordY)
+        table.insert(allZ, details.coordZ)
     end
-    for k, v in pairs(centralPoint) do centralPoint[k] = v / #itemsList end
+
+    local minValuaX = Dta.items.getMinValue(allX)
+    local minValuaY = Dta.items.getMinValue(allY)
+    local minValuaZ = Dta.items.getMinValue(allZ)
+    local maxValuaX = Dta.items.getMaxValue(allX)
+    local maxValuaY = Dta.items.getMaxValue(allY)
+    local maxValuaZ = Dta.items.getMaxValue(allZ)
+
+
+
+    centralPoint.x = minValuaX + maxValuaX
+    centralPoint.y = minValuaY + maxValuaY
+    centralPoint.z = minValuaZ + maxValuaZ
+
+    for k, v in pairs(centralPoint) do centralPoint[k] = v / 2 end
     return centralPoint
   end
+end
+
+function Dta.items.getMinValue(Table)
+    local minValue = Table[1]
+    for m=1, table.getn(Table) do
+        if Table[m] < minValue then
+            minValue = Table[m]
+        end
+    end
+    return minValue
+end
+
+function Dta.items.getMaxValue(Table)
+    local maxValue = Table[1]
+    for m=1, table.getn(Table) do
+        if Table[m] > maxValue then
+            maxValue = Table[m]
+        end
+    end
+    return maxValue
 end

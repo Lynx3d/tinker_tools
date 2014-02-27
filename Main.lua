@@ -82,11 +82,19 @@ end
 
 function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a dimension
     if Dta.Copa_Co_Active then coroutine.resume(Dta.copa.Co_PlaceItem) end
+
     if Dta.PlaceItem_Co_Active then
         coroutine.resume(Dta.losa.Co_PlaceItem)
     elseif Dta.LoadSet_Co_Active then
         coroutine.resume(Dta.losa.Co_LoadItem)
     end
+
+--    if Dta.alphabet.PlaceLetter_Co_Active then
+--        coroutine.resume(Dta.alphabet.Co_PlaceLetter)
+--    elseif Dta.alphabet.PlaceWord_Co_Active then
+--        coroutine.resume(Dta.alphabet.Co_PlaceWord)
+--    end
+
     if #Dta.pendingActions == 1 then
         print("Processing Finished")
     end
@@ -114,7 +122,7 @@ function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a
         end
     end
 
-    if not Dta.FinishedPaste then
+    --[[if not Dta.FinishedPaste then
         if Dta.ItemsPasted < Dta.ItemsToPaste then
             --print("ItemsPasted: " .. Dta.ItemsPasted .. " out of " .. Dta.ItemsToPaste)
             for id, value in pairs(dimensionItem) do
@@ -135,7 +143,7 @@ function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a
             Dta.FinishedPaste = true
             Dta.ItemsPasted = 1
         end
-    end
+    end]]
 
     if Dta.waitingForCarpet == true then
         for id, value in pairs(dimensionItem) do
@@ -210,8 +218,8 @@ function Dta.commandHandler(hEvent, command)
     Dta.settings.set("HelpwindowPosY", 335)
     Dta.settings.set("FlyingwindowPosX", 455)
     Dta.settings.set("FlyingwindowPosY", 32)
-    --Dta.settings.set("AlphabetwindowPosX", 0)
-    --Dta.settings.set("AlphabetwindowPosY", 490)
+--    Dta.settings.set("AlphabetwindowPosX", 0)
+--    Dta.settings.set("AlphabetwindowPosY", 490)
 
 
 
@@ -224,7 +232,7 @@ function Dta.commandHandler(hEvent, command)
     if Dta.ui.windowExpImp then Dta.ui.windowExpImp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 320, 370) end
     if Dta.ui.windowHelp then Dta.ui.windowHelp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 650, 335) end
     if Dta.ui.windowFlying then Dta.ui.windowFlying:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 455, 32) end
-    --if Dta.ui.windowAlphabet then Dta.ui.windowAlphabet:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 490) end
+--    if Dta.ui.windowAlphabet then Dta.ui.windowAlphabet:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 490) end
     print("Position reset")
   else
     Dta.ui.toggleMainWindow()

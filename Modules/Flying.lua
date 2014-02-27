@@ -16,7 +16,7 @@ function Dta.flying.AdjustPitch(newVal)
 end
 
 function Dta.flying.PlaceFlying()
-	local items = Inspect.Item.List()
+	local items = Inspect.Item.List(Utility.Item.Slot.Inventory())
 	for slot, id in pairs(items) do
 	    if id ~= false then
 			local data = Inspect.Item.Detail(id)

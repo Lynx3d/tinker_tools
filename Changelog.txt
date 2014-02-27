@@ -1,7 +1,11 @@
-Version 1.2.0.r14
-- Changed: The options Bags, Bank, Both under Copy/Paste to Bags, Bank Bags, 
+Version 1.2.0.r16
+- Rewrote Central point calculations.
+- Made some small changes in Tribal Magic, to improve performance
+
+Version 1.2.0.r15
+- Changed: The options Bags, Bank, Both under Copy/Paste to Bags, Bank Bags,
   Vaults. This to give a more precise choice of where to take the items from.
-- Added a counter to the main menu for selected items, you can now see how 
+- Added a counter to the main menu for selected items, you can now see how
   many items you have selected.
 
 Version 1.2.0

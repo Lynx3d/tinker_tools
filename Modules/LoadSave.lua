@@ -475,8 +475,6 @@ end
 
 function Dta.losa.PasteSet(item, name, NrCopies, OffsetX, OffsetY, OffsetZ, Set_x, Set_y, Set_z, Set_yaw, Set_pitch, Set_roll, Set_scale) --ToDo Split up for Bag, Bank or Both
 
-
-
     local items = Inspect.Item.List(Utility.Item.Slot.Inventory())
     for slot, id in pairs(items) do
         if id ~= false then

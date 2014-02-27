@@ -213,6 +213,7 @@ end
 --------------------------------------
 
 function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scale, xOffset, yOffset, zOffset, yawOffset, pitchOffset, rollOffset, scaleOffset, multiplyOffset, NewItem, NewItemNr)
+  Dta.copa.CountedItems = 0
   if not NewItem then
     ItemNr = 0
     print("Please check the checkbox if you want to place a new item or use the paste button if you try to paste a existing item")
@@ -265,7 +266,7 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
         end
 
     elseif Dta.ui.windowCopyPaste.copyPaste.Bank:GetChecked() then
-        local itemsBank = Inspect.Item.Detail(Inspect.Item.List(Utility.Item.Slot.Bank("bag")))
+        local itemsBank = Inspect.Item.Detail(Inspect.Item.List(Utility.Item.Slot.Bank()))
         local NewItemID = Dta.clipboard.type
         if NewItemID == nil then
             print("Please copy an item before pasting.")
@@ -298,14 +299,14 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
             end
         end
         if  Dta.copa.CountedItems < ItemNr then
-            print("You only have " .. Dta.copa.CountedItems .. " in your Bank Bags, lower the items or try Bags / Bank Bags.")
+            print("You only have " .. Dta.copa.CountedItems .. " in your Vaults, lower the items or try Bags / Bank Bags.")
             Dta.copa.CountedItems = 0
             return
         end
     end
 
-    Dta.ItemsToPaste = ItemNr
-    Dta.FinishedPaste = false
+    Dta.ItemsToPlace = ItemNr
+    Dta.FinishedSet = false
     Dta.PastingItems = true
     Dta.items.DeselectAll()
 
@@ -322,7 +323,6 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
             end
         end)
         coroutine.resume(Dta.copa.Co_PlaceItem)
-        Dta.copa.CountedItems = 0
     else
         Dta.copa.pasteNewItemAttributes(k, x, y, z, yaw, pitch, roll, scale, xOffset, yOffset, zOffset, yawOffset, pitchOffset, rollOffset, scaleOffset)
     end
@@ -366,7 +366,7 @@ function Dta.copa.pasteNewItemAttributes(index, x, y, z, yaw, pitch, roll, scale
             end
         end
     elseif Dta.ui.windowCopyPaste.copyPaste.Bank:GetChecked() then
-        local itemsBank = Inspect.Item.List(Utility.Item.Slot.Bank("bag"))
+        local itemsBank = Inspect.Item.List(Utility.Item.Slot.Bank())
         for slot, id in pairs(itemsBank) do
             if id ~= false then
                 local data = Inspect.Item.Detail(id)

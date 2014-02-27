@@ -28,8 +28,8 @@ Dta.ui.activeHelp = false
 Dta.ui.windowFlying = nil
 Dta.ui.activeFlying = false
 
-Dta.ui.windowAlphabet = nil
-Dta.ui.activeAlphabet = false
+--Dta.ui.windowAlphabet = nil
+--Dta.ui.activeAlphabet = false
 
 Dta.ui.loadLoSa = "Default"
 Dta.ui.loadExpImp = "Saved"
@@ -295,7 +295,7 @@ function Dta.ui.buildMainWindow()
                                 Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow.itemDetails, 150, 145, nil, nil, "Load / Save", nil, Dta.ui.modifySaveButtonClicked)
                                 Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 295, 145, nil, nil, "Import / Export", nil, Dta.ui.modifyImpExpButtonClicked)
                                 Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow.itemDetails, 0, 175, nil, nil, "Tribal Magic", nil, Dta.ui.modifyDFlyingButtonClicked)
-                                --Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 150, 175, nil, nil, "Alphabet", nil, Dta.ui.modifyAlphabetButtonClicked)
+                                --Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 150, 175, nil, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
 
   return Mainwindow
 end
@@ -387,6 +387,6 @@ function Dta.ui.modifyDFlyingButtonClicked()
     Dta.flying_ui.toggleFlyingWindow()
 end
 
-function Dta.ui.modifyAlphabetButtonClicked()
-    Dta.alphabet_ui.toggleAlphabetWindow()
-end
+--function Dta.ui.modifyAlphabetButtonClicked()
+--    Dta.alphabet_ui.toggleAlphabetWindow()
+--end
