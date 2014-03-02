@@ -295,7 +295,7 @@ function Dta.ui.buildMainWindow()
                                 Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow.itemDetails, 150, 145, nil, nil, "Load / Save", nil, Dta.ui.modifySaveButtonClicked)
                                 Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 295, 145, nil, nil, "Import / Export", nil, Dta.ui.modifyImpExpButtonClicked)
                                 Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow.itemDetails, 0, 175, nil, nil, "Tribal Magic", nil, Dta.ui.modifyDFlyingButtonClicked)
-                                --Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 150, 175, nil, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
+--                                Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 150, 175, nil, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
 
   return Mainwindow
 end
@@ -306,8 +306,8 @@ function Dta.ui.showMainWindow()
   Dta.constructionsdefaults = Dta.settings.get_defaultsets("SavedDefaultSets") --or {}
   Dta.constructionstbx = tbx_import.get("savedConstructions")
   Dta.ExportImport_Sets = Dta_export.get("ExportImport")--or {}
-  --Dta.alphabet.Fonts = Dta.settings.get_alphabethFonts("SavedAlphabets")
-  --Dta.alphabet.Skins = Dta.settings.get_alphabethSkins("SavedSkins")
+--  Dta.alphabet.Fonts = Dta.settings.get_alphabethFonts("SavedAlphabets")
+--  Dta.alphabet.Skins = Dta.settings.get_alphabethSkins("SavedSkins")
   if Dta.ui.windowtest == nil then
     Dta.ui.windowtest = Dta.ui.buildMainWindow()
   else
@@ -334,7 +334,7 @@ function Dta.ui.hideMainWindow()
   if Dta.ui.activeExpImp then Dta.expimp_ui.hideExpImpWindow() end
   if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
   if Dta.ui.activeFlying then Dta.flying_ui.hideFlyingWindow() end
-  --if Dta.ui.activeAlphabet then Dta.alphabet_ui.hideAlphabetWindow() end
+--  if Dta.ui.activeAlphabet then Dta.alphabet_ui.hideAlphabetWindow() end
 end
 
 -- Toggle the Main window
@@ -386,7 +386,8 @@ end
 function Dta.ui.modifyDFlyingButtonClicked()
     Dta.flying_ui.toggleFlyingWindow()
 end
-
---function Dta.ui.modifyAlphabetButtonClicked()
---    Dta.alphabet_ui.toggleAlphabetWindow()
---end
+--[[
+function Dta.ui.modifyAlphabetButtonClicked()
+    Dta.alphabet_ui.toggleAlphabetWindow()
+end
+]]--

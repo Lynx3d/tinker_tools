@@ -8,7 +8,7 @@ Description = {
 }
 Author = "Kikimora"
 Website = "http://riftdreamdimensions.com/"
-Version = "v1.2.0"
+Version = "v1.2.1"
 Email = "Kikimora@riftdreamdimensions.com"
 Environment = "2.5"
 

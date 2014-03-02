@@ -28,8 +28,8 @@ Dta.settings.defaults = {
   HelpwindowPosY  = 335,
   FlyingwindowPosX = 455,
   FlyingwindowPosY = 32,
-  --AlphabetwindowPosX = 0,
-  --AlphabetwindowPosY = 490,
+--  AlphabetwindowPosX = 0,
+--  AlphabetwindowPosY = 490,
 
 }
 
@@ -105,8 +105,8 @@ function Dta.settings.get_defaultsets(setting)
     return nil
   end
 end
-
---[[function Dta.settings.get_alphabethFonts(setting)
+--[[
+function Dta.settings.get_alphabethFonts(setting)
   if Dta_alphabeth[setting] ~= nil then
     return Dta_alphabeth[setting]
   else
@@ -136,8 +136,8 @@ function Dta.settings.get_alphabethSkins(setting)
   else
     return nil
   end
-end]]--
-
+end
+]]--
 function Dta.settings.set_savedsets(setting, value)
   if Dta_defaults[setting] == value then
     Dta.settings.savedsets[setting] = nil

@@ -410,8 +410,8 @@ function Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, Offset
 
                     if not pasteAtOriginalLoc then
                         local cp = Dta.items.getCentralPoint(Dta.groupClipboard)
-                        newPlacement.coordX = player.coordX + (details.coordX - cp.x) + 10
-                        newPlacement.coordY = player.coordY + (details.coordY - cp.y)
+                        newPlacement.coordX = player.coordX + (details.coordX - cp.x) + 15
+                        newPlacement.coordY = player.coordY + (details.coordY - cp.minValuaY) + 0.05
                         newPlacement.coordZ = player.coordZ + (details.coordZ - cp.z)
                     end
 
@@ -459,8 +459,8 @@ function Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, Offset
 
                     if not pasteAtOriginalLoc then
                         local cp = Dta.items.getCentralPoint(Dta.groupClipboard)
-                        newPlacement.coordX = player.coordX + (details.coordX - cp.x) + 10
-                        newPlacement.coordY = player.coordY + (details.coordY - cp.y) + 1
+                        newPlacement.coordX = player.coordX + (details.coordX - cp.x) + 15
+                        newPlacement.coordY = player.coordY + (details.coordY - cp.minValuaY) + 0.05
                         newPlacement.coordZ = player.coordZ + (details.coordZ - cp.z)
                     end
 

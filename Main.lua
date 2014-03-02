@@ -88,13 +88,13 @@ function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a
     elseif Dta.LoadSet_Co_Active then
         coroutine.resume(Dta.losa.Co_LoadItem)
     end
-
---    if Dta.alphabet.PlaceLetter_Co_Active then
---        coroutine.resume(Dta.alphabet.Co_PlaceLetter)
---    elseif Dta.alphabet.PlaceWord_Co_Active then
---        coroutine.resume(Dta.alphabet.Co_PlaceWord)
---    end
-
+--[[
+    if Dta.alphabet.PlaceLetter_Co_Active then
+        coroutine.resume(Dta.alphabet.Co_PlaceLetter)
+    elseif Dta.alphabet.PlaceWord_Co_Active then
+        coroutine.resume(Dta.alphabet.Co_PlaceWord)
+    end
+]]--
     if #Dta.pendingActions == 1 then
         print("Processing Finished")
     end

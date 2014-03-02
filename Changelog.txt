@@ -1,3 +1,6 @@
+Version 1.2.1.r17
+- adjusted help to match new options in copy & paste
+
 Version 1.2.0.r16
 - Rewrote Central point calculations.
 - Made some small changes in Tribal Magic, to improve performance

@@ -196,6 +196,14 @@ function Dta.items.getCentralPoint(itemsList)
     centralPoint.z = minValuaZ + maxValuaZ
 
     for k, v in pairs(centralPoint) do centralPoint[k] = v / 2 end
+
+    centralPoint.minValuaX = minValuaX
+    centralPoint.minValuaY = minValuaY
+    centralPoint.minValuaZ = minValuaZ
+    centralPoint.maxValuaX = maxValuaX
+    centralPoint.maxValuaY = maxValuaY
+    centralPoint.maxValuaZ = maxValuaZ
+
     return centralPoint
   end
 end
