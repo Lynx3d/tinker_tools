@@ -1,4 +1,4 @@
-Dta.flying = {}
+﻿Dta.flying = {}
 
 --------------------------------------
 --SCALE BUTTON HANDLERS

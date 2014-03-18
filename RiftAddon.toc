@@ -1,4 +1,4 @@
-Identifier = "Dimtools"
+﻿Identifier = "Dimtools"
 Name = {
     English = "Dimension Tools"
 }
@@ -8,15 +8,17 @@ Description = {
 }
 Author = "Kikimora"
 Website = "http://riftdreamdimensions.com/"
-Version = "v1.2.1"
+Version = "v1.2.2"
 Email = "Kikimora@riftdreamdimensions.com"
 Environment = "2.5"
 
 RunOnStartup = {
   "Main.lua",
 
-  "Defaults/Default_LoadSave.lua",
+  "Language/Language_Eng.lua",
 
+  "Defaults/Default_LoadSave.lua",
+  "Defaults/Default_Skins.lua",
 
   "Settings.lua",
 
@@ -29,8 +31,9 @@ RunOnStartup = {
   "UI/ExpImp_UI.lua",
   "UI/Help_UI.lua",
   "UI/Flying_UI.lua",
+  "UI/Measurements_UI.lua",
 
-
+  "Modules/Itemdetails.lua",
   "Modules/Move.lua",
   "Modules/Scale.lua",
   "Modules/CopyPaste.lua",
@@ -39,8 +42,9 @@ RunOnStartup = {
   "Modules/ExpImp.lua",
   "Modules/Help.lua",
   "Modules/Flying.lua",
+  "Modules/Replacement.lua",
+  "Modules/Measurements.lua"
 
-  "Modules/Itemdetails.lua"
 }
 
 Embed = {

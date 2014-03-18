@@ -1,4 +1,4 @@
-Identifier = "Dimtools_Export"
+﻿Identifier = "Dimtools_Export"
 Name = {
     English = "Dimension Tools Export"
 }

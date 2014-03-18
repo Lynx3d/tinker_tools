@@ -1,3 +1,8 @@
+-- Set English as Default
+if not Lang[Dta.Language] then
+    Lang[Dta.Language] = Lang["English"]
+end
+
 Dta.settings = {}
 
 --------------------------------------
@@ -29,7 +34,10 @@ Dta.settings.defaults = {
   FlyingwindowPosX = 455,
   FlyingwindowPosY = 32,
 --  AlphabetwindowPosX = 0,
---  AlphabetwindowPosY = 490,
+--  AlphabetwindowPosY = 530,
+  MeasurementswindowPosX = 0,
+  MeasurementswindowPosY = 490,
+
 
 }
 
@@ -106,38 +114,38 @@ function Dta.settings.get_defaultsets(setting)
   end
 end
 --[[
-function Dta.settings.get_alphabethFonts(setting)
-  if Dta_alphabeth[setting] ~= nil then
-    return Dta_alphabeth[setting]
+function Dta.settings.get_alphabetFonts(setting)
+  if Dta_alphabet[setting] ~= nil then
+    return Dta_alphabet[setting]
   else
     return nil
   end
 end
 
-function Dta.settings.get_alphabethSize(setting, font)
-  if Dta_alphabeth[setting][font] ~= nil then
-    return Dta_alphabeth[setting][font]
+function Dta.settings.get_alphabetSize(setting, font)
+  if Dta_alphabet[setting][font] ~= nil then
+    return Dta_alphabet[setting][font]
   else
     return nil
   end
 end
 
-function Dta.settings.get_alphabethLetters(setting, font, size)
-  if Dta_alphabeth[setting][font][size] ~= nil then
-    return Dta_alphabeth[setting][font][size]
+function Dta.settings.get_alphabetLetters(setting, font, size)
+  if Dta_alphabet[setting][font][size] ~= nil then
+    return Dta_alphabet[setting][font][size]
   else
     return nil
   end
 end
-
-function Dta.settings.get_alphabethSkins(setting)
+]]
+function Dta.settings.get_Skins(setting)
   if Dta_Skins[setting] ~= nil then
     return Dta_Skins[setting]
   else
     return nil
   end
 end
-]]--
+
 function Dta.settings.set_savedsets(setting, value)
   if Dta_defaults[setting] == value then
     Dta.settings.savedsets[setting] = nil

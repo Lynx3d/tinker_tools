@@ -2,6 +2,8 @@ Dta = {}
 
 --Addon information
 Dta.Version = Inspect.Addon.Detail(Inspect.Addon.Current()).toc.Version
+Dta.Language = Inspect.System.Language()
+
 
 --Items
 Dta.selectedItems = {}
@@ -43,6 +45,7 @@ Dta.PastingItems = false
 
 --Others
 Dta.Deleting = false
+Dta.Key = nil
 
 --Flying
 Dta.desiredPitch = 0
@@ -70,19 +73,15 @@ Dta.PlaceItem_Co_Active = false
 
 function Dta.main()
   Command.Event.Attach(Command.Slash.Register("Dt"), Dta.commandHandler, "Dimtools Command")
-  if Event.Dimension ~= nil and Inspect.Dimension ~= nil then
+  Command.Event.Attach(Event.Unit.Detail.LocationName, Dta.CheckZone, "Update selection")
     Command.Event.Attach(Event.System.Update.Begin, Dta.tick, "refresh")
     Command.Event.Attach(Event.Dimension.Layout.Add, Dta.addEventHandler, "Update selection")
     Command.Event.Attach(Event.Dimension.Layout.Remove, Dta.removeEventHandler, "Update selection")
     Command.Event.Attach(Event.Dimension.Layout.Update, Dta.updateEventHandler, "Update selection")
-  else
-    print("This addon is intended for use with Dimensions.")
-  end
 end
 
 function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a dimension
     if Dta.Copa_Co_Active then coroutine.resume(Dta.copa.Co_PlaceItem) end
-
     if Dta.PlaceItem_Co_Active then
         coroutine.resume(Dta.losa.Co_PlaceItem)
     elseif Dta.LoadSet_Co_Active then
@@ -94,9 +93,9 @@ function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a
     elseif Dta.alphabet.PlaceWord_Co_Active then
         coroutine.resume(Dta.alphabet.Co_PlaceWord)
     end
-]]--
+]]
     if #Dta.pendingActions == 1 then
-        print("Processing Finished")
+        print(Lang[Dta.Language].Prints.ProcessFinished)
     end
 
     if not Dta.FinishedSet then
@@ -122,29 +121,6 @@ function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a
         end
     end
 
-    --[[if not Dta.FinishedPaste then
-        if Dta.ItemsPasted < Dta.ItemsToPaste then
-            --print("ItemsPasted: " .. Dta.ItemsPasted .. " out of " .. Dta.ItemsToPaste)
-            for id, value in pairs(dimensionItem) do
-            local data = Inspect.Dimension.Layout.Detail(id)
-                if data ~= nil then
-                    Dta.items.QueueSelection(id)
-                end
-            end
-            Dta.ItemsPasted = Dta.ItemsPasted + 1
-        elseif Dta.ItemsPasted == Dta.ItemsToPaste then
-            for id, value in pairs(dimensionItem) do
-                local data = Inspect.Dimension.Layout.Detail(id)
-                if data ~= nil then
-                    Dta.items.QueueSelection(id)
-                end
-            end
-            --print("ItemsPasted: " .. Dta.ItemsPasted .. " out of " .. Dta.ItemsToPaste)
-            Dta.FinishedPaste = true
-            Dta.ItemsPasted = 1
-        end
-    end]]
-
     if Dta.waitingForCarpet == true then
         for id, value in pairs(dimensionItem) do
             local data = Inspect.Dimension.Layout.Detail(id)
@@ -163,9 +139,9 @@ end
 
 function Dta.removeEventHandler(hEvent, dimensionItem) --Executed when item is removed
     if #Dta.pendingActions == 1 then
-        print("Processing Finished")
+        print(Lang[Dta.Language].Prints.ProcessFinished)
     end
-    if #Dta.selectedItems > 0 then
+    if Dta.losa.tableLength(Dta.selectedItems) > 0 then
         Dta.Deleting = true
         Dta.items.updateSelection(dimensionItem)
         --print("Item Removed")
@@ -175,26 +151,37 @@ end
 
 function Dta.updateEventHandler(hEvent, dimensionItem) --Executed on every select/ deselect or change of an dimension item
     if #Dta.pendingActions == 1 then
-        print("Processing Finished")
+        print(Lang[Dta.Language].Prints.ProcessFinished)
     end
     Dta.items.updateSelection(dimensionItem)
 
     if Dta.FinishedSet and Dta.Setname ~= "" and #Dta.SelectionQueue == 0 then
-        print(string.format("Item set \"%s\" loaded", Dta.Setname))
+        print(string.format(Lang[Dta.Language].Prints.SetFinished, Dta.Setname))
         Dta.Setname = ""
     end
 
-    if Dta.FinishedPaste and Dta.PastingItems and #Dta.SelectionQueue == 0 then
-        if Dta.ItemsToPaste == 1 then
-            print(Dta.ItemsToPaste .. " item placed.")
-        else
-            print("All " .. Dta.ItemsToPaste .. " items are placed.")
-        end
-
+    if Dta.FinishedSet and Dta.PastingItems and #Dta.SelectionQueue == 0 then
+        print(Lang[Dta.Language].Prints.PasteFinished)
         Dta.PastingItems = false
     end
+--[[
+    if Dta.FinishedSet and Dta.alphabet.PastingWord and #Dta.SelectionQueue == 0 then
+        print(Lang[Dta.Language].Prints.WordFinished)
+        Dta.alphabet.PastingWord = false
+    end
+]]
 
+end
 
+function Dta.CheckZone(hEvent)
+    local DimensionID = Inspect.Unit.Detail("player")
+    local ZoneInfo = Inspect.Zone.Detail(DimensionID.zone)
+    if string.find(ZoneInfo.name, "Dimension") or string.find(ZoneInfo.name, "Измерение") then
+        --Dta.ui.toggleMainWindow()
+    else
+        if Dta.ui.active then Dta.ui.hideMainWindow() end
+        --print(Lang[Dta.Language].Prints.DimensionOnly)
+    end
 end
 
 function Dta.commandHandler(hEvent, command)
@@ -219,7 +206,10 @@ function Dta.commandHandler(hEvent, command)
     Dta.settings.set("FlyingwindowPosX", 455)
     Dta.settings.set("FlyingwindowPosY", 32)
 --    Dta.settings.set("AlphabetwindowPosX", 0)
---    Dta.settings.set("AlphabetwindowPosY", 490)
+--    Dta.settings.set("AlphabetwindowPosY", 530)
+    Dta.settings.set("MeasurementswindowPosX", 0)
+    Dta.settings.set("MeasurementswindowPosY", 490)
+
 
 
 
@@ -232,10 +222,17 @@ function Dta.commandHandler(hEvent, command)
     if Dta.ui.windowExpImp then Dta.ui.windowExpImp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 320, 370) end
     if Dta.ui.windowHelp then Dta.ui.windowHelp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 650, 335) end
     if Dta.ui.windowFlying then Dta.ui.windowFlying:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 455, 32) end
---    if Dta.ui.windowAlphabet then Dta.ui.windowAlphabet:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 490) end
+--    if Dta.ui.windowAlphabet then Dta.ui.windowAlphabet:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 530) end
+    if Dta.ui.windowMeasurements then Dta.ui.windowMeasurements:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 490) end
     print("Position reset")
   else
-    Dta.ui.toggleMainWindow()
+    local DimensionID = Inspect.Unit.Detail("player")
+    local ZoneInfo = Inspect.Zone.Detail(DimensionID.zone)
+    if string.find(ZoneInfo.name, "Dimension") or string.find(ZoneInfo.name, "Измерение") then
+        Dta.ui.toggleMainWindow()
+    else
+        print(Lang[Dta.Language].Prints.DimensionOnly)
+    end
   end
 end
 
@@ -433,5 +430,4 @@ function Dta.tick(handle)
         end
     end
 end
-print("Dimension Tools " .. Dta.Version)
 Dta.main()

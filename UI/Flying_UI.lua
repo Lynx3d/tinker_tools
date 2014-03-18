@@ -1,4 +1,4 @@
-Dta.flying_ui = {}
+﻿Dta.flying_ui = {}
 
 function Dta.flying_ui.createWindowFlying(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
   local windowFlying = UI.CreateFrame("Frame", name, parent)
@@ -6,7 +6,7 @@ function Dta.flying_ui.createWindowFlying(name, parent, title, width, height, x,
 		windowFlying:SetWidth(width)
 		windowFlying:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 		-- windowFlying:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-		windowFlying:SetLayer(18)
+		windowFlying:SetLayer(30)
 
   windowFlying.background = UI.CreateFrame("Texture", name .. "Background", windowFlying)
   windowFlying.background:SetPoint("TOPLEFT", windowFlying, "TOPLEFT", 0, 0)
@@ -74,7 +74,7 @@ function Dta.flying_ui.createWindowFlying(name, parent, title, width, height, x,
 end
 
 local FlyingWindowSettings = {
-  TITLE = "Tribal Magic",
+  TITLE = Lang[Dta.Language].Titles.TribalMagic,
   WIDTH = 300,
   HEIGHT = 270,
   CLOSABLE = true,
@@ -104,7 +104,7 @@ function Dta.flying_ui.buildFlyingWindow()
                                 Flyingwindow.DFlying:SetLayer(30)
                                 --Flyingwindow.DFlying:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-                                Flyingwindow.DFlying.placeButton = Dta.ui.createButton("DFlyingPlaceBtn", Flyingwindow.DFlying, 0, 95, nil, nil, "Place", nil, Dta.flying.PlaceFlying)
+                                Flyingwindow.DFlying.placeButton = Dta.ui.createButton("DFlyingPlaceBtn", Flyingwindow.DFlying, 0, 95, nil, nil, Lang[Dta.Language].Buttons.Place, nil, Dta.flying.PlaceFlying)
                                 Flyingwindow.DFlying.placeButton:SetLayer(100)
                                 if Dta.carpetId ~= "d" then
                                     Flyingwindow.DFlying.placeButton:SetEnabled(false)
@@ -112,7 +112,7 @@ function Dta.flying_ui.buildFlyingWindow()
                                     Flyingwindow.DFlying.placeButton:SetEnabled(true)
                                 end
 
-                                Flyingwindow.DFlying.pickupButton = Dta.ui.createButton("DFlyingPickUpBtn", Flyingwindow.DFlying, 0, 125, nil, nil, "Pick Up", nil, Dta.flying.PickUpFlying)
+                                Flyingwindow.DFlying.pickupButton = Dta.ui.createButton("DFlyingPickUpBtn", Flyingwindow.DFlying, 0, 125, nil, nil, Lang[Dta.Language].Buttons.PickUp, nil, Dta.flying.PickUpFlying)
                                 Flyingwindow.DFlying.pickupButton:SetLayer(100)
                                 if Dta.carpetId ~= "d" then
                                     Flyingwindow.DFlying.pickupButton:SetEnabled(true)

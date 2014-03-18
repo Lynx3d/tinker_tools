@@ -1,3 +1,8 @@
+Version 1.2.2.r18
+- Added Offset Calculator module.
+- Added Offset Calculator to help.
+- Added Dimension detection, so that DT can only be opened inside dimensions
+
 Version 1.2.1.r17
 - adjusted help to match new options in copy & paste
 

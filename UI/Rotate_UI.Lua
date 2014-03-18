@@ -1,4 +1,4 @@
-Dta.rotate_ui = {}
+﻿Dta.rotate_ui = {}
 
 -------------------------------
 -- BUILD THE DIMENSIONTOOLS RotateWINDOW
@@ -78,7 +78,7 @@ function Dta.rotate_ui.createWindowRotate(name, parent, title, width, height, x,
 end
 
 local RotateWindowSettings = {
-  TITLE = "Rotate Window",
+  TITLE = Lang[Dta.Language].Titles.Rotate,
   WIDTH = 315,
   HEIGHT = 140,
   CLOSABLE = true,
@@ -108,19 +108,19 @@ function Dta.rotate_ui.buildRotateWindow()
                                 Rotatewindow.modifyRotation:SetLayer(30)
                                 --Rotatewindow.modifyRotation:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-                                Rotatewindow.modifyRotation.yawLabel = Dta.ui.createText("modifyRotationYawLabel", Rotatewindow.modifyRotation, 0, 0, "Yaw:", 14, {0, 1, 0, 1})
-                                Rotatewindow.modifyRotation.pitchLabel = Dta.ui.createText("modifyRotationPitchLabel", Rotatewindow.modifyRotation, 100, 0, "Pitch:", 14, {1, 0, 0, 1})
-                                Rotatewindow.modifyRotation.rollLabel = Dta.ui.createText("modifyRotationRollLabel", Rotatewindow.modifyRotation, 205, 0, "Roll:", 14, {0, 1, 1, 1})
+                                Rotatewindow.modifyRotation.yawLabel = Dta.ui.createText("modifyRotationYawLabel", Rotatewindow.modifyRotation, 0, 0, Lang[Dta.Language].Text.Yaw, 14, {0, 1, 0, 1})
+                                Rotatewindow.modifyRotation.pitchLabel = Dta.ui.createText("modifyRotationPitchLabel", Rotatewindow.modifyRotation, 100, 0, Lang[Dta.Language].Text.Pitch, 14, {1, 0, 0, 1})
+                                Rotatewindow.modifyRotation.rollLabel = Dta.ui.createText("modifyRotationRollLabel", Rotatewindow.modifyRotation, 205, 0, Lang[Dta.Language].Text.Roll, 14, {0, 1, 1, 1})
 
                                 Rotatewindow.modifyRotation.yaw = Dta.ui.createTextfield("modifyRotationYaw", Rotatewindow.modifyRotation, 35, 0, 50)
                                 Rotatewindow.modifyRotation.pitch = Dta.ui.createTextfield("modifyRotationPitch", Rotatewindow.modifyRotation, 140, 0, 50)
                                 Rotatewindow.modifyRotation.roll = Dta.ui.createTextfield("modifyRotationRoll", Rotatewindow.modifyRotation, 240, 0, 50)
 
-                                Rotatewindow.modifyRotation.modeAbs = Dta.ui.createCheckbox("modifyRotationModeAbs", Rotatewindow.modifyRotation, 45, 30, "Absolute", true, nil, Dta.rotate.modifyRotationModeAbsChanged)
-                                Rotatewindow.modifyRotation.modeRel = Dta.ui.createCheckbox("modifyRotationModeRel", Rotatewindow.modifyRotation, 175, 30, "Relative", false, nil, Dta.rotate.modifyRotationModeRelChanged)
+                                Rotatewindow.modifyRotation.modeAbs = Dta.ui.createCheckbox("modifyRotationModeAbs", Rotatewindow.modifyRotation, 45, 30, Lang[Dta.Language].Text.Absolute, true, nil, Dta.rotate.modifyRotationModeAbsChanged)
+                                Rotatewindow.modifyRotation.modeRel = Dta.ui.createCheckbox("modifyRotationModeRel", Rotatewindow.modifyRotation, 175, 30, Lang[Dta.Language].Text.Relative, false, nil, Dta.rotate.modifyRotationModeRelChanged)
 
-                                Rotatewindow.modifyRotation.changeBtn = Dta.ui.createButton("modifyRotationBtn", Rotatewindow.modifyRotation, 0, 90, nil, nil, "Rotate", nil, Dta.rotate.modifyRotationButtonClicked)
-                                Rotatewindow.modifyRotation.resetBtn = Dta.ui.createButton("modifyRotationResetBtn", Rotatewindow.modifyRotation, 160, 90, nil, nil, "Reset", nil, Dta.rotate.modifyRotationResetButtonClicked)
+                                Rotatewindow.modifyRotation.changeBtn = Dta.ui.createButton("modifyRotationBtn", Rotatewindow.modifyRotation, 0, 90, nil, nil, Lang[Dta.Language].Buttons.Rotate, nil, Dta.rotate.modifyRotationButtonClicked)
+                                Rotatewindow.modifyRotation.resetBtn = Dta.ui.createButton("modifyRotationResetBtn", Rotatewindow.modifyRotation, 160, 90, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.rotate.modifyRotationResetButtonClicked)
 
   return Rotatewindow
 end

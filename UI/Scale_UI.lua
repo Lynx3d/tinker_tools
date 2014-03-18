@@ -1,4 +1,4 @@
-Dta.scale_ui = {}
+﻿Dta.scale_ui = {}
 
 -------------------------------
 -- BUILD THE DIMENSIONTOOLS SCALEWINDOW
@@ -78,7 +78,7 @@ function Dta.scale_ui.createWindowScale(name, parent, title, width, height, x, y
 end
 
 local ScaleWindowSettings = {
-  TITLE = "Scale Window",
+  TITLE = Lang[Dta.Language].Titles.Scale,
   WIDTH = 315,
   HEIGHT = 140,
   CLOSABLE = true,
@@ -109,15 +109,15 @@ function Dta.scale_ui.buildScaleWindow()
                                 Scalewindow.modifyScale:SetLayer(30)
                                 --Scalewindow.modifyScale:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-                                Scalewindow.modifyScale.label = Dta.ui.createText("modifyScaleLabel", Scalewindow.modifyScale, 75, 0, "Scale:", 14)
+                                Scalewindow.modifyScale.label = Dta.ui.createText("modifyScaleLabel", Scalewindow.modifyScale, 75, 0, Lang[Dta.Language].Text.Scale, 14)
 
                                 Scalewindow.modifyScale.scale = Dta.ui.createTextfield("modifyScaleScale", Scalewindow.modifyScale, 120, 0, 100)
 
-                                Scalewindow.modifyScale.modeAbs = Dta.ui.createCheckbox("modifyScaleModeAbs", Scalewindow.modifyScale, 45, 30, "Absolute", true, nil, Dta.scale.modifyScaleModeAbsChanged)
-                                Scalewindow.modifyScale.modeRel = Dta.ui.createCheckbox("modifyScaleModeRel", Scalewindow.modifyScale, 175, 30, "Relative", false, nil, Dta.scale.modifyScaleModeRelChanged)
+                                Scalewindow.modifyScale.modeAbs = Dta.ui.createCheckbox("modifyScaleModeAbs", Scalewindow.modifyScale, 45, 30, Lang[Dta.Language].Text.Absolute, true, nil, Dta.scale.modifyScaleModeAbsChanged)
+                                Scalewindow.modifyScale.modeRel = Dta.ui.createCheckbox("modifyScaleModeRel", Scalewindow.modifyScale, 175, 30, Lang[Dta.Language].Text.Relative, false, nil, Dta.scale.modifyScaleModeRelChanged)
 
-                                Scalewindow.modifyScale.changeBtn = Dta.ui.createButton("modifyScaleBtn", Scalewindow.modifyScale, 0, 90, nil, nil, "Scale", nil, Dta.scale.modifyScaleButtonClicked)
-                                Scalewindow.modifyScale.resetBtn = Dta.ui.createButton("modifyScaleResetBtn", Scalewindow.modifyScale, 160, 90, nil, nil, "Reset", nil, Dta.scale.modifyScaleResetButtonClicked)
+                                Scalewindow.modifyScale.changeBtn = Dta.ui.createButton("modifyScaleBtn", Scalewindow.modifyScale, 0, 90, nil, nil, Lang[Dta.Language].Buttons.Scale, nil, Dta.scale.modifyScaleButtonClicked)
+                                Scalewindow.modifyScale.resetBtn = Dta.ui.createButton("modifyScaleResetBtn", Scalewindow.modifyScale, 160, 90, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.scale.modifyScaleResetButtonClicked)
 
   return Scalewindow
 end

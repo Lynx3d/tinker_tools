@@ -1,4 +1,4 @@
-Dta.move_ui = {}
+﻿Dta.move_ui = {}
 
 -------------------------------
 -- BUILD THE DIMENSIONTOOLS MOVEWINDOW
@@ -78,7 +78,7 @@ function Dta.move_ui.createWindowMove(name, parent, title, width, height, x, y, 
 end
 
 local MoveWindowSettings = {
-  TITLE = "Move Window",
+  TITLE = Lang[Dta.Language].Titles.Move,
   WIDTH = 315,
   HEIGHT = 140,
   CLOSABLE = true,
@@ -109,22 +109,22 @@ function Dta.move_ui.buildMoveWindow()
                                 Movewindow.modifyPosition:SetLayer(30)
                                 --Movewindow.modifyPosition:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-                                Movewindow.modifyPosition.xLabel = Dta.ui.createText("modifyPositionXLabel", Movewindow.modifyPosition, 0, 0, "X:", 14, {1, 0, 0, 1})
-                                Movewindow.modifyPosition.yLabel = Dta.ui.createText("modifyPositionYLabel", Movewindow.modifyPosition, 110, 0, "Y:", 14, {0, 1, 0, 1})
-                                Movewindow.modifyPosition.zLabel = Dta.ui.createText("modifyPositionZLabel", Movewindow.modifyPosition, 220, 0, "Z:", 14, {0, 1, 1, 1})
+                                Movewindow.modifyPosition.xLabel = Dta.ui.createText("modifyPositionXLabel", Movewindow.modifyPosition, 0, 0, "X", 14, {1, 0, 0, 1})
+                                Movewindow.modifyPosition.yLabel = Dta.ui.createText("modifyPositionYLabel", Movewindow.modifyPosition, 110, 0, "Y", 14, {0, 1, 0, 1})
+                                Movewindow.modifyPosition.zLabel = Dta.ui.createText("modifyPositionZLabel", Movewindow.modifyPosition, 220, 0, "Z", 14, {0, 1, 1, 1})
 
                                 Movewindow.modifyPosition.x = Dta.ui.createTextfield("modifyPositionX", Movewindow.modifyPosition, 20, 0, 50)
                                 Movewindow.modifyPosition.y = Dta.ui.createTextfield("modifyPositionY", Movewindow.modifyPosition, 130, 0, 50)
                                 Movewindow.modifyPosition.z = Dta.ui.createTextfield("modifyPositionZ", Movewindow.modifyPosition, 240, 0, 50)
 
-                                Movewindow.modifyPosition.modeAbs = Dta.ui.createCheckbox("modifyPositionModeAbs", Movewindow.modifyPosition, 45, 30, "Absolute", true, nil, Dta.move.modifyPositionModeAbsChanged)
-                                Movewindow.modifyPosition.modeRel = Dta.ui.createCheckbox("modifyPositionModeRel", Movewindow.modifyPosition, 175, 30, "Relative", false, nil, Dta.move.modifyPositionModeRelChanged)
+                                Movewindow.modifyPosition.modeAbs = Dta.ui.createCheckbox("modifyPositionModeAbs", Movewindow.modifyPosition, 45, 30, Lang[Dta.Language].Text.Absolute, true, nil, Dta.move.modifyPositionModeAbsChanged)
+                                Movewindow.modifyPosition.modeRel = Dta.ui.createCheckbox("modifyPositionModeRel", Movewindow.modifyPosition, 175, 30, Lang[Dta.Language].Text.Relative, false, nil, Dta.move.modifyPositionModeRelChanged)
 
-                                Movewindow.modifyPosition.moveAsGrp = Dta.ui.createCheckbox("modifyPositionMoveAsGrp", Movewindow.modifyPosition, 95, 60, "Move as group", true)
+                                Movewindow.modifyPosition.moveAsGrp = Dta.ui.createCheckbox("modifyPositionMoveAsGrp", Movewindow.modifyPosition, 95, 60, Lang[Dta.Language].Text.MoveAsGroup, true)
                                 Movewindow.modifyPosition.moveAsGrp:SetVisible(false)
 
-                                Movewindow.modifyPosition.changeBtn = Dta.ui.createButton("modifyPositionBtn", Movewindow.modifyPosition, 0, 90, nil, nil, "Move", nil, Dta.move.modifyPositionButtonClicked)
-                                Movewindow.modifyPosition.resetBtn = Dta.ui.createButton("modifyPositionResetBtn", Movewindow.modifyPosition, 160, 90, nil, nil, "Reset", nil, Dta.move.modifyPositionResetButtonClicked)
+                                Movewindow.modifyPosition.changeBtn = Dta.ui.createButton("modifyPositionBtn", Movewindow.modifyPosition, 0, 90, nil, nil, Lang[Dta.Language].Buttons.Move, nil, Dta.move.modifyPositionButtonClicked)
+                                Movewindow.modifyPosition.resetBtn = Dta.ui.createButton("modifyPositionResetBtn", Movewindow.modifyPosition, 160, 90, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.move.modifyPositionResetButtonClicked)
 
 
 

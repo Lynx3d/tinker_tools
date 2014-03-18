@@ -119,18 +119,18 @@ end
 --------------------------------------
 
 function Dta.copa.copyItemAttributes()
-  if #Dta.selectedItems == 1 then
+  if Dta.losa.tableLength(Dta.selectedItems) == 1 then
     Dta.clipboard = {
-      type = Dta.selectedItems[1].type,
-      x = Dta.selectedItems[1].coordX,
-      y = Dta.selectedItems[1].coordY,
-      z = Dta.selectedItems[1].coordZ,
-      yaw = Dta.selectedItems[1].yaw,
-      pitch = Dta.selectedItems[1].pitch,
-      roll = Dta.selectedItems[1].roll,
-      scale = Dta.selectedItems[1].scale,
+      type = Dta.selectedItems[Dta.Key].type,
+      x = Dta.selectedItems[Dta.Key].coordX,
+      y = Dta.selectedItems[Dta.Key].coordY,
+      z = Dta.selectedItems[Dta.Key].coordZ,
+      yaw = Dta.selectedItems[Dta.Key].yaw,
+      pitch = Dta.selectedItems[Dta.Key].pitch,
+      roll = Dta.selectedItems[Dta.Key].roll,
+      scale = Dta.selectedItems[Dta.Key].scale,
     }
-  elseif #Dta.selectedItems > 1 then
+  elseif Dta.losa.tableLength(Dta.selectedItems) > 1 then
     print("Copy feature only works on single item selections at the moment")
   else
     print("Please select an item in order to copy attributes")
@@ -142,7 +142,7 @@ end
 --------------------------------------
 
 function Dta.copa.pasteMultipleItemAttributes(x, y, z, yaw, pitch, roll, scale, xOffset, yOffset, zOffset, yawOffset, pitchOffset, rollOffset, scaleOffset, multiplyOffset)
-  if #Dta.selectedItems > 0 then
+  if Dta.losa.tableLength(Dta.selectedItems) > 0 then
 
     if xOffset == nil or xOffset == "" or not x then xOffset = 0 end
     if yOffset == nil or yOffset == "" or not y then yOffset = 0 end

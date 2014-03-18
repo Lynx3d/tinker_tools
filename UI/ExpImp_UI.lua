@@ -6,7 +6,7 @@ function Dta.expimp_ui.createWindowExpImp(name, parent, title, width, height, x,
 		windowExpImp:SetWidth(width)
 		windowExpImp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 		-- windowExpImp:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-		windowExpImp:SetLayer(15)
+		windowExpImp:SetLayer(20)
 
   windowExpImp.background = UI.CreateFrame("Texture", name .. "Background", windowExpImp)
   windowExpImp.background:SetPoint("TOPLEFT", windowExpImp, "TOPLEFT", 0, 0)
@@ -74,7 +74,7 @@ function Dta.expimp_ui.createWindowExpImp(name, parent, title, width, height, x,
 end
 
 local ExpImpWindowSettings = {
-  TITLE = "Import / Export Sets",
+  TITLE = Lang[Dta.Language].Titles.ImportExport,
   WIDTH = 325,
   HEIGHT = 190,
   CLOSABLE = true,
@@ -104,30 +104,32 @@ function Dta.expimp_ui.buildExpImpWindow()
                                 ExpImpwindow.ImportExport:SetLayer(30)
                                 --ExpImpwindow.ImportExport:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-                                ExpImpwindow.ImportExport.ExportSavedCheckbox = Dta.ui.createCheckbox("ExportSavedCheckbox", ExpImpwindow.ImportExport, 55, 0, "Saved Sets", true, nil, Dta.expimp.ExportSavedCheckboxChanged)
-                                ExpImpwindow.ImportExport.ExportTbxCheckbox = Dta.ui.createCheckbox("ExportTbxCheckbox", ExpImpwindow.ImportExport, 155, 0, "Tbx Sets", false, nil, Dta.expimp.ExportTbxCheckboxChanged)
+                                ExpImpwindow.ImportExport.ExportSavedCheckbox = Dta.ui.createCheckbox("ExportSavedCheckbox", ExpImpwindow.ImportExport, 55, 0, Lang[Dta.Language].Text.SavedSets, true, nil, Dta.expimp.ExportSavedCheckboxChanged)
+                                ExpImpwindow.ImportExport.ExportTbxCheckbox = Dta.ui.createCheckbox("ExportTbxCheckbox", ExpImpwindow.ImportExport, 155, 0, Lang[Dta.Language].Text.TbxSets, false, nil, Dta.expimp.ExportTbxCheckboxChanged)
 
 
-                                ExpImpwindow.ImportExport.ExportLabel = Dta.ui.createText("ImportExportExportLabel", ExpImpwindow.ImportExport, 0, 25, "Name:", 14)
+                                ExpImpwindow.ImportExport.ExportLabel = Dta.ui.createText("ImportExportExportLabel", ExpImpwindow.ImportExport, 0, 25, Lang[Dta.Language].Text.Name, 14)
                                 ExpImpwindow.ImportExport.ExportLoad = UI.CreateFrame("SimpleSelect", "ExportNameSelect", ExpImpwindow.ImportExport)
                                 ExpImpwindow.ImportExport.ExportLoad:SetPoint("TOPLEFT", ExpImpwindow.ImportExport, "TOPLEFT", 55, 25)
                                 ExpImpwindow.ImportExport.ExportLoad:SetLayer(100)
                                 ExpImpwindow.ImportExport.ExportLoad:SetItems(Dta.expimp.loadExport())
                                 ExpImpwindow.ImportExport.ExportLoad:ResizeToFit()
                                 ExpImpwindow.ImportExport.ExportLoad:SetWidth(245)
-                                ExpImpwindow.ImportExport.Export = Dta.ui.createButton("ImportExport_Export", ExpImpwindow.ImportExport, 0, 50, nil, nil, "Export", nil, Dta.expimp.ImportExport_ExportClicked)
+                                ExpImpwindow.ImportExport.ExportLoad:SetEnabled(true)
+                                ExpImpwindow.ImportExport.Export = Dta.ui.createButton("ImportExport_Export", ExpImpwindow.ImportExport, 0, 50, nil, nil, Lang[Dta.Language].Buttons.Export, nil, Dta.expimp.ImportExport_ExportClicked)
 
                                 ExpImpwindow.divider5 = Dta.ui.createTexture("divider5", ExpImpwindow, "Dimtools", "textures/divider.png", 10, 95, ExpImpwindow:GetWidth()-10)
                                 ExpImpwindow.divider5:SetLayer(29)
 
-                                ExpImpwindow.ImportExport.ImportLabel = Dta.ui.createText("ImportExportImportLabel", ExpImpwindow.ImportExport, 0, 110, "Name:", 14)
+                                ExpImpwindow.ImportExport.ImportLabel = Dta.ui.createText("ImportExportImportLabel", ExpImpwindow.ImportExport, 0, 110, Lang[Dta.Language].Text.Name, 14)
                                 ExpImpwindow.ImportExport.ImportLoad = UI.CreateFrame("SimpleSelect", "ImportNameSelect", ExpImpwindow.ImportExport)
                                 ExpImpwindow.ImportExport.ImportLoad:SetPoint("TOPLEFT", ExpImpwindow.ImportExport, "TOPLEFT", 55, 110)
                                 ExpImpwindow.ImportExport.ImportLoad:SetLayer(101)
                                 ExpImpwindow.ImportExport.ImportLoad:SetItems(Dta.expimp.loadImport())
                                 ExpImpwindow.ImportExport.ImportLoad:ResizeToFit()
                                 ExpImpwindow.ImportExport.ImportLoad:SetWidth(245)
-                                ExpImpwindow.ImportExport.Import = Dta.ui.createButton("ImportExport_Import", ExpImpwindow.ImportExport, 0, 135, nil, nil, "Import", nil, Dta.expimp.ImportExport_ImportClicked)
+                                ExpImpwindow.ImportExport.ImportLoad:SetEnabled(true)
+                                ExpImpwindow.ImportExport.Import = Dta.ui.createButton("ImportExport_Import", ExpImpwindow.ImportExport, 0, 135, nil, nil, Lang[Dta.Language].Buttons.Import, nil, Dta.expimp.ImportExport_ImportClicked)
 
 
   return ExpImpwindow
@@ -148,6 +150,8 @@ end
 -- Hide the toolbox window
 function Dta.expimp_ui.hideExpImpWindow()
   Dta.ui.windowExpImp:SetVisible(false)
+  Dta.ui.windowExpImp.ImportExport.ExportLoad:SetEnabled(false)
+  Dta.ui.windowExpImp.ImportExport.ImportLoad:SetEnabled(false)
   Dta.ui.windowExpImp = nil
   Dta.ui.activeExpImp = false
 

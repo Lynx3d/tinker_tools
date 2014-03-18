@@ -36,7 +36,7 @@ end
 --------------------------------------
 
 function Dta.rotate.setItemRotations(yaw, pitch, roll, relative)
-  if #Dta.selectedItems > 0 then
+  if Dta.losa.tableLength(Dta.selectedItems) > 0 then
     Dta.rotate.Co_RotateItem = coroutine.create(function ()
         for k, details in pairs(Dta.selectedItems) do
             Dta.rotate.setItemRotation(k, yaw, pitch, roll, relative)
@@ -51,7 +51,7 @@ end
 --------------------------------------
 
 function Dta.rotate.resetItemRotations()
-  if #Dta.selectedItems > 0 then
+  if Dta.losa.tableLength(Dta.selectedItems) > 0 then
     Dta.rotate.Co_RotateItemReset = coroutine.create(function ()
         for k, details in pairs(Dta.selectedItems) do
             Dta.rotate.setItemRotation(k, 0, 0, 0, false)

@@ -14,134 +14,42 @@ Dta.Help = {}
             local InfoEmpty = ""
             local InfoPosition = 0
 
-            if InfoLabel ~= "" and InfoText01 == "" and InfoText02 == "" and InfoText03 == "" and InfoPic01 == ""  and InfoPic02 == ""  and InfoPic03 == "" then
-                Dta.ui.windowHelp.HeaderInfo:SetFontSize(30)
-                Dta.ui.windowHelp.HeaderInfo:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, 0)
-                Dta.ui.windowHelp.HeaderInfo:SetText("<u>"..InfoLabel.."</u>", true)
+            Dta.ui.windowHelp.HeaderInfo:SetFontSize(30)
+            Dta.ui.windowHelp.HeaderInfo:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, 0)
+            Dta.ui.windowHelp.HeaderInfo:SetText("<u>"..InfoLabel.."</u>", true)
 
-                --Empy fields to clear on switching
-                Dta.ui.windowHelp.TextInfo01:SetText(InfoEmpty, true)
-                Dta.ui.windowHelp.TextInfo02:SetText(InfoEmpty, true)
-                Dta.ui.windowHelp.TextInfo03:SetText(InfoEmpty, true)
-                Dta.ui.windowHelp.PicInfo01:SetTexture("Dimtools", "textures/"..InfoEmpty)
-                Dta.ui.windowHelp.PicInfo02:SetTexture("Dimtools", "textures/"..InfoEmpty)
-                Dta.ui.windowHelp.PicInfo03:SetTexture("Dimtools", "textures/"..InfoEmpty)
+            InfoPosition = InfoPosition + Dta.ui.windowHelp.HeaderInfo:GetHeight() + 20
 
-            elseif InfoLabel ~= "" and InfoText01 ~= "" and InfoText02 == "" and InfoText03 == "" and InfoPic01 == ""  and InfoPic02 == ""  and InfoPic03 == "" then
-                Dta.ui.windowHelp.HeaderInfo:SetFontSize(30)
-                Dta.ui.windowHelp.HeaderInfo:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, 0)
-                Dta.ui.windowHelp.HeaderInfo:SetText("<u>"..InfoLabel.."</u>", true)
+            Dta.ui.windowHelp.TextInfo01:SetFontSize(15)
+            Dta.ui.windowHelp.TextInfo01:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
+            Dta.ui.windowHelp.TextInfo01:SetText(InfoText01, true)
 
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.HeaderInfo:GetHeight() + 20
+            InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo01:GetHeight() + 20
 
-                Dta.ui.windowHelp.TextInfo01:SetFontSize(15)
-                Dta.ui.windowHelp.TextInfo01:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.TextInfo01:SetText(InfoText01, true)
+            Dta.ui.windowHelp.PicInfo01:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
+            Dta.ui.windowHelp.PicInfo01:SetTexture("Dimtools", "textures/"..InfoPic01)
 
-                --Empy fields to clear on switching
-                Dta.ui.windowHelp.TextInfo02:SetText(InfoEmpty, true)
-                Dta.ui.windowHelp.TextInfo03:SetText(InfoEmpty, true)
-                Dta.ui.windowHelp.PicInfo01:SetTexture("Dimtools", "textures/"..InfoEmpty)
-                Dta.ui.windowHelp.PicInfo02:SetTexture("Dimtools", "textures/"..InfoEmpty)
-                Dta.ui.windowHelp.PicInfo03:SetTexture("Dimtools", "textures/"..InfoEmpty)
+            InfoPosition = InfoPosition + Dta.ui.windowHelp.PicInfo01:GetHeight() + 20
 
-            elseif InfoLabel ~= "" and InfoText01 ~= "" and InfoText02 ~= "" and InfoText03 == "" and InfoPic01 ~= ""  and InfoPic02 == ""  and InfoPic03 == "" then
-                Dta.ui.windowHelp.HeaderInfo:SetFontSize(30)
-                Dta.ui.windowHelp.HeaderInfo:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, 0)
-                Dta.ui.windowHelp.HeaderInfo:SetText("<u>"..InfoLabel.."</u>", true)
+            Dta.ui.windowHelp.TextInfo02:SetFontSize(15)
+            Dta.ui.windowHelp.TextInfo02:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
+            Dta.ui.windowHelp.TextInfo02:SetText(InfoText02, true)
 
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.HeaderInfo:GetHeight() + 20
+            InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo02:GetHeight() + 20
 
-                Dta.ui.windowHelp.TextInfo01:SetFontSize(15)
-                Dta.ui.windowHelp.TextInfo01:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.TextInfo01:SetText(InfoText01, true)
+            Dta.ui.windowHelp.PicInfo02:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
+            Dta.ui.windowHelp.PicInfo02:SetTexture("Dimtools", "textures/"..InfoPic02)
 
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo01:GetHeight() + 20
+            InfoPosition = InfoPosition + Dta.ui.windowHelp.PicInfo02:GetHeight() + 20
 
-                Dta.ui.windowHelp.PicInfo01:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.PicInfo01:SetTexture("Dimtools", "textures/"..InfoPic01)
+            Dta.ui.windowHelp.TextInfo03:SetFontSize(15)
+            Dta.ui.windowHelp.TextInfo03:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
+            Dta.ui.windowHelp.TextInfo03:SetText(InfoText03, true)
 
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.PicInfo01:GetHeight() + 20
+            InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo03:GetHeight() + 20
 
-                Dta.ui.windowHelp.TextInfo02:SetFontSize(15)
-                Dta.ui.windowHelp.TextInfo02:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.TextInfo02:SetText(InfoText02, true)
-
-                --Empy fields to clear on switching
-                Dta.ui.windowHelp.TextInfo03:SetText(InfoEmpty, true)
-                Dta.ui.windowHelp.PicInfo02:SetTexture("Dimtools", "textures/"..InfoEmpty)
-                Dta.ui.windowHelp.PicInfo03:SetTexture("Dimtools", "textures/"..InfoEmpty)
-
-            elseif InfoLabel ~= "" and InfoText01 ~= "" and InfoText02 ~= "" and InfoText03 ~= "" and InfoPic01 ~= ""  and InfoPic02 ~= ""  and InfoPic03 ~= "" then
-                Dta.ui.windowHelp.HeaderInfo:SetFontSize(30)
-                Dta.ui.windowHelp.HeaderInfo:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, 0)
-                Dta.ui.windowHelp.HeaderInfo:SetText("<u>"..InfoLabel.."</u>", true)
-
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.HeaderInfo:GetHeight() + 20
-
-                Dta.ui.windowHelp.TextInfo01:SetFontSize(15)
-                Dta.ui.windowHelp.TextInfo01:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.TextInfo01:SetText(InfoText01, true)
-
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo01:GetHeight() + 20
-
-                Dta.ui.windowHelp.PicInfo01:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.PicInfo01:SetTexture("Dimtools", "textures/"..InfoPic01)
-
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.PicInfo01:GetHeight() + 20
-
-                Dta.ui.windowHelp.TextInfo02:SetFontSize(15)
-                Dta.ui.windowHelp.TextInfo02:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.TextInfo02:SetText(InfoText02, true)
-
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo02:GetHeight() + 20
-
-                Dta.ui.windowHelp.PicInfo02:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.PicInfo02:SetTexture("Dimtools", "textures/"..InfoPic02)
-
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.PicInfo02:GetHeight() + 20
-
-                Dta.ui.windowHelp.TextInfo03:SetFontSize(15)
-                Dta.ui.windowHelp.TextInfo03:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.TextInfo03:SetText(InfoText03, true)
-
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo03:GetHeight() + 20
-
-                Dta.ui.windowHelp.PicInfo03:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.PicInfo03:SetTexture("Dimtools", "textures/"..InfoPic03)
-
-            elseif InfoLabel ~= "" and InfoText01 ~= "" and InfoText02 ~= "" and InfoText03 == "" and InfoPic01 ~= ""  and InfoPic02 ~= ""  and InfoPic03 == "" then
-                Dta.ui.windowHelp.HeaderInfo:SetFontSize(30)
-                Dta.ui.windowHelp.HeaderInfo:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, 0)
-                Dta.ui.windowHelp.HeaderInfo:SetText("<u>"..InfoLabel.."</u>", true)
-
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.HeaderInfo:GetHeight() + 20
-
-                Dta.ui.windowHelp.TextInfo01:SetFontSize(15)
-                Dta.ui.windowHelp.TextInfo01:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.TextInfo01:SetText(InfoText01, true)
-
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo01:GetHeight() + 20
-
-                Dta.ui.windowHelp.PicInfo01:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.PicInfo01:SetTexture("Dimtools", "textures/"..InfoPic01)
-
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.PicInfo01:GetHeight() + 20
-
-                Dta.ui.windowHelp.TextInfo02:SetFontSize(15)
-                Dta.ui.windowHelp.TextInfo02:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.TextInfo02:SetText(InfoText02, true)
-
-                InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo02:GetHeight() + 20
-
-                Dta.ui.windowHelp.PicInfo02:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-                Dta.ui.windowHelp.PicInfo02:SetTexture("Dimtools", "textures/"..InfoPic02)
-
-                --Empy fields to clear on switching
-                Dta.ui.windowHelp.TextInfo03:SetText(InfoEmpty, true)
-                Dta.ui.windowHelp.PicInfo03:SetTexture("Dimtools", "textures/"..InfoEmpty)
-
-            end
+            Dta.ui.windowHelp.PicInfo03:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
+            Dta.ui.windowHelp.PicInfo03:SetTexture("Dimtools", "textures/"..InfoPic03)
 
             local HeaderHeight = Dta.ui.windowHelp.HeaderInfo:GetHeight()
             local Text01Height = Dta.ui.windowHelp.TextInfo01:GetHeight()
@@ -156,18 +64,19 @@ Dta.Help = {}
     end
 
     Dta.Help.helpIndex = {
-		"Intro",
-		"Main",
-		"Move",
-		"Rotate",
-		"Scale",
-		"Copy and Paste",
-		"Load and Save",
-		"Import and Export",
-		"Tribal Magic",
-		"Chance Log",
-		"ToDo List",
-		"Afterword"
+		Lang[Dta.Language].Intro.Label,
+		Lang[Dta.Language].Main.Label,
+		Lang[Dta.Language].Move.Label,
+		Lang[Dta.Language].Rotate.Label,
+		Lang[Dta.Language].Scale.Label,
+		Lang[Dta.Language].CopyandPaste.Label,
+		Lang[Dta.Language].LoadandSave.Label,
+		Lang[Dta.Language].ImportandExport.Label,
+		Lang[Dta.Language].TribalMagic.Label,
+		Lang[Dta.Language].OffsetCalc.Label,
+		Lang[Dta.Language].ChanceLog.Label,
+		Lang[Dta.Language].ToDoList.Label,
+		Lang[Dta.Language].Afterword.Label
 	}
 
 	Dta.Help.helpTopic = {} --{label = "", text = ""}
@@ -176,10 +85,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[1]] = {
 		{
-		label = "Intro",
-		text01 = "Hello Dimensioneers,\n\nI am Kikimora, add-on programmer and dimension builder who has always liked\nusing Dimension Toolbox by Arkzy.\n\nOver the months our game of Rift has changed so inspired by Dimension Toolbox\nand with the expertise and support of the members of Rift Dream Dimensions I \nmanaged to create Dimension Tools. I hope you will enjoy Dtools as much as I\nenjoyed making it.\n\nThe following is a simplified check list of what Dimension Tools offers:\n\n<u>Dimension Tools Features:</u>\n- Dimension Tools is smaller giving  more space on your screen when building\n  in your dimensions. All the tools can be brought up by clicking on the buttons\n  provided in the main window.\n\n- With Dimension Tools you can move, scale and rotate hundreds of items at once\n  without any problems. (Though you must keep in mind the more items you use\n  the longer it takes to finish processing it.)\n\n- With the Copy/Paste option in Dimension Tools you can copy 1 item and place\n  multiple copies of it in your dimension with or without offset directly from your\n  bags, bank or both.\n\n- With the new Load/Save feature you can now choose between using one of the\n  default sets or your own saved sets. A nice new feature to the Load/Save feature\n  is that you can save a set and place multiple copies of it at once with an offset on\n  the X, Y or X axis.\n\n- The new Import/Export feature allows you to export sets you made to a file and\n  share that with your friends by just sending them the file. On their turn they can\n  then import the set or even multiple sets to their own saved sets.\n\nWith the RDD team we will continue testing possible new features and ensuring \ncurrent ones continue to work well as Rift evolves.!\n\nThanks and have fun building Dream Dimensions!\n",
-		text02 = "",
-		text03 = "",
+		label = Lang[Dta.Language].Intro.Label,
+		text01 = Lang[Dta.Language].Intro.Text1,
+		text02 = Lang[Dta.Language].Intro.Text2,
+		text03 = Lang[Dta.Language].Intro.Text3,
 		pic01 = "",
 		pic02 = "",
 		pic03 = ""
@@ -188,10 +97,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[2]] = {
 		{
-		label = "Main",
-		text01 = "The main window is where it all starts. This is the only window visible by default\nand will hold the basic information about the items along with the buttons to\nopen up all the other tools in Dimension Tools.",
-		text02 = "<u>Buttons:</u>\n- ?: Opens up this help window.\n- Move Window: Opens up a window for the  Move tools.\n- Rotate Window: Opens up a window for the Rotate Tools.\n- Scale Window: Opens up a window for the Scale Tools.\n- Copy / Paste: Opens up a window for the Copy and Paste Tools.\n- Load / Save: Opens up a window for the Load and Save Tools.\n- Import / Export: Opens up a window for the Import and Export Tools.\n- Tribal Magic: Opens up a window for Tribal Magic.",
-		text03 = "",
+		label = Lang[Dta.Language].Main.Label,
+		text01 = Lang[Dta.Language].Main.Text1,
+		text02 = Lang[Dta.Language].Main.Text2,
+		text03 = Lang[Dta.Language].Main.Text3,
 		pic01 = "Main_window.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -200,10 +109,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[3]] = {
 		{
-		label = "Move",
-		text01 = "The Move Window is where you set the positions of the selected item(s).",
-		text02 = "<u>Descriptions:</u>\n- X: Sets the coordinates for the X axis.\n- Y: Sets the coordinates for the Y axis.\n- Z: Sets the coordinates for the Z axis.\n- Absolute: Moves the item(s) to the coordinates set in X,Y,Z.\n- Relative: Moves the item(s) with an offset from current position by the numbers\n  set in X,Y,Z.\n- Move: Starts the moving of the item(s).\n- Reset: Resets the item(s) to your current position.\n",
-		text03 = "",
+		label = Lang[Dta.Language].Move.Label,
+		text01 = Lang[Dta.Language].Move.Text1,
+		text02 = Lang[Dta.Language].Move.Text2,
+		text03 = Lang[Dta.Language].Move.Text3,
 		pic01 = "Move_Window.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -212,10 +121,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[4]] = {
 		{
-		label = "Rotate",
-		text01 = "The Rotate Window is where you set the Rotation of the selected item(s).\nHere I have to start with some information about rotation in add-ons, so far in\nthe add-on I have not been able to find a way to actually get group rotation done.\nSo even though it can handle a lot of items at once they will all get the same\nrotation done on each item and will not be rotated as a group.",
-		text02 = "<u>Descriptions:</u>\n- Yaw: Sets the Rotation over the Yaw axis.\n- Pitch: Sets the Rotation over the Pitch axis.\n- Roll: Sets the Rotation over the Roll axis.\n- Absolute: Sets the item(s) Rotation to the exact numbers you put in Yaw, Pitch\n  and Roll.\n- Relative: Rotates the item(s) with the numbers you set in Yaw, Pitch and Roll\n  from the current rotation. So if current rotation is 20 degrees Yaw and you put 20\n  degrees in the Yaw box it will end up having a rotation of 40 degrees.\n- Rotate: Starts the rotation of the item(s).\n- Reset: Resets the item(s) rotation to Yaw, Pitch, Roll / 0, 0, 0.\n",
-		text03 = "",
+		label = Lang[Dta.Language].Rotate.Label,
+		text01 = Lang[Dta.Language].Rotate.Text1,
+		text02 = Lang[Dta.Language].Rotate.Text2,
+		text03 = Lang[Dta.Language].Rotate.Text3,
 		pic01 = "Rotate_Window.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -224,10 +133,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[5]] = {
 		{
-		label = "Scale",
-		text01 = "The Scale Window is where you set the Scale of the selected item(s).",
-		text02 = "<u>Descriptions:</u>\n- Scale: Sets the Scale for the selected item(s).\n- Absolute: Sets the Scale of the item(s) to the exact number you put in\n- Relative: Sets the Scale of the item(s) to the current Scale plus the number you\n  put in.\n- Scale: Starts the Scaling of the item(s).\n- Reset: Resets the item(s) Scale to 1.",
-		text03 = "",
+		label = Lang[Dta.Language].Scale.Label,
+		text01 = Lang[Dta.Language].Scale.Text1,
+		text02 = Lang[Dta.Language].Scale.Text2,
+		text03 = Lang[Dta.Language].Scale.Text3,
 		pic01 = "Scale_Window.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -236,10 +145,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[6]] = {
 		{
-		label = "Copy and Paste",
-		text01 = "The Copy / Paste Items window can be used to copy the stats of an item and\ntransfer those stats to other items in your dimension or place multiple copies of\nthe item in your dimension from your bags or bank. You can do this with or\nwithout a offset.",
-		text02 = "You can disable and enable any of the offsets by clicking the selection box in front\nof the text fields. By doing this you can choose what stats are transferred to the\nother item(s).\n\n<u>Descriptions:</u>\n- Offset X, Y, Z: Sets the offset for the X, Y, Z axis for the item(s) you have selected\n  to transfer the stats to or want to place new in your dimension.\n- Offset Yaw, Pitch, Roll: Sets the rotation offset over the Yaw, Pitch, Roll axis for\n  the item(s) you have selected to transfer the stats to or want to place new in your\n  dimension.\n- Offset Scale: Sets the Scale for the item(s) you have selected to transfer the stats\n  to or want to place new in your dimension.\n- Copy: Copies the stats of the item you have selected.\n- Paste: Pastes the stats of the copied item to the item(s) you have selected or\n  places the new item(s) from your bags or bank in your dimension.\n- Offset multiple items: Makes it possible to paste an offset to all selected items or\n  new items you place. Each time it takes the stats of the last placed item and\n  applies the offset to the next item in row. Can be used to for example create a\n  wall or well designed patterns.\n- Use New Item: Activates the possibility to place new items from your bags or\n  bank into your dimension.",
-		text03 = "<u>Descriptions of new options:</u>\n- Bags: Will set it so that only items from your bags are taken to place as new\n  items.\n- Bank Bags: Will set it so that only items from your bank bags are taken to place\n  as new items.\n- Vaults: Will set it so that only items from your bank vaults are taken to place\n  as new items.\n- Nr. of Items (As seen in the picture below): This will be showing up when both\n  Offset multiple items and Use New Item is activated. This gives you the possibility\n  to paste in multiple new items from your bags or bank. It will check if you have\n  enough items to place if not then it will say how many items you can max place.",
+		label = Lang[Dta.Language].CopyandPaste.Label,
+		text01 = Lang[Dta.Language].CopyandPaste.Text1,
+		text02 = Lang[Dta.Language].CopyandPaste.Text2,
+		text03 = Lang[Dta.Language].CopyandPaste.Text3,
 		pic01 = "Copy_Window_01.jpg",
 		pic02 = "Copy_Window_02.jpg",
 		pic03 = "Copy_Window_03.jpg"
@@ -248,10 +157,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[7]] = {
 		{
-		label = "Load and Save",
-		text01 = "The Load / Save Sets window is all about saving the sets you created to be able\nto load them up on other places in your dimension or in other dimensions you\nhave.",
-		text02 = "<u>Descriptions:</u>\n- Name (Textbox):  Here you set the name for the set you want to save.\n- Save Set: Saves the set to file.\n- Default Sets: Gives you the possibility to load the default sets provided by\n  me and the rest of the RiftDreamDimensions team. These sets are tools\n  created to aid you in your creativity.\n\n  For a detailed guide on how to use these tools you can go to\n  http://RiftDreamDimensions.com and take a look at the\n  Dimension Tools PDF file.\n\n- Saved Sets : Gives you the possibility to load your own made sets into your\n  Dimensions.\n- Tbx Sets: Gives you the possibility to load your old Toolbox Sets, explanation on\n  how that works you find later in this help.\n- Name (Drop box): A list of all the saved items. Depending on if you have chosen\n  Default Sets or Saved Sets the drop box will go to different lists.\n- Load Set: Loads the selected set into your dimension using items you have\n  selected in your dimension or using items from your bags.\n- Print Materials: Print out a list of items needed for the selected set.\n- Load New Items: Makes it possible to load the set using items from your bags.\n\nThe following items will only be active when Saved Sets or Tbx Sets are activated.\n- Remove Set: Removes the selected set from your saved list (only Saved Sets) .\n- Load at original location: If this is selected the set will be loaded with the stats it\n  was originally saved with. Otherwise the set will be loaded close to your current\n  position.\n- Place Multiple Copies Of Set: This activates the possibility to load multiple copies\n  of your set into your dimension and set a X, Y or Z offset between the placed sets.\n\nThe options used for this are shown in the picture below here.\n- Nr. Copies: Lets you set how many copies of the set you want to place in your\n  dimension.\n-X: Sets the X offset.\n-Y: Sets the Y offset.\n-Z: Sets the Z offset.",
-		text03 = "Tbx Sets is somewhat special. By default that set is empty, but for old Dimension\nToolbox users this is a way to get your sets that you made with Dimension Toolbox\nto work within Dimension Tools as well.\n\nTo get your old sets loaded into Dimension Tools you need to do the following:\n1: Locate the tbx.lua File, found under:\n   /Users/[YourName]/Documents/RIFT/Interface/Saved/[YourRiftAccount]\n   /SavedVariables\n2: Copy the file txb.lua into the same directory.\n3: Rename the new file to tbx_Import.lua\n4: Now start up rift and you should have all your old Dimension Toolbox Sets there\n   to load up and place in your dimensions.\n\nBe aware you will not be able to remove any of the sets loaded under Tbx Sets, so\nI highly recommend that before you copy and rename the file go to Dimension\nToolbox and delete all sets you don’t want to use in Dimension Tools.",
+		label = Lang[Dta.Language].LoadandSave.Label,
+		text01 = Lang[Dta.Language].LoadandSave.Text1,
+		text02 = Lang[Dta.Language].LoadandSave.Text2,
+		text03 = Lang[Dta.Language].LoadandSave.Text3,
 		pic01 = "Load_Window_01.jpg",
 		pic02 = "Load_Window_02.jpg",
 		pic03 = "Load_Window_03.jpg"
@@ -260,10 +169,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[8]] = {
 		{
-		label = "Import and Export",
-		text01 = "The Import / Export Sets window is all about sharing your sets with other friends\nin the game.\nThe sets will be saved in and loaded from a file called: Dimtools_Export.lua\nThe file can be found under: \n/Users/[YourName]/Documents/RIFT/Interface/Saved/SavedVariables",
-		text02 = "<u>Descriptions:</u>\n- Saved Sets: Sets the first drop box to your Dimension Tools Sets.\n- Tbx Sets: Sets the first drop box to your Toolbox Sets.\n- Name (First drop box): Here you can select any of your own saved sets to export\n  to file.\n- Export: Exports the selected set to file.\n- Name (Second drop box): Here you can select any of the sets saved in the export\n  File.\n- Import: Imports the selected set to your own saved sets list and then removes\n  the set from the export file.\n\nTo give a set or multiple sets you have to export the sets and then\nlogout or type [/reloadui] in the chat to save the file.  After that you can send the\nDimtools_Export.lua file located at:\n/Users/[YourName]/Documents/RIFT/Interface/Saved/SavedVariables\n\nWhen you recieve a set or multiple sets in a  Dimtools_Export.lua file you have to\ncopy it into the SavedVariables directory found under:\n/Users/[YourName]/Documents/RIFT/Interface/Saved/SavedVariables\nThen start the game and then you can use the import option to get the set or sets\nin your saved sets. Keep in mind you can NOT copy the file into the directory if you\nare logged into the game. The game does NOT allow overwriting of files when you\nare logged in.",
-		text03 = "",
+		label = Lang[Dta.Language].ImportandExport.Label,
+		text01 = Lang[Dta.Language].ImportandExport.Text1,
+		text02 = Lang[Dta.Language].ImportandExport.Text2,
+		text03 = Lang[Dta.Language].ImportandExport.Text3,
 		pic01 = "Import_Window.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -272,10 +181,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[9]] = {
 		{
-		label = "Tribal Magic",
-		text01 = "Tribal Magic is the Magic Carpet addon made by AladdinRift integrated into\nDimension Tools with only a small adjustment to the items it uses. Instead of using\nan Ogre Rug I went for the smaller Round Tribal Table to give you more room to\nlook around without seeing the edges of the item you fly on.",
-		text02 = "<u>Descriptions:</u>\n- Place: places the Round Tribal Table in your dimension for flying.\n- Pick up: Picks up the Round Tribal Table from your dimension.\n- 0: Levels out the Round Tribal Table, so you can move around on the altitude you\n  currently are.\n- +1 to +4: Change the angle of the Round Tribal Table. The higher the number the\n  faster you will go Up (+) in your dimension.\n- -1 to -4: Change the angle of the Round Tribal Table. The lower the number the\n  faster you will go Down (-)in your dimension.",
-		text03 = "",
+		label = Lang[Dta.Language].TribalMagic.Label,
+		text01 = Lang[Dta.Language].TribalMagic.Text1,
+		text02 = Lang[Dta.Language].TribalMagic.Text2,
+		text03 = Lang[Dta.Language].TribalMagic.Text3,
 		pic01 = "Flying_Window.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -284,11 +193,11 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[10]] = {
 		{
-		label = "Chance Log",
-		text01 = "Version 1.2.1.r17\n- adjusted help to match new options in copy & paste\n\nVersion 1.2.0.r16\n- Rewrote Central point calculations.\n- Made some small changes in Tribal Magic, to improve performance.\n\nVersion 1.2.0.r15\n- Changed: The options Bags, Bank, Both under Copy/Paste to Bags, Bank Bags,\n  Vaults. This to give a more precise choice of where to take the items from.\n- Added a counter to the main menu for selected items, you can now see how\n  many items you have selected.\n\nVersion 1.2.0\n- Implemented the Magic Carpet addon into Dimension Tools under the name\n  Tribal Magic.\n\nVersion 1.1.5.r12\n- Made changes to handle the items in dimensions better.\n- Changed the way old Toolbox Sets are handled. It is no longer needed to\n  copy the Toolbox saved variable to the Dimension Tools directory. You\n  can now just rename the file to tbx_Import.lua\n- Updated the help.\n",
-		text02 = "",
-		text03 = "",
-		pic01 = "",
+		label = Lang[Dta.Language].OffsetCalc.Label,
+		text01 = Lang[Dta.Language].OffsetCalc.Text1,
+		text02 = Lang[Dta.Language].OffsetCalc.Text2,
+		text03 = Lang[Dta.Language].OffsetCalc.Text3,
+		pic01 = "Offset_Calc_Window.jpg",
 		pic02 = "",
 		pic03 = ""
 		}
@@ -296,10 +205,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[11]] = {
 		{
-		label = "ToDo List",
-		text01 = "This is only the first release of Dimension Tools. Along the way I will add things to\nthis list so you can all see what is worked on at the moment. Some projects will\nstay surprises till they are released.",
-		text02 = "",
-		text03 = "",
+		label = Lang[Dta.Language].ChanceLog.Label,
+		text01 = Lang[Dta.Language].ChanceLog.Text1,
+		text02 = Lang[Dta.Language].ChanceLog.Text2,
+		text03 = Lang[Dta.Language].ChanceLog.Text3,
 		pic01 = "",
 		pic02 = "",
 		pic03 = ""
@@ -308,10 +217,22 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[12]] = {
 		{
-		label = "Afterword",
-		text01 = "Many thanks to the Rift Dream Dimensions team for supporting\nme on the making of this add-on and beta testing it for me.\n\nI hope you will all enjoy the addon and make a lot of wonderful creations with it.\nFor questions, errors or other information about the addon you want to share with\nus, visit http://riftdreamdimensions.com/ \n\nSpecial Thanks:\nAladdinRift, for letting me use his code from Magic Carpet to integrate it into\nDimension Tools.\n\nWebsites:\nhttp://inhousegaming.com/ - For all your Trion game fun.\nhttp://www.curse.com/addons/rift - This Add-on and many others.",
-		text02 = "",
-		text03 = "",
+		label = Lang[Dta.Language].ToDoList.Label,
+		text01 = Lang[Dta.Language].ToDoList.Text1,
+		text02 = Lang[Dta.Language].ToDoList.Text2,
+		text03 = Lang[Dta.Language].ToDoList.Text3,
+		pic01 = "",
+		pic02 = "",
+		pic03 = ""
+		}
+	}
+
+	helpTopic[helpIndex[13]] = {
+		{
+		label = Lang[Dta.Language].Afterword.Label,
+		text01 = Lang[Dta.Language].Afterword.Text1,
+		text02 = Lang[Dta.Language].Afterword.Text2,
+		text03 = Lang[Dta.Language].Afterword.Text3,
 		pic01 = "",
 		pic02 = "",
 		pic03 = ""

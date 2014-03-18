@@ -28,8 +28,11 @@ Dta.ui.activeHelp = false
 Dta.ui.windowFlying = nil
 Dta.ui.activeFlying = false
 
---Dta.ui.windowAlphabet = nil
---Dta.ui.activeAlphabet = false
+Dta.ui.windowAlphabet = nil
+Dta.ui.activeAlphabet = false
+
+Dta.ui.windowMeasurements = nil
+Dta.ui.activeMeasurements = false
 
 Dta.ui.loadLoSa = "Default"
 Dta.ui.loadExpImp = "Saved"
@@ -229,8 +232,8 @@ end
 -------------------------------
 
 local MainWindowSettings = {
-  TITLE = "Dimension Tools",
-  WIDTH = 450,
+  TITLE = Lang[Dta.Language].Titles.Main,
+  WIDTH = 470,
   HEIGHT = 300,
   CLOSABLE = true,
   MOVABLE = true,
@@ -259,43 +262,46 @@ function Dta.ui.buildMainWindow()
                                 Mainwindow.itemDetails:SetLayer(30)
                                 --Mainwindow.itemDetails:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-                                Mainwindow.itemDetails.icon = Dta.ui.createIcon("itemDetailsIcon", Mainwindow.itemDetails, nil, 0, 0, 32)
-                                Mainwindow.itemDetails.name = Dta.ui.createText("itemDetailsName", Mainwindow.itemDetails, 37, 0, "Nothing selected", 22)
+                                Mainwindow.itemDetails.icon = Dta.ui.createIcon("itemDetailsIcon", Mainwindow.itemDetails, nil, 0, 0, 25)
+                                Mainwindow.itemDetails.name = Dta.ui.createText("itemDetailsName", Mainwindow.itemDetails, 30, 0, Lang[Dta.Language].Text.NothingSelected, 18)
 
-                                Mainwindow.itemDetails.xLabel = Dta.ui.createText("itemDetailsXLabel", Mainwindow.itemDetails, 0, 63, "X:", 14, {1, 0, 0, 1})
-                                Mainwindow.itemDetails.yLabel = Dta.ui.createText("itemDetailsYLabel", Mainwindow.itemDetails, 0, 79, "Y:", 14, {0, 1, 0, 1})
-                                Mainwindow.itemDetails.zLabel = Dta.ui.createText("itemDetailsZLabel", Mainwindow.itemDetails, 0, 95, "Z:", 14, {0, 1, 1, 1})
+                                Mainwindow.itemDetails.xLabel = Dta.ui.createText("itemDetailsXLabel", Mainwindow.itemDetails, 0, 30, "X", 14, {1, 0, 0, 1})
+                                Mainwindow.itemDetails.yLabel = Dta.ui.createText("itemDetailsYLabel", Mainwindow.itemDetails, 0, 50, "Y", 14, {0, 1, 0, 1})
+                                Mainwindow.itemDetails.zLabel = Dta.ui.createText("itemDetailsZLabel", Mainwindow.itemDetails, 0, 70, "Z", 14, {0, 1, 1, 1})
 
-                                Mainwindow.itemDetails.x = Dta.ui.createText("itemDetailsX", Mainwindow.itemDetails, 25, 63, "-", 14)
-                                Mainwindow.itemDetails.y = Dta.ui.createText("itemDetailsY", Mainwindow.itemDetails, 25, 79, "-", 14)
-                                Mainwindow.itemDetails.z = Dta.ui.createText("itemDetailsZ", Mainwindow.itemDetails, 25, 95, "-", 14)
+                                Mainwindow.itemDetails.x = Dta.ui.createText("itemDetailsX", Mainwindow.itemDetails, 25, 30, "-", 14)
+                                Mainwindow.itemDetails.y = Dta.ui.createText("itemDetailsY", Mainwindow.itemDetails, 25, 50, "-", 14)
+                                Mainwindow.itemDetails.z = Dta.ui.createText("itemDetailsZ", Mainwindow.itemDetails, 25, 70, "-", 14)
 
-                                Mainwindow.itemDetails.yawLabel = Dta.ui.createText("itemDetailsYawLabel", Mainwindow.itemDetails, 175, 63, "Yaw:", 14, {0, 1, 0, 1})
-                                Mainwindow.itemDetails.pitchLabel = Dta.ui.createText("itemDetailsPitchLabel", Mainwindow.itemDetails, 175, 79, "Pitch:", 14, {1, 0, 0, 1})
-                                Mainwindow.itemDetails.rollLabel = Dta.ui.createText("itemDetailsRollLabel", Mainwindow.itemDetails, 175, 95, "Roll:", 14, {0, 1, 1, 1})
+                                Mainwindow.itemDetails.yawLabel = Dta.ui.createText("itemDetailsYawLabel", Mainwindow.itemDetails, 125, 30, Lang[Dta.Language].Text.Yaw, 14, {0, 1, 0, 1})
+                                Mainwindow.itemDetails.pitchLabel = Dta.ui.createText("itemDetailsPitchLabel", Mainwindow.itemDetails, 125, 50, Lang[Dta.Language].Text.Pitch, 14, {1, 0, 0, 1})
+                                Mainwindow.itemDetails.rollLabel = Dta.ui.createText("itemDetailsRollLabel", Mainwindow.itemDetails, 125, 70, Lang[Dta.Language].Text.Roll, 14, {0, 1, 1, 1})
 
-                                Mainwindow.itemDetails.yaw = Dta.ui.createText("itemDetailsYaw", Mainwindow.itemDetails, 217, 63, "-", 14)
-                                Mainwindow.itemDetails.pitch = Dta.ui.createText("itemDetailsPitch", Mainwindow.itemDetails, 217, 79, "-", 14)
-                                Mainwindow.itemDetails.roll = Dta.ui.createText("itemDetailsRoll", Mainwindow.itemDetails, 217, 95, "-", 14)
+                                Mainwindow.itemDetails.yaw = Dta.ui.createText("itemDetailsYaw", Mainwindow.itemDetails, 175, 30, "-", 14)
+                                Mainwindow.itemDetails.pitch = Dta.ui.createText("itemDetailsPitch", Mainwindow.itemDetails, 175, 50, "-", 14)
+                                Mainwindow.itemDetails.roll = Dta.ui.createText("itemDetailsRoll", Mainwindow.itemDetails, 175, 70, "-", 14)
 
-                                Mainwindow.itemDetails.scaleLabel = Dta.ui.createText("itemDetailsScaleLabel", Mainwindow.itemDetails, 90, 111, "Scale:", 14)
-                                Mainwindow.itemDetails.scale = Dta.ui.createText("itemDetailsScale", Mainwindow.itemDetails, 132, 111, "-", 14)
+                                Mainwindow.itemDetails.scaleLabel = Dta.ui.createText("itemDetailsScaleLabel", Mainwindow.itemDetails, 0, 90, Lang[Dta.Language].Text.Scale, 14)
+                                Mainwindow.itemDetails.scale = Dta.ui.createText("itemDetailsScale", Mainwindow.itemDetails, 50, 90, "-", 14)
 
-                                Mainwindow.itemDetails.nrItemsLabel = Dta.ui.createText("itemDetailsnrItemsLabel", Mainwindow.itemDetails, 0, 40, "Nr. of selected items:", 14)
-                                Mainwindow.itemDetails.nrItems = Dta.ui.createText("itemDetailsnrItems", Mainwindow.itemDetails, 140, 40, "-", 14)
+                                Mainwindow.itemDetails.nrItemsLabel = Dta.ui.createText("itemDetailsnrItemsLabel", Mainwindow.itemDetails, 125, 90, Lang[Dta.Language].Text.NrSelectItems, 14)
+                                Mainwindow.itemDetails.nrItems = Dta.ui.createText("itemDetailsnrItems", Mainwindow.itemDetails, 265, 90, "-", 14)
 
 
-                                Mainwindow.divider1 = Dta.ui.createTexture("divider1", Mainwindow, "Dimtools", "textures/divider.png", 20, 135, Mainwindow:GetWidth()-40)
+                                Mainwindow.divider1 = Dta.ui.createTexture("divider1", Mainwindow, "Dimtools", "textures/divider.png", 20, 120, Mainwindow:GetWidth()-40)
                                 Mainwindow.divider1:SetLayer(29)
 
-                                Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow.itemDetails, 295, 30, nil, nil, "Move Window", nil, Dta.ui.modifyMoveButtonClicked)
-                                Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow.itemDetails, 295, 60, nil, nil, "Rotate Window", nil, Dta.ui.modifyRotateButtonClicked)
-                                Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow.itemDetails, 295, 90, nil, nil, "Scale Window", nil, Dta.ui.modifyScaleButtonClicked)
-                                Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow.itemDetails, 0, 145, nil, nil, "Copy / Paste", nil, Dta.ui.modifyCoPaButtonClicked)
-                                Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow.itemDetails, 150, 145, nil, nil, "Load / Save", nil, Dta.ui.modifySaveButtonClicked)
-                                Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 295, 145, nil, nil, "Import / Export", nil, Dta.ui.modifyImpExpButtonClicked)
-                                Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow.itemDetails, 0, 175, nil, nil, "Tribal Magic", nil, Dta.ui.modifyDFlyingButtonClicked)
---                                Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 150, 175, nil, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
+                                Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow.itemDetails, 0, 125, 160, nil, Lang[Dta.Language].Buttons.MoveWindow, nil, Dta.ui.modifyMoveButtonClicked)
+                                Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow.itemDetails, 145, 125, 160, nil, Lang[Dta.Language].Buttons.RotateWindow, nil, Dta.ui.modifyRotateButtonClicked)
+                                Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow.itemDetails, 290, 125, 160, nil, Lang[Dta.Language].Buttons.ScaleWindow, nil, Dta.ui.modifyScaleButtonClicked)
+                                Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow.itemDetails, 0, 150, 160, nil, Lang[Dta.Language].Buttons.CopyPaste, nil, Dta.ui.modifyCoPaButtonClicked)
+                                Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow.itemDetails, 145, 150, 160, nil, Lang[Dta.Language].Buttons.LoadSave, nil, Dta.ui.modifySaveButtonClicked)
+                                Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 290, 150, 160, nil, Lang[Dta.Language].Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
+                                Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow.itemDetails, 0, 175, 160, nil, Lang[Dta.Language].Buttons.TribalMagic, nil, Dta.ui.modifyDFlyingButtonClicked)
+                                Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow.itemDetails, 145, 175, 160, nil, Lang[Dta.Language].Buttons.OffsetCalc, nil, Dta.ui.modifyMeasurementsButtonClicked)
+
+
+--                                Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 0, 200, 160, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
 
   return Mainwindow
 end
@@ -306,16 +312,16 @@ function Dta.ui.showMainWindow()
   Dta.constructionsdefaults = Dta.settings.get_defaultsets("SavedDefaultSets") --or {}
   Dta.constructionstbx = tbx_import.get("savedConstructions")
   Dta.ExportImport_Sets = Dta_export.get("ExportImport")--or {}
---  Dta.alphabet.Fonts = Dta.settings.get_alphabethFonts("SavedAlphabets")
---  Dta.alphabet.Skins = Dta.settings.get_alphabethSkins("SavedSkins")
+--  Dta.alphabet.Fonts = Dta.settings.get_alphabetFonts("SavedAlphabets")
+  Dta.Replacement.Skins = Dta.settings.get_Skins("SavedSkins")
   if Dta.ui.windowtest == nil then
     Dta.ui.windowtest = Dta.ui.buildMainWindow()
   else
     Dta.ui.windowtest:SetVisible(true)
   end
   Dta.ui.active = true
-  if #Dta.selectedItems > 0 then
-    Dta.items.StartDetails()
+  if Dta.losa.tableLength(Dta.selectedItems) > 0 then
+    Dta.items.StartDetails(Dta.Key)
   end
 end
 
@@ -335,6 +341,7 @@ function Dta.ui.hideMainWindow()
   if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
   if Dta.ui.activeFlying then Dta.flying_ui.hideFlyingWindow() end
 --  if Dta.ui.activeAlphabet then Dta.alphabet_ui.hideAlphabetWindow() end
+  if Dta.ui.activeMeasurements then Dta.measurements_ui.hideMeasurementsWindow() end
 end
 
 -- Toggle the Main window
@@ -386,8 +393,11 @@ end
 function Dta.ui.modifyDFlyingButtonClicked()
     Dta.flying_ui.toggleFlyingWindow()
 end
---[[
-function Dta.ui.modifyAlphabetButtonClicked()
-    Dta.alphabet_ui.toggleAlphabetWindow()
+
+--function Dta.ui.modifyAlphabetButtonClicked()
+--    Dta.alphabet_ui.toggleAlphabetWindow()
+--end
+
+function Dta.ui.modifyMeasurementsButtonClicked()
+    Dta.measurements_ui.toggleMeasurementsWindow()
 end
-]]--

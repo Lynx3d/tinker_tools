@@ -34,7 +34,7 @@ end
 --------------------------------------
 
 function Dta.scale.setItemScales(scale, relative)
-  if #Dta.selectedItems > 0 then
+  if Dta.losa.tableLength(Dta.selectedItems) > 0 then
     Dta.scale.Co_setScale = coroutine.create(function()
       for k, details in pairs(Dta.selectedItems) do
         Dta.scale.setItemScale(k, scale, relative)
@@ -49,7 +49,7 @@ end
 --------------------------------------
 
 function Dta.scale.resetItemScales()
-  if #Dta.selectedItems > 0 then
+  if Dta.losa.tableLength(Dta.selectedItems) > 0 then
     Dta.scale.Co_ResetScale = coroutine.create(function ()
       for k, details in pairs(Dta.selectedItems) do
         Dta.scale.setItemScale(k, 1, false)

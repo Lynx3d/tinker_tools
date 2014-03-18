@@ -1,4 +1,4 @@
-Dta_defaults = {
+﻿Dta_defaults = {
 	SavedDefaultSets = {
 		["10 sided Dome Tool"] = {
 			{

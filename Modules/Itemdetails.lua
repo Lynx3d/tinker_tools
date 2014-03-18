@@ -39,54 +39,69 @@ end
 --ITEM UPDATE
 --------------------------------------
 
-function Dta.items.updateItemDetails()
-  if Dta.ui.windowtest ~= nil then
-    if #Dta.selectedItems > 0 then
-      if #Dta.selectedItems > 1 then
-        Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/multiple.png")
-        Dta.ui.windowtest.itemDetails.name:SetText("Multiple items selected")
-        local cp = Dta.items.getCentralPoint(Dta.selectedItems)
-        Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(#Dta.selectedItems))
-        Dta.ui.windowtest.itemDetails.x:SetText(tostring(Dta.items.round(cp.x,4)))
-        Dta.ui.windowtest.itemDetails.y:SetText(tostring(Dta.items.round(cp.y,4)))
-        Dta.ui.windowtest.itemDetails.z:SetText(tostring(Dta.items.round(cp.z,4)))
-        Dta.ui.windowtest.itemDetails.yaw:SetText("-")
-        Dta.ui.windowtest.itemDetails.pitch:SetText("-")
-        Dta.ui.windowtest.itemDetails.roll:SetText("-")
-        Dta.ui.windowtest.itemDetails.scale:SetText("-")
-        if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(true) end
-      else
-        if Dta.selectedItems[1].icon == "" then
-          Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/default.png")
-        else
-          Dta.ui.windowtest.itemDetails.icon:SetTexture("Rift", Dta.selectedItems[1].icon)
+function Dta.items.updateItemDetails(ItemID)
+    if Dta.ui.windowtest ~= nil then
+        if Dta.losa.tableLength(Dta.selectedItems) > 0 then
+            if Dta.losa.tableLength(Dta.selectedItems) == 2 then
+                Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/multiple.png")
+                Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.MultiSelectItems)
+                local cp = Dta.items.getCentralPoint(Dta.selectedItems)
+                Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(Dta.losa.tableLength(Dta.selectedItems)))
+                Dta.ui.windowtest.itemDetails.x:SetText(tostring(Dta.items.round(cp.x,4)))
+                Dta.ui.windowtest.itemDetails.y:SetText(tostring(Dta.items.round(cp.y,4)))
+                Dta.ui.windowtest.itemDetails.z:SetText(tostring(Dta.items.round(cp.z,4)))
+                Dta.ui.windowtest.itemDetails.yaw:SetText("-")
+                Dta.ui.windowtest.itemDetails.pitch:SetText("-")
+                Dta.ui.windowtest.itemDetails.roll:SetText("-")
+                Dta.ui.windowtest.itemDetails.scale:SetText("-")
+                if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(true) end
+            elseif Dta.losa.tableLength(Dta.selectedItems) > 1 then
+                Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/multiple.png")
+                Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.MultiSelectItems)
+                local cp = Dta.items.getCentralPoint(Dta.selectedItems)
+                Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(Dta.losa.tableLength(Dta.selectedItems)))
+                Dta.ui.windowtest.itemDetails.x:SetText(tostring(Dta.items.round(cp.x,4)))
+                Dta.ui.windowtest.itemDetails.y:SetText(tostring(Dta.items.round(cp.y,4)))
+                Dta.ui.windowtest.itemDetails.z:SetText(tostring(Dta.items.round(cp.z,4)))
+                Dta.ui.windowtest.itemDetails.yaw:SetText("-")
+                Dta.ui.windowtest.itemDetails.pitch:SetText("-")
+                Dta.ui.windowtest.itemDetails.roll:SetText("-")
+                Dta.ui.windowtest.itemDetails.scale:SetText("-")
+                if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(true) end
+            else
+                if ItemID ~= nil then
+                    if Dta.selectedItems[ItemID].icon == "" then
+                        Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/default.png")
+                    else
+                        Dta.ui.windowtest.itemDetails.icon:SetTexture("Rift", Dta.selectedItems[ItemID].icon)
+                    end
+                    Dta.ui.windowtest.itemDetails.name:SetText(tostring(Dta.selectedItems[ItemID].name))
+                    Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(Dta.losa.tableLength(Dta.selectedItems)))
+                    Dta.ui.windowtest.itemDetails.x:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].coordX,4)))
+                    Dta.ui.windowtest.itemDetails.y:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].coordY,4)))
+                    Dta.ui.windowtest.itemDetails.z:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].coordZ,4)))
+                    Dta.ui.windowtest.itemDetails.yaw:SetText(tostring(Dta.items.round(Dta.items.toDegrees(Dta.selectedItems[ItemID].yaw),4)))
+                    Dta.ui.windowtest.itemDetails.pitch:SetText(tostring(Dta.items.round(Dta.items.toDegrees(Dta.selectedItems[ItemID].pitch),4)))
+                    Dta.ui.windowtest.itemDetails.roll:SetText(tostring(Dta.items.round(Dta.items.toDegrees(Dta.selectedItems[ItemID].roll),4)))
+                    Dta.ui.windowtest.itemDetails.scale:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].scale,4)))
+                    if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(false) end
+                end
+            end
+        elseif Dta.ui.needsReset then
+            Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/blank.png")
+            Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.NothingSelected)
+            Dta.ui.windowtest.itemDetails.nrItems:SetText("-")
+            Dta.ui.windowtest.itemDetails.x:SetText("-")
+            Dta.ui.windowtest.itemDetails.y:SetText("-")
+            Dta.ui.windowtest.itemDetails.z:SetText("-")
+            Dta.ui.windowtest.itemDetails.yaw:SetText("-")
+            Dta.ui.windowtest.itemDetails.pitch:SetText("-")
+            Dta.ui.windowtest.itemDetails.roll:SetText("-")
+            Dta.ui.windowtest.itemDetails.scale:SetText("-")
+            if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(false) end
+            Dta.ui.needsReset = false
         end
-        Dta.ui.windowtest.itemDetails.name:SetText(tostring(Dta.selectedItems[1].name))
-        Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(#Dta.selectedItems))
-        Dta.ui.windowtest.itemDetails.x:SetText(tostring(Dta.items.round(Dta.selectedItems[1].coordX,4)))
-        Dta.ui.windowtest.itemDetails.y:SetText(tostring(Dta.items.round(Dta.selectedItems[1].coordY,4)))
-        Dta.ui.windowtest.itemDetails.z:SetText(tostring(Dta.items.round(Dta.selectedItems[1].coordZ,4)))
-        Dta.ui.windowtest.itemDetails.yaw:SetText(tostring(Dta.items.round(Dta.items.toDegrees(Dta.selectedItems[1].yaw),4)))
-        Dta.ui.windowtest.itemDetails.pitch:SetText(tostring(Dta.items.round(Dta.items.toDegrees(Dta.selectedItems[1].pitch),4)))
-        Dta.ui.windowtest.itemDetails.roll:SetText(tostring(Dta.items.round(Dta.items.toDegrees(Dta.selectedItems[1].roll),4)))
-        Dta.ui.windowtest.itemDetails.scale:SetText(tostring(Dta.items.round(Dta.selectedItems[1].scale,4)))
-        if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(false) end
-      end
-    elseif Dta.ui.needsReset then
-      Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/blank.png")
-      Dta.ui.windowtest.itemDetails.name:SetText("Nothing selected")
-      Dta.ui.windowtest.itemDetails.nrItems:SetText("-")
-      Dta.ui.windowtest.itemDetails.x:SetText("-")
-      Dta.ui.windowtest.itemDetails.y:SetText("-")
-      Dta.ui.windowtest.itemDetails.z:SetText("-")
-      Dta.ui.windowtest.itemDetails.yaw:SetText("-")
-      Dta.ui.windowtest.itemDetails.pitch:SetText("-")
-      Dta.ui.windowtest.itemDetails.roll:SetText("-")
-      Dta.ui.windowtest.itemDetails.scale:SetText("-")
-      if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(false) end
-      Dta.ui.needsReset = false
     end
-  end
 end
 
 function Dta.items.updateSelection(dimensionItem)
@@ -97,41 +112,51 @@ function Dta.items.updateSelection(dimensionItem)
             if detail.selected then
                 local k = Dta.items.GetDimensionKey(Dta.selectedItems, id)
                 if k == nil then
-                    table.insert(Dta.selectedItems, detail)
+                    Dta.Key = detail.id
+                    Dta.selectedItems[Dta.Key] = detail
+                    --table.insert(Dta.selectedItems, detail)
                     --print("Selected: " .. detail.name .. ", ID:" .. detail.id)
                 else
-                    table.remove(Dta.selectedItems, k)
-                    table.insert(Dta.selectedItems, detail)
-                    --print("Selected: " .. detail.name .. ", ID:" .. detail.id)
+                    Dta.selectedItems[k] = detail
+                    Dta.Key = k
+                    --print("Selected2: " .. detail.name .. ", ID:" .. detail.id)
                 end
             else
-                if #Dta.selectedItems > 0 then
+                if Dta.losa.tableLength(Dta.selectedItems) > 0 then
                     local k = Dta.items.GetDimensionKey(Dta.selectedItems, id)
-                    Dta.AlreadySelected = false
-                    table.remove(Dta.selectedItems, k)
+                    if k ~= nil then
+                        Dta.AlreadySelected = false
+                        Dta.selectedItems[k] = nil
+                        Dta.Key = nil
+                    end
+                    --table.remove(Dta.selectedItems, k)
                     --print("DeSelected: " .. detail.name .. ", ID:" .. detail.id)
                 end
             end
         elseif Dta.Deleting then
-            if #Dta.selectedItems > 0 then
+            if Dta.losa.tableLength(Dta.selectedItems) > 0 then
                 local k = Dta.items.GetDimensionKey(Dta.selectedItems, id)
-                table.remove(Dta.selectedItems, k)
-                Dta.Deleting = false
+                if k ~= nil then
+                    Dta.selectedItems[k] = nil
+                    Dta.Key = nil
+                    --table.remove(Dta.selectedItems, k)
+                    Dta.Deleting = false
+                end
             end
         end
     end
 
-    Dta.items.StartDetails()
+    Dta.items.StartDetails(Dta.Key)
 
 end
 
-function Dta.items.StartDetails()
+function Dta.items.StartDetails(ItemID)
     if Dta.ui ~= nil and Dta.ui.active then
-        if #Dta.selectedItems < 1 then
+        if Dta.losa.tableLength(Dta.selectedItems) < 1 then
             Dta.ui.needsReset = true
-            Dta.items.updateItemDetails()
+            Dta.items.updateItemDetails(ItemID)
         else
-            Dta.items.updateItemDetails()
+            Dta.items.updateItemDetails(ItemID)
         end
     end
 end
@@ -171,7 +196,7 @@ end
 --------------------------------------
 function Dta.items.getCentralPoint(itemsList)
   local itemsList = itemsList or {}
-  if #itemsList > 0 then
+  if Dta.losa.tableLength(itemsList) > 0 then
     local centralPoint = {x = 0, y = 0, z = 0}
     local allX = {}
     local allY = {}

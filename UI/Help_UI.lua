@@ -1,4 +1,4 @@
-Dta.help_ui = {}
+﻿Dta.help_ui = {}
 
 -------------------------------
 -- BUILD THE DIMENSIONTOOLS HelpWINDOW
@@ -77,7 +77,7 @@ function Dta.help_ui.createWindowHelp(name, parent, title, width, height, x, y, 
 end
 
 local HelpWindowSettings = {
-  TITLE = "Dimension Tools Help",
+  TITLE = Lang[Dta.Language].Titles.Help,
   WIDTH = 800,
   HEIGHT = 600,
   CLOSABLE = true,
