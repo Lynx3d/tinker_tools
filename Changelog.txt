@@ -1,4 +1,4 @@
-Version 1.2.2.r20
+Version 1.2.2.r22
 - Made small change in the Zone Check
 
 Version 1.2.2.r18
