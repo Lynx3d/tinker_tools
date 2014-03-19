@@ -28,8 +28,8 @@ Dta.ui.activeHelp = false
 Dta.ui.windowFlying = nil
 Dta.ui.activeFlying = false
 
-Dta.ui.windowAlphabet = nil
-Dta.ui.activeAlphabet = false
+--Dta.ui.windowAlphabet = nil
+--Dta.ui.activeAlphabet = false
 
 Dta.ui.windowMeasurements = nil
 Dta.ui.activeMeasurements = false
@@ -287,7 +287,6 @@ function Dta.ui.buildMainWindow()
                                 Mainwindow.itemDetails.nrItemsLabel = Dta.ui.createText("itemDetailsnrItemsLabel", Mainwindow.itemDetails, 125, 90, Lang[Dta.Language].Text.NrSelectItems, 14)
                                 Mainwindow.itemDetails.nrItems = Dta.ui.createText("itemDetailsnrItems", Mainwindow.itemDetails, 265, 90, "-", 14)
 
-
                                 Mainwindow.divider1 = Dta.ui.createTexture("divider1", Mainwindow, "Dimtools", "textures/divider.png", 20, 120, Mainwindow:GetWidth()-40)
                                 Mainwindow.divider1:SetLayer(29)
 
@@ -299,8 +298,6 @@ function Dta.ui.buildMainWindow()
                                 Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 290, 150, 160, nil, Lang[Dta.Language].Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
                                 Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow.itemDetails, 0, 175, 160, nil, Lang[Dta.Language].Buttons.TribalMagic, nil, Dta.ui.modifyDFlyingButtonClicked)
                                 Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow.itemDetails, 145, 175, 160, nil, Lang[Dta.Language].Buttons.OffsetCalc, nil, Dta.ui.modifyMeasurementsButtonClicked)
-
-
 --                                Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 0, 200, 160, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
 
   return Mainwindow

@@ -73,7 +73,7 @@ Dta.PlaceItem_Co_Active = false
 
 function Dta.main()
   Command.Event.Attach(Command.Slash.Register("Dt"), Dta.commandHandler, "Dimtools Command")
-  Command.Event.Attach(Event.Unit.Detail.LocationName, Dta.CheckZone, "Update selection")
+  Command.Event.Attach(Event.Unit.Detail.Zone, Dta.CheckZone, "Update selection")
     Command.Event.Attach(Event.System.Update.Begin, Dta.tick, "refresh")
     Command.Event.Attach(Event.Dimension.Layout.Add, Dta.addEventHandler, "Update selection")
     Command.Event.Attach(Event.Dimension.Layout.Remove, Dta.removeEventHandler, "Update selection")
@@ -155,32 +155,38 @@ function Dta.updateEventHandler(hEvent, dimensionItem) --Executed on every selec
     end
     Dta.items.updateSelection(dimensionItem)
 
-    if Dta.FinishedSet and Dta.Setname ~= "" and #Dta.SelectionQueue == 0 then
+    if Dta.FinishedSet and Dta.Setname ~= "" and #Dta.SelectionQueue == 1 then
         print(string.format(Lang[Dta.Language].Prints.SetFinished, Dta.Setname))
         Dta.Setname = ""
     end
 
-    if Dta.FinishedSet and Dta.PastingItems and #Dta.SelectionQueue == 0 then
+    if Dta.FinishedSet and Dta.PastingItems and #Dta.SelectionQueue == 1 then
         print(Lang[Dta.Language].Prints.PasteFinished)
         Dta.PastingItems = false
     end
---[[
-    if Dta.FinishedSet and Dta.alphabet.PastingWord and #Dta.SelectionQueue == 0 then
-        print(Lang[Dta.Language].Prints.WordFinished)
-        Dta.alphabet.PastingWord = false
-    end
-]]
+
+--    if Dta.FinishedSet and Dta.alphabet.PastingWord and #Dta.SelectionQueue == 1 then
+--        print(Lang[Dta.Language].Prints.WordFinished)
+--        Dta.alphabet.PastingWord = false
+--    end
 
 end
 
 function Dta.CheckZone(hEvent)
-    local DimensionID = Inspect.Unit.Detail("player")
-    local ZoneInfo = Inspect.Zone.Detail(DimensionID.zone)
-    if string.find(ZoneInfo.name, "Dimension") or string.find(ZoneInfo.name, "Измерение") then
-        --Dta.ui.toggleMainWindow()
+    local PlayerInfo = Inspect.Unit.Detail("player")
+    if PlayerInfo == nil then
+        return
+    elseif PlayerInfo.zone == nil then
+        return
     else
-        if Dta.ui.active then Dta.ui.hideMainWindow() end
-        --print(Lang[Dta.Language].Prints.DimensionOnly)
+        local ZoneInfo = Inspect.Zone.Detail(PlayerInfo.zone)
+        if string.find(ZoneInfo.name, "Dimension") or string.find(ZoneInfo.name, "Измерение") then
+            return
+            --Dta.ui.toggleMainWindow()
+        else
+            if Dta.ui.active then Dta.ui.hideMainWindow() end
+            --print(Lang[Dta.Language].Prints.DimensionOnly)
+        end
     end
 end
 
@@ -210,9 +216,6 @@ function Dta.commandHandler(hEvent, command)
     Dta.settings.set("MeasurementswindowPosX", 0)
     Dta.settings.set("MeasurementswindowPosY", 490)
 
-
-
-
     if Dta.ui.windowtest then Dta.ui.windowtest:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 32) end
     if Dta.ui.windowMove then Dta.ui.windowMove:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 370) end
     if Dta.ui.windowRotate then Dta.ui.windowRotate:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 410) end
@@ -226,12 +229,18 @@ function Dta.commandHandler(hEvent, command)
     if Dta.ui.windowMeasurements then Dta.ui.windowMeasurements:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 490) end
     print("Position reset")
   else
-    local DimensionID = Inspect.Unit.Detail("player")
-    local ZoneInfo = Inspect.Zone.Detail(DimensionID.zone)
-    if string.find(ZoneInfo.name, "Dimension") or string.find(ZoneInfo.name, "Измерение") then
-        Dta.ui.toggleMainWindow()
+    local PlayerInfo = Inspect.Unit.Detail("player")
+    if PlayerInfo == nil then
+        return
+    elseif PlayerInfo.zone == nil then
+        return
     else
-        print(Lang[Dta.Language].Prints.DimensionOnly)
+        local ZoneInfo = Inspect.Zone.Detail(PlayerInfo.zone)
+        if string.find(ZoneInfo.name, "Dimension") or string.find(ZoneInfo.name, "Измерение") then
+            Dta.ui.toggleMainWindow()
+        else
+            print(Lang[Dta.Language].Prints.DimensionOnly)
+        end
     end
   end
 end

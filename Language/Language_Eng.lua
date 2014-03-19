@@ -495,4 +495,4 @@ Lang["English"].Prints.DimensionOnly = "This addon is intended for use in Dimens
 Lang["English"].Prints.ProcessFinished = "Processing Finished."
 Lang["English"].Prints.SetFinished = "Item set \"%s\" loaded and selected."
 Lang["English"].Prints.PasteFinished = "All items are placed and selected."
---Lang["English"].Prints.WordFinished = "The word is placed and selected."
+Lang["English"].Prints.WordFinished = "The word is placed and selected."

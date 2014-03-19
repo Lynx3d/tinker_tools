@@ -1,3 +1,6 @@
+Version 1.2.2.r20
+- Made small change in the Zone Check
+
 Version 1.2.2.r18
 - Added Offset Calculator module.
 - Added Offset Calculator to help.
