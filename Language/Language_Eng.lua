@@ -58,7 +58,9 @@ Lang["English"].Main.Label = "Main"
 Lang["English"].Main.Text1 = "\
 The main window is where it all starts. This is the only window visible by\
 default and will hold the basic information about the items along with the\
-buttons to open up all the other tools in Dimension Tools."
+buttons to open up all the other tools in Dimension Tools.\
+\
+Dimension Tools can only be opened inside of dimensions."
 
 Lang["English"].Main.Text2 = "\
 <u>Buttons:</u>\
@@ -312,6 +314,14 @@ Lang["English"].TribalMagic.Text3 = ""
 Lang["English"].ChanceLog = {}
 Lang["English"].ChanceLog.Label = "Chance Log"
 Lang["English"].ChanceLog.Text1 = "\
+Version 1.3.0\
+- Added the New Tool called Alfiebet, write words in dimensions.\
+- Added Alfiebet to the help function.\
+- Fixed error when leaving dimension while still on Tribal Magic.\
+- Made some changes in Zone Check to be more accurate.\
+- Added command (/Dt help), So you can open the help window outside of your\
+  dimensions.\
+\
 Version 1.2.2\
 - Added Offset Calculator module.\
 - Added Offset Calculator to help.\
@@ -328,25 +338,10 @@ Version 1.2.0.r15\
 - Changed: The options Bags, Bank, Both under Copy/Paste to Bags, Bank Bags,\
   Vaults. This to give a more precise choice of where to take the items from.\
 - Added a counter to the main menu for selected items, you can now see how\
-  many items you have selected.\
-\
-Version 1.2.0\
-- Implemented the Magic Carpet addon into Dimension Tools under the name\
-  Tribal Magic."
+  many items you have selected."
 
 Lang["English"].ChanceLog.Text2 = ""
 Lang["English"].ChanceLog.Text3 = ""
-
----ToDo List--------------------------------------------------------------
-Lang["English"].ToDoList = {}
-Lang["English"].ToDoList.Label = "ToDo List"
-Lang["English"].ToDoList.Text1 = "\
-This is only the first release of Dimension Tools. Along the way I will add\
-things to this list so you can all see what is worked on at the moment.\
-Some projects will stay surprises till they are released."
-
-Lang["English"].ToDoList.Text2 = ""
-Lang["English"].ToDoList.Text3 = ""
 
 ---Afterword--------------------------------------------------------------
 Lang["English"].Afterword = {}
@@ -400,8 +395,28 @@ Lang["English"].OffsetCalc.Text3 = ""
 ---Alfiebet-----------------------------------------------------------
 Lang["English"].Alfiebet = {}
 Lang["English"].Alfiebet.Label = "Alfiebet"
-Lang["English"].Alfiebet.Text1 = ""
-Lang["English"].Alfiebet.Text2 = ""
+Lang["English"].Alfiebet.Text1 = "\
+Going through allot of dimensions over time one thing you see a lot, people\
+writing words using different items. Some are really clear others are really\
+bright using light sources to make them. But one thing they all have in common,\
+people want to say something to their dimension visitors. That is why we as\
+the RiftDreamDimensions team came up with the idea to make a word processor\
+in Dimension Tools. And after a lot of thinking and work done by the\
+RiftDreamDimensions team creating fonts for it we managed to get this tool\
+working for you all to enjoy."
+
+Lang["English"].Alfiebet.Text2 = "\
+- Word: This is where you type in the word you want in your dimension.\
+        - The tool only works with letters A to Z.\
+- Font: This is where you choose what font you like to use.\
+- Size: Here you can choose the size of the font.\
+- Skin: Here you can choose what type of skin you want to give your word.\
+- Place Horizontal: Writes the word horizontal along the X axis.\
+- Place Vertical: Writes the word vertical along the Y axis.\
+- Load Word: places the word into your dimension.\
+- Print Materials: Prints a list of items you need in your chat window.\
+        This list will adjust itself depending on what skin you choose."
+
 Lang["English"].Alfiebet.Text3 = ""
 
 ----------------------------------------

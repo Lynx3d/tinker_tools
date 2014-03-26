@@ -1,3 +1,11 @@
+Version 1.3.0
+- Added the New Tool called Alfiebet, write words in dimensions.
+- Added Alfiebet to the help function.
+- Fixed error when leaving dimension while still on Tribal Magic.
+- Made some changes in Zone Check to be more accurate.
+- Added command (/Dt help), So you can open the help window outside of your
+  dimensions.
+
 Version 1.2.2.r22
 - Made small change in the Zone Check
 

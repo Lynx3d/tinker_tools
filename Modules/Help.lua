@@ -74,8 +74,8 @@ Dta.Help = {}
 		Lang[Dta.Language].ImportandExport.Label,
 		Lang[Dta.Language].TribalMagic.Label,
 		Lang[Dta.Language].OffsetCalc.Label,
+		Lang[Dta.Language].Alfiebet.Label,
 		Lang[Dta.Language].ChanceLog.Label,
-		Lang[Dta.Language].ToDoList.Label,
 		Lang[Dta.Language].Afterword.Label
 	}
 
@@ -203,13 +203,14 @@ Dta.Help = {}
 		}
 	}
 
+
 	helpTopic[helpIndex[11]] = {
 		{
-		label = Lang[Dta.Language].ChanceLog.Label,
-		text01 = Lang[Dta.Language].ChanceLog.Text1,
-		text02 = Lang[Dta.Language].ChanceLog.Text2,
-		text03 = Lang[Dta.Language].ChanceLog.Text3,
-		pic01 = "",
+		label = Lang[Dta.Language].Alfiebet.Label,
+		text01 = Lang[Dta.Language].Alfiebet.Text1,
+		text02 = Lang[Dta.Language].Alfiebet.Text2,
+		text03 = Lang[Dta.Language].Alfiebet.Text3,
+		pic01 = "Alfiebet_Window_01.jpg",
 		pic02 = "",
 		pic03 = ""
 		}
@@ -217,10 +218,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[12]] = {
 		{
-		label = Lang[Dta.Language].ToDoList.Label,
-		text01 = Lang[Dta.Language].ToDoList.Text1,
-		text02 = Lang[Dta.Language].ToDoList.Text2,
-		text03 = Lang[Dta.Language].ToDoList.Text3,
+		label = Lang[Dta.Language].ChanceLog.Label,
+		text01 = Lang[Dta.Language].ChanceLog.Text1,
+		text02 = Lang[Dta.Language].ChanceLog.Text2,
+		text03 = Lang[Dta.Language].ChanceLog.Text3,
 		pic01 = "",
 		pic02 = "",
 		pic03 = ""

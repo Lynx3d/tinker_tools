@@ -46,6 +46,11 @@ Dta.PastingItems = false
 --Others
 Dta.Deleting = false
 Dta.Key = nil
+Dta.PlayerID = Inspect.Unit.Lookup("player")
+Dta.CurrentZoneID = nil
+Dta.OldZoneID = nil
+Dta.ZoneDetails = {}
+Dta.InDimenion = false
 
 --Flying
 Dta.desiredPitch = 0
@@ -72,8 +77,9 @@ Dta.PlaceItem_Co_Active = false
 --------------------------------------
 
 function Dta.main()
-  Command.Event.Attach(Command.Slash.Register("Dt"), Dta.commandHandler, "Dimtools Command")
-  Command.Event.Attach(Event.Unit.Detail.Zone, Dta.CheckZone, "Update selection")
+    Command.Event.Attach(Command.Slash.Register("Dt"), Dta.commandHandler, "Dimtools Command")
+    Command.Event.Attach(Event.Unit.Availability.Full, Dta.Event_Unit_Availability_Full, "Event_Unit_Availability_Full")
+    Command.Event.Attach(Event.Unit.Detail.Zone, Dta.Event_Unit_Detail_Zone, "Event_Unit_Detail_Zone")
     Command.Event.Attach(Event.System.Update.Begin, Dta.tick, "refresh")
     Command.Event.Attach(Event.Dimension.Layout.Add, Dta.addEventHandler, "Update selection")
     Command.Event.Attach(Event.Dimension.Layout.Remove, Dta.removeEventHandler, "Update selection")
@@ -81,19 +87,47 @@ function Dta.main()
 end
 
 function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a dimension
-    if Dta.Copa_Co_Active then coroutine.resume(Dta.copa.Co_PlaceItem) end
+    if Dta.Copa_Co_Active then
+        for id, value in pairs(dimensionItem) do
+            local data = Inspect.Dimension.Layout.Detail(id)
+            if data ~= nil then
+                coroutine.resume(Dta.copa.Co_PlaceItem)
+            end
+        end
+    end
+
     if Dta.PlaceItem_Co_Active then
-        coroutine.resume(Dta.losa.Co_PlaceItem)
+        for id, value in pairs(dimensionItem) do
+            local data = Inspect.Dimension.Layout.Detail(id)
+            if data ~= nil then
+                coroutine.resume(Dta.losa.Co_PlaceItem)
+            end
+        end
     elseif Dta.LoadSet_Co_Active then
-        coroutine.resume(Dta.losa.Co_LoadItem)
+        for id, value in pairs(dimensionItem) do
+            local data = Inspect.Dimension.Layout.Detail(id)
+            if data ~= nil then
+                coroutine.resume(Dta.losa.Co_LoadItem)
+            end
+        end
     end
---[[
+
     if Dta.alphabet.PlaceLetter_Co_Active then
-        coroutine.resume(Dta.alphabet.Co_PlaceLetter)
+        for id, value in pairs(dimensionItem) do
+            local data = Inspect.Dimension.Layout.Detail(id)
+            if data ~= nil then
+                coroutine.resume(Dta.alphabet.Co_PlaceLetter)
+            end
+        end
     elseif Dta.alphabet.PlaceWord_Co_Active then
-        coroutine.resume(Dta.alphabet.Co_PlaceWord)
+        for id, value in pairs(dimensionItem) do
+            local data = Inspect.Dimension.Layout.Detail(id)
+            if data ~= nil then
+                coroutine.resume(Dta.alphabet.Co_PlaceWord)
+            end
+        end
     end
-]]
+
     if #Dta.pendingActions == 1 then
         print(Lang[Dta.Language].Prints.ProcessFinished)
     end
@@ -165,30 +199,28 @@ function Dta.updateEventHandler(hEvent, dimensionItem) --Executed on every selec
         Dta.PastingItems = false
     end
 
---    if Dta.FinishedSet and Dta.alphabet.PastingWord and #Dta.SelectionQueue == 1 then
---        print(Lang[Dta.Language].Prints.WordFinished)
---        Dta.alphabet.PastingWord = false
---    end
+    if Dta.FinishedSet and Dta.alphabet.PastingWord and #Dta.SelectionQueue == 1 then
+        print(Lang[Dta.Language].Prints.WordFinished)
+        Dta.alphabet.PastingWord = false
+    end
 
 end
 
-function Dta.CheckZone(hEvent)
-    local PlayerInfo = Inspect.Unit.Detail("player")
-    if PlayerInfo == nil then
-        return
-    elseif PlayerInfo.zone == nil then
-        return
-    else
-        local ZoneInfo = Inspect.Zone.Detail(PlayerInfo.zone)
-        if string.find(ZoneInfo.name, "Dimension") or string.find(ZoneInfo.name, "Измерение") then
-            return
-            --Dta.ui.toggleMainWindow()
-        else
-            if Dta.ui.active then Dta.ui.hideMainWindow() end
-            --print(Lang[Dta.Language].Prints.DimensionOnly)
+function Dta.Event_Unit_Detail_Zone(hEvent, u)
+    if u[Dta.PlayerID] then
+        Dta.CurrentZoneID = nil
+    end
+end
+
+function Dta.Event_Unit_Availability_Full(hEvent, t)
+    for k,v in pairs(t) do
+        if v == "player" then
+            Dta.CurrentZoneID = nil
+            break
         end
     end
 end
+
 
 function Dta.commandHandler(hEvent, command)
 
@@ -209,10 +241,10 @@ function Dta.commandHandler(hEvent, command)
     Dta.settings.set("ExpImpwindowPosY", 370)
     Dta.settings.set("HelpwindowPosX", 650)
     Dta.settings.set("HelpwindowPosY", 335)
-    Dta.settings.set("FlyingwindowPosX", 455)
+    Dta.settings.set("FlyingwindowPosX", 475)
     Dta.settings.set("FlyingwindowPosY", 32)
---    Dta.settings.set("AlphabetwindowPosX", 0)
---    Dta.settings.set("AlphabetwindowPosY", 530)
+    Dta.settings.set("AlphabetwindowPosX", 0)
+    Dta.settings.set("AlphabetwindowPosY", 530)
     Dta.settings.set("MeasurementswindowPosX", 0)
     Dta.settings.set("MeasurementswindowPosY", 490)
 
@@ -224,23 +256,17 @@ function Dta.commandHandler(hEvent, command)
     if Dta.ui.windowLoSa then Dta.ui.windowLoSa:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 320, 450) end
     if Dta.ui.windowExpImp then Dta.ui.windowExpImp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 320, 370) end
     if Dta.ui.windowHelp then Dta.ui.windowHelp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 650, 335) end
-    if Dta.ui.windowFlying then Dta.ui.windowFlying:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 455, 32) end
---    if Dta.ui.windowAlphabet then Dta.ui.windowAlphabet:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 530) end
+    if Dta.ui.windowFlying then Dta.ui.windowFlying:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 475, 32) end
+    if Dta.ui.windowAlphabet then Dta.ui.windowAlphabet:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 530) end
     if Dta.ui.windowMeasurements then Dta.ui.windowMeasurements:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 490) end
     print("Position reset")
+  elseif command == "help" then
+    Dta.help_ui.toggleHelpWindow()
   else
-    local PlayerInfo = Inspect.Unit.Detail("player")
-    if PlayerInfo == nil then
-        return
-    elseif PlayerInfo.zone == nil then
-        return
+    if Dta.InDimenion == true then
+        Dta.ui.toggleMainWindow()
     else
-        local ZoneInfo = Inspect.Zone.Detail(PlayerInfo.zone)
-        if string.find(ZoneInfo.name, "Dimension") or string.find(ZoneInfo.name, "Измерение") then
-            Dta.ui.toggleMainWindow()
-        else
-            print(Lang[Dta.Language].Prints.DimensionOnly)
-        end
+        print(Lang[Dta.Language].Prints.DimensionOnly)
     end
   end
 end
@@ -254,6 +280,28 @@ function Dta.tick(handle)
 	local deltaT = 	currentFrameTime - Dta.lastFrameTime
 
 	Dta.lastFrameTime = currentFrameTime
+
+	if Dta.CurrentZoneID == nil then
+	    local PlayerDetails = Inspect.Unit.Detail("player")
+	    if PlayerDetails and PlayerDetails.zone then
+	        if Dta.ZoneDetails[PlayerDetails.zone] == nil then
+	            local ZoneDetails = Inspect.Zone.Detail(PlayerDetails.zone)
+	            if ZoneDetails and ZoneDetails.name then
+	                Dta.ZoneDetails[PlayerDetails.zone] = ZoneDetails.name
+				end
+			end
+			if Dta.ZoneDetails[PlayerDetails.zone] and PlayerDetails.zone ~= Dta.OldZoneID then
+			    local ZoneName = Dta.ZoneDetails[PlayerDetails.zone]
+			    if string.find(ZoneName, "Dimension") or string.find(ZoneName, "Измерение") then
+			        Dta.InDimenion = true
+			    else
+			        if Dta.ui.active then Dta.ui.hideMainWindow() end
+			        Dta.InDimenion = false
+			    end
+			    Dta.OldZoneID = PlayerDetails.zone
+			end
+		end
+	end
 
 	if #Dta.pendingActions > 0 then
 	  local action = table.remove(Dta.pendingActions, 1)
@@ -290,6 +338,15 @@ function Dta.tick(handle)
 
 	if Dta.carpetId ~= "d" then
 	    local playerDetails = Inspect.Unit.Detail("player")
+	    if playerDetails["coordX"] == nil then
+	        Dta.carpetId = "d"
+	        return
+		end
+
+		--if Dta.lastPlayerPos["coordX"] == nil then
+		--    return
+		--end
+
 	    local xDiff = playerDetails["coordX"] - Dta.lastPlayerPos["coordX"]
 	    local yDiff = playerDetails["coordY"] - Dta.lastPlayerPos["coordY"]
 	    local zDiff = playerDetails["coordZ"] - Dta.lastPlayerPos["coordZ"]

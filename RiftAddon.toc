@@ -4,11 +4,33 @@ Name = {
 }
 NameShort = "DT"
 Description = {
-    English = "This Addon is written to assist you in the creation of your dimensions. Special thanks to the original toolbox maker who inspired me, RDD members who made it possible for me to test things and keep me motivated. Type /Dt to start the addon. Type /Dt reset to reset all windows to default positions."
+    English = [[
+This Addon is written to assist you in the creation of your dimensions.
+
+Use:
+/Dt
+Starts the addon, this will only work inside a dimension.
+
+/Dt help
+Opens up the help window outside of dimensions.
+
+/Dt reset
+Reset all Dimension Tools windows to their default positions.
+
+Special thanks:
+Arkzy,  the original toolbox maker who inspired
+        me to make this addon.
+RDD members, who made it possible for me to
+        test things and keep me motivated.
+AladdinRift, for letting me use his code from
+        Magic Carpet to integrate it into
+        Dimension Tools.
+
+]],
 }
 Author = "Kikimora"
 Website = "http://riftdreamdimensions.com/"
-Version = "v1.2.2"
+Version = "v1.3.0"
 Email = "Kikimora@riftdreamdimensions.com"
 Environment = "2.5"
 
@@ -19,7 +41,7 @@ RunOnStartup = {
 
   "Defaults/Default_LoadSave.lua",
   "Defaults/Default_Skins.lua",
-
+  "Defaults/Default_Alphabet.lua",
 
   "Settings.lua",
 
@@ -33,7 +55,7 @@ RunOnStartup = {
   "UI/Help_UI.lua",
   "UI/Flying_UI.lua",
   "UI/Measurements_UI.lua",
-
+  "UI/Alphabet_UI.lua",
 
   "Modules/Itemdetails.lua",
   "Modules/Move.lua",
@@ -45,6 +67,7 @@ RunOnStartup = {
   "Modules/Help.lua",
   "Modules/Flying.lua",
   "Modules/Replacement.lua",
+  "Modules/Alphabet.lua",
   "Modules/Measurements.lua"
 
 }

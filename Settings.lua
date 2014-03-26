@@ -31,10 +31,10 @@ Dta.settings.defaults = {
   ExpImpwindowPosY  = 370,
   HelpwindowPosX = 650,
   HelpwindowPosY  = 335,
-  FlyingwindowPosX = 455,
+  FlyingwindowPosX = 475,
   FlyingwindowPosY = 32,
---  AlphabetwindowPosX = 0,
---  AlphabetwindowPosY = 530,
+  AlphabetwindowPosX = 0,
+  AlphabetwindowPosY = 530,
   MeasurementswindowPosX = 0,
   MeasurementswindowPosY = 490,
 
@@ -113,7 +113,7 @@ function Dta.settings.get_defaultsets(setting)
     return nil
   end
 end
---[[
+
 function Dta.settings.get_alphabetFonts(setting)
   if Dta_alphabet[setting] ~= nil then
     return Dta_alphabet[setting]
@@ -137,7 +137,7 @@ function Dta.settings.get_alphabetLetters(setting, font, size)
     return nil
   end
 end
-]]
+
 function Dta.settings.get_Skins(setting)
   if Dta_Skins[setting] ~= nil then
     return Dta_Skins[setting]

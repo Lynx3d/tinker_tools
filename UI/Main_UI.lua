@@ -28,8 +28,8 @@ Dta.ui.activeHelp = false
 Dta.ui.windowFlying = nil
 Dta.ui.activeFlying = false
 
---Dta.ui.windowAlphabet = nil
---Dta.ui.activeAlphabet = false
+Dta.ui.windowAlphabet = nil
+Dta.ui.activeAlphabet = false
 
 Dta.ui.windowMeasurements = nil
 Dta.ui.activeMeasurements = false
@@ -298,7 +298,7 @@ function Dta.ui.buildMainWindow()
                                 Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 290, 150, 160, nil, Lang[Dta.Language].Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
                                 Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow.itemDetails, 0, 175, 160, nil, Lang[Dta.Language].Buttons.TribalMagic, nil, Dta.ui.modifyDFlyingButtonClicked)
                                 Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow.itemDetails, 145, 175, 160, nil, Lang[Dta.Language].Buttons.OffsetCalc, nil, Dta.ui.modifyMeasurementsButtonClicked)
---                                Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 0, 200, 160, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
+                                Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 0, 200, 160, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
 
   return Mainwindow
 end
@@ -309,7 +309,7 @@ function Dta.ui.showMainWindow()
   Dta.constructionsdefaults = Dta.settings.get_defaultsets("SavedDefaultSets") --or {}
   Dta.constructionstbx = tbx_import.get("savedConstructions")
   Dta.ExportImport_Sets = Dta_export.get("ExportImport")--or {}
---  Dta.alphabet.Fonts = Dta.settings.get_alphabetFonts("SavedAlphabets")
+  Dta.alphabet.Fonts = Dta.settings.get_alphabetFonts("SavedAlphabets")
   Dta.Replacement.Skins = Dta.settings.get_Skins("SavedSkins")
   if Dta.ui.windowtest == nil then
     Dta.ui.windowtest = Dta.ui.buildMainWindow()
@@ -337,7 +337,7 @@ function Dta.ui.hideMainWindow()
   if Dta.ui.activeExpImp then Dta.expimp_ui.hideExpImpWindow() end
   if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
   if Dta.ui.activeFlying then Dta.flying_ui.hideFlyingWindow() end
---  if Dta.ui.activeAlphabet then Dta.alphabet_ui.hideAlphabetWindow() end
+  if Dta.ui.activeAlphabet then Dta.alphabet_ui.hideAlphabetWindow() end
   if Dta.ui.activeMeasurements then Dta.measurements_ui.hideMeasurementsWindow() end
 end
 
@@ -391,9 +391,9 @@ function Dta.ui.modifyDFlyingButtonClicked()
     Dta.flying_ui.toggleFlyingWindow()
 end
 
---function Dta.ui.modifyAlphabetButtonClicked()
---    Dta.alphabet_ui.toggleAlphabetWindow()
---end
+function Dta.ui.modifyAlphabetButtonClicked()
+    Dta.alphabet_ui.toggleAlphabetWindow()
+end
 
 function Dta.ui.modifyMeasurementsButtonClicked()
     Dta.measurements_ui.toggleMeasurementsWindow()
