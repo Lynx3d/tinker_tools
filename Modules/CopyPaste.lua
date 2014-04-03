@@ -142,6 +142,7 @@ end
 --------------------------------------
 
 function Dta.copa.pasteMultipleItemAttributes(x, y, z, yaw, pitch, roll, scale, xOffset, yOffset, zOffset, yawOffset, pitchOffset, rollOffset, scaleOffset, multiplyOffset)
+  local Nr = 1
   if Dta.losa.tableLength(Dta.selectedItems) > 0 then
 
     if xOffset == nil or xOffset == "" or not x then xOffset = 0 end
@@ -168,7 +169,8 @@ function Dta.copa.pasteMultipleItemAttributes(x, y, z, yaw, pitch, roll, scale, 
     else
         for k, details in pairs(Dta.selectedItems) do
             if multiplyOffset then
-                Dta.copa.pasteItemAttributes(k, x, y, z, yaw, pitch, roll, scale, k*tonumber(xOffset), k*tonumber(yOffset), k*tonumber(zOffset), k*tonumber(yawOffset), k*tonumber(pitchOffset), k*tonumber(rollOffset), k*tonumber(scaleOffset))
+                Dta.copa.pasteItemAttributes(k, x, y, z, yaw, pitch, roll, scale, Nr*tonumber(xOffset), Nr*tonumber(yOffset), Nr*tonumber(zOffset), Nr*tonumber(yawOffset), Nr*tonumber(pitchOffset), Nr*tonumber(rollOffset), Nr*tonumber(scaleOffset))
+                Nr = Nr + 1
             else
                 Dta.copa.pasteItemAttributes(k, x, y, z, yaw, pitch, roll, scale, xOffset, yOffset, zOffset, yawOffset, pitchOffset, rollOffset, scaleOffset)
             end
