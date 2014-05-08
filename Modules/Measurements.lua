@@ -1,4 +1,4 @@
-﻿Dta.measurements = {}
+Dta.measurements = {}
 
 Dta.measurements.TypeIndex = {
 		"Poles",
@@ -21,20 +21,20 @@ function Dta.measurements.CalculationsClicked()
     local Orientation = Dta.ui.windowMeasurements.Measurements.OrientationLoad:GetSelectedItem()
 
     if Type == nil or Type == "" then
-        return print("Select a Type")
+        return print(Lang[Dta.Language].Prints.SelectType)
     end
 
     if Orientation == nil or Orientation == "" then
-        return print("Select an Orientation")
+        return print(Lang[Dta.Language].Prints.SelectOrientation)
     end
 
     if Size == nil or Size == "" then
-        return print("Type a Size")
+        return print(Lang[Dta.Language].Prints.TypeSize)
     else
         local NrSize = tonumber(Size)
         if Type == "Poles" then
             if NrSize > 12 or NrSize < 0.25 then
-                return print("Make sure Size is between 0.25 and 12")
+                return print(Lang[Dta.Language].Prints.SizeC)
             else
                 if Orientation == "Default" then
                     Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/8 ,4)))
@@ -56,7 +56,7 @@ function Dta.measurements.CalculationsClicked()
             end
         elseif Type == "Cubes" then
             if NrSize > 5 or NrSize < 0.25 then
-                return print("Make sure Size is between 0.25 and 5")
+                return print(Lang[Dta.Language].Prints.SizeA)
             else
                 if Orientation == "Default" then
                     Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/10*7.5 ,4)))
@@ -78,7 +78,7 @@ function Dta.measurements.CalculationsClicked()
             end
         elseif Type == "Tiles" then
             if NrSize > 12 or NrSize < 0.25 then
-                return print("Make sure Size is between 0.25 and 12")
+                return print(Lang[Dta.Language].Prints.SizeC)
             else
                 if Orientation == "Default" then
                     Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/4*3 ,4)))
@@ -100,7 +100,7 @@ function Dta.measurements.CalculationsClicked()
             end
         elseif Type == "Planks" then
             if NrSize > 6 or NrSize < 0.25 then
-                return print("Make sure Size is between 0.25 and 6")
+                return print(Lang[Dta.Language].Prints.SizeB)
             else
                 if Orientation == "Default" then
                     Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize*2.25 ,4)))
@@ -122,7 +122,7 @@ function Dta.measurements.CalculationsClicked()
             end
         elseif Type == "Rectangles" then
             if NrSize > 12 or NrSize < 0.25 then
-                return print("Make sure Size is between 0.25 and 12")
+                return print(Lang[Dta.Language].Prints.SizeC)
             else
                 if Orientation == "Default" then
                     Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize*1.125 ,4)))

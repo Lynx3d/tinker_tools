@@ -1,4 +1,4 @@
-﻿Dta.flying = {}
+Dta.flying = {}
 
 --------------------------------------
 --SCALE BUTTON HANDLERS
@@ -30,7 +30,7 @@ function Dta.flying.PlaceFlying()
 			end
 		end
     end
-    dump("You do not seem to have an Round Tribal Table in your inventory!")
+    dump(Lang[Dta.Language].Prints.NoRoundTable)
 end
 
 function Dta.flying.PickUpFlying()

@@ -76,7 +76,7 @@ function Dta.rotate.setItemRotation(index, yaw, pitch, roll, relative)
       if not tonumber(yaw) or
          not tonumber(pitch) or
          not tonumber(roll) then
-        print("Please enter numeric values only")
+        print(Lang[Dta.Language].Prints.NumbersOnly)
         return
       end
 
@@ -94,7 +94,7 @@ function Dta.rotate.setItemRotation(index, yaw, pitch, roll, relative)
       if not tonumber(yaw) or
          not tonumber(pitch) or
          not tonumber(roll) then
-        print("Please enter numeric values only")
+        print(Lang[Dta.Language].Prints.NumbersOnly)
         return
       end
 
@@ -107,6 +107,6 @@ function Dta.rotate.setItemRotation(index, yaw, pitch, roll, relative)
 
     Dta.items.QueueRotate(Dta.selectedItems[index].id, newPlacement.RotPitch, newPlacement.RotRoll, newPlacement.RotYaw)
   else
-    print("Please select an item in order to modify its rotation")
+    print(Lang[Dta.Language].Prints.ModifyRotation)
   end
 end

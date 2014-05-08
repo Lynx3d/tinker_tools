@@ -26,11 +26,42 @@ AladdinRift, for letting me use his code from
         Magic Carpet to integrate it into
         Dimension Tools.
 
+The Translators:
+Aeryle, French translations.
+Sven, German Translations. (In progress)
+Thanks for offering to translate Dimension Tools for me and the work you
+guys put into doing this.
+]],
+
+    French = [[
+Cet add-on a été conçu pour vous aider dans l'élaboration de vos dimensions.
+
+Use:
+/Dt
+Démarre l'add-on. Celà ne fonctionne que dans les dimensions!
+
+/Dt help
+Ouvre la fenêtre d'aide, même en dehors des dimensions.
+
+/Dt reset
+Restaure la position des fenêtres de Dimension Tools à leur emplacement initial.
+
+Remerciements:
+Arkzy,  le créateur de Toolbox qui m'a inspiré pour créer cet add on.
+Les membres de RDD, Qui ont participé aux tests et m'ont motivé.
+AladdinRift, pour m'avoir autorisé à utiliser et à intégrer le code de
+        Magic Carpet à Dimensions Tools.
+
+Traducteurs:
+Aeryle, Traduction Française.
+Sven, Traduction Allemande. (En cours)
+Merci d'avoir proposé votre aide pour la traduction de Dimension Tools
+et pour le travail de traduction effectué.
 ]],
 }
 Author = "Kikimora"
 Website = "http://riftdreamdimensions.com/"
-Version = "v1.3.1"
+Version = "v1.3.2"
 Email = "Kikimora@riftdreamdimensions.com"
 Environment = "2.5"
 
@@ -38,6 +69,7 @@ RunOnStartup = {
   "Main.lua",
 
   "Language/Language_Eng.lua",
+  "Language/Language_French.lua",
 
   "Defaults/Default_LoadSave.lua",
   "Defaults/Default_Skins.lua",

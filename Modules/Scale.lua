@@ -70,7 +70,7 @@ function Dta.scale.setItemScale(index, scale, relative)
       if scale == nil or scale == "" then scale = 0 end
 
       if not tonumber(scale) then
-        print("Please enter numeric values only")
+        print(Lang[Dta.Language].Prints.NumbersOnly)
         return
       end
 
@@ -79,7 +79,7 @@ function Dta.scale.setItemScale(index, scale, relative)
       if scale == nil or scale == "" then scale = Dta.selectedItems[index].scale end
 
       if not tonumber(scale) then
-        print("Please enter numeric values only")
+        print(Lang[Dta.Language].Prints.NumbersOnly)
         return
       end
 
@@ -87,6 +87,6 @@ function Dta.scale.setItemScale(index, scale, relative)
     end
     Dta.items.QueueScale(Dta.selectedItems[index].id, newPlacement)
   else
-    print("Please select an item in order to modify its scale")
+    print(Lang[Dta.Language].Prints.ModifyScale)
   end
 end

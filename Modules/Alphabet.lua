@@ -85,27 +85,27 @@ function Dta.alphabet.alphabetPrintMaterials()
     local Skins = Dta.ui.windowAlphabet.Alphabet.TypeLoad:GetSelectedItem()
 
     if font == nil or font == "" then
-        return print("Select a Font")
+        return print(Lang[Dta.Language].Prints.SelectFont)
     end
 
     if size == nil or size == "" then
-        return print("Select a Size")
+        return print(Lang[Dta.Language].Prints.SelectSize)
     end
 
     if Skins == nil or Skins == "" then
-        return print("Select a Skin")
+        return print(Lang[Dta.Language].Prints.SelectSkin)
     end
 
 
     if word ~= "" then
         if(word:match("%d+")) then
-            return print("No numbers allowed in the word")
+            return print(Lang[Dta.Language].Prints.OnlyLetters)
         end
     end
 
     if word ~= "" then
         if(word:match("%W")) then
-            print("Only letters allowed in the word")
+            print(Lang[Dta.Language].Prints.OnlyLetters)
         else
             Dta.alphabet.WordClipboard = {}
             for c in word:gmatch"." do
@@ -114,7 +114,7 @@ function Dta.alphabet.alphabetPrintMaterials()
             Dta.alphabet.printShoppingList(word)
         end
     else
-        print("Please type a word first")
+        print(Lang[Dta.Language].Prints.TypeWord)
     end
 end
 
@@ -125,26 +125,26 @@ function Dta.alphabet.alphabetLoadClicked()
     local Skins = Dta.ui.windowAlphabet.Alphabet.TypeLoad:GetSelectedItem()
 
     if font == nil or font == "" then
-        return print("Select a Font")
+        return print(Lang[Dta.Language].Prints.SelectFont)
     end
 
     if size == nil or size == "" then
-        return print("Select a Size")
+        return print(Lang[Dta.Language].Prints.SelectSize)
     end
 
     if Skins == nil or Skins == "" then
-        return print("Select a Skin")
+        return print(Lang[Dta.Language].Prints.SelectSkin)
     end
 
     if word ~= "" then
         if(word:match("%d+")) then
-            return print("No numbers allowed in the word")
+            return print(Lang[Dta.Language].Prints.OnlyLetters)
         end
     end
 
     if word ~= "" then
         if(word:match("%W")) then
-            print("Only letters allowed in the word")
+            print(Lang[Dta.Language].Prints.OnlyLetters)
         else
             Dta.alphabet.WordClipboard = {}
             for c in word:gmatch"." do
@@ -178,7 +178,7 @@ function Dta.alphabet.alphabetLoadClicked()
             end
 
             if Dta.losa.tableLength(missingItems) > 0 then
-                print("Cannot build this word - the following items are missing from your bags:")
+                print(Lang[Dta.Language].Prints.WordMissingItems)
                 for id, details in pairs(missingItems) do
                     print(string.format("%s: %d", details.name, details.amount))
                 end
@@ -204,7 +204,7 @@ function Dta.alphabet.alphabetLoadClicked()
             end
         end
     else
-        print("Please type a word first")
+        print(Lang[Dta.Language].Prints.TypeWord)
     end
 end
 
@@ -275,12 +275,12 @@ end
 function Dta.alphabet.printShoppingList(name)
     local list = Dta.alphabet.getWordShoppingList()
         if list ~= nil and Dta.losa.tableLength(list) > 0 then
-            print(string.format("The following items are required to create the word \"%s\":", name))
+            print(string.format(Lang[Dta.Language].Prints.WordNeededItems, name))
             for id, details in pairs(list) do
                 print(string.format("%s: %d", details.name, details.amount))
             end
         else
-            print("Could not print materials")
+            print(Lang[Dta.Language].Prints.WordCouldNotPrint)
         end
 end
 

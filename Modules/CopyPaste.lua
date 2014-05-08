@@ -131,9 +131,9 @@ function Dta.copa.copyItemAttributes()
       scale = Dta.selectedItems[Dta.Key].scale,
     }
   elseif Dta.losa.tableLength(Dta.selectedItems) > 1 then
-    print("Copy feature only works on single item selections at the moment")
+    print(Lang[Dta.Language].Prints.Copy_SingleItem)
   else
-    print("Please select an item in order to copy attributes")
+    print(Lang[Dta.Language].Prints.Copy_SelectItem)
   end
 end
 
@@ -160,12 +160,12 @@ function Dta.copa.pasteMultipleItemAttributes(x, y, z, yaw, pitch, roll, scale, 
        not tonumber(pitchOffset) or
        not tonumber(rollOffset) or
        not tonumber(scaleOffset) then
-      print("Please enter numeric values only")
+      print(Lang[Dta.Language].Prints.NumbersOnly)
       return
     end
 
     if Dta.clipboard.type == nil then
-        print("Please copy an item before pasting")
+        print(Lang[Dta.Language].Prints.CopyFirst)
     else
         for k, details in pairs(Dta.selectedItems) do
             if multiplyOffset then
@@ -204,9 +204,9 @@ function Dta.copa.pasteItemAttributes(index, x, y, z, yaw, pitch, roll, scale, x
     Dta.items.QueueCoPa(Dta.selectedItems[index].id, newPlacement.coordX, newPlacement.coordY, newPlacement.coordZ, newPlacement.pitch, newPlacement.roll, newPlacement.yaw, newPlacement.scale)
 
   elseif Dta.selectedItems[index] == nil then
-    print("Please select an item in order to paste attributes")
+    print(Lang[Dta.Language].Prints.Copy_SelectItem)
   else
-    print("You must copy an item's attributes before pasting")
+    print(Lang[Dta.Language].Prints.CopyFirst)
   end
 end
 
@@ -218,7 +218,6 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
   Dta.copa.CountedItems = 0
   if not NewItem then
     ItemNr = 0
-    print("Please check the checkbox if you want to place a new item or use the paste button if you try to paste a existing item")
   elseif NewItemNr == nil or NewItemNr =="" then
     ItemNr = 1
   else
@@ -243,7 +242,7 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
        not tonumber(rollOffset) or
        not tonumber(ItemNr) or
        not tonumber(scaleOffset) then
-      print("Please enter numeric values only")
+      print(Lang[Dta.Language].Prints.NumbersOnly)
       return
     end
 
@@ -252,7 +251,7 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
         local items = Inspect.Item.Detail(Inspect.Item.List(Utility.Item.Slot.Inventory()))
         local NewItemID = Dta.clipboard.type
         if NewItemID == nil then
-            print("Please copy an item before pasting.")
+            print(Lang[Dta.Language].Prints.CopyFirst)
             return
         end
 
@@ -262,7 +261,7 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
             end
         end
         if  Dta.copa.CountedItems < ItemNr then
-            print("You only have " .. Dta.copa.CountedItems .. " in your Bags, lower the items or try Bank Bags / Vaults.")
+            print(string.format(Lang[Dta.Language].Prints.Bags_ItemCount, Dta.copa.CountedItems))
             Dta.copa.CountedItems = 0
             return
         end
@@ -271,7 +270,7 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
         local itemsBank = Inspect.Item.Detail(Inspect.Item.List(Utility.Item.Slot.Bank()))
         local NewItemID = Dta.clipboard.type
         if NewItemID == nil then
-            print("Please copy an item before pasting.")
+            print(Lang[Dta.Language].Prints.CopyFirst)
             return
         end
 
@@ -282,7 +281,7 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
         end
 
         if  Dta.copa.CountedItems < ItemNr then
-            print("You only have " .. Dta.copa.CountedItems .. " in your Bank Bags, lower the items or try Bags / Vaults.")
+            print(string.format(Lang[Dta.Language].Prints.BankBags_ItemCount, Dta.copa.CountedItems))
             Dta.copa.CountedItems = 0
             return
         end
@@ -291,7 +290,7 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
         local itemsVault = Inspect.Item.Detail(Inspect.Item.List(Utility.Item.Slot.Vault()))
         local NewItemID = Dta.clipboard.type
         if NewItemID == nil then
-            print("Please copy an item before pasting.")
+            print(Lang[Dta.Language].Prints.CopyFirst)
             return
         end
 
@@ -301,7 +300,7 @@ function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scal
             end
         end
         if  Dta.copa.CountedItems < ItemNr then
-            print("You only have " .. Dta.copa.CountedItems .. " in your Vaults, lower the items or try Bags / Bank Bags.")
+            print(string.format(Lang[Dta.Language].Prints.Vaults_ItemCount, Dta.copa.CountedItems))
             Dta.copa.CountedItems = 0
             return
         end
@@ -391,11 +390,11 @@ function Dta.copa.pasteNewItemAttributes(index, x, y, z, yaw, pitch, roll, scale
         end
     end
 
-    dump("You don't seem to have enough of this item here, Please try another option.")
+    dump(Lang[Dta.Language].Prints.NotEnoughItems)
 
   elseif Dta.selectedItems[index] == nil then
-    print("Please select an item in order to paste attributes")
+    print(Lang[Dta.Language].Prints.SelectFirst)
   else
-    print("You must copy an item's attributes before pasting")
+    print(Lang[Dta.Language].Prints.CopyFirst)
   end
 end

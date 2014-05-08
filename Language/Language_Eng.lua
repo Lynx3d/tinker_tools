@@ -312,8 +312,11 @@ Lang["English"].TribalMagic.Text3 = ""
 
 ---Chance Log-------------------------------------------------------------
 Lang["English"].ChanceLog = {}
-Lang["English"].ChanceLog.Label = "Chance Log"
+Lang["English"].ChanceLog.Label = "Change Log"
 Lang["English"].ChanceLog.Text1 = "\
+Version 1.3.2\
+-Dimension Tools has gone French. French translation are done by Aeryle.\
+\
 Version 1.3.0\
 - Added the New Tool called Alfiebet, write words in dimensions.\
 - Added Alfiebet to the help function.\
@@ -358,6 +361,17 @@ with us, visit http://riftdreamdimensions.com/ \
 Special Thanks:\
 AladdinRift, for letting me use his code from Magic Carpet to integrate it\
 into Dimension Tools.\
+\
+The Translators:\
+Aeryle, French translations.\
+Sven, German Translations. (In progress)\
+Thanks for offering to translate Dimension Tools for me and the work you\
+guys put into doing this.\
+\
+A little word from Aeryle:\
+It was a pleasure for me to translate this Add-on in French.\
+I hope the French Dimension community will enjoy it and i hope this\
+translation will allow them to use this add-on more easily!\
 \
 Websites:\
 http://inhousegaming.com/ - For all your Trion game fun.\
@@ -506,8 +520,60 @@ Lang["English"].Text.Vertical = "Place Vertical"
 --Prints
 ----------------------------------------
 Lang["English"].Prints = {}
+--Main
 Lang["English"].Prints.DimensionOnly = "This addon is intended for use in Dimensions only."
 Lang["English"].Prints.ProcessFinished = "Processing Finished."
 Lang["English"].Prints.SetFinished = "Item set \"%s\" loaded and selected."
 Lang["English"].Prints.PasteFinished = "All items are placed and selected."
 Lang["English"].Prints.WordFinished = "The word is placed and selected."
+--Copy / Paste
+Lang["English"].Prints.Copy_SingleItem = "Copy feature only works on single item selections at the moment"
+Lang["English"].Prints.Copy_SelectItem = "Please select an item in order to copy attributes"
+Lang["English"].Prints.NumbersOnly = "Please enter numeric values only"
+Lang["English"].Prints.CopyFirst = "Please copy an item before pasting"
+Lang["English"].Prints.Bags_ItemCount = "You only have \"%s\" of this item in your Bags."
+Lang["English"].Prints.BankBags_ItemCount = "You only have \"%s\" of this item in your Bank Bags."
+Lang["English"].Prints.Vaults_ItemCount = "You only have \"%s\" of this item in your Vaults."
+Lang["English"].Prints.NotEnoughItems = "You don't seem to have enough of this item"
+Lang["English"].Prints.SelectFirst = "Please select an item before pasting"
+--Tribal Magic
+Lang["English"].Prints.NoRoundTable = "You do not seem to have an Round Tribal Table in your inventory!"
+--Alfiebet
+Lang["English"].Prints.SelectFont = "Select a Font"
+Lang["English"].Prints.SelectSize = "Select a Size"
+Lang["English"].Prints.SelectSkin = "Select a Skin"
+Lang["English"].Prints.OnlyLetters = "Only letters allowed in the word"
+Lang["English"].Prints.TypeWord = "Please type a word first"
+Lang["English"].Prints.WordMissingItems = "Cannot build this word - the following items are missing from your bags:"
+Lang["English"].Prints.WordNeededItems = "The following items are required to create the word \"%s\":"
+Lang["English"].Prints.WordCouldNotPrint = "Could not print materials"
+--Import/Export
+Lang["English"].Prints.SetNotFound = "Item set \"%s\" not found"
+Lang["English"].Prints.SelectExport = "You must select a set in order to Export it"
+Lang["English"].Prints.Exported = "Item set \"%s\" Exported"
+Lang["English"].Prints.SelectImport = "You must select a set in order to Import it"
+Lang["English"].Prints.Imported = "Item set \"%s\" Imported"
+--Load / Save
+Lang["English"].Prints.Saved = "Item set \"%s\" saved"
+Lang["English"].Prints.MinOneItem = "Must select 1 or more items in order to save them"
+Lang["English"].Prints.EnterName = "Must enter a name in order to save the set"
+Lang["English"].Prints.LoadNeededItems = "The following items are required for loading \"%s\":"
+Lang["English"].Prints.LoadPrintMats = "You must select a set in order to print its materials"
+Lang["English"].Prints.LoadSelectSet = "You must select a set in order to load it"
+Lang["English"].Prints.NotLoadedBags = "Cannot load set - the following items are missing from your bags:"
+Lang["English"].Prints.NotLoadedSelection = "Cannot load set - the following items are missing from your selection:"
+Lang["English"].Prints.SetLoaded = "Item set \"%s\" loaded"
+Lang["English"].Prints.SetRemoved = "Item set \"%s\" removed"
+Lang["English"].Prints.NotRemoved = "Could not remove \"%s\" - no such set found"
+Lang["English"].Prints.RemoveSelectSet = "You must select a set in order to remove it"
+--Measurements
+Lang["English"].Prints.SelectType = "Select a Type"
+Lang["English"].Prints.SelectOrientation = "Select an Orientation"
+Lang["English"].Prints.TypeSize = "Type a Size"
+Lang["English"].Prints.SizeC = "Make sure Size is between 0.25 and 12"
+Lang["English"].Prints.SizeA = "Make sure Size is between 0.25 and 5"
+Lang["English"].Prints.SizeB = "Make sure Size is between 0.25 and 6"
+--Move, Rotate, Scale
+Lang["English"].Prints.ModifyPosition = "Please select an item in order to modify its position"
+Lang["English"].Prints.ModifyRotation = "Please select an item in order to modify its rotation"
+Lang["English"].Prints.ModifyScale = "Please select an item in order to modify its scale"

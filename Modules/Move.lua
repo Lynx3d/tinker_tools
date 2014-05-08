@@ -46,7 +46,7 @@ function Dta.move.setItemPosition(index, x, y, z, relative)
       if not tonumber(x) or
          not tonumber(y) or
          not tonumber(z) then
-        print("Please enter numeric values only")
+        print(Lang[Dta.Language].Prints.NumbersOnly)
         return
       end
 
@@ -59,7 +59,7 @@ function Dta.move.setItemPosition(index, x, y, z, relative)
       if not tonumber(x) or
          not tonumber(y) or
          not tonumber(z) then
-        print("Please enter numeric values only")
+        print(Lang[Dta.Language].Prints.NumbersOnly)
         return
       end
 
@@ -68,7 +68,7 @@ function Dta.move.setItemPosition(index, x, y, z, relative)
 
     Dta.items.QueueMove(Dta.selectedItems[index].id, newPlacement.coordX, newPlacement.coordY, newPlacement.coordZ)
   else
-    print("Please select an item in order to modify its position")
+    print(Lang[Dta.Language].Prints.ModifyPosition)
   end
 end
 
