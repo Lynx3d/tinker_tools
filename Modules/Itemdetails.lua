@@ -46,6 +46,7 @@ function Dta.items.updateItemDetails()
                 Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/multiple.png")
                 Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.MultiSelectItems)
                 local cp = Dta.items.getCentralPoint(Dta.selectedItems)
+                Dta.selectionCenter = cp
                 Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(Dta.losa.tableLength(Dta.selectedItems)))
                 Dta.ui.windowtest.itemDetails.x:SetText(tostring(Dta.items.round(cp.x,4)))
                 Dta.ui.windowtest.itemDetails.y:SetText(tostring(Dta.items.round(cp.y,4)))
@@ -63,6 +64,7 @@ function Dta.items.updateItemDetails()
                     else
                         Dta.ui.windowtest.itemDetails.icon:SetTexture("Rift", Dta.selectedItems[ItemID].icon)
                     end
+                    Dta.selectionCenter = { ["x"] = Dta.selectedItems[ItemID].coordX, ["y"] = Dta.selectedItems[ItemID].coordY, ["z"] = Dta.selectedItems[ItemID].coordZ }
                     Dta.ui.windowtest.itemDetails.name:SetText(tostring(Dta.selectedItems[ItemID].name))
                     Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(Dta.losa.tableLength(Dta.selectedItems)))
                     Dta.ui.windowtest.itemDetails.x:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].coordX,4)))
@@ -78,6 +80,7 @@ function Dta.items.updateItemDetails()
         else
             Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/blank.png")
             Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.NothingSelected)
+            Dta.selectionCenter = nil
             Dta.ui.windowtest.itemDetails.nrItems:SetText("-")
             Dta.ui.windowtest.itemDetails.x:SetText("-")
             Dta.ui.windowtest.itemDetails.y:SetText("-")
@@ -87,7 +90,7 @@ function Dta.items.updateItemDetails()
             Dta.ui.windowtest.itemDetails.roll:SetText("-")
             Dta.ui.windowtest.itemDetails.scale:SetText("-")
             if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(false) end
-            Dta.ui.needsReset = false
+            -- Dta.ui.needsReset = false
         end
     end
 end

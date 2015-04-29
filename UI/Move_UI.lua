@@ -111,21 +111,21 @@ function Dta.move_ui.buildMoveWindow()
 	--Movewindow.modifyPosition:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
 	Movewindow.modifyPosition.xLabel = Dta.ui.createText("modifyPositionXLabel", Movewindow.modifyPosition, 0, 0, "X", 14, {1, 0, 0, 1})
-	Movewindow.modifyPosition.yLabel = Dta.ui.createText("modifyPositionYLabel", Movewindow.modifyPosition, 110, 0, "Y", 14, {0, 1, 0, 1})
-	Movewindow.modifyPosition.zLabel = Dta.ui.createText("modifyPositionZLabel", Movewindow.modifyPosition, 220, 0, "Z", 14, {0, 1, 1, 1})
+	Movewindow.modifyPosition.yLabel = Dta.ui.createText("modifyPositionYLabel", Movewindow.modifyPosition, 0, 25, "Y", 14, {0, 1, 0, 1})
+	Movewindow.modifyPosition.zLabel = Dta.ui.createText("modifyPositionZLabel", Movewindow.modifyPosition, 0, 50, "Z", 14, {0, 1, 1, 1})
 
-	Movewindow.modifyPosition.x = Dta.ui.createTextfield("modifyPositionX", Movewindow.modifyPosition, 20, 0, 50)
-	Movewindow.modifyPosition.y = Dta.ui.createTextfield("modifyPositionY", Movewindow.modifyPosition, 130, 0, 50)
-	Movewindow.modifyPosition.z = Dta.ui.createTextfield("modifyPositionZ", Movewindow.modifyPosition, 240, 0, 50)
+	Movewindow.modifyPosition.x = Dta.ui.createTextfield("modifyPositionX", Movewindow.modifyPosition, 20, 0, 100)
+	Movewindow.modifyPosition.y = Dta.ui.createTextfield("modifyPositionY", Movewindow.modifyPosition, 20, 25, 100)
+	Movewindow.modifyPosition.z = Dta.ui.createTextfield("modifyPositionZ", Movewindow.modifyPosition, 20, 50, 100)
 
-	Movewindow.modifyPosition.modeAbs = Dta.ui.createCheckbox("modifyPositionModeAbs", Movewindow.modifyPosition, 45, 30, Lang[Dta.Language].Text.Absolute, true, nil, Dta.move.modifyPositionModeAbsChanged)
-	Movewindow.modifyPosition.modeRel = Dta.ui.createCheckbox("modifyPositionModeRel", Movewindow.modifyPosition, 175, 30, Lang[Dta.Language].Text.Relative, false, nil, Dta.move.modifyPositionModeRelChanged)
+	Movewindow.modifyPosition.modeAbs = Dta.ui.createCheckbox("modifyPositionModeAbs", Movewindow.modifyPosition, 170, 5, Lang[Dta.Language].Text.Absolute, true, nil, Dta.move.modifyPositionModeAbsChanged)
+	Movewindow.modifyPosition.modeRel = Dta.ui.createCheckbox("modifyPositionModeRel", Movewindow.modifyPosition, 170, 25, Lang[Dta.Language].Text.Relative, false, nil, Dta.move.modifyPositionModeRelChanged)
 
-	Movewindow.modifyPosition.moveAsGrp = Dta.ui.createCheckbox("modifyPositionMoveAsGrp", Movewindow.modifyPosition, 95, 60, Lang[Dta.Language].Text.MoveAsGroup, true)
+	Movewindow.modifyPosition.moveAsGrp = Dta.ui.createCheckbox("modifyPositionMoveAsGrp", Movewindow.modifyPosition, 170, 55, Lang[Dta.Language].Text.MoveAsGroup, true)
 	Movewindow.modifyPosition.moveAsGrp:SetVisible(false)
 
 	Movewindow.modifyPosition.changeBtn = Dta.ui.createButton("modifyPositionBtn", Movewindow.modifyPosition, 0, 90, nil, nil, Lang[Dta.Language].Buttons.Move, nil, Dta.move.modifyPositionButtonClicked)
-	Movewindow.modifyPosition.resetBtn = Dta.ui.createButton("modifyPositionResetBtn", Movewindow.modifyPosition, 160, 90, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.move.modifyPositionResetButtonClicked)
+	Movewindow.modifyPosition.resetBtn = Dta.ui.createButton("modifyPositionResetBtn", Movewindow.modifyPosition, 160, 90, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.move_ui.modifyPositionResetButtonClicked)
 
 	function Movewindow.TabFocusCycle(frame, hEvent, key)
 		if key ~= "Tab" then
@@ -186,4 +186,12 @@ end
 function Dta.move_ui.MoveWindowMoved()
   Dta.settings.set("MovewindowPosX", Movewindow:GetLeft())
   Dta.settings.set("MovewindowPosY", Movewindow:GetTop())
+end
+
+function Dta.move_ui.modifyPositionResetButtonClicked()
+	if Dta.selectionCenter then
+		Movewindow.modifyPosition.x:SetText(string.format("%.6f", Dta.selectionCenter.x))
+		Movewindow.modifyPosition.y:SetText(string.format("%.6f", Dta.selectionCenter.y))
+		Movewindow.modifyPosition.z:SetText(string.format("%.6f", Dta.selectionCenter.z))
+	end
 end
