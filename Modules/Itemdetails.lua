@@ -39,23 +39,10 @@ end
 --ITEM UPDATE
 --------------------------------------
 
-function Dta.items.updateItemDetails(ItemID)
+function Dta.items.updateItemDetails()
     if Dta.ui.windowtest ~= nil then
         if Dta.losa.tableLength(Dta.selectedItems) > 0 then
-            if Dta.losa.tableLength(Dta.selectedItems) == 2 then
-                Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/multiple.png")
-                Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.MultiSelectItems)
-                local cp = Dta.items.getCentralPoint(Dta.selectedItems)
-                Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(Dta.losa.tableLength(Dta.selectedItems)))
-                Dta.ui.windowtest.itemDetails.x:SetText(tostring(Dta.items.round(cp.x,4)))
-                Dta.ui.windowtest.itemDetails.y:SetText(tostring(Dta.items.round(cp.y,4)))
-                Dta.ui.windowtest.itemDetails.z:SetText(tostring(Dta.items.round(cp.z,4)))
-                Dta.ui.windowtest.itemDetails.yaw:SetText("-")
-                Dta.ui.windowtest.itemDetails.pitch:SetText("-")
-                Dta.ui.windowtest.itemDetails.roll:SetText("-")
-                Dta.ui.windowtest.itemDetails.scale:SetText("-")
-                if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(true) end
-            elseif Dta.losa.tableLength(Dta.selectedItems) > 1 then
+            if Dta.losa.tableLength(Dta.selectedItems) > 1 then
                 Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/multiple.png")
                 Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.MultiSelectItems)
                 local cp = Dta.items.getCentralPoint(Dta.selectedItems)
@@ -69,6 +56,7 @@ function Dta.items.updateItemDetails(ItemID)
                 Dta.ui.windowtest.itemDetails.scale:SetText("-")
                 if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(true) end
             else
+                local ItemID = next(Dta.selectedItems)
                 if ItemID ~= nil then
                     if Dta.selectedItems[ItemID].icon == "" then
                         Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/default.png")
@@ -87,7 +75,7 @@ function Dta.items.updateItemDetails(ItemID)
                     if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(false) end
                 end
             end
-        elseif Dta.ui.needsReset then
+        else
             Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/blank.png")
             Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.NothingSelected)
             Dta.ui.windowtest.itemDetails.nrItems:SetText("-")
@@ -104,60 +92,44 @@ function Dta.items.updateItemDetails(ItemID)
     end
 end
 
-function Dta.items.updateSelection(dimensionItem)
-
+function Dta.items.updateSelection(dimensionItem, delete)
+    -- events pass a table which always seem to be a single { item_id, true }, but loop nevertheless
     for id,details in pairs(dimensionItem) do
-        local detail = Inspect.Dimension.Layout.Detail(id)
-        if detail ~= nil then
-            if detail.selected then
-                local k = Dta.items.GetDimensionKey(Dta.selectedItems, id)
-                if k == nil then
-                    Dta.Key = detail.id
-                    Dta.selectedItems[Dta.Key] = detail
-                    --table.insert(Dta.selectedItems, detail)
+        -- the is no update event when a selected item gets removed from a dimension
+        if delete then
+            Dta.selectedItems[id] = nil
+        else
+            local detail = Inspect.Dimension.Layout.Detail(id)
+            if detail ~= nil then
+                if detail.selected then
+                    Dta.selectedItems[id] = detail
                     --print("Selected: " .. detail.name .. ", ID:" .. detail.id)
                 else
-                    Dta.selectedItems[k] = detail
-                    Dta.Key = k
-                    --print("Selected2: " .. detail.name .. ", ID:" .. detail.id)
-                end
-            else
-                if Dta.losa.tableLength(Dta.selectedItems) > 0 then
-                    local k = Dta.items.GetDimensionKey(Dta.selectedItems, id)
-                    if k ~= nil then
-                        Dta.AlreadySelected = false
-                        Dta.selectedItems[k] = nil
-                        Dta.Key = nil
-                    end
-                    --table.remove(Dta.selectedItems, k)
+                    Dta.selectedItems[id] = nil
                     --print("DeSelected: " .. detail.name .. ", ID:" .. detail.id)
                 end
-            end
-        elseif Dta.Deleting then
-            if Dta.losa.tableLength(Dta.selectedItems) > 0 then
-                local k = Dta.items.GetDimensionKey(Dta.selectedItems, id)
-                if k ~= nil then
-                    Dta.selectedItems[k] = nil
-                    Dta.Key = nil
-                    --table.remove(Dta.selectedItems, k)
-                    Dta.Deleting = false
+            else
+                -- seems there is a bug in deselecting where an item id gets corrupt;
+                -- subsequent select of same item is bugged too, it doesn't emit a change
+                -- event at all but we can't work around that
+                print("Error, bad ID, manual fixup required!")
+                for s_id, val in pairs(Dta.selectedItems) do
+                    detail = Inspect.Dimension.Layout.Detail(s_id)
+                    if detail and not detail.selected then
+                        Dta.selectedItems[s_id] = nil
+                    end
                 end
             end
         end
     end
 
-    Dta.items.StartDetails(Dta.Key)
+    Dta.items.StartDetails()
 
 end
 
 function Dta.items.StartDetails(ItemID)
     if Dta.ui ~= nil and Dta.ui.active then
-        if Dta.losa.tableLength(Dta.selectedItems) < 1 then
-            Dta.ui.needsReset = true
-            Dta.items.updateItemDetails(ItemID)
-        else
-            Dta.items.updateItemDetails(ItemID)
-        end
+        Dta.items.updateItemDetails()
     end
 end
 

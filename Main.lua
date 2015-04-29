@@ -177,7 +177,7 @@ function Dta.removeEventHandler(hEvent, dimensionItem) --Executed when item is r
     end
     if Dta.losa.tableLength(Dta.selectedItems) > 0 then
         Dta.Deleting = true
-        Dta.items.updateSelection(dimensionItem)
+        Dta.items.updateSelection(dimensionItem, true)
         --print("Item Removed")
     end
 
@@ -187,7 +187,7 @@ function Dta.updateEventHandler(hEvent, dimensionItem) --Executed on every selec
     if #Dta.pendingActions == 1 then
         print(Lang[Dta.Language].Prints.ProcessFinished)
     end
-    Dta.items.updateSelection(dimensionItem)
+    Dta.items.updateSelection(dimensionItem, false)
 
     if Dta.FinishedSet and Dta.Setname ~= "" and #Dta.SelectionQueue == 1 then
         print(string.format(Lang[Dta.Language].Prints.SetFinished, Dta.Setname))

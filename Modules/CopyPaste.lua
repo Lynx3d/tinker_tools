@@ -120,15 +120,16 @@ end
 
 function Dta.copa.copyItemAttributes()
   if Dta.losa.tableLength(Dta.selectedItems) == 1 then
+    local item, details = next(Dta.selectedItems)
     Dta.clipboard = {
-      type = Dta.selectedItems[Dta.Key].type,
-      x = Dta.selectedItems[Dta.Key].coordX,
-      y = Dta.selectedItems[Dta.Key].coordY,
-      z = Dta.selectedItems[Dta.Key].coordZ,
-      yaw = Dta.selectedItems[Dta.Key].yaw,
-      pitch = Dta.selectedItems[Dta.Key].pitch,
-      roll = Dta.selectedItems[Dta.Key].roll,
-      scale = Dta.selectedItems[Dta.Key].scale,
+      type = details.type,
+      x = details.coordX,
+      y = details.coordY,
+      z = details.coordZ,
+      yaw = details.yaw,
+      pitch = details.pitch,
+      roll = details.roll,
+      scale = details.scale,
     }
   elseif Dta.losa.tableLength(Dta.selectedItems) > 1 then
     print(Lang[Dta.Language].Prints.Copy_SingleItem)
