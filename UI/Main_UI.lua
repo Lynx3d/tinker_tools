@@ -111,6 +111,12 @@ function Dta.ui.createFrame(name, parent, x, y, width, height, color)
 	return frame
 end
 
+function Dta.ui.clickCallback(frame, hEvent)
+	-- remove key-focus of any other frame by temporarily claiming it
+	frame:SetKeyFocus(true)
+	frame:SetKeyFocus(false)
+end
+
 -- create mainwindow
 function Dta.ui.createWindow(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
   local windowtest = UI.CreateFrame("Frame", name, parent)
@@ -119,6 +125,7 @@ function Dta.ui.createWindow(name, parent, title, width, height, x, y, closable,
 		windowtest:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 		-- windowtest:SetBackgroundColor(1, 1, 1, 0.5) --Debug
 		windowtest:SetLayer(10)
+		windowtest:EventAttach(Event.UI.Input.Mouse.Left.Click, Dta.ui.clickCallback, "WindowBackgroundClicked")
 
   windowtest.background = UI.CreateFrame("Texture", name .. "Background", windowtest)
   windowtest.background:SetPoint("TOPLEFT", windowtest, "TOPLEFT", 0, 0)
@@ -203,8 +210,8 @@ function Dta.ui.createWindow(name, parent, title, width, height, x, y, closable,
 		    end
 	end, "MouseMove")
 
-  return windowtest
   end
+  return windowtest
 end
 
 -- create button
