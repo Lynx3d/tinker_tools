@@ -43,12 +43,13 @@ Dta.ui.needsReset = true
 -- CREATION OF THE WINDOW ELLEMENTS
 -------------------------------
 -- Create a text frame
-function Dta.ui.createText(name, parent, x, y, text, fontsize, color)
+function Dta.ui.createText(name, parent, x, y, text, fontsize, color, shadow)
   local textFrame = UI.CreateFrame("Text", name, parent)
   textFrame:SetFontSize(fontsize)
   textFrame:SetText(text)
   textFrame:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
   if color ~= nil then textFrame:SetFontColor(color[1], color[2], color[3], color[4]) end
+  if shadow ~= false then textFrame:SetEffectGlow({offsetX=1, offsetY=1}) end
 	return textFrame
 end
 
