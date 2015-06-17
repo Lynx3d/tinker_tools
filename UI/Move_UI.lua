@@ -123,7 +123,7 @@ function Dta.move_ui.buildMoveWindow()
 	Movewindow.modifyPosition.modeRel = Dta.ui.createCheckbox("modifyPositionModeRel", Movewindow.modifyPosition, 170, 25, Lang[Dta.Language].Text.Relative, false, nil, Dta.move.modifyPositionModeRelChanged)
 
 	Movewindow.modifyPosition.moveAsGrp = Dta.ui.createCheckbox("modifyPositionMoveAsGrp", Movewindow.modifyPosition, 170, 55, Lang[Dta.Language].Text.MoveAsGroup, true)
-	Movewindow.modifyPosition.moveAsGrp:SetVisible(false)
+	Movewindow.modifyPosition.moveAsGrp:SetVisible(Dta.selectionCount > 1)
 
 	Movewindow.modifyPosition.changeBtn = Dta.ui.createButton("modifyPositionBtn", Movewindow.modifyPosition, 0, 90, nil, nil, Lang[Dta.Language].Buttons.Move, nil, Dta.move.modifyPositionButtonClicked)
 	Movewindow.modifyPosition.resetBtn = Dta.ui.createButton("modifyPositionResetBtn", Movewindow.modifyPosition, 160, 90, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.move_ui.modifyPositionResetButtonClicked)

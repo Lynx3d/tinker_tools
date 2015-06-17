@@ -7,6 +7,7 @@ Dta.Language = Inspect.System.Language()
 
 --Items
 Dta.selectedItems = {}
+Dta.selectionCount = 0
 Dta.clipboard = {}
 Dta.groupClipboard = {}
 Dta.itemList = {}

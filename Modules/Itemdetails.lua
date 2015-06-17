@@ -126,6 +126,8 @@ function Dta.items.updateSelection(dimensionItem, delete)
         end
     end
 
+    -- TODO: replace Dta.losa.tableLength(Dta.selectedItems) calls with Dta.selectionCount
+    Dta.selectionCount = Dta.losa.tableLength(Dta.selectedItems)
     Dta.items.StartDetails()
 
 end
