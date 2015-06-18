@@ -39,6 +39,46 @@ Dta.ui.loadExpImp = "Saved"
 
 Dta.ui.needsReset = true
 
+function Dta.ui.AddFocusCycleElement(owner, frame)
+	if not owner.focusCycleList then
+		owner.focusCycleList = {}
+	end
+	local idx = #owner.focusCycleList + 1
+	owner.focusCycleList[idx] = frame
+	frame.focusCycleIndex = idx
+	-- this was not planned, see comment in FocusCycleCallback
+	frame.focusCycleList = owner.focusCycleList
+end
+
+function Dta.ui.FocusCycleCallback(frame, hEvent, key)
+	-- apparently you can't get a reference to the "owner" frame to which this dive handler
+	-- gets attached, instead the "frame" passed is the the target frames (a cycle list entry).
+	-- i.e. frame and hEvent:GetTarget() are identical, which is weird
+	if key ~= "Tab" or not frame.focusCycleList then
+		return
+	end
+	local target = hEvent:GetTarget()
+	local idx = target.focusCycleIndex
+	if not idx then
+		return
+	end
+	if Dta.ui.isShiftPressed then
+		idx = idx - 1
+		if idx == 0 then
+			idx = #frame.focusCycleList
+		end
+	else
+		idx = idx + 1
+		if idx > #frame.focusCycleList then
+			idx = 1
+		end
+	end
+	frame.focusCycleList[idx]:SetKeyFocus(true)
+	if type(target.TabFocusCycled) == "function" then
+		target.TabFocusCycled(target)
+	end
+end
+
 -------------------------------
 -- CREATION OF THE WINDOW ELLEMENTS
 -------------------------------
@@ -73,6 +113,13 @@ function Dta.ui.createTexture(name, parent, source, texture, x, y, width, height
 	return textureFrame
 end
 
+-- textfield helper function
+-- TODO: think about proper class hierarchies
+function Dta.ui.textfieldSelectAll(self)
+	local sval = self:GetText()
+	local slen = sval and string.len(sval) or 0
+	if slen > 0 then self:SetSelection(0, slen) end
+end
 -- create textfield
 function Dta.ui.createTextfield(name, parent, x, y, width, text)
   local textfield = UI.CreateFrame("RiftTextfield", name, parent)
@@ -81,6 +128,7 @@ function Dta.ui.createTextfield(name, parent, x, y, width, text)
   textfield:SetBackgroundColor(0,0,0,0.75)
   if text ~= nil then textfield:SetText(text)
   else textfield:SetText("") end
+  textfield.TabFocusCycled = Dta.ui.textfieldSelectAll
   return textfield
 end
 

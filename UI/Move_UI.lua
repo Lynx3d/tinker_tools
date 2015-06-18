@@ -128,27 +128,10 @@ function Dta.move_ui.buildMoveWindow()
 	Movewindow.modifyPosition.changeBtn = Dta.ui.createButton("modifyPositionBtn", Movewindow.modifyPosition, 0, 90, nil, nil, Lang[Dta.Language].Buttons.Move, nil, Dta.move.modifyPositionButtonClicked)
 	Movewindow.modifyPosition.resetBtn = Dta.ui.createButton("modifyPositionResetBtn", Movewindow.modifyPosition, 160, 90, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.move_ui.modifyPositionResetButtonClicked)
 
-	function Movewindow.TabFocusCycle(frame, hEvent, key)
-		if key ~= "Tab" then
-			return
-		end
-		local newFocus = Movewindow.modifyPosition.x
-		if frame == Movewindow.modifyPosition.x then
-			newFocus = Movewindow.modifyPosition.y
-		elseif frame == Movewindow.modifyPosition.y then
-			newFocus = Movewindow.modifyPosition.z
-		end
-		newFocus:SetKeyFocus(true)
-		local sval = newFocus:GetText()
-		local slen = sval and string.len(sval) or 0
-		if slen > 0 then newFocus:SetSelection(0, slen) end
-		-- dump("KeyUp", key)
-	end
-	
-	Movewindow.modifyPosition.x:EventAttach(Event.UI.Input.Key.Up, Movewindow.TabFocusCycle, "MoveWindow.TabFocusCycle")
-	Movewindow.modifyPosition.y:EventAttach(Event.UI.Input.Key.Up, Movewindow.TabFocusCycle, "MoveWindow.TabFocusCycle")
-	Movewindow.modifyPosition.z:EventAttach(Event.UI.Input.Key.Up, Movewindow.TabFocusCycle, "MoveWindow.TabFocusCycle")
-
+	Dta.ui.AddFocusCycleElement(Movewindow, Movewindow.modifyPosition.x)
+	Dta.ui.AddFocusCycleElement(Movewindow, Movewindow.modifyPosition.y)
+	Dta.ui.AddFocusCycleElement(Movewindow, Movewindow.modifyPosition.z)
+	Movewindow:EventAttach(Event.UI.Input.Key.Up.Dive, Dta.ui.FocusCycleCallback, "MoveWindow_TabFocusCycle")
 
 -- insert buttons and textboxes here
   return Movewindow
