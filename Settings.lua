@@ -1,6 +1,8 @@
--- Set English as Default
+-- Set English as Default and fallback
 if not Lang[Dta.Language] then
     Lang[Dta.Language] = Lang["English"]
+elseif Dta.Language ~= "English" then
+    setmetatable(Lang[Dta.Language], { __index = Lang["English"] })
 end
 
 Dta.settings = {}
