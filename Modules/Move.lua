@@ -9,7 +9,6 @@ function Dta.move.modifyPositionModeAbsChanged()
         Dta.ui.windowMove.modifyPosition.moveAsGrp:SetEnabled(true)
       elseif not Dta.ui.windowMove.modifyPosition.modeRel:GetChecked() then
         Dta.ui.windowMove.modifyPosition.modeAbs:SetChecked(true)
-        Dta.ui.windowMove.modifyPosition.moveAsGrp:SetEnabled(false)
       end
 end
 
@@ -19,7 +18,6 @@ function Dta.move.modifyPositionModeRelChanged()
         Dta.ui.windowMove.modifyPosition.moveAsGrp:SetEnabled(false)
     elseif not Dta.ui.windowMove.modifyPosition.modeAbs:GetChecked() then
         Dta.ui.windowMove.modifyPosition.modeRel:SetChecked(true)
-        Dta.ui.windowMove.modifyPosition.moveAsGrp:SetEnabled(true)
     end
 end
 
