@@ -22,7 +22,8 @@ end
 
 function Dta.scale.modifyScaleButtonClicked()
   Dta.scale.setItemScales(Dta.ui.windowScale.modifyScale.scale:GetText(),
-                   Dta.ui.windowScale.modifyScale.modeRel:GetChecked())
+                   Dta.ui.windowScale.modifyScale.modeRel:GetChecked(),
+                   Dta.ui.windowScale.modifyScale.modeGrp:GetChecked())
 end
 
 function Dta.scale.modifyScaleResetButtonClicked()
@@ -33,11 +34,11 @@ end
 --SCALE ITEMS
 --------------------------------------
 
-function Dta.scale.setItemScales(scale, relative)
-  if Dta.losa.tableLength(Dta.selectedItems) > 0 then
+function Dta.scale.setItemScales(scale, relative, as_group)
+  if Dta.selectionCount > 0 then
     Dta.scale.Co_setScale = coroutine.create(function()
       for k, details in pairs(Dta.selectedItems) do
-        Dta.scale.setItemScale(k, scale, relative)
+        Dta.scale.setItemScale(details, scale, relative, as_group)
       end
     end)
     coroutine.resume(Dta.scale.Co_setScale)
@@ -52,7 +53,7 @@ function Dta.scale.resetItemScales()
   if Dta.losa.tableLength(Dta.selectedItems) > 0 then
     Dta.scale.Co_ResetScale = coroutine.create(function ()
       for k, details in pairs(Dta.selectedItems) do
-        Dta.scale.setItemScale(k, 1, false)
+        Dta.scale.setItemScale(details, 1, false)
       end
     end)
     coroutine.resume(Dta.scale.Co_ResetScale)
@@ -63,20 +64,28 @@ end
 --SCALE AND RESET SCALE HANDLER
 --------------------------------------
 
-function Dta.scale.setItemScale(index, scale, relative)
-  if Dta.selectedItems[index] ~= nil then
+function Dta.scale.setItemScale(details, scale, relative, as_group)
+  if details ~= nil then
     local newPlacement = {}
     if relative ~= nil and relative then
       if scale == nil or scale == "" then scale = 0 end
 
-      if not tonumber(scale) then
+	  scale = tonumber(scale)
+      if not scale then
         print(Lang[Dta.Language].Prints.NumbersOnly)
         return
       end
 
-      newPlacement = Dta.selectedItems[index].scale + tonumber(scale)
+	  -- calculate movement for group mode
+      if as_group then
+        local newX = Dta.selectionCenter.x + scale*(details.coordX - Dta.selectionCenter.x)
+        local newY = Dta.selectionCenter.y + scale*(details.coordY - Dta.selectionCenter.y)
+        local newZ = Dta.selectionCenter.z + scale*(details.coordZ - Dta.selectionCenter.z)
+        Dta.items.QueueMove(details.id, newX, newY, newZ)
+      end
+      newPlacement = details.scale * scale
     else -- absolute positioning
-      if scale == nil or scale == "" then scale = Dta.selectedItems[index].scale end
+      if scale == nil or scale == "" then scale = details.scale end
 
       if not tonumber(scale) then
         print(Lang[Dta.Language].Prints.NumbersOnly)
@@ -85,7 +94,7 @@ function Dta.scale.setItemScale(index, scale, relative)
 
       newPlacement = tonumber(scale)
     end
-    Dta.items.QueueScale(Dta.selectedItems[index].id, newPlacement)
+    Dta.items.QueueScale(details.id, newPlacement)
   else
     print(Lang[Dta.Language].Prints.ModifyScale)
   end

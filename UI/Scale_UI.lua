@@ -115,6 +115,7 @@ function Dta.scale_ui.buildScaleWindow()
 
                                 Scalewindow.modifyScale.modeAbs = Dta.ui.createCheckbox("modifyScaleModeAbs", Scalewindow.modifyScale, 45, 30, Lang[Dta.Language].Text.Absolute, true, nil, Dta.scale.modifyScaleModeAbsChanged)
                                 Scalewindow.modifyScale.modeRel = Dta.ui.createCheckbox("modifyScaleModeRel", Scalewindow.modifyScale, 175, 30, Lang[Dta.Language].Text.Relative, false, nil, Dta.scale.modifyScaleModeRelChanged)
+                                Scalewindow.modifyScale.modeGrp = Dta.ui.createCheckbox("modifyScaleModeGrp", Scalewindow.modifyScale, 175, 50, Lang[Dta.Language].Text.ScaleAsGroup, false, nil, nil)
 
                                 Scalewindow.modifyScale.changeBtn = Dta.ui.createButton("modifyScaleBtn", Scalewindow.modifyScale, 0, 90, nil, nil, Lang[Dta.Language].Buttons.Scale, nil, Dta.scale.modifyScaleButtonClicked)
                                 Scalewindow.modifyScale.resetBtn = Dta.ui.createButton("modifyScaleResetBtn", Scalewindow.modifyScale, 160, 90, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.scale.modifyScaleResetButtonClicked)
