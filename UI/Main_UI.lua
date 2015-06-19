@@ -320,6 +320,11 @@ function Dta.ui.buildMainWindow()
 
                                 Mainwindow.itemDetails.icon = Dta.ui.createIcon("itemDetailsIcon", Mainwindow.itemDetails, nil, 0, 0, 25)
                                 Mainwindow.itemDetails.name = Dta.ui.createText("itemDetailsName", Mainwindow.itemDetails, 30, 0, Lang[Dta.Language].Text.NothingSelected, 18)
+                                Mainwindow.itemDetails.icon:EventAttach(Event.UI.Input.Mouse.Right.Click,
+                                    function(self, h)
+                                        if Dta.selectionCount > 0 then Command.Map.Waypoint.Set(Dta.selectionCenter.x, Dta.selectionCenter.z) end
+                                    end,
+                                    "Waypoint Marker")
 
                                 Mainwindow.itemDetails.xLabel = Dta.ui.createText("itemDetailsXLabel", Mainwindow.itemDetails, 0, 30, "X", 14, {1, 0, 0, 1})
                                 Mainwindow.itemDetails.yLabel = Dta.ui.createText("itemDetailsYLabel", Mainwindow.itemDetails, 0, 50, "Y", 14, {0, 1, 0, 1})
