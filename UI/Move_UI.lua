@@ -89,8 +89,8 @@ local MoveWindowSettings = {
 function Dta.move_ui.buildMoveWindow()
   local x = Dta.settings.get("MovewindowPosX")
   local y = Dta.settings.get("MovewindowPosY")
-  -- TODO: why is MoveWindow global??
-  Movewindow = Dta.move_ui.createWindowMove("MoveWindow",
+
+  local Movewindow = Dta.move_ui.createWindowMove("MoveWindow",
 							Dta.ui.context,
 							MoveWindowSettings.TITLE,
 							MoveWindowSettings.WIDTH,
@@ -168,14 +168,14 @@ end
 
 --Called when the window has been moved
 function Dta.move_ui.MoveWindowMoved()
-  Dta.settings.set("MovewindowPosX", Movewindow:GetLeft())
-  Dta.settings.set("MovewindowPosY", Movewindow:GetTop())
+  Dta.settings.set("MovewindowPosX", Dta.ui.windowMove:GetLeft())
+  Dta.settings.set("MovewindowPosY", Dta.ui.windowMove:GetTop())
 end
 
 function Dta.move_ui.modifyPositionResetButtonClicked()
 	if Dta.selectionCenter then
-		Movewindow.modifyPosition.x:SetText(string.format("%.6f", Dta.selectionCenter.x))
-		Movewindow.modifyPosition.y:SetText(string.format("%.6f", Dta.selectionCenter.y))
-		Movewindow.modifyPosition.z:SetText(string.format("%.6f", Dta.selectionCenter.z))
+		Dta.ui.windowMove.modifyPosition.x:SetText(string.format("%.6f", Dta.selectionCenter.x))
+		Dta.ui.windowMove.modifyPosition.y:SetText(string.format("%.6f", Dta.selectionCenter.y))
+		Dta.ui.windowMove.modifyPosition.z:SetText(string.format("%.6f", Dta.selectionCenter.z))
 	end
 end
