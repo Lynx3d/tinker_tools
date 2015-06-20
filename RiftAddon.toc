@@ -88,6 +88,7 @@ RunOnStartup = {
   "UI/Flying_UI.lua",
   "UI/Measurements_UI.lua",
   "UI/Alphabet_UI.lua",
+  "UI/Window.lua",
 
   "Modules/Itemdetails.lua",
   "Modules/Move.lua",

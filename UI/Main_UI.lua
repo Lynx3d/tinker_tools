@@ -166,6 +166,7 @@ function Dta.ui.clickCallback(frame, hEvent)
 	frame:SetKeyFocus(false)
 end
 
+--[[
 -- create mainwindow
 function Dta.ui.createWindow(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
   local windowtest = UI.CreateFrame("Frame", name, parent)
@@ -262,7 +263,7 @@ function Dta.ui.createWindow(name, parent, title, width, height, x, y, closable,
   end
   return windowtest
 end
-
+]]
 -- create button
 function Dta.ui.createButton(name, parent, x, y, width, height, text, skin, clickCallback)
   local button = UI.CreateFrame("RiftButton", name, parent)
@@ -288,7 +289,7 @@ end
 -------------------------------
 
 local MainWindowSettings = {
-  TITLE = Lang[Dta.Language].Titles.Main,
+  TITLE = Lang[Dta.Language].Titles.Main .. " " .. Dta.Version,
   WIDTH = 470,
   HEIGHT = 300,
   CLOSABLE = true,
@@ -298,7 +299,8 @@ local MainWindowSettings = {
 function Dta.ui.buildMainWindow()
   local x = Dta.settings.get("MainwindowPosX")
   local y = Dta.settings.get("MainwindowPosY")
-  Mainwindow = Dta.ui.createWindow("MainWindow",
+  --Mainwindow = Dta.ui.createWindow("MainWindow",
+	local newWindow = Dta.ui.Window.createFramedWindow("MainWindowNew",
                                Dta.ui.context,
                                MainWindowSettings.TITLE,
                                MainWindowSettings.WIDTH,
@@ -309,6 +311,7 @@ function Dta.ui.buildMainWindow()
                                Dta.ui.MainWindowClosed,
                                Dta.ui.MainWindowMoved
                               )
+	local Mainwindow = newWindow.content
 
                                 -------------------------------
                                 --ITEM DETAILS
@@ -361,7 +364,32 @@ function Dta.ui.buildMainWindow()
                                 Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow.itemDetails, 145, 175, 160, nil, Lang[Dta.Language].Buttons.OffsetCalc, nil, Dta.ui.modifyMeasurementsButtonClicked)
                                 Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 0, 200, 160, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
 
-  return Mainwindow
+	-- help button
+	newWindow.help = UI.CreateFrame("Texture", "mainwindow_help", newWindow)
+	newWindow.help:SetPoint("TOPLEFT", newWindow, "TOPRIGHT", -70, -5)
+	newWindow.help:SetTexture("Rift", "btn_dimensions_top_help_(normal).png.dds")
+	newWindow.help:SetWidth(36)
+	newWindow.help:SetHeight(36)
+	newWindow.help:SetLayer(11)
+	newWindow.help:EventAttach(Event.UI.Input.Mouse.Cursor.In, function(self, h)
+			newWindow.help:SetTexture("Rift", "btn_dimensions_top_help_(over).png.dds")
+		end, "HelpCursorIn")
+	newWindow.help:EventAttach(Event.UI.Input.Mouse.Cursor.Out, function(self, h)
+			newWindow.help:SetTexture("Rift", "btn_dimensions_top_help_(normal).png.dds")
+		end, "HelpCursorOut")
+	newWindow.help:EventAttach(Event.UI.Input.Mouse.Left.Down, function(self, h)
+			newWindow.help:SetTexture("Rift", "btn_dimensions_top_help_(click).png.dds")
+		end, "HelpCursorDown")
+	newWindow.help:EventAttach(Event.UI.Input.Mouse.Left.Up, function(self, h)
+			newWindow.help:SetTexture("Rift", "btn_dimensions_top_help_(over).png.dds")
+		end, "HelpCursorUp")
+	newWindow.help:EventAttach(Event.UI.Input.Mouse.Left.Up, Dta.help_ui.toggleHelpWindow , "HelpCursorUp")
+
+  --return Mainwindow
+  -- TODO: temp fix for new window hierarchy
+  newWindow.itemDetails = Mainwindow.itemDetails
+
+  return newWindow
 end
 
 -- Show the Main window
@@ -410,8 +438,8 @@ end
 
 --Called when the window has been moved
 function Dta.ui.MainWindowMoved()
-  Dta.settings.set("MainwindowPosX", Mainwindow:GetLeft())
-  Dta.settings.set("MainwindowPosY", Mainwindow:GetTop())
+  Dta.settings.set("MainwindowPosX", Dta.ui.windowtest:GetLeft())
+  Dta.settings.set("MainwindowPosY", Dta.ui.windowtest:GetTop())
 end
 
 --Called when the window has been closed
