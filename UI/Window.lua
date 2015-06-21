@@ -21,13 +21,19 @@ DraggableFrame.MouseMoveCallback = function(self,h)
 	end
 end
 
-function DraggableFrame.Setup(dragframe, window, callback)
+function DraggableFrame.Setup(dragframe, window, callback, button)
+	button = button or "Left"
 	dragframe.window = window
 	dragframe.movedCallback = callback
-	dragframe:EventAttach(Event.UI.Input.Mouse.Left.Down, DraggableFrame.MouseDownCallback, "mdcb")
-	dragframe:EventAttach(Event.UI.Input.Mouse.Left.Up, DraggableFrame.MouseUpCallback, "mucb")
-	dragframe:EventAttach(Event.UI.Input.Mouse.Left.Upoutside, DraggableFrame.MouseUpCallback, "muocb")
+	dragframe:EventAttach(Event.UI.Input.Mouse[button].Down, DraggableFrame.MouseDownCallback, "mdcb")
+	dragframe:EventAttach(Event.UI.Input.Mouse[button].Up, DraggableFrame.MouseUpCallback, "mucb")
+	dragframe:EventAttach(Event.UI.Input.Mouse[button].Upoutside, DraggableFrame.MouseUpCallback, "muocb")
 end
+
+-------------------------------------------------
+-- Simple Window small border, optional header
+-- with title, drag functionality and close button
+-------------------------------------------------
 
 local Window = { headerSize = 30 }
 
@@ -191,7 +197,6 @@ function Window.createFramedWindow(name, parent, title, width, height, x, y, clo
 				strength = 3})
 		newWindow.header:SetPoint("TOPCENTER", newWindow, "TOPCENTER", 0, 2)
 		newWindow.header:SetLayer(9)
-		dump(newWindow.header:GetHeight(), newWindow.header:GetFont())
 	end
 
 	newWindow.content = UI.CreateFrame("Frame", name .. "WindowContent", newWindow)
@@ -202,10 +207,60 @@ function Window.createFramedWindow(name, parent, title, width, height, x, y, clo
 	end
 	newWindow.content:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT")
 	newWindow.content:SetLayer(4)
-	dump("content size:", newWindow.content:GetWidth(), newWindow.content:GetHeight())
 
 	return newWindow
 end
 
+-------------------------------------------------
+-- Simple Button with custom images
+-------------------------------------------------
+
+local Button = {}
+
+Button.mouseIn = function(self, handle)
+	self:SetTexture(self.resource, self.skin_over)
+end
+
+Button.mouseOut = function(self, handle)
+	if self.is_pressed then
+		self:SetTexture(self.resource, self.skin_over)
+	else
+		self:SetTexture(self.resource, self.skin_normal)
+	end
+end
+
+Button.mouseDown = function(self, handle)
+	self:SetTexture(self.resource, self.skin_pressed)
+end
+
+Button.mouseUp = function(self, handle)
+	self.is_pressed = not self.is_pressed
+	self:SetTexture(self.resource, self.skin_over)
+end
+
+function Button.Create(name, parent, click_callback, tex_normal, tex_over, tex_pressed, tex_disabled, resource)
+	resource = resource or "Rift"
+	local btn = UI.CreateFrame("Texture", name, parent)
+	btn.resource = resource
+	btn.skin_normal = tex_normal
+	btn.skin_over = tex_over
+	btn.skin_pressed = tex_pressed
+	btn.is_pressed = false
+	btn:SetTexture(resource, tex_normal)
+
+	btn:EventAttach(Event.UI.Input.Mouse.Cursor.In, Button.mouseIn, "Button.MouseIn")
+	btn:EventAttach(Event.UI.Input.Mouse.Cursor.Out, Button.mouseOut, "Button.MouseOut")
+	btn:EventAttach(Event.UI.Input.Mouse.Left.Down, Button.mouseDown, "Button.MouseDown")
+	btn:EventAttach(Event.UI.Input.Mouse.Left.Up, Button.mouseUp, "Button.MouseUp")
+	btn:EventAttach(Event.UI.Input.Mouse.Left.Up, click_callback, "Button.UserAction")
+
+	return btn
+end
+
+-------------------
+-- hook into addon
+-------------------
+
 Dta.ui.Window = Window
-Dta.ui.DraggableFrame = newWindow
+Dta.ui.DraggableFrame = DraggableFrame
+Dta.ui.Button = Button
