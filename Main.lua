@@ -51,7 +51,7 @@ Dta.PlayerID = Inspect.Unit.Lookup("player")
 Dta.CurrentZoneID = nil
 Dta.OldZoneID = nil
 Dta.ZoneDetails = {}
-Dta.InDimenion = false
+Dta.InDimension = false
 
 --Flying
 Dta.desiredPitch = 0
@@ -207,21 +207,62 @@ function Dta.updateEventHandler(hEvent, dimensionItem) --Executed on every selec
 
 end
 
+local function EnterDimension()
+	if Dta.InDimension then return end
+	-- TODO: attach tick callback
+	Dta.InDimension = true
+end
+
+local function LeaveDimension()
+	if not Dta.InDimension then return end
+	-- TODO: detatch tick callback
+	if Dta.ui.active then Dta.ui.hideMainWindow() end
+	Dta.InDimension = false
+end
+
+local function IsDimension(zoneID)
+	local ZoneDetails = Inspect.Zone.Detail(zoneID)
+	if not ZoneDetails or not ZoneDetails.name then
+		return false
+	end
+	local ZoneName = ZoneDetails.name
+	if string.sub(ZoneName, 1, 9) == "Dimension" or string.sub(ZoneName, 1, 9) == "Измерение" then
+		return true
+	end
+	return false
+end
+------------------------
+-- entering a dimension (or changing zones in general) can happen in two ways:
+-- player data stays available and we get an Event.Unit.Detail.Zone, or
+-- player enters a Event.Unit.Availability.Partial in loading screen (zone
+-- becomes undefined) and we need to check zone again at Event.Unit.Availability.Full
+------------------------
 function Dta.Event_Unit_Detail_Zone(hEvent, u)
-    if u[Dta.PlayerID] then
-        Dta.CurrentZoneID = nil
-    end
+	if u[Dta.PlayerID] ~= nil then -- value may be "false", so explicit nil check
+		local newZone = u[Dta.PlayerID]
+		-- Dta._CurrentZoneID = newZone
+		if newZone and IsDimension(newZone) then
+			EnterDimension()
+		else
+			LeaveDimension()
+		end
+	end
 end
 
 function Dta.Event_Unit_Availability_Full(hEvent, t)
     for k,v in pairs(t) do
         if v == "player" then
-            Dta.CurrentZoneID = nil
+			local PlayerDetails = Inspect.Unit.Detail("player")
+			-- Dta._CurrentZoneID = PlayerDetails.zone
+			if IsDimension(PlayerDetails.zone) then
+				EnterDimension()
+			else
+				LeaveDimension()
+			end
             break
         end
     end
 end
-
 
 function Dta.commandHandler(hEvent, command)
 
@@ -264,7 +305,7 @@ function Dta.commandHandler(hEvent, command)
   elseif command == "help" then
     Dta.help_ui.toggleHelpWindow()
   else
-    if Dta.InDimenion == true then
+    if Dta.InDimension == true then
         Dta.ui.toggleMainWindow()
     else
         print(Lang[Dta.Language].Prints.DimensionOnly)
@@ -281,28 +322,6 @@ function Dta.tick(handle)
 	local deltaT = 	currentFrameTime - Dta.lastFrameTime
 
 	Dta.lastFrameTime = currentFrameTime
-
-	if Dta.CurrentZoneID == nil then
-	    local PlayerDetails = Inspect.Unit.Detail("player")
-	    if PlayerDetails and PlayerDetails.zone then
-	        if Dta.ZoneDetails[PlayerDetails.zone] == nil then
-	            local ZoneDetails = Inspect.Zone.Detail(PlayerDetails.zone)
-	            if ZoneDetails and ZoneDetails.name then
-	                Dta.ZoneDetails[PlayerDetails.zone] = ZoneDetails.name
-				end
-			end
-			if Dta.ZoneDetails[PlayerDetails.zone] and PlayerDetails.zone ~= Dta.OldZoneID then
-			    local ZoneName = Dta.ZoneDetails[PlayerDetails.zone]
-			    if string.find(ZoneName, "Dimension") or string.find(ZoneName, "Измерение") then
-			        Dta.InDimenion = true
-			    else
-			        if Dta.ui.active then Dta.ui.hideMainWindow() end
-			        Dta.InDimenion = false
-			    end
-			    Dta.OldZoneID = PlayerDetails.zone
-			end
-		end
-	end
 
 	if #Dta.pendingActions > 0 then
 	  local action = table.remove(Dta.pendingActions, 1)
