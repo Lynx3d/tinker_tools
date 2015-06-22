@@ -365,27 +365,18 @@ function Dta.ui.buildMainWindow()
                                 Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 0, 200, 160, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
 
 	-- help button
-	newWindow.help = UI.CreateFrame("Texture", "mainwindow_help", newWindow)
+	newWindow.help = Dta.ui.Button.Create("mainwindow_help", newWindow, Dta.help_ui.toggleHelpWindow,
+		"btn_dimensions_top_help_(normal).png.dds",
+		"btn_dimensions_top_help_(over).png.dds",
+		"btn_dimensions_top_help_(click).png.dds")
 	newWindow.help:SetPoint("TOPLEFT", newWindow, "TOPRIGHT", -70, -5)
-	newWindow.help:SetTexture("Rift", "btn_dimensions_top_help_(normal).png.dds")
 	newWindow.help:SetWidth(36)
 	newWindow.help:SetHeight(36)
 	newWindow.help:SetLayer(11)
-	newWindow.help:EventAttach(Event.UI.Input.Mouse.Cursor.In, function(self, h)
-			newWindow.help:SetTexture("Rift", "btn_dimensions_top_help_(over).png.dds")
-		end, "HelpCursorIn")
-	newWindow.help:EventAttach(Event.UI.Input.Mouse.Cursor.Out, function(self, h)
-			newWindow.help:SetTexture("Rift", "btn_dimensions_top_help_(normal).png.dds")
-		end, "HelpCursorOut")
-	newWindow.help:EventAttach(Event.UI.Input.Mouse.Left.Down, function(self, h)
-			newWindow.help:SetTexture("Rift", "btn_dimensions_top_help_(click).png.dds")
-		end, "HelpCursorDown")
-	newWindow.help:EventAttach(Event.UI.Input.Mouse.Left.Up, function(self, h)
-			newWindow.help:SetTexture("Rift", "btn_dimensions_top_help_(over).png.dds")
-		end, "HelpCursorUp")
-	newWindow.help:EventAttach(Event.UI.Input.Mouse.Left.Up, Dta.help_ui.toggleHelpWindow , "HelpCursorUp")
+	if Dta.ui.activeHelp then
+		newWindow.help:Toggle(true)
+	end
 
-  --return Mainwindow
   -- TODO: temp fix for new window hierarchy
   newWindow.itemDetails = Mainwindow.itemDetails
 

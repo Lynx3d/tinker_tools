@@ -167,6 +167,10 @@ function Dta.help_ui.showHelpWindow()
   end
   Dta.ui.windowHelp.HelpIndex:SetSelectedItem("Intro", false)
   Dta.ui.activeHelp = true
+  -- sync mainwindo_help button when closed by other means (e.g. own close button)
+  if Dta.ui.windowtest and Dta.ui.windowtest.help then
+    Dta.ui.windowtest.help:Toggle(true)
+  end
 end
 
 -- Hide the toolbox window
@@ -174,11 +178,14 @@ function Dta.help_ui.hideHelpWindow()
   Dta.ui.windowHelp:SetVisible(false)
   Dta.ui.windowHelp = nil
   Dta.ui.activeHelp = false
-
+  -- sync mainwindo_help button when closed by other means (e.g. own close button)
+  if Dta.ui.windowtest and Dta.ui.windowtest.help then
+    Dta.ui.windowtest.help:Toggle(false)
+  end
 end
 
 -- Toggle the toolbox window
-function Dta.help_ui.toggleHelpWindow(hEvent)
+function Dta.help_ui.toggleHelpWindow(frame, hEvent)
   if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow()
   else Dta.help_ui.showHelpWindow() end
 end

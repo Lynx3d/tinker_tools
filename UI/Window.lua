@@ -218,36 +218,50 @@ end
 local Button = {}
 
 Button.mouseIn = function(self, handle)
-	self:SetTexture(self.resource, self.skin_over)
+	self:SetTexture(self.skin_resource, self.skin_over)
 end
 
 Button.mouseOut = function(self, handle)
 	if self.is_pressed then
-		self:SetTexture(self.resource, self.skin_over)
+		self:SetTexture(self.skin_resource, self.skin_over)
 	else
-		self:SetTexture(self.resource, self.skin_normal)
+		self:SetTexture(self.skin_resource, self.skin_normal)
 	end
 end
 
 Button.mouseDown = function(self, handle)
-	self:SetTexture(self.resource, self.skin_pressed)
+	self:SetTexture(self.skin_resource, self.skin_pressed)
 end
 
 Button.mouseUp = function(self, handle)
-	self.is_pressed = not self.is_pressed
-	self:SetTexture(self.resource, self.skin_over)
+	-- self.is_pressed = not self.is_pressed
+	self:SetTexture(self.skin_resource, self.skin_over)
+end
+
+-- if 'pressed' is nil, it will just toggle, otherwise set it to given state
+function Button.Toggle(self, pressed)
+	if pressed == nil then state = not self.is_pressed end
+	if pressed ~= self.is_pressed then
+		self.is_pressed = pressed
+		if pressed then
+			self:SetTexture(self.skin_resource, self.skin_over)
+		else
+			self:SetTexture(self.skin_resource, self.skin_normal)
+		end
+	end
 end
 
 function Button.Create(name, parent, click_callback, tex_normal, tex_over, tex_pressed, tex_disabled, resource)
 	resource = resource or "Rift"
 	local btn = UI.CreateFrame("Texture", name, parent)
-	btn.resource = resource
+	btn.skin_resource = resource
 	btn.skin_normal = tex_normal
 	btn.skin_over = tex_over
 	btn.skin_pressed = tex_pressed
 	btn.is_pressed = false
-	btn:SetTexture(resource, tex_normal)
+	btn.Toggle = Button.Toggle
 
+	btn:SetTexture(resource, tex_normal)
 	btn:EventAttach(Event.UI.Input.Mouse.Cursor.In, Button.mouseIn, "Button.MouseIn")
 	btn:EventAttach(Event.UI.Input.Mouse.Cursor.Out, Button.mouseOut, "Button.MouseOut")
 	btn:EventAttach(Event.UI.Input.Mouse.Left.Down, Button.mouseDown, "Button.MouseDown")
