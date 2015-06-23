@@ -109,15 +109,16 @@ function Dta.rotate_ui.buildRotateWindow()
                                 --Rotatewindow.modifyRotation:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
                                 Rotatewindow.modifyRotation.yawLabel = Dta.ui.createText("modifyRotationYawLabel", Rotatewindow.modifyRotation, 0, 0, Lang[Dta.Language].Text.Yaw, 14, {0, 1, 0, 1})
-                                Rotatewindow.modifyRotation.pitchLabel = Dta.ui.createText("modifyRotationPitchLabel", Rotatewindow.modifyRotation, 100, 0, Lang[Dta.Language].Text.Pitch, 14, {1, 0, 0, 1})
-                                Rotatewindow.modifyRotation.rollLabel = Dta.ui.createText("modifyRotationRollLabel", Rotatewindow.modifyRotation, 205, 0, Lang[Dta.Language].Text.Roll, 14, {0, 1, 1, 1})
+                                Rotatewindow.modifyRotation.pitchLabel = Dta.ui.createText("modifyRotationPitchLabel", Rotatewindow.modifyRotation, 0, 25, Lang[Dta.Language].Text.Pitch, 14, {1, 0, 0, 1})
+                                Rotatewindow.modifyRotation.rollLabel = Dta.ui.createText("modifyRotationRollLabel", Rotatewindow.modifyRotation, 0, 50, Lang[Dta.Language].Text.Roll, 14, {0, 1, 1, 1})
 
-                                Rotatewindow.modifyRotation.yaw = Dta.ui.createTextfield("modifyRotationYaw", Rotatewindow.modifyRotation, 35, 0, 50)
-                                Rotatewindow.modifyRotation.pitch = Dta.ui.createTextfield("modifyRotationPitch", Rotatewindow.modifyRotation, 140, 0, 50)
-                                Rotatewindow.modifyRotation.roll = Dta.ui.createTextfield("modifyRotationRoll", Rotatewindow.modifyRotation, 240, 0, 50)
+                                Rotatewindow.modifyRotation.yaw = Dta.ui.createTextfield("modifyRotationYaw", Rotatewindow.modifyRotation, 35, 0, 85)
+                                Rotatewindow.modifyRotation.pitch = Dta.ui.createTextfield("modifyRotationPitch", Rotatewindow.modifyRotation, 35, 25, 85)
+                                Rotatewindow.modifyRotation.roll = Dta.ui.createTextfield("modifyRotationRoll", Rotatewindow.modifyRotation, 35, 50, 85)
 
-                                Rotatewindow.modifyRotation.modeAbs = Dta.ui.createCheckbox("modifyRotationModeAbs", Rotatewindow.modifyRotation, 45, 30, Lang[Dta.Language].Text.Absolute, true, nil, Dta.rotate.modifyRotationModeAbsChanged)
-                                Rotatewindow.modifyRotation.modeRel = Dta.ui.createCheckbox("modifyRotationModeRel", Rotatewindow.modifyRotation, 175, 30, Lang[Dta.Language].Text.Relative, false, nil, Dta.rotate.modifyRotationModeRelChanged)
+                                Rotatewindow.modifyRotation.modeAbs = Dta.ui.createCheckbox("modifyRotationModeAbs", Rotatewindow.modifyRotation, 160, 5, Lang[Dta.Language].Text.Absolute, true, nil, Dta.rotate.modifyRotationModeAbsChanged)
+                                Rotatewindow.modifyRotation.modeRel = Dta.ui.createCheckbox("modifyRotationModeRel", Rotatewindow.modifyRotation, 160, 25, Lang[Dta.Language].Text.Relative, false, nil, Dta.rotate.modifyRotationModeRelChanged)
+                                Rotatewindow.modifyRotation.modeAsGrp = Dta.ui.createCheckbox("modifyPositionMoveAsGrp", Rotatewindow.modifyRotation, 170, 55, Lang[Dta.Language].Text.MoveAsGroup, false)
 
                                 Rotatewindow.modifyRotation.changeBtn = Dta.ui.createButton("modifyRotationBtn", Rotatewindow.modifyRotation, 0, 90, nil, nil, Lang[Dta.Language].Buttons.Rotate, nil, Dta.rotate.modifyRotationButtonClicked)
                                 Rotatewindow.modifyRotation.resetBtn = Dta.ui.createButton("modifyRotationResetBtn", Rotatewindow.modifyRotation, 160, 90, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.rotate.modifyRotationResetButtonClicked)

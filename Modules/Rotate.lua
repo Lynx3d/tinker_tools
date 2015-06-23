@@ -24,7 +24,8 @@ function Dta.rotate.modifyRotationButtonClicked()
   Dta.rotate.setItemRotations(Dta.ui.windowRotate.modifyRotation.yaw:GetText(),
                       Dta.ui.windowRotate.modifyRotation.pitch:GetText(),
                       Dta.ui.windowRotate.modifyRotation.roll:GetText(),
-                      Dta.ui.windowRotate.modifyRotation.modeRel:GetChecked())
+                      Dta.ui.windowRotate.modifyRotation.modeRel:GetChecked(),
+                      Dta.ui.windowRotate.modifyRotation.modeAsGrp:GetChecked())
 end
 
 function Dta.rotate.modifyRotationResetButtonClicked()
@@ -35,12 +36,22 @@ end
 --ROTATE ITEMS (NO GROUP ROTATION YET)
 --------------------------------------
 
-function Dta.rotate.setItemRotations(yaw, pitch, roll, relative)
+function Dta.rotate.setItemRotations(yaw, pitch, roll, relative, grouped)
   if Dta.losa.tableLength(Dta.selectedItems) > 0 then
     Dta.rotate.Co_RotateItem = coroutine.create(function ()
-        for k, details in pairs(Dta.selectedItems) do
-            Dta.rotate.setItemRotation(k, yaw, pitch, roll, relative)
-        end
+		if relative and grouped then
+			yaw = math.rad(tonumber(yaw) or 0)
+			pitch = math.rad(tonumber(pitch) or 0)
+			roll = math.rad(tonumber(roll) or 0)
+			local m_rot = Dta.Matrix.createZYX(pitch, yaw, roll, true)
+			for k, details in pairs(Dta.selectedItems) do
+				Dta.rotate.rotateRelative(details, m_rot, Dta.selectionCount > 1)
+			end
+		else
+			for k, details in pairs(Dta.selectedItems) do
+				Dta.rotate.setItemRotation(k, yaw, pitch, roll, relative)
+			end
+		end
     end)
     coroutine.resume(Dta.rotate.Co_RotateItem)
   end
@@ -109,4 +120,18 @@ function Dta.rotate.setItemRotation(index, yaw, pitch, roll, relative)
   else
     print(Lang[Dta.Language].Prints.ModifyRotation)
   end
+end
+
+function Dta.rotate.rotateRelative(details, m_rot, selection_pivot)
+	local m_item = Dta.Matrix.createZYX(details.pitch, details.yaw, details.roll, true)
+	local rx, ry, rz = Dta.Matrix.ToZYX(Dta.Matrix.Multiply(m_rot, m_item), true)
+	Dta.items.QueueRotate(details.id, rx, rz, ry)
+
+	if selection_pivot then
+		local vec = {	details.coordX - Dta.selectionCenter.x,
+						details.coordY - Dta.selectionCenter.y, 
+						details.coordZ - Dta.selectionCenter.z}
+		vec = Dta.Matrix.Transform(m_rot, vec)
+		Dta.items.QueueMove(details.id, Dta.selectionCenter.x + vec[1], Dta.selectionCenter.y + vec[2], Dta.selectionCenter.z + vec[3])
+	end
 end
