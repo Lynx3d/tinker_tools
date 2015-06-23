@@ -84,32 +84,32 @@ end
 -------------------------------
 -- Create a text frame
 function Dta.ui.createText(name, parent, x, y, text, fontsize, color, shadow)
-  local textFrame = UI.CreateFrame("Text", name, parent)
-  textFrame:SetFontSize(fontsize)
-  textFrame:SetText(text)
-  textFrame:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
-  if color ~= nil then textFrame:SetFontColor(color[1], color[2], color[3], color[4]) end
-  if shadow ~= false then textFrame:SetEffectGlow({offsetX=1, offsetY=1}) end
+	local textFrame = UI.CreateFrame("Text", name, parent)
+	textFrame:SetFontSize(fontsize)
+	textFrame:SetText(text)
+	textFrame:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
+	if color ~= nil then textFrame:SetFontColor(color[1], color[2], color[3], color[4]) end
+	if shadow ~= false then textFrame:SetEffectGlow({offsetX=1, offsetY=1}) end
 	return textFrame
 end
 
 -- create icon
 function Dta.ui.createIcon(name, parent, texture, x, y, size)
-  local textureFrame = UI.CreateFrame("Texture", name, parent)
-  if texture ~= nil then textureFrame:SetTexture("Rift", texture) end
-  textureFrame:SetWidth(size)
-  textureFrame:SetHeight(size)
-  textureFrame:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
+	local textureFrame = UI.CreateFrame("Texture", name, parent)
+	if texture ~= nil then textureFrame:SetTexture("Rift", texture) end
+	textureFrame:SetWidth(size)
+	textureFrame:SetHeight(size)
+	textureFrame:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
 	return textureFrame
 end
 
 -- create texture
 function Dta.ui.createTexture(name, parent, source, texture, x, y, width, height)
-  local textureFrame = UI.CreateFrame("Texture", name, parent)
-  if texture ~= nil then textureFrame:SetTexture(source, texture) end
-  if width ~= nil then textureFrame:SetWidth(width) end
-  if height ~= nil then textureFrame:SetHeight(height) end
-  textureFrame:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
+	local textureFrame = UI.CreateFrame("Texture", name, parent)
+	if texture ~= nil then textureFrame:SetTexture(source, texture) end
+	if width ~= nil then textureFrame:SetWidth(width) end
+	if height ~= nil then textureFrame:SetHeight(height) end
+	textureFrame:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
 	return textureFrame
 end
 
@@ -122,32 +122,32 @@ function Dta.ui.textfieldSelectAll(self)
 end
 -- create textfield
 function Dta.ui.createTextfield(name, parent, x, y, width, text)
-  local textfield = UI.CreateFrame("RiftTextfield", name, parent)
-  textfield:SetWidth(width)
-  textfield:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
-  textfield:SetBackgroundColor(0,0,0,0.75)
-  if text ~= nil then textfield:SetText(text)
-  else textfield:SetText("") end
-  textfield.TabFocusCycled = Dta.ui.textfieldSelectAll
-  return textfield
+	local textfield = UI.CreateFrame("RiftTextfield", name, parent)
+	textfield:SetWidth(width)
+	textfield:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
+	textfield:SetBackgroundColor(0,0,0,0.75)
+	if text ~= nil then textfield:SetText(text)
+	else textfield:SetText("") end
+	textfield.TabFocusCycled = Dta.ui.textfieldSelectAll
+	return textfield
 end
 
 -- create checkbox
 function Dta.ui.createCheckbox(name, parent, x, y, text, checked, fontColor, checkChangedCallback)
-  local checkbox = UI.CreateFrame("RiftCheckbox", name, parent)
-  checkbox:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
-  if checked ~= nil then checkbox:SetChecked(checked) end
+	local checkbox = UI.CreateFrame("RiftCheckbox", name, parent)
+	checkbox:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
+	if checked ~= nil then checkbox:SetChecked(checked) end
 
-  checkbox.textFrame = Dta.ui.createText(name .. "TextFrame", checkbox, 15, -2, text, 14, fontColor)
+	checkbox.textFrame = Dta.ui.createText(name .. "TextFrame", checkbox, 15, -2, text, 14, fontColor)
 
-  function checkbox.textFrame.Event:LeftClick()
-    checkbox:SetChecked(not checkbox:GetChecked())
-  end
+	function checkbox.textFrame.Event:LeftClick()
+		checkbox:SetChecked(not checkbox:GetChecked())
+	end
 
-  function checkbox.Event:CheckboxChange()
-    if checkChangedCallback ~= nil then checkChangedCallback() end
-  end
-  return checkbox
+	function checkbox.Event:CheckboxChange()
+		if checkChangedCallback ~= nil then checkChangedCallback() end
+	end
+	return checkbox
 end
 
 -- Create a frame with a set height and width
@@ -155,8 +155,8 @@ function Dta.ui.createFrame(name, parent, x, y, width, height, color)
 	local frame = UI.CreateFrame("Frame", name, parent)
 	frame:SetHeight(height)
 	frame:SetWidth(width)
-  frame:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
-  if color ~= nil then frame:SetBackgroundColor(color[1], color[2], color[3], color[4]) end
+	frame:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
+	if color ~= nil then frame:SetBackgroundColor(color[1], color[2], color[3], color[4]) end
 	return frame
 end
 
@@ -200,64 +200,64 @@ function Dta.ui.createWindow(name, parent, title, width, height, x, y, closable,
   windowtest.help:SetHeight(34)
   windowtest.help:SetLayer(5)
   windowtest.help:EventAttach(Event.UI.Input.Mouse.Cursor.In, function(self, h)
-    windowtest.help:SetTexture("Rift", "btn_dimensions_top_help_(over).png.dds")
+	windowtest.help:SetTexture("Rift", "btn_dimensions_top_help_(over).png.dds")
   end, "HelpCursorIn")
   windowtest.help:EventAttach(Event.UI.Input.Mouse.Cursor.Out, function(self, h)
-    windowtest.help:SetTexture("Rift", "btn_dimensions_top_help_(normal).png.dds")
+	windowtest.help:SetTexture("Rift", "btn_dimensions_top_help_(normal).png.dds")
   end, "HelpCursorOut")
   windowtest.help:EventAttach(Event.UI.Input.Mouse.Left.Down, function(self, h)
-    windowtest.help:SetTexture("Rift", "btn_dimensions_top_help_(click).png.dds")
+	windowtest.help:SetTexture("Rift", "btn_dimensions_top_help_(click).png.dds")
   end, "HelpCursorDown")
   windowtest.help:EventAttach(Event.UI.Input.Mouse.Left.Up, function(self, h)
-    windowtest.help:SetTexture("Rift", "btn_dimensions_top_help_(over).png.dds")
+	windowtest.help:SetTexture("Rift", "btn_dimensions_top_help_(over).png.dds")
   end, "HelpCursorUp")
   windowtest.help:EventAttach(Event.UI.Input.Mouse.Left.Up, Dta.help_ui.toggleHelpWindow , "HelpCursorUp")
 
 
 
   if closable then
-    windowtest.closeBtn = Dta.ui.createButton(name .. "CloseBtn", windowtest, windowtest:GetWidth()-35, -33,0, 0, nil, "close", closeCallback)
-    windowtest.closeBtn:SetLayer(4)
+	windowtest.closeBtn = Dta.ui.createButton(name .. "CloseBtn", windowtest, windowtest:GetWidth()-35, -33,0, 0, nil, "close", closeCallback)
+	windowtest.closeBtn:SetLayer(4)
   end
 
   if movable then
-    windowtest.moveFrame = UI.CreateFrame("Texture", name .. "WindowMover", windowtest)
-    windowtest.moveFrame:SetPoint("TOPLEFT", windowtest, "TOPLEFT", 0, -40)
-    windowtest.moveFrame:SetPoint("BOTTOMRIGHT", windowtest, "TOPRIGHT", 0, 5)
-    windowtest.moveFrame:SetTexture("Rift", "dimensions_main_bg_top.png.dds")
-    windowtest.moveFrame:SetLayer(2)
-    --windowtest.moveFrame:SetBackgroundColor(1, 0, 0, 0.5) --Debug
+	windowtest.moveFrame = UI.CreateFrame("Texture", name .. "WindowMover", windowtest)
+	windowtest.moveFrame:SetPoint("TOPLEFT", windowtest, "TOPLEFT", 0, -40)
+	windowtest.moveFrame:SetPoint("BOTTOMRIGHT", windowtest, "TOPRIGHT", 0, 5)
+	windowtest.moveFrame:SetTexture("Rift", "dimensions_main_bg_top.png.dds")
+	windowtest.moveFrame:SetLayer(2)
+	--windowtest.moveFrame:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-    windowtest.header = UI.CreateFrame("Text", name .. "header", windowtest.moveFrame)
-    windowtest.header:SetFontSize(20)
-    windowtest.header:SetText(title .. " " .. Dta.Version)
-    windowtest.header:SetFontColor(0,0,0,1)
-    windowtest.header:SetPoint("CENTERX", windowtest.moveFrame, "CENTERX")
-    windowtest.header:SetPoint("CENTERY", windowtest.moveFrame, "CENTERY", nil, 5)
+	windowtest.header = UI.CreateFrame("Text", name .. "header", windowtest.moveFrame)
+	windowtest.header:SetFontSize(20)
+	windowtest.header:SetText(title .. " " .. Dta.Version)
+	windowtest.header:SetFontColor(0,0,0,1)
+	windowtest.header:SetPoint("CENTERX", windowtest.moveFrame, "CENTERX")
+	windowtest.header:SetPoint("CENTERY", windowtest.moveFrame, "CENTERY", nil, 5)
 
 
-    local dragging = false
+	local dragging = false
 
-    windowtest.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Down, function(self, h)
-	    dragging = true
-	    mouse = Inspect.Mouse()
-	    dragStartX = mouse.x - windowtest:GetLeft()
-	    dragStartY = mouse.y - windowtest:GetTop()
+	windowtest.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Down, function(self, h)
+		dragging = true
+		mouse = Inspect.Mouse()
+		dragStartX = mouse.x - windowtest:GetLeft()
+		dragStartY = mouse.y - windowtest:GetTop()
 	end, "LMouseDown")
 
 	windowtest.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Up, function(self, h)
-	    dragging = false
-	    if moveCallback ~= nil then moveCallback() end
+		dragging = false
+		if moveCallback ~= nil then moveCallback() end
 	end, "LMouseUp")
 
 	windowtest.moveFrame:EventAttach(Event.UI.Input.Mouse.Cursor.Move, function(self,h)
-	    local x, y
-	    local md = Inspect.Mouse()
-	    x = md.x
-	    y = md.y
-	    if dragging then
-		    windowtest:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x - dragStartX, y - dragStartY)
-		    end
+		local x, y
+		local md = Inspect.Mouse()
+		x = md.x
+		y = md.y
+		if dragging then
+			windowtest:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x - dragStartX, y - dragStartY)
+			end
 	end, "MouseMove")
 
   end
@@ -266,103 +266,103 @@ end
 ]]
 -- create button
 function Dta.ui.createButton(name, parent, x, y, width, height, text, skin, clickCallback)
-  local button = UI.CreateFrame("RiftButton", name, parent)
+	local button = UI.CreateFrame("RiftButton", name, parent)
 
-  if skin ~= nil and skin == "close" then
-    button:SetSkin("close")
-  else
-    if height ~= nil then button:SetHeight(height) end
-    if width ~= nil then button:SetWidth(width) end
-    if text ~= nil then button:SetText(text) end
-  end
+	if skin ~= nil and skin == "close" then
+		button:SetSkin("close")
+	else
+		if height ~= nil then button:SetHeight(height) end
+		if width ~= nil then button:SetWidth(width) end
+		if text ~= nil then button:SetText(text) end
+	end
 
-  button:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
+	button:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
 
-  function button.Event:LeftPress()
-    if clickCallback ~= nil then clickCallback() end
-  end
+	function button.Event:LeftPress()
+		if clickCallback ~= nil then clickCallback() end
+	end
 
-  return button
+	return button
 end
 -------------------------------
 -- BUILD THE DIMENSIONTOOLS MAINWINDOW
 -------------------------------
 
 local MainWindowSettings = {
-  TITLE = Lang[Dta.Language].Titles.Main .. " " .. Dta.Version,
-  WIDTH = 470,
-  HEIGHT = 300,
-  CLOSABLE = true,
-  MOVABLE = true,
+	TITLE = Lang[Dta.Language].Titles.Main .. " " .. Dta.Version,
+	WIDTH = 470,
+	HEIGHT = 300,
+	CLOSABLE = true,
+	MOVABLE = true,
 }
 
 function Dta.ui.buildMainWindow()
-  local x = Dta.settings.get("MainwindowPosX")
-  local y = Dta.settings.get("MainwindowPosY")
-  --Mainwindow = Dta.ui.createWindow("MainWindow",
+	local x = Dta.settings.get("MainwindowPosX")
+	local y = Dta.settings.get("MainwindowPosY")
+	--Mainwindow = Dta.ui.createWindow("MainWindow",
 	local newWindow = Dta.ui.Window.createFramedWindow("MainWindowNew",
-                               Dta.ui.context,
-                               MainWindowSettings.TITLE,
-                               MainWindowSettings.WIDTH,
-                               MainWindowSettings.HEIGHT,
-                               x, y,
-                               MainWindowSettings.CLOSABLE,
-                               MainWindowSettings.MOVABLE,
-                               Dta.ui.MainWindowClosed,
-                               Dta.ui.MainWindowMoved
-                              )
+							Dta.ui.context,
+							MainWindowSettings.TITLE,
+							MainWindowSettings.WIDTH,
+							MainWindowSettings.HEIGHT,
+							x, y,
+							MainWindowSettings.CLOSABLE,
+							MainWindowSettings.MOVABLE,
+							Dta.ui.MainWindowClosed,
+							Dta.ui.MainWindowMoved
+							)
 	local Mainwindow = newWindow.content
 
-                                -------------------------------
-                                --ITEM DETAILS
-                                -------------------------------
+	-------------------------------
+	--ITEM DETAILS
+	-------------------------------
 
-                                Mainwindow.itemDetails = Dta.ui.createFrame("itemDetails", Mainwindow, 10, 10, Mainwindow:GetWidth()-20, Mainwindow:GetHeight()-20)
-                                Mainwindow.itemDetails:SetLayer(30)
-                                --Mainwindow.itemDetails:SetBackgroundColor(1, 0, 0, 0.5) --Debug
+	Mainwindow.itemDetails = Dta.ui.createFrame("itemDetails", Mainwindow, 10, 10, Mainwindow:GetWidth()-20, Mainwindow:GetHeight()-20)
+	Mainwindow.itemDetails:SetLayer(30)
+	--Mainwindow.itemDetails:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-                                Mainwindow.itemDetails.icon = Dta.ui.createIcon("itemDetailsIcon", Mainwindow.itemDetails, nil, 0, 0, 25)
-                                Mainwindow.itemDetails.name = Dta.ui.createText("itemDetailsName", Mainwindow.itemDetails, 30, 0, Lang[Dta.Language].Text.NothingSelected, 18)
-                                Mainwindow.itemDetails.icon:EventAttach(Event.UI.Input.Mouse.Right.Click,
-                                    function(self, h)
-                                        if Dta.selectionCount > 0 then Command.Map.Waypoint.Set(Dta.selectionCenter.x, Dta.selectionCenter.z) end
-                                    end,
-                                    "Waypoint Marker")
+	Mainwindow.itemDetails.icon = Dta.ui.createIcon("itemDetailsIcon", Mainwindow.itemDetails, nil, 0, 0, 25)
+	Mainwindow.itemDetails.name = Dta.ui.createText("itemDetailsName", Mainwindow.itemDetails, 30, 0, Lang[Dta.Language].Text.NothingSelected, 18)
+	Mainwindow.itemDetails.icon:EventAttach(Event.UI.Input.Mouse.Right.Click,
+		function(self, h)
+			if Dta.selectionCount > 0 then Command.Map.Waypoint.Set(Dta.selectionCenter.x, Dta.selectionCenter.z) end
+		end,
+		"Waypoint Marker")
 
-                                Mainwindow.itemDetails.xLabel = Dta.ui.createText("itemDetailsXLabel", Mainwindow.itemDetails, 0, 30, "X", 14, {1, 0, 0, 1})
-                                Mainwindow.itemDetails.yLabel = Dta.ui.createText("itemDetailsYLabel", Mainwindow.itemDetails, 0, 50, "Y", 14, {0, 1, 0, 1})
-                                Mainwindow.itemDetails.zLabel = Dta.ui.createText("itemDetailsZLabel", Mainwindow.itemDetails, 0, 70, "Z", 14, {0, 1, 1, 1})
+	Mainwindow.itemDetails.xLabel = Dta.ui.createText("itemDetailsXLabel", Mainwindow.itemDetails, 0, 30, "X", 14, {1, 0, 0, 1})
+	Mainwindow.itemDetails.yLabel = Dta.ui.createText("itemDetailsYLabel", Mainwindow.itemDetails, 0, 50, "Y", 14, {0, 1, 0, 1})
+	Mainwindow.itemDetails.zLabel = Dta.ui.createText("itemDetailsZLabel", Mainwindow.itemDetails, 0, 70, "Z", 14, {0, 1, 1, 1})
 
-                                Mainwindow.itemDetails.x = Dta.ui.createText("itemDetailsX", Mainwindow.itemDetails, 25, 30, "-", 14)
-                                Mainwindow.itemDetails.y = Dta.ui.createText("itemDetailsY", Mainwindow.itemDetails, 25, 50, "-", 14)
-                                Mainwindow.itemDetails.z = Dta.ui.createText("itemDetailsZ", Mainwindow.itemDetails, 25, 70, "-", 14)
+	Mainwindow.itemDetails.x = Dta.ui.createText("itemDetailsX", Mainwindow.itemDetails, 25, 30, "-", 14)
+	Mainwindow.itemDetails.y = Dta.ui.createText("itemDetailsY", Mainwindow.itemDetails, 25, 50, "-", 14)
+	Mainwindow.itemDetails.z = Dta.ui.createText("itemDetailsZ", Mainwindow.itemDetails, 25, 70, "-", 14)
 
-                                Mainwindow.itemDetails.yawLabel = Dta.ui.createText("itemDetailsYawLabel", Mainwindow.itemDetails, 125, 30, Lang[Dta.Language].Text.Yaw, 14, {0, 1, 0, 1})
-                                Mainwindow.itemDetails.pitchLabel = Dta.ui.createText("itemDetailsPitchLabel", Mainwindow.itemDetails, 125, 50, Lang[Dta.Language].Text.Pitch, 14, {1, 0, 0, 1})
-                                Mainwindow.itemDetails.rollLabel = Dta.ui.createText("itemDetailsRollLabel", Mainwindow.itemDetails, 125, 70, Lang[Dta.Language].Text.Roll, 14, {0, 1, 1, 1})
+	Mainwindow.itemDetails.yawLabel = Dta.ui.createText("itemDetailsYawLabel", Mainwindow.itemDetails, 125, 30, Lang[Dta.Language].Text.Yaw, 14, {0, 1, 0, 1})
+	Mainwindow.itemDetails.pitchLabel = Dta.ui.createText("itemDetailsPitchLabel", Mainwindow.itemDetails, 125, 50, Lang[Dta.Language].Text.Pitch, 14, {1, 0, 0, 1})
+	Mainwindow.itemDetails.rollLabel = Dta.ui.createText("itemDetailsRollLabel", Mainwindow.itemDetails, 125, 70, Lang[Dta.Language].Text.Roll, 14, {0, 1, 1, 1})
 
-                                Mainwindow.itemDetails.yaw = Dta.ui.createText("itemDetailsYaw", Mainwindow.itemDetails, 175, 30, "-", 14)
-                                Mainwindow.itemDetails.pitch = Dta.ui.createText("itemDetailsPitch", Mainwindow.itemDetails, 175, 50, "-", 14)
-                                Mainwindow.itemDetails.roll = Dta.ui.createText("itemDetailsRoll", Mainwindow.itemDetails, 175, 70, "-", 14)
+	Mainwindow.itemDetails.yaw = Dta.ui.createText("itemDetailsYaw", Mainwindow.itemDetails, 175, 30, "-", 14)
+	Mainwindow.itemDetails.pitch = Dta.ui.createText("itemDetailsPitch", Mainwindow.itemDetails, 175, 50, "-", 14)
+	Mainwindow.itemDetails.roll = Dta.ui.createText("itemDetailsRoll", Mainwindow.itemDetails, 175, 70, "-", 14)
 
-                                Mainwindow.itemDetails.scaleLabel = Dta.ui.createText("itemDetailsScaleLabel", Mainwindow.itemDetails, 0, 90, Lang[Dta.Language].Text.Scale, 14)
-                                Mainwindow.itemDetails.scale = Dta.ui.createText("itemDetailsScale", Mainwindow.itemDetails, 50, 90, "-", 14)
+	Mainwindow.itemDetails.scaleLabel = Dta.ui.createText("itemDetailsScaleLabel", Mainwindow.itemDetails, 0, 90, Lang[Dta.Language].Text.Scale, 14)
+	Mainwindow.itemDetails.scale = Dta.ui.createText("itemDetailsScale", Mainwindow.itemDetails, 50, 90, "-", 14)
 
-                                Mainwindow.itemDetails.nrItemsLabel = Dta.ui.createText("itemDetailsnrItemsLabel", Mainwindow.itemDetails, 125, 90, Lang[Dta.Language].Text.NrSelectItems, 14)
-                                Mainwindow.itemDetails.nrItems = Dta.ui.createText("itemDetailsnrItems", Mainwindow.itemDetails, 265, 90, "-", 14)
+	Mainwindow.itemDetails.nrItemsLabel = Dta.ui.createText("itemDetailsnrItemsLabel", Mainwindow.itemDetails, 125, 90, Lang[Dta.Language].Text.NrSelectItems, 14)
+	Mainwindow.itemDetails.nrItems = Dta.ui.createText("itemDetailsnrItems", Mainwindow.itemDetails, 265, 90, "-", 14)
 
-                                Mainwindow.divider1 = Dta.ui.createTexture("divider1", Mainwindow, "Dimtools", "textures/divider.png", 20, 120, Mainwindow:GetWidth()-40)
-                                Mainwindow.divider1:SetLayer(29)
+	Mainwindow.divider1 = Dta.ui.createTexture("divider1", Mainwindow, "Dimtools", "textures/divider.png", 20, 120, Mainwindow:GetWidth()-40)
+	Mainwindow.divider1:SetLayer(29)
 
-                                Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow.itemDetails, 0, 125, 160, nil, Lang[Dta.Language].Buttons.MoveWindow, nil, Dta.ui.modifyMoveButtonClicked)
-                                Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow.itemDetails, 145, 125, 160, nil, Lang[Dta.Language].Buttons.RotateWindow, nil, Dta.ui.modifyRotateButtonClicked)
-                                Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow.itemDetails, 290, 125, 160, nil, Lang[Dta.Language].Buttons.ScaleWindow, nil, Dta.ui.modifyScaleButtonClicked)
-                                Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow.itemDetails, 0, 150, 160, nil, Lang[Dta.Language].Buttons.CopyPaste, nil, Dta.ui.modifyCoPaButtonClicked)
-                                Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow.itemDetails, 145, 150, 160, nil, Lang[Dta.Language].Buttons.LoadSave, nil, Dta.ui.modifySaveButtonClicked)
-                                Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 290, 150, 160, nil, Lang[Dta.Language].Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
-                                Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow.itemDetails, 0, 175, 160, nil, Lang[Dta.Language].Buttons.TribalMagic, nil, Dta.ui.modifyDFlyingButtonClicked)
-                                Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow.itemDetails, 145, 175, 160, nil, Lang[Dta.Language].Buttons.OffsetCalc, nil, Dta.ui.modifyMeasurementsButtonClicked)
-                                Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 0, 200, 160, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
+	Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow.itemDetails, 0, 125, 160, nil, Lang[Dta.Language].Buttons.MoveWindow, nil, Dta.ui.modifyMoveButtonClicked)
+	Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow.itemDetails, 145, 125, 160, nil, Lang[Dta.Language].Buttons.RotateWindow, nil, Dta.ui.modifyRotateButtonClicked)
+	Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow.itemDetails, 290, 125, 160, nil, Lang[Dta.Language].Buttons.ScaleWindow, nil, Dta.ui.modifyScaleButtonClicked)
+	Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow.itemDetails, 0, 150, 160, nil, Lang[Dta.Language].Buttons.CopyPaste, nil, Dta.ui.modifyCoPaButtonClicked)
+	Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow.itemDetails, 145, 150, 160, nil, Lang[Dta.Language].Buttons.LoadSave, nil, Dta.ui.modifySaveButtonClicked)
+	Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 290, 150, 160, nil, Lang[Dta.Language].Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
+	Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow.itemDetails, 0, 175, 160, nil, Lang[Dta.Language].Buttons.TribalMagic, nil, Dta.ui.modifyDFlyingButtonClicked)
+	Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow.itemDetails, 145, 175, 160, nil, Lang[Dta.Language].Buttons.OffsetCalc, nil, Dta.ui.modifyMeasurementsButtonClicked)
+	Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 0, 200, 160, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
 
 	-- help button
 	newWindow.help = Dta.ui.Button.Create("mainwindow_help", newWindow, Dta.help_ui.toggleHelpWindow,
@@ -377,66 +377,65 @@ function Dta.ui.buildMainWindow()
 		newWindow.help:Toggle(true)
 	end
 
-  -- TODO: temp fix for new window hierarchy
-  newWindow.itemDetails = Mainwindow.itemDetails
+	-- TODO: temp fix for new window hierarchy
+	newWindow.itemDetails = Mainwindow.itemDetails
 
-  return newWindow
+	return newWindow
 end
 
 -- Show the Main window
 function Dta.ui.showMainWindow()
-  Dta.constructions = Dta.settings.get_savedsets("SavedSets") --or {}
-  Dta.constructionsdefaults = Dta.settings.get_defaultsets("SavedDefaultSets") --or {}
-  Dta.constructionstbx = tbx_import.get("savedConstructions")
-  Dta.ExportImport_Sets = Dta_export.get("ExportImport")--or {}
-  Dta.alphabet.Fonts = Dta.settings.get_alphabetFonts("SavedAlphabets")
-  Dta.Replacement.Skins = Dta.settings.get_Skins("SavedSkins")
-  if Dta.ui.windowtest == nil then
-    Dta.ui.windowtest = Dta.ui.buildMainWindow()
-  else
-    Dta.ui.windowtest:SetVisible(true)
-  end
-  Dta.ui.active = true
-  if Dta.losa.tableLength(Dta.selectedItems) > 0 then
-    Dta.items.StartDetails(Dta.Key)
-  end
+	Dta.constructions = Dta.settings.get_savedsets("SavedSets") --or {}
+	Dta.constructionsdefaults = Dta.settings.get_defaultsets("SavedDefaultSets") --or {}
+	Dta.constructionstbx = tbx_import.get("savedConstructions")
+	Dta.ExportImport_Sets = Dta_export.get("ExportImport")--or {}
+	Dta.alphabet.Fonts = Dta.settings.get_alphabetFonts("SavedAlphabets")
+	Dta.Replacement.Skins = Dta.settings.get_Skins("SavedSkins")
+	if Dta.ui.windowtest == nil then
+		Dta.ui.windowtest = Dta.ui.buildMainWindow()
+	else
+		Dta.ui.windowtest:SetVisible(true)
+	end
+	Dta.ui.active = true
+	if Dta.losa.tableLength(Dta.selectedItems) > 0 then
+		Dta.items.StartDetails()
+	end
 end
 
 -- Hide the Main window
 function Dta.ui.hideMainWindow()
-  Dta.ui.windowtest:SetVisible(false)
-  Dta.ui.windowtest = nil
-  Dta.constructions = {}
-  Dta.constructionsdefaults = {}
-  Dta.ui.active = false
-  if Dta.ui.activeMove then Dta.move_ui.hideMoveWindow() end
-  if Dta.ui.activeScale then Dta.scale_ui.hideScaleWindow() end
-  if Dta.ui.activeCopyPaste then Dta.copa_ui.hideCopyPastewindow() end
-  if Dta.ui.activeRotate then Dta.rotate_ui.hideRotateWindow() end
-  if Dta.ui.activeLoSa then Dta.losa_ui.hideLoSaWindow() end
-  if Dta.ui.activeExpImp then Dta.expimp_ui.hideExpImpWindow() end
-  if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
-  if Dta.ui.activeFlying then Dta.flying_ui.hideFlyingWindow() end
-  if Dta.ui.activeAlphabet then Dta.alphabet_ui.hideAlphabetWindow() end
-  if Dta.ui.activeMeasurements then Dta.measurements_ui.hideMeasurementsWindow() end
+	Dta.ui.windowtest:SetVisible(false)
+	Dta.ui.windowtest = nil
+	Dta.constructions = {}
+	Dta.constructionsdefaults = {}
+	Dta.ui.active = false
+	if Dta.ui.activeMove then Dta.move_ui.hideMoveWindow() end
+	if Dta.ui.activeScale then Dta.scale_ui.hideScaleWindow() end
+	if Dta.ui.activeCopyPaste then Dta.copa_ui.hideCopyPastewindow() end
+	if Dta.ui.activeRotate then Dta.rotate_ui.hideRotateWindow() end
+	if Dta.ui.activeLoSa then Dta.losa_ui.hideLoSaWindow() end
+	if Dta.ui.activeExpImp then Dta.expimp_ui.hideExpImpWindow() end
+	if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
+	if Dta.ui.activeFlying then Dta.flying_ui.hideFlyingWindow() end
+	if Dta.ui.activeAlphabet then Dta.alphabet_ui.hideAlphabetWindow() end
+	if Dta.ui.activeMeasurements then Dta.measurements_ui.hideMeasurementsWindow() end
 end
 
 -- Toggle the Main window
 function Dta.ui.toggleMainWindow()
-  if Dta.ui.active then Dta.ui.hideMainWindow()
-  else Dta.ui.showMainWindow() end
+	if Dta.ui.active then Dta.ui.hideMainWindow()
+	else Dta.ui.showMainWindow() end
 end
 
 --Called when the window has been moved
 function Dta.ui.MainWindowMoved()
-  Dta.settings.set("MainwindowPosX", Dta.ui.windowtest:GetLeft())
-  Dta.settings.set("MainwindowPosY", Dta.ui.windowtest:GetTop())
+	Dta.settings.set("MainwindowPosX", Dta.ui.windowtest:GetLeft())
+	Dta.settings.set("MainwindowPosY", Dta.ui.windowtest:GetTop())
 end
 
 --Called when the window has been closed
 function Dta.ui.MainWindowClosed()
-  Dta.ui.hideMainWindow()
-
+	Dta.ui.hideMainWindow()
 end
 
 -------------------------------
@@ -468,13 +467,13 @@ Dta.expimp_ui.toggleExpImpWindow()
 end
 
 function Dta.ui.modifyDFlyingButtonClicked()
-    Dta.flying_ui.toggleFlyingWindow()
+	Dta.flying_ui.toggleFlyingWindow()
 end
 
 function Dta.ui.modifyAlphabetButtonClicked()
-    Dta.alphabet_ui.toggleAlphabetWindow()
+	Dta.alphabet_ui.toggleAlphabetWindow()
 end
 
 function Dta.ui.modifyMeasurementsButtonClicked()
-    Dta.measurements_ui.toggleMeasurementsWindow()
+	Dta.measurements_ui.toggleMeasurementsWindow()
 end

@@ -7,9 +7,9 @@ Dta.flying = {}
 function Dta.flying.AdjustPitch(newVal)
 	for i = 1, 9, 1 do
 		if i == newVal then
-		    Dta.pitchButtons[i]:SetEnabled(false)
+			Dta.pitchButtons[i]:SetEnabled(false)
 		else
-		    Dta.pitchButtons[i]:SetEnabled(true)
+			Dta.pitchButtons[i]:SetEnabled(true)
 		end
 	end
 	Dta.desiredPitch = (-5+newVal)/10
@@ -18,7 +18,7 @@ end
 function Dta.flying.PlaceFlying()
 	local items = Inspect.Item.List(Utility.Item.Slot.Inventory())
 	for slot, id in pairs(items) do
-	    if id ~= false then
+		if id ~= false then
 			local data = Inspect.Item.Detail(id)
 			if data.type == Dta.FlyingType then
 				Dta.ui.windowFlying.DFlying.placeButton:SetEnabled(false)
@@ -29,8 +29,8 @@ function Dta.flying.PlaceFlying()
 
 			end
 		end
-    end
-    dump(Lang[Dta.Language].Prints.NoRoundTable)
+	end
+	dump(Lang[Dta.Language].Prints.NoRoundTable)
 end
 
 function Dta.flying.PickUpFlying()
@@ -45,7 +45,7 @@ end
 
 function Dta.flying.dimensionItemAdded(hEvent, dimensionItem)
 	if Dta.waitingForCarpet == true then
-	    for id, value in pairs(dimensionItem) do
+		for id, value in pairs(dimensionItem) do
 			local data = Inspect.Dimension.Layout.Detail(id)
 			if data ~= nil then
 				if data.type == rugType then
