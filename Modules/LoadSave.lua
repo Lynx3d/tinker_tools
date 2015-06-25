@@ -277,96 +277,43 @@ end
 ----------------------------------
 
 function Dta.losa.loadGroupItemAttributes(name, pasteAtOriginalLoc, pasteNewItems)
+	if not name or name == "" then
+		print(Lang[Dta.Language].Prints.LoadSelectSet)
+		return
+	end
+	local PasteMultipleCopies = Dta.ui.windowLoSa.constructions.LoadMultipleSets:GetChecked()
+	local NrCopies = Dta.ui.windowLoSa.constructions.NrCopies:GetText()
+	local OffsetX = Dta.ui.windowLoSa.constructions.x:GetText()
+	local OffsetY = Dta.ui.windowLoSa.constructions.y:GetText()
+	local OffsetZ = Dta.ui.windowLoSa.constructions.z:GetText()
+
+	if NrCopies == nil or NrCopies == "" then NrCopies = 1 end
+	if OffsetX == nil or OffsetX == "" then OffsetX = 0 end
+	if OffsetY == nil or OffsetY == "" then OffsetY = 0 end
+	if OffsetZ == nil or OffsetZ == "" then OffsetZ = 0 end
+
+	if not tonumber(NrCopies) or
+		not tonumber(OffsetX) or
+		not tonumber(OffsetY) or
+		not tonumber(OffsetZ) then
+		print(Lang[Dta.Language].Prints.NumbersOnly)
+		return
+	end
+
+	local constructionSet
 	if Dta.ui.loadLoSa == "Default" then
-		local PasteMultipleCopies = Dta.ui.windowLoSa.constructions.LoadMultipleSets:GetChecked()
-		local NrCopies = Dta.ui.windowLoSa.constructions.NrCopies:GetText()
-		local OffsetX = Dta.ui.windowLoSa.constructions.x:GetText()
-		local OffsetY = Dta.ui.windowLoSa.constructions.y:GetText()
-		local OffsetZ = Dta.ui.windowLoSa.constructions.z:GetText()
-
-		if NrCopies == nil or NrCopies == "" then NrCopies = 1 end
-		if OffsetX == nil or OffsetX == "" then OffsetX = 0 end
-		if OffsetY == nil or OffsetY == "" then OffsetY = 0 end
-		if OffsetZ == nil or OffsetZ == "" then OffsetZ = 0 end
-
-		if not tonumber(NrCopies) or
-			not tonumber(OffsetX) or
-			not tonumber(OffsetY) or
-			not tonumber(OffsetZ) then
-			print(Lang[Dta.Language].Prints.NumbersOnly)
-			return
-		end
-
-		if name ~= nil and name ~= "" then
-			if Dta.constructionsdefaults[name] ~= nil then
-				Dta.groupClipboard = Dta.constructionsdefaults[name]
-				Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, OffsetX, OffsetY, OffsetZ, name)
-			else
-				print(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
-			end
-		else
-			print(Lang[Dta.Language].Prints.LoadSelectSet)
-		end
+		constructionSet = constructionsdefaults
 	elseif Dta.ui.loadLoSa == "Saved" then
-		local PasteMultipleCopies = Dta.ui.windowLoSa.constructions.LoadMultipleSets:GetChecked()
-		local NrCopies = Dta.ui.windowLoSa.constructions.NrCopies:GetText()
-		local OffsetX = Dta.ui.windowLoSa.constructions.x:GetText()
-		local OffsetY = Dta.ui.windowLoSa.constructions.y:GetText()
-		local OffsetZ = Dta.ui.windowLoSa.constructions.z:GetText()
-
-		if NrCopies == nil or NrCopies == "" then NrCopies = 1 end
-		if OffsetX == nil or OffsetX == "" then OffsetX = 0 end
-		if OffsetY == nil or OffsetY == "" then OffsetY = 0 end
-		if OffsetZ == nil or OffsetZ == "" then OffsetZ = 0 end
-
-		if not tonumber(NrCopies) or
-			not tonumber(OffsetX) or
-			not tonumber(OffsetY) or
-			not tonumber(OffsetZ) then
-			print(Lang[Dta.Language].Prints.NumbersOnly)
-			return
-		end
-
-		if name ~= nil and name ~= "" then
-			if Dta.constructions[name] ~= nil then
-				Dta.groupClipboard = Dta.constructions[name]
-				Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, OffsetX, OffsetY, OffsetZ, name)
-			else
-				print(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
-			end
-		else
-			print(Lang[Dta.Language].Prints.LoadSelectSet)
-		end
+		constructionSet = Dta.constructions
 	elseif Dta.ui.loadLoSa == "Tbx" then
-		local PasteMultipleCopies = Dta.ui.windowLoSa.constructions.LoadMultipleSets:GetChecked()
-		local NrCopies = Dta.ui.windowLoSa.constructions.NrCopies:GetText()
-		local OffsetX = Dta.ui.windowLoSa.constructions.x:GetText()
-		local OffsetY = Dta.ui.windowLoSa.constructions.y:GetText()
-		local OffsetZ = Dta.ui.windowLoSa.constructions.z:GetText()
+		constructionSet = Dta.constructionstbx
+	end
 
-		if NrCopies == nil or NrCopies == "" then NrCopies = 1 end
-		if OffsetX == nil or OffsetX == "" then OffsetX = 0 end
-		if OffsetY == nil or OffsetY == "" then OffsetY = 0 end
-		if OffsetZ == nil or OffsetZ == "" then OffsetZ = 0 end
-
-		if not tonumber(NrCopies) or
-			not tonumber(OffsetX) or
-			not tonumber(OffsetY) or
-			not tonumber(OffsetZ) then
-			print(Lang[Dta.Language].Prints.NumbersOnly)
-			return
-		end
-
-		if name ~= nil and name ~= "" then
-			if Dta.constructionstbx[name] ~= nil then
-				Dta.groupClipboard = Dta.constructionstbx[name]
-				Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, OffsetX, OffsetY, OffsetZ, name)
-			else
-				print(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
-			end
-		else
-			print(Lang[Dta.Language].Prints.LoadSelectSet)
-		end
+	if constructionSet and constructionSet[name] ~= nil then
+		Dta.groupClipboard = constructionSet[name]
+		Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, OffsetX, OffsetY, OffsetZ, name)
+	else
+		print(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
 	end
 end
 
