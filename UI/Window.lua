@@ -145,15 +145,15 @@ end
 
 function Window.createFramedWindow(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
 	local newWindow = UI.CreateFrame("Frame", name, parent)
-	newWindow:SetHeight(height)
+	newWindow:SetHeight(height + ((tile or movable) and Window.headerSize))
 	newWindow:SetWidth(width)
 	newWindow:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 
-	--newWindow:EventAttach(Event.UI.Input.Mouse.Left.Click, Dta.ui.clickCallback, "WindowBackgroundClicked")
+	newWindow:EventAttach(Event.UI.Input.Mouse.Left.Click, Dta.ui.clickCallback, "WindowBackgroundClicked")
 
 	newWindow.background = UI.CreateFrame("Canvas", name .. "Background", newWindow)
 	newWindow.background:SetPoint("TOPLEFT", newWindow, "TOPLEFT", 0, 0)
-	newWindow.background:SetPoint("BOTTOMRIGHT", newWindow, "TOPRIGHT", 0, height)
+	newWindow.background:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT", 0, 0)
 	Window.drawBackground(newWindow.background)
 	newWindow.background:SetLayer(1)
 
@@ -266,7 +266,9 @@ function Button.Create(name, parent, click_callback, tex_normal, tex_over, tex_p
 	btn:EventAttach(Event.UI.Input.Mouse.Cursor.Out, Button.mouseOut, "Button.MouseOut")
 	btn:EventAttach(Event.UI.Input.Mouse.Left.Down, Button.mouseDown, "Button.MouseDown")
 	btn:EventAttach(Event.UI.Input.Mouse.Left.Up, Button.mouseUp, "Button.MouseUp")
-	btn:EventAttach(Event.UI.Input.Mouse.Left.Up, click_callback, "Button.UserAction")
+	if click_callback then
+		btn:EventAttach(Event.UI.Input.Mouse.Left.Click, click_callback, "Button.UserAction")
+	end
 
 	return btn
 end
