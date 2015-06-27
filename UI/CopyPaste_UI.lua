@@ -4,83 +4,10 @@
 -- BUILD THE DIMENSIONTOOLS COPY/PASTE WINDOW
 -------------------------------
 
-function Dta.copa_ui.createWindowCopyPaste(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
-	local windowCopyPaste = UI.CreateFrame("Frame", name, parent)
-		windowCopyPaste:SetHeight(height)
-		windowCopyPaste:SetWidth(width)
-		windowCopyPaste:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
-		-- windowCopyPaste:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-		windowCopyPaste:SetLayer(21)
-
-	windowCopyPaste.background = UI.CreateFrame("Texture", name .. "Background", windowCopyPaste)
-	windowCopyPaste.background:SetPoint("TOPLEFT", windowCopyPaste, "TOPLEFT", 0, 0)
-	windowCopyPaste.background:SetPoint("BOTTOMRIGHT", windowCopyPaste, "TOPRIGHT", 0, height)
-	windowCopyPaste.background:SetTexture("Rift", "dimension_window_bg_right_large.png.dds")
-	windowCopyPaste.background:SetLayer(3)
-
-	local background2Position = windowCopyPaste:GetHeight()-80
-	windowCopyPaste.background2 = UI.CreateFrame("Texture", name .. "Background2", windowCopyPaste)
-	windowCopyPaste.background2:SetPoint("CENTERX", windowCopyPaste, "CENTERX")
-	windowCopyPaste.background2:SetPoint("CENTERY", windowCopyPaste, "CENTERY", nil, background2Position/2)
-	windowCopyPaste.background2:SetWidth(width)
-	windowCopyPaste.background2:SetHeight(95)
-	windowCopyPaste.background2:SetAlpha(0.3)
-	windowCopyPaste.background2:SetTexture("Rift", "dimensions_tools_header.png.dds")
-	windowCopyPaste.background2:SetLayer(5)
-
-
-	if closable then
-		windowCopyPaste.closeBtn = Dta.ui.createButton(name .. "CloseBtn", windowCopyPaste, windowCopyPaste:GetWidth()-35, -33,0, 0, nil, "close", closeCallback)
-		windowCopyPaste.closeBtn:SetLayer(4)
-	end
-
-	if movable then
-		windowCopyPaste.moveFrame = UI.CreateFrame("Texture", name .. "WindowMover", windowCopyPaste)
-		windowCopyPaste.moveFrame:SetPoint("TOPLEFT", windowCopyPaste, "TOPLEFT", 0, -40)
-		windowCopyPaste.moveFrame:SetPoint("BOTTOMRIGHT", windowCopyPaste, "TOPRIGHT", 0, 5)
-		windowCopyPaste.moveFrame:SetTexture("Rift", "dimensions_main_bg_top.png.dds")
-		windowCopyPaste.moveFrame:SetLayer(2)
-		--windowCopyPaste.moveFrame:SetBackgroundColor(1, 0, 0, 0.5) --Debug
-
-		windowCopyPaste.header = UI.CreateFrame("Text", name .. "header", windowCopyPaste.moveFrame)
-		windowCopyPaste.header:SetFontSize(20)
-		windowCopyPaste.header:SetText(title)
-		windowCopyPaste.header:SetFontColor(0,0,0,1)
-		windowCopyPaste.header:SetPoint("CENTERX", windowCopyPaste.moveFrame, "CENTERX")
-		windowCopyPaste.header:SetPoint("CENTERY", windowCopyPaste.moveFrame, "CENTERY", nil, 5)
-
-		local dragging = false
-
-		windowCopyPaste.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Down, function(self, h)
-			dragging = true
-			mouse = Inspect.Mouse()
-			dragStartX = mouse.x - windowCopyPaste:GetLeft()
-			dragStartY = mouse.y - windowCopyPaste:GetTop()
-		end, "LMouseDown")
-
-		windowCopyPaste.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Up, function(self, h)
-			dragging = false
-			if moveCallback ~= nil then moveCallback() end
-		end, "LMouseUp")
-
-		windowCopyPaste.moveFrame:EventAttach(Event.UI.Input.Mouse.Cursor.Move, function(self,h)
-			local x, y
-			local md = Inspect.Mouse()
-			x = md.x
-			y = md.y
-			if dragging then
-				windowCopyPaste:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x - dragStartX, y - dragStartY)
-				end
-		end, "MouseMove")
-
-	return windowCopyPaste
-	end
-end
-
 local CopyPasteWindowSettings = {
 	TITLE = Lang[Dta.Language].Titles.CopyPaste,
 	WIDTH = 325,
-	HEIGHT = 260,
+	HEIGHT = 255,
 	CLOSABLE = true,
 	MOVABLE = true,
 }
@@ -88,7 +15,7 @@ local CopyPasteWindowSettings = {
 function Dta.copa_ui.buildCopyPasteWindow()
 	local x = Dta.settings.get("CopyPastewindowPosX")
 	local y = Dta.settings.get("CopyPastewindowPosY")
-	CopyPastewindow = Dta.copa_ui.createWindowCopyPaste("CopyPastewindow",
+	local newWindow = Dta.ui.Window.Create("CopyPastewindow",
 							Dta.ui.context,
 							CopyPasteWindowSettings.TITLE,
 							CopyPasteWindowSettings.WIDTH,
@@ -100,11 +27,20 @@ function Dta.copa_ui.buildCopyPasteWindow()
 							Dta.copa_ui.CopyPastewindowClosed,
 							Dta.copa_ui.CopyPastewindowMoved
 							)
+	local CopyPastewindow = newWindow.content
+
+	CopyPastewindow.background2 = UI.CreateFrame("Texture", "CopyPasteWindowBackground2", CopyPastewindow)
+	CopyPastewindow.background2:SetPoint("BOTTOMCENTER", CopyPastewindow, "BOTTOMCENTER")
+	CopyPastewindow.background2:SetWidth(CopyPasteWindowSettings.WIDTH)
+	CopyPastewindow.background2:SetHeight(80)
+	CopyPastewindow.background2:SetAlpha(0.3)
+	CopyPastewindow.background2:SetTexture("Rift", "dimensions_tools_header.png.dds")
+	CopyPastewindow.background2:SetLayer(5)
 
 	-------------------------------
 	--ITEM DETAILS
 	-------------------------------
-	CopyPastewindow.copyPaste = Dta.ui.createFrame("copyPaste", CopyPastewindow, 10, 10, CopyPastewindow:GetWidth()-20, CopyPastewindow:GetHeight()-20)
+	CopyPastewindow.copyPaste = Dta.ui.createFrame("copyPaste", CopyPastewindow, 10, 5, CopyPastewindow:GetWidth()-20, CopyPastewindow:GetHeight()-20)
 	CopyPastewindow.copyPaste:SetLayer(30)
 	--CopyPastewindow.copyPaste:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
@@ -156,7 +92,9 @@ function Dta.copa_ui.buildCopyPasteWindow()
 	CopyPastewindow.copyPaste.Both = Dta.ui.createCheckbox("copyPasteBoth", CopyPastewindow.copyPaste, 235, 220, Lang[Dta.Language].Text.Vaults, false, nil, Dta.copa.CopaBothChanged)
 	CopyPastewindow.copyPaste.Both:SetVisible(false)
 
-	return CopyPastewindow
+	-- TODO: temp fix for new window hierarchy
+	newWindow.copyPaste = CopyPastewindow.copyPaste
+	return newWindow
 end
 
 -- Show the toolbox window
@@ -190,6 +128,6 @@ end
 
 --Called when the window has been moved
 function Dta.copa_ui.CopyPastewindowMoved()
-	Dta.settings.set("CopyPastewindowPosX", CopyPastewindow:GetLeft())
-	Dta.settings.set("CopyPastewindowPosY", CopyPastewindow:GetTop())
+	Dta.settings.set("CopyPastewindowPosX", Dta.ui.windowCopyPaste:GetLeft())
+	Dta.settings.set("CopyPastewindowPosY", Dta.ui.windowCopyPaste:GetTop())
 end
