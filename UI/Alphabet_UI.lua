@@ -4,83 +4,10 @@ Dta.alphabet_ui = {}
 -- BUILD THE DIMENSIONTOOLS AlphabetWINDOW
 -------------------------------
 
-function Dta.alphabet_ui.createWindowAlphabet(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
-	local windowAlphabet = UI.CreateFrame("Frame", name, parent)
-		windowAlphabet:SetHeight(height)
-		windowAlphabet:SetWidth(width)
-		windowAlphabet:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
-		-- windowAlphabet:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-		windowAlphabet:SetLayer(15)
-
-	windowAlphabet.background = UI.CreateFrame("Texture", name .. "Background", windowAlphabet)
-	windowAlphabet.background:SetPoint("TOPLEFT", windowAlphabet, "TOPLEFT", 0, 0)
-	windowAlphabet.background:SetPoint("BOTTOMRIGHT", windowAlphabet, "TOPRIGHT", 0, height)
-	windowAlphabet.background:SetTexture("Rift", "dimension_window_bg_right_large.png.dds")
-	windowAlphabet.background:SetLayer(3)
-
-	local background2Position = windowAlphabet:GetHeight()-80
-	windowAlphabet.background2 = UI.CreateFrame("Texture", name .. "Background2", windowAlphabet)
-	windowAlphabet.background2:SetPoint("CENTERX", windowAlphabet, "CENTERX")
-	windowAlphabet.background2:SetPoint("CENTERY", windowAlphabet, "CENTERY", nil, background2Position/2)
-	windowAlphabet.background2:SetWidth(width)
-	windowAlphabet.background2:SetHeight(95)
-	windowAlphabet.background2:SetAlpha(0.3)
-	windowAlphabet.background2:SetTexture("Rift", "dimensions_tools_header.png.dds")
-	windowAlphabet.background2:SetLayer(5)
-
-
-	if closable then
-		windowAlphabet.closeBtn = Dta.ui.createButton(name .. "CloseBtn", windowAlphabet, windowAlphabet:GetWidth()-35, -33,0, 0, nil, "close", closeCallback)
-		windowAlphabet.closeBtn:SetLayer(4)
-	end
-
-	if movable then
-		windowAlphabet.moveFrame = UI.CreateFrame("Texture", name .. "WindowMover", windowAlphabet)
-		windowAlphabet.moveFrame:SetPoint("TOPLEFT", windowAlphabet, "TOPLEFT", 0, -40)
-		windowAlphabet.moveFrame:SetPoint("BOTTOMRIGHT", windowAlphabet, "TOPRIGHT", 0, 5)
-		windowAlphabet.moveFrame:SetTexture("Rift", "dimensions_main_bg_top.png.dds")
-		windowAlphabet.moveFrame:SetLayer(2)
-		--windowAlphabet.moveFrame:SetBackgroundColor(1, 0, 0, 0.5) --Debug
-
-		windowAlphabet.header = UI.CreateFrame("Text", name .. "header", windowAlphabet.moveFrame)
-		windowAlphabet.header:SetFontSize(20)
-		windowAlphabet.header:SetText(title)
-		windowAlphabet.header:SetFontColor(0,0,0,1)
-		windowAlphabet.header:SetPoint("CENTERX", windowAlphabet.moveFrame, "CENTERX")
-		windowAlphabet.header:SetPoint("CENTERY", windowAlphabet.moveFrame, "CENTERY", nil, 5)
-
-		local dragging = false
-
-		windowAlphabet.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Down, function(self, h)
-			dragging = true
-			mouse = Inspect.Mouse()
-			dragStartX = mouse.x - windowAlphabet:GetLeft()
-			dragStartY = mouse.y - windowAlphabet:GetTop()
-		end, "LMouseDown")
-
-		windowAlphabet.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Up, function(self, h)
-			dragging = false
-			if moveCallback ~= nil then moveCallback() end
-		end, "LMouseUp")
-
-		windowAlphabet.moveFrame:EventAttach(Event.UI.Input.Mouse.Cursor.Move, function(self,h)
-			local x, y
-			local md = Inspect.Mouse()
-			x = md.x
-			y = md.y
-			if dragging then
-				windowAlphabet:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x - dragStartX, y - dragStartY)
-				end
-		end, "MouseMove")
-
-		return windowAlphabet
-	end
-end
-
 local AlphabetWindowSettings = {
 	TITLE = "Alfiebet",
 	WIDTH = 315,
-	HEIGHT = 200,
+	HEIGHT = 195,
 	CLOSABLE = true,
 	MOVABLE = true,
 }
@@ -88,7 +15,7 @@ local AlphabetWindowSettings = {
 function Dta.alphabet_ui.buildAlphabetWindow()
 	local x = Dta.settings.get("AlphabetwindowPosX")
 	local y = Dta.settings.get("AlphabetwindowPosY")
-	Alphabetwindow = Dta.alphabet_ui.createWindowAlphabet("AlphabetWindow",
+	local newWindow = Dta.ui.Window.Create("AlphabetWindow",
 							Dta.ui.context,
 							AlphabetWindowSettings.TITLE,
 							AlphabetWindowSettings.WIDTH,
@@ -100,11 +27,20 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 							Dta.alphabet_ui.AlphabetWindowClosed,
 							Dta.alphabet_ui.AlphabetWindowMoved
 							)
+	local Alphabetwindow = newWindow.content
+
+	Alphabetwindow.background2 = UI.CreateFrame("Texture", "AlphabetWindowBackground2", Alphabetwindow)
+	Alphabetwindow.background2:SetPoint("BOTTOMCENTER", Alphabetwindow, "BOTTOMCENTER")
+	Alphabetwindow.background2:SetWidth(AlphabetWindowSettings.WIDTH)
+	Alphabetwindow.background2:SetHeight(80)
+	Alphabetwindow.background2:SetAlpha(0.3)
+	Alphabetwindow.background2:SetTexture("Rift", "dimensions_tools_header.png.dds")
+	Alphabetwindow.background2:SetLayer(5)
 
 	-------------------------------
 	--ITEM DETAILS
 	-------------------------------
-	Alphabetwindow.Alphabet = Dta.ui.createFrame("Alphabet", Alphabetwindow, 10, 10, Alphabetwindow:GetWidth()-20, Alphabetwindow:GetHeight()-20)
+	Alphabetwindow.Alphabet = Dta.ui.createFrame("Alphabet", Alphabetwindow, 10, 5, Alphabetwindow:GetWidth()-20, Alphabetwindow:GetHeight()-20)
 	Alphabetwindow.Alphabet:SetLayer(30)
 	--Alphabetwindow.modifyRotation:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
@@ -147,7 +83,9 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 	Alphabetwindow.Alphabet.load = Dta.ui.createButton("AlphabetLoad", Alphabetwindow.Alphabet, 0, 150, nil, nil, Lang[Dta.Language].Buttons.LoadWord, nil, Dta.alphabet.alphabetLoadClicked)
 	Alphabetwindow.Alphabet.printReqs = Dta.ui.createButton("AlphabetPrintReqs", Alphabetwindow.Alphabet, 165, 150, nil, nil, Lang[Dta.Language].Buttons.PrintMaterials, nil, Dta.alphabet.alphabetPrintMaterials)
 
-	return Alphabetwindow
+	-- TODO: temp fix for new window hierarchy
+	newWindow.Alphabet = Alphabetwindow.Alphabet
+	return newWindow
 end
 
 -- Show the toolbox window
@@ -183,6 +121,6 @@ end
 
 --Called when the window has been moved
 function Dta.alphabet_ui.AlphabetWindowMoved()
-	Dta.settings.set("AlphabetwindowPosX", Alphabetwindow:GetLeft())
-	Dta.settings.set("AlphabetwindowPosY", Alphabetwindow:GetTop())
+	Dta.settings.set("AlphabetwindowPosX", Dta.ui.windowAlphabet:GetLeft())
+	Dta.settings.set("AlphabetwindowPosY", Dta.ui.windowAlphabet:GetTop())
 end
