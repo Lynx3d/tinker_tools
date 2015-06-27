@@ -4,84 +4,10 @@
 -- BUILD THE DIMENSIONTOOLS MOVEWINDOW
 -------------------------------
 
-function Dta.move_ui.createWindowMove(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
-	local windowMove = UI.CreateFrame("Frame", name, parent)
-	windowMove:SetHeight(height)
-	windowMove:SetWidth(width)
-	windowMove:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
-	-- windowMove:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-	windowMove:SetLayer(11)
-	windowMove:EventAttach(Event.UI.Input.Mouse.Left.Click, Dta.ui.clickCallback, "WindowBackgroundClicked")
-
-	windowMove.background = UI.CreateFrame("Texture", name .. "Background", windowMove)
-	windowMove.background:SetPoint("TOPLEFT", windowMove, "TOPLEFT", 0, 0)
-	windowMove.background:SetPoint("BOTTOMRIGHT", windowMove, "TOPRIGHT", 0, height)
-	windowMove.background:SetTexture("Rift", "dimension_window_bg_right_large.png.dds")
-	windowMove.background:SetLayer(3)
-
-	local background2Position = windowMove:GetHeight()-80
-	windowMove.background2 = UI.CreateFrame("Texture", name .. "Background2", windowMove)
-	windowMove.background2:SetPoint("CENTERX", windowMove, "CENTERX")
-	windowMove.background2:SetPoint("CENTERY", windowMove, "CENTERY", nil, background2Position/2)
-	windowMove.background2:SetWidth(width)
-	windowMove.background2:SetHeight(95)
-	windowMove.background2:SetAlpha(0.3)
-	windowMove.background2:SetTexture("Rift", "dimensions_tools_header.png.dds")
-	windowMove.background2:SetLayer(5)
-
-
-	if closable then
-		windowMove.closeBtn = Dta.ui.createButton(name .. "CloseBtn", windowMove, windowMove:GetWidth()-35, -33,0, 0, nil, "close", closeCallback)
-		windowMove.closeBtn:SetLayer(4)
-	end
-
-	if movable then
-		windowMove.moveFrame = UI.CreateFrame("Texture", name .. "WindowMover", windowMove)
-		windowMove.moveFrame:SetPoint("TOPLEFT", windowMove, "TOPLEFT", 0, -40)
-		windowMove.moveFrame:SetPoint("BOTTOMRIGHT", windowMove, "TOPRIGHT", 0, 5)
-		windowMove.moveFrame:SetTexture("Rift", "dimensions_main_bg_top.png.dds")
-		windowMove.moveFrame:SetLayer(2)
-		--windowMove.moveFrame:SetBackgroundColor(1, 0, 0, 0.5) --Debug
-
-		windowMove.header = UI.CreateFrame("Text", name .. "header", windowMove.moveFrame)
-		windowMove.header:SetFontSize(20)
-		windowMove.header:SetText(title)
-		windowMove.header:SetFontColor(0,0,0,1)
-		windowMove.header:SetPoint("CENTERX", windowMove.moveFrame, "CENTERX")
-		windowMove.header:SetPoint("CENTERY", windowMove.moveFrame, "CENTERY", nil, 5)
-
-		local dragging = false
-
-		windowMove.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Down, function(self, h)
-			dragging = true
-			mouse = Inspect.Mouse()
-			dragStartX = mouse.x - windowMove:GetLeft()
-			dragStartY = mouse.y - windowMove:GetTop()
-		end, "LMouseDown")
-
-		windowMove.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Up, function(self, h)
-			dragging = false
-			if moveCallback ~= nil then moveCallback() end
-		end, "LMouseUp")
-
-		windowMove.moveFrame:EventAttach(Event.UI.Input.Mouse.Cursor.Move, function(self,h)
-			local x, y
-			local md = Inspect.Mouse()
-			x = md.x
-			y = md.y
-			if dragging then
-				windowMove:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x - dragStartX, y - dragStartY)
-				end
-		end, "MouseMove")
-
-		return windowMove
-	end
-end
-
 local MoveWindowSettings = {
 	TITLE = Lang[Dta.Language].Titles.Move,
-	WIDTH = 315,
-	HEIGHT = 140,
+	WIDTH = 305,
+	HEIGHT = 130,
 	CLOSABLE = true,
 	MOVABLE = true,
 }
@@ -90,7 +16,7 @@ function Dta.move_ui.buildMoveWindow()
 	local x = Dta.settings.get("MovewindowPosX")
 	local y = Dta.settings.get("MovewindowPosY")
 
-	local Movewindow = Dta.move_ui.createWindowMove("MoveWindow",
+	local newWindow = Dta.ui.Window.Create("MoveWindow",
 							Dta.ui.context,
 							MoveWindowSettings.TITLE,
 							MoveWindowSettings.WIDTH,
@@ -102,12 +28,21 @@ function Dta.move_ui.buildMoveWindow()
 							Dta.move_ui.MoveWindowClosed,
 							Dta.move_ui.MoveWindowMoved
 							)
+	local Movewindow = newWindow.content
+
+	Movewindow.background2 = UI.CreateFrame("Texture", "MoveWindowBackground2", Movewindow)
+	Movewindow.background2:SetPoint("BOTTOMCENTER", Movewindow, "BOTTOMCENTER")
+	Movewindow.background2:SetWidth(MoveWindowSettings.WIDTH)
+	Movewindow.background2:SetHeight(80)
+	Movewindow.background2:SetAlpha(0.3)
+	Movewindow.background2:SetTexture("Rift", "dimensions_tools_header.png.dds")
+	Movewindow.background2:SetLayer(5)
 
 	-------------------------------
 	--ITEM DETAILS
 	-------------------------------
 
-	Movewindow.modifyPosition = Dta.ui.createFrame("modifyPosition", Movewindow, 10, 10, Movewindow:GetWidth()-20, Movewindow:GetHeight()-20)
+	Movewindow.modifyPosition = Dta.ui.createFrame("modifyPosition", Movewindow, 10, 5, Movewindow:GetWidth()-20, Movewindow:GetHeight()-20)
 	Movewindow.modifyPosition:SetLayer(30)
 	--Movewindow.modifyPosition:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
@@ -119,22 +54,24 @@ function Dta.move_ui.buildMoveWindow()
 	Movewindow.modifyPosition.y = Dta.ui.createTextfield("modifyPositionY", Movewindow.modifyPosition, 20, 25, 100)
 	Movewindow.modifyPosition.z = Dta.ui.createTextfield("modifyPositionZ", Movewindow.modifyPosition, 20, 50, 100)
 
-	Movewindow.modifyPosition.modeAbs = Dta.ui.createCheckbox("modifyPositionModeAbs", Movewindow.modifyPosition, 170, 5, Lang[Dta.Language].Text.Absolute, true, nil, Dta.move.modifyPositionModeAbsChanged)
-	Movewindow.modifyPosition.modeRel = Dta.ui.createCheckbox("modifyPositionModeRel", Movewindow.modifyPosition, 170, 25, Lang[Dta.Language].Text.Relative, false, nil, Dta.move.modifyPositionModeRelChanged)
+	Movewindow.modifyPosition.modeAbs = Dta.ui.createCheckbox("modifyPositionModeAbs", Movewindow.modifyPosition, 160, 5, Lang[Dta.Language].Text.Absolute, true, nil, Dta.move.modifyPositionModeAbsChanged)
+	Movewindow.modifyPosition.modeRel = Dta.ui.createCheckbox("modifyPositionModeRel", Movewindow.modifyPosition, 160, 25, Lang[Dta.Language].Text.Relative, false, nil, Dta.move.modifyPositionModeRelChanged)
 
 	Movewindow.modifyPosition.moveAsGrp = Dta.ui.createCheckbox("modifyPositionMoveAsGrp", Movewindow.modifyPosition, 170, 55, Lang[Dta.Language].Text.MoveAsGroup, true)
 	Movewindow.modifyPosition.moveAsGrp:SetVisible(Dta.selectionCount > 1)
 
-	Movewindow.modifyPosition.changeBtn = Dta.ui.createButton("modifyPositionBtn", Movewindow.modifyPosition, 0, 90, nil, nil, Lang[Dta.Language].Buttons.Move, nil, Dta.move.modifyPositionButtonClicked)
-	Movewindow.modifyPosition.resetBtn = Dta.ui.createButton("modifyPositionResetBtn", Movewindow.modifyPosition, 160, 90, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.move_ui.modifyPositionResetButtonClicked)
+	Movewindow.modifyPosition.changeBtn = Dta.ui.createButton("modifyPositionBtn", Movewindow.modifyPosition, 0, 85, nil, nil, Lang[Dta.Language].Buttons.Move, nil, Dta.move.modifyPositionButtonClicked)
+	Movewindow.modifyPosition.resetBtn = Dta.ui.createButton("modifyPositionResetBtn", Movewindow.modifyPosition, 150, 85, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.move_ui.modifyPositionResetButtonClicked)
 
 	Dta.ui.AddFocusCycleElement(Movewindow, Movewindow.modifyPosition.x)
 	Dta.ui.AddFocusCycleElement(Movewindow, Movewindow.modifyPosition.y)
 	Dta.ui.AddFocusCycleElement(Movewindow, Movewindow.modifyPosition.z)
 	Movewindow:EventAttach(Event.UI.Input.Key.Up.Dive, Dta.ui.FocusCycleCallback, "MoveWindow_TabFocusCycle")
 
--- 	insert buttons and textboxes here
-	return Movewindow
+	-- TODO: temp fix for new window hierarchy
+	newWindow.modifyPosition = Movewindow.modifyPosition
+
+	return newWindow -- Movewindow
 end
 
 -- Show the toolbox window
