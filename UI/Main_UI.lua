@@ -300,7 +300,7 @@ function Dta.ui.buildMainWindow()
 	local x = Dta.settings.get("MainwindowPosX")
 	local y = Dta.settings.get("MainwindowPosY")
 	--Mainwindow = Dta.ui.createWindow("MainWindow",
-	local newWindow = Dta.ui.Window.createFramedWindow("MainWindowNew",
+	local newWindow = Dta.ui.Window.Create("MainWindowNew",
 							Dta.ui.context,
 							MainWindowSettings.TITLE,
 							MainWindowSettings.WIDTH,
