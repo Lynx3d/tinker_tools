@@ -4,83 +4,10 @@
 -- BUILD THE DIMENSIONTOOLS SCALEWINDOW
 -------------------------------
 
-function Dta.scale_ui.createWindowScale(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
-	local windowScale = UI.CreateFrame("Frame", name, parent)
-	windowScale:SetHeight(height)
-	windowScale:SetWidth(width)
-	windowScale:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
-	-- windowScale:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-	windowScale:SetLayer(13)
-
-	windowScale.background = UI.CreateFrame("Texture", name .. "Background", windowScale)
-	windowScale.background:SetPoint("TOPLEFT", windowScale, "TOPLEFT", 0, 0)
-	windowScale.background:SetPoint("BOTTOMRIGHT", windowScale, "TOPRIGHT", 0, height)
-	windowScale.background:SetTexture("Rift", "dimension_window_bg_right_large.png.dds")
-	windowScale.background:SetLayer(3)
-
-	local background2Position = windowScale:GetHeight()-80
-	windowScale.background2 = UI.CreateFrame("Texture", name .. "Background2", windowScale)
-	windowScale.background2:SetPoint("CENTERX", windowScale, "CENTERX")
-	windowScale.background2:SetPoint("CENTERY", windowScale, "CENTERY", nil, background2Position/2)
-	windowScale.background2:SetWidth(width)
-	windowScale.background2:SetHeight(95)
-	windowScale.background2:SetAlpha(0.3)
-	windowScale.background2:SetTexture("Rift", "dimensions_tools_header.png.dds")
-	windowScale.background2:SetLayer(5)
-
-
-	if closable then
-		windowScale.closeBtn = Dta.ui.createButton(name .. "CloseBtn", windowScale, windowScale:GetWidth()-35, -33,0, 0, nil, "close", closeCallback)
-		windowScale.closeBtn:SetLayer(4)
-	end
-
-	if movable then
-		windowScale.moveFrame = UI.CreateFrame("Texture", name .. "WindowMover", windowScale)
-		windowScale.moveFrame:SetPoint("TOPLEFT", windowScale, "TOPLEFT", 0, -40)
-		windowScale.moveFrame:SetPoint("BOTTOMRIGHT", windowScale, "TOPRIGHT", 0, 5)
-		windowScale.moveFrame:SetTexture("Rift", "dimensions_main_bg_top.png.dds")
-		windowScale.moveFrame:SetLayer(2)
-		--windowScale.moveFrame:SetBackgroundColor(1, 0, 0, 0.5) --Debug
-
-		windowScale.header = UI.CreateFrame("Text", name .. "header", windowScale.moveFrame)
-		windowScale.header:SetFontSize(20)
-		windowScale.header:SetText(title)
-		windowScale.header:SetFontColor(0,0,0,1)
-		windowScale.header:SetPoint("CENTERX", windowScale.moveFrame, "CENTERX")
-		windowScale.header:SetPoint("CENTERY", windowScale.moveFrame, "CENTERY", nil, 5)
-
-		local dragging = false
-
-		windowScale.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Down, function(self, h)
-			dragging = true
-			mouse = Inspect.Mouse()
-			dragStartX = mouse.x - windowScale:GetLeft()
-			dragStartY = mouse.y - windowScale:GetTop()
-		end, "LMouseDown")
-
-		windowScale.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Up, function(self, h)
-			dragging = false
-			if moveCallback ~= nil then moveCallback() end
-		end, "LMouseUp")
-
-		windowScale.moveFrame:EventAttach(Event.UI.Input.Mouse.Cursor.Move, function(self,h)
-			local x, y
-			local md = Inspect.Mouse()
-			x = md.x
-			y = md.y
-			if dragging then
-				windowScale:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x - dragStartX, y - dragStartY)
-				end
-		end, "MouseMove")
-
-		return windowScale
-	end
-end
-
 local ScaleWindowSettings = {
 	TITLE = Lang[Dta.Language].Titles.Scale,
-	WIDTH = 315,
-	HEIGHT = 140,
+	WIDTH = 305,
+	HEIGHT = 130,
 	CLOSABLE = true,
 	MOVABLE = true,
 }
@@ -88,7 +15,7 @@ local ScaleWindowSettings = {
 function Dta.scale_ui.buildScaleWindow()
 	local x = Dta.settings.get("ScalewindowPosX")
 	local y = Dta.settings.get("ScalewindowPosY")
-	Scalewindow = Dta.scale_ui.createWindowScale("Scalewindow",
+	local newWindow = Dta.ui.Window.Create("Scalewindow",
 							Dta.ui.context,
 							ScaleWindowSettings.TITLE,
 							ScaleWindowSettings.WIDTH,
@@ -100,12 +27,21 @@ function Dta.scale_ui.buildScaleWindow()
 							Dta.scale_ui.ScaleWindowClosed,
 							Dta.scale_ui.ScaleWindowMoved
 							)
+	local Scalewindow = newWindow.content
+
+	Scalewindow.background2 = UI.CreateFrame("Texture", "ScaleWindowBackground2", Scalewindow)
+	Scalewindow.background2:SetPoint("BOTTOMCENTER", Scalewindow, "BOTTOMCENTER")
+	Scalewindow.background2:SetWidth(ScaleWindowSettings.WIDTH)
+	Scalewindow.background2:SetHeight(80)
+	Scalewindow.background2:SetAlpha(0.3)
+	Scalewindow.background2:SetTexture("Rift", "dimensions_tools_header.png.dds")
+	Scalewindow.background2:SetLayer(5)
 
 	-------------------------------
 	--ITEM DETAILS
 	-------------------------------
 
-	Scalewindow.modifyScale = Dta.ui.createFrame("modifyScale", Scalewindow, 10, 10, Scalewindow:GetWidth()-20, Scalewindow:GetHeight()-20)
+	Scalewindow.modifyScale = Dta.ui.createFrame("modifyScale", Scalewindow, 10, 5, Scalewindow:GetWidth()-20, Scalewindow:GetHeight()-20)
 	Scalewindow.modifyScale:SetLayer(30)
 	--Scalewindow.modifyScale:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
@@ -117,10 +53,13 @@ function Dta.scale_ui.buildScaleWindow()
 	Scalewindow.modifyScale.modeRel = Dta.ui.createCheckbox("modifyScaleModeRel", Scalewindow.modifyScale, 175, 30, Lang[Dta.Language].Text.Relative, false, nil, Dta.scale.modifyScaleModeRelChanged)
 	Scalewindow.modifyScale.modeGrp = Dta.ui.createCheckbox("modifyScaleModeGrp", Scalewindow.modifyScale, 175, 50, Lang[Dta.Language].Text.ScaleAsGroup, false, nil, nil)
 
-	Scalewindow.modifyScale.changeBtn = Dta.ui.createButton("modifyScaleBtn", Scalewindow.modifyScale, 0, 90, nil, nil, Lang[Dta.Language].Buttons.Scale, nil, Dta.scale.modifyScaleButtonClicked)
-	Scalewindow.modifyScale.resetBtn = Dta.ui.createButton("modifyScaleResetBtn", Scalewindow.modifyScale, 160, 90, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.scale.modifyScaleResetButtonClicked)
+	Scalewindow.modifyScale.changeBtn = Dta.ui.createButton("modifyScaleBtn", Scalewindow.modifyScale, 0, 85, nil, nil, Lang[Dta.Language].Buttons.Scale, nil, Dta.scale.modifyScaleButtonClicked)
+	Scalewindow.modifyScale.resetBtn = Dta.ui.createButton("modifyScaleResetBtn", Scalewindow.modifyScale, 150, 85, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.scale.modifyScaleResetButtonClicked)
 
-	return Scalewindow
+	-- TODO: temp fix for new window hierarchy
+	newWindow.modifyScale = Scalewindow.modifyScale
+
+	return newWindow
 end
 
 -- Show the toolbox window
@@ -153,6 +92,6 @@ end
 
 --Called when the window has been moved
 function Dta.scale_ui.ScaleWindowMoved()
-	Dta.settings.set("ScalewindowPosX", Scalewindow:GetLeft())
-	Dta.settings.set("ScalewindowPosY", Scalewindow:GetTop())
+	Dta.settings.set("ScalewindowPosX", Dta.ui.windowScale:GetLeft())
+	Dta.settings.set("ScalewindowPosY", Dta.ui.windowScale:GetTop())
 end

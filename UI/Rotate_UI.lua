@@ -66,7 +66,7 @@ function Dta.rotate_ui.buildRotateWindow()
 
 	-- TODO: temp fix for new window hierarchy
 	newWindow.modifyRotation = Rotatewindow.modifyRotation
-	return Rotatewindow
+	return newWindow
 end
 
 -- Show the toolbox window
