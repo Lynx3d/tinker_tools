@@ -4,83 +4,10 @@ Dta.losa_ui = {}
 -- BUILD THE DIMENSIONTOOLS LoSaWINDOW
 -------------------------------
 
-function Dta.losa_ui.createWindowLoSa(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
-	local windowLoSa = UI.CreateFrame("Frame", name, parent)
-	windowLoSa:SetHeight(height)
-	windowLoSa:SetWidth(width)
-	windowLoSa:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
-	-- windowLoSa:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-	windowLoSa:SetLayer(22)
-
-	windowLoSa.background = UI.CreateFrame("Texture", name .. "Background", windowLoSa)
-	windowLoSa.background:SetPoint("TOPLEFT", windowLoSa, "TOPLEFT", 0, 0)
-	windowLoSa.background:SetPoint("BOTTOMRIGHT", windowLoSa, "TOPRIGHT", 0, height)
-	windowLoSa.background:SetTexture("Rift", "dimension_window_bg_right_large.png.dds")
-	windowLoSa.background:SetLayer(3)
-
-	local background2Position = windowLoSa:GetHeight()-80
-	windowLoSa.background2 = UI.CreateFrame("Texture", name .. "Background2", windowLoSa)
-	windowLoSa.background2:SetPoint("CENTERX", windowLoSa, "CENTERX")
-	windowLoSa.background2:SetPoint("CENTERY", windowLoSa, "CENTERY", nil, background2Position/2)
-	windowLoSa.background2:SetWidth(width)
-	windowLoSa.background2:SetHeight(95)
-	windowLoSa.background2:SetAlpha(0.3)
-	windowLoSa.background2:SetTexture("Rift", "dimensions_tools_header.png.dds")
-	windowLoSa.background2:SetLayer(5)
-
-
-	if closable then
-		windowLoSa.closeBtn = Dta.ui.createButton(name .. "CloseBtn", windowLoSa, windowLoSa:GetWidth()-35, -33,0, 0, nil, "close", closeCallback)
-		windowLoSa.closeBtn:SetLayer(4)
-	end
-
-	if movable then
-		windowLoSa.moveFrame = UI.CreateFrame("Texture", name .. "WindowMover", windowLoSa)
-		windowLoSa.moveFrame:SetPoint("TOPLEFT", windowLoSa, "TOPLEFT", 0, -40)
-		windowLoSa.moveFrame:SetPoint("BOTTOMRIGHT", windowLoSa, "TOPRIGHT", 0, 5)
-		windowLoSa.moveFrame:SetTexture("Rift", "dimensions_main_bg_top.png.dds")
-		windowLoSa.moveFrame:SetLayer(2)
-		--windowLoSa.moveFrame:SetBackgroundColor(1, 0, 0, 0.5) --Debug
-
-		windowLoSa.header = UI.CreateFrame("Text", name .. "header", windowLoSa.moveFrame)
-		windowLoSa.header:SetFontSize(20)
-		windowLoSa.header:SetText(title)
-		windowLoSa.header:SetFontColor(0,0,0,1)
-		windowLoSa.header:SetPoint("CENTERX", windowLoSa.moveFrame, "CENTERX")
-		windowLoSa.header:SetPoint("CENTERY", windowLoSa.moveFrame, "CENTERY", nil, 5)
-
-		local dragging = false
-
-		windowLoSa.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Down, function(self, h)
-			dragging = true
-			mouse = Inspect.Mouse()
-			dragStartX = mouse.x - windowLoSa:GetLeft()
-			dragStartY = mouse.y - windowLoSa:GetTop()
-		end, "LMouseDown")
-
-		windowLoSa.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Up, function(self, h)
-			dragging = false
-			if moveCallback ~= nil then moveCallback() end
-		end, "LMouseUp")
-
-		windowLoSa.moveFrame:EventAttach(Event.UI.Input.Mouse.Cursor.Move, function(self,h)
-			local x, y
-			local md = Inspect.Mouse()
-			x = md.x
-			y = md.y
-			if dragging then
-				windowLoSa:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x - dragStartX, y - dragStartY)
-				end
-		end, "MouseMove")
-
-		return windowLoSa
-	end
-end
-
 local LoSaWindowSettings = {
 	TITLE = Lang[Dta.Language].Titles.LoadSave,
 	WIDTH = 325,
-	HEIGHT = 330,
+	HEIGHT = 320,
 	CLOSABLE = true,
 	MOVABLE = true,
 }
@@ -88,7 +15,7 @@ local LoSaWindowSettings = {
 function Dta.losa_ui.buildLoSaWindow()
 	local x = Dta.settings.get("LoSawindowPosX")
 	local y = Dta.settings.get("LoSawindowPosY")
-	LoSawindow = Dta.losa_ui.createWindowLoSa("LoSaWindow",
+	newWindow = Dta.ui.Window.Create("LoSaWindow",
 							Dta.ui.context,
 							LoSaWindowSettings.TITLE,
 							LoSaWindowSettings.WIDTH,
@@ -100,11 +27,20 @@ function Dta.losa_ui.buildLoSaWindow()
 							Dta.losa_ui.LoSaWindowClosed,
 							Dta.losa_ui.LoSaWindowMoved
 							)
+	local LoSawindow = newWindow.content
+
+	LoSawindow.background2 = UI.CreateFrame("Texture", "LoSaWindowBackground2", LoSawindow)
+	LoSawindow.background2:SetPoint("BOTTOMCENTER", LoSawindow, "BOTTOMCENTER")
+	LoSawindow.background2:SetWidth(LoSaWindowSettings.WIDTH)
+	LoSawindow.background2:SetHeight(80)
+	LoSawindow.background2:SetAlpha(0.3)
+	LoSawindow.background2:SetTexture("Rift", "dimensions_tools_header.png.dds")
+	LoSawindow.background2:SetLayer(5)
 
 	-------------------------------
 	--ITEM DETAILS
 	-------------------------------
-	LoSawindow.constructions = Dta.ui.createFrame("constructions", LoSawindow, 10, 10, LoSawindow:GetWidth()-20, LoSawindow:GetHeight()-20)
+	LoSawindow.constructions = Dta.ui.createFrame("constructions", LoSawindow, 10, 5, LoSawindow:GetWidth()-20, LoSawindow:GetHeight()-20)
 	LoSawindow.constructions:SetLayer(30)
 	--LoSawindow.constructions:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
@@ -161,7 +97,9 @@ function Dta.losa_ui.buildLoSaWindow()
 	LoSawindow.constructions.z = Dta.ui.createTextfield("mconstructionsZ", LoSawindow.constructions, 260, 290, 40)
 	LoSawindow.constructions.z:SetVisible(false)
 
-	return LoSawindow
+	-- TODO: temp fix for new window hierarchy
+	newWindow.constructions = LoSawindow.constructions
+	return newWindow
 end
 
 -- Show the toolbox window
@@ -198,6 +136,6 @@ end
 
 --Called when the window has been moved
 function Dta.losa_ui.LoSaWindowMoved()
-	Dta.settings.set("LoSawindowPosX", LoSawindow:GetLeft())
-	Dta.settings.set("LoSawindowPosY", LoSawindow:GetTop())
+	Dta.settings.set("LoSawindowPosX", Dta.ui.windowLoSa:GetLeft())
+	Dta.settings.set("LoSawindowPosY", Dta.ui.windowLoSa:GetTop())
 end
