@@ -1,82 +1,9 @@
 Dta.expimp_ui = {}
 
-function Dta.expimp_ui.createWindowExpImp(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
-	local windowExpImp = UI.CreateFrame("Frame", name, parent)
-	windowExpImp:SetHeight(height)
-	windowExpImp:SetWidth(width)
-	windowExpImp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
-	-- windowExpImp:SetBackgroundColor(1, 1, 1, 0.5) --Debug
-	windowExpImp:SetLayer(20)
-
-	windowExpImp.background = UI.CreateFrame("Texture", name .. "Background", windowExpImp)
-	windowExpImp.background:SetPoint("TOPLEFT", windowExpImp, "TOPLEFT", 0, 0)
-	windowExpImp.background:SetPoint("BOTTOMRIGHT", windowExpImp, "TOPRIGHT", 0, height)
-	windowExpImp.background:SetTexture("Rift", "dimension_window_bg_right_large.png.dds")
-	windowExpImp.background:SetLayer(3)
-
-	local background2Position = windowExpImp:GetHeight()-80
-	windowExpImp.background2 = UI.CreateFrame("Texture", name .. "Background2", windowExpImp)
-	windowExpImp.background2:SetPoint("CENTERX", windowExpImp, "CENTERX")
-	windowExpImp.background2:SetPoint("CENTERY", windowExpImp, "CENTERY", nil, background2Position/2)
-	windowExpImp.background2:SetWidth(width)
-	windowExpImp.background2:SetHeight(95)
-	windowExpImp.background2:SetAlpha(0.3)
-	windowExpImp.background2:SetTexture("Rift", "dimensions_tools_header.png.dds")
-	windowExpImp.background2:SetLayer(5)
-
-
-	if closable then
-		windowExpImp.closeBtn = Dta.ui.createButton(name .. "CloseBtn", windowExpImp, windowExpImp:GetWidth()-35, -33,0, 0, nil, "close", closeCallback)
-		windowExpImp.closeBtn:SetLayer(4)
-	end
-
-	if movable then
-		windowExpImp.moveFrame = UI.CreateFrame("Texture", name .. "WindowMover", windowExpImp)
-		windowExpImp.moveFrame:SetPoint("TOPLEFT", windowExpImp, "TOPLEFT", 0, -40)
-		windowExpImp.moveFrame:SetPoint("BOTTOMRIGHT", windowExpImp, "TOPRIGHT", 0, 5)
-		windowExpImp.moveFrame:SetTexture("Rift", "dimensions_main_bg_top.png.dds")
-		windowExpImp.moveFrame:SetLayer(2)
-		--windowExpImp.moveFrame:SetBackgroundColor(1, 0, 0, 0.5) --Debug
-
-		windowExpImp.header = UI.CreateFrame("Text", name .. "header", windowExpImp.moveFrame)
-		windowExpImp.header:SetFontSize(20)
-		windowExpImp.header:SetText(title)
-		windowExpImp.header:SetFontColor(0,0,0,1)
-		windowExpImp.header:SetPoint("CENTERX", windowExpImp.moveFrame, "CENTERX")
-		windowExpImp.header:SetPoint("CENTERY", windowExpImp.moveFrame, "CENTERY", nil, 5)
-
-		local dragging = false
-
-		windowExpImp.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Down, function(self, h)
-			dragging = true
-			mouse = Inspect.Mouse()
-			dragStartX = mouse.x - windowExpImp:GetLeft()
-			dragStartY = mouse.y - windowExpImp:GetTop()
-		end, "LMouseDown")
-
-		windowExpImp.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Up, function(self, h)
-			dragging = false
-			if moveCallback ~= nil then moveCallback() end
-		end, "LMouseUp")
-
-		windowExpImp.moveFrame:EventAttach(Event.UI.Input.Mouse.Cursor.Move, function(self,h)
-			local x, y
-			local md = Inspect.Mouse()
-			x = md.x
-			y = md.y
-			if dragging then
-				windowExpImp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x - dragStartX, y - dragStartY)
-				end
-		end, "MouseMove")
-
-		return windowExpImp
-	end
-end
-
 local ExpImpWindowSettings = {
 	TITLE = Lang[Dta.Language].Titles.ImportExport,
 	WIDTH = 325,
-	HEIGHT = 190,
+	HEIGHT = 185,
 	CLOSABLE = true,
 	MOVABLE = true,
 }
@@ -84,7 +11,7 @@ local ExpImpWindowSettings = {
 function Dta.expimp_ui.buildExpImpWindow()
 	local x = Dta.settings.get("ExpImpwindowPosX")
 	local y = Dta.settings.get("ExpImpwindowPosY")
-	ExpImpwindow = Dta.expimp_ui.createWindowExpImp("ExpImpWindow",
+	local newWindow = Dta.ui.Window.Create("ExpImpWindow",
 							Dta.ui.context,
 							ExpImpWindowSettings.TITLE,
 							ExpImpWindowSettings.WIDTH,
@@ -96,11 +23,20 @@ function Dta.expimp_ui.buildExpImpWindow()
 							Dta.expimp_ui.ExpImpWindowClosed,
 							Dta.expimp_ui.ExpImpWindowMoved
 							)
+	local ExpImpwindow = newWindow.content
+
+	ExpImpwindow.background2 = UI.CreateFrame("Texture", "ExpImpwindowBackground2", ExpImpwindow)
+	ExpImpwindow.background2:SetPoint("BOTTOMCENTER", ExpImpwindow, "BOTTOMCENTER")
+	ExpImpwindow.background2:SetWidth(ExpImpWindowSettings.WIDTH)
+	ExpImpwindow.background2:SetHeight(80)
+	ExpImpwindow.background2:SetAlpha(0.3)
+	ExpImpwindow.background2:SetTexture("Rift", "dimensions_tools_header.png.dds")
+	ExpImpwindow.background2:SetLayer(5)
 
 	-------------------------------
 	--ITEM DETAILS
 	-------------------------------
-	ExpImpwindow.ImportExport = Dta.ui.createFrame("ImportExport", ExpImpwindow, 10, 10, ExpImpwindow:GetWidth()-20, ExpImpwindow:GetHeight()-20)
+	ExpImpwindow.ImportExport = Dta.ui.createFrame("ImportExport", ExpImpwindow, 10, 5, ExpImpwindow:GetWidth()-20, ExpImpwindow:GetHeight()-20)
 	ExpImpwindow.ImportExport:SetLayer(30)
 	--ExpImpwindow.ImportExport:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
@@ -131,7 +67,10 @@ function Dta.expimp_ui.buildExpImpWindow()
 	ExpImpwindow.ImportExport.ImportLoad:SetEnabled(true)
 	ExpImpwindow.ImportExport.Import = Dta.ui.createButton("ImportExport_Import", ExpImpwindow.ImportExport, 0, 135, nil, nil, Lang[Dta.Language].Buttons.Import, nil, Dta.expimp.ImportExport_ImportClicked)
 
-	return ExpImpwindow
+	-- TODO: temp fix for new window hierarchy
+	newWindow.ImportExport = ExpImpwindow.ImportExport
+
+	return newWindow
 end
 
 -- Show the toolbox window
@@ -168,6 +107,6 @@ end
 
 --Called when the window has been moved
 function Dta.expimp_ui.ExpImpWindowMoved()
-	Dta.settings.set("ExpImpwindowPosX", ExpImpwindow:GetLeft())
-	Dta.settings.set("ExpImpwindowPosY", ExpImpwindow:GetTop())
+	Dta.settings.set("ExpImpwindowPosX", Dta.ui.windowExpImp:GetLeft())
+	Dta.settings.set("ExpImpwindowPosY", Dta.ui.windowExpImp:GetTop())
 end
