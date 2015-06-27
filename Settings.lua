@@ -39,6 +39,7 @@ Dta.settings.defaults = {
 	AlphabetwindowPosY = 530,
 	MeasurementswindowPosX = 0,
 	MeasurementswindowPosY = 490,
+	WindowStyle = "default"
 }
 
 function Dta.settings.main()

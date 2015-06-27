@@ -35,7 +35,7 @@ end
 -- with title, drag functionality and close button
 -------------------------------------------------
 
-local Window = { headerSize = 30 }
+local Window = { headerSize = 30, classicHeaderSize = 40 }
 
 function Window.defaultCloseCallback(self, handle)
 	self:GetParent():SetVisible(false)
@@ -145,7 +145,7 @@ end
 
 function Window.createFramedWindow(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
 	local newWindow = UI.CreateFrame("Frame", name, parent)
-	newWindow:SetHeight(height + ((tile or movable) and Window.headerSize))
+	newWindow:SetHeight(height + ((tile or movable) and Window.headerSize or 0))
 	newWindow:SetWidth(width)
 	newWindow:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 
@@ -209,6 +209,71 @@ function Window.createFramedWindow(name, parent, title, width, height, x, y, clo
 	newWindow.content:SetLayer(4)
 
 	return newWindow
+end
+
+function Window.createFramelessWindow(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
+	local newWindow = UI.CreateFrame("Frame", name, parent)
+	newWindow:SetHeight(height + Window.classicHeaderSize + 5)
+	newWindow:SetWidth(width)
+	newWindow:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
+	--newWindow:SetLayer(11)
+
+	newWindow:EventAttach(Event.UI.Input.Mouse.Left.Click, Dta.ui.clickCallback, "WindowBackgroundClicked")
+
+	newWindow.background = UI.CreateFrame("Texture", name .. "Background", newWindow)
+	newWindow.background:SetPoint("TOPLEFT", newWindow, "TOPLEFT", 0, Window.classicHeaderSize)
+	newWindow.background:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT", 0, 0)
+	newWindow.background:SetTexture("Rift", "dimension_window_bg_right_large.png.dds")
+	newWindow.background:SetLayer(2)
+
+	--[[local background2Position = newWindow:GetHeight()-80
+	newWindow.background2 = UI.CreateFrame("Texture", name .. "Background2", newWindow)
+	newWindow.background2:SetPoint("CENTERX", newWindow, "CENTERX")
+	newWindow.background2:SetPoint("CENTERY", newWindow, "CENTERY", nil, background2Position/2)
+	newWindow.background2:SetWidth(width)
+	newWindow.background2:SetHeight(95)
+	newWindow.background2:SetAlpha(0.3)
+	newWindow.background2:SetTexture("Rift", "dimensions_tools_header.png.dds")
+	newWindow.background2:SetLayer(5)  ]]
+
+
+	if closable then
+		newWindow.closeBtn = Dta.ui.createButton(name .. "CloseBtn", newWindow, newWindow:GetWidth()-35, 7, 0, 0, nil, "close", closeCallback)
+		newWindow.closeBtn:SetLayer(4)
+	end
+
+	if movable then
+		newWindow.moveFrame = UI.CreateFrame("Texture", name .. "WindowMover", newWindow)
+		newWindow.moveFrame:SetPoint("TOPLEFT", newWindow, "TOPLEFT", 0, 0)
+		newWindow.moveFrame:SetPoint("BOTTOMRIGHT", newWindow, "TOPRIGHT", 0, Window.classicHeaderSize + 5)
+		newWindow.moveFrame:SetTexture("Rift", "dimensions_main_bg_top.png.dds")
+		newWindow.moveFrame:SetLayer(1)
+
+		DraggableFrame.Setup(newWindow.moveFrame, newWindow, moveCallback)
+		--newWindow.moveFrame:SetBackgroundColor(1, 0, 0, 0.5) --Debug
+
+		newWindow.header = UI.CreateFrame("Text", name .. "header", newWindow.moveFrame)
+		newWindow.header:SetFontSize(20)
+		newWindow.header:SetText(title)
+		newWindow.header:SetFontColor(0,0,0,1)
+		newWindow.header:SetPoint("CENTERX", newWindow.moveFrame, "CENTERX")
+		newWindow.header:SetPoint("CENTERY", newWindow.moveFrame, "CENTERY", nil, 5)
+	end
+
+	newWindow.content = UI.CreateFrame("Frame", name .. "WindowContent", newWindow)
+	newWindow.content:SetPoint("TOPLEFT", newWindow, "TOPLEFT", 0, Window.classicHeaderSize + 5)
+	newWindow.content:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT")
+	newWindow.content:SetLayer(4)
+
+	return newWindow
+end
+
+function Window.Create(...)
+	local style = Dta.settings.get("WindowStyle")
+	if style == "classic" then
+		return Window.createFramelessWindow(...)
+	end
+	return Window.createFramedWindow(...)
 end
 
 -------------------------------------------------

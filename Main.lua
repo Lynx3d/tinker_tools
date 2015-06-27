@@ -304,6 +304,15 @@ function Dta.commandHandler(hEvent, command)
 		print("Position reset")
 	elseif command == "help" then
 		Dta.help_ui.toggleHelpWindow()
+	elseif string.sub(command, 1, 5) == "style" then
+		local current_style = Dta.settings.get("WindowStyle")
+		if current_style == "classic" then
+			Dta.settings.set("WindowStyle", "default")
+			print("Window Style is now \"default\"")
+		else
+			Dta.settings.set("WindowStyle", "classic")
+			print("Window Style is now \"classic\"")
+		end
 	else
 		if Dta.InDimension == true then
 			Dta.ui.toggleMainWindow()
