@@ -28,6 +28,20 @@ function Dta.items.QueueLoad(id, x, y, z, pitch, roll, yaw, amount)
 	table.insert(Dta.pendingActions, {op="losa", x=x, y=y, z=z, pitch=pitch, roll=roll, yaw=yaw, amount=amount, id=id})
 end
 
+function Dta.items.QueueAdd(id, x, y, z, pitch, yaw, roll, scale)
+	table.insert(Dta.pendingActions, {
+		op="add",
+		details = { coordX=x, coordY=y, coordZ=z, pitch=pitch, roll=roll, yaw=yaw, scale=scale },
+		id=id })
+end
+
+function Dta.items.QueueTransform(id, x, y, z, pitch, yaw, roll, scale)
+	table.insert(Dta.pendingActions, {
+		op="xform",
+		details = { coordX=x, coordY=y, coordZ=z, pitch=pitch, roll=roll, yaw=yaw, scale=scale },
+		id=id })
+end
+
 function Dta.items.QueueSelection(id)
 	table.insert(Dta.SelectionQueue, {op="select", id=id})
 end

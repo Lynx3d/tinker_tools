@@ -121,16 +121,30 @@ function Dta.rotate.setItemRotation(index, yaw, pitch, roll, relative)
 	end
 end
 
-function Dta.rotate.rotateRelative(details, m_rot, selection_pivot)
+-------------------------------
+-- calculate new rotation values after rotating around global axis
+-- if a pivot is given, also calculate new position relative to pivot
+-------------------------------
+function Dta.rotate.rotateItem(details, m_rot, pivot)
 	local m_item = Dta.Matrix.createZYX(details.pitch, details.yaw, details.roll, true)
 	local rx, ry, rz = Dta.Matrix.ToZYX(Dta.Matrix.Multiply(m_rot, m_item), true)
-	Dta.items.QueueRotate(details.id, rx, rz, ry)
 
-	if selection_pivot then
-		local vec = {	details.coordX - Dta.selectionCenter.x,
-						details.coordY - Dta.selectionCenter.y, 
-						details.coordZ - Dta.selectionCenter.z}
+	if pivot then
+		local vec = { details.coordX - pivot.x,
+					  details.coordY - pivot.y,
+					  details.coordZ - pivot.z }
 		vec = Dta.Matrix.Transform(m_rot, vec)
-		Dta.items.QueueMove(details.id, Dta.selectionCenter.x + vec[1], Dta.selectionCenter.y + vec[2], Dta.selectionCenter.z + vec[3])
+		return { pitch = rx, yaw = ry, roll = rz }, vec
+	end
+	return { pitch = rx, yaw = ry, roll = rz }, nil
+end
+
+function Dta.rotate.rotateRelative(details, m_rot, selection_pivot)
+	local r, vec = Dta.rotate.rotateItem(details, m_rot, selection_pivot and Dta.selectionCenter)
+	if selection_pivot then
+		Dta.items.QueueTransform(details.id, Dta.selectionCenter.x + vec[1], Dta.selectionCenter.y + vec[2], Dta.selectionCenter.z + vec[3],
+								r.pitch, r.yaw, r.roll)
+	else
+		Dta.items.QueueRotate(details.id, r.pitch, r.roll, r.yaw)
 	end
 end

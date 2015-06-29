@@ -72,6 +72,8 @@ Dta.lastYaw = 0
 Dta.Copa_Co_Active = false
 Dta.LoadSet_Co_Active = false
 Dta.PlaceItem_Co_Active = false
+Dta.AddItem_Co = nil
+Dta.pending_add = false
 
 --------------------------------------
 --MAIN FUNCTIONS
@@ -88,6 +90,11 @@ function Dta.main()
 end
 
 function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a dimension
+	if Dta.pending_add then
+		-- Dta.items.QueueSelection(id)
+		Dta.pending_add = false
+		coroutine.resume(Dta.AddItem_Co)
+	end
 	if Dta.Copa_Co_Active then
 		for id, value in pairs(dimensionItem) do
 			local data = Inspect.Dimension.Layout.Detail(id)
@@ -332,7 +339,7 @@ function Dta.tick(handle)
 
 	Dta.lastFrameTime = currentFrameTime
 
-	if #Dta.pendingActions > 0 then
+	if #Dta.pendingActions > 0 and not Dta.pending_add then
 		local action = table.remove(Dta.pendingActions, 1)
 		if action.op == "scale" then
 			Command.Dimension.Layout.Place(action.id, {scale=action.amount})
@@ -351,6 +358,19 @@ function Dta.tick(handle)
 		end
 		if action.op == "losa" then
 			Command.Dimension.Layout.Place(action.id, {coordX=action.x, coordY=action.y, coordZ=action.z, pitch=action.pitch, yaw=action.yaw, roll=action.roll, scale=action.amount})
+		end
+		if action.op == "add" then
+			Dta.pending_add = true
+			Command.Dimension.Layout.Place(action.id, action.details)
+		elseif action.op == "xform" then
+			Command.Dimension.Layout.Place(action.id, action.details)
+		end
+	end
+
+	-- remove Coroutine when it has finished; TODO: move to Add handler?
+	if Dta.AddItem_Co and not Dta.pending_add then
+		if coroutine.status(Dta.AddItem_Co) == "dead" then
+			Dta.AddItem_Co = nil
 		end
 	end
 
