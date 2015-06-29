@@ -39,6 +39,14 @@ Dta.ui.loadExpImp = "Saved"
 
 Dta.ui.needsReset = true
 
+function Dta.ui.checkNumber(n_str, default)
+	if not n_str or n_str == "" then
+		return default, true
+	end
+	local n_val = tonumber(n_str)
+	return n_val, n_val ~= nil
+end
+
 function Dta.ui.AddFocusCycleElement(owner, frame)
 	if not owner.focusCycleList then
 		owner.focusCycleList = {}
