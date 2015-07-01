@@ -39,7 +39,7 @@ Dta.lastFrameTime = 0
 --Copy & Paste
 Dta.FlickerOffset = true
 Dta.FlickerReduc = 0.0003
-Dta.FinishedPaste = true
+-- never changes -- Dta.FinishedPaste = true
 Dta.ItemsToPaste = 0
 -- unused -- Dta.ItemsPasted = 1
 Dta.PastingItems = false
@@ -69,7 +69,7 @@ Dta.lastYaw = 0
 ---------------------------------
 --CATCH COROUTINES
 ---------------------------------
-Dta.Copa_Co_Active = false
+--Dta.Copa_Co_Active = false
 Dta.LoadSet_Co_Active = false
 Dta.PlaceItem_Co_Active = false
 Dta.AddItem_Co = nil
@@ -91,18 +91,19 @@ end
 
 function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a dimension
 	if Dta.pending_add then
-		-- Dta.items.QueueSelection(id)
+		local id, _ = next(dimensionItem)
+		Dta.items.QueueSelection(id)
 		Dta.pending_add = false
 		coroutine.resume(Dta.AddItem_Co)
 	end
-	if Dta.Copa_Co_Active then
-		for id, value in pairs(dimensionItem) do
-			local data = Inspect.Dimension.Layout.Detail(id)
-			if data ~= nil then
-				coroutine.resume(Dta.copa.Co_PlaceItem)
-			end
-		end
-	end
+	--if Dta.Copa_Co_Active then
+	--	for id, value in pairs(dimensionItem) do
+	--		local data = Inspect.Dimension.Layout.Detail(id)
+	--		if data ~= nil then
+	--			coroutine.resume(Dta.copa.Co_PlaceItem)
+	--		end
+	--	end
+	--end
 
 	if Dta.PlaceItem_Co_Active then
 		for id, value in pairs(dimensionItem) do
@@ -136,9 +137,9 @@ function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a
 		end
 	end
 
-	if #Dta.pendingActions == 1 then
-		print(Lang[Dta.Language].Prints.ProcessFinished)
-	end
+	--if #Dta.pendingActions == 1 then
+	--	print(Lang[Dta.Language].Prints.ProcessFinished)
+	--end
 
 	if not Dta.FinishedSet then
 		if Dta.ItemsPlaced < Dta.ItemsToPlace then
@@ -192,9 +193,9 @@ function Dta.removeEventHandler(hEvent, dimensionItem) --Executed when item is r
 end
 
 function Dta.updateEventHandler(hEvent, dimensionItem) --Executed on every select/ deselect or change of an dimension item
-	if #Dta.pendingActions == 1 then
-		print(Lang[Dta.Language].Prints.ProcessFinished)
-	end
+	--if #Dta.pendingActions == 1 then
+	--	print(Lang[Dta.Language].Prints.ProcessFinished)
+	--end
 	Dta.items.updateSelection(dimensionItem, false)
 
 	if Dta.FinishedSet and Dta.Setname ~= "" and #Dta.SelectionQueue == 1 then
@@ -353,9 +354,9 @@ function Dta.tick(handle)
 		if action.op == "select" then
 			Command.Dimension.Layout.Select(action.id, true)
 		end
-		if action.op == "copa" then
-			Command.Dimension.Layout.Place(action.id, {coordX=action.x, coordY=action.y, coordZ=action.z, pitch=action.pitch, yaw=action.yaw, roll=action.roll, scale=action.amount})
-		end
+		--if action.op == "copa" then
+		--	Command.Dimension.Layout.Place(action.id, {coordX=action.x, coordY=action.y, coordZ=action.z, pitch=action.pitch, yaw=action.yaw, roll=action.roll, scale=action.amount})
+		--end
 		if action.op == "losa" then
 			Command.Dimension.Layout.Place(action.id, {coordX=action.x, coordY=action.y, coordZ=action.z, pitch=action.pitch, yaw=action.yaw, roll=action.roll, scale=action.amount})
 		end
@@ -374,7 +375,7 @@ function Dta.tick(handle)
 		end
 	end
 
-	if #Dta.SelectionQueue > 0 and Dta.FinishedSet and Dta.FinishedPaste then
+	if #Dta.SelectionQueue > 0 and Dta.FinishedSet and not Dta.AddItem_Co then
 		local action = table.remove(Dta.SelectionQueue, 1)
 		if action.op == "deselect" then
 			Command.Dimension.Layout.Select(action.id, false)

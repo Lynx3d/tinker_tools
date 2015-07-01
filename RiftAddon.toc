@@ -97,6 +97,7 @@ RunOnStartup = {
   "Modules/CopyPaste.lua",
   "Modules/Rotate.lua",
   "Modules/LoadSave.lua",
+  "Modules/Inventory.lua",
   "Modules/ExpImp.lua",
   "Modules/Help.lua",
   "Modules/Flying.lua",

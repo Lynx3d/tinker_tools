@@ -7,12 +7,12 @@ Dta.copa.CountedItems = 0
 --------------------------------------
 
 function Dta.copa.CopaOffsetChanged()
-	if Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked() and Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked() then
+	if Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked() then
 		Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(true)
 		Dta.ui.windowCopyPaste.copyPaste.NewItemLabel:SetVisible(true)
 	elseif not Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked() then
 		Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(false)
-		Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetText("")
+		--Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetText("")
 		Dta.ui.windowCopyPaste.copyPaste.NewItemLabel:SetVisible(false)
 	end
 end
@@ -20,8 +20,8 @@ end
 function Dta.copa.CopaNewItemChanged()
 	if Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked() then
 		if Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked() then
-			Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(true)
-			Dta.ui.windowCopyPaste.copyPaste.NewItemLabel:SetVisible(true)
+			--Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(true)
+			--Dta.ui.windowCopyPaste.copyPaste.NewItemLabel:SetVisible(true)
 			Dta.ui.windowCopyPaste.copyPaste.Bags:SetVisible(true)
 			Dta.ui.windowCopyPaste.copyPaste.Bank:SetVisible(true)
 			Dta.ui.windowCopyPaste.copyPaste.Both:SetVisible(true)
@@ -31,9 +31,9 @@ function Dta.copa.CopaNewItemChanged()
 			Dta.ui.windowCopyPaste.copyPaste.Both:SetVisible(true)
 		end
 	elseif not Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked() then
-		Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(false)
-		Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetText("")
-		Dta.ui.windowCopyPaste.copyPaste.NewItemLabel:SetVisible(false)
+		--Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(false)
+		--Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetText("")
+		--Dta.ui.windowCopyPaste.copyPaste.NewItemLabel:SetVisible(false)
 		Dta.ui.windowCopyPaste.copyPaste.Bags:SetVisible(false)
 		Dta.ui.windowCopyPaste.copyPaste.Bank:SetVisible(false)
 		Dta.ui.windowCopyPaste.copyPaste.Both:SetVisible(false)
@@ -76,324 +76,235 @@ function Dta.copa.copyButtonClicked()
 end
 
 function Dta.copa.pasteButtonClicked()
-	if Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked() then
-		Dta.copa.pasteMultipleNewItemAttributes(Dta.ui.windowCopyPaste.copyPaste.x:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.y:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.z:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.yaw:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.pitch:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.roll:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.scale:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.xOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.yOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.zOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.yawOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.pitchOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.rollOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.scaleOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.NewItemNr:GetText())
+	local settings = Dta.copa.checkInput()
+	if not settings then
+		print(Lang[Dta.Language].Prints.NumbersOnly)
+		return
+	end
+
+	local shoppingList
+	if Dta.clipboard.items then
+		shoppingList = Dta.losa.getGroupShoppingList(Dta.clipboard.items)
+		if settings.rotate or settings.scale then
+			settings.pivot = Dta.items.getCentralPoint(Dta.clipboard.items)
+		end
 	else
-		Dta.copa.pasteMultipleItemAttributes(Dta.ui.windowCopyPaste.copyPaste.x:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.y:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.z:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.yaw:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.pitch:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.roll:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.scale:GetChecked(),
-		Dta.ui.windowCopyPaste.copyPaste.xOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.yOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.zOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.yawOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.pitchOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.rollOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.scaleOffset:GetText(),
-		Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked())
+		print(Lang[Dta.Language].Prints.CopyFirst)
+		return
+	end
+	if Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked() then
+		-- test
+		Dta.losa.ScanInventory(shoppingList, true)
+		local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
+		if missing then
+			-- TODO: proper localized error msg
+			print("missing items:")
+			for id, amount in pairs(missing) do
+				print(string.format("%s: %d", shoppingList[id].name, amount))
+			end
+			return
+		end
+		Dta.items.DeselectAll()
+		Dta.AddItem_Co = coroutine.create(Dta.copa.pasteClipboard)
+		local ok, err = coroutine.resume(Dta.AddItem_Co, shoppingList, settings)
+		if not ok then dump(err) end
+	else
+			Dta.losa.ScanSelection(shoppingList)
+			local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
+			if missing then
+				-- TODO: proper localized error msg
+				print("missing items:")
+				for id, amount in pairs(missing) do
+					print(string.format("%s: %d", shoppingList[id].name, amount))
+				end
+				return
+			end
+			Dta.copa.pasteClipboard(shoppingList, settings)
 	end
 end
 
+function Dta.copa.checkInput()
+	local values = {}
+	local success = {}
+	local copa_ui = Dta.ui.windowCopyPaste.copyPaste
+
+	if copa_ui.x:GetChecked() then
+		values.coordX, success.x = Dta.ui.checkNumber(copa_ui.xOffset:GetText(), 0)
+	else
+		values.coordX = 0
+	end
+	if copa_ui.y:GetChecked() then
+		values.coordY, success.y = Dta.ui.checkNumber(copa_ui.yOffset:GetText(), 0)
+	else
+		values.coordY = 0
+	end
+	if copa_ui.z:GetChecked() then
+		values.coordZ, success.z = Dta.ui.checkNumber(copa_ui.zOffset:GetText(), 0)
+	else
+		values.coordZ = 0
+	end
+	if copa_ui.pitch:GetChecked() then
+		values.pitch, success.pitch = Dta.ui.checkNumber(copa_ui.pitchOffset:GetText(), 0)
+		values.rotate = values.pitch ~= 0
+	end
+	if copa_ui.yaw:GetChecked() then
+		values.yaw, success.yaw = Dta.ui.checkNumber(copa_ui.yawOffset:GetText(), 0)
+		values.rotate = values.rotate or values.yaw ~= 0
+	end
+	if copa_ui.roll:GetChecked() then
+		values.roll, success.roll = Dta.ui.checkNumber(copa_ui.rollOffset:GetText(), 0)
+		values.rotate = values.rotate or values.roll ~= 0
+	end
+	if copa_ui.scale:GetChecked() then
+		values.scale, success.scale = Dta.ui.checkNumber(copa_ui.scaleOffset:GetText(), nil)
+	end
+	values.new_items = copa_ui.NewItem:GetChecked()
+	if copa_ui.multiplyOffsets:GetChecked() then
+		values.n_copies, success.n_copies = Dta.ui.checkNumber(copa_ui.NewItemNr:GetText(), 1)
+	end
+
+	for k, v in pairs(success) do
+		if not v then return false end
+	end
+	if values.rotate then
+		values.pitch = math.rad(values.pitch or 0)
+		values.yaw = math.rad(values.yaw or 0)
+		values.roll = math.rad(values.roll or 0)
+	end
+	return values
+end
+
 --------------------------------------
---COPY ITEM
+--COPY ITEMS
 --------------------------------------
 
 function Dta.copa.copyItemAttributes()
-	if Dta.losa.tableLength(Dta.selectedItems) == 1 then
-		local item, details = next(Dta.selectedItems)
-		Dta.clipboard = {
-		  type = details.type,
-		  x = details.coordX,
-		  y = details.coordY,
-		  z = details.coordZ,
-		  yaw = details.yaw,
-		  pitch = details.pitch,
-		  roll = details.roll,
-		  scale = details.scale
-		}
-	elseif Dta.losa.tableLength(Dta.selectedItems) > 1 then
-		print(Lang[Dta.Language].Prints.Copy_SingleItem)
+	if Dta.selectionCount > 0 then
+		Dta.clipboard = { itemCount = Dta.selectionCount, items = {} }
+		for k, details in pairs(Dta.selectedItems) do
+			table.insert(Dta.clipboard.items, {
+				name = details.name,
+				type = details.type,
+				coordX = details.coordX,
+				coordY = details.coordY,
+				coordZ = details.coordZ,
+				yaw = details.yaw,
+				pitch = details.pitch,
+				roll = details.roll,
+				scale = details.scale
+			})
+		end
 	else
 		print(Lang[Dta.Language].Prints.Copy_SelectItem)
 	end
 end
 
 --------------------------------------
---PASTE SELECTED ITEMS
+--PASTE CLIPBOARD ITEMS
 --------------------------------------
 
-function Dta.copa.pasteMultipleItemAttributes(x, y, z, yaw, pitch, roll, scale, xOffset, yOffset, zOffset, yawOffset, pitchOffset, rollOffset, scaleOffset, multiplyOffset)
-	local Nr = 1
-	if Dta.losa.tableLength(Dta.selectedItems) > 0 then
-
-		if xOffset == nil or xOffset == "" or not x then xOffset = 0 end
-		if yOffset == nil or yOffset == "" or not y then yOffset = 0 end
-		if zOffset == nil or zOffset == "" or not z then zOffset = 0 end
-		if yawOffset == nil or yawOffset == "" or not yaw then yawOffset = 0 end
-		if pitchOffset == nil or pitchOffset == "" or not pitch then pitchOffset = 0 end
-		if rollOffset == nil or rollOffset == "" or not roll then rollOffset = 0 end
-		if scaleOffset == nil or scaleOffset == "" or not scale then scaleOffset = 0 end
-
-		if not tonumber(xOffset) or
-		   not tonumber(yOffset) or
-		   not tonumber(zOffset) or
-		   not tonumber(yawOffset) or
-		   not tonumber(pitchOffset) or
-		   not tonumber(rollOffset) or
-		   not tonumber(scaleOffset) then
-			print(Lang[Dta.Language].Prints.NumbersOnly)
-			return
-		end
-
-		if Dta.clipboard.type == nil then
-			print(Lang[Dta.Language].Prints.CopyFirst)
-		else
-			for k, details in pairs(Dta.selectedItems) do
-				if multiplyOffset then
-					Dta.copa.pasteItemAttributes(k, x, y, z, yaw, pitch, roll, scale, Nr*tonumber(xOffset), Nr*tonumber(yOffset), Nr*tonumber(zOffset), Nr*tonumber(yawOffset), Nr*tonumber(pitchOffset), Nr*tonumber(rollOffset), Nr*tonumber(scaleOffset))
-					Nr = Nr + 1
-				else
-					Dta.copa.pasteItemAttributes(k, x, y, z, yaw, pitch, roll, scale, xOffset, yOffset, zOffset, yawOffset, pitchOffset, rollOffset, scaleOffset)
-				end
-			end
-		end
-
-	end
+local function copyTable(tbl)
+	local t_copy = {}
+	for k, v in pairs(tbl) do t_copy[k] = v end
+	return t_copy
 end
 
-function Dta.copa.pasteItemAttributes(index, x, y, z, yaw, pitch, roll, scale, xOffset, yOffset, zOffset, yawOffset, pitchOffset, rollOffset, scaleOffset)
-	if Dta.selectedItems[index] ~= nil and Dta.clipboard ~= nil then
-
-		local FlickerReduc = Dta.FlickerReduc
-		local newPlacement = {}
-		if Dta.FlickerOffset then
-			if x then newPlacement.coordX = Dta.clipboard.x + xOffset + FlickerReduc end
-			if y then newPlacement.coordY = Dta.clipboard.y + yOffset + FlickerReduc end
-			if z then newPlacement.coordZ = Dta.clipboard.z + zOffset + FlickerReduc end
-			Dta.FlickerOffset = false
-		else
-			if x then newPlacement.coordX = Dta.clipboard.x + xOffset - FlickerReduc end
-			if y then newPlacement.coordY = Dta.clipboard.y + yOffset - FlickerReduc end
-			if z then newPlacement.coordZ = Dta.clipboard.z + zOffset - FlickerReduc end
-			Dta.FlickerOffset = true
-		end
-		if yaw then newPlacement.yaw = Dta.clipboard.yaw + Dta.items.toRadians(yawOffset) end
-		if pitch then newPlacement.pitch = Dta.clipboard.pitch + Dta.items.toRadians(pitchOffset) end
-		if roll then newPlacement.roll = Dta.clipboard.roll + Dta.items.toRadians(rollOffset) end
-		if scale then newPlacement.scale = Dta.clipboard.scale + scaleOffset end
-
-		Dta.items.QueueCoPa(Dta.selectedItems[index].id, newPlacement.coordX, newPlacement.coordY, newPlacement.coordZ, newPlacement.pitch, newPlacement.roll, newPlacement.yaw, newPlacement.scale)
-
-	elseif Dta.selectedItems[index] == nil then
-		print(Lang[Dta.Language].Prints.Copy_SelectItem)
+function Dta.copa.pasteSingleItem(details, shoppingList, newItem)
+	-- find item in "shelf" info of our shopping list
+	local list_entry = shoppingList[details.type]
+	local id, stacksize = next(list_entry.shelf)
+	if newItem then
+		Dta.items.QueueAdd(id, details.coordX, details.coordY, details.coordZ,
+							details.pitch, details.yaw, details.roll, details.scale)
+		coroutine.yield()
 	else
-		print(Lang[Dta.Language].Prints.CopyFirst)
+		Dta.items.QueueTransform(id, details.coordX, details.coordY, details.coordZ,
+							details.pitch, details.yaw, details.roll, details.scale)
 	end
-end
-
---------------------------------------
---PASTE NEW ITEMS
---------------------------------------
-
-function Dta.copa.pasteMultipleNewItemAttributes(x, y, z, yaw, pitch, roll, scale, xOffset, yOffset, zOffset, yawOffset, pitchOffset, rollOffset, scaleOffset, multiplyOffset, NewItem, NewItemNr)
-	Dta.copa.CountedItems = 0
-	if not NewItem then
-		ItemNr = 0
-	elseif NewItemNr == nil or NewItemNr =="" then
-		ItemNr = 1
+	if stacksize > 1 then
+		list_entry.shelf[id] = stacksize - 1
 	else
-		ItemNr = tonumber(NewItemNr)
-	end
-
-	if ItemNr > 0 then
-
-		if xOffset == nil or xOffset == "" or not x then xOffset = 0 end
-		if yOffset == nil or yOffset == "" or not y then yOffset = 0 end
-		if zOffset == nil or zOffset == "" or not z then zOffset = 0 end
-		if yawOffset == nil or yawOffset == "" or not yaw then yawOffset = 0 end
-		if pitchOffset == nil or pitchOffset == "" or not pitch then pitchOffset = 0 end
-		if rollOffset == nil or rollOffset == "" or not roll then rollOffset = 0 end
-		if scaleOffset == nil or scaleOffset == "" or not scale then scaleOffset = 0 end
-
-		if not tonumber(xOffset) or
-		   not tonumber(yOffset) or
-		   not tonumber(zOffset) or
-		   not tonumber(yawOffset) or
-		   not tonumber(pitchOffset) or
-		   not tonumber(rollOffset) or
-		   not tonumber(ItemNr) or
-		   not tonumber(scaleOffset) then
-			print(Lang[Dta.Language].Prints.NumbersOnly)
-			return
-		end
-
-
-		if Dta.ui.windowCopyPaste.copyPaste.Bags:GetChecked() then
-			local items = Inspect.Item.Detail(Inspect.Item.List(Utility.Item.Slot.Inventory()))
-			local NewItemID = Dta.clipboard.type
-			if NewItemID == nil then
-				print(Lang[Dta.Language].Prints.CopyFirst)
-				return
-			end
-
-			for _, details in pairs(items) do
-				if details.type == NewItemID then
-					Dta.copa.CountedItems = Dta.copa.CountedItems + details.stack
-				end
-			end
-			if Dta.copa.CountedItems < ItemNr then
-				print(string.format(Lang[Dta.Language].Prints.Bags_ItemCount, Dta.copa.CountedItems))
-				Dta.copa.CountedItems = 0
-				return
-			end
-
-		elseif Dta.ui.windowCopyPaste.copyPaste.Bank:GetChecked() then
-			local itemsBank = Inspect.Item.Detail(Inspect.Item.List(Utility.Item.Slot.Bank()))
-			local NewItemID = Dta.clipboard.type
-			if NewItemID == nil then
-				print(Lang[Dta.Language].Prints.CopyFirst)
-				return
-			end
-
-			for _, details in pairs(itemsBank) do
-				if details.type == NewItemID then
-					Dta.copa.CountedItems = Dta.copa.CountedItems + details.stack
-				end
-			end
-
-			if Dta.copa.CountedItems < ItemNr then
-				print(string.format(Lang[Dta.Language].Prints.BankBags_ItemCount, Dta.copa.CountedItems))
-				Dta.copa.CountedItems = 0
-				return
-			end
-
-		elseif Dta.ui.windowCopyPaste.copyPaste.Both:GetChecked() then
-			local itemsVault = Inspect.Item.Detail(Inspect.Item.List(Utility.Item.Slot.Vault()))
-			local NewItemID = Dta.clipboard.type
-			if NewItemID == nil then
-				print(Lang[Dta.Language].Prints.CopyFirst)
-				return
-			end
-
-			for _, details in pairs(itemsVault) do
-				if details.type == NewItemID then
-					Dta.copa.CountedItems = Dta.copa.CountedItems + details.stack
-				end
-			end
-			if Dta.copa.CountedItems < ItemNr then
-				print(string.format(Lang[Dta.Language].Prints.Vaults_ItemCount, Dta.copa.CountedItems))
-				Dta.copa.CountedItems = 0
-				return
-			end
-		end
-
-		Dta.ItemsToPlace = ItemNr
-		Dta.FinishedSet = false
-		Dta.PastingItems = true
-		Dta.items.DeselectAll()
-
-		if multiplyOffset then
-			Dta.copa.Co_PlaceItem = coroutine.create(function ()
-				for k = 1, ItemNr, 1 do
-					Dta.copa.pasteNewItemAttributes(k, x, y, z, yaw, pitch, roll, scale, k*tonumber(xOffset), k*tonumber(yOffset), k*tonumber(zOffset), k*tonumber(yawOffset), k*tonumber(pitchOffset), k*tonumber(rollOffset), k*tonumber(scaleOffset))
-					if k < ItemNr then
-						Dta.Copa_Co_Active = true
-					else
-						Dta.Copa_Co_Active = false
-					end
-					coroutine.yield()
-				end
-			end)
-			coroutine.resume(Dta.copa.Co_PlaceItem)
-		else
-			Dta.copa.pasteNewItemAttributes(k, x, y, z, yaw, pitch, roll, scale, xOffset, yOffset, zOffset, yawOffset, pitchOffset, rollOffset, scaleOffset)
-		end
+		-- shelf stack used up, remove
+		list_entry.shelf[id] = nil
 	end
 end
 
-function Dta.copa.pasteNewItemAttributes(index, x, y, z, yaw, pitch, roll, scale, xOffset, yOffset, zOffset, yawOffset, pitchOffset, rollOffset, scaleOffset)
-	if Dta.clipboard ~= nil then
+function Dta.copa.pasteSet(itemSet, shoppingList, offset, newItems)
+	local rot_matrix, pos_rel
+	if offset.rotate then -- rotate
+		rot_matrix = Dta.Matrix.createZYX(offset.pitch, offset.yaw, offset.roll, true)
+	end
 
-		local FlickerReduc = Dta.FlickerReduc
-		local newPlacement = {}
-			if Dta.FlickerOffset then
-				if x then newPlacement.coordX = Dta.clipboard.x + xOffset + FlickerReduc else newPlacement.coordX = Dta.clipboard.x + FlickerReduc end
-				if y then newPlacement.coordY = Dta.clipboard.y + yOffset + FlickerReduc else newPlacement.coordY = Dta.clipboard.y + FlickerReduc end
-				if z then newPlacement.coordZ = Dta.clipboard.z + zOffset + FlickerReduc else newPlacement.coordZ = Dta.clipboard.z + FlickerReduc end
-				Dta.FlickerOffset = false
+	for k, details in pairs(itemSet) do
+		local new_details = copyTable(details)
+		local new_rot
+		if offset.pivot then
+			if offset.rotate then
+				new_rot, pos_rel = Dta.rotate.rotateItem(details, rot_matrix, offset.pivot)
+				new_details.pitch = new_rot.pitch
+				new_details.yaw = new_rot.yaw
+				new_details.roll = new_rot.roll
 			else
-				if x then newPlacement.coordX = Dta.clipboard.x + xOffset - FlickerReduc else newPlacement.coordX = Dta.clipboard.x - FlickerReduc end
-				if y then newPlacement.coordY = Dta.clipboard.y + yOffset - FlickerReduc else newPlacement.coordY = Dta.clipboard.y - FlickerReduc end
-				if z then newPlacement.coordZ = Dta.clipboard.z + zOffset - FlickerReduc else newPlacement.coordZ = Dta.clipboard.z - FlickerReduc end
-				Dta.FlickerOffset = true
+				pos_rel = {	new_details.coordX - offset.pivot.x,
+							new_details.coordY - offset.pivot.y, 
+							new_details.coordZ - offset.pivot.z }
 			end
-		if yaw then newPlacement.yaw = Dta.clipboard.yaw + Dta.items.toRadians(yawOffset) else newPlacement.yaw = Dta.clipboard.yaw end
-		if pitch then newPlacement.pitch = Dta.clipboard.pitch + Dta.items.toRadians(pitchOffset) else newPlacement.pitch = Dta.clipboard.pitch end
-		if roll then newPlacement.roll = Dta.clipboard.roll + Dta.items.toRadians(rollOffset) else newPlacement.roll = Dta.clipboard.roll end
-		if scale then newPlacement.scale = Dta.clipboard.scale + scaleOffset else newPlacement.scale = Dta.clipboard.scale end
-
-		local NewItemID = Dta.clipboard.type
-
-
-		if Dta.ui.windowCopyPaste.copyPaste.Bags:GetChecked() then
-			local itemsBags = Inspect.Item.List(Utility.Item.Slot.Inventory())
-			for slot, id in pairs(itemsBags) do
-				if id ~= false then
-					local data = Inspect.Item.Detail(id)
-					if data.type == NewItemID then
-						Command.Dimension.Layout.Place(id, newPlacement)
-						return
-					end
+			if offset.scale then
+				for i = 1, 3, 1 do
+					pos_rel[i] = pos_rel[i] * offset.scale
+					new_details.scale = details.scale * offset.scale
 				end
 			end
-		elseif Dta.ui.windowCopyPaste.copyPaste.Bank:GetChecked() then
-			local itemsBank = Inspect.Item.List(Utility.Item.Slot.Bank())
-			for slot, id in pairs(itemsBank) do
-				if id ~= false then
-					local data = Inspect.Item.Detail(id)
-					if data.type == NewItemID then
-						Command.Dimension.Layout.Place(id, newPlacement)
-						return
-					end
+			new_details.coordX = offset.pivot.x + pos_rel[1]
+			new_details.coordY = offset.pivot.y + pos_rel[2]
+			new_details.coordZ = offset.pivot.z + pos_rel[3]
+		end
+		--TODO: apply move offset before rotate/scale?
+		new_details.coordX = new_details.coordX + offset.coordX
+		new_details.coordY = new_details.coordY + offset.coordY
+		new_details.coordZ = new_details.coordZ + offset.coordZ
+		Dta.copa.pasteSingleItem(new_details, shoppingList, newItems)
+	end
+end
+
+function Dta.copa.pasteArray(clipboard, shoppingList, settings, new_items)
+	for k = 1, settings.n_copies, 1 do
+		local offset = { coordX = k * settings.coordX, coordY = k * settings.coordY,
+						coordZ = k * settings.coordZ, pivot = settings.pivot }
+		if settings.rotate then
+			offset.rotate = true
+			offset.pitch = k * settings.pitch
+			offset.yaw = k * settings.yaw
+			offset.roll = k * settings.roll
+		end
+		if offset.scale then offset.scale = k * settings.scale end
+		-- TODO: flicker offset
+		if #clipboard > 1 then
+			Dta.copa.pasteSet(Dta.clipboard.items, shoppingList, offset, new_items)
+		else
+			local new_details = copyTable(clipboard[1])
+			for k, v in pairs(new_details) do
+				if type(offset[k]) == "number" then
+					new_details[k] = v + offset[k]
 				end
 			end
-		elseif Dta.ui.windowCopyPaste.copyPaste.Both:GetChecked() then
-			local itemsVault = Inspect.Item.List(Utility.Item.Slot.Vault())
-			for slot, id in pairs(itemsVault) do
-				if id ~= false then
-					local data = Inspect.Item.Detail(id)
-					if data.type == NewItemID then
-						Command.Dimension.Layout.Place(id, newPlacement)
-						return
-					end
-				end
+			Dta.copa.pasteSingleItem(new_details, shoppingList, new_items)
+		end
+	end
+end
+
+function Dta.copa.pasteClipboard(shoppingList, settings)
+	if settings.n_copies then
+		Dta.copa.pasteArray(Dta.clipboard.items, shoppingList, settings, settings.new_items)
+	elseif Dta.clipboard.itemCount > 1 then
+		Dta.copa.pasteSet(Dta.clipboard.items, shoppingList, settings, settings.new_items)
+	else
+		local new_details = copyTable(Dta.clipboard.items[1])
+		for k, v in pairs(new_details) do
+			if type(settings[k]) == "number" then
+				new_details[k] = v + settings[k]
 			end
 		end
-
-		dump(Lang[Dta.Language].Prints.NotEnoughItems)
-
-	elseif Dta.selectedItems[index] == nil then
-		print(Lang[Dta.Language].Prints.SelectFirst)
-	else
-		print(Lang[Dta.Language].Prints.CopyFirst)
+		Dta.copa.pasteSingleItem(new_details, shoppingList, settings.new_items)
 	end
 end
