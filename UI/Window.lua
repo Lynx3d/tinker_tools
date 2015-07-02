@@ -1,3 +1,5 @@
+local Dta = select(2, ...)
+
 local DraggableFrame = {}
 
 DraggableFrame.MouseDownCallback = function(self, handle)

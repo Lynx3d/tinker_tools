@@ -1,3 +1,5 @@
+local Dta = select(2, ...)
+local Lang = Dta.Lang
 -- Set English as Default and fallback
 if not Lang[Dta.Language] then
 	Lang[Dta.Language] = Lang["English"]
@@ -108,47 +110,47 @@ function Dta.settings.get_savedsets(setting)
 end
 
 function Dta.settings.get_defaultsets(setting)
-	if Dta_defaults[setting] ~= nil then
-		return Dta_defaults[setting]
+	if Dta.Defaults[setting] ~= nil then
+		return Dta.Defaults[setting]
 	else
 		return nil
 	end
 end
 
 function Dta.settings.get_alphabetFonts(setting)
-	if Dta_alphabet[setting] ~= nil then
-		return Dta_alphabet[setting]
+	if Dta.Defaults[setting] ~= nil then
+		return Dta.Defaults[setting]
 	else
 		return nil
 	end
 end
 
 function Dta.settings.get_alphabetSize(setting, font)
-	if Dta_alphabet[setting][font] ~= nil then
-		return Dta_alphabet[setting][font]
+	if Dta.Defaults[setting][font] ~= nil then
+		return Dta.Defaults[setting][font]
 	else
 		return nil
 	end
 end
 
 function Dta.settings.get_alphabetLetters(setting, font, size)
-	if Dta_alphabet[setting][font][size] ~= nil then
-		return Dta_alphabet[setting][font][size]
+	if Dta.Defaults[setting][font][size] ~= nil then
+		return Dta.Defaults[setting][font][size]
 	else
 		return nil
 	end
 end
 
 function Dta.settings.get_Skins(setting)
-	if Dta_Skins[setting] ~= nil then
-		return Dta_Skins[setting]
+	if Dta.Defaults[setting] ~= nil then
+		return Dta.Defaults[setting]
 	else
 		return nil
 	end
 end
 
 function Dta.settings.set_savedsets(setting, value)
-	if Dta_defaults[setting] == value then
+	if Dta.Defaults[setting] == value then
 		Dta.settings.savedsets[setting] = nil
 	else
 		Dta.settings.savedsets[setting] = value

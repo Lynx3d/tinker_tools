@@ -1,4 +1,6 @@
-﻿local ref = {}
+﻿local Dta = select(2, ...)
+
+local ref = {}
 for k=1,1 do ref[k] = {} end
 
 ref[1]["Granite"] = {
@@ -340,9 +342,6 @@ ref[1]["Green Marble"] = {
 
 	}
 }
-Dta_Skins = {
-	SavedSkins = ref[1]
-}
 
-
+Dta.Defaults.SavedSkins = ref[1]
 

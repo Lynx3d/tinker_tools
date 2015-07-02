@@ -1,4 +1,6 @@
-﻿Dta.Replacement = {}
+﻿local Dta = select(2, ...)
+
+Dta.Replacement = {}
 
 Dta.Replacement.Skins = {}
 

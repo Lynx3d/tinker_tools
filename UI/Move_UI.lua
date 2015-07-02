@@ -1,4 +1,7 @@
-﻿Dta.move_ui = {}
+﻿local Dta = select(2, ...)
+local Lang = Dta.Lang
+
+Dta.move_ui = {}
 
 -------------------------------
 -- BUILD THE DIMENSIONTOOLS MOVEWINDOW

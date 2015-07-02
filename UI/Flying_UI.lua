@@ -1,4 +1,7 @@
-﻿Dta.flying_ui = {}
+﻿local Dta = select(2, ...)
+local Lang = Dta.Lang
+
+Dta.flying_ui = {}
 
 local FlyingWindowSettings = {
 	TITLE = Lang[Dta.Language].Titles.TribalMagic,

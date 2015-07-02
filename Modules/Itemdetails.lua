@@ -1,3 +1,6 @@
+local Dta = select(2, ...)
+local Lang = Dta.Lang
+
 Dta.items = {}
 
 --------------------------------------

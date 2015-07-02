@@ -1,3 +1,5 @@
+local Dta = select(2, ...)
+
 local Font = {}
 for k=1,1 do Font[k] = {} end
 Font[1]["Lone Ranger"] = {
@@ -10671,12 +10673,7 @@ Font[1]["Magneto"] = {
     }
 }
 
-
-Dta_alphabet = {
-	SavedAlphabets = Font[1]
-}
-
-
+Dta.Defaults.SavedAlphabets = Font[1]
 
 -------------------------------
 -- Empty Font

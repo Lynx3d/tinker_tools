@@ -1,3 +1,5 @@
+local Dta = select(2, ...)
+
 --[[ shopping list structure:
 list = { <type> = {	name = <item name>
 					amount = <required number>,

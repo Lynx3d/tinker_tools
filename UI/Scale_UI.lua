@@ -1,4 +1,7 @@
-﻿Dta.scale_ui = {}
+﻿local Dta = select(2, ...)
+local Lang = Dta.Lang
+
+Dta.scale_ui = {}
 
 -------------------------------
 -- BUILD THE DIMENSIONTOOLS SCALEWINDOW

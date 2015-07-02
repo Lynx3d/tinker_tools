@@ -1,4 +1,7 @@
-﻿Dta.copa_ui = {}
+﻿local Dta = select(2, ...)
+local Lang = Dta.Lang
+
+Dta.copa_ui = {}
 
 -------------------------------
 -- BUILD THE DIMENSIONTOOLS COPY/PASTE WINDOW

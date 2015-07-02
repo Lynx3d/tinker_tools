@@ -1,4 +1,7 @@
-﻿Dta.help_ui = {}
+﻿local Dta = select(2, ...)
+local Lang = Dta.Lang
+
+Dta.help_ui = {}
 
 -------------------------------
 -- BUILD THE DIMENSIONTOOLS HelpWINDOW

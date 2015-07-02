@@ -1,5 +1,8 @@
-﻿Dta_defaults = {
-	SavedDefaultSets = {
+﻿local Dta = select(2, ...)
+
+Dta.Defaults = {}
+
+Dta. Defaults.SavedSets = {
 		["10 sided Dome Tool"] = {
 			{
 				coordX = 487.38998413086,
@@ -479,5 +482,5 @@
 				yaw = 0.07853975892067
 			}
 		}
-    }
 }
+Dta.defaults = Dta_defaults

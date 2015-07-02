@@ -1,4 +1,7 @@
-Lang = {}
+local Dta = select(2, ...)
+-- TODO: remove global
+local Lang = {}
+Dta.Lang = Lang
 
 Lang["English"] = {}
 ----------------------------------------

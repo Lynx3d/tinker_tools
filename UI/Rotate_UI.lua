@@ -1,4 +1,7 @@
-﻿Dta.rotate_ui = {}
+﻿local Dta = select(2, ...)
+local Lang = Dta.Lang
+
+Dta.rotate_ui = {}
 
 -------------------------------
 -- BUILD THE DIMENSIONTOOLS RotateWINDOW

@@ -1,3 +1,5 @@
+local Dta = select(2, ...)
+
 --  Rift coordinate system
 --	yaw     pitch   roll
 --	y       x       z
