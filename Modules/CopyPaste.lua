@@ -9,66 +9,30 @@ Dta.copa.CountedItems = 0
 function Dta.copa.CopaOffsetChanged()
 	if Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked() then
 		Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(true)
-		Dta.ui.windowCopyPaste.copyPaste.NewItemLabel:SetVisible(true)
+		Dta.ui.windowCopyPaste.copyPaste.NewItemNrLabel:SetVisible(true)
+		Dta.ui.windowCopyPaste.copyPaste.flickerReduce:SetVisible(true)
 	elseif not Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked() then
 		Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(false)
 		--Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetText("")
-		Dta.ui.windowCopyPaste.copyPaste.NewItemLabel:SetVisible(false)
+		Dta.ui.windowCopyPaste.copyPaste.NewItemNrLabel:SetVisible(false)
+		Dta.ui.windowCopyPaste.copyPaste.flickerReduce:SetVisible(false)
 	end
 end
 
 function Dta.copa.CopaNewItemChanged()
 	if Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked() then
 		if Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked() then
-			--Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(true)
-			--Dta.ui.windowCopyPaste.copyPaste.NewItemLabel:SetVisible(true)
 			Dta.ui.windowCopyPaste.copyPaste.Bags:SetVisible(true)
 			Dta.ui.windowCopyPaste.copyPaste.Bank:SetVisible(true)
-			Dta.ui.windowCopyPaste.copyPaste.Both:SetVisible(true)
 		else
 			Dta.ui.windowCopyPaste.copyPaste.Bags:SetVisible(true)
 			Dta.ui.windowCopyPaste.copyPaste.Bank:SetVisible(true)
-			Dta.ui.windowCopyPaste.copyPaste.Both:SetVisible(true)
 		end
 	elseif not Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked() then
-		--Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(false)
-		--Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetText("")
-		--Dta.ui.windowCopyPaste.copyPaste.NewItemLabel:SetVisible(false)
 		Dta.ui.windowCopyPaste.copyPaste.Bags:SetVisible(false)
 		Dta.ui.windowCopyPaste.copyPaste.Bank:SetVisible(false)
-		Dta.ui.windowCopyPaste.copyPaste.Both:SetVisible(false)
 
 	end
-end
-
-function Dta.copa.CopaBagsChanged()
-	if Dta.ui.windowCopyPaste.copyPaste.Bags:GetChecked() then
-		Dta.ui.windowCopyPaste.copyPaste.Bank:SetChecked(false)
-		Dta.ui.windowCopyPaste.copyPaste.Both:SetChecked(false)
-	elseif not Dta.ui.windowCopyPaste.copyPaste.Bank:GetChecked() and not Dta.ui.windowCopyPaste.copyPaste.Bank:GetChecked() then
-		Dta.ui.windowCopyPaste.copyPaste.Bags:SetChecked(true)
-	end
-
-end
-
-function Dta.copa.CopaBankChanged()
-	if Dta.ui.windowCopyPaste.copyPaste.Bank:GetChecked() then
-		Dta.ui.windowCopyPaste.copyPaste.Bags:SetChecked(false)
-		Dta.ui.windowCopyPaste.copyPaste.Both:SetChecked(false)
-	elseif not Dta.ui.windowCopyPaste.copyPaste.Bags:GetChecked() and not Dta.ui.windowCopyPaste.copyPaste.Both:GetChecked() then
-		Dta.ui.windowCopyPaste.copyPaste.Bank:SetChecked(true)
-	end
-
-end
-
-function Dta.copa.CopaBothChanged()
-	if Dta.ui.windowCopyPaste.copyPaste.Both:GetChecked() then
-		Dta.ui.windowCopyPaste.copyPaste.Bank:SetChecked(false)
-		Dta.ui.windowCopyPaste.copyPaste.Bags:SetChecked(false)
-	elseif not Dta.ui.windowCopyPaste.copyPaste.Bank:GetChecked() and not Dta.ui.windowCopyPaste.copyPaste.Bags:GetChecked() then
-		Dta.ui.windowCopyPaste.copyPaste.Both:SetChecked(true)
-	end
-
 end
 
 function Dta.copa.copyButtonClicked()
@@ -78,7 +42,6 @@ end
 function Dta.copa.pasteButtonClicked()
 	local settings = Dta.copa.checkInput()
 	if not settings then
-		print(Lang[Dta.Language].Prints.NumbersOnly)
 		return
 	end
 
@@ -94,7 +57,7 @@ function Dta.copa.pasteButtonClicked()
 	end
 	if Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked() then
 		-- test
-		Dta.losa.ScanInventory(shoppingList, true)
+		Dta.losa.ScanInventory(shoppingList, settings.include_bags, settings.include_bank)
 		local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
 		if missing then
 			-- TODO: proper localized error msg
@@ -159,12 +122,23 @@ function Dta.copa.checkInput()
 		values.scale, success.scale = Dta.ui.checkNumber(copa_ui.scaleOffset:GetText(), nil)
 	end
 	values.new_items = copa_ui.NewItem:GetChecked()
+	values.include_bags = copa_ui.Bags:GetChecked()
+	values.include_bank = copa_ui.Bank:GetChecked()
+	if values.new_items and not values.include_bags and not values.include_bank then
+		print(Lang[Dta.Language].Prints.SelectItemSource)
+		return false
+	end
+
+	values.flicker_reduce = copa_ui.flickerReduce:GetChecked()
 	if copa_ui.multiplyOffsets:GetChecked() then
 		values.n_copies, success.n_copies = Dta.ui.checkNumber(copa_ui.NewItemNr:GetText(), 1)
 	end
 
 	for k, v in pairs(success) do
-		if not v then return false end
+		if not v then
+			print(Lang[Dta.Language].Prints.NumbersOnly)
+			return false
+		end
 	end
 	if values.rotate then
 		values.pitch = math.rad(values.pitch or 0)
@@ -278,7 +252,14 @@ function Dta.copa.pasteArray(clipboard, shoppingList, settings, new_items)
 			offset.roll = k * settings.roll
 		end
 		if offset.scale then offset.scale = k * settings.scale end
-		-- TODO: flicker offset
+		-- flicker reduction: alternate between adding and substracting a small offset
+		if settings.flicker_reduce then
+			local FlickerReduc = Dta.FlickerOffset and Dta.FlickerReduc or -Dta.FlickerReduc
+			offset.coordX = offset.coordX + FlickerReduc
+			offset.coordY = offset.coordY + FlickerReduc
+			offset.coordZ = offset.coordZ + FlickerReduc
+			Dta.FlickerOffset = not Dta.FlickerOffset
+		end
 		if #clipboard > 1 then
 			Dta.copa.pasteSet(Dta.clipboard.items, shoppingList, offset, new_items)
 		else

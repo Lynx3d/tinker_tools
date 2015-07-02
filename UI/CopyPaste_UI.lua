@@ -44,8 +44,8 @@ function Dta.copa_ui.buildCopyPasteWindow()
 	CopyPastewindow.copyPaste:SetLayer(30)
 	--CopyPastewindow.copyPaste:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-	CopyPastewindow.copyPaste.copyBtn = Dta.ui.createButton("copyBtn", CopyPastewindow.copyPaste, 0, 110, nil, nil, Lang[Dta.Language].Buttons.Copy, nil, Dta.copa.copyButtonClicked)
-	CopyPastewindow.copyPaste.pasteBtn = Dta.ui.createButton("pasteBtn", CopyPastewindow.copyPaste, 165, 110, nil, nil, Lang[Dta.Language].Buttons.Paste, nil, Dta.copa.pasteButtonClicked)
+	CopyPastewindow.copyPaste.copyBtn = Dta.ui.createButton("copyBtn", CopyPastewindow.copyPaste, 0, 145, nil, nil, Lang[Dta.Language].Buttons.Copy, nil, Dta.copa.copyButtonClicked)
+	CopyPastewindow.copyPaste.pasteBtn = Dta.ui.createButton("pasteBtn", CopyPastewindow.copyPaste, 165, 145, nil, nil, Lang[Dta.Language].Buttons.Paste, nil, Dta.copa.pasteButtonClicked)
 
 	CopyPastewindow.copyPaste.offsetLabel1 = Dta.ui.createText("copyPasteOffsetLabel1", CopyPastewindow.copyPaste, 45, 0, Lang[Dta.Language].Text.Offset, 11)
 	CopyPastewindow.copyPaste.offsetLabel2 = Dta.ui.createText("copyPasteOffsetLabel3", CopyPastewindow.copyPaste, 155, 0, Lang[Dta.Language].Text.Offset, 11)
@@ -74,23 +74,24 @@ function Dta.copa_ui.buildCopyPasteWindow()
 	CopyPastewindow.copyPaste.multiplyOffsets = Dta.ui.createCheckbox("copyPasteMultiplyOffsets", CopyPastewindow.copyPaste, 0, 95, Lang[Dta.Language].Text.OffsetMultiItems, false, nil, Dta.copa.CopaOffsetChanged)
 	CopyPastewindow.copyPaste.multiplyOffsets:SetVisible(true)
 
-	CopyPastewindow.copyPaste.divider1 = Dta.ui.createTexture("dividerCopa", CopyPastewindow, "Dimtools", "textures/divider.png", 10, 155, CopyPastewindow:GetWidth()-10)
-	CopyPastewindow.copyPaste.divider1:SetLayer(29)
+	CopyPastewindow.copyPaste.flickerReduce = Dta.ui.createCheckbox("copyPasteFlickerReduce", CopyPastewindow.copyPaste, 165, 95, Lang[Dta.Language].Text.FlickerReduce, false, nil)
+	CopyPastewindow.copyPaste.flickerReduce:SetVisible(false)
 
-	CopyPastewindow.copyPaste.NewItem = Dta.ui.createCheckbox("copyPasteNewItem", CopyPastewindow.copyPaste, 0, 165, Lang[Dta.Language].Text.UseNewItems, false, nil, Dta.copa.CopaNewItemChanged)
+	CopyPastewindow.copyPaste.NewItemNrLabel = Dta.ui.createText("copyPasteNewItemLabel", CopyPastewindow.copyPaste, 0, 120, Lang[Dta.Language].Text.NrItems, 15)
+	CopyPastewindow.copyPaste.NewItemNrLabel:SetVisible(false)
 
-	CopyPastewindow.copyPaste.NewItemLabel = Dta.ui.createText("copyPasteNewItemLabel", CopyPastewindow.copyPaste, 0, 190, Lang[Dta.Language].Text.NrItems, 15)
-	CopyPastewindow.copyPaste.NewItemLabel:SetVisible(false)
-
-	CopyPastewindow.copyPaste.NewItemNr = Dta.ui.createTextfield("copyPasteNewItemNr", CopyPastewindow.copyPaste, 85, 190, 40)
+	CopyPastewindow.copyPaste.NewItemNr = Dta.ui.createTextfield("copyPasteNewItemNr", CopyPastewindow.copyPaste, 100, 120, 40)
 	CopyPastewindow.copyPaste.NewItemNr:SetVisible(false)
 
-	CopyPastewindow.copyPaste.Bags = Dta.ui.createCheckbox("copyPasteBags", CopyPastewindow.copyPaste, 0, 220, Lang[Dta.Language].Text.Bags, true, nil, Dta.copa.CopaBagsChanged)
+	CopyPastewindow.copyPaste.divider1 = Dta.ui.createTexture("dividerCopa", CopyPastewindow, "Dimtools", "textures/divider.png", 10, 180, CopyPastewindow:GetWidth()-10)
+	CopyPastewindow.copyPaste.divider1:SetLayer(29)
+
+	CopyPastewindow.copyPaste.NewItem = Dta.ui.createCheckbox("copyPasteNewItem", CopyPastewindow.copyPaste, 0, 195, Lang[Dta.Language].Text.UseNewItems, false, nil, Dta.copa.CopaNewItemChanged)
+
+	CopyPastewindow.copyPaste.Bags = Dta.ui.createCheckbox("copyPasteBags", CopyPastewindow.copyPaste, 15, 225, Lang[Dta.Language].Text.Bags, true, nil)
 	CopyPastewindow.copyPaste.Bags:SetVisible(false)
-	CopyPastewindow.copyPaste.Bank = Dta.ui.createCheckbox("copyPasteBank", CopyPastewindow.copyPaste, 110, 220, Lang[Dta.Language].Text.BankBags, false, nil, Dta.copa.CopaBankChanged)
+	CopyPastewindow.copyPaste.Bank = Dta.ui.createCheckbox("copyPasteBank", CopyPastewindow.copyPaste, 120, 225, Lang[Dta.Language].Text.BankBags, false, nil)
 	CopyPastewindow.copyPaste.Bank:SetVisible(false)
-	CopyPastewindow.copyPaste.Both = Dta.ui.createCheckbox("copyPasteBoth", CopyPastewindow.copyPaste, 235, 220, Lang[Dta.Language].Text.Vaults, false, nil, Dta.copa.CopaBothChanged)
-	CopyPastewindow.copyPaste.Both:SetVisible(false)
 
 	-- TODO: temp fix for new window hierarchy
 	newWindow.copyPaste = CopyPastewindow.copyPaste

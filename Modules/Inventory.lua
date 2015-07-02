@@ -10,8 +10,11 @@ list = { <type> = {	name = <item name>
  ]]
 
 -- compile a list of inventory items available for requested items
-function Dta.losa.ScanInventory(shoppingList, includeBank)
-	local slots = { [Utility.Item.Slot.Inventory()] = true } -- "si"
+function Dta.losa.ScanInventory(shoppingList, includeBags, includeBank)
+	local slots = {}
+	if includeBags then
+		slots[Utility.Item.Slot.Inventory()] = true -- "si", means all inventory slots
+	end
 	if includeBank then
 		slots[Utility.Item.Slot.Vault()] = true -- "sv", means all vault tabs
 		slots[Utility.Item.Slot.Bank()] = true  -- "sb", means all slots of bank's bags,
