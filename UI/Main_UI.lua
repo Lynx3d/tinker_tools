@@ -416,7 +416,7 @@ end
 -- Hide the Main window
 function Dta.ui.hideMainWindow()
 	Dta.ui.windowtest:SetVisible(false)
-	Dta.ui.windowtest = nil
+--	Dta.ui.windowtest = nil
 	Dta.constructions = {}
 	Dta.constructionsdefaults = {}
 	Dta.ui.active = false

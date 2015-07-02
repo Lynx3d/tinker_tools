@@ -81,7 +81,7 @@ function Dta.expimp_ui.showExpImpWindow()
 	if Dta.ui.windowExpImp == nil then
 		Dta.ui.windowExpImp = Dta.expimp_ui.buildExpImpWindow()
 	else
-		Dta.expimp_ui.windowExpImp:SetVisible(true)
+		Dta.ui.windowExpImp:SetVisible(true)
 	end
 	Dta.ui.activeExpImp = true
 	Dta.ui.loadExpImp = "Saved"
@@ -93,7 +93,7 @@ function Dta.expimp_ui.hideExpImpWindow()
 	Dta.ui.windowExpImp:SetVisible(false)
 	Dta.ui.windowExpImp.ImportExport.ExportLoad:SetEnabled(false)
 	Dta.ui.windowExpImp.ImportExport.ImportLoad:SetEnabled(false)
-	Dta.ui.windowExpImp = nil
+--	Dta.ui.windowExpImp = nil
 	Dta.ui.activeExpImp = false
 end
 

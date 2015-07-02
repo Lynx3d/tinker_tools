@@ -93,7 +93,7 @@ function Dta.measurements_ui.showMeasurementsWindow()
 	if Dta.ui.windowMeasurements == nil then
 		Dta.ui.windowMeasurements = Dta.measurements_ui.buildMeasurementsWindow()
 	else
-		Dta.measurements_ui.windowMeasurements:SetVisible(true)
+		Dta.ui.windowMeasurements:SetVisible(true)
 	end
 	Dta.ui.activeMeasurements = true
 end
@@ -103,7 +103,7 @@ function Dta.measurements_ui.hideMeasurementsWindow()
 	Dta.ui.windowMeasurements:SetVisible(false)
 	Dta.ui.windowMeasurements.Measurements.TypeLoad:SetEnabled(false)
 	Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetEnabled(false)
-	Dta.ui.windowMeasurements = nil
+--	Dta.ui.windowMeasurements = nil
 	Dta.ui.activeMeasurements = false
 end
 

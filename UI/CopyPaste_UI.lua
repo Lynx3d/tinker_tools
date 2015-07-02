@@ -106,7 +106,7 @@ function Dta.copa_ui.showCopyPastewindow()
 	if Dta.ui.windowCopyPaste == nil then
 		Dta.ui.windowCopyPaste = Dta.copa_ui.buildCopyPasteWindow()
 	else
-		Dta.copa_ui.windowCopyPaste:SetVisible(true)
+		Dta.ui.windowCopyPaste:SetVisible(true)
 	end
 	Dta.ui.activeCopyPaste = true
 end
@@ -114,7 +114,7 @@ end
 -- Hide the toolbox window
 function Dta.copa_ui.hideCopyPastewindow()
 	Dta.ui.windowCopyPaste:SetVisible(false)
-	Dta.ui.windowCopyPaste = nil
+--	Dta.ui.windowCopyPaste = nil
 	Dta.ui.activeCopyPaste = false
 	Dta.clipboard = {}
 end

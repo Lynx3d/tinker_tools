@@ -88,7 +88,7 @@ function Dta.flying_ui.showFlyingWindow()
 	if Dta.ui.windowFlying == nil then
 		Dta.ui.windowFlying = Dta.flying_ui.buildFlyingWindow()
 	else
-		Dta.flying_ui.windowFlying:SetVisible(true)
+		Dta.ui.windowFlying:SetVisible(true)
 	end
 	Dta.ui.activeFlying = true
 end
@@ -96,7 +96,7 @@ end
 -- Hide the toolbox window
 function Dta.flying_ui.hideFlyingWindow()
 	Dta.ui.windowFlying:SetVisible(false)
-	Dta.ui.windowFlying = nil
+--	Dta.ui.windowFlying = nil
 	Dta.ui.activeFlying = false
 end
 

@@ -110,7 +110,7 @@ function Dta.losa_ui.showLoSaWindow()
 	if Dta.ui.windowLoSa == nil then
 		Dta.ui.windowLoSa = Dta.losa_ui.buildLoSaWindow()
 	else
-		Dta.losa_ui.windowLoSa:SetVisible(true)
+		Dta.ui.windowLoSa:SetVisible(true)
 	end
 	Dta.ui.activeLoSa = true
 end
@@ -119,7 +119,7 @@ end
 function Dta.losa_ui.hideLoSaWindow()
 	Dta.ui.windowLoSa:SetVisible(false)
 	Dta.ui.windowLoSa.constructions.nameLoad:SetEnabled(false)
-	Dta.ui.windowLoSa = nil
+--	Dta.ui.windowLoSa = nil
 	Dta.ui.loadLoSa = "Default"
 	--Dta.constructions = {}
 	--Dta.constructionsdefaults = {}

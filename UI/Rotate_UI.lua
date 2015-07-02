@@ -77,7 +77,7 @@ function Dta.rotate_ui.showRotateWindow()
 	if Dta.ui.windowRotate == nil then
 		Dta.ui.windowRotate = Dta.rotate_ui.buildRotateWindow()
 	else
-		Dta.rotate_ui.windowRotate:SetVisible(true)
+		Dta.ui.windowRotate:SetVisible(true)
 	end
 	Dta.ui.activeRotate = true
 end
@@ -85,7 +85,7 @@ end
 -- Hide the toolbox window
 function Dta.rotate_ui.hideRotateWindow()
 	Dta.ui.windowRotate:SetVisible(false)
-	Dta.ui.windowRotate = nil
+--	Dta.ui.windowRotate = nil
 	Dta.ui.activeRotate = false
 end
 

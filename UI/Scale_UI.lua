@@ -70,7 +70,7 @@ function Dta.scale_ui.showScaleWindow()
 	if Dta.ui.windowScale == nil then
 		Dta.ui.windowScale = Dta.scale_ui.buildScaleWindow()
 	else
-		Dta.scale_ui.windowScale:SetVisible(true)
+		Dta.ui.windowScale:SetVisible(true)
 	end
 	Dta.ui.activeScale = true
 end
@@ -78,7 +78,7 @@ end
 -- Hide the toolbox window
 function Dta.scale_ui.hideScaleWindow()
 	Dta.ui.windowScale:SetVisible(false)
-	Dta.ui.windowScale = nil
+--	Dta.ui.windowScale = nil
 	Dta.ui.activeScale = false
 end
 

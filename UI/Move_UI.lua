@@ -82,7 +82,7 @@ function Dta.move_ui.showMoveWindow()
 	if Dta.ui.windowMove == nil then
 		Dta.ui.windowMove = Dta.move_ui.buildMoveWindow()
 	else
-		Dta.move_ui.windowMove:SetVisible(true)
+		Dta.ui.windowMove:SetVisible(true)
 	end
 	Dta.ui.activeMove = true
 end
@@ -90,7 +90,7 @@ end
 -- Hide the toolbox window
 function Dta.move_ui.hideMoveWindow()
 	Dta.ui.windowMove:SetVisible(false)
-	Dta.ui.windowMove = nil
+--	Dta.ui.windowMove = nil
 	Dta.ui.activeMove = false
 end
 

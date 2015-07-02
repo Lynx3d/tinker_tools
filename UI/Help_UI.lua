@@ -164,7 +164,7 @@ function Dta.help_ui.showHelpWindow()
 	if Dta.ui.windowHelp == nil then
 		Dta.ui.windowHelp = Dta.help_ui.buildHelpWindow()
 	else
-		Dta.help_ui.windowHelp:SetVisible(true)
+		Dta.ui.windowHelp:SetVisible(true)
 	end
 	Dta.ui.windowHelp.HelpIndex:SetSelectedItem("Intro", false)
 	Dta.ui.activeHelp = true
@@ -177,7 +177,7 @@ end
 -- Hide the toolbox window
 function Dta.help_ui.hideHelpWindow()
 	Dta.ui.windowHelp:SetVisible(false)
-	Dta.ui.windowHelp = nil
+--	Dta.ui.windowHelp = nil
 	Dta.ui.activeHelp = false
 	-- sync mainwindo_help button when closed by other means (e.g. own close button)
 	if Dta.ui.windowtest and Dta.ui.windowtest.help then

@@ -96,7 +96,7 @@ function Dta.alphabet_ui.showAlphabetWindow()
 	if Dta.ui.windowAlphabet == nil then
 		Dta.ui.windowAlphabet = Dta.alphabet_ui.buildAlphabetWindow()
 	else
-		Dta.alphabet_ui.windowAlphabet:SetVisible(true)
+		Dta.ui.windowAlphabet:SetVisible(true)
 	end
 	Dta.ui.activeAlphabet = true
 end
@@ -107,7 +107,7 @@ function Dta.alphabet_ui.hideAlphabetWindow()
 	Dta.ui.windowAlphabet.Alphabet.FontLoad:SetEnabled(false)
 	Dta.ui.windowAlphabet.Alphabet.SizeLoad:SetEnabled(false)
 	Dta.ui.windowAlphabet.Alphabet.TypeLoad:SetEnabled(false)
-	Dta.ui.windowAlphabet = nil
+--	Dta.ui.windowAlphabet = nil
 	Dta.ui.activeAlphabet = false
 end
 
