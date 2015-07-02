@@ -1,3 +1,28 @@
+Version 1.9.0
+*NOTE*: All 1.9.x are considered "unstable" versions. The stable version may
+or may not become 2.0, depending on whether the addon name can be kept.
+
+- A load of interface changes:
+ * New default window style. You can toggle between new and old
+   with '/DT style' chat command (requires reloadui)
+ * Move and Rotate window gained the ability to cycle text cursor through
+   the input fields with the <Tab> key
+ * Several windows had layout optimizations
+ * UI text now renders with a slight shadow for better readability
+ * Window backgrounds are now "solid", i.e. you can't can't accudently click
+   anything hidden below anymore
+- Rotate and Scale tools now support grouping multiple objects in relative mode
+- Right-clicking the item icon on the main UI now sets a map waypoint
+- Copy&Paste tool rewritten
+ * now supports groups of multiple objects and instance them accordingly
+ * flicker reduction (i.e. slightly shifting copies) is now optional to allow
+   perfect aligning of building blocks that won't overlap anyway
+ * inventory handling rewritten, reduced to "bags" and "bank" options
+- Workaround for deselection bug in the Rift API. It should now be less like to
+  get stuck with a phantom selection; subsequent selection may not be picked up
+  first time however, this is something bugged in the Client, because events
+  just don't fire properly after one with an invalid item ID.
+
 Version 1.3.1
 - Fixed bug with copy & paste Module: pasting multiple items already in
   in dimension
