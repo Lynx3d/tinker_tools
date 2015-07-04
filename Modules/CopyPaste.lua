@@ -48,8 +48,7 @@ function Dta.copa.pasteButtonClicked()
 	if Dta.clipboard.items then
 		shoppingList = Dta.losa.getGroupShoppingList(Dta.clipboard.items)
 		if settings.rotate or settings.scale then
-			if settings.new_items and Dta.ui.windowCopyPaste.copyPaste.SelectionPivot:GetChecked()
-								and  Dta.selectionCount > 0 then
+			if settings.selection_pivot then
 				settings.pivot = Dta.selectionCenter
 			else
 				settings.pivot = Dta.items.getCentralPoint(Dta.clipboard.items)
@@ -129,9 +128,13 @@ function Dta.copa.checkInput()
 	values.new_items = copa_ui.NewItem:GetChecked()
 	values.include_bags = copa_ui.Bags:GetChecked()
 	values.include_bank = copa_ui.Bank:GetChecked()
-	if values.new_items and not values.include_bags and not values.include_bank then
-		print(Lang[Dta.Language].Prints.SelectItemSource)
-		return false
+	if values.new_items then
+		values.selection_pivot = Dta.ui.windowCopyPaste.copyPaste.SelectionPivot:GetChecked()
+								and  Dta.selectionCount > 0
+		if not values.include_bags and not values.include_bank then
+			print(Lang[Dta.Language].Prints.SelectItemSource)
+			return false
+		end
 	end
 
 	values.flicker_reduce = copa_ui.flickerReduce:GetChecked()
@@ -216,10 +219,14 @@ function Dta.copa.pasteSet(itemSet, shoppingList, offset, newItems)
 
 	for k, details in pairs(itemSet) do
 		local new_details = copyTable(details)
+		--TEST: apply move offset before rotate/scale
+		new_details.coordX = new_details.coordX + offset.coordX
+		new_details.coordY = new_details.coordY + offset.coordY
+		new_details.coordZ = new_details.coordZ + offset.coordZ
 		local new_rot
 		if offset.pivot then
 			if offset.rotate then
-				new_rot, pos_rel = Dta.rotate.rotateItem(details, rot_matrix, offset.pivot)
+				new_rot, pos_rel = Dta.rotate.rotateItem(new_details, rot_matrix, offset.pivot)
 				new_details.pitch = new_rot.pitch
 				new_details.yaw = new_rot.yaw
 				new_details.roll = new_rot.roll
@@ -229,19 +236,16 @@ function Dta.copa.pasteSet(itemSet, shoppingList, offset, newItems)
 							new_details.coordZ - offset.pivot.z }
 			end
 			if offset.scale then
+				new_details.scale = details.scale * (1 + offset.scale)
 				for i = 1, 3, 1 do
-					pos_rel[i] = pos_rel[i] * offset.scale
-					new_details.scale = details.scale * offset.scale
+					pos_rel[i] = pos_rel[i] * (1 + offset.scale)
 				end
 			end
 			new_details.coordX = offset.pivot.x + pos_rel[1]
 			new_details.coordY = offset.pivot.y + pos_rel[2]
 			new_details.coordZ = offset.pivot.z + pos_rel[3]
 		end
-		--TODO: apply move offset before rotate/scale?
-		new_details.coordX = new_details.coordX + offset.coordX
-		new_details.coordY = new_details.coordY + offset.coordY
-		new_details.coordZ = new_details.coordZ + offset.coordZ
+
 		Dta.copa.pasteSingleItem(new_details, shoppingList, newItems)
 	end
 end
@@ -256,7 +260,7 @@ function Dta.copa.pasteArray(clipboard, shoppingList, settings, new_items)
 			offset.yaw = k * settings.yaw
 			offset.roll = k * settings.roll
 		end
-		if offset.scale then offset.scale = k * settings.scale end
+		if settings.scale then offset.scale = k * settings.scale end
 		-- flicker reduction: alternate between adding and substracting a small offset
 		if settings.flicker_reduce then
 			local FlickerReduc = Dta.FlickerOffset and Dta.FlickerReduc or -Dta.FlickerReduc
@@ -265,7 +269,7 @@ function Dta.copa.pasteArray(clipboard, shoppingList, settings, new_items)
 			offset.coordZ = offset.coordZ + FlickerReduc
 			Dta.FlickerOffset = not Dta.FlickerOffset
 		end
-		if #clipboard > 1 then
+		if #clipboard > 1 or settings.selection_pivot then
 			Dta.copa.pasteSet(Dta.clipboard.items, shoppingList, offset, new_items)
 		else
 			local new_details = copyTable(clipboard[1])
@@ -282,7 +286,7 @@ end
 function Dta.copa.pasteClipboard(shoppingList, settings)
 	if settings.n_copies then
 		Dta.copa.pasteArray(Dta.clipboard.items, shoppingList, settings, settings.new_items)
-	elseif Dta.clipboard.itemCount > 1 then
+	elseif Dta.clipboard.itemCount > 1 or settings.selection_pivot then
 		Dta.copa.pasteSet(Dta.clipboard.items, shoppingList, settings, settings.new_items)
 	else
 		local new_details = copyTable(Dta.clipboard.items[1])
