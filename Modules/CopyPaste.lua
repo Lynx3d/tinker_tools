@@ -24,17 +24,13 @@ end
 
 function Dta.copa.CopaNewItemChanged()
 	if Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked() then
-		if Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked() then
-			Dta.ui.windowCopyPaste.copyPaste.Bags:SetVisible(true)
-			Dta.ui.windowCopyPaste.copyPaste.Bank:SetVisible(true)
-		else
-			Dta.ui.windowCopyPaste.copyPaste.Bags:SetVisible(true)
-			Dta.ui.windowCopyPaste.copyPaste.Bank:SetVisible(true)
-		end
-	elseif not Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked() then
+		Dta.ui.windowCopyPaste.copyPaste.Bags:SetVisible(true)
+		Dta.ui.windowCopyPaste.copyPaste.Bank:SetVisible(true)
+		Dta.ui.windowCopyPaste.copyPaste.SelectionPivot:SetVisible(true)
+	else
 		Dta.ui.windowCopyPaste.copyPaste.Bags:SetVisible(false)
 		Dta.ui.windowCopyPaste.copyPaste.Bank:SetVisible(false)
-
+		Dta.ui.windowCopyPaste.copyPaste.SelectionPivot:SetVisible(false)
 	end
 end
 
@@ -52,13 +48,18 @@ function Dta.copa.pasteButtonClicked()
 	if Dta.clipboard.items then
 		shoppingList = Dta.losa.getGroupShoppingList(Dta.clipboard.items)
 		if settings.rotate or settings.scale then
-			settings.pivot = Dta.items.getCentralPoint(Dta.clipboard.items)
+			if settings.new_items and Dta.ui.windowCopyPaste.copyPaste.SelectionPivot:GetChecked()
+								and  Dta.selectionCount > 0 then
+				settings.pivot = Dta.selectionCenter
+			else
+				settings.pivot = Dta.items.getCentralPoint(Dta.clipboard.items)
+			end
 		end
 	else
 		print(Lang[Dta.Language].Prints.CopyFirst)
 		return
 	end
-	if Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked() then
+	if settings.new_items then
 		-- test
 		Dta.losa.ScanInventory(shoppingList, settings.include_bags, settings.include_bank)
 		local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
@@ -71,6 +72,7 @@ function Dta.copa.pasteButtonClicked()
 			return
 		end
 		Dta.items.DeselectAll()
+		Dta.Co_DoneMessage = Lang[Dta.Language].Prints.PasteFinished
 		Dta.AddItem_Co = coroutine.create(Dta.copa.pasteClipboard)
 		local ok, err = coroutine.resume(Dta.AddItem_Co, shoppingList, settings)
 		if not ok then dump(err) end

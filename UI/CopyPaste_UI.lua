@@ -91,6 +91,9 @@ function Dta.copa_ui.buildCopyPasteWindow()
 
 	CopyPastewindow.copyPaste.NewItem = Dta.ui.createCheckbox("copyPasteNewItem", CopyPastewindow.copyPaste, 0, 195, Lang[Dta.Language].Text.UseNewItems, false, nil, Dta.copa.CopaNewItemChanged)
 
+	CopyPastewindow.copyPaste.SelectionPivot = Dta.ui.createCheckbox("copyPasteSelPivot", CopyPastewindow.copyPaste, 165, 195, Lang[Dta.Language].Text.SelectionPivot, false, nil)
+	CopyPastewindow.copyPaste.SelectionPivot:SetVisible(false)
+
 	CopyPastewindow.copyPaste.Bags = Dta.ui.createCheckbox("copyPasteBags", CopyPastewindow.copyPaste, 15, 225, Lang[Dta.Language].Text.Bags, true, nil)
 	CopyPastewindow.copyPaste.Bags:SetVisible(false)
 	CopyPastewindow.copyPaste.Bank = Dta.ui.createCheckbox("copyPasteBank", CopyPastewindow.copyPaste, 120, 225, Lang[Dta.Language].Text.BankBags, false, nil)

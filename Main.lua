@@ -384,6 +384,10 @@ function Dta.tick(handle)
 		if action.op == "select" then
 			Command.Dimension.Layout.Select(action.id, true)
 		end
+		if not next(Dta.SelectionQueue) and Dta.Co_DoneMessage then
+			print(Dta.Co_DoneMessage)
+			Dta.Co_DoneMessage = nil
+		end
 	end
 
 	if Dta.carpetId ~= "d" then
