@@ -1,3 +1,8 @@
+Version 1.9.1
+- New button to toggle the main UI; can be dragged with right mouse button
+- New copy&paste feature: When pasting new items, you can now use the
+  current selection as pivot
+
 Version 1.9.0
 *NOTE*: All 1.9.x are considered "unstable" versions. The stable version may
 or may not become 2.0, depending on whether the addon name can be kept.
