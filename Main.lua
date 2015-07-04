@@ -218,12 +218,14 @@ end
 
 local function EnterDimension()
 	if Dta.InDimension then return end
+	Dta.ui.showMainButton()
 	-- TODO: attach tick callback
 	Dta.InDimension = true
 end
 
 local function LeaveDimension()
 	if not Dta.InDimension then return end
+	Dta.ui.hideMainButton()
 	-- TODO: detatch tick callback
 	if Dta.ui.active then Dta.ui.hideMainWindow() end
 	Dta.InDimension = false

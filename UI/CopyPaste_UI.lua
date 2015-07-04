@@ -124,7 +124,7 @@ end
 
 -- Toggle the toolbox window
 function Dta.copa_ui.toggleCopyPastewindow()
-	if Dta.ui.windowCopyPaste then Dta.copa_ui.hideCopyPastewindow()
+	if Dta.ui.activeCopyPaste then Dta.copa_ui.hideCopyPastewindow()
 	else Dta.copa_ui.showCopyPastewindow() end
 end
 

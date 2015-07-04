@@ -295,6 +295,40 @@ function Dta.ui.createButton(name, parent, x, y, width, height, text, skin, clic
 
 	return button
 end
+
+-------------------------------
+-- BUILD THE MAINWINDOW TOGGLE BUTTON
+-------------------------------
+
+--Called when the window has been moved
+function Dta.ui.MainButtonMoved()
+	Dta.settings.set("MainbuttonPosX", Dta.ui.buttonMainToggle:GetLeft())
+	Dta.settings.set("MainbuttonPosY", Dta.ui.buttonMainToggle:GetTop())
+end
+
+function Dta.ui.showMainButton()
+	if not Dta.ui.buttonMainToggle then
+		Dta.ui.buttonMainToggle = Dta.ui.Button.Create("UI_Toggle_Button", Dta.ui.context,
+			function(self, h) Dta.ui.toggleMainWindow() end,
+			"btn_dimensions_top_edit_(normal).png.dds",
+			"btn_dimensions_top_edit_(over).png.dds",
+			"btn_dimensions_top_edit_(click).png.dds",
+			"btn_dimensions_top_edit_(disabled).png.dds"
+			)
+		Dta.ui.buttonMainToggle:SetWidth(48)
+		Dta.ui.buttonMainToggle:SetHeight(48)
+		Dta.ui.buttonMainToggle:SetLayer(-1)
+		Dta.ui.buttonMainToggle:SetPoint("TOPLEFT", UIParent, "TOPLEFT", Dta.settings.get("MainbuttonPosX"), Dta.settings.get("MainbuttonPosY"))
+		Dta.ui.DraggableFrame.Setup(Dta.ui.buttonMainToggle, Dta.ui.buttonMainToggle, Dta.ui.MainButtonMoved, "Right")
+	end
+	Dta.ui.buttonMainToggle:SetVisible(true)
+end
+
+function Dta.ui.hideMainButton()
+	if Dta.ui.buttonMainToggle then
+		Dta.ui.buttonMainToggle:SetVisible(false)
+	end
+end
 -------------------------------
 -- BUILD THE DIMENSIONTOOLS MAINWINDOW
 -------------------------------

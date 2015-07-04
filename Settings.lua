@@ -19,6 +19,8 @@ Dta.settings.saveddefaults = {
 }
 Dta.settings.settings = {}
 Dta.settings.defaults = {
+	MainbuttonPosX = 10,
+	MainbuttonPosY = 100,
 	MainwindowPosX = 0,
 	MainwindowPosY = 32,
 	MovewindowPosX = 0,
