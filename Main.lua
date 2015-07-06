@@ -1,10 +1,10 @@
 local addon, Dta = ...
-local Lang = Dta.Lang
 
 --Addon information
 Dta.Version = addon.toc.Version --Inspect.Addon.Detail(Inspect.Addon.Current()).toc.Version
 Dta.Language = Inspect.System.Language()
-
+Dta.Lang = {}
+local Lang = Dta.Lang
 
 --Items
 Dta.selectedItems = {}
