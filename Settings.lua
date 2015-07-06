@@ -5,6 +5,11 @@ if not Lang[Dta.Language] then
 	Lang[Dta.Language] = Lang["English"]
 elseif Dta.Language ~= "English" then
 	setmetatable(Lang[Dta.Language], { __index = Lang["English"] })
+	for k, v in pairs(Lang[Dta.Language]) do
+		if type(v) == "table" then
+			setmetatable(v, { __index = Lang["English"][k] })
+		end
+	end
 end
 
 Dta.settings = {}
