@@ -50,6 +50,21 @@ function Dta.ui.checkNumber(n_str, default)
 	return n_val, n_val ~= nil
 end
 
+-------------------------------
+-- FOCUS CYCLING WITH [<Shift>]<Tab>
+-------------------------------
+
+function Dta.ui.ShiftKeyDownCallback(frame, hEvent, key)
+	if key == "Shift" then Dta.ui.isShiftPressed = true end
+end
+
+function Dta.ui.ShiftKeyUpCallback(frame, hEvent, key)
+	if key == "Shift" then Dta.ui.isShiftPressed = false end
+end
+
+UIParent:EventAttach(Event.UI.Input.Key.Down.Dive, Dta.ui.ShiftKeyDownCallback, "ShiftKeyDownSensor")
+UIParent:EventAttach(Event.UI.Input.Key.Up.Dive, Dta.ui.ShiftKeyUpCallback, "ShiftKeyUpSensor")
+
 function Dta.ui.AddFocusCycleElement(owner, frame)
 	if not owner.focusCycleList then
 		owner.focusCycleList = {}

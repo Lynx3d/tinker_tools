@@ -99,6 +99,15 @@ function Dta.copa_ui.buildCopyPasteWindow()
 	CopyPastewindow.copyPaste.Bank = Dta.ui.createCheckbox("copyPasteBank", CopyPastewindow.copyPaste, 120, 225, Lang[Dta.Language].Text.BankBags, false, nil)
 	CopyPastewindow.copyPaste.Bank:SetVisible(false)
 
+	Dta.ui.AddFocusCycleElement(CopyPastewindow, CopyPastewindow.copyPaste.xOffset)
+	Dta.ui.AddFocusCycleElement(CopyPastewindow, CopyPastewindow.copyPaste.yOffset)
+	Dta.ui.AddFocusCycleElement(CopyPastewindow, CopyPastewindow.copyPaste.zOffset)
+	Dta.ui.AddFocusCycleElement(CopyPastewindow, CopyPastewindow.copyPaste.yawOffset)
+	Dta.ui.AddFocusCycleElement(CopyPastewindow, CopyPastewindow.copyPaste.pitchOffset)
+	Dta.ui.AddFocusCycleElement(CopyPastewindow, CopyPastewindow.copyPaste.rollOffset)
+	Dta.ui.AddFocusCycleElement(CopyPastewindow, CopyPastewindow.copyPaste.scaleOffset)
+	CopyPastewindow:EventAttach(Event.UI.Input.Key.Up.Dive, Dta.ui.FocusCycleCallback, "CoPaWindow_TabFocusCycle")
+
 	-- TODO: temp fix for new window hierarchy
 	newWindow.copyPaste = CopyPastewindow.copyPaste
 	return newWindow
