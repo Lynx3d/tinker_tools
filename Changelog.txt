@@ -1,3 +1,9 @@
+Version 1.9.3
+- Copy&Paste window now supports <Tab> focus cycling too
+- <Shift><Tab> now cycles input fields in reverse order
+- Copy&Paste tool now allows pasting values of a single item to an
+  arbitrary selected item again, instead of enforcing identical types
+
 Version 1.9.1
 - New button to toggle the main UI; can be dragged with right mouse button
 - New copy&paste feature: When pasting new items, you can now use the
