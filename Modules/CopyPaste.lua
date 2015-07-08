@@ -76,6 +76,7 @@ function Dta.copa.pasteButtonClicked()
 		local ok, err = coroutine.resume(Dta.AddItem_Co, shoppingList, settings)
 		if not ok then dump(err) end
 	else
+		if Dta.clipboard.itemCount > 1 or settings.n_copies then
 			Dta.losa.ScanSelection(shoppingList)
 			local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
 			if missing then
@@ -86,7 +87,13 @@ function Dta.copa.pasteButtonClicked()
 				end
 				return
 			end
-			Dta.copa.pasteClipboard(shoppingList, settings)
+		else -- single item, ignore item type
+			if Dta.selectionCount == 0 then return end
+			local id = next(shoppingList)
+			shoppingList[id].shelf = { [next(Dta.selectedItems)] = 1 }
+			shoppingList[id].stock = 1
+		end
+		Dta.copa.pasteClipboard(shoppingList, settings)
 	end
 end
 

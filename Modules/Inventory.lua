@@ -5,7 +5,7 @@ list = { <type> = {	name = <item name>
 					amount = <required number>,
 					-- only ater ScanInventory():
 					stock = <total available>,
-					shelf = {	id = <stack size>, ... }
+					shelf = { <id> = <stack size>, ... }
 				  },
 		 ...
 		}
