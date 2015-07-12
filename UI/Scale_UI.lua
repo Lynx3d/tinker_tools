@@ -84,7 +84,7 @@ end
 
 -- Toggle the toolbox window
 function Dta.scale_ui.toggleScaleWindow()
-	if Dta.ui.windowScale then Dta.scale_ui.hideScaleWindow()
+	if Dta.ui.activeScale then Dta.scale_ui.hideScaleWindow()
 	else Dta.scale_ui.showScaleWindow() end
 end
 

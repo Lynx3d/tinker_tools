@@ -20,7 +20,7 @@ or may not become 2.0, depending on whether the addon name can be kept.
    the input fields with the <Tab> key
  * Several windows had layout optimizations
  * UI text now renders with a slight shadow for better readability
- * Window backgrounds are now "solid", i.e. you can't can't accudently click
+ * Window backgrounds are now "solid", i.e. you can't accidently click
    anything hidden below anymore
 - Rotate and Scale tools now support grouping multiple objects in relative mode
 - Right-clicking the item icon on the main UI now sets a map waypoint
