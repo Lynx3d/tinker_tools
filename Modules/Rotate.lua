@@ -24,9 +24,14 @@ function Dta.rotate.modifyRotationModeRelChanged()
 end
 
 function Dta.rotate.modifyRotationButtonClicked()
-	Dta.rotate.setItemRotations(Dta.ui.windowRotate.modifyRotation.yaw:GetText(),
-								Dta.ui.windowRotate.modifyRotation.pitch:GetText(),
-								Dta.ui.windowRotate.modifyRotation.roll:GetText(),
+	local pitch, pitch_ok = Dta.ui.checkNumber(Dta.ui.windowRotate.modifyRotation.pitch:GetText())
+	local yaw, yaw_ok = Dta.ui.checkNumber(Dta.ui.windowRotate.modifyRotation.yaw:GetText())
+	local roll, roll_ok = Dta.ui.checkNumber(Dta.ui.windowRotate.modifyRotation.roll:GetText())
+	if not (pitch_ok and yaw_ok and roll_ok) then
+		print(Lang[Dta.Language].Prints.NumbersOnly)
+		return
+	end
+	Dta.rotate.setItemRotations(yaw, pitch, roll,
 								Dta.ui.windowRotate.modifyRotation.modeRel:GetChecked(),
 								Dta.ui.windowRotate.modifyRotation.modeAsGrp:GetChecked())
 end
@@ -43,9 +48,9 @@ function Dta.rotate.setItemRotations(yaw, pitch, roll, relative, grouped)
 	if Dta.losa.tableLength(Dta.selectedItems) > 0 then
 		Dta.rotate.Co_RotateItem = coroutine.create(function ()
 			if relative and grouped then
-				yaw = math.rad(tonumber(yaw) or 0)
-				pitch = math.rad(tonumber(pitch) or 0)
-				roll = math.rad(tonumber(roll) or 0)
+				yaw = math.rad(yaw or 0)
+				pitch = math.rad(pitch or 0)
+				roll = math.rad(roll or 0)
 				local m_rot = Dta.Matrix.createZYX(pitch, yaw, roll, true)
 				for k, details in pairs(Dta.selectedItems) do
 					Dta.rotate.rotateRelative(details, m_rot, Dta.selectionCount > 1)
@@ -82,43 +87,21 @@ end
 function Dta.rotate.setItemRotation(index, yaw, pitch, roll, relative)
 	if Dta.selectedItems[index] ~= nil then
 		local newPlacement = {}
-		if relative ~= nil and relative then
-			if yaw == nil or yaw == "" or not yaw then yaw = 0 end
-			if pitch == nil or pitch == "" or not pitch then pitch = 0 end
-			if roll == nil or roll == "" or not roll then roll = 0 end
+		if relative then
+			newPlacement.pitch =  Dta.selectedItems[index].pitch
+			newPlacement.yaw = Dta.selectedItems[index].yaw
+			newPlacement.roll = Dta.selectedItems[index].roll
 
-			if not tonumber(yaw) or
-			   not tonumber(pitch) or
-			   not tonumber(roll) then
-				print(Lang[Dta.Language].Prints.NumbersOnly)
-				return
-			end
-
-			yaw = Dta.items.toRadians(yaw)
-			pitch = Dta.items.toRadians(pitch)
-			roll = Dta.items.toRadians(roll)
-
-			newPlacement = {RotPitch = Dta.selectedItems[index].pitch + tonumber(pitch), RotYaw = Dta.selectedItems[index].yaw + tonumber(yaw), RotRoll = Dta.selectedItems[index].roll + tonumber(roll)}
+			if pitch then newPlacement.pitch = newPlacement.pitch + math.rad(pitch) end
+			if yaw then newPlacement.yaw = newPlacement.yaw + math.rad(yaw) end
+			if roll then newPlacement.roll = newPlacement.roll + math.rad(roll) end
 		else
-			if yaw == nil or yaw == "" or not yaw then yaw = Dta.selectedItems[index].yaw end
-			if pitch == nil or pitch == "" or not pitch then pitch = Dta.selectedItems[index].pitch end
-			if roll == nil or roll == "" or not roll then roll = Dta.selectedItems[index].roll end
-
-			if not tonumber(yaw) or
-			   not tonumber(pitch) or
-			   not tonumber(roll) then
-				print(Lang[Dta.Language].Prints.NumbersOnly)
-				return
-			end
-
-			yaw = Dta.items.toRadians(yaw)
-			pitch = Dta.items.toRadians(pitch)
-			roll = Dta.items.toRadians(roll)
-
-			newPlacement = {RotPitch = tonumber(pitch), RotYaw = tonumber(yaw), RotRoll = tonumber(roll)}
+			newPlacement.pitch = pitch and math.rad(pitch) or Dta.selectedItems[index].pitch
+			newPlacement.yaw = yaw and math.rad(yaw) or Dta.selectedItems[index].yaw
+			newPlacement.roll = roll and math.rad(roll) or Dta.selectedItems[index].roll
 		end
 
-		Dta.items.QueueRotate(Dta.selectedItems[index].id, newPlacement.RotPitch, newPlacement.RotRoll, newPlacement.RotYaw)
+		Dta.items.QueueRotate(Dta.selectedItems[index].id, newPlacement.pitch, newPlacement.roll, newPlacement.yaw)
 	else
 		print(Lang[Dta.Language].Prints.ModifyRotation)
 	end
