@@ -118,9 +118,9 @@ end
 -- Hide the toolbox window
 function Dta.losa_ui.hideLoSaWindow()
 	Dta.ui.windowLoSa:SetVisible(false)
-	Dta.ui.windowLoSa.constructions.nameLoad:SetEnabled(false)
+--	Dta.ui.windowLoSa.constructions.nameLoad:SetEnabled(false)
 --	Dta.ui.windowLoSa = nil
-	Dta.ui.loadLoSa = "Default"
+--	Dta.ui.loadLoSa = "Default"
 	--Dta.constructions = {}
 	--Dta.constructionsdefaults = {}
 	Dta.ui.activeLoSa = false
