@@ -433,7 +433,7 @@ function Dta.ui.buildMainWindow()
 		"btn_dimensions_top_help_(normal).png.dds",
 		"btn_dimensions_top_help_(over).png.dds",
 		"btn_dimensions_top_help_(click).png.dds")
-	newWindow.help:SetPoint("TOPLEFT", newWindow, "TOPRIGHT", -70, -5)
+	newWindow.help:SetPoint("TOPRIGHT", newWindow.closeBtn, "TOPLEFT", 0, -1)
 	newWindow.help:SetWidth(36)
 	newWindow.help:SetHeight(36)
 	newWindow.help:SetLayer(11)
