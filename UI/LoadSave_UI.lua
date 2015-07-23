@@ -50,6 +50,7 @@ function Dta.losa_ui.buildLoSaWindow()
 	LoSawindow.constructions.nameLabel = Dta.ui.createText("constructionsNameLabel", LoSawindow.constructions, 0, 0, Lang[Dta.Language].Text.Name, 14)
 	LoSawindow.constructions.name = Dta.ui.createTextfield("constructionsName", LoSawindow.constructions, 55, 0, 245)
 	LoSawindow.constructions.save = Dta.ui.createButton("constructionsSave", LoSawindow.constructions, 0, 25, nil, nil, Lang[Dta.Language].Buttons.SaveSet, nil, Dta.losa.constructionSaveClicked)
+	LoSawindow.constructions.ImpExpBtn = Dta.ui.createButton("constructionsImpExpBtn", LoSawindow.constructions, 145, 25, 160, nil, Lang[Dta.Language].Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
 
 	LoSawindow.divider5 = Dta.ui.createTexture("divider5", LoSawindow, "Dimtools", "textures/divider.png", 10, 70, LoSawindow:GetWidth()-10)
 	LoSawindow.divider5:SetLayer(29)
