@@ -377,12 +377,16 @@ function Dta.ui.buildMainWindow()
 	--ITEM DETAILS
 	-------------------------------
 
-	Mainwindow.itemDetails = Dta.ui.createFrame("itemDetails", Mainwindow, 10, 10, Mainwindow:GetWidth()-20, Mainwindow:GetHeight()-20)
+	Mainwindow.itemDetails = Dta.ui.createFrame("itemDetails", Mainwindow, 10, 13, Mainwindow:GetWidth()-20, Mainwindow:GetHeight()-20)
 	Mainwindow.itemDetails:SetLayer(30)
 	--Mainwindow.itemDetails:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
 	Mainwindow.itemDetails.icon = Dta.ui.createIcon("itemDetailsIcon", Mainwindow.itemDetails, nil, 0, 0, 25)
-	Mainwindow.itemDetails.name = Dta.ui.createText("itemDetailsName", Mainwindow.itemDetails, 30, 0, Lang[Dta.Language].Text.NothingSelected, 18)
+	Mainwindow.itemDetails.name = Dta.ui.createText("itemDetailsName", Mainwindow.itemDetails, 30, 0, Lang[Dta.Language].Text.NothingSelected, 16)
+	Mainwindow.itemDetails.name:SetWidth(280)
+	Mainwindow.itemDetails.name:SetWordwrap(true)
+	Mainwindow.itemDetails.name:ClearPoint("TOPLEFT")
+	Mainwindow.itemDetails.name:SetPoint("CENTERLEFT", Mainwindow.itemDetails, "TOPLEFT", 30, 12)
 	Mainwindow.itemDetails.icon:EventAttach(Event.UI.Input.Mouse.Right.Click,
 		function(self, h)
 			if Dta.selectionCount > 0 then Command.Map.Waypoint.Set(Dta.selectionCenter.x, Dta.selectionCenter.z) end
