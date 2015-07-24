@@ -1,3 +1,10 @@
+Version 1.9.4
+- Moved Import/Export button to Load/Save window
+- Main window is now more compact
+- Fixed several UI bugs
+- Fixed rotate tool incorrectly converting values to radian which already
+  are in radian
+
 Version 1.9.3
 - Copy&Paste window now supports <Tab> focus cycling too
 - <Shift><Tab> now cycles input fields in reverse order
