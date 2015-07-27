@@ -290,17 +290,36 @@ function Dta.copa.pasteArray(clipboard, shoppingList, settings, new_items)
 	end
 end
 
+-- selectively copy items values
+function Dta.copa.genNewDetails(details, settings)
+	local new_details = { type = details.type }
+	local copa_ui = Dta.ui.windowCopyPaste.copyPaste
+	new_details.coordX = copa_ui.x:GetChecked() and details.coordX + settings.coordX or nil
+	new_details.coordY = copa_ui.y:GetChecked() and details.coordY + settings.coordY or nil
+	new_details.coordZ = copa_ui.z:GetChecked() and details.coordZ + settings.coordZ or nil
+	new_details.pitch = copa_ui.pitch:GetChecked() and details.pitch + settings.pitch or nil
+	new_details.yaw = copa_ui.yaw:GetChecked() and details.yaw + settings.yaw or nil
+	new_details.roll = copa_ui.roll:GetChecked() and details.roll + settings.roll or nil
+	new_details.scale = copa_ui.scale:GetChecked() and details.scale + settings.scale or nil
+	return new_details
+end
+
 function Dta.copa.pasteClipboard(shoppingList, settings)
 	if settings.n_copies then
 		Dta.copa.pasteArray(Dta.clipboard.items, shoppingList, settings, settings.new_items)
 	elseif Dta.clipboard.itemCount > 1 or settings.selection_pivot then
 		Dta.copa.pasteSet(Dta.clipboard.items, shoppingList, settings, settings.new_items)
 	else
-		local new_details = copyTable(Dta.clipboard.items[1])
-		for k, v in pairs(new_details) do
-			if type(settings[k]) == "number" then
-				new_details[k] = v + settings[k]
+		local new_details
+		if settings.new_items then
+			new_details = copyTable(Dta.clipboard.items[1])
+			for k, v in pairs(new_details) do
+				if type(settings[k]) == "number" then
+					new_details[k] = v + settings[k]
+				end
 			end
+		else
+			new_details  = Dta.copa.genNewDetails(Dta.clipboard.items[1], settings)
 		end
 		Dta.copa.pasteSingleItem(new_details, shoppingList, settings.new_items)
 	end
