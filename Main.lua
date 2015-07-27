@@ -324,6 +324,8 @@ function Dta.commandHandler(hEvent, command)
 			Dta.settings.set("WindowStyle", "classic")
 			print("Window Style is now \"classic\"")
 		end
+	elseif command == "force" then
+		EnterDimension()
 	else
 		if Dta.InDimension == true then
 			Dta.ui.toggleMainWindow()
