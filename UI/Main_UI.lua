@@ -158,6 +158,16 @@ function Dta.ui.createTextfield(name, parent, x, y, width, text)
 	return textfield
 end
 
+-- checkbox helper function
+function Dta.ui.checkboxSetEnabled(self, enabled)
+	if enabled then
+		self.textFrame:SetAlpha(1)
+	else
+		self.textFrame:SetAlpha(0.5)
+	end
+	self:SetEnabled(enabled)
+end
+
 -- create checkbox
 function Dta.ui.createCheckbox(name, parent, x, y, text, checked, fontColor, checkChangedCallback)
 	local checkbox = UI.CreateFrame("RiftCheckbox", name, parent)
@@ -165,6 +175,7 @@ function Dta.ui.createCheckbox(name, parent, x, y, text, checked, fontColor, che
 	if checked ~= nil then checkbox:SetChecked(checked) end
 
 	checkbox.textFrame = Dta.ui.createText(name .. "TextFrame", checkbox, 15, -2, text, 14, fontColor)
+	checkbox.CBSetEnabled = Dta.ui.checkboxSetEnabled
 
 	function checkbox.textFrame.Event:LeftClick()
 		checkbox:SetChecked(not checkbox:GetChecked())
