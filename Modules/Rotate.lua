@@ -10,6 +10,7 @@ Dta.rotate = {}
 function Dta.rotate.modifyRotationModeAbsChanged()
 	if Dta.ui.windowRotate.modifyRotation.modeAbs:GetChecked() then
 		Dta.ui.windowRotate.modifyRotation.modeRel:SetChecked(false)
+		Dta.ui.windowRotate.modifyRotation.modeAsGrp:CBSetEnabled(false)
 	elseif not Dta.ui.windowRotate.modifyRotation.modeRel:GetChecked() then
 		Dta.ui.windowRotate.modifyRotation.modeAbs:SetChecked(true)
 	end
@@ -18,6 +19,7 @@ end
 function Dta.rotate.modifyRotationModeRelChanged()
 	if Dta.ui.windowRotate.modifyRotation.modeRel:GetChecked() then
 		Dta.ui.windowRotate.modifyRotation.modeAbs:SetChecked(false)
+		Dta.ui.windowRotate.modifyRotation.modeAsGrp:CBSetEnabled(true)
 	elseif not Dta.ui.windowRotate.modifyRotation.modeAbs:GetChecked() then
 		Dta.ui.windowRotate.modifyRotation.modeRel:SetChecked(true)
 	end

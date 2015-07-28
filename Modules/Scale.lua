@@ -10,6 +10,7 @@ Dta.scale = {}
 function Dta.scale.modifyScaleModeAbsChanged()
 	if Dta.ui.windowScale.modifyScale.modeAbs:GetChecked() then
 		Dta.ui.windowScale.modifyScale.modeRel:SetChecked(false)
+		Dta.ui.windowScale.modifyScale.modeGrp:CBSetEnabled(false)
 	elseif not Dta.ui.windowScale.modifyScale.modeRel:GetChecked() then
 		Dta.ui.windowScale.modifyScale.modeAbs:SetChecked(true)
 	end
@@ -18,6 +19,7 @@ end
 function Dta.scale.modifyScaleModeRelChanged()
 	if Dta.ui.windowScale.modifyScale.modeRel:GetChecked() then
 		Dta.ui.windowScale.modifyScale.modeAbs:SetChecked(false)
+		Dta.ui.windowScale.modifyScale.modeGrp:CBSetEnabled(true)
 	elseif not Dta.ui.windowScale.modifyScale.modeAbs:GetChecked() then
 		Dta.ui.windowScale.modifyScale.modeRel:SetChecked(true)
 	end
