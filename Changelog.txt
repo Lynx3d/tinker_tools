@@ -1,3 +1,12 @@
+Version 1.9.5
+- Fix copy&paste tool to properly ignore disabled values when pasting
+  values to an arbitrary selected item
+- Add /DT force command to enable UI in case dimension detection fails
+- More UI tweaking:
+  * redone scale window layout to match rotate/scale
+  * make enabled/disabled checkboxes more easily distinguishable
+  * minor tweaking on positions and labels
+
 Version 1.9.4
 - Moved Import/Export button to Load/Save window
 - Main window is now more compact
