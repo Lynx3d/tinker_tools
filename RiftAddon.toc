@@ -72,6 +72,7 @@ RunOnStartup = {
   "Language/Language_French.lua",
 
   "Defaults/Default_LoadSave.lua",
+  "Defaults/Default_ItemDB.lua",
   "Defaults/Default_Skins.lua",
   "Defaults/Default_Alphabet.lua",
 
