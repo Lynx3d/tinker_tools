@@ -300,7 +300,7 @@ function Dta.copa.genNewDetails(details, settings)
 	new_details.pitch = copa_ui.pitch:GetChecked() and details.pitch + settings.pitch or nil
 	new_details.yaw = copa_ui.yaw:GetChecked() and details.yaw + settings.yaw or nil
 	new_details.roll = copa_ui.roll:GetChecked() and details.roll + settings.roll or nil
-	new_details.scale = copa_ui.scale:GetChecked() and details.scale + settings.scale or nil
+	new_details.scale = copa_ui.scale:GetChecked() and details.scale + (settings.scale or 0) or nil
 	return new_details
 end
 
