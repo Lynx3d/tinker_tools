@@ -4,149 +4,128 @@ local Lang = Dta.Lang
 Dta.measurements = {}
 
 Dta.measurements.TypeIndex = {
-		"Poles",
-		"Cubes",
-		"Tiles",
-		"Planks",
-		"Rectangles"
-	}
+	"Cubes",
+	"Planks",
+	"Poles",
+	"Rectangles",
+	"Tiles"
+}
 
 Dta.measurements.OrientationIndex = {
-		"Default",
-		"Yaw 90",
-		"Pitch 90",
-		"Roll 90"
-	}
+	"Default",
+	"Pitch 90",
+	"Yaw 90",
+	"Roll 90",
+	"Pitch & Yaw 90",
+	"Pitch & Roll 90"
+}
+
+Dta.measurements.OrientationAxisMap = {
+	{ "x", "y", "z" }, -- Default
+	{ "x", "z", "y" }, -- Pitch 90
+	{ "z", "y", "x" }, -- Yaw 90
+	{ "y", "x", "z" }, -- Roll 90
+	{ "z", "x", "y" }, -- Pitch & Yaw 90
+	{ "y", "z", "x" }  -- Pitch & Roll 90
+}
+
+Dta.measurements.Dimensions = {
+	{ x = 0.75, y = 0.75, z = 0.75, minScale = 0.25, maxScale = 5 }, -- Cube
+	{ x = 2.25, y = 0.05, z = 0.25, minScale = 0.25, maxScale = 6 }, -- Plank
+	{ x = 0.125, y = 1, z = 0.125, minScale = 0.25, maxScale = 12 }, -- Pole
+	{ x = 1.125, y = 0.0375, z = 0.75, minScale = 0.25, maxScale = 12 }, -- Rectangle
+	{ x = 0.75, y = 0.0375, z = 0.75, minScale = 0.25, maxScale = 12 } -- Tile
+}
 
 function Dta.measurements.CalculationsClicked()
-	local Size = Dta.ui.windowMeasurements.Measurements.Size:GetText()
-	local Type = Dta.ui.windowMeasurements.Measurements.TypeLoad:GetSelectedItem()
-	local Orientation = Dta.ui.windowMeasurements.Measurements.OrientationLoad:GetSelectedItem()
+	local size = Dta.ui.windowMeasurements.Measurements.Size:GetText()
+	local shape = Dta.ui.windowMeasurements.Measurements.TypeLoad:GetSelectedIndex()
+	local orientation = Dta.ui.windowMeasurements.Measurements.OrientationLoad:GetSelectedIndex()
 
-	if Type == nil or Type == "" then
+	if not shape then
 		return print(Lang[Dta.Language].Prints.SelectType)
 	end
 
-	if Orientation == nil or Orientation == "" then
+	if not orientation then
 		return print(Lang[Dta.Language].Prints.SelectOrientation)
 	end
 
-	if Size == nil or Size == "" then
+	local scale, scale_ok = Dta.ui.checkNumber(size, nil)
+	if not scale or not scale_ok then
 		return print(Lang[Dta.Language].Prints.TypeSize)
-	else
-		local NrSize = tonumber(Size)
-		if Type == "Poles" then
-			if NrSize > 12 or NrSize < 0.25 then
-				return print(Lang[Dta.Language].Prints.SizeC)
-			else
-				if Orientation == "Default" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/8 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/8 ,4)))
-				elseif Orientation == "Yaw 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/8 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/8 ,4)))
-				elseif Orientation == "Pitch 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/8 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/8 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize ,4)))
-				elseif Orientation == "Roll 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/8 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/8 ,4)))
-				end
-			end
-		elseif Type == "Cubes" then
-			if NrSize > 5 or NrSize < 0.25 then
-				return print(Lang[Dta.Language].Prints.SizeA)
-			else
-				if Orientation == "Default" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/10*7.5 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/10*7.5 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/10*7.5 ,4)))
-				elseif Orientation == "Yaw 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/10*7.5 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/10*7.5 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/10*7.5 ,4)))
-				elseif Orientation == "Pitch 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/10*7.5 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/10*7.5 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/10*7.5 ,4)))
-				elseif Orientation == "Roll 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/10*7.5 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/10*7.5 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/10*7.5 ,4)))
-				end
-			end
-		elseif Type == "Tiles" then
-			if NrSize > 12 or NrSize < 0.25 then
-				return print(Lang[Dta.Language].Prints.SizeC)
-			else
-				if Orientation == "Default" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/4*3 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/100*3.75 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/4*3 ,4)))
-				elseif Orientation == "Yaw 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/4*3 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/100*3.75 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/4*3 ,4)))
-				elseif Orientation == "Pitch 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/4*3 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/4*3 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/100*3.75 ,4)))
-				elseif Orientation == "Roll 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/100*3.75 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/4*3 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/4*3 ,4)))
-				end
-			end
-		elseif Type == "Planks" then
-			if NrSize > 6 or NrSize < 0.25 then
-				return print(Lang[Dta.Language].Prints.SizeB)
-			else
-				if Orientation == "Default" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize*2.25 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/20 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/4 ,4)))
-				elseif Orientation == "Yaw 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/4 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/20 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize*2.25 ,4)))
-				elseif Orientation == "Pitch 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize*2.25 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/4 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/20 ,4)))
-				elseif Orientation == "Roll 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/20 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize*2.25 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/4 ,4)))
-				end
-			end
-		elseif Type == "Rectangles" then
-			if NrSize > 12 or NrSize < 0.25 then
-				return print(Lang[Dta.Language].Prints.SizeC)
-			else
-				if Orientation == "Default" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize*1.125 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/100*3.75 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/4*3 ,4)))
-				elseif Orientation == "Yaw 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/4*3 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/100*3.75 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize*1.125 ,4)))
-				elseif Orientation == "Pitch 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize*1.125 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize/4*3 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/100*3.75 ,4)))
-				elseif Orientation == "Roll 90" then
-					Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(NrSize/100*3.75 ,4)))
-					Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(NrSize*1.125 ,4)))
-					Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(NrSize/4*3 ,4)))
-				end
-			end
-		end
 	end
 
+	local dims = Dta.measurements.Dimensions[shape]
+	if scale > dims.maxScale or scale < dims.minScale then
+		return print(Lang[Dta.Language].Prints.SizeC)
+	end
 
+	local axisMap = Dta.measurements.OrientationAxisMap[orientation]
+	Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(scale * dims[axisMap[1]], 4)))
+	Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(scale * dims[axisMap[2]], 4)))
+	Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(scale * dims[axisMap[3]], 4)))
+end
+
+local half_pi = 0.5 * math.pi
+
+function Dta.measurements.IsEqual(a, b)
+	return math.abs(a - b) < 1e-5
+end
+
+function Dta.measurements.IsAxisAligned(val)
+	return Dta.measurements.IsEqual(val, 0) or Dta.measurements.IsEqual(val, math.pi)
+			or Dta.measurements.IsEqual(val, math.pi)
+end
+
+function Dta.measurements.IsOrthogonal(val)
+	return Dta.measurements.IsEqual(val, half_pi) or Dta.measurements.IsEqual(val, -half_pi)
+end
+
+function Dta.measurements.DetectClicked()
+	if Dta.selectionCount == 0 then return end
+	local _, details = next(Dta.selectedItems)
+	local entry = Dta.Defaults.ItemDB[details.type]
+	if entry then
+		if entry.shape == "cube" then
+			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(1)
+		elseif entry.shape == "plank" then
+			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(2)
+		elseif entry.shape == "pole" then
+			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(3)
+		elseif entry.shape == "rectangle" then
+			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(4)
+		elseif entry.shape == "tile" then
+			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(5)
+		end
+		-- orientation
+		if Dta.measurements.IsAxisAligned(details.yaw) then
+			if Dta.measurements.IsAxisAligned(details.pitch) then
+				if Dta.measurements.IsAxisAligned(details.roll) then
+					-- default
+					Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(1)
+				elseif Dta.measurements.IsOrthogonal(details.roll) then
+					-- roll 90°
+					Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(4)
+				end
+			elseif Dta.measurements.IsOrthogonal(details.pitch) then
+				if Dta.measurements.IsAxisAligned(details.roll) then
+					-- pitch 90°
+					Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(2)
+				elseif Dta.measurements.IsOrthogonal(details.roll) then
+					-- pitch 90° + roll 90°
+					Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(6)
+				end
+			end
+		elseif Dta.measurements.IsOrthogonal(details.yaw) then
+			-- gimbal lock, roll should be zero because effect is identical to pitch
+			if Dta.measurements.IsAxisAligned(details.pitch) then
+				-- yaw 90°
+				Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(3)
+			elseif Dta.measurements.IsOrthogonal(details.pitch) then
+				-- yaw 90° + pitch/roll 90°
+				Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(5)
+			end
+		end
+		Dta.ui.windowMeasurements.Measurements.Size:SetText(tostring(details.scale))
+	end
 end

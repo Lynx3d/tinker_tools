@@ -71,6 +71,7 @@ function Dta.measurements_ui.buildMeasurementsWindow()
 	Measurementswindow.Measurements.Size = Dta.ui.createTextfield("MeasurementsSize", Measurementswindow.Measurements, 80, 60, 50)
 
 	Measurementswindow.Measurements.Calculate = Dta.ui.createButton("MeasurementsCalculate", Measurementswindow.Measurements, 165, 55, nil, nil, Lang[Dta.Language].Buttons.Calculate, nil, Dta.measurements.CalculationsClicked)
+	Measurementswindow.Measurements.Detect = Dta.ui.createButton("MeasurementsDetect", Measurementswindow.Measurements, 165, 145, nil, nil, Lang[Dta.Language].Buttons.Detect, nil, Dta.measurements.DetectClicked)
 
 	Measurementswindow.Divider1 = Dta.ui.createTexture("MeasurementsDivider1", Measurementswindow, "Dimtools", "textures/divider.png", 20, 100, Measurementswindow:GetWidth()-40)
 	Measurementswindow.Divider1:SetLayer(29)
@@ -94,6 +95,8 @@ function Dta.measurements_ui.showMeasurementsWindow()
 		Dta.ui.windowMeasurements = Dta.measurements_ui.buildMeasurementsWindow()
 	else
 		Dta.ui.windowMeasurements:SetVisible(true)
+		Dta.ui.windowMeasurements.Measurements.TypeLoad:SetEnabled(true)
+		Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetEnabled(true)
 	end
 	Dta.ui.activeMeasurements = true
 end
@@ -101,6 +104,7 @@ end
 -- Hide the toolbox window
 function Dta.measurements_ui.hideMeasurementsWindow()
 	Dta.ui.windowMeasurements:SetVisible(false)
+	-- workaround for dropdown not closing automatically
 	Dta.ui.windowMeasurements.Measurements.TypeLoad:SetEnabled(false)
 	Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetEnabled(false)
 --	Dta.ui.windowMeasurements = nil

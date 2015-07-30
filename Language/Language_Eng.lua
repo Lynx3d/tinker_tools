@@ -461,6 +461,7 @@ Lang["English"].Buttons.Reset = "Reset"
 Lang["English"].Buttons.Rotate = "Rotate"
 Lang["English"].Buttons.Scale = "Scale"
 Lang["English"].Buttons.Calculate = "Calculate"
+Lang["English"].Buttons.Detect = "Detect"
 Lang["English"].Buttons.LoadWord = "Load Word"
 
 ----------------------------------------
