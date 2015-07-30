@@ -1,3 +1,10 @@
+Version 1.9.6
+- Re-implemenent Offset Calc Tool
+  * add two missing orientations, now covers all 6 possible axis permutations
+  * implement auto-detection of selected building block
+    note: the internal database is not yet complete
+- Fix another copy&paste bug causing Lua errors
+
 Version 1.9.5
 - Fix copy&paste tool to properly ignore disabled values when pasting
   values to an arbitrary selected item
