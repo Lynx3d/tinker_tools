@@ -174,7 +174,9 @@ function Dta.items.DeselectAll()
 end
 
 function Dta.items.round(num, dp)
-	return tonumber(string.format("%." .. (dp or 0) .. "f", num))
+	local mult = 10^(dp or 0)
+	if num >= 0 then return math.floor(num * mult + 0.5) / mult end
+	return math.ceil(num * mult - 0.5) / mult
 end
 
 function Dta.items.toRadians(num)
