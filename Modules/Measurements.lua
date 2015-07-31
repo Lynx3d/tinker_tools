@@ -74,7 +74,7 @@ end
 
 function Dta.measurements.IsAxisAligned(val)
 	return Dta.measurements.IsEqual(val, 0) or Dta.measurements.IsEqual(val, math.pi)
-			or Dta.measurements.IsEqual(val, math.pi)
+			or Dta.measurements.IsEqual(val, -math.pi)
 end
 
 function Dta.measurements.IsOrthogonal(val)
