@@ -77,13 +77,17 @@ function Dta.ui.AddFocusCycleElement(owner, frame)
 end
 
 function Dta.ui.FocusCycleCallback(frame, hEvent, key)
+	local target = hEvent:GetTarget()
 	-- apparently you can't get a reference to the "owner" frame to which this dive handler
 	-- gets attached, instead the "frame" passed is the the target frames (a cycle list entry).
 	-- i.e. frame and hEvent:GetTarget() are identical, which is weird
-	if key ~= "Tab" or not frame.focusCycleList then
+	if key == "Return" then
+		target:SetKeyFocus(false)
+		return
+	elseif key ~= "Tab" or not frame.focusCycleList then
 		return
 	end
-	local target = hEvent:GetTarget()
+
 	local idx = target.focusCycleIndex
 	if not idx then
 		return
