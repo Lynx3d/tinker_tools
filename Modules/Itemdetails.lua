@@ -56,6 +56,19 @@ end
 --ITEM UPDATE
 --------------------------------------
 
+-- Rift API is currently bugged, gimbal lock handling gives Pitch value the wrong sign.
+-- Apparently values are not stored as pitch/yaw/roll internally, but we don't have
+-- access to internal representation, unfortunately
+function Dta.items.fixRotation(details)
+	if Dta.measurements.IsOrthogonal(details.yaw) then
+		details.pitch = -details.pitch
+	end
+	-- TODO: find way to cleanup pitch/roll effectively flipping item ontop and back
+	-- to keep -90° < yaw < 90°. While that's a valid way to handle it, I find it
+	-- rather unintuitive to work with, especially when pitch+roll are +/- 180°
+	-- would affect rotate tool with empty fields though
+end
+
 function Dta.items.updateItemDetails()
 	if Dta.ui.windowtest ~= nil then
 		if Dta.losa.tableLength(Dta.selectedItems) > 0 then
@@ -122,6 +135,7 @@ function Dta.items.updateSelection(dimensionItem, delete)
 			local detail = Inspect.Dimension.Layout.Detail(id)
 			if detail ~= nil then
 				if detail.selected then
+					Dta.items.fixRotation(detail)
 					Dta.selectedItems[id] = detail
 					--print("Selected: " .. detail.name .. ", ID:" .. detail.id)
 				else
