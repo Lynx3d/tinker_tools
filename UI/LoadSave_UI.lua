@@ -112,6 +112,7 @@ function Dta.losa_ui.showLoSaWindow()
 		Dta.ui.windowLoSa = Dta.losa_ui.buildLoSaWindow()
 	else
 		Dta.ui.windowLoSa:SetVisible(true)
+		Dta.ui.windowLoSa.constructions.nameLoad:SetEnabled(true)
 	end
 	Dta.ui.activeLoSa = true
 end
@@ -119,7 +120,7 @@ end
 -- Hide the toolbox window
 function Dta.losa_ui.hideLoSaWindow()
 	Dta.ui.windowLoSa:SetVisible(false)
---	Dta.ui.windowLoSa.constructions.nameLoad:SetEnabled(false)
+	Dta.ui.windowLoSa.constructions.nameLoad:SetEnabled(false)
 --	Dta.ui.windowLoSa = nil
 --	Dta.ui.loadLoSa = "Default"
 	--Dta.constructions = {}
