@@ -42,6 +42,27 @@ function Dta.rotate.modifyRotationResetButtonClicked()
 	Dta.rotate.resetItemRotations()
 end
 
+function Dta.rotate.fetchPitchButtonClicked()
+	if Dta.selectionCount == 1 then
+		local id, item = next(Dta.selectedItems)
+		Dta.ui.windowRotate.modifyRotation.pitch:SetText(tostring(Dta.items.round(math.deg(item.pitch), 4)))
+	end
+end
+
+function Dta.rotate.fetchYawButtonClicked()
+	if Dta.selectionCount == 1 then
+		local id, item = next(Dta.selectedItems)
+		Dta.ui.windowRotate.modifyRotation.yaw:SetText(tostring(Dta.items.round(math.deg(item.yaw), 4)))
+	end
+end
+
+function Dta.rotate.fetchRollButtonClicked()
+	if Dta.selectionCount == 1 then
+		local id, item = next(Dta.selectedItems)
+		Dta.ui.windowRotate.modifyRotation.roll:SetText(tostring(Dta.items.round(math.deg(item.roll), 4)))
+	end
+end
+
 --------------------------------------
 --ROTATE ITEMS (NO GROUP ROTATION YET)
 --------------------------------------

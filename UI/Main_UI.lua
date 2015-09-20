@@ -162,6 +162,22 @@ function Dta.ui.createTextfield(name, parent, x, y, width, text)
 	return textfield
 end
 
+-- create reload button to accompany certain textfields
+function Dta.ui.createReloadButton(name, parent, x, y, callback)
+	local reloadBtn = Dta.ui.Button.Create(name, parent, callback,
+			"textures/reload_btn_normal.png",
+			"textures/reload_btn_over.png",
+			"textures/reload_btn_click.png",
+			"textures/reload_btn_disable.png",
+			"Dimtools"
+			)
+	reloadBtn:SetWidth(20)
+	reloadBtn:SetHeight(20)
+	reloadBtn:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
+	reloadBtn:SetBackgroundColor(0, 0, 0, 0.55)
+	return reloadBtn
+end
+
 -- checkbox helper function
 function Dta.ui.checkboxSetEnabled(self, enabled)
 	if enabled then

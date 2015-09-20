@@ -57,6 +57,10 @@ function Dta.move_ui.buildMoveWindow()
 	Movewindow.modifyPosition.y = Dta.ui.createTextfield("modifyPositionY", Movewindow.modifyPosition, 20, 25, 105)
 	Movewindow.modifyPosition.z = Dta.ui.createTextfield("modifyPositionZ", Movewindow.modifyPosition, 20, 50, 105)
 
+	Movewindow.modifyPosition.fetchX = Dta.ui.createReloadButton("fetchX", Movewindow.modifyPosition, 125, 0, Dta.move.fetchXButtonClicked)
+	Movewindow.modifyPosition.fetchY = Dta.ui.createReloadButton("fetchY", Movewindow.modifyPosition, 125, 25, Dta.move.fetchYButtonClicked)
+	Movewindow.modifyPosition.fetchZ = Dta.ui.createReloadButton("fetchZ", Movewindow.modifyPosition, 125, 50, Dta.move.fetchZButtonClicked)
+
 	Movewindow.modifyPosition.modeAbs = Dta.ui.createCheckbox("modifyPositionModeAbs", Movewindow.modifyPosition, 160, 5, Lang[Dta.Language].Text.Absolute, true, nil, Dta.move.modifyPositionModeAbsChanged)
 	Movewindow.modifyPosition.modeRel = Dta.ui.createCheckbox("modifyPositionModeRel", Movewindow.modifyPosition, 160, 45, Lang[Dta.Language].Text.Relative, false, nil, Dta.move.modifyPositionModeRelChanged)
 

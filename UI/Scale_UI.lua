@@ -51,6 +51,7 @@ function Dta.scale_ui.buildScaleWindow()
 	Scalewindow.modifyScale.label = Dta.ui.createText("modifyScaleLabel", Scalewindow.modifyScale, 0, 25, Lang[Dta.Language].Text.Scale, 14)
 
 	Scalewindow.modifyScale.scale = Dta.ui.createTextfield("modifyScaleScale", Scalewindow.modifyScale, 45, 25, 80)
+	Scalewindow.modifyScale.fetchScale = Dta.ui.createReloadButton("fetchScale", Scalewindow.modifyScale, 125, 25, Dta.scale.fetchScaleButtonClicked)
 
 	Scalewindow.modifyScale.modeAbs = Dta.ui.createCheckbox("modifyScaleModeAbs", Scalewindow.modifyScale, 160, 5, Lang[Dta.Language].Text.Absolute, true, nil, Dta.scale.modifyScaleModeAbsChanged)
 	Scalewindow.modifyScale.modeRel = Dta.ui.createCheckbox("modifyScaleModeRel", Scalewindow.modifyScale, 160, 25, Lang[Dta.Language].Text.Relative, false, nil, Dta.scale.modifyScaleModeRelChanged)

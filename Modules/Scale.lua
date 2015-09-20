@@ -35,6 +35,13 @@ function Dta.scale.modifyScaleResetButtonClicked()
 	Dta.scale.resetItemScales()
 end
 
+function Dta.scale.fetchScaleButtonClicked()
+	if Dta.selectionCount == 1 then
+		local id, item = next(Dta.selectedItems)
+		Dta.ui.windowScale.modifyScale.scale:SetText(tostring(Dta.items.round(item.scale, 4)))
+	end
+end
+
 --------------------------------------
 --SCALE ITEMS
 --------------------------------------
