@@ -4,6 +4,8 @@ local Lang = Dta.Lang
 Dta.ui = {}
 
 Dta.ui.context = UI.CreateContext("Dta")
+Dta.ui.context_top = UI.CreateContext("Dta_Top")
+Dta.ui.context_top:SetStrata("topmost")
 Dta.ui.windowtest = nil
 Dta.ui.active = false
 
@@ -570,4 +572,47 @@ end
 
 function Dta.ui.modifyMeasurementsButtonClicked()
 	Dta.measurements_ui.toggleMeasurementsWindow()
+end
+
+-------------------------------
+-- NOTIFICATION WINDOW
+-------------------------------
+
+function Dta.ui.buildNotificationWindow()
+	local newWindow = Dta.ui.Window.Create("NotificationWindow",
+							Dta.ui.context_top,
+							Lang[Dta.Language].Titles.Notification,
+							300, -- width
+							110, -- height
+							100, 100, -- x, y
+							false, -- closable
+							false, -- movable
+							nil,
+							nil
+							)
+	newWindow:ClearPoint("TOPLEFT")
+	newWindow:SetPoint("CENTER", UIParent, "CENTER")
+	local Windowcontent = newWindow.content
+
+	newWindow.Message = Dta.ui.createText("confirmationDialogueMessage", Windowcontent, 10, 0, "-", 14)
+	newWindow.YesBtn = Dta.ui.createButton("errorBtn_Yes", Windowcontent, 5, 70, 140, nil, Lang[Dta.Language].Buttons.Yes, nil, Dta.ui.notificationWindowButtonClicked)
+	newWindow.NoBtn = Dta.ui.createButton("errorBtn_No", Windowcontent, 155, 70, 140, nil, Lang[Dta.Language].Buttons.No, nil, Dta.ui.notificationWindowButtonClicked)
+	return newWindow
+end
+
+function Dta.ui.showNotification(message, btn1_callback, btn2_callback)
+	if Dta.ui.notificationWindow == nil then
+		Dta.ui.notificationWindow = Dta.ui.buildNotificationWindow()
+	end
+	Dta.ui.notificationWindow.Message:SetText(message)
+	Dta.ui.notificationWindow.YesBtn.click_callback = btn1_callback
+	Dta.ui.notificationWindow.NoBtn.click_callback = btn2_callback
+	Dta.ui.notificationWindow:SetVisible(true)
+end
+
+function Dta.ui.notificationWindowButtonClicked(self, event)
+	Dta.ui.notificationWindow:SetVisible(false)
+	if type(self.click_callback) == "function" then
+		self.click_callback()
+	end
 end
