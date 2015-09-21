@@ -147,7 +147,7 @@ end
 
 function Window.createFramedWindow(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
 	local newWindow = UI.CreateFrame("Frame", name, parent)
-	newWindow:SetHeight(height + ((tile or movable) and Window.headerSize or 0))
+	newWindow:SetHeight(height + ((title or movable) and Window.headerSize or 0))
 	newWindow:SetWidth(width)
 	newWindow:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 
