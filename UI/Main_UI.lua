@@ -335,10 +335,9 @@ function Dta.ui.createButton(name, parent, x, y, width, height, text, skin, clic
 
 	button:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
 
-	function button.Event:LeftPress()
-		if clickCallback ~= nil then clickCallback() end
+	if type(clickCallback) == "function" then
+		button:EventAttach(Event.UI.Input.Mouse.Left.Click, clickCallback, name .. "_left_click")
 	end
-
 	return button
 end
 
