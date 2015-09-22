@@ -1,3 +1,14 @@
+Version 1.9.7
+- Add workaround to an API bug that inverts pitch value when yaw is +/-90°
+- Return key now clears key focus on input fields
+- Enhance move/rotate/scale input fields with buttons to fetch the
+  values from the current selection, if available
+- Implement a safeguard for the paste tool to prevent accidental disruption
+  of an active paste operation, and give the choice whether to abort it.
+- Added code to hopefully identify a rarely appearing paste error by adding
+  more details to the error message
+- Some minor bug fixes
+
 Version 1.9.6
 - Re-implemenent Offset Calc Tool
   * add two missing orientations, now covers all 6 possible axis permutations
