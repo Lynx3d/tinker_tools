@@ -521,6 +521,7 @@ Lang["English"].Text.Size = "Size"
 Lang["English"].Text.Skin = "Skin"
 Lang["English"].Text.Horizontal = "Place Horizontal"
 Lang["English"].Text.Vertical = "Place Vertical"
+Lang["English"].Text.NotIdleNotification = "Previous operation has not finished yet.\nAbort currently running operation now?"
 
 
 ----------------------------------------

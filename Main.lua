@@ -90,6 +90,21 @@ function Dta.main()
 	Command.Event.Attach(Event.Dimension.Layout.Update, Dta.updateEventHandler, "Update selection")
 end
 
+function Dta.checkIdle()
+	if Dta.AddItem_Co then
+		-- ask user whether to abort
+		Dta.ui.showNotification(Lang[Dta.Language].Text.NotIdleNotification,
+			Dta.killProcess, nil)
+		return false
+	end
+	return true
+end
+
+function Dta.killProcess()
+	Dta.AddItem_Co = nil
+	Dta.pending_add = false
+end
+
 function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a dimension
 	if Dta.pending_add then
 		local id, _ = next(dimensionItem)

@@ -39,6 +39,10 @@ function Dta.copa.copyButtonClicked()
 end
 
 function Dta.copa.pasteButtonClicked()
+	if not Dta.checkIdle() then
+		return
+	end
+
 	local settings = Dta.copa.checkInput()
 	if not settings then
 		return
