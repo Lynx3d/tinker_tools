@@ -382,7 +382,18 @@ function Dta.tick(handle)
 		end
 		if action.op == "add" then
 			Dta.pending_add = true
-			Command.Dimension.Layout.Place(action.id, action.details)
+			-- Command.Dimension.Layout.Place(action.id, action.details)
+			-- *NOTE*: below code is to get more useful information about a seemingly random error
+			-- that claims incorrect function usage despite the given arguments should always have
+			-- the same structure, and at least their data type clearly matches the docs.
+			local success, rval = pcall(Command.Dimension.Layout.Place, action.id, action.details)
+			if not success then
+				local details = Inspect.Item.Detail(action.id)
+				local item_info = details and Utility.Serialize.Inline(details) or "N/A"
+				local placement_info = Utility.Serialize.Inline(action.details)
+				local error_details = "Item Details:\n" .. item_info .. "\nPlacement Info:\n" .. placement_info .. "\n Rift error:\n" .. rval
+				error(error_details)
+			end
 		elseif action.op == "xform" then
 			Command.Dimension.Layout.Place(action.id, action.details)
 		end
