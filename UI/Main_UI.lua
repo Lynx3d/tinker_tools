@@ -465,9 +465,6 @@ function Dta.ui.buildMainWindow()
 	Mainwindow.itemDetails.nrItemsLabel = Dta.ui.createText("itemDetailsnrItemsLabel", Mainwindow.itemDetails, 125, 90, Lang[Dta.Language].Text.NrSelectItems, 14)
 	Mainwindow.itemDetails.nrItems = Dta.ui.createText("itemDetailsnrItems", Mainwindow.itemDetails, 265, 90, "-", 14)
 
-	Mainwindow.divider1 = Dta.ui.createTexture("divider1", Mainwindow, "Dimtools", "textures/divider.png", 20, 120, Mainwindow:GetWidth()-40)
-	Mainwindow.divider1:SetLayer(29)
-
 	Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow.itemDetails, 0, 125, 160, nil, Lang[Dta.Language].Buttons.MoveWindow, nil, Dta.ui.modifyMoveButtonClicked)
 	Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow.itemDetails, 145, 125, 160, nil, Lang[Dta.Language].Buttons.RotateWindow, nil, Dta.ui.modifyRotateButtonClicked)
 	Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow.itemDetails, 0, 150, 160, nil, Lang[Dta.Language].Buttons.ScaleWindow, nil, Dta.ui.modifyScaleButtonClicked)
