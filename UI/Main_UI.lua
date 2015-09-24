@@ -330,10 +330,10 @@ function Dta.ui.createButton(name, parent, x, y, width, height, text, skin, clic
 	if skin ~= nil and skin == "close" then
 		button:SetSkin("close")
 	else
-		if height ~= nil then button:SetHeight(height) end
-		if width ~= nil then button:SetWidth(width) end
 		if text ~= nil then button:SetText(text) end
 	end
+	if height ~= nil then button:SetHeight(height) end
+	if width ~= nil then button:SetWidth(width) end
 
 	button:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
 
