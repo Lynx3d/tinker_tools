@@ -433,6 +433,7 @@ function Dta.ui.buildMainWindow()
 	Mainwindow.itemDetails.name:SetWordwrap(true)
 	Mainwindow.itemDetails.name:ClearPoint("TOPLEFT")
 	Mainwindow.itemDetails.name:SetPoint("CENTERLEFT", Mainwindow.itemDetails, "TOPLEFT", 36, 12)
+	Mainwindow.itemDetails.name:SetEffectGlow({offsetX=1, offsetY=1, strength=2})
 	Mainwindow.itemDetails.icon:EventAttach(Event.UI.Input.Mouse.Right.Click,
 		function(self, h)
 			if Dta.selectionCount > 0 then Command.Map.Waypoint.Set(Dta.selectionCenter.x, Dta.selectionCenter.z) end
