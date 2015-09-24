@@ -414,16 +414,21 @@ function Dta.ui.buildMainWindow()
 	--Mainwindow.itemDetails:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
 	Mainwindow.itemDetails.icon = Dta.ui.createIcon("itemDetailsIcon", Mainwindow.itemDetails, nil, 0, 0, 25)
+	Mainwindow.itemDetails.icon:SetLayer(35)
 	Mainwindow.itemDetails.name = Dta.ui.createText("itemDetailsName", Mainwindow.itemDetails, 30, 0, Lang[Dta.Language].Text.NothingSelected, 16)
 	Mainwindow.itemDetails.name:SetWidth(280)
 	Mainwindow.itemDetails.name:SetWordwrap(true)
 	Mainwindow.itemDetails.name:ClearPoint("TOPLEFT")
-	Mainwindow.itemDetails.name:SetPoint("CENTERLEFT", Mainwindow.itemDetails, "TOPLEFT", 30, 12)
+	Mainwindow.itemDetails.name:SetPoint("CENTERLEFT", Mainwindow.itemDetails, "TOPLEFT", 36, 12)
 	Mainwindow.itemDetails.icon:EventAttach(Event.UI.Input.Mouse.Right.Click,
 		function(self, h)
 			if Dta.selectionCount > 0 then Command.Map.Waypoint.Set(Dta.selectionCenter.x, Dta.selectionCenter.z) end
 		end,
 		"Waypoint Marker")
+	-- clear selection button
+	Mainwindow.itemDetails.clearSelection = Dta.ui.createButton("clearSelection", Mainwindow.itemDetails, 20, -7, 18, 18, nil, "close", Dta.ui.clearSelectionButtonClicked)
+	Mainwindow.itemDetails.clearSelection:SetLayer(40)
+	Mainwindow.itemDetails.clearSelection:SetVisible(false)
 
 	Mainwindow.itemDetails.xLabel = Dta.ui.createText("itemDetailsXLabel", Mainwindow.itemDetails, 0, 30, "X", 14, {1, 0, 0, 1})
 	Mainwindow.itemDetails.yLabel = Dta.ui.createText("itemDetailsYLabel", Mainwindow.itemDetails, 0, 50, "Y", 14, {0, 1, 0, 1})
@@ -572,6 +577,20 @@ end
 
 function Dta.ui.modifyMeasurementsButtonClicked()
 	Dta.measurements_ui.toggleMeasurementsWindow()
+end
+
+function Dta.ui.clearSelectionButtonClicked()
+	-- NOTE: in contrast to Dta.items.DeselectAll(), this function doesn't verify
+	-- current selection state, and clears IDs from selection regardless of their validity.
+	-- We want to recover from any selection state bugs here
+	for id,Details in pairs(Dta.selectedItems) do
+		local detail = Inspect.Dimension.Layout.Detail(Details.id)
+		if detail ~= nil then
+			Dta.items.QueueDeselection(Details.id)
+		end
+		-- already nil it here, item updates are not reliable when we lost sync unfortunately
+		Dta.selectedItems[id] = nil
+	end
 end
 
 -------------------------------

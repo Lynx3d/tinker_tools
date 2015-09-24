@@ -72,6 +72,7 @@ end
 function Dta.items.updateItemDetails()
 	if Dta.ui.windowtest ~= nil then
 		if Dta.losa.tableLength(Dta.selectedItems) > 0 then
+			Dta.ui.windowtest.itemDetails.clearSelection:SetVisible(true)
 			if Dta.losa.tableLength(Dta.selectedItems) > 1 then
 				Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/multiple.png")
 				Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.MultiSelectItems)
@@ -108,6 +109,7 @@ function Dta.items.updateItemDetails()
 				end
 			end
 		else
+			Dta.ui.windowtest.itemDetails.clearSelection:SetVisible(false)
 			Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/blank.png")
 			Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.NothingSelected)
 			Dta.selectionCenter = nil
