@@ -3,6 +3,18 @@ local Lang = Dta.Lang
 
 Dta.items = {}
 
+Dta.items.textColor =
+{
+	sellable = 		{ hexcol = "#888888", r = 136/255, g = 136/255, b = 136/255 },
+	common = 		{ hexcol = "#ffffff", r = 1.0, g = 1.0, b = 1.0 },
+	uncommon =  	{ hexcol = "#00cc00", r = 0, g = 0.8, b = 0 },
+	rare = 			{ hexcol = "#2681fe", r = 38/255, g = 129/255, b = 254/255 },
+	epic = 			{ hexcol = "#b049ff", r = 176/255, g = 73/255, b =  1.0},
+	relic = 		{ hexcol = "#ff9900", r = 1.0, g = 153/255, b = 0 },
+	transcendant = 	{ hexcol = "#cc1313", r = 0.8, g = 19/255, b = 19/255 },
+	quest = 		{ hexcol = "#fff600", r = 1.0, g = 246/255, b = 0 }
+}
+
 --------------------------------------
 --QUEUE FUNCTIONS
 --------------------------------------
@@ -56,6 +68,15 @@ end
 --ITEM UPDATE
 --------------------------------------
 
+function Dta.items.setItemColor(type)
+	local color = Dta.items.textColor.common
+	local details = type and Inspect.Item.Detail(type)
+	if details and details.rarity then
+		color = Dta.items.textColor[details.rarity] or color
+	end
+	Dta.ui.windowtest.itemDetails.name:SetFontColor(color.r, color.g, color.b)
+end
+
 -- Rift API is currently bugged, gimbal lock handling gives Pitch value the wrong sign.
 -- Apparently values are not stored as pitch/yaw/roll internally, but we don't have
 -- access to internal representation, unfortunately
@@ -76,6 +97,7 @@ function Dta.items.updateItemDetails()
 			if Dta.losa.tableLength(Dta.selectedItems) > 1 then
 				Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/multiple.png")
 				Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.MultiSelectItems)
+				Dta.ui.windowtest.itemDetails.name:SetFontColor(1, 1, 1)
 				local cp = Dta.items.getCentralPoint(Dta.selectedItems)
 				Dta.selectionCenter = cp
 				Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(Dta.losa.tableLength(Dta.selectedItems)))
@@ -97,6 +119,7 @@ function Dta.items.updateItemDetails()
 					end
 					Dta.selectionCenter = { ["x"] = Dta.selectedItems[ItemID].coordX, ["y"] = Dta.selectedItems[ItemID].coordY, ["z"] = Dta.selectedItems[ItemID].coordZ }
 					Dta.ui.windowtest.itemDetails.name:SetText(tostring(Dta.selectedItems[ItemID].name))
+					Dta.items.setItemColor(Dta.selectedItems[ItemID].type)
 					Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(Dta.losa.tableLength(Dta.selectedItems)))
 					Dta.ui.windowtest.itemDetails.x:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].coordX,4)))
 					Dta.ui.windowtest.itemDetails.y:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].coordY,4)))
@@ -112,6 +135,7 @@ function Dta.items.updateItemDetails()
 			Dta.ui.windowtest.itemDetails.clearSelection:SetVisible(false)
 			Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/blank.png")
 			Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.NothingSelected)
+			Dta.ui.windowtest.itemDetails.name:SetFontColor(1, 1, 1)
 			Dta.selectionCenter = nil
 			Dta.ui.windowtest.itemDetails.nrItems:SetText("-")
 			Dta.ui.windowtest.itemDetails.x:SetText("-")
