@@ -387,6 +387,16 @@ local MainWindowSettings = {
 	CLOSABLE = true,
 	MOVABLE = true,
 }
+local BGwidth, BGheight = 313, 125
+local BGpath = {	{x = 0, y = 10},
+					{x = 10, y = 0, xControl = 0, yControl = 0},
+					{x = BGwidth - 10, y = 0 },
+					{x = BGwidth, y = 10, xControl = BGwidth, yControl = 0},
+					{x = BGwidth, y = BGheight - 10},
+					{x = BGwidth - 10, y = BGheight, xControl = BGwidth, yControl = BGheight},
+					{x = 10, y = BGheight },
+					{x = 0, y = BGheight - 10, xControl = 0, yControl = BGheight},
+					{x = 0, y = 10} }
 
 function Dta.ui.buildMainWindow()
 	local x = Dta.settings.get("MainwindowPosX")
@@ -405,6 +415,9 @@ function Dta.ui.buildMainWindow()
 							)
 	local Mainwindow = newWindow.content
 
+	Mainwindow.detailsBG = UI.CreateFrame("Canvas", "ItemDetailsBackground", Mainwindow)
+	Mainwindow.detailsBG:SetPoint("TOPLEFT", Mainwindow, "TOPLEFT", 5, 3)
+	Mainwindow.detailsBG:SetShape(BGpath, {type = "solid", r=0.07, g=0.01, b=0, a=0.6}, {r=0, g=0, b=0, a=0.4, thickness=3})
 	-------------------------------
 	--ITEM DETAILS
 	-------------------------------
