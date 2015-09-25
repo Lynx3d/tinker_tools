@@ -172,7 +172,7 @@ function Dta.items.updateSelection(dimensionItem, delete)
 				-- seems there is a bug in deselecting where an item id gets corrupt;
 				-- subsequent select of same item is bugged too, it doesn't emit a change
 				-- event at all but we can't work around that
-				print("Error, bad ID, manual fixup required!")
+				print("Invalid ID, trying to fix selection. This Rift bug may cause side-effects.")
 				for s_id, val in pairs(Dta.selectedItems) do
 					detail = Inspect.Dimension.Layout.Detail(s_id)
 					if detail and not detail.selected then
