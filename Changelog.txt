@@ -1,3 +1,9 @@
+Version 1.9.8
+- Due to popular demand, add a possibility to clear the selection
+  through the addon.
+- Tweak main window design some more
+- Make notification about a Rift selection bug less mysterious
+
 Version 1.9.7
 - Add workaround to an API bug that inverts pitch value when yaw is +/-90°
 - Return key now clears key focus on input fields
