@@ -23,16 +23,18 @@ function Dta.losa.ScanInventory(shoppingList, includeBags, includeBank)
 	end                                         -- plus the 8 bag slots themselves
 	local inventory = Inspect.Item.List(slots)
 	for _s, id in pairs(inventory) do
-		if id then -- empty slots are set to "false"
-			local item = Inspect.Item.Detail(id)
-			local cart_item = shoppingList[item.type]
-			if item ~= nil and cart_item ~= nil then
-				if not cart_item.shelf then
-					cart_item.shelf = {}
-					cart_item.stock = 0
+		if id then -- empty slots are set to "false"...usually
+			local item = Inspect.Item.Detail(id) -- sometimes empty slots have IDs but return nil here
+			if item then
+				local cart_item = shoppingList[item.type]
+				if item ~= nil and cart_item ~= nil then
+					if not cart_item.shelf then
+						cart_item.shelf = {}
+						cart_item.stock = 0
+					end
+					cart_item.stock = cart_item.stock + (item.stack or 1) --'stack' field only available for stackable items
+					cart_item.shelf[id] = item.stack or 1
 				end
-				cart_item.stock = cart_item.stock + (item.stack or 1) --'stack' field only available for stackable items
-				cart_item.shelf[id] = item.stack or 1
 			end
 		end
 	end
