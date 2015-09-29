@@ -120,6 +120,12 @@ function Dta.losa.constructionPrintMaterials()
 	Dta.losa.printShoppingList(Dta.ui.windowLoSa.constructions.nameLoad:GetSelectedItem())
 end
 
+function Dta.losa.constructionSearchKeyUp(frame, hEvent, key)
+	if key == "Return" then
+		Dta.ui.windowLoSa.constructions.nameLoad:SetItems(Dta.losa.filterConstructions())
+	end
+end
+
 -- sort alphabetically rather than by ASCII value
 -- if strings only differ in case, use default < operator
 local function sortAlphabet(str1, str2)
@@ -143,16 +149,34 @@ function Dta.losa.loadConstructions()
 		constructs = Dta.constructionstbx
 	end
 
+	-- TODO: cache for all 3 sources, and only redo on demand
+	Dta.losa.sortedConstructions = {}
+	local itemsets = Dta.losa.sortedConstructions
+
 	if not constructs then
-		return {}
+		return itemsets
 	end
 
-	local itemsets = {}
 	for name, _ in pairs(constructs) do
 		table.insert(itemsets, name)
 	end
 	table.sort(itemsets, sortAlphabet)
 	return itemsets
+end
+
+function Dta.losa.filterConstructions()
+	local searchString = string.lower(Dta.ui.windowLoSa.constructions.search:GetText())
+	if searchString == "" then
+		return Dta.losa.sortedConstructions
+	end
+	local filteredSets = {}
+
+	for _, name in pairs(Dta.losa.sortedConstructions) do
+		if string.find(string.lower(name), searchString, 1, true) then
+			table.insert(filteredSets, name)
+		end
+	end
+	return filteredSets
 end
 
 --------------------------------------
