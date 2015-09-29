@@ -120,39 +120,39 @@ function Dta.losa.constructionPrintMaterials()
 	Dta.losa.printShoppingList(Dta.ui.windowLoSa.constructions.nameLoad:GetSelectedItem())
 end
 
-function Dta.losa.loadConstructions()
-	if Dta.ui.loadLoSa == "Default" then
-		if Dta.constructionsdefaults == nil or Dta.constructionsdefaults == {} then
-			return {}
-		else
-			local items = {}
-			for name, _ in pairs(Dta.constructionsdefaults) do
-				table.insert(items, name)
-			end
-			return items
-		end
-	elseif Dta.ui.loadLoSa == "Saved" then
-		if Dta.constructions == nil or Dta.constructions == {} then
-			return {}
-		else
-			local items = {}
-			for name, _ in pairs(Dta.constructions) do
-				table.insert(items, name)
-			end
-			return items
-		end
-	elseif Dta.ui.loadLoSa == "Tbx" then
-		if Dta.constructionstbx == nil or Dta.constructionstbx == {} then
-			return {}
-		else
-			local items = {}
-			for name, _ in pairs(Dta.constructionstbx) do
-				table.insert(items, name)
-			end
-			return items
-		end
-
+-- sort alphabetically rather than by ASCII value
+-- if strings only differ in case, use default < operator
+local function sortAlphabet(str1, str2)
+	local s1, s2 = string.lower(str1), string.lower(str2)
+	if s1 < s2 then
+		return true
+	elseif s1 > s2 then
+		return false
+	else
+		return str1 < str2
 	end
+end
+
+function Dta.losa.loadConstructions()
+	local constructs
+	if Dta.ui.loadLoSa == "Default" then
+		constructs = Dta.constructionsdefaults
+	elseif Dta.ui.loadLoSa == "Saved" then
+		constructs = Dta.constructions
+	elseif Dta.ui.loadLoSa == "Tbx" then
+		constructs = Dta.constructionstbx
+	end
+
+	if not constructs then
+		return {}
+	end
+
+	local itemsets = {}
+	for name, _ in pairs(constructs) do
+		table.insert(itemsets, name)
+	end
+	table.sort(itemsets, sortAlphabet)
+	return itemsets
 end
 
 --------------------------------------
