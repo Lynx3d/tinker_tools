@@ -116,26 +116,33 @@ local function InjectEvents(self, frame, tooltipTextFunc, anchor, xoffset, yoffs
   local oldMouseIn = frame.Event.MouseIn
   local oldMouseMove = frame.Event.MouseMove
   local oldMouseOut = frame.Event.MouseOut
-  frame.Event.MouseIn = function()
-    tooltip:Show(frame, tooltipTextFunc(tooltip), anchor, xoffset, yoffset)
-    if oldMouseIn then oldMouseIn() end
+  frame.Event.MouseIn = function(self)
+    tooltip:Show(self, tooltipTextFunc(tooltip), anchor, xoffset, yoffset)
+    if oldMouseIn then oldMouseIn(self) end
   end
-  frame.Event.MouseMove = function(x, y)
-    tooltip:Show(frame, tooltipTextFunc(tooltip), anchor, xoffset, yoffset)
-    if oldMouseMove then oldMouseMove(x, y) end
+  frame.Event.MouseMove = function(self, x, y)
+    tooltip:Show(self, tooltipTextFunc(tooltip), anchor, xoffset, yoffset)
+    if oldMouseMove then oldMouseMove(self, x, y) end
   end
-  frame.Event.MouseOut = function()
-    tooltip:Hide(frame)
-    if oldMouseOut then oldMouseOut() end
+  frame.Event.MouseOut = function(self)
+    tooltip:Hide(self)
+    if oldMouseOut then oldMouseOut(self) end
   end
+  frame.LSW_Tooltip_OldMouseIn = oldMouseIn
+  frame.LSW_Tooltip_OldMouseMove = oldMouseMove
+  frame.LSW_Tooltip_OldMouseOut = oldMouseOut
 end
 
 local function RemoveEvents(self, frame)
   assert(type(frame) == "table", "param 1 must be a frame!")
 
-  frame.Event.MouseIn = nil
-  frame.Event.MouseMove = nil
-  frame.Event.MouseOut = nil
+  frame.Event.MouseIn = frame.LSW_Tooltip_OldMouseIn
+  frame.Event.MouseMove = frame.LSW_Tooltip_OldMouseMove
+  frame.Event.MouseOut = frame.LSW_Tooltip_OldMouseOut
+  
+  frame.LSW_Tooltip_OldMouseIn = nil
+  frame.LSW_Tooltip_OldMouseMove = nil
+  frame.LSW_Tooltip_OldMouseOut = nil
 end
 
 

@@ -213,7 +213,7 @@ function Library.LibSimpleWidgets.Select(name, parent)
   widget.button:SetLayer(2)
   widget.button.Event.LeftClick = CurrentClick
   widget.button.Event.MouseIn = function(self) self:SetTexture("LibSimpleWidgets", BUTTON_HIGHLIGHT) end
-  widget.button.Event.MouseOut = function(self) self:SetTexture("LibSimpleWidgets", BUTTON_NORMAL)end
+  widget.button.Event.MouseOut = function(self) self:SetTexture("LibSimpleWidgets", BUTTON_NORMAL) end
   widget.button.Event.LeftDown = function(self) self:SetTexture("LibSimpleWidgets", BUTTON_CLICKED) end
   widget.button.Event.LeftUp = function(self) self:SetTexture("LibSimpleWidgets", BUTTON_HIGHLIGHT) end
   widget.button.Event.Size = function(self) self:SetWidth(self:GetHeight() / 19 * 21) end

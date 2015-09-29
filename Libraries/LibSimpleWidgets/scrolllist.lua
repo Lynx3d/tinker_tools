@@ -206,6 +206,7 @@ end
 
 local function ReleaseItemFrame(self, itemFrame)
   itemFrame:SetVisible(false)
+  itemFrame.bgFrame:SetVisible(false)
   itemFrame.index = nil
   table.insert(self.itemFramePool, itemFrame)
 end
