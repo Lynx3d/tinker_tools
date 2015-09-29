@@ -92,15 +92,15 @@ end
 
 function Dta.items.updateItemDetails()
 	if Dta.ui.windowtest ~= nil then
-		if Dta.losa.tableLength(Dta.selectedItems) > 0 then
+		if Dta.selectionCount > 0 then
 			Dta.ui.windowtest.itemDetails.clearSelection:SetVisible(true)
-			if Dta.losa.tableLength(Dta.selectedItems) > 1 then
+			if Dta.selectionCount > 1 then
 				Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/multiple.png")
 				Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.MultiSelectItems)
 				Dta.ui.windowtest.itemDetails.name:SetFontColor(1, 1, 1)
 				local cp = Dta.items.getCentralPoint(Dta.selectedItems)
 				Dta.selectionCenter = cp
-				Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(Dta.losa.tableLength(Dta.selectedItems)))
+				Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(Dta.selectionCount))
 				Dta.ui.windowtest.itemDetails.x:SetText(tostring(Dta.items.round(cp.x,4)))
 				Dta.ui.windowtest.itemDetails.y:SetText(tostring(Dta.items.round(cp.y,4)))
 				Dta.ui.windowtest.itemDetails.z:SetText(tostring(Dta.items.round(cp.z,4)))
@@ -120,7 +120,7 @@ function Dta.items.updateItemDetails()
 					Dta.selectionCenter = { ["x"] = Dta.selectedItems[ItemID].coordX, ["y"] = Dta.selectedItems[ItemID].coordY, ["z"] = Dta.selectedItems[ItemID].coordZ }
 					Dta.ui.windowtest.itemDetails.name:SetText(tostring(Dta.selectedItems[ItemID].name))
 					Dta.items.setItemColor(Dta.selectedItems[ItemID].type)
-					Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(Dta.losa.tableLength(Dta.selectedItems)))
+					Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(Dta.selectionCount))
 					Dta.ui.windowtest.itemDetails.x:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].coordX,4)))
 					Dta.ui.windowtest.itemDetails.y:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].coordY,4)))
 					Dta.ui.windowtest.itemDetails.z:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].coordZ,4)))
@@ -183,7 +183,6 @@ function Dta.items.updateSelection(dimensionItem, delete)
 		end
 	end
 
-	-- TODO: replace Dta.losa.tableLength(Dta.selectedItems) calls with Dta.selectionCount
 	Dta.selectionCount = Dta.losa.tableLength(Dta.selectedItems)
 	Dta.items.StartDetails()
 

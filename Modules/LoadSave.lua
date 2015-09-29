@@ -185,7 +185,7 @@ end
 
 function Dta.losa.saveGroupItemAttributes(name)
 	if name ~= nil and name ~= "" then
-		if Dta.losa.tableLength(Dta.selectedItems) > 0 then
+		if Dta.selectionCount > 0 then
 
 			local groupDetails = {}
 			for _, item in pairs(Dta.selectedItems) do

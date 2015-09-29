@@ -100,8 +100,8 @@ end
 --------------------------------------
 
 function Dta.move.setItemPositions(x, y, z, relative, groupMode)
-	if Dta.losa.tableLength(Dta.selectedItems) > 0 then
-		if not relative and groupMode and Dta.losa.tableLength(Dta.selectedItems) > 1 then -- group move
+	if Dta.selectionCount > 0 then
+		if not relative and groupMode and Dta.selectionCount > 1 then -- group move
 			local cp = Dta.items.getCentralPoint(Dta.selectedItems)
 			Dta.move.Co_MoveItemGroup = coroutine.create(function ()
 				for k, details in pairs(Dta.selectedItems) do
@@ -129,7 +129,7 @@ end
 --------------------------------------
 
 function Dta.move.resetItemPositions()
-	if Dta.losa.tableLength(Dta.selectedItems) > 0 then
+	if Dta.selectionCount > 0 then
 		local player = Inspect.Unit.Detail("player")
 		Dta.move.Co_MoveItemReset = coroutine.create(function ()
 			for k, details in pairs(Dta.selectedItems) do

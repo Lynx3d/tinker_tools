@@ -509,7 +509,7 @@ function Dta.ui.showMainWindow()
 		Dta.ui.windowtest:SetVisible(true)
 	end
 	Dta.ui.active = true
-	if Dta.losa.tableLength(Dta.selectedItems) > 0 then
+	if Dta.selectionCount > 0 then
 		Dta.items.StartDetails()
 	end
 end

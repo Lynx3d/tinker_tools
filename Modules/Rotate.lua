@@ -68,7 +68,7 @@ end
 --------------------------------------
 
 function Dta.rotate.setItemRotations(yaw, pitch, roll, relative, grouped)
-	if Dta.losa.tableLength(Dta.selectedItems) > 0 then
+	if Dta.selectionCount > 0 then
 		Dta.rotate.Co_RotateItem = coroutine.create(function ()
 			if relative and grouped then
 				yaw = math.rad(yaw or 0)
@@ -93,7 +93,7 @@ end
 --------------------------------------
 
 function Dta.rotate.resetItemRotations()
-	if Dta.losa.tableLength(Dta.selectedItems) > 0 then
+	if Dta.selectionCount > 0 then
 		Dta.rotate.Co_RotateItemReset = coroutine.create(function ()
 			for k, details in pairs(Dta.selectedItems) do
 				Dta.rotate.setItemRotation(k, 0, 0, 0, false)
