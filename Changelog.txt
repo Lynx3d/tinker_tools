@@ -1,3 +1,8 @@
+Version 1.9.9
+- Sort list of saved sets alphabetically
+- Add search field to filter saved sets
+- Minor fixes, optimizations and cleanups
+
 Version 1.9.8
 - Due to popular demand, add a possibility to clear the selection
   through the addon.
