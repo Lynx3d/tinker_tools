@@ -90,12 +90,11 @@ function Dta.scale.setItemScale(details, scale, relative, as_group)
 
 			-- calculate movement for group mode
 			if as_group then
-				local newX = Dta.selectionCenter.x + scale*(details.coordX - Dta.selectionCenter.x)
-				local newY = Dta.selectionCenter.y + scale*(details.coordY - Dta.selectionCenter.y)
-				local newZ = Dta.selectionCenter.z + scale*(details.coordZ - Dta.selectionCenter.z)
-				Dta.items.QueueMove(details.id, newX, newY, newZ)
+				newPlacement.x = Dta.selectionCenter.x + scale*(details.coordX - Dta.selectionCenter.x)
+				newPlacement.y = Dta.selectionCenter.y + scale*(details.coordY - Dta.selectionCenter.y)
+				newPlacement.z = Dta.selectionCenter.z + scale*(details.coordZ - Dta.selectionCenter.z)
 			end
-			newPlacement = details.scale * scale
+			newPlacement.scale = details.scale * scale
 		else -- absolute positioning
 			if scale == nil or scale == "" then scale = details.scale end
 
@@ -104,9 +103,10 @@ function Dta.scale.setItemScale(details, scale, relative, as_group)
 				return
 			end
 
-			newPlacement = tonumber(scale)
+			newPlacement.scale = tonumber(scale)
 		end
-		Dta.items.QueueScale(details.id, newPlacement)
+		Dta.items.QueueTransform(details.id, newPlacement.x, newPlacement.y, newPlacement.z,
+								 nil, nil, nil, newPlacement.scale)
 	else
 		print(Lang[Dta.Language].Prints.ModifyScale)
 	end
