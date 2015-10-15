@@ -8,7 +8,10 @@ Dta.measurements.TypeIndex = {
 	"Planks",
 	"Poles",
 	"Rectangles",
-	"Tiles"
+	"Tiles",
+	"Floor",
+	"Hall Floor",
+	"Large Floor"
 }
 
 Dta.measurements.OrientationIndex = {
@@ -35,7 +38,10 @@ Dta.measurements.Dimensions = {
 	{ x = 2.25, y = 0.05, z = 0.25, minScale = 0.25, maxScale = 6 }, -- Plank
 	{ x = 0.125, y = 1, z = 0.125, minScale = 0.25, maxScale = 12 }, -- Pole
 	{ x = 1.125, y = 0.0375, z = 0.75, minScale = 0.25, maxScale = 12 }, -- Rectangle
-	{ x = 0.75, y = 0.0375, z = 0.75, minScale = 0.25, maxScale = 12 } -- Tile
+	{ x = 0.75, y = 0.0375, z = 0.75, minScale = 0.25, maxScale = 12 }, -- Tile
+	{ x = 4, y = 0.25, z = 4, minScale = 0.25, maxScale = 2 }, -- Floor
+	{ x = 4, y = 0.25, z = 8, minScale = 0.25, maxScale = 2 }, -- Hall Floor
+	{ x = 8, y = 0.25, z = 8, minScale = 0.25, maxScale = 2 } -- Large Floor
 }
 
 function Dta.measurements.CalculationsClicked()
@@ -114,6 +120,12 @@ function Dta.measurements.DetectClicked()
 			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(4)
 		elseif entry.shape == "tile" then
 			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(5)
+		elseif entry.shape == "floor" then
+			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(6)
+		elseif entry.shape == "hall floor" then
+			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(7)
+		elseif entry.shape == "large floor" then
+			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(8)
 		end
 		-- orientation
 		if Dta.measurements.IsAxisAligned(details.yaw) then
