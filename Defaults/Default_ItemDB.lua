@@ -190,6 +190,115 @@ Dta.Defaults.ItemDB =
 		type = "I391DEDB47498E0D1,D3F316F28C3CCB90,,,,,,",
 		shape = "pole"
 	},
+	-- Colored Marble Tiles
+	["I446B1D966FE150B1,02A43028CD909F80,,,,,,"] =
+	{
+		name = "Building Block: Orange Marble Tile",
+		type = "I446B1D966FE150B1,02A43028CD909F80,,,,,,",
+		shape = "tile"
+	},
+	["I446B1D9B5E06059F,D0F11E304FF428E8,,,,,,"] =
+	{
+		name = "Building Block: Grey Marble Tile",
+		type = "I446B1D9B5E06059F,D0F11E304FF428E8,,,,,,",
+		shape = "tile"
+	},
+	["I446B1D9576850C1F,F0A1D913C233D857,,,,,,"] =
+	{
+		name = "Building Block: Mustard Marble Tile",
+		type = "I446B1D9576850C1F,F0A1D913C233D857,,,,,,",
+		shape = "tile"
+	},
+	["I446B1D97357E515A,AA94BB0CC42E0575,,,,,,"] =
+	{
+		name = "Building Block: Amber Marble Tile",
+		type = "I446B1D97357E515A,AA94BB0CC42E0575,,,,,,",
+		shape = "tile"
+	},
+	["I446B1D9922B2B3AD,C68C225DD77B92CF,,,,,,"] =
+	{
+		name = "Building Block: Blood Marble Tile",
+		type = "I446B1D9922B2B3AD,C68C225DD77B92CF,,,,,,",
+		shape = "tile"
+	},
+	["I446B1D9A10E44AE0,2900934C5956C2F3,,,,,,"] =
+	{
+		name = "Building Block: White Marble Tile",
+		type = "I446B1D9A10E44AE0,2900934C5956C2F3,,,,,,",
+		shape = "tile"
+	},
+	["I446B1D9F41049106,B4700BB624CC615C,,,,,,"] =
+	{
+		name = "Building Block: Pink Marble Tile",
+		type = "I446B1D9F41049106,B4700BB624CC615C,,,,,,",
+		shape = "tile"
+	},
+	["I446B1DA058307EF0,D4534FC017FDC659,,,,,,"] =
+	{
+		name = "Building Block: Ruby Marble Tile",
+		type = "I446B1DA058307EF0,D4534FC017FDC659,,,,,,",
+		shape = "tile"
+	},
+	["I446B1D947899BFC0,CF9C3E89A374FB16,,,,,,"] =
+	{
+		name = "Building Block: Yellow Marble Tile",
+		type = "I446B1D947899BFC0,CF9C3E89A374FB16,,,,,,",
+		shape = "tile"
+	},
+	["I2F94903B4BE58484,79515EE6968341DA,,,,,,"] =
+	{
+		name = "Building Block: Jade Marble Tile",
+		type = "I2F94903B4BE58484,79515EE6968341DA,,,,,,",
+		shape = "tile"
+	},
+	["I446B1D9D08FBB08D,0BA68FE5287605ED,,,,,,"] =
+	{
+		name = "Building Block: Teal Marble Tile",
+		type = "I446B1D9D08FBB08D,0BA68FE5287605ED,,,,,,",
+		shape = "tile"
+	},
+	["I446B1D9E7274313F,12B6E8D1A876D8C9,,,,,,"] =
+	{
+		name = "Building Block: Aqua Marble Tile",
+		type = "I446B1D9E7274313F,12B6E8D1A876D8C9,,,,,,",
+		shape = "tile"
+	},
+	["I446B1D9C493E6256,0C4A76B9EA8AA9B5,,,,,,"] =
+	{
+		name = "Building Block: Steel Marble Tile",
+		type = "I446B1D9C493E6256,0C4A76B9EA8AA9B5,,,,,,",
+		shape = "tile"
+	},
+	["I446B1D93333390A3,240CBBBB45970E87,,,,,,"] =
+	{
+		name = "Building Block: Purple Marble Tile",
+		type = "I446B1D93333390A3,240CBBBB45970E87,,,,,,",
+		shape = "tile"
+	},
+	["I446B1D923286C90C,C87BC0C987F220B0,,,,,,"] =
+	{
+		name = "Building Block: Violet Marble Tile",
+		type = "I446B1D923286C90C,C87BC0C987F220B0,,,,,,",
+		shape = "tile"
+	},
+	["I446B1D980563F11F,17A59ADDD0E7946C,,,,,,"] =
+	{
+		name = "Building Block: Red Marble Tile",
+		type = "I446B1D980563F11F,17A59ADDD0E7946C,,,,,,",
+		shape = "tile"
+	},
+	["I446B1DA10511C0A9,E655A6D5235A8D82,,,,,,"] =
+	{
+		name = "Building Block: Blue Marble Tile",
+		type = "I446B1DA10511C0A9,E655A6D5235A8D82,,,,,,",
+		shape = "tile"
+	},
+	["I446B1DA26E22B4E5,D7D1565AF9714BE7,,,,,,"] =
+	{
+		name = "Building Block: Navy Marble Tile",
+		type = "I446B1DA26E22B4E5,D7D1565AF9714BE7,,,,,,",
+		shape = "tile"
+	},
 	-- Limestone
 	["I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,"] =
 	{
@@ -513,5 +622,83 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Wood Beam Tile",
 		type = "I40AC23891893C680,E2A013511D2CFD71,,,,,,",
 		shape = "tile"
+	},
+	------------
+	-- FLOORS --
+	------------
+	["I3DBC6F813FEE8276,420B925FFB20903A,,,,,,"] =
+	{
+		name = "Wood Beam Floor",
+		type = "I3DBC6F813FEE8276,420B925FFB20903A,,,,,,",
+		shape = "floor"
+	},
+	["I3DBC6F8310B56995,5A51FE755B6DC427,,,,,,"] =
+	{
+		name = "Wood Beam Hall Floor",
+		type = "I3DBC6F8310B56995,5A51FE755B6DC427,,,,,,",
+		shape = "hall floor"
+	},
+	["I3DBC6F8527DC4CE8,07D843A4F431DF96,,,,,,"] =
+	{
+		name = "Large Wood Beam Floor",
+		type = "I3DBC6F8527DC4CE8,07D843A4F431DF96,,,,,,",
+		shape = "large floor"
+	},
+	-- Wood Plank
+	["IFD54E96A6AE1BAF2,F3D460F2A845DAED,,,,,,"] =
+	{
+		name = "Wood Beam Floor",
+		type = "IFD54E96A6AE1BAF2,F3D460F2A845DAED,,,,,,",
+		shape = "floor"
+	},
+	["IFD54E96C0A53D2BC,1EDF064099D77BCE,,,,,,"] =
+	{
+		name = "Wood Beam Hall Floor",
+		type = "IFD54E96C0A53D2BC,1EDF064099D77BCE,,,,,,",
+		shape = "hall floor"
+	},
+	["IFD54E96E041DE463,158AFFC52437895E,,,,,,"] =
+	{
+		name = "Large Wood Beam Floor",
+		type = "IFD54E96E041DE463,158AFFC52437895E,,,,,,",
+		shape = "large floor"
+	},
+	-- Sandstone Tile
+	["IFD54E96B6C3D73FC,C758985AE27EC7CF,,,,,,"] =
+	{
+		name = "Sandstone Tile Floor",
+		type = "IFD54E96B6C3D73FC,C758985AE27EC7CF,,,,,,",
+		shape = "floor"
+	},
+	["IFD54E96D586523DA,B0E1E0A4253442F8,,,,,,"] =
+	{
+		name = "Sandstone Tile Hall Floor",
+		type = "IFD54E96D586523DA,B0E1E0A4253442F8,,,,,,",
+		shape = "hall floor"
+	},
+	["IFD54E96F4F9B1759,FCBC3A13C2807981,,,,,,"] =
+	{
+		name = "Large Sandstone Tile Floor",
+		type = "IFD54E96F4F9B1759,FCBC3A13C2807981,,,,,,",
+		shape = "large floor"
+	},
+	-- Slate Tile
+	["I3DBC6F824393AED5,6533D7CA4B47B0EA,,,,,,"] =
+	{
+		name = "Slate Tile Floor",
+		type = "I3DBC6F824393AED5,6533D7CA4B47B0EA,,,,,,",
+		shape = "floor"
+	},
+	["I3DBC6F840948709F,15AAD3B1F60444F4,,,,,,"] =
+	{
+		name = "Slate Tile Hall Floor",
+		type = "I3DBC6F840948709F,15AAD3B1F60444F4,,,,,,",
+		shape = "hall floor"
+	},
+	["I3DBC6F86700FD32F,2709C7403F4C6855,,,,,,"] =
+	{
+		name = "Large Slate Tile Floor",
+		type = "I3DBC6F86700FD32F,2709C7403F4C6855,,,,,,",
+		shape = "large floor"
 	}
 }
