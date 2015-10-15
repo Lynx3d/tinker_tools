@@ -17,7 +17,8 @@ Dta.measurements.OrientationIndex = {
 	"Yaw 90",
 	"Roll 90",
 	"Pitch & Yaw 90",
-	"Pitch & Roll 90"
+	"Pitch & Roll 90",
+	"Selection Delta"
 }
 
 Dta.measurements.OrientationAxisMap = {
@@ -41,29 +42,42 @@ function Dta.measurements.CalculationsClicked()
 	local size = Dta.ui.windowMeasurements.Measurements.Size:GetText()
 	local shape = Dta.ui.windowMeasurements.Measurements.TypeLoad:GetSelectedIndex()
 	local orientation = Dta.ui.windowMeasurements.Measurements.OrientationLoad:GetSelectedIndex()
+	local scale, scale_ok = Dta.ui.checkNumber(size, nil)
+	local dims
 
 	if not shape then
-		return print(Lang[Dta.Language].Prints.SelectType)
+		if orientation ~= 7 then
+			return print(Lang[Dta.Language].Prints.SelectType)
+		elseif Dta.selectionCount ~= 2 then
+			return print("this mode requires two selected items") -- TODO: localization
+		end
+	else
+		if not scale or not scale_ok then
+			return print(Lang[Dta.Language].Prints.TypeSize)
+		end
+
+		dims = Dta.measurements.Dimensions[shape]
+		if scale > dims.maxScale or scale < dims.minScale then
+			return print(Lang[Dta.Language].Prints.SizeC)
+		end
 	end
 
 	if not orientation then
 		return print(Lang[Dta.Language].Prints.SelectOrientation)
 	end
 
-	local scale, scale_ok = Dta.ui.checkNumber(size, nil)
-	if not scale or not scale_ok then
-		return print(Lang[Dta.Language].Prints.TypeSize)
+	if orientation == 7 then
+		local id, details1 = next(Dta.selectedItems)
+		local _, details2 = next(Dta.selectedItems, id)
+		Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(details1.coordX - details2.coordX, 4)))
+		Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(details1.coordY - details2.coordY, 4)))
+		Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(details1.coordZ - details2.coordZ, 4)))
+	else
+		local axisMap = Dta.measurements.OrientationAxisMap[orientation]
+		Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(scale * dims[axisMap[1]], 4)))
+		Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(scale * dims[axisMap[2]], 4)))
+		Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(scale * dims[axisMap[3]], 4)))
 	end
-
-	local dims = Dta.measurements.Dimensions[shape]
-	if scale > dims.maxScale or scale < dims.minScale then
-		return print(Lang[Dta.Language].Prints.SizeC)
-	end
-
-	local axisMap = Dta.measurements.OrientationAxisMap[orientation]
-	Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(scale * dims[axisMap[1]], 4)))
-	Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(scale * dims[axisMap[2]], 4)))
-	Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(scale * dims[axisMap[3]], 4)))
 end
 
 local half_pi = 0.5 * math.pi
@@ -82,7 +96,11 @@ function Dta.measurements.IsOrthogonal(val)
 end
 
 function Dta.measurements.DetectClicked()
-	if Dta.selectionCount == 0 then return end
+	if Dta.selectionCount == 0 then return
+	elseif Dta.selectionCount == 2 then
+		Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(7)
+		return
+	end
 	local _, details = next(Dta.selectedItems)
 	local entry = Dta.Defaults.ItemDB[details.type]
 	if entry then
