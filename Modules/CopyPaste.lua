@@ -13,12 +13,12 @@ function Dta.copa.CopaOffsetChanged()
 	if Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked() then
 		Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(true)
 		Dta.ui.windowCopyPaste.copyPaste.NewItemNrLabel:SetVisible(true)
-		Dta.ui.windowCopyPaste.copyPaste.flickerReduce:SetVisible(true)
+		--Dta.ui.windowCopyPaste.copyPaste.flickerReduce:SetVisible(true)
 	elseif not Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked() then
 		Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(false)
 		--Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetText("")
 		Dta.ui.windowCopyPaste.copyPaste.NewItemNrLabel:SetVisible(false)
-		Dta.ui.windowCopyPaste.copyPaste.flickerReduce:SetVisible(false)
+		--Dta.ui.windowCopyPaste.copyPaste.flickerReduce:SetVisible(false)
 	end
 end
 
@@ -261,6 +261,17 @@ function Dta.copa.pasteSet(itemSet, shoppingList, offset, newItems)
 	end
 end
 
+-- flicker reduction: alternate between adding and substracting a small offset
+function Dta.copa.applyFlickerOffset(details, settings)
+	if settings.flicker_reduce then
+		local FlickerReduc = Dta.FlickerOffset and Dta.FlickerReduc or -Dta.FlickerReduc
+		details.coordX = details.coordX + FlickerReduc
+		details.coordY = details.coordY + FlickerReduc
+		details.coordZ = details.coordZ + FlickerReduc
+		Dta.FlickerOffset = not Dta.FlickerOffset
+	end
+end
+
 function Dta.copa.pasteArray(clipboard, shoppingList, settings, new_items)
 	for k = 1, settings.n_copies, 1 do
 		local offset = { coordX = k * settings.coordX, coordY = k * settings.coordY,
@@ -272,14 +283,7 @@ function Dta.copa.pasteArray(clipboard, shoppingList, settings, new_items)
 			offset.roll = k * settings.roll
 		end
 		if settings.scale then offset.scale = k * settings.scale end
-		-- flicker reduction: alternate between adding and substracting a small offset
-		if settings.flicker_reduce then
-			local FlickerReduc = Dta.FlickerOffset and Dta.FlickerReduc or -Dta.FlickerReduc
-			offset.coordX = offset.coordX + FlickerReduc
-			offset.coordY = offset.coordY + FlickerReduc
-			offset.coordZ = offset.coordZ + FlickerReduc
-			Dta.FlickerOffset = not Dta.FlickerOffset
-		end
+		Dta.copa.applyFlickerOffset(offset, settings)
 		if #clipboard > 1 or settings.selection_pivot then
 			Dta.copa.pasteSet(Dta.clipboard.items, shoppingList, offset, new_items)
 		else
@@ -312,6 +316,8 @@ function Dta.copa.pasteClipboard(shoppingList, settings)
 	if settings.n_copies then
 		Dta.copa.pasteArray(Dta.clipboard.items, shoppingList, settings, settings.new_items)
 	elseif Dta.clipboard.itemCount > 1 or settings.selection_pivot then
+		-- reminder: overwrites settings, but they don't get reused currently
+		Dta.copa.applyFlickerOffset(settings, settings)
 		Dta.copa.pasteSet(Dta.clipboard.items, shoppingList, settings, settings.new_items)
 	else
 		local new_details
@@ -325,6 +331,7 @@ function Dta.copa.pasteClipboard(shoppingList, settings)
 		else
 			new_details  = Dta.copa.genNewDetails(Dta.clipboard.items[1], settings)
 		end
+		Dta.copa.applyFlickerOffset(new_details, settings)
 		Dta.copa.pasteSingleItem(new_details, shoppingList, settings.new_items)
 	end
 end

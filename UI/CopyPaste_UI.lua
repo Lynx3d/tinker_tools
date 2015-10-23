@@ -78,7 +78,7 @@ function Dta.copa_ui.buildCopyPasteWindow()
 	CopyPastewindow.copyPaste.multiplyOffsets:SetVisible(true)
 
 	CopyPastewindow.copyPaste.flickerReduce = Dta.ui.createCheckbox("copyPasteFlickerReduce", CopyPastewindow.copyPaste, 165, 95, Lang[Dta.Language].Text.FlickerReduce, false, nil)
-	CopyPastewindow.copyPaste.flickerReduce:SetVisible(false)
+	--CopyPastewindow.copyPaste.flickerReduce:SetVisible(false)
 
 	CopyPastewindow.copyPaste.NewItemNrLabel = Dta.ui.createText("copyPasteNewItemLabel", CopyPastewindow.copyPaste, 0, 120, Lang[Dta.Language].Text.NrItems, 15)
 	CopyPastewindow.copyPaste.NewItemNrLabel:SetVisible(false)
