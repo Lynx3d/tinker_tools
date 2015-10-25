@@ -283,7 +283,7 @@ end
 -------------------------------
 
 local MainWindowSettings = {
-	TITLE = Lang[Dta.Language].Titles.Main .. " " .. Dta.Version .. "      ",
+	TITLE = Lang[Dta.Language].Titles.Main,
 	WIDTH = 325,
 	HEIGHT = 260,
 	CLOSABLE = true,
@@ -315,6 +315,8 @@ function Dta.ui.buildMainWindow()
 							Dta.ui.MainWindowClosed,
 							Dta.ui.MainWindowMoved
 							)
+	newWindow.versionText = Dta.ui.createText("versionText", newWindow, 20, 10, Dta.Version, 12, {0.3, 0.6, 0.6, 1})
+	newWindow.versionText:SetLayer(15)
 	local Mainwindow = newWindow.content
 
 	Mainwindow.detailsBG = UI.CreateFrame("Canvas", "ItemDetailsBackground", Mainwindow)
