@@ -203,8 +203,8 @@ function Dta.ui.createCheckbox(name, parent, x, y, text, checked, fontColor, che
 		checkbox:SetChecked(not checkbox:GetChecked())
 	end
 
-	function checkbox.Event:CheckboxChange()
-		if checkChangedCallback ~= nil then checkChangedCallback() end
+	if type(checkChangedCallback) == "function" then
+		checkbox:EventAttach(Event.UI.Checkbox.Change, checkChangedCallback, name .. "_changed")
 	end
 	return checkbox
 end
