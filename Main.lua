@@ -232,6 +232,9 @@ function Dta.updateEventHandler(hEvent, dimensionItem) --Executed on every selec
 end
 
 local function EnterDimension()
+	-- reset copy&paste pivot, because it may be off-limit
+	Dta.copa.pivot = nil
+
 	if Dta.InDimension then return end
 	Dta.ui.showMainButton()
 	-- TODO: attach tick callback

@@ -26,11 +26,23 @@ function Dta.copa.CopaNewItemChanged()
 	if Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked() then
 		Dta.ui.windowCopyPaste.copyPaste.Bags:SetVisible(true)
 		Dta.ui.windowCopyPaste.copyPaste.Bank:SetVisible(true)
-		Dta.ui.windowCopyPaste.copyPaste.SelectionPivot:SetVisible(true)
 	else
 		Dta.ui.windowCopyPaste.copyPaste.Bags:SetVisible(false)
 		Dta.ui.windowCopyPaste.copyPaste.Bank:SetVisible(false)
-		Dta.ui.windowCopyPaste.copyPaste.SelectionPivot:SetVisible(false)
+	end
+end
+
+function Dta.copa.PivotChanged(self)
+	if self:GetChecked() then
+		Dta.ui.windowCopyPaste.copyPaste.pickPivotBtn:SetVisible(true)
+	else
+		Dta.ui.windowCopyPaste.copyPaste.pickPivotBtn:SetVisible(false)
+	end
+end
+
+function Dta.copa.pickButtonClicked()
+	if Dta.selectionCenter then
+		Dta.copa.pivot = Dta.copyTable(Dta.selectionCenter)
 	end
 end
 
@@ -52,8 +64,8 @@ function Dta.copa.pasteButtonClicked()
 	if Dta.clipboard.items then
 		shoppingList = Dta.losa.getGroupShoppingList(Dta.clipboard.items)
 		if settings.rotate or settings.scale then
-			if settings.selection_pivot then
-				settings.pivot = Dta.selectionCenter
+			if settings.selection_pivot and Dta.copa.pivot then
+				settings.pivot = Dta.copa.pivot
 			else
 				settings.pivot = Dta.items.getCentralPoint(Dta.clipboard.items)
 			end
@@ -139,9 +151,8 @@ function Dta.copa.checkInput()
 	values.new_items = copa_ui.NewItem:GetChecked()
 	values.include_bags = copa_ui.Bags:GetChecked()
 	values.include_bank = copa_ui.Bank:GetChecked()
+	values.selection_pivot = Dta.copa.pivot and Dta.ui.windowCopyPaste.copyPaste.SelectionPivot:GetChecked()
 	if values.new_items then
-		values.selection_pivot = Dta.ui.windowCopyPaste.copyPaste.SelectionPivot:GetChecked()
-								and  Dta.selectionCount > 0
 		if not values.include_bags and not values.include_bank then
 			print(Lang[Dta.Language].Prints.SelectItemSource)
 			return false
@@ -196,7 +207,7 @@ end
 --PASTE CLIPBOARD ITEMS
 --------------------------------------
 
-local function copyTable(tbl)
+function Dta.copyTable(tbl)
 	local t_copy = {}
 	for k, v in pairs(tbl) do t_copy[k] = v end
 	return t_copy
@@ -229,7 +240,7 @@ function Dta.copa.pasteSet(itemSet, shoppingList, offset, newItems)
 	end
 
 	for k, details in pairs(itemSet) do
-		local new_details = copyTable(details)
+		local new_details = Dta.copyTable(details)
 		--TEST: apply move offset before rotate/scale
 		new_details.coordX = new_details.coordX + offset.coordX
 		new_details.coordY = new_details.coordY + offset.coordY
@@ -287,7 +298,7 @@ function Dta.copa.pasteArray(clipboard, shoppingList, settings, new_items)
 		if #clipboard > 1 or settings.selection_pivot then
 			Dta.copa.pasteSet(Dta.clipboard.items, shoppingList, offset, new_items)
 		else
-			local new_details = copyTable(clipboard[1])
+			local new_details = Dta.copyTable(clipboard[1])
 			for k, v in pairs(new_details) do
 				if type(offset[k]) == "number" then
 					new_details[k] = v + offset[k]
@@ -322,7 +333,7 @@ function Dta.copa.pasteClipboard(shoppingList, settings)
 	else
 		local new_details
 		if settings.new_items then
-			new_details = copyTable(Dta.clipboard.items[1])
+			new_details = Dta.copyTable(Dta.clipboard.items[1])
 			for k, v in pairs(new_details) do
 				if type(settings[k]) == "number" then
 					new_details[k] = v + settings[k]
