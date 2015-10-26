@@ -270,12 +270,32 @@ function Window.createFramelessWindow(name, parent, title, width, height, x, y, 
 	return newWindow
 end
 
+function Window.ClearKeyFocus(self)
+	if self.key_focus_frame then
+		self.key_focus_frame:SetKeyFocus(false)
+	end
+end
+
 function Window.Create(...)
 	local style = Dta.settings.get("WindowStyle")
+	local new_window
 	if style == "classic" then
-		return Window.createFramelessWindow(...)
+		new_window = Window.createFramelessWindow(...)
+	else
+		new_window = Window.createFramedWindow(...)
 	end
-	return Window.createFramedWindow(...)
+	new_window.ClearKeyFocus = Window.ClearKeyFocus
+	new_window:EventAttach(Event.UI.Input.Key.Focus.Gain.Bubble,
+		function(frame, hEvent)
+			new_window.key_focus_frame = hEvent:GetTarget()
+		end,
+		"window_key_focus_gain")
+	new_window:EventAttach(Event.UI.Input.Key.Focus.Loss.Bubble,
+		function(frame, hEvent)
+			new_window.key_focus_frame = nil
+		end,
+		"window_key_focus_loss")
+	return new_window
 end
 
 -------------------------------------------------

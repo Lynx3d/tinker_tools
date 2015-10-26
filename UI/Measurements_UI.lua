@@ -104,6 +104,7 @@ end
 -- Hide the toolbox window
 function Dta.measurements_ui.hideMeasurementsWindow()
 	Dta.ui.windowMeasurements:SetVisible(false)
+	Dta.ui.windowMeasurements:ClearKeyFocus()
 	-- workaround for dropdown not closing automatically
 	Dta.ui.windowMeasurements.Measurements.TypeLoad:SetEnabled(false)
 	Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetEnabled(false)

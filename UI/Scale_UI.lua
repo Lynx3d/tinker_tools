@@ -80,6 +80,7 @@ end
 -- Hide the toolbox window
 function Dta.scale_ui.hideScaleWindow()
 	Dta.ui.windowScale:SetVisible(false)
+	Dta.ui.windowScale:ClearKeyFocus()
 --	Dta.ui.windowScale = nil
 	Dta.ui.activeScale = false
 end

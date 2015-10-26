@@ -90,6 +90,7 @@ end
 -- Hide the toolbox window
 function Dta.rotate_ui.hideRotateWindow()
 	Dta.ui.windowRotate:SetVisible(false)
+	Dta.ui.windowRotate:ClearKeyFocus()
 --	Dta.ui.windowRotate = nil
 	Dta.ui.activeRotate = false
 end

@@ -127,6 +127,7 @@ end
 -- Hide the toolbox window
 function Dta.copa_ui.hideCopyPastewindow()
 	Dta.ui.windowCopyPaste:SetVisible(false)
+	Dta.ui.windowCopyPaste:ClearKeyFocus()
 --	Dta.ui.windowCopyPaste = nil
 	Dta.ui.activeCopyPaste = false
 	Dta.clipboard = {}

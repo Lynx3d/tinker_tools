@@ -94,6 +94,7 @@ end
 -- Hide the toolbox window
 function Dta.move_ui.hideMoveWindow()
 	Dta.ui.windowMove:SetVisible(false)
+	Dta.ui.windowMove:ClearKeyFocus()
 --	Dta.ui.windowMove = nil
 	Dta.ui.activeMove = false
 end
