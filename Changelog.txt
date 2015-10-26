@@ -1,3 +1,16 @@
+Version 1.9.10
+- New offset calculation tool "selection delta" to measure the coordinate
+  differences between two items
+- Added the new Callweddi marble tiles to the item database
+- Add floor, hall floor and large floor building blocks to offset calc tool
+- Implement flicker offset for all paste modes
+- Copy&Paste pivot functionality reworked:
+  Picking pivot coordinates is now a separate functionality. This enables
+  usage in all modes, and doesn't require to re-select the pivot object
+  on every paste.
+- Layout tweaks in Copy&Paste window
+- Clear key focus of input fields when hiding a window
+
 Version 1.9.9
 - Sort list of saved sets alphabetically
 - Add search field to filter saved sets

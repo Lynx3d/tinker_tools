@@ -61,7 +61,7 @@ et pour le travail de traduction effectué.
 }
 Author = "Kikimora"
 Website = "http://riftdreamdimensions.com/"
-Version = "v1.9.9"
+Version = "v1.9.10"
 Email = "Kikimora@riftdreamdimensions.com"
 Environment = "2.5"
 
