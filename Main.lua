@@ -90,6 +90,18 @@ function Dta.main()
 	Command.Event.Attach(Event.Dimension.Layout.Update, Dta.updateEventHandler, "Update selection")
 end
 
+-- print text to all consoles (chat windows/tabs) enabled in settings
+function Dta.CPrint(text, html)
+	local consoles = Dta.settings.get("ConsoleOutput")
+	local open_consoles = Inspect.Console.List()
+	for k, _ in pairs(consoles) do
+		local console_id = string.format("v00000000%08x", k-1)
+		if open_consoles[console_id] then
+			Command.Console.Display(console_id, false, text, html == true)
+		end
+	end
+end
+
 function Dta.checkIdle()
 	if Dta.AddItem_Co then
 		-- ask user whether to abort

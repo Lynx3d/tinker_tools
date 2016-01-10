@@ -48,7 +48,8 @@ Dta.settings.defaults = {
 	AlphabetwindowPosY = 530,
 	MeasurementswindowPosX = 0,
 	MeasurementswindowPosY = 490,
-	WindowStyle = "default"
+	WindowStyle = "default",
+	ConsoleOutput = { [1] = true }
 }
 
 function Dta.settings.main()
@@ -93,7 +94,7 @@ function Dta.settings.get(setting)
 end
 
 function Dta.settings.set(setting, value)
-	if Dta.settings.defaults[setting] == value then
+	if type(value) ~= "table" and Dta.settings.defaults[setting] == value then
 		Dta.settings.settings[setting] = nil
 	else
 		Dta.settings.settings[setting] = value
