@@ -4,7 +4,6 @@ local Lang = Dta.Lang
 Dta.flying_ui = {}
 
 local FlyingWindowSettings = {
-	TITLE = Lang[Dta.Language].Titles.TribalMagic,
 	WIDTH = 300,
 	HEIGHT = 265,
 	CLOSABLE = true,
@@ -16,7 +15,7 @@ function Dta.flying_ui.buildFlyingWindow()
 	local y = Dta.settings.get("FlyingwindowPosY")
 	local newWindow = Dta.ui.Window.Create("FlyingWindow",
 							Dta.ui.context,
-							FlyingWindowSettings.TITLE,
+							Lang[Dta.Language].Titles.TribalMagic,
 							FlyingWindowSettings.WIDTH,
 							FlyingWindowSettings.HEIGHT,
 							x,

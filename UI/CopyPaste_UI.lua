@@ -8,7 +8,6 @@ Dta.copa_ui = {}
 -------------------------------
 
 local CopyPasteWindowSettings = {
-	TITLE = Lang[Dta.Language].Titles.CopyPaste,
 	WIDTH = 325,
 	HEIGHT = 260,
 	CLOSABLE = true,
@@ -20,7 +19,7 @@ function Dta.copa_ui.buildCopyPasteWindow()
 	local y = Dta.settings.get("CopyPastewindowPosY")
 	local newWindow = Dta.ui.Window.Create("CopyPastewindow",
 							Dta.ui.context,
-							CopyPasteWindowSettings.TITLE,
+							Lang[Dta.Language].Titles.CopyPaste,
 							CopyPasteWindowSettings.WIDTH,
 							CopyPasteWindowSettings.HEIGHT,
 							x,

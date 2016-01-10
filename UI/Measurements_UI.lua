@@ -8,7 +8,6 @@ Dta.measurements_ui = {}
 -------------------------------
 
 local MeasurementsWindowSettings = {
-	TITLE = Lang[Dta.Language].Titles.OffsetCalc,
 	WIDTH = 315,
 	HEIGHT = 190,
 	CLOSABLE = true,
@@ -20,7 +19,7 @@ function Dta.measurements_ui.buildMeasurementsWindow()
 	local y = Dta.settings.get("MeasurementswindowPosY")
 	local newWindow = Dta.ui.Window.Create("MeasurementsWindow",
 								Dta.ui.context,
-								MeasurementsWindowSettings.TITLE,
+								Lang[Dta.Language].Titles.OffsetCalc,
 								MeasurementsWindowSettings.WIDTH,
 								MeasurementsWindowSettings.HEIGHT,
 								x,

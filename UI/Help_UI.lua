@@ -80,7 +80,6 @@ function Dta.help_ui.createWindowHelp(name, parent, title, width, height, x, y, 
 end
 
 local HelpWindowSettings = {
-	TITLE = Lang[Dta.Language].Titles.Help,
 	WIDTH = 800,
 	HEIGHT = 600,
 	CLOSABLE = true,
@@ -92,7 +91,7 @@ function Dta.help_ui.buildHelpWindow()
 	local y = Dta.settings.get("HelpwindowPosY")
 	Helpwindow = Dta.help_ui.createWindowHelp("HelpWindow",
 							Dta.ui.context,
-							HelpWindowSettings.TITLE,
+							Lang[Dta.Language].Titles.Help,
 							HelpWindowSettings.WIDTH,
 							HelpWindowSettings.HEIGHT,
 							x,

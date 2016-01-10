@@ -8,7 +8,6 @@ Dta.losa_ui = {}
 -------------------------------
 
 local LoSaWindowSettings = {
-	TITLE = Lang[Dta.Language].Titles.LoadSave,
 	WIDTH = 325,
 	HEIGHT = 345,
 	CLOSABLE = true,
@@ -20,7 +19,7 @@ function Dta.losa_ui.buildLoSaWindow()
 	local y = Dta.settings.get("LoSawindowPosY")
 	newWindow = Dta.ui.Window.Create("LoSaWindow",
 							Dta.ui.context,
-							LoSaWindowSettings.TITLE,
+							Lang[Dta.Language].Titles.LoadSave,
 							LoSaWindowSettings.WIDTH,
 							LoSaWindowSettings.HEIGHT,
 							x,

@@ -4,7 +4,6 @@ local Lang = Dta.Lang
 Dta.expimp_ui = {}
 
 local ExpImpWindowSettings = {
-	TITLE = Lang[Dta.Language].Titles.ImportExport,
 	WIDTH = 325,
 	HEIGHT = 185,
 	CLOSABLE = true,
@@ -16,7 +15,7 @@ function Dta.expimp_ui.buildExpImpWindow()
 	local y = Dta.settings.get("ExpImpwindowPosY")
 	local newWindow = Dta.ui.Window.Create("ExpImpWindow",
 							Dta.ui.context,
-							ExpImpWindowSettings.TITLE,
+							Lang[Dta.Language].Titles.ImportExport,
 							ExpImpWindowSettings.WIDTH,
 							ExpImpWindowSettings.HEIGHT,
 							x,

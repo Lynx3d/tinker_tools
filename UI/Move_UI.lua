@@ -8,7 +8,6 @@ Dta.move_ui = {}
 -------------------------------
 
 local MoveWindowSettings = {
-	TITLE = Lang[Dta.Language].Titles.Move,
 	WIDTH = 305,
 	HEIGHT = 130,
 	CLOSABLE = true,
@@ -21,7 +20,7 @@ function Dta.move_ui.buildMoveWindow()
 
 	local newWindow = Dta.ui.Window.Create("MoveWindow",
 							Dta.ui.context,
-							MoveWindowSettings.TITLE,
+							Lang[Dta.Language].Titles.Move,
 							MoveWindowSettings.WIDTH,
 							MoveWindowSettings.HEIGHT,
 							x,

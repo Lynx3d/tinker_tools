@@ -283,7 +283,6 @@ end
 -------------------------------
 
 local MainWindowSettings = {
-	TITLE = Lang[Dta.Language].Titles.Main,
 	WIDTH = 325,
 	HEIGHT = 260,
 	CLOSABLE = true,
@@ -306,7 +305,7 @@ function Dta.ui.buildMainWindow()
 	--Mainwindow = Dta.ui.createWindow("MainWindow",
 	local newWindow = Dta.ui.Window.Create("MainWindowNew",
 							Dta.ui.context,
-							MainWindowSettings.TITLE,
+							Lang[Dta.Language].Titles.Main,
 							MainWindowSettings.WIDTH,
 							MainWindowSettings.HEIGHT,
 							x, y,

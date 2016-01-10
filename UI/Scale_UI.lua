@@ -8,7 +8,6 @@ Dta.scale_ui = {}
 -------------------------------
 
 local ScaleWindowSettings = {
-	TITLE = Lang[Dta.Language].Titles.Scale,
 	WIDTH = 305,
 	HEIGHT = 130,
 	CLOSABLE = true,
@@ -20,7 +19,7 @@ function Dta.scale_ui.buildScaleWindow()
 	local y = Dta.settings.get("ScalewindowPosY")
 	local newWindow = Dta.ui.Window.Create("Scalewindow",
 							Dta.ui.context,
-							ScaleWindowSettings.TITLE,
+							Lang[Dta.Language].Titles.Scale,
 							ScaleWindowSettings.WIDTH,
 							ScaleWindowSettings.HEIGHT,
 							x,

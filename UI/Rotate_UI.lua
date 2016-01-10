@@ -8,7 +8,6 @@ Dta.rotate_ui = {}
 -------------------------------
 
 local RotateWindowSettings = {
-	TITLE = Lang[Dta.Language].Titles.Rotate,
 	WIDTH = 305,
 	HEIGHT = 130,
 	CLOSABLE = true,
@@ -20,7 +19,7 @@ function Dta.rotate_ui.buildRotateWindow()
 	local y = Dta.settings.get("RotatewindowPosY")
 	newWindow = Dta.ui.Window.Create("RotateWindow",
 							Dta.ui.context,
-							RotateWindowSettings.TITLE,
+							Lang[Dta.Language].Titles.Rotate,
 							RotateWindowSettings.WIDTH,
 							RotateWindowSettings.HEIGHT,
 							x,
