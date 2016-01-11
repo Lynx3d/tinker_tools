@@ -240,7 +240,8 @@ function Window.createFramelessWindow(name, parent, title, width, height, x, y, 
 
 
 	if closable then
-		newWindow.closeBtn = Dta.ui.createButton(name .. "CloseBtn", newWindow, newWindow:GetWidth()-35, 7, 0, 0, nil, "close", closeCallback)
+		newWindow.closeBtn = Dta.ui.createButton(name .. "CloseBtn", newWindow, newWindow:GetWidth()-35, 7, nil, nil, nil, "close", Window.defaultCloseCallback)
+		newWindow.closeBtn.closeCallback = closeCallback
 		newWindow.closeBtn:SetLayer(4)
 	end
 
