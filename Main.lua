@@ -210,7 +210,7 @@ end
 
 function Dta.removeEventHandler(hEvent, dimensionItem) --Executed when item is removed
 	if #Dta.pendingActions == 1 then
-		print(Lang[Dta.Language].Prints.ProcessFinished)
+		Dta.CPrint(Lang[Dta.Language].Prints.ProcessFinished)
 	end
 	if Dta.losa.tableLength(Dta.selectedItems) > 0 then
 		-- unused -- Dta.Deleting = true
@@ -227,17 +227,17 @@ function Dta.updateEventHandler(hEvent, dimensionItem) --Executed on every selec
 	Dta.items.updateSelection(dimensionItem, false)
 
 	if Dta.FinishedSet and Dta.Setname ~= "" and #Dta.SelectionQueue == 1 then
-		print(string.format(Lang[Dta.Language].Prints.SetFinished, Dta.Setname))
+		Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetFinished, Dta.Setname))
 		Dta.Setname = ""
 	end
 
 	if Dta.FinishedSet and Dta.PastingItems and #Dta.SelectionQueue == 1 then
-		print(Lang[Dta.Language].Prints.PasteFinished)
+		Dta.CPrint(Lang[Dta.Language].Prints.PasteFinished)
 		Dta.PastingItems = false
 	end
 
 	if Dta.FinishedSet and Dta.alphabet.PastingWord and #Dta.SelectionQueue == 1 then
-		print(Lang[Dta.Language].Prints.WordFinished)
+		Dta.CPrint(Lang[Dta.Language].Prints.WordFinished)
 		Dta.alphabet.PastingWord = false
 	end
 
@@ -349,10 +349,10 @@ function Dta.commandHandler(hEvent, command)
 		local current_style = Dta.settings.get("WindowStyle")
 		if current_style == "classic" then
 			Dta.settings.set("WindowStyle", "default")
-			print("Window Style is now \"default\"")
+			Dta.CPrint("Window Style is now \"default\"")
 		else
 			Dta.settings.set("WindowStyle", "classic")
-			print("Window Style is now \"classic\"")
+			Dta.CPrint("Window Style is now \"classic\"")
 		end
 	elseif command == "force" then
 		EnterDimension()
@@ -360,7 +360,7 @@ function Dta.commandHandler(hEvent, command)
 		if Dta.InDimension == true then
 			Dta.ui.toggleMainWindow()
 		else
-			print(Lang[Dta.Language].Prints.DimensionOnly)
+			Dta.CPrint(Lang[Dta.Language].Prints.DimensionOnly)
 		end
 	end
 end
@@ -430,7 +430,7 @@ function Dta.tick(handle)
 			Command.Dimension.Layout.Select(action.id, true)
 		end
 		if not next(Dta.SelectionQueue) and Dta.Co_DoneMessage then
-			print(Dta.Co_DoneMessage)
+			Dta.CPrint(Dta.Co_DoneMessage)
 			Dta.Co_DoneMessage = nil
 		end
 	end

@@ -30,7 +30,7 @@ function Dta.rotate.modifyRotationButtonClicked()
 	local yaw, yaw_ok = Dta.ui.checkNumber(Dta.ui.windowRotate.modifyRotation.yaw:GetText())
 	local roll, roll_ok = Dta.ui.checkNumber(Dta.ui.windowRotate.modifyRotation.roll:GetText())
 	if not (pitch_ok and yaw_ok and roll_ok) then
-		print(Lang[Dta.Language].Prints.NumbersOnly)
+		Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
 		return
 	end
 	Dta.rotate.setItemRotations(yaw, pitch, roll,
@@ -126,7 +126,7 @@ function Dta.rotate.setItemRotation(index, yaw, pitch, roll, relative)
 
 		Dta.items.QueueRotate(Dta.selectedItems[index].id, newPlacement.pitch, newPlacement.roll, newPlacement.yaw)
 	else
-		print(Lang[Dta.Language].Prints.ModifyRotation)
+		Dta.CPrint(Lang[Dta.Language].Prints.ModifyRotation)
 	end
 end
 

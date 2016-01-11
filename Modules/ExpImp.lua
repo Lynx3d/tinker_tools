@@ -108,10 +108,10 @@ function Dta.expimp.ExportLoadAttributes(name)
 				Dta.ExportSet = Dta.ExportSaved[name]
 				Dta.expimp.ExportGroupItemAttributes(name)
 			else
-				print(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
+				Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
 			end
 		else
-			print(Lang[Dta.Language].Prints.SelectExport)
+			Dta.CPrint(Lang[Dta.Language].Prints.SelectExport)
 		end
 	elseif Dta.ui.loadExpImp == "Tbx" then
 		if name ~= nil and name ~= "" then
@@ -120,10 +120,10 @@ function Dta.expimp.ExportLoadAttributes(name)
 				Dta.ExportSet = Dta.ExportTbx[name]
 				Dta.expimp.ExportGroupItemAttributes(name)
 			else
-				print(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
+				Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
 			end
 		else
-			print(Lang[Dta.Language].Prints.SelectExport)
+			Dta.CPrint(Lang[Dta.Language].Prints.SelectExport)
 		end
 	end
 end
@@ -146,13 +146,13 @@ function Dta.expimp.ExportGroupItemAttributes(name)
 			end
 			Dta.ExportImport_Sets[name] = groupDetails
 			Dta_export.set("ExportImport", Dta.ExportImport_Sets)
-			print(string.format(Lang[Dta.Language].Prints.Exported, name))
+			Dta.CPrint(string.format(Lang[Dta.Language].Prints.Exported, name))
 			Dta.expimp.refreshExportSelect()
 		else
-			print("Something went wrong saving to Dta.ExportSet") --Debug
+			Dta.CPrint("Something went wrong saving to Dta.ExportSet") --Debug
 		end
 	else
-		print("Something went wrong sending from Dta.expimp.ExportLoadAttributes") --Debug
+		Dta.CPrint("Something went wrong sending from Dta.expimp.ExportLoadAttributes") --Debug
 	end
 end
 
@@ -167,10 +167,10 @@ function Dta.expimp.ImportLoadAttributes(name)
 			Dta.ImportSet = Dta.ExportImport_Sets[name]
 			Dta.expimp.ImportGroupItemAttributes(name)
 		else
-			print(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
+			Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
 		end
 	else
-		print(Lang[Dta.Language].Prints.SelectImport)
+		Dta.CPrint(Lang[Dta.Language].Prints.SelectImport)
 	end
 end
 
@@ -191,7 +191,7 @@ function Dta.expimp.ImportGroupItemAttributes(name)
 			end
 			Dta.constructions[name] = groupDetails
 			Dta.settings.set_savedsets("SavedSets", Dta.constructions)
-			print(string.format(Lang[Dta.Language].Prints.Imported, name))
+			Dta.CPrint(string.format(Lang[Dta.Language].Prints.Imported, name))
 			Dta.expimp.removeImportedSet(name)
 		else
 			--print("Something went wrong saving to Dta.ExportSet") --Debug

@@ -69,7 +69,7 @@ function Dta.move.setItemPosition(index, x, y, z, relative)
 			if not tonumber(x) or
 			   not tonumber(y) or
 			   not tonumber(z) then
-				print(Lang[Dta.Language].Prints.NumbersOnly)
+				Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
 				return
 			end
 
@@ -82,7 +82,7 @@ function Dta.move.setItemPosition(index, x, y, z, relative)
 			if not tonumber(x) or
 			   not tonumber(y) or
 			   not tonumber(z) then
-				print(Lang[Dta.Language].Prints.NumbersOnly)
+				Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
 				return
 			end
 
@@ -91,7 +91,7 @@ function Dta.move.setItemPosition(index, x, y, z, relative)
 
 		Dta.items.QueueMove(Dta.selectedItems[index].id, newPlacement.coordX, newPlacement.coordY, newPlacement.coordZ)
 	else
-		print(Lang[Dta.Language].Prints.ModifyPosition)
+		Dta.CPrint(Lang[Dta.Language].Prints.ModifyPosition)
 	end
 end
 

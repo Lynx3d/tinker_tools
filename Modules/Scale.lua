@@ -84,7 +84,7 @@ function Dta.scale.setItemScale(details, scale, relative, as_group)
 
 			scale = tonumber(scale)
 			if not scale then
-				print(Lang[Dta.Language].Prints.NumbersOnly)
+				Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
 				return
 			end
 
@@ -99,7 +99,7 @@ function Dta.scale.setItemScale(details, scale, relative, as_group)
 			if scale == nil or scale == "" then scale = details.scale end
 
 			if not tonumber(scale) then
-				print(Lang[Dta.Language].Prints.NumbersOnly)
+				Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
 				return
 			end
 
@@ -108,6 +108,6 @@ function Dta.scale.setItemScale(details, scale, relative, as_group)
 		Dta.items.QueueTransform(details.id, newPlacement.x, newPlacement.y, newPlacement.z,
 								 nil, nil, nil, newPlacement.scale)
 	else
-		print(Lang[Dta.Language].Prints.ModifyScale)
+		Dta.CPrint(Lang[Dta.Language].Prints.ModifyScale)
 	end
 end

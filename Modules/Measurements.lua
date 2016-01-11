@@ -53,23 +53,23 @@ function Dta.measurements.CalculationsClicked()
 
 	if not shape then
 		if orientation ~= 7 then
-			return print(Lang[Dta.Language].Prints.SelectType)
+			return Dta.CPrint(Lang[Dta.Language].Prints.SelectType)
 		elseif Dta.selectionCount ~= 2 then
-			return print("this mode requires two selected items") -- TODO: localization
+			return Dta.CPrint("this mode requires two selected items") -- TODO: localization
 		end
 	else
 		if not scale or not scale_ok then
-			return print(Lang[Dta.Language].Prints.TypeSize)
+			return Dta.CPrint(Lang[Dta.Language].Prints.TypeSize)
 		end
 
 		dims = Dta.measurements.Dimensions[shape]
 		if scale > dims.maxScale or scale < dims.minScale then
-			return print(Lang[Dta.Language].Prints.SizeC)
+			return Dta.CPrint(Lang[Dta.Language].Prints.SizeC)
 		end
 	end
 
 	if not orientation then
-		return print(Lang[Dta.Language].Prints.SelectOrientation)
+		return Dta.CPrint(Lang[Dta.Language].Prints.SelectOrientation)
 	end
 
 	if orientation == 7 then

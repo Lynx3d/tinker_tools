@@ -201,12 +201,12 @@ function Dta.losa.saveGroupItemAttributes(name)
 			end
 			Dta.constructions[name] = groupDetails
 			Dta.settings.set_savedsets("SavedSets", Dta.constructions)
-			print(string.format(Lang[Dta.Language].Prints.Saved, name))
+			Dta.CPrint(string.format(Lang[Dta.Language].Prints.Saved, name))
 		else
-			print(Lang[Dta.Language].Prints.MinOneItem)
+			Dta.CPrint(Lang[Dta.Language].Prints.MinOneItem)
 		end
 	else
-		print(Lang[Dta.Language].Prints.EnterName)
+		Dta.CPrint(Lang[Dta.Language].Prints.EnterName)
 	end
 end
 
@@ -221,18 +221,18 @@ function Dta.losa.printShoppingList(name)
 				Dta.groupClipboard = Dta.constructionsdefaults[name]
 				local list = Dta.losa.getGroupShoppingList()
 				if list ~= nil and Dta.losa.tableLength(list) > 0 then
-					print(string.format(Lang[Dta.Language].Prints.LoadNeededItems, name))
+					Dta.CPrint(string.format(Lang[Dta.Language].Prints.LoadNeededItems, name))
 					for id, details in pairs(list) do
-						print(string.format("%s: %d", details.name, details.amount))
+						Dta.CPrint(string.format("%s: %d", details.name, details.amount))
 					end
 				else
-					print(Lang[Dta.Language].Prints.WordCouldNotPrint)
+					Dta.CPrint(Lang[Dta.Language].Prints.WordCouldNotPrint)
 				end
 			else
-				print(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
+				Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
 			end
 		else
-			print(Lang[Dta.Language].Prints.LoadPrintMats)
+			Dta.CPrint(Lang[Dta.Language].Prints.LoadPrintMats)
 		end
 	elseif Dta.ui.loadLoSa == "Saved" then
 		if name ~= nil and name ~= "" then
@@ -240,18 +240,18 @@ function Dta.losa.printShoppingList(name)
 				Dta.groupClipboard = Dta.constructions[name]
 				local list = Dta.losa.getGroupShoppingList()
 				if list ~= nil and Dta.losa.tableLength(list) > 0 then
-					print(string.format(Lang[Dta.Language].Prints.LoadNeededItems, name))
+					Dta.CPrint(string.format(Lang[Dta.Language].Prints.LoadNeededItems, name))
 					for id, details in pairs(list) do
-						print(string.format("%s: %d", details.name, details.amount))
+						Dta.CPrint(string.format("%s: %d", details.name, details.amount))
 					end
 				else
-					print(Lang[Dta.Language].Prints.WordCouldNotPrint)
+					Dta.CPrint(Lang[Dta.Language].Prints.WordCouldNotPrint)
 				end
 			else
-				print(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
+				Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
 			end
 		else
-			print(Lang[Dta.Language].Prints.LoadPrintMats)
+			Dta.CPrint(Lang[Dta.Language].Prints.LoadPrintMats)
 		end
 	elseif Dta.ui.loadLoSa == "Tbx" then
 		if name ~= nil and name ~= "" then
@@ -259,18 +259,18 @@ function Dta.losa.printShoppingList(name)
 				Dta.groupClipboard = Dta.constructionstbx[name]
 				local list = Dta.losa.getGroupShoppingList()
 				if list ~= nil and Dta.losa.tableLength(list) > 0 then
-					print(string.format(Lang[Dta.Language].Prints.LoadNeededItems, name))
+					Dta.CPrint(string.format(Lang[Dta.Language].Prints.LoadNeededItems, name))
 					for id, details in pairs(list) do
-						print(string.format("%s: %d", details.name, details.amount))
+						Dta.CPrint(string.format("%s: %d", details.name, details.amount))
 					end
 				else
-					print(Lang[Dta.Language].Prints.WordCouldNotPrint)
+					Dta.CPrint(Lang[Dta.Language].Prints.WordCouldNotPrint)
 				end
 			else
-				print(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
+				Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
 			end
 		else
-			print(Lang[Dta.Language].Prints.LoadPrintMats)
+			Dta.CPrint(Lang[Dta.Language].Prints.LoadPrintMats)
 		end
 	end
 end
@@ -306,7 +306,7 @@ end
 
 function Dta.losa.loadGroupItemAttributes(name, pasteAtOriginalLoc, pasteNewItems)
 	if not name or name == "" then
-		print(Lang[Dta.Language].Prints.LoadSelectSet)
+		Dta.CPrint(Lang[Dta.Language].Prints.LoadSelectSet)
 		return
 	end
 	local PasteMultipleCopies = Dta.ui.windowLoSa.constructions.LoadMultipleSets:GetChecked()
@@ -324,7 +324,7 @@ function Dta.losa.loadGroupItemAttributes(name, pasteAtOriginalLoc, pasteNewItem
 		not tonumber(OffsetX) or
 		not tonumber(OffsetY) or
 		not tonumber(OffsetZ) then
-		print(Lang[Dta.Language].Prints.NumbersOnly)
+		Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
 		return
 	end
 
@@ -341,7 +341,7 @@ function Dta.losa.loadGroupItemAttributes(name, pasteAtOriginalLoc, pasteNewItem
 		Dta.groupClipboard = constructionSet[name]
 		Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, OffsetX, OffsetY, OffsetZ, name)
 	else
-		print(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
+		Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
 	end
 end
 
@@ -355,9 +355,9 @@ function Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, Offset
 		Dta.Setname = name
 
 		if Dta.losa.tableLength(missingItems) > 0 then
-			print(Lang[Dta.Language].Prints.NotLoadedBags)
+			Dta.CPrint(Lang[Dta.Language].Prints.NotLoadedBags)
 			for id, details in pairs(missingItems) do
-				print(string.format("%s: %d", details.name, details.amount))
+				Dta.CPrint(string.format("%s: %d", details.name, details.amount))
 			end
 		else
 			local player = Inspect.Unit.Detail("player")
@@ -402,9 +402,9 @@ function Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, Offset
 		local missingItems = Dta.losa.checkSelected(shoppingList)
 
 		if Dta.losa.tableLength(missingItems) > 0 then
-			print(Lang[Dta.Language].Prints.NotLoadedSelection)
+			Dta.CPrint(Lang[Dta.Language].Prints.NotLoadedSelection)
 			for id, details in pairs(missingItems) do
-				print(string.format("%s: %d", details.name, details.amount))
+				Dta.CPrint(string.format("%s: %d", details.name, details.amount))
 			end
 		else
 			local player = Inspect.Unit.Detail("player")
@@ -415,7 +415,7 @@ function Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, Offset
 						Dta.LoadSet_Co_Active = true
 					else
 						Dta.LoadSet_Co_Active = false
-						print(string.format(Lang[Dta.Language].Prints.SetLoaded, name))
+						Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetLoaded, name))
 					end
 
 					local item = table.remove(Dta.itemList[details.type],1)
@@ -542,11 +542,11 @@ function Dta.losa.removeGroupItem(name)
 		if Dta.constructions[name] ~= nil then
 			Dta.constructions[name] = nil
 			Dta.settings.set("SavedSets", Dta.constructions)
-			print(string.format(Lang[Dta.Language].Prints.SetRemoved, name))
+			Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetRemoved, name))
 		else
-			print(string.format(Lang[Dta.Language].Prints.NotRemoved, name))
+			Dta.CPrint(string.format(Lang[Dta.Language].Prints.NotRemoved, name))
 		end
 	else
-		print(Lang[Dta.Language].Prints.RemoveSelectSet)
+		Dta.CPrint(Lang[Dta.Language].Prints.RemoveSelectSet)
 	end
 end

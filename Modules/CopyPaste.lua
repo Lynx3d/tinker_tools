@@ -71,7 +71,7 @@ function Dta.copa.pasteButtonClicked()
 			end
 		end
 	else
-		print(Lang[Dta.Language].Prints.CopyFirst)
+		Dta.CPrint(Lang[Dta.Language].Prints.CopyFirst)
 		return
 	end
 	if settings.new_items then
@@ -80,9 +80,9 @@ function Dta.copa.pasteButtonClicked()
 		local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
 		if missing then
 			-- TODO: proper localized error msg
-			print("missing items:")
+			Dta.CPrint("missing items:")
 			for id, amount in pairs(missing) do
-				print(string.format("%s: %d", shoppingList[id].name, amount))
+				Dta.CPrint(string.format("%s: %d", shoppingList[id].name, amount))
 			end
 			return
 		end
@@ -97,9 +97,9 @@ function Dta.copa.pasteButtonClicked()
 			local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
 			if missing then
 				-- TODO: proper localized error msg
-				print("missing items:")
+				Dta.CPrint("missing items:")
 				for id, amount in pairs(missing) do
-					print(string.format("%s: %d", shoppingList[id].name, amount))
+					Dta.CPrint(string.format("%s: %d", shoppingList[id].name, amount))
 				end
 				return
 			end
@@ -154,7 +154,7 @@ function Dta.copa.checkInput()
 	values.selection_pivot = Dta.copa.pivot and Dta.ui.windowCopyPaste.copyPaste.SelectionPivot:GetChecked()
 	if values.new_items then
 		if not values.include_bags and not values.include_bank then
-			print(Lang[Dta.Language].Prints.SelectItemSource)
+			Dta.CPrint(Lang[Dta.Language].Prints.SelectItemSource)
 			return false
 		end
 	end
@@ -166,7 +166,7 @@ function Dta.copa.checkInput()
 
 	for k, v in pairs(success) do
 		if not v then
-			print(Lang[Dta.Language].Prints.NumbersOnly)
+			Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
 			return false
 		end
 	end
@@ -199,7 +199,7 @@ function Dta.copa.copyItemAttributes()
 			})
 		end
 	else
-		print(Lang[Dta.Language].Prints.Copy_SelectItem)
+		Dta.CPrint(Lang[Dta.Language].Prints.Copy_SelectItem)
 	end
 end
 
