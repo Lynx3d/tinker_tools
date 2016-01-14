@@ -32,7 +32,7 @@ function Dta.help_ui.createWindowHelp(name, parent, title, width, height, x, y, 
 
 
 	if closable then
-		windowHelp.closeBtn = Dta.ui.createButton(name .. "CloseBtn", windowHelp, windowHelp:GetWidth()-35, -33,0, 0, nil, "close", closeCallback)
+		windowHelp.closeBtn = Dta.ui.createButton(name .. "CloseBtn", windowHelp, windowHelp:GetWidth()-35, -33, nil, nil, nil, "close", closeCallback)
 		windowHelp.closeBtn:SetLayer(4)
 	end
 
@@ -124,6 +124,7 @@ function Dta.help_ui.buildHelpWindow()
 	local HelpIndex = Dta.Help.helpIndex
 	Helpwindow.HelpIndex:SetItems(HelpIndex)
 	Helpwindow.HelpIndex:SetBackgroundColor(0, 0, 0, 0)
+	Helpwindow.HelpIndex:SetSelectionBackgroundColor(0, 0.5, 0.5, 0.5)
 	Helpwindow.HelpIndex:SetFontSize(15)
 
 	Helpwindow.ScrollIndexLoad:SetContent(Helpwindow.HelpIndex)
@@ -142,6 +143,7 @@ function Dta.help_ui.buildHelpWindow()
 	Helpwindow.ScrollInfoLoad:SetWidth(570)
 	Helpwindow.ScrollInfoLoad:SetHeight(520)
 	Helpwindow.ScrollInfoLoad:SetBackgroundColor(0, 0, 0, 0)
+	Helpwindow.ScrollInfoLoad.scrollbar:SetLayer(60)
 
 	Helpwindow.HelpInfo = UI.CreateFrame("Frame", "HelpInfo", Helpwindow.ScrollInfoLoad)
 
