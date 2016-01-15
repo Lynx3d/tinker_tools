@@ -1,16 +1,20 @@
 local Dta = select(2, ...)
 local Lang = Dta.Lang
 -- Set English as Default and fallback
-if not Lang[Dta.Language] then
-	Lang[Dta.Language] = Lang["English"]
-elseif Dta.Language ~= "English" then
-	setmetatable(Lang[Dta.Language], { __index = Lang["English"] })
-	for k, v in pairs(Lang[Dta.Language]) do
+function addLangFallback(language)
+	setmetatable(Lang[language], { __index = Lang["English"] })
+	for k, v in pairs(Lang[language]) do
 		if type(v) == "table" then
 			setmetatable(v, { __index = Lang["English"][k] })
 		end
 	end
 end
+
+if not Lang[Dta.Language] or Dta.Language == "German" then -- german is w.i.p.
+	Lang[Dta.Language] = Lang["English"]
+end
+addLangFallback("French")
+--addLangFallback("German")
 
 Dta.settings = {}
 
@@ -48,6 +52,7 @@ Dta.settings.defaults = {
 	AlphabetwindowPosY = 530,
 	MeasurementswindowPosX = 0,
 	MeasurementswindowPosY = 490,
+	Language = "Auto",
 	WindowStyle = "default",
 	ConsoleOutput = { [1] = true }
 }
@@ -62,6 +67,14 @@ end
 -- Load the settings into the settings table
 function Dta.settings.load(hEvent, addon)
 	if Dta_Settings ~= nil then Dta.settings.settings = Dta_Settings end
+	local language = Dta.settings.get("Language")
+	if language ~= "Auto" then
+		if not Lang[language] then
+			Dta.CPrint("Language '" .. language .. "' is not available.")
+		else
+			Dta.Language = language
+		end
+	end
 end
 
 --Save the settings table
