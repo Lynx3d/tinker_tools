@@ -11,10 +11,10 @@ function addLangFallback(language)
 end
 
 if not Lang[Dta.Language] or Dta.Language == "German" then -- german is w.i.p.
-	Lang[Dta.Language] = Lang["English"]
+	Dta.Language = "English"
 end
 addLangFallback("French")
---addLangFallback("German")
+addLangFallback("German")
 
 Dta.settings = {}
 

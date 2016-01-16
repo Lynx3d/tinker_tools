@@ -466,6 +466,13 @@ Lang["English"].Buttons.Detect = "Detect"
 Lang["English"].Buttons.LoadWord = "Load Word"
 Lang["English"].Buttons.Yes = "Yes"
 Lang["English"].Buttons.No = "No"
+Lang["English"].Buttons.OK = "OK"
+
+----------------------------------------
+--Menus
+----------------------------------------
+Lang["English"].Menus = {}
+Lang["English"].Menus.WindowStyle = { "Default", "Borderless" }
 
 ----------------------------------------
 --Titles
@@ -482,6 +489,7 @@ Lang["English"].Titles.TribalMagic = "Tribal Magic"
 Lang["English"].Titles.OffsetCalc = "Offset Calc."
 Lang["English"].Titles.Help = "Dimension Tools Help"
 Lang["English"].Titles.Notification = "Notification"
+Lang["English"].Titles.Settings = "Settings"
 
 
 ----------------------------------------
@@ -523,6 +531,8 @@ Lang["English"].Text.Size = "Size"
 Lang["English"].Text.Skin = "Skin"
 Lang["English"].Text.Horizontal = "Place Horizontal"
 Lang["English"].Text.Vertical = "Place Vertical"
+Lang["English"].Text.ConsoleMessages = "Console Messages"
+Lang["English"].Text.WindowStyle = "Window Style"
 Lang["English"].Text.NotIdleNotification = "Previous operation has not finished yet.\nAbort currently running operation now?"
 
 

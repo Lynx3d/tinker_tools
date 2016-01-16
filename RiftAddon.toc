@@ -70,6 +70,7 @@ RunOnStartup = {
 
   "Language/Language_Eng.lua",
   "Language/Language_French.lua",
+  "Language/Language_German.lua",
 
   "Defaults/Default_LoadSave.lua",
   "Defaults/Default_ItemDB.lua",
@@ -79,6 +80,7 @@ RunOnStartup = {
   "Settings.lua",
 
   "UI/Main_UI.lua",
+  "UI/Config_UI.lua",
   "UI/CopyPaste_UI.lua",
   "UI/Scale_UI.lua",
   "UI/Move_UI.lua",
