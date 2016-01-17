@@ -3,27 +3,6 @@ local Lang = Dta.Lang
 
 Dta.measurements = {}
 
-Dta.measurements.TypeIndex = {
-	"Cubes",
-	"Planks",
-	"Poles",
-	"Rectangles",
-	"Tiles",
-	"Floor",
-	"Hall Floor",
-	"Large Floor"
-}
-
-Dta.measurements.OrientationIndex = {
-	"Default",
-	"Pitch 90",
-	"Yaw 90",
-	"Roll 90",
-	"Pitch & Yaw 90",
-	"Pitch & Roll 90",
-	"Selection Delta"
-}
-
 Dta.measurements.OrientationAxisMap = {
 	{ "x", "y", "z" }, -- Default
 	{ "x", "z", "y" }, -- Pitch 90

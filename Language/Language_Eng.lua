@@ -473,6 +473,25 @@ Lang["English"].Buttons.OK = "OK"
 ----------------------------------------
 Lang["English"].Menus = {}
 Lang["English"].Menus.WindowStyle = { "Default", "Borderless" }
+Lang["English"].Menus.ItemType = {
+	"Cubes",
+	"Planks",
+	"Poles",
+	"Rectangles",
+	"Tiles",
+	"Floor",
+	"Hall Floor",
+	"Large Floor"
+}
+Lang["English"].Menus.Orientation = {
+	"Default",
+	"Pitch 90",
+	"Yaw 90",
+	"Roll 90",
+	"Pitch & Yaw 90",
+	"Pitch & Roll 90",
+	"Selection Delta"
+}
 
 ----------------------------------------
 --Titles
