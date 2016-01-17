@@ -54,6 +54,14 @@ function Dta.move.fetchZButtonClicked()
 	end
 end
 
+function Dta.move.fetchAllButtonClicked()
+	if Dta.selectionCenter then
+		Dta.ui.windowMove.modifyPosition.x:SetText(tostring(Dta.items.round(Dta.selectionCenter.x, 4)))
+		Dta.ui.windowMove.modifyPosition.y:SetText(tostring(Dta.items.round(Dta.selectionCenter.y, 4)))
+		Dta.ui.windowMove.modifyPosition.z:SetText(tostring(Dta.items.round(Dta.selectionCenter.z, 4)))
+	end
+end
+
 --------------------------------------
 --MOVE ONE ITEM
 --------------------------------------
