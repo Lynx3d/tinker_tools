@@ -57,6 +57,10 @@ Dta.settings.defaults = {
 	ConsoleOutput = { [1] = true }
 }
 
+Dta.settings.revisions = {
+	[1] = "v1.9.10"
+}
+
 function Dta.settings.main()
 	Command.Event.Attach(Event.Addon.SavedVariables.Load.End, Dta.settings.load, "Loaded settings")
 	Command.Event.Attach(Event.Addon.SavedVariables.Save.Begin, Dta.settings.save, "Saved settings")
@@ -79,6 +83,8 @@ end
 
 --Save the settings table
 function Dta.settings.save(hEvent, addon)
+	-- set a revision to track changes in setting data layout
+	Dta.settings.set("Revision", Dta.SettingsRevision)
 	Dta_Settings = Dta.settings.settings
 end
 

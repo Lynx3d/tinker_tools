@@ -2,6 +2,7 @@ local addon, Dta = ...
 
 --Addon information
 Dta.Version = addon.toc.Version --Inspect.Addon.Detail(Inspect.Addon.Current()).toc.Version
+Dta.SettingsRevision = 1
 Dta.Language = Inspect.System.Language()
 Dta.Lang = {}
 local Lang = Dta.Lang
