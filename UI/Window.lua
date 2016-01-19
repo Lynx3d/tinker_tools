@@ -300,6 +300,112 @@ function Window.Create(...)
 end
 
 -------------------------------------------------
+-- Window that replicates Rift confirmation popups
+-------------------------------------------------
+
+function Window.createPopupBorder(window)
+	local path = {	{xProportional = 0, yProportional = 0},
+					{xProportional = 0, yProportional = 1},
+					{xProportional = 1, yProportional = 1},
+					{xProportional = 1, yProportional = 0},
+					{xProportional = 0, yProportional = 0} }
+	local fill = {	type = 'texture',
+					-- transform = {0.5, 0, 0, 0, 1, 0 },
+					-- transform = Utility.Matrix.Create(0.5, 1, 0, 0, 0),
+					source = "Rift",
+					texture = "window_popup_alpha.png.dds" }
+	-- CORNERS
+	-- top left corner; size 20x15, offset -6, -1
+	window.frame_topleft = UI.CreateFrame("Canvas", "frame_topleft", window)
+	window.frame_topleft:SetPoint("TOPLEFT", window, "TOPLEFT", -6, -1)
+	window.frame_topleft:SetPoint("BOTTOMRIGHT", window, "TOPLEFT", 14, 14)
+	window.frame_topleft:SetShape(path, fill, nil)
+	window.frame_topleft:SetLayer(-10)
+	-- bottom left corner; size 20x23, offset -6, 9
+	window.frame_bottomleft = UI.CreateFrame("Canvas", "frame_bottomleft", window)
+	window.frame_bottomleft:SetPoint("TOPLEFT", window, "BOTTOMLEFT", -6, -14)
+	window.frame_bottomleft:SetPoint("BOTTOMRIGHT", window, "BOTTOMLEFT", 14, 9)
+	fill.transform = { 1, 0, 0, 0, 1, -105 }
+	window.frame_bottomleft:SetShape(path, fill, nil)
+	window.frame_bottomleft:SetLayer(-10)
+	-- top right corner; size 19x15, offset 5, -1
+	window.frame_topright = UI.CreateFrame("Canvas", "frame_topright", window)
+	window.frame_topright:SetPoint("TOPLEFT", window, "TOPRIGHT", -14, -1)
+	window.frame_topright:SetPoint("BOTTOMRIGHT", window, "TOPRIGHT", 5, 14)
+	fill.transform = { 1, 0, -109, 0, 1, 0 }
+	window.frame_topright:SetShape(path, fill, nil)
+	window.frame_topright:SetLayer(-10)
+	-- bottom right corner; size 19x23, offset 5, 9
+	window.frame_bottomright = UI.CreateFrame("Canvas", "frame_bottomright", window)
+	window.frame_bottomright:SetPoint("TOPLEFT", window, "BOTTOMRIGHT", -14, -14)
+	window.frame_bottomright:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", 5, 9)
+	fill.transform = { 1, 0, -109, 0, 1, -105 }
+	window.frame_bottomright:SetShape(path, fill, nil)
+	window.frame_bottomright:SetLayer(-10)
+	-- SIDES
+	local f_height = window:GetHeight() - 14 - 14
+	local h_scale = 1
+	if f_height > 90 then
+		h_scale = f_height / 90 -- 128 - 15 - 23
+	end
+	-- left side:  width 20, offset -6
+	window.frame_left = UI.CreateFrame("Canvas", "frame_left", window)
+	window.frame_left:SetPoint("TOPLEFT", window, "TOPLEFT", -6, 14)
+	window.frame_left:SetPoint("BOTTOMRIGHT", window, "BOTTOMLEFT", 14, -14)
+	fill.transform = { 1, 0, 0, 0, h_scale, -15 * h_scale }
+	window.frame_left:SetShape(path, fill, nil)
+	window.frame_left:SetLayer(-10)
+	-- right side:  width 19, offset 5
+	window.frame_right = UI.CreateFrame("Canvas", "frame_left", window)
+	window.frame_right:SetPoint("TOPLEFT", window, "TOPRIGHT", -14, 14)
+	window.frame_right:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", 5, -14)
+	fill.transform = { 1, 0, -109, 0, h_scale, -15 * h_scale }
+	window.frame_right:SetShape(path, fill, nil)
+	window.frame_right:SetLayer(-10)
+
+	local f_width = window:GetWidth() - 14 - 14
+	local w_scale = 1
+	if f_width > 89 then
+		w_scale = f_width / 89 -- 128 - 20 - 19
+	end
+	-- top: height 15, offset -1
+	window.frame_top = UI.CreateFrame("Canvas", "frame_top", window)
+	window.frame_top:SetPoint("TOPLEFT", window, "TOPLEFT", 14, -1)
+	window.frame_top:SetPoint("BOTTOMRIGHT", window, "TOPRIGHT", -14, 14)
+	fill.transform = { w_scale, 0, -20 * w_scale, 0, 1, 0 }
+	window.frame_top:SetShape(path, fill, nil)
+	window.frame_top:SetLayer(-10)
+	-- bottom: height 15, offset 11
+	window.frame_bottom = UI.CreateFrame("Canvas", "frame_bottom", window)
+	window.frame_bottom:SetPoint("TOPLEFT", window, "BOTTOMLEFT", 14, -14)
+	window.frame_bottom:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", -14, 9)
+	fill.transform = { w_scale, 0, -20 * w_scale, 0, 1, -105 }
+	window.frame_bottom:SetShape(path, fill, nil)
+	window.frame_bottom:SetLayer(-10)
+	-- TODO: center piece
+	window.frame_center = UI.CreateFrame("Canvas", "frame_center", window)
+	window.frame_center:SetPoint("TOPLEFT", window, "TOPLEFT", 14, 14)
+	window.frame_center:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", -14, -14)
+	fill.transform = { w_scale, 0, -20 * w_scale, 0, h_scale, -15 * h_scale }
+	window.frame_center:SetShape(path, fill, nil)
+	window.frame_center:SetLayer(-10)
+end
+
+function Window.CreatePopup(name, parent, width, height, x, y, movable)
+	local newWindow = UI.CreateFrame("Frame", name, parent)
+	newWindow:SetHeight(height)
+	newWindow:SetWidth(width)
+	newWindow:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
+	Window.createPopupBorder(newWindow)
+
+	if movable then
+		DraggableFrame.Setup(newWindow, newWindow)
+	end
+
+	return newWindow
+end
+
+-------------------------------------------------
 -- Simple Button with custom images
 -------------------------------------------------
 
