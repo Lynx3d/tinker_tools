@@ -348,15 +348,6 @@ function Dta.commandHandler(hEvent, command)
 		Dta.help_ui.toggleHelpWindow()
 	elseif command == "config" then
 		Dta.config_ui.showConfigWindow()
-	elseif string.sub(command, 1, 5) == "style" then
-		local current_style = Dta.settings.get("WindowStyle")
-		if current_style == "classic" then
-			Dta.settings.set("WindowStyle", "default")
-			Dta.CPrint("Window Style is now \"default\"")
-		else
-			Dta.settings.set("WindowStyle", "classic")
-			Dta.CPrint("Window Style is now \"classic\"")
-		end
 	elseif command == "force" then
 		EnterDimension()
 	else
