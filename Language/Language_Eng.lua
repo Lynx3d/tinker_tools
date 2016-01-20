@@ -455,7 +455,7 @@ Lang["English"].Buttons.Place = "Place"
 Lang["English"].Buttons.PickUp = "Pick Up"
 Lang["English"].Buttons.SaveSet = "Save Set"
 Lang["English"].Buttons.LoadSet = "Load Set"
-Lang["English"].Buttons.RemoveSet = "Remove Set"
+Lang["English"].Buttons.RemoveSet = "Delete Set"
 Lang["English"].Buttons.PrintMaterials = "Print Materials"
 Lang["English"].Buttons.Move = "Move"
 Lang["English"].Buttons.Reset = "Reset"
@@ -553,6 +553,7 @@ Lang["English"].Text.Vertical = "Place Vertical"
 Lang["English"].Text.ConsoleMessages = "Console Messages"
 Lang["English"].Text.WindowStyle = "Window Style"
 Lang["English"].Text.NotIdleNotification = "Previous operation has not finished yet.\nAbort currently running operation now?"
+Lang["English"].Text.ConfirmDeleteSet = "Delete item set '%s'?"
 
 
 ----------------------------------------

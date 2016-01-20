@@ -102,7 +102,6 @@ end
 
 function Dta.losa.constructionRemoveClicked()
 	Dta.losa.removeGroupItem(Dta.ui.windowLoSa.constructions.nameLoad:GetSelectedItem())
-	Dta.losa.refreshLoadSelect()
 end
 
 function Dta.losa.refreshLoadSelect()
@@ -537,12 +536,17 @@ end
 --REMOVESET
 ----------------------------------
 
+function Dta.losa.deleteItemSet(name)
+	Dta.constructions[name] = nil
+	Dta.losa.refreshLoadSelect()
+	Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetRemoved, name))
+end
+
 function Dta.losa.removeGroupItem(name)
 	if name ~= nil and name ~= "" then
 		if Dta.constructions[name] ~= nil then
-			Dta.constructions[name] = nil
-			Dta.settings.set("SavedSets", Dta.constructions)
-			Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetRemoved, name))
+			Dta.ui.showConfirmation(string.format(Lang["English"].Text.ConfirmDeleteSet, name),
+									Dta.losa.deleteItemSet, nil, name)
 		else
 			Dta.CPrint(string.format(Lang[Dta.Language].Prints.NotRemoved, name))
 		end

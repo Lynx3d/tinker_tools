@@ -67,7 +67,7 @@ function Dta.losa_ui.buildLoSaWindow()
 	LoSawindow.constructions.nameLoad:SetPoint("TOPLEFT", LoSawindow.constructions, "TOPLEFT", 55, 140)
 	LoSawindow.constructions.nameLoad:SetLayer(100)
 	LoSawindow.constructions.nameLoad:SetItems(Dta.losa.loadConstructions())
-	LoSawindow.constructions.nameLoad:ResizeToFit()
+	LoSawindow.constructions.nameLoad:SetBackgroundColor(0, 0, 0, 0.85)
 	LoSawindow.constructions.nameLoad:SetWidth(245)
 	LoSawindow.constructions.nameLoad:SetEnabled(true)
 

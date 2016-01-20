@@ -79,6 +79,10 @@ function Dta.settings.load(hEvent, addon)
 			Dta.Language = language
 		end
 	end
+	-- correct unintended cross-reference of saved sets in settings
+	if Dta.settings.settings["SavedSets"] then
+		Dta.settings.settings["SavedSets"] = nil
+	end
 end
 
 --Save the settings table
