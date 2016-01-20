@@ -355,12 +355,12 @@ function Dta.ui.buildMainWindow()
 	Mainwindow.itemDetails.y = Dta.ui.createText("itemDetailsY", Mainwindow.itemDetails, 25, 50, "-", 14)
 	Mainwindow.itemDetails.z = Dta.ui.createText("itemDetailsZ", Mainwindow.itemDetails, 25, 70, "-", 14)
 
-	Mainwindow.itemDetails.yawLabel = Dta.ui.createText("itemDetailsYawLabel", Mainwindow.itemDetails, 125, 30, Lang[Dta.Language].Text.Yaw, 14, {0, 1, 0, 1})
-	Mainwindow.itemDetails.pitchLabel = Dta.ui.createText("itemDetailsPitchLabel", Mainwindow.itemDetails, 125, 50, Lang[Dta.Language].Text.Pitch, 14, {1, 0, 0, 1})
+	Mainwindow.itemDetails.pitchLabel = Dta.ui.createText("itemDetailsPitchLabel", Mainwindow.itemDetails, 125, 30, Lang[Dta.Language].Text.Pitch, 14, {1, 0, 0, 1})
+	Mainwindow.itemDetails.yawLabel = Dta.ui.createText("itemDetailsYawLabel", Mainwindow.itemDetails, 125, 50, Lang[Dta.Language].Text.Yaw, 14, {0, 1, 0, 1})
 	Mainwindow.itemDetails.rollLabel = Dta.ui.createText("itemDetailsRollLabel", Mainwindow.itemDetails, 125, 70, Lang[Dta.Language].Text.Roll, 14, {0, 1, 1, 1})
 
-	Mainwindow.itemDetails.yaw = Dta.ui.createText("itemDetailsYaw", Mainwindow.itemDetails, 175, 30, "-", 14)
-	Mainwindow.itemDetails.pitch = Dta.ui.createText("itemDetailsPitch", Mainwindow.itemDetails, 175, 50, "-", 14)
+	Mainwindow.itemDetails.pitch = Dta.ui.createText("itemDetailsPitch", Mainwindow.itemDetails, 175, 30, "-", 14)
+	Mainwindow.itemDetails.yaw = Dta.ui.createText("itemDetailsYaw", Mainwindow.itemDetails, 175, 50, "-", 14)
 	Mainwindow.itemDetails.roll = Dta.ui.createText("itemDetailsRoll", Mainwindow.itemDetails, 175, 70, "-", 14)
 
 	Mainwindow.itemDetails.scaleLabel = Dta.ui.createText("itemDetailsScaleLabel", Mainwindow.itemDetails, 0, 90, Lang[Dta.Language].Text.Scale, 14)

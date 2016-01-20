@@ -46,19 +46,19 @@ function Dta.rotate_ui.buildRotateWindow()
 	Rotatewindow.modifyRotation:SetLayer(30)
 	--Rotatewindow.modifyRotation:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-	Rotatewindow.modifyRotation.yawLabel = Dta.ui.createText("modifyRotationYawLabel", Rotatewindow.modifyRotation, 0, 0, Lang[Dta.Language].Text.Yaw, 14, {0, 1, 0, 1})
-	Rotatewindow.modifyRotation.pitchLabel = Dta.ui.createText("modifyRotationPitchLabel", Rotatewindow.modifyRotation, 0, 25, Lang[Dta.Language].Text.Pitch, 14, {1, 0, 0, 1})
+	Rotatewindow.modifyRotation.pitchLabel = Dta.ui.createText("modifyRotationPitchLabel", Rotatewindow.modifyRotation, 0, 0, Lang[Dta.Language].Text.Pitch, 14, {1, 0, 0, 1})
+	Rotatewindow.modifyRotation.yawLabel = Dta.ui.createText("modifyRotationYawLabel", Rotatewindow.modifyRotation, 0, 25, Lang[Dta.Language].Text.Yaw, 14, {0, 1, 0, 1})
 	Rotatewindow.modifyRotation.rollLabel = Dta.ui.createText("modifyRotationRollLabel", Rotatewindow.modifyRotation, 0, 50, Lang[Dta.Language].Text.Roll, 14, {0, 1, 1, 1})
 
-	Rotatewindow.modifyRotation.yaw = Dta.ui.createTextfield("modifyRotationYaw", Rotatewindow.modifyRotation, 40, 0, 85)
-	Rotatewindow.modifyRotation.pitch = Dta.ui.createTextfield("modifyRotationPitch", Rotatewindow.modifyRotation, 40, 25, 85)
+	Rotatewindow.modifyRotation.pitch = Dta.ui.createTextfield("modifyRotationPitch", Rotatewindow.modifyRotation, 40, 0, 85)
+	Rotatewindow.modifyRotation.yaw = Dta.ui.createTextfield("modifyRotationYaw", Rotatewindow.modifyRotation, 40, 25, 85)
 	Rotatewindow.modifyRotation.roll = Dta.ui.createTextfield("modifyRotationRoll", Rotatewindow.modifyRotation, 40, 50, 85)
 
-	Rotatewindow.modifyRotation.fetchYaw = Dta.ui.createReloadButton("fetchYaw", Rotatewindow.modifyRotation, 125, 0, Dta.rotate.fetchYawButtonClicked)
-	Rotatewindow.modifyRotation.fetchPitch = Dta.ui.createReloadButton("fetchPitch", Rotatewindow.modifyRotation, 125, 25, Dta.rotate.fetchPitchButtonClicked)
+	Rotatewindow.modifyRotation.fetchPitch = Dta.ui.createReloadButton("fetchPitch", Rotatewindow.modifyRotation, 125, 0, Dta.rotate.fetchPitchButtonClicked)
+	Rotatewindow.modifyRotation.fetchYaw = Dta.ui.createReloadButton("fetchYaw", Rotatewindow.modifyRotation, 125, 25, Dta.rotate.fetchYawButtonClicked)
 	Rotatewindow.modifyRotation.fetchRoll = Dta.ui.createReloadButton("fetchRoll", Rotatewindow.modifyRotation, 125, 50, Dta.rotate.fetchRollButtonClicked)
-	Rotatewindow.modifyRotation.fetchYaw:EventAttach(Event.UI.Input.Mouse.Right.Click, Dta.rotate.fetchAllButtonClicked, "FetchAllRot")
 	Rotatewindow.modifyRotation.fetchPitch:EventAttach(Event.UI.Input.Mouse.Right.Click, Dta.rotate.fetchAllButtonClicked, "FetchAllRot")
+	Rotatewindow.modifyRotation.fetchYaw:EventAttach(Event.UI.Input.Mouse.Right.Click, Dta.rotate.fetchAllButtonClicked, "FetchAllRot")
 	Rotatewindow.modifyRotation.fetchRoll:EventAttach(Event.UI.Input.Mouse.Right.Click, Dta.rotate.fetchAllButtonClicked, "FetchAllRot")
 
 	Rotatewindow.modifyRotation.modeAbs = Dta.ui.createCheckbox("modifyRotationModeAbs", Rotatewindow.modifyRotation, 160, 5, Lang[Dta.Language].Text.Absolute, true, nil, Dta.rotate.modifyRotationModeAbsChanged)
