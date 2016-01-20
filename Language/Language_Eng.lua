@@ -467,6 +467,7 @@ Lang["English"].Buttons.LoadWord = "Load Word"
 Lang["English"].Buttons.Yes = "Yes"
 Lang["English"].Buttons.No = "No"
 Lang["English"].Buttons.OK = "OK"
+Lang["English"].Buttons.Cancel = "CANCEL"
 
 ----------------------------------------
 --Menus
@@ -507,7 +508,6 @@ Lang["English"].Titles.ImportExport = "Import / Export Sets"
 Lang["English"].Titles.TribalMagic = "Tribal Magic"
 Lang["English"].Titles.OffsetCalc = "Offset Calc."
 Lang["English"].Titles.Help = "Dimension Tools Help"
-Lang["English"].Titles.Notification = "Notification"
 Lang["English"].Titles.Settings = "Settings"
 
 

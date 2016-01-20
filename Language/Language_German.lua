@@ -41,7 +41,8 @@ LangG.Buttons.Detect = "Ermitteln"
 LangG.Buttons.LoadWord = "Wort laden"
 LangG.Buttons.Yes = "Ja"
 LangG.Buttons.No = "Nein"
-LangG.Buttons.OK = "OK"
+LangG.Buttons.OK = "O.K."
+LangG.Buttons.Cancel = "ABBRECHEN"
 
 ----------------------------------------
 --Menus
