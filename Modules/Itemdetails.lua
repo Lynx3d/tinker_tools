@@ -35,14 +35,6 @@ function Dta.items.QueueSelect(id)
 	table.insert(Dta.pendingActions, {op="select", id=id})
 end
 
-function Dta.items.QueueCoPa(id, x, y, z, pitch, roll, yaw, amount)
-	table.insert(Dta.pendingActions, {op="copa", x=x, y=y, z=z, pitch=pitch, roll=roll, yaw=yaw, amount=amount, id=id})
-end
-
-function Dta.items.QueueLoad(id, x, y, z, pitch, roll, yaw, amount)
-	table.insert(Dta.pendingActions, {op="losa", x=x, y=y, z=z, pitch=pitch, roll=roll, yaw=yaw, amount=amount, id=id})
-end
-
 function Dta.items.QueueAdd(id, x, y, z, pitch, yaw, roll, scale)
 	table.insert(Dta.pendingActions, {
 		op="add",

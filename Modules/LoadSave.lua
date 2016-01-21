@@ -97,7 +97,7 @@ function Dta.losa.constructionSaveClicked()
 end
 
 function Dta.losa.constructionLoadClicked()
-	Dta.losa.loadGroupItemAttributes(Dta.ui.windowLoSa.constructions.nameLoad:GetSelectedItem(), Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:GetChecked(), Dta.ui.windowLoSa.constructions.LoadNewItems:GetChecked())
+	Dta.losa.loadItemSet(Dta.ui.windowLoSa.constructions.nameLoad:GetSelectedItem(), Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:GetChecked(), Dta.ui.windowLoSa.constructions.LoadNewItems:GetChecked())
 end
 
 function Dta.losa.constructionRemoveClicked()
@@ -303,26 +303,23 @@ end
 --LOADSET
 ----------------------------------
 
-function Dta.losa.loadGroupItemAttributes(name, pasteAtOriginalLoc, pasteNewItems)
-	if not name or name == "" then
-		Dta.CPrint(Lang[Dta.Language].Prints.LoadSelectSet)
+function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
+	if not Dta.checkIdle() then
 		return
 	end
-	local PasteMultipleCopies = Dta.ui.windowLoSa.constructions.LoadMultipleSets:GetChecked()
-	local NrCopies = Dta.ui.windowLoSa.constructions.NrCopies:GetText()
-	local OffsetX = Dta.ui.windowLoSa.constructions.x:GetText()
-	local OffsetY = Dta.ui.windowLoSa.constructions.y:GetText()
-	local OffsetZ = Dta.ui.windowLoSa.constructions.z:GetText()
+	-- check input
+	local settings = {}
+	local success = {}
+	local losa_ui = Dta.ui.windowLoSa.constructions
+	settings.coordX, success.x = Dta.ui.checkNumber(losa_ui.x:GetText(), 0)
+	settings.coordY, success.y = Dta.ui.checkNumber(losa_ui.y:GetText(), 0)
+	settings.coordZ, success.z = Dta.ui.checkNumber(losa_ui.z:GetText(), 0)
+	settings.n_copies, success.n_copies = Dta.ui.checkNumber(losa_ui.NrCopies:GetText(), 1)
 
-	if NrCopies == nil or NrCopies == "" then NrCopies = 1 end
-	if OffsetX == nil or OffsetX == "" then OffsetX = 0 end
-	if OffsetY == nil or OffsetY == "" then OffsetY = 0 end
-	if OffsetZ == nil or OffsetZ == "" then OffsetZ = 0 end
-
-	if not tonumber(NrCopies) or
-		not tonumber(OffsetX) or
-		not tonumber(OffsetY) or
-		not tonumber(OffsetZ) then
+	if not success.x or
+		not success.y or
+		not success.z or
+		not success.n_copies then
 		Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
 		return
 	end
@@ -337,198 +334,50 @@ function Dta.losa.loadGroupItemAttributes(name, pasteAtOriginalLoc, pasteNewItem
 	end
 
 	if constructionSet and constructionSet[name] ~= nil then
-		Dta.groupClipboard = constructionSet[name]
-		Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, OffsetX, OffsetY, OffsetZ, name)
+		-- check available items
+		local shoppingList = Dta.losa.getGroupShoppingList(constructionSet[name])
+		if newItems then
+			Dta.losa.ScanInventory(shoppingList, true, false) -- settings.include_bags, settings.include_bank)
+			local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
+			if missing then
+				Dta.losa.printMissingItems(missing, shoppingList, Lang[Dta.Language].Prints.NotLoadedBags)
+				return
+			end
+			Dta.items.DeselectAll()
+			Dta.Co_DoneMessage = string.format(Lang[Dta.Language].Prints.SetLoaded, name)
+			Dta.AddItem_Co = coroutine.create(Dta.losa.pasteGroup)
+			local ok, err = coroutine.resume(Dta.AddItem_Co, constructionSet[name], shoppingList, settings, newItems, atOriginalLoc)
+			if not ok then dump(err) end
+		else
+			Dta.losa.ScanSelection(shoppingList)
+			local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
+			if missing then
+				Dta.losa.printMissingItems(missing, shoppingList, Lang[Dta.Language].Prints.NotLoadedSelection)
+				return
+			end
+			Dta.losa.pasteGroup(constructionSet[name], shoppingList, settings, newItems, atOriginalLoc)
+		end
 	else
 		Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
 	end
 end
 
-function Dta.losa.pasteGroup(pasteAtOriginalLoc, pasteNewItems, NrCopies, OffsetX, OffsetY, OffsetZ, name)
-	if pasteNewItems then
-		local shoppingList = Dta.losa.getGroupShoppingList()
-		local missingItems = Dta.losa.checkInventory(shoppingList, NrCopies)
-		Dta.ItemsToPlace = #Dta.groupClipboard * tonumber(NrCopies)
-		Dta.FinishedSet = false
-		Dta.items.DeselectAll()
-		Dta.Setname = name
-
-		if Dta.losa.tableLength(missingItems) > 0 then
-			Dta.CPrint(Lang[Dta.Language].Prints.NotLoadedBags)
-			for id, details in pairs(missingItems) do
-				Dta.CPrint(string.format("%s: %d", details.name, details.amount))
-			end
-		else
-			local player = Inspect.Unit.Detail("player")
-
-			Dta.losa.Co_LoadItem = coroutine.create(function ()
-				for k, details in pairs(Dta.groupClipboard) do
-					if k < #Dta.groupClipboard then
-						Dta.LoadSet_Co_Active = true
-					else
-						Dta.LoadSet_Co_Active = false
-					end
-
-					local item = details.type
-
-					local newPlacement = {
-						coordX = details.coordX,
-						coordY = details.coordY,
-						coordZ = details.coordZ,
-						yaw = details.yaw,
-						pitch = details.pitch,
-						roll = details.roll,
-						scale = details.scale,
-					}
-
-					if not pasteAtOriginalLoc then
-						local cp = Dta.items.getCentralPoint(Dta.groupClipboard)
-						newPlacement.coordX = player.coordX + (details.coordX - cp.x) + 15
-						newPlacement.coordY = player.coordY + (details.coordY - cp.minValuaY) + 0.05
-						newPlacement.coordZ = player.coordZ + (details.coordZ - cp.z)
-					end
-
-						Dta.losa.PasteSet(item, name, NrCopies, OffsetX, OffsetY, OffsetZ, newPlacement.coordX, newPlacement.coordY, newPlacement.coordZ, newPlacement.yaw, newPlacement.pitch, newPlacement.roll, newPlacement.scale)
-						coroutine.yield()
-
-				end
-			end)
-			coroutine.resume(Dta.losa.Co_LoadItem)
-
-		end
-	elseif not pasteNewItems then
-		local shoppingList = Dta.losa.getGroupShoppingList()
-		local missingItems = Dta.losa.checkSelected(shoppingList)
-
-		if Dta.losa.tableLength(missingItems) > 0 then
-			Dta.CPrint(Lang[Dta.Language].Prints.NotLoadedSelection)
-			for id, details in pairs(missingItems) do
-				Dta.CPrint(string.format("%s: %d", details.name, details.amount))
-			end
-		else
-			local player = Inspect.Unit.Detail("player")
-
-				for k, details in pairs(Dta.groupClipboard) do
-
-					if k < #Dta.groupClipboard then
-						Dta.LoadSet_Co_Active = true
-					else
-						Dta.LoadSet_Co_Active = false
-						Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetLoaded, name))
-					end
-
-					local item = table.remove(Dta.itemList[details.type],1)
-
-					local newPlacement = {
-						coordX = details.coordX,
-						coordY = details.coordY,
-						coordZ = details.coordZ,
-						yaw = details.yaw,
-						pitch = details.pitch,
-						roll = details.roll,
-						scale = details.scale,
-					}
-
-					if not pasteAtOriginalLoc then
-						local cp = Dta.items.getCentralPoint(Dta.groupClipboard)
-						newPlacement.coordX = player.coordX + (details.coordX - cp.x) + 15
-						newPlacement.coordY = player.coordY + (details.coordY - cp.minValuaY) + 0.05
-						newPlacement.coordZ = player.coordZ + (details.coordZ - cp.z)
-					end
-
-					Dta.items.QueueLoad(item, newPlacement.coordX, newPlacement.coordY, newPlacement.coordZ, newPlacement.pitch, newPlacement.roll, newPlacement.yaw, newPlacement.scale)
-				end
-
-		end
-
+function Dta.losa.pasteGroup(itemSet, shoppingList, settings, new_items, atOriginalLoc)
+	-- determine new position unless at pasting at original position
+	local newPlacement = { coordX = 0, coordY = 0, coordZ = 0 }
+	if not atOriginalLoc then
+		local cp = Dta.items.getCentralPoint(itemSet)
+		local player = Inspect.Unit.Detail("player")
+		newPlacement.coordX = player.coordX - cp.x + 15
+		newPlacement.coordY = player.coordY - cp.minValuaY + 0.05
+		newPlacement.coordZ = player.coordZ - cp.z
 	end
-
-end
-
-function Dta.losa.PasteSet(item, name, NrCopies, OffsetX, OffsetY, OffsetZ, Set_x, Set_y, Set_z, Set_yaw, Set_pitch, Set_roll, Set_scale) --ToDo Split up for Bag, Bank or Both
-
-	local items = Inspect.Item.List(Utility.Item.Slot.Inventory())
-	for slot, id in pairs(items) do
-		if id ~= false then
-			local data = Inspect.Item.Detail(id)
-			if data.type == item then
-				Dta.losa.Co_PlaceItem = coroutine.create(function ()
-					for k = 1, tonumber(NrCopies), 1 do
-						local Xoffset = tonumber(OffsetX) * k
-						local Yoffset = tonumber(OffsetY) * k
-						local Zoffset = tonumber(OffsetZ) * k
-
-						local newPlacement = {
-								coordX = Set_x + Xoffset,
-								coordY = Set_y + Yoffset,
-								coordZ = Set_z + Zoffset,
-								yaw = Set_yaw,
-								pitch = Set_pitch,
-								roll = Set_roll,
-								scale = Set_scale }
-
-						if k < tonumber(NrCopies) then
-							Dta.PlaceItem_Co_Active = true
-						else
-							Dta.PlaceItem_Co_Active = false
-						--print(string.format("Item set \"%s\" loaded", name))
-						end
-
-						Command.Dimension.Layout.Place(id, newPlacement)
-						coroutine.yield()--return
-					end
-				end)
-				coroutine.resume(Dta.losa.Co_PlaceItem)
-			end
-		end
-	end
-end
-
-function Dta.losa.checkSelected(shoppingList)
-	if #Dta.groupClipboard > 0 then
-		Dta.itemList = {}
-		for _, item in pairs(Dta.selectedItems) do
-			if shoppingList[item.type] ~= nil then
-				if Dta.itemList[item.type] == nil then
-					Dta.itemList[item.type] = {item.id}
-				else
-					table.insert(Dta.itemList[item.type], item.id)
-				end
-
-				if shoppingList[item.type].amount == 1 then
-					shoppingList[item.type] = nil
-				else
-					shoppingList[item.type].amount = shoppingList[item.type].amount - 1
-				end
-			end
-		end
-		return shoppingList
-	end
-end
-
-function Dta.losa.checkInventory(shoppingList, NrCopies) --ToDo Split up for Bag, Bank or Both
-	if #Dta.groupClipboard > 0 then
-		--loop through bags
-		--print(#shoppingList)
-		bagNo = 1
-		for _, bag in pairs(Inspect.Item.Detail(Utility.Item.Slot.Inventory("bag"))) do
-			--loop through each slot in the bag
-			for slot = 1, bag.slots, 1 do
-				local item = Inspect.Item.Detail(Utility.Item.Slot.Inventory(bagNo, slot))
-				--if the item matches something in the shopping list
-				if item ~= nil and shoppingList[item.type] ~= nil then
-					if item.stack == nil then item.stack = 1 end --if the item has no stack value, set its stack to 1
-					if shoppingList[item.type].amount * NrCopies <= item.stack then --if there are more items in the stack than needed
-						shoppingList[item.type] = nil -- remove the item from the shopping list (we have enough)
-						Dta.itemList[item.type] = item.id --add the item to the item list
-					else --otherwise just remove the amount we have
-						shoppingList[item.type].amount = shoppingList[item.type].amount * NrCopies - item.stack
-					end
-				end
-			end
-			bagNo = bagNo + 1
-		end
-		return shoppingList
+	-- paste the requested number of copies
+	for k = 0, settings.n_copies - 1, 1 do
+		local offset = { coordX = newPlacement.coordX + k * settings.coordX,
+						coordY = newPlacement.coordY + k * settings.coordY,
+						coordZ = newPlacement.coordZ + k * settings.coordZ }
+		Dta.copa.pasteSet(itemSet, shoppingList, offset, new_items)
 	end
 end
 

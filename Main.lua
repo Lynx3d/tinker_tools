@@ -71,9 +71,6 @@ Dta.lastYaw = 0
 ---------------------------------
 --CATCH COROUTINES
 ---------------------------------
---Dta.Copa_Co_Active = false
-Dta.LoadSet_Co_Active = false
-Dta.PlaceItem_Co_Active = false
 Dta.AddItem_Co = nil
 Dta.pending_add = false
 
@@ -124,30 +121,6 @@ function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a
 		Dta.items.QueueSelection(id)
 		Dta.pending_add = false
 		coroutine.resume(Dta.AddItem_Co)
-	end
-	--if Dta.Copa_Co_Active then
-	--	for id, value in pairs(dimensionItem) do
-	--		local data = Inspect.Dimension.Layout.Detail(id)
-	--		if data ~= nil then
-	--			coroutine.resume(Dta.copa.Co_PlaceItem)
-	--		end
-	--	end
-	--end
-
-	if Dta.PlaceItem_Co_Active then
-		for id, value in pairs(dimensionItem) do
-			local data = Inspect.Dimension.Layout.Detail(id)
-			if data ~= nil then
-				coroutine.resume(Dta.losa.Co_PlaceItem)
-			end
-		end
-	elseif Dta.LoadSet_Co_Active then
-		for id, value in pairs(dimensionItem) do
-			local data = Inspect.Dimension.Layout.Detail(id)
-			if data ~= nil then
-				coroutine.resume(Dta.losa.Co_LoadItem)
-			end
-		end
 	end
 
 	if Dta.alphabet.PlaceLetter_Co_Active then
@@ -382,12 +355,6 @@ function Dta.tick(handle)
 		end
 		if action.op == "select" then
 			Command.Dimension.Layout.Select(action.id, true)
-		end
-		--if action.op == "copa" then
-		--	Command.Dimension.Layout.Place(action.id, {coordX=action.x, coordY=action.y, coordZ=action.z, pitch=action.pitch, yaw=action.yaw, roll=action.roll, scale=action.amount})
-		--end
-		if action.op == "losa" then
-			Command.Dimension.Layout.Place(action.id, {coordX=action.x, coordY=action.y, coordZ=action.z, pitch=action.pitch, yaw=action.yaw, roll=action.roll, scale=action.amount})
 		end
 		if action.op == "add" then
 			Dta.pending_add = true
