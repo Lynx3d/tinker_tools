@@ -72,3 +72,11 @@ function Dta.losa.checkShoppingList(shoppingList, NrCopies)
 	end
 	return next(missingItems) and missingItems
 end
+
+-- print missing items to fullfill a shopping list
+function Dta.losa.printMissingItems(missing, shoppingList, message)
+	Dta.CPrint(message)
+	for id, amount in pairs(missing) do
+		Dta.CPrint(string.format("%s: %d", shoppingList[id].name, amount))
+	end
+end

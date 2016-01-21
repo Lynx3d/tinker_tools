@@ -79,11 +79,7 @@ function Dta.copa.pasteButtonClicked()
 		Dta.losa.ScanInventory(shoppingList, settings.include_bags, settings.include_bank)
 		local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
 		if missing then
-			-- TODO: proper localized error msg
-			Dta.CPrint("missing items:")
-			for id, amount in pairs(missing) do
-				Dta.CPrint(string.format("%s: %d", shoppingList[id].name, amount))
-			end
+			Dta.losa.printMissingItems(missing, shoppingList, Lang[Dta.Language].Prints.NotPasteInventory)
 			return
 		end
 		Dta.items.DeselectAll()
@@ -96,11 +92,7 @@ function Dta.copa.pasteButtonClicked()
 			Dta.losa.ScanSelection(shoppingList)
 			local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
 			if missing then
-				-- TODO: proper localized error msg
-				Dta.CPrint("missing items:")
-				for id, amount in pairs(missing) do
-					Dta.CPrint(string.format("%s: %d", shoppingList[id].name, amount))
-				end
+				Dta.losa.printMissingItems(missing, shoppingList, Lang[Dta.Language].Prints.NotPasteSelection)
 				return
 			end
 		else -- single item, ignore item type

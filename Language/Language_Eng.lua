@@ -577,6 +577,8 @@ Lang["English"].Prints.Vaults_ItemCount = "You only have \"%s\" of this item in 
 Lang["English"].Prints.NotEnoughItems = "You don't seem to have enough of this item"
 Lang["English"].Prints.SelectFirst = "Please select an item before pasting"
 Lang["English"].Prints.SelectItemSource = "Please select at least one source for new items"
+Lang["English"].Prints.NotPasteInventory = "Cannot paste clipboard - the following items are missing from your bags:"
+Lang["English"].Prints.NotPasteSelection = "Cannot paste clipboard - the following items are missing from your selection:"
 --Tribal Magic
 Lang["English"].Prints.NoRoundTable = "You do not seem to have an Round Tribal Table in your inventory!"
 --Alfiebet
