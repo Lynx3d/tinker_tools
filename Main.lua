@@ -41,18 +41,10 @@ Dta.lastFrameTime = 0
 --Copy & Paste
 Dta.FlickerOffset = true
 Dta.FlickerReduc = 0.0003
--- never changes -- Dta.FinishedPaste = true
-Dta.ItemsToPaste = 0
--- unused -- Dta.ItemsPasted = 1
-Dta.PastingItems = false
+--Dta.PastingItems = false
 
 --Others
--- unused -- Dta.Deleting = false
--- unused -- Dta.Key = nil
 Dta.PlayerID = Inspect.Unit.Lookup("player")
--- unused -- Dta.CurrentZoneID = nil
--- unused -- Dta.OldZoneID = nil
--- unused -- Dta.ZoneDetails = {}
 Dta.InDimension = false
 
 --Flying
