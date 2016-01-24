@@ -48,40 +48,37 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 	--Alphabetwindow.modifyRotation:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
 	Alphabetwindow.Alphabet.WordLabel2 = Dta.ui.createText("AlphabetWordLabel", Alphabetwindow.Alphabet, 0, 0, Lang[Dta.Language].Text.Word, 14)
-	Alphabetwindow.Alphabet.Word = Dta.ui.createTextfield("AlphabetWord", Alphabetwindow.Alphabet, 55, 0, 235)
+	Alphabetwindow.Alphabet.Word = Dta.ui.createTextfield("AlphabetWord", Alphabetwindow.Alphabet, 70, 0, 220)
 
 	Alphabetwindow.Alphabet.FontLabel = Dta.ui.createText("AlphabetFontLabel", Alphabetwindow.Alphabet, 0, 30, Lang[Dta.Language].Text.Font, 14)
 	Alphabetwindow.Alphabet.FontLoad = UI.CreateFrame("SimpleSelect", "AlphabetFontLoad", Alphabetwindow.Alphabet)
-	Alphabetwindow.Alphabet.FontLoad:SetPoint("TOPLEFT", Alphabetwindow.Alphabet, "TOPLEFT", 55, 30)
+	Alphabetwindow.Alphabet.FontLoad:SetPoint("TOPLEFT", Alphabetwindow.Alphabet, "TOPLEFT", 70, 30)
 	Alphabetwindow.Alphabet.FontLoad:SetLayer(100)
 	Alphabetwindow.Alphabet.FontLoad:SetItems(Dta.alphabet.loadFonts())
 	Alphabetwindow.Alphabet.FontLoad.Event.ItemSelect = function(view, item) Dta.alphabet.FontSelected(item) end
-	Alphabetwindow.Alphabet.FontLoad:ResizeToFit()
-	Alphabetwindow.Alphabet.FontLoad:SetWidth(235)
+	Alphabetwindow.Alphabet.FontLoad:SetWidth(220)
 	Alphabetwindow.Alphabet.FontLoad:SetEnabled(true)
 
 	Alphabetwindow.Alphabet.SizeLabel = Dta.ui.createText("AlphabetFontLabel", Alphabetwindow.Alphabet, 0, 60, Lang[Dta.Language].Text.Size, 14)
 	Alphabetwindow.Alphabet.SizeLoad = UI.CreateFrame("SimpleSelect", "AlphabetFontLoad", Alphabetwindow.Alphabet)
-	Alphabetwindow.Alphabet.SizeLoad:SetPoint("TOPLEFT", Alphabetwindow.Alphabet, "TOPLEFT", 55, 60)
+	Alphabetwindow.Alphabet.SizeLoad:SetPoint("TOPLEFT", Alphabetwindow.Alphabet, "TOPLEFT", 70, 60)
 	Alphabetwindow.Alphabet.SizeLoad:SetLayer(100)
 	Alphabetwindow.Alphabet.SizeLoad:SetItems(Dta.alphabet.loadSize())
 	Alphabetwindow.Alphabet.SizeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.SizeSelected(item) end
-	Alphabetwindow.Alphabet.SizeLoad:ResizeToFit()
 	Alphabetwindow.Alphabet.SizeLoad:SetWidth(100)
 	Alphabetwindow.Alphabet.SizeLoad:SetEnabled(true)
 
 	Alphabetwindow.Alphabet.TypeLabel = Dta.ui.createText("AlphabetTypeLabel", Alphabetwindow.Alphabet, 0, 90, Lang[Dta.Language].Text.Skin, 14)
 	Alphabetwindow.Alphabet.TypeLoad = UI.CreateFrame("SimpleSelect", "AlphabetTypeLoad", Alphabetwindow.Alphabet)
-	Alphabetwindow.Alphabet.TypeLoad:SetPoint("TOPLEFT", Alphabetwindow.Alphabet, "TOPLEFT", 55, 90)
+	Alphabetwindow.Alphabet.TypeLoad:SetPoint("TOPLEFT", Alphabetwindow.Alphabet, "TOPLEFT", 70, 90)
 	Alphabetwindow.Alphabet.TypeLoad:SetLayer(100)
 	Alphabetwindow.Alphabet.TypeLoad:SetItems(Dta.Replacement.loadSkins())
 	Alphabetwindow.Alphabet.TypeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.SkinSelected(item) end
-	Alphabetwindow.Alphabet.TypeLoad:ResizeToFit()
-	Alphabetwindow.Alphabet.TypeLoad:SetWidth(235)
+	Alphabetwindow.Alphabet.TypeLoad:SetWidth(220)
 	Alphabetwindow.Alphabet.TypeLoad:SetEnabled(true)
 
-	Alphabetwindow.Alphabet.modeHorizontal = Dta.ui.createCheckbox("AlphabetmodeHorizontal", Alphabetwindow.Alphabet, 45, 120, Lang[Dta.Language].Text.Horizontal, true, nil, Dta.alphabet.AlphabetmodeHorizontalChanged)
-	Alphabetwindow.Alphabet.modeVertical = Dta.ui.createCheckbox("AlphabetmodeVertical", Alphabetwindow.Alphabet, 175, 120, Lang[Dta.Language].Text.Vertical, false, nil, Dta.alphabet.AlphabetmodeVerticalChanged)
+	Alphabetwindow.Alphabet.modeHorizontal = Dta.ui.createCheckbox("AlphabetmodeHorizontal", Alphabetwindow.Alphabet, 10, 120, Lang[Dta.Language].Text.Horizontal, true, nil, Dta.alphabet.AlphabetmodeHorizontalChanged)
+	Alphabetwindow.Alphabet.modeVertical = Dta.ui.createCheckbox("AlphabetmodeVertical", Alphabetwindow.Alphabet, 170, 120, Lang[Dta.Language].Text.Vertical, false, nil, Dta.alphabet.AlphabetmodeVerticalChanged)
 
 	Alphabetwindow.Alphabet.load = Dta.ui.createButton("AlphabetLoad", Alphabetwindow.Alphabet, 0, 150, nil, nil, Lang[Dta.Language].Buttons.LoadWord, nil, Dta.alphabet.alphabetLoadClicked)
 	Alphabetwindow.Alphabet.printReqs = Dta.ui.createButton("AlphabetPrintReqs", Alphabetwindow.Alphabet, 165, 150, nil, nil, Lang[Dta.Language].Buttons.PrintMaterials, nil, Dta.alphabet.alphabetPrintMaterials)

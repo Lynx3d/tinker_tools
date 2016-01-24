@@ -50,8 +50,8 @@ function Dta.copa_ui.buildCopyPasteWindow()
 	CopyPastewindow.copyPaste.pasteBtn = Dta.ui.createButton("pasteBtn", CopyPastewindow.copyPaste, 165, 215, nil, nil, Lang[Dta.Language].Buttons.Paste, nil, Dta.copa.pasteButtonClicked)
 
 	CopyPastewindow.copyPaste.offsetLabel1 = Dta.ui.createText("copyPasteOffsetLabel1", CopyPastewindow.copyPaste, 37, 0, Lang[Dta.Language].Text.Offset, 11)
-	CopyPastewindow.copyPaste.offsetLabel2 = Dta.ui.createText("copyPasteOffsetLabel3", CopyPastewindow.copyPaste, 152, 0, Lang[Dta.Language].Text.Offset, 11)
-	CopyPastewindow.copyPaste.offsetLabel3 = Dta.ui.createText("copyPasteOffsetLabel4", CopyPastewindow.copyPaste, 262, 0, Lang[Dta.Language].Text.Offset, 11)
+	CopyPastewindow.copyPaste.offsetLabel2 = Dta.ui.createText("copyPasteOffsetLabel3", CopyPastewindow.copyPaste, 157, 0, Lang[Dta.Language].Text.Offset, 11)
+	CopyPastewindow.copyPaste.offsetLabel3 = Dta.ui.createText("copyPasteOffsetLabel4", CopyPastewindow.copyPaste, 237, 57, Lang[Dta.Language].Text.Offset, 11)
 
 	CopyPastewindow.copyPaste.x = Dta.ui.createCheckbox("copyPasteX", CopyPastewindow.copyPaste, 0, 15, "X", true, {1, 0, 0, 1})
 	CopyPastewindow.copyPaste.y = Dta.ui.createCheckbox("copyPasteY", CopyPastewindow.copyPaste, 0, 40, "Y", true, {0, 1, 0, 1})
@@ -61,22 +61,22 @@ function Dta.copa_ui.buildCopyPasteWindow()
 	CopyPastewindow.copyPaste.yaw = Dta.ui.createCheckbox("copyPasteYaw", CopyPastewindow.copyPaste, 100, 40, Lang[Dta.Language].Text.Yaw, true, {0, 1, 0, 1})
 	CopyPastewindow.copyPaste.roll = Dta.ui.createCheckbox("copyPasteRoll", CopyPastewindow.copyPaste, 100, 65, Lang[Dta.Language].Text.Roll, true, {0, 1, 1, 1})
 
-	CopyPastewindow.copyPaste.scale = Dta.ui.createCheckbox("copyPasteScale", CopyPastewindow.copyPaste, 210, 15, Lang[Dta.Language].Text.Scale, true)
+	CopyPastewindow.copyPaste.scale = Dta.ui.createCheckbox("copyPasteScale", CopyPastewindow.copyPaste, 220, 15, Lang[Dta.Language].Text.Scale, true)
 
 	CopyPastewindow.copyPaste.xOffset = Dta.ui.createTextfield("copyPasteXOffset", CopyPastewindow.copyPaste, 35, 15, 50)
 	CopyPastewindow.copyPaste.yOffset = Dta.ui.createTextfield("copyPasteYOffset", CopyPastewindow.copyPaste, 35, 40, 50)
 	CopyPastewindow.copyPaste.zOffset = Dta.ui.createTextfield("copyPasteZOffset", CopyPastewindow.copyPaste, 35, 65, 50)
 
-	CopyPastewindow.copyPaste.pitchOffset = Dta.ui.createTextfield("copyPastePitchOffset", CopyPastewindow.copyPaste, 150, 15, 45)
-	CopyPastewindow.copyPaste.yawOffset = Dta.ui.createTextfield("copyPasteYawOffset", CopyPastewindow.copyPaste, 150, 40, 45)
-	CopyPastewindow.copyPaste.rollOffset = Dta.ui.createTextfield("copyPasteRollOffset", CopyPastewindow.copyPaste, 150, 65, 45)
+	CopyPastewindow.copyPaste.pitchOffset = Dta.ui.createTextfield("copyPastePitchOffset", CopyPastewindow.copyPaste, 155, 15, 45)
+	CopyPastewindow.copyPaste.yawOffset = Dta.ui.createTextfield("copyPasteYawOffset", CopyPastewindow.copyPaste, 155, 40, 45)
+	CopyPastewindow.copyPaste.rollOffset = Dta.ui.createTextfield("copyPasteRollOffset", CopyPastewindow.copyPaste, 155, 65, 45)
 
-	CopyPastewindow.copyPaste.scaleOffset = Dta.ui.createTextfield("copyPasteScaleOffset", CopyPastewindow.copyPaste, 260, 15, 40)
+	CopyPastewindow.copyPaste.scaleOffset = Dta.ui.createTextfield("copyPasteScaleOffset", CopyPastewindow.copyPaste, 235, 40, 45)
 
 	CopyPastewindow.copyPaste.multiplyOffsets = Dta.ui.createCheckbox("copyPasteMultiplyOffsets", CopyPastewindow.copyPaste, 0, 95, Lang[Dta.Language].Text.OffsetMultiItems, false, nil, Dta.copa.CopaOffsetChanged)
 	CopyPastewindow.copyPaste.multiplyOffsets:SetVisible(true)
 
-	CopyPastewindow.copyPaste.NewItemNrLabel = Dta.ui.createText("copyPasteNewItemLabel", CopyPastewindow.copyPaste, 165, 93, Lang[Dta.Language].Text.NrItems, 14)
+	CopyPastewindow.copyPaste.NewItemNrLabel = Dta.ui.createText("copyPasteNewItemLabel", CopyPastewindow.copyPaste, 170, 93, Lang[Dta.Language].Text.NrItems, 14)
 	CopyPastewindow.copyPaste.NewItemNrLabel:SetVisible(false)
 
 	CopyPastewindow.copyPaste.NewItemNr = Dta.ui.createTextfield("copyPasteNewItemNr", CopyPastewindow.copyPaste, 260, 95, 40)

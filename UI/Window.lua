@@ -382,7 +382,7 @@ function Window.createPopupBorder(window)
 	fill.transform = { w_scale, 0, -20 * w_scale, 0, 1, -105 }
 	window.frame_bottom:SetShape(path, fill, nil)
 	window.frame_bottom:SetLayer(-10)
-	-- TODO: center piece
+	-- center piece
 	window.frame_center = UI.CreateFrame("Canvas", "frame_center", window)
 	window.frame_center:SetPoint("TOPLEFT", window, "TOPLEFT", 14, 14)
 	window.frame_center:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", -14, -14)
