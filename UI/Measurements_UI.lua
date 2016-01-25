@@ -52,7 +52,7 @@ function Dta.measurements_ui.buildMeasurementsWindow()
 	Measurementswindow.Measurements.TypeLoad:SetLayer(100)
 	Measurementswindow.Measurements.TypeLoad:SetItems(Lang[Dta.Language].Menus.ItemType)
 	--Measurementswindow.Measurements.TypeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.FontSelected(item) end
-	Measurementswindow.Measurements.TypeLoad:ResizeToFit()
+	Measurementswindow.Measurements.TypeLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
 	Measurementswindow.Measurements.TypeLoad:SetWidth(150)
 	Measurementswindow.Measurements.TypeLoad:SetEnabled(true)
 
@@ -62,7 +62,7 @@ function Dta.measurements_ui.buildMeasurementsWindow()
 	Measurementswindow.Measurements.OrientationLoad:SetLayer(100)
 	Measurementswindow.Measurements.OrientationLoad:SetItems(Lang[Dta.Language].Menus.Orientation)
 	--Measurementswindow.Measurements.OrientationLoad.Event.ItemSelect = function(view, item) Dta.alphabet.FontSelected(item) end
-	Measurementswindow.Measurements.OrientationLoad:ResizeToFit()
+	Measurementswindow.Measurements.OrientationLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
 	Measurementswindow.Measurements.OrientationLoad:SetWidth(150)
 	Measurementswindow.Measurements.OrientationLoad:SetEnabled(true)
 
