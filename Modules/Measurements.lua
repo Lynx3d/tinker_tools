@@ -43,7 +43,7 @@ function Dta.measurements.CalculationsClicked()
 
 		dims = Dta.measurements.Dimensions[shape]
 		if scale > dims.maxScale or scale < dims.minScale then
-			return Dta.CPrint(Lang[Dta.Language].Prints.SizeC)
+			return Dta.CPrint(string.format(Lang[Dta.Language].Prints.SizeC, dims.minScale, dims.maxScale))
 		end
 	end
 
