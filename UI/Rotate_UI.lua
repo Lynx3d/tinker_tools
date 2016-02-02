@@ -69,8 +69,8 @@ function Dta.rotate_ui.buildRotateWindow()
 	Rotatewindow.modifyRotation.changeBtn = Dta.ui.createButton("modifyRotationBtn", Rotatewindow.modifyRotation, 0, 85, nil, nil, Lang[Dta.Language].Buttons.Rotate, nil, Dta.rotate.modifyRotationButtonClicked)
 	Rotatewindow.modifyRotation.resetBtn = Dta.ui.createButton("modifyRotationResetBtn", Rotatewindow.modifyRotation, 150, 85, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.rotate.modifyRotationResetButtonClicked)
 
-	Dta.ui.AddFocusCycleElement(Rotatewindow, Rotatewindow.modifyRotation.yaw)
 	Dta.ui.AddFocusCycleElement(Rotatewindow, Rotatewindow.modifyRotation.pitch)
+	Dta.ui.AddFocusCycleElement(Rotatewindow, Rotatewindow.modifyRotation.yaw)
 	Dta.ui.AddFocusCycleElement(Rotatewindow, Rotatewindow.modifyRotation.roll)
 	Rotatewindow:EventAttach(Event.UI.Input.Key.Up.Dive, Dta.ui.FocusCycleCallback, "RotateWindow_TabFocusCycle")
 
