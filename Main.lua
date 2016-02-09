@@ -84,6 +84,8 @@ end
 function Dta.CPrint(text, html)
 	local consoles = Dta.settings.get("ConsoleOutput")
 	local open_consoles = Inspect.Console.List()
+	-- apparently not available during loading screens
+	if not open_consoles then return end
 	for k, _ in pairs(consoles) do
 		local console_id = string.format("v00000000%08x", k-1)
 		if open_consoles[console_id] then
