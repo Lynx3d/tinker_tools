@@ -70,7 +70,7 @@ function Dta.move_ui.buildMoveWindow()
 	Movewindow.modifyPosition.moveAsGrp:SetVisible(Dta.selectionCount > 1)
 
 	Movewindow.modifyPosition.changeBtn = Dta.ui.createButton("modifyPositionBtn", Movewindow.modifyPosition, 0, 85, nil, nil, Lang[Dta.Language].Buttons.Move, nil, Dta.move.modifyPositionButtonClicked)
-	Movewindow.modifyPosition.resetBtn = Dta.ui.createButton("modifyPositionResetBtn", Movewindow.modifyPosition, 150, 85, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.move_ui.modifyPositionResetButtonClicked)
+	Movewindow.modifyPosition.resetBtn = Dta.ui.createButton("modifyPositionResetBtn", Movewindow.modifyPosition, 150, 85, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.move.modifyPositionResetButtonClicked)
 
 	Dta.ui.AddFocusCycleElement(Movewindow, Movewindow.modifyPosition.x)
 	Dta.ui.AddFocusCycleElement(Movewindow, Movewindow.modifyPosition.y)
@@ -116,12 +116,4 @@ end
 function Dta.move_ui.MoveWindowMoved()
 	Dta.settings.set("MovewindowPosX", Dta.ui.windowMove:GetLeft())
 	Dta.settings.set("MovewindowPosY", Dta.ui.windowMove:GetTop())
-end
-
-function Dta.move_ui.modifyPositionResetButtonClicked()
-	if Dta.selectionCenter then
-		Dta.ui.windowMove.modifyPosition.x:SetText(string.format("%.6f", Dta.selectionCenter.x))
-		Dta.ui.windowMove.modifyPosition.y:SetText(string.format("%.6f", Dta.selectionCenter.y))
-		Dta.ui.windowMove.modifyPosition.z:SetText(string.format("%.6f", Dta.selectionCenter.z))
-	end
 end
