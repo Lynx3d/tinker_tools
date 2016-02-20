@@ -127,3 +127,60 @@ LangG.Text.ConsoleMessages = "Konsolen-Nachrichten"
 LangG.Text.WindowStyle = "Fenster-Stil"
 LangG.Text.NotIdleNotification = "Previous operation has not finished yet.\nAbort currently running operation now?"
 LangG.Text.ConfirmDeleteSet = "Gegenstands-Set '%s' löschen?"
+
+----------------------------------------
+--Prints
+----------------------------------------
+LangG.Prints = {}
+--Main
+LangG.Prints.DimensionOnly = "Dieses Addon ist nur für die Benutzung innerhalb von Dimensionen gedacht."
+LangG.Prints.ProcessFinished = "Vorgang Beendet."
+LangG.Prints.SetFinished = "Item set \"%s\" ist geladen and ausgewählt."
+LangG.Prints.PasteFinished = "Alle Gegenstände sind platziert und ausgewählt."
+LangG.Prints.WordFinished = "Das Wort ist platziert und ausgewählt."
+--Copy / Paste
+LangG.Prints.Copy_SelectItem = "Bitte einen Gegenstand auswählen um Attribute zu kopieren."
+LangG.Prints.NumbersOnly = "Bitte nur numerische Werte eingeben."
+LangG.Prints.CopyFirst = "Bitte vor dem Einfügen erst etwas kopieren."
+LangG.Prints.SelectItemSource = "Bitte mindestens eine Quelle für neue Gegenstände auswählen."
+LangG.Prints.NotPasteInventory = "Zwischenablage kann nicht eingefügt werden - folgende Gegenstände fehlen im Inventar:"
+LangG.Prints.NotPasteSelection = "Zwischenablage kann nicht eingefügt werden - folgende Gegenstände fehlen in der Auswahl:"
+--Tribal Magic
+LangG.Prints.NoRoundTable = "Du hast scheinbar keinen Runden Stammestisch in deinem Inventar!"
+--Alfiebet
+LangG.Prints.SelectFont = "Wähle eine Schriftart."
+LangG.Prints.SelectSize = "Wähle eine Größe."
+LangG.Prints.SelectSkin = "Wähle eine Oberfläche."
+LangG.Prints.OnlyLetters = "Es sind nur Buchstaben für ein Wort erlaubt."
+LangG.Prints.TypeWord = "Bitte zuerst ein Wort eingeben."
+LangG.Prints.WordMissingItems = "Das Wort kann nicht erstellt werden - folgende Gegenstände fehlen im Inventar:"
+LangG.Prints.WordNeededItems = "Folgende Gegenstände werden benötigt um das Wort \"%s\" zu erstellen:"
+LangG.Prints.WordCouldNotPrint = "Die Materialien konnten nicht aufgelistet werden."
+--Import/Export
+LangG.Prints.SetNotFound = "Item set \"%s\" nicht gefunden."
+LangG.Prints.SelectExport = "Du mußt ein Set auswählen um es zu exportieren."
+LangG.Prints.Exported = "Item set \"%s\" exportiert."
+LangG.Prints.SelectImport = "Du mußt ein Set auswählen um es zu importieren."
+LangG.Prints.Imported = "Item set \"%s\" importiert."
+--Load / Save
+LangG.Prints.Saved = "Item set \"%s\" gespeichert."
+LangG.Prints.MinOneItem = "Es muß mindestens ein Gegenstand ausgewählt sein um zu speichern."
+LangG.Prints.EnterName = "Es wird ein Name benötigt um das Set zu speichern."
+LangG.Prints.LoadNeededItems = "Folgende Gegenstände werden benötigt um \"%s\" zu laden:"
+LangG.Prints.LoadPrintMats = "Wähle ein Set um dessen Materialliste auszugeben."
+LangG.Prints.LoadSelectSet = "Wähle ein Set um es zu laden."
+LangG.Prints.NotLoadedBags = "Set kann nicht geladen werden - folgende Gegenstände fehlen im Inventar:"
+LangG.Prints.NotLoadedSelection = "Set kann nicht geladen werden - folgende Gegenstände fehlen in der Auswahl:"
+LangG.Prints.SetLoaded = "Item set \"%s\" geladen."
+LangG.Prints.SetRemoved = "Item set \"%s\" gelöscht."
+LangG.Prints.NotRemoved = "\"%s\" konnte nicht gelöscht werden - kein Set mit diesem Namen vorhanden."
+LangG.Prints.RemoveSelectSet = "Wähle ein Set um es zu löschen."
+--Measurements
+LangG.Prints.SelectType = "Wähle eine Form."
+LangG.Prints.SelectOrientation = "Wähle eine Ausrichtung."
+LangG.Prints.TypeSize = "Wähle eine Größe."
+LangG.Prints.SizeC = "Die Größe muß im Bereich von %.2f bis %.1f liegen."
+--Move, Rotate, Scale
+LangG.Prints.ModifyPosition = "Bitte wähle einen Gegenstand aus um dessen Position zu verändern."
+LangG.Prints.ModifyRotation = "Bitte wähle einen Gegenstand aus um dessen Rotation zu verändern."
+LangG.Prints.ModifyScale = "Bitte wähle einen Gegenstand aus um dessen Größe zu verändern."
