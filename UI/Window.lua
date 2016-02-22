@@ -95,16 +95,20 @@ function Window.createWindowBorder(window)
 	window.frame_left = UI.CreateFrame("Canvas", "frame_left", window)
 	window.frame_left:SetPoint("TOPLEFT", window, "TOPLEFT", -13, 66)
 	window.frame_left:SetPoint("BOTTOMRIGHT", window, "BOTTOMLEFT", 3, -33)
-	fill.transform = { 1, 0, 0, 0, h_scale, -75 * h_scale }
-	window.frame_left:SetShape(Window.rectPath, fill, nil)
+	window.frame_left.fill = Dta.copyTable(fill)
+	window.frame_left.fill.transform = { 1, 0, 0, 0, h_scale, -75 * h_scale }
+	window.frame_left:SetShape(Window.rectPath, window.frame_left.fill, nil)
 	window.frame_left:SetLayer(10)
+	window.frame_left:EventAttach(Event.UI.Layout.Size, Window.redrawVerticalBorder, "redrawLBorder")
 	-- right side:  width 15, offset 12
 	window.frame_right = UI.CreateFrame("Canvas", "frame_left", window)
 	window.frame_right:SetPoint("TOPLEFT", window, "TOPRIGHT", -3, 66)
 	window.frame_right:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", 12, -33)
-	fill.transform = { 1, 0, -241, 0, h_scale, -75 * h_scale }
-	window.frame_right:SetShape(Window.rectPath, fill, nil)
+	window.frame_right.fill = Dta.copyTable(fill)
+	window.frame_right.fill.transform = { 1, 0, -241, 0, h_scale, -75 * h_scale }
+	window.frame_right:SetShape(Window.rectPath, window.frame_right.fill, nil)
 	window.frame_right:SetLayer(10)
+	window.frame_right:EventAttach(Event.UI.Layout.Size, Window.redrawVerticalBorder, "redrawRBorder")
 
 	local f_width = window:GetWidth() - 62 - 62
 	local w_scale = f_width / 107 -- 256 - 75 - 74
@@ -112,16 +116,38 @@ function Window.createWindowBorder(window)
 	window.frame_top = UI.CreateFrame("Canvas", "frame_top", window)
 	window.frame_top:SetPoint("TOPLEFT", window, "TOPLEFT", 62, -9)
 	window.frame_top:SetPoint("BOTTOMRIGHT", window, "TOPRIGHT", -62, 5)
-	fill.transform = { w_scale, 0, -75 * w_scale, 0, 1, 0 }
-	window.frame_top:SetShape(Window.rectPath, fill, nil)
+	window.frame_top.fill = Dta.copyTable(fill)
+	window.frame_top.fill.transform = { w_scale, 0, -75 * w_scale, 0, 1, 0 }
+	window.frame_top:SetShape(Window.rectPath, window.frame_top.fill, nil)
 	window.frame_top:SetLayer(10)
+	window.frame_top:EventAttach(Event.UI.Layout.Size, Window.redrawHorizontalBorder, "redrawTBorder")
 	-- bottom: height 15, offset 11
 	window.frame_bottom = UI.CreateFrame("Canvas", "frame_bottom", window)
 	window.frame_bottom:SetPoint("TOPLEFT", window, "BOTTOMLEFT", 62, -4)
 	window.frame_bottom:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", -62, 11)
-	fill.transform = { w_scale, 0, -75 * w_scale, 0, 1, -241 }
-	window.frame_bottom:SetShape(Window.rectPath, fill, nil)
+	window.frame_bottom.fill = Dta.copyTable(fill)
+	window.frame_bottom.fill.transform = { w_scale, 0, -75 * w_scale, 0, 1, -241 }
+	window.frame_bottom:SetShape(Window.rectPath, window.frame_bottom.fill, nil)
 	window.frame_bottom:SetLayer(10)
+	window.frame_bottom:EventAttach(Event.UI.Layout.Size, Window.redrawHorizontalBorder, "redrawBBorder")
+end
+
+function Window.redrawVerticalBorder(self)
+	local new_height = self:GetHeight()
+	local h_scale = 1
+	if new_height > 35 then
+		h_scale = new_height / 137 -- 256 - 75 - 44
+	end
+	self.fill.transform[5] = h_scale
+	self.fill.transform[6] = -75 * h_scale
+	self:SetShape(Window.rectPath, self.fill, nil)
+end
+
+function Window.redrawHorizontalBorder(self)
+	local w_scale = self:GetWidth() / 107 -- 256 - 75 - 74
+	self.fill.transform[1] = w_scale
+	self.fill.transform[3] = -75 * w_scale
+	self:SetShape(Window.rectPath, self.fill, nil)
 end
 
 function Window.drawBackground(canvas)
@@ -145,6 +171,10 @@ function Window.drawBackground(canvas)
 	canvas:SetShape(Window.rectPath, fill, nil)
 end
 
+function Window.SetContentHeight(self, newHeight)
+	self:SetHeight(newHeight + self:GetHeight() - self.content:GetHeight())
+end
+
 function Window.createFramedWindow(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
 	local newWindow = UI.CreateFrame("Frame", name, parent)
 	newWindow:SetHeight(height + ((title or movable) and Window.headerSize or 0))
@@ -158,6 +188,7 @@ function Window.createFramedWindow(name, parent, title, width, height, x, y, clo
 	newWindow.background:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT", 0, 0)
 	Window.drawBackground(newWindow.background)
 	newWindow.background:SetLayer(1)
+	newWindow.background:EventAttach(Event.UI.Layout.Size, Window.drawBackground, "redrawBackground")
 
 	Window.createWindowBorder(newWindow)
 
@@ -209,6 +240,7 @@ function Window.createFramedWindow(name, parent, title, width, height, x, y, clo
 	end
 	newWindow.content:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT")
 	newWindow.content:SetLayer(4)
+	newWindow.SetContentHeight = Window.SetContentHeight
 
 	return newWindow
 end
@@ -267,6 +299,7 @@ function Window.createFramelessWindow(name, parent, title, width, height, x, y, 
 	newWindow.content:SetPoint("TOPLEFT", newWindow, "TOPLEFT", 0, Window.classicHeaderSize + 5)
 	newWindow.content:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT")
 	newWindow.content:SetLayer(4)
+	newWindow.SetContentHeight = Window.SetContentHeight
 
 	return newWindow
 end
