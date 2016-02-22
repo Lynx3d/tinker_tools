@@ -38,6 +38,11 @@ end
 -------------------------------------------------
 
 local Window = { headerSize = 30, classicHeaderSize = 40 }
+Window.rectPath = {	{xProportional = 0, yProportional = 0},
+					{xProportional = 0, yProportional = 1},
+					{xProportional = 1, yProportional = 1},
+					{xProportional = 1, yProportional = 0},
+					{xProportional = 0, yProportional = 0} }
 
 function Window.defaultCloseCallback(self, handle)
 	self:GetParent():SetVisible(false)
@@ -47,11 +52,6 @@ end
 
 -- create a window border
 function Window.createWindowBorder(window)
-	local path = {	{xProportional = 0, yProportional = 0},
-					{xProportional = 0, yProportional = 1},
-					{xProportional = 1, yProportional = 1},
-					{xProportional = 1, yProportional = 0},
-					{xProportional = 0, yProportional = 0} }
 	local fill = {	type = 'texture',
 					-- transform = {0.5, 0, 0, 0, 1, 0 },
 					-- transform = Utility.Matrix.Create(0.5, 1, 0, 0, 0),
@@ -62,28 +62,28 @@ function Window.createWindowBorder(window)
 	window.frame_topleft = UI.CreateFrame("Canvas", "frame_topleft", window)
 	window.frame_topleft:SetPoint("TOPLEFT", window, "TOPLEFT", -13, -9)
 	window.frame_topleft:SetPoint("BOTTOMRIGHT", window, "TOPLEFT", 62, 66)
-	window.frame_topleft:SetShape(path, fill, nil)
+	window.frame_topleft:SetShape(Window.rectPath, fill, nil)
 	window.frame_topleft:SetLayer(10)
 	-- bottom left corner; size 75x44, offset -13, 11
 	window.frame_bottomleft = UI.CreateFrame("Canvas", "frame_bottomleft", window)
 	window.frame_bottomleft:SetPoint("TOPLEFT", window, "BOTTOMLEFT", -13, -33)
 	window.frame_bottomleft:SetPoint("BOTTOMRIGHT", window, "BOTTOMLEFT", 62, 11)
 	fill.transform = { 1, 0, 0, 0, 1, -212 }
-	window.frame_bottomleft:SetShape(path, fill, nil)
+	window.frame_bottomleft:SetShape(Window.rectPath, fill, nil)
 	window.frame_bottomleft:SetLayer(10)
 	-- top right corner; size 74x75, offset 12, -9
 	window.frame_topright = UI.CreateFrame("Canvas", "frame_topright", window)
 	window.frame_topright:SetPoint("TOPLEFT", window, "TOPRIGHT", -62, -9)
 	window.frame_topright:SetPoint("BOTTOMRIGHT", window, "TOPRIGHT", 12, 66)
 	fill.transform = { 1, 0, -182, 0, 1, 0 }
-	window.frame_topright:SetShape(path, fill, nil)
+	window.frame_topright:SetShape(Window.rectPath, fill, nil)
 	window.frame_topright:SetLayer(10)
 	-- bottom right corner; size 74x44, offset 12, 11
 	window.frame_bottomright = UI.CreateFrame("Canvas", "frame_bottomright", window)
 	window.frame_bottomright:SetPoint("TOPLEFT", window, "BOTTOMRIGHT", -62, -33)
 	window.frame_bottomright:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", 12, 11)
 	fill.transform = { 1, 0, -182, 0, 1, -212 }
-	window.frame_bottomright:SetShape(path, fill, nil)
+	window.frame_bottomright:SetShape(Window.rectPath, fill, nil)
 	window.frame_bottomright:SetLayer(10)
 	-- SIDES
 	local f_height = window:GetHeight() - 66 - 33
@@ -96,14 +96,14 @@ function Window.createWindowBorder(window)
 	window.frame_left:SetPoint("TOPLEFT", window, "TOPLEFT", -13, 66)
 	window.frame_left:SetPoint("BOTTOMRIGHT", window, "BOTTOMLEFT", 3, -33)
 	fill.transform = { 1, 0, 0, 0, h_scale, -75 * h_scale }
-	window.frame_left:SetShape(path, fill, nil)
+	window.frame_left:SetShape(Window.rectPath, fill, nil)
 	window.frame_left:SetLayer(10)
 	-- right side:  width 15, offset 12
 	window.frame_right = UI.CreateFrame("Canvas", "frame_left", window)
 	window.frame_right:SetPoint("TOPLEFT", window, "TOPRIGHT", -3, 66)
 	window.frame_right:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", 12, -33)
 	fill.transform = { 1, 0, -241, 0, h_scale, -75 * h_scale }
-	window.frame_right:SetShape(path, fill, nil)
+	window.frame_right:SetShape(Window.rectPath, fill, nil)
 	window.frame_right:SetLayer(10)
 
 	local f_width = window:GetWidth() - 62 - 62
@@ -113,14 +113,14 @@ function Window.createWindowBorder(window)
 	window.frame_top:SetPoint("TOPLEFT", window, "TOPLEFT", 62, -9)
 	window.frame_top:SetPoint("BOTTOMRIGHT", window, "TOPRIGHT", -62, 5)
 	fill.transform = { w_scale, 0, -75 * w_scale, 0, 1, 0 }
-	window.frame_top:SetShape(path, fill, nil)
+	window.frame_top:SetShape(Window.rectPath, fill, nil)
 	window.frame_top:SetLayer(10)
 	-- bottom: height 15, offset 11
 	window.frame_bottom = UI.CreateFrame("Canvas", "frame_bottom", window)
 	window.frame_bottom:SetPoint("TOPLEFT", window, "BOTTOMLEFT", 62, -4)
 	window.frame_bottom:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", -62, 11)
 	fill.transform = { w_scale, 0, -75 * w_scale, 0, 1, -241 }
-	window.frame_bottom:SetShape(path, fill, nil)
+	window.frame_bottom:SetShape(Window.rectPath, fill, nil)
 	window.frame_bottom:SetLayer(10)
 end
 
@@ -142,7 +142,7 @@ function Window.drawBackground(canvas)
 					source = "Rift",
 					transform = { width_scale, 0, -crop * width_scale, 0, height_scale, -crop * height_scale },
 					texture = "dimension_window_bg_right_large.png.dds" }
-	canvas:SetShape(path, fill, nil)
+	canvas:SetShape(Window.rectPath, fill, nil)
 end
 
 function Window.createFramedWindow(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
@@ -304,11 +304,6 @@ end
 -------------------------------------------------
 
 function Window.createPopupBorder(window)
-	local path = {	{xProportional = 0, yProportional = 0},
-					{xProportional = 0, yProportional = 1},
-					{xProportional = 1, yProportional = 1},
-					{xProportional = 1, yProportional = 0},
-					{xProportional = 0, yProportional = 0} }
 	local fill = {	type = 'texture',
 					-- transform = {0.5, 0, 0, 0, 1, 0 },
 					-- transform = Utility.Matrix.Create(0.5, 1, 0, 0, 0),
@@ -319,28 +314,28 @@ function Window.createPopupBorder(window)
 	window.frame_topleft = UI.CreateFrame("Canvas", "frame_topleft", window)
 	window.frame_topleft:SetPoint("TOPLEFT", window, "TOPLEFT", -6, -1)
 	window.frame_topleft:SetPoint("BOTTOMRIGHT", window, "TOPLEFT", 14, 14)
-	window.frame_topleft:SetShape(path, fill, nil)
+	window.frame_topleft:SetShape(Window.rectPath, fill, nil)
 	window.frame_topleft:SetLayer(-10)
 	-- bottom left corner; size 20x23, offset -6, 9
 	window.frame_bottomleft = UI.CreateFrame("Canvas", "frame_bottomleft", window)
 	window.frame_bottomleft:SetPoint("TOPLEFT", window, "BOTTOMLEFT", -6, -14)
 	window.frame_bottomleft:SetPoint("BOTTOMRIGHT", window, "BOTTOMLEFT", 14, 9)
 	fill.transform = { 1, 0, 0, 0, 1, -105 }
-	window.frame_bottomleft:SetShape(path, fill, nil)
+	window.frame_bottomleft:SetShape(Window.rectPath, fill, nil)
 	window.frame_bottomleft:SetLayer(-10)
 	-- top right corner; size 19x15, offset 5, -1
 	window.frame_topright = UI.CreateFrame("Canvas", "frame_topright", window)
 	window.frame_topright:SetPoint("TOPLEFT", window, "TOPRIGHT", -14, -1)
 	window.frame_topright:SetPoint("BOTTOMRIGHT", window, "TOPRIGHT", 5, 14)
 	fill.transform = { 1, 0, -109, 0, 1, 0 }
-	window.frame_topright:SetShape(path, fill, nil)
+	window.frame_topright:SetShape(Window.rectPath, fill, nil)
 	window.frame_topright:SetLayer(-10)
 	-- bottom right corner; size 19x23, offset 5, 9
 	window.frame_bottomright = UI.CreateFrame("Canvas", "frame_bottomright", window)
 	window.frame_bottomright:SetPoint("TOPLEFT", window, "BOTTOMRIGHT", -14, -14)
 	window.frame_bottomright:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", 5, 9)
 	fill.transform = { 1, 0, -109, 0, 1, -105 }
-	window.frame_bottomright:SetShape(path, fill, nil)
+	window.frame_bottomright:SetShape(Window.rectPath, fill, nil)
 	window.frame_bottomright:SetLayer(-10)
 	-- SIDES
 	local f_height = window:GetHeight() - 14 - 14
@@ -353,14 +348,14 @@ function Window.createPopupBorder(window)
 	window.frame_left:SetPoint("TOPLEFT", window, "TOPLEFT", -6, 14)
 	window.frame_left:SetPoint("BOTTOMRIGHT", window, "BOTTOMLEFT", 14, -14)
 	fill.transform = { 1, 0, 0, 0, h_scale, -15 * h_scale }
-	window.frame_left:SetShape(path, fill, nil)
+	window.frame_left:SetShape(Window.rectPath, fill, nil)
 	window.frame_left:SetLayer(-10)
 	-- right side:  width 19, offset 5
 	window.frame_right = UI.CreateFrame("Canvas", "frame_left", window)
 	window.frame_right:SetPoint("TOPLEFT", window, "TOPRIGHT", -14, 14)
 	window.frame_right:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", 5, -14)
 	fill.transform = { 1, 0, -109, 0, h_scale, -15 * h_scale }
-	window.frame_right:SetShape(path, fill, nil)
+	window.frame_right:SetShape(Window.rectPath, fill, nil)
 	window.frame_right:SetLayer(-10)
 
 	local f_width = window:GetWidth() - 14 - 14
@@ -373,21 +368,21 @@ function Window.createPopupBorder(window)
 	window.frame_top:SetPoint("TOPLEFT", window, "TOPLEFT", 14, -1)
 	window.frame_top:SetPoint("BOTTOMRIGHT", window, "TOPRIGHT", -14, 14)
 	fill.transform = { w_scale, 0, -20 * w_scale, 0, 1, 0 }
-	window.frame_top:SetShape(path, fill, nil)
+	window.frame_top:SetShape(Window.rectPath, fill, nil)
 	window.frame_top:SetLayer(-10)
 	-- bottom: height 15, offset 11
 	window.frame_bottom = UI.CreateFrame("Canvas", "frame_bottom", window)
 	window.frame_bottom:SetPoint("TOPLEFT", window, "BOTTOMLEFT", 14, -14)
 	window.frame_bottom:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", -14, 9)
 	fill.transform = { w_scale, 0, -20 * w_scale, 0, 1, -105 }
-	window.frame_bottom:SetShape(path, fill, nil)
+	window.frame_bottom:SetShape(Window.rectPath, fill, nil)
 	window.frame_bottom:SetLayer(-10)
 	-- center piece
 	window.frame_center = UI.CreateFrame("Canvas", "frame_center", window)
 	window.frame_center:SetPoint("TOPLEFT", window, "TOPLEFT", 14, 14)
 	window.frame_center:SetPoint("BOTTOMRIGHT", window, "BOTTOMRIGHT", -14, -14)
 	fill.transform = { w_scale, 0, -20 * w_scale, 0, h_scale, -15 * h_scale }
-	window.frame_center:SetShape(path, fill, nil)
+	window.frame_center:SetShape(Window.rectPath, fill, nil)
 	window.frame_center:SetLayer(-10)
 end
 
