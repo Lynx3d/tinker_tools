@@ -65,7 +65,7 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 	Alphabetwindow.Alphabet.SizeLoad:SetPoint("TOPLEFT", Alphabetwindow.Alphabet, "TOPLEFT", 70, 60)
 	Alphabetwindow.Alphabet.SizeLoad:SetLayer(100)
 	Alphabetwindow.Alphabet.SizeLoad:SetItems(Dta.alphabet.loadSize())
-	Alphabetwindow.Alphabet.SizeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.SizeSelected(item) end
+	--Alphabetwindow.Alphabet.SizeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.SizeSelected(item) end
 	Alphabetwindow.Alphabet.SizeLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
 	Alphabetwindow.Alphabet.SizeLoad:SetWidth(100)
 	Alphabetwindow.Alphabet.SizeLoad:SetEnabled(true)
@@ -75,7 +75,7 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 	Alphabetwindow.Alphabet.TypeLoad:SetPoint("TOPLEFT", Alphabetwindow.Alphabet, "TOPLEFT", 70, 90)
 	Alphabetwindow.Alphabet.TypeLoad:SetLayer(100)
 	Alphabetwindow.Alphabet.TypeLoad:SetItems(Dta.Replacement.loadSkins())
-	Alphabetwindow.Alphabet.TypeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.SkinSelected(item) end
+	--Alphabetwindow.Alphabet.TypeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.SkinSelected(item) end
 	Alphabetwindow.Alphabet.TypeLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
 	Alphabetwindow.Alphabet.TypeLoad:SetWidth(220)
 	Alphabetwindow.Alphabet.TypeLoad:SetEnabled(true)
@@ -83,8 +83,8 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 	Alphabetwindow.Alphabet.modeHorizontal = Dta.ui.createCheckbox("AlphabetmodeHorizontal", Alphabetwindow.Alphabet, 10, 120, Lang[Dta.Language].Text.Horizontal, true, nil, Dta.alphabet.AlphabetmodeHorizontalChanged)
 	Alphabetwindow.Alphabet.modeVertical = Dta.ui.createCheckbox("AlphabetmodeVertical", Alphabetwindow.Alphabet, 170, 120, Lang[Dta.Language].Text.Vertical, false, nil, Dta.alphabet.AlphabetmodeVerticalChanged)
 
-	Alphabetwindow.Alphabet.load = Dta.ui.createButton("AlphabetLoad", Alphabetwindow.Alphabet, 0, 150, nil, nil, Lang[Dta.Language].Buttons.LoadWord, nil, Dta.alphabet.alphabetLoadClicked)
-	Alphabetwindow.Alphabet.printReqs = Dta.ui.createButton("AlphabetPrintReqs", Alphabetwindow.Alphabet, 165, 150, nil, nil, Lang[Dta.Language].Buttons.PrintMaterials, nil, Dta.alphabet.alphabetPrintMaterials)
+	Alphabetwindow.Alphabet.load = Dta.ui.createButton("AlphabetLoad", Alphabetwindow.Alphabet, 0, 150, nil, nil, Lang[Dta.Language].Buttons.LoadWord, nil, Dta.alphabet.AlphabetLoadClicked)
+	Alphabetwindow.Alphabet.printReqs = Dta.ui.createButton("AlphabetPrintReqs", Alphabetwindow.Alphabet, 165, 150, nil, nil, Lang[Dta.Language].Buttons.PrintMaterials, nil, Dta.alphabet.AlphabetPrintMaterials)
 
 	-- TODO: temp fix for new window hierarchy
 	newWindow.Alphabet = Alphabetwindow.Alphabet

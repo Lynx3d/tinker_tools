@@ -404,8 +404,8 @@ function Dta.ui.showMainWindow()
 	Dta.constructionsdefaults = Dta.settings.get_defaultsets("SavedSets") --or {}
 	Dta.constructionstbx = tbx_import.get("savedConstructions")
 	Dta.ExportImport_Sets = Dta_export.get("ExportImport")--or {}
-	Dta.alphabet.Fonts = Dta.settings.get_alphabetFonts("SavedAlphabets")
-	Dta.Replacement.Skins = Dta.settings.get_Skins("SavedSkins")
+	--Dta.alphabet.Fonts = Dta.settings.get_alphabetFonts("SavedAlphabets")
+	--Dta.Replacement.Skins = Dta.settings.get_Skins("SavedSkins")
 	if Dta.ui.windowtest == nil then
 		Dta.ui.windowtest = Dta.ui.buildMainWindow()
 	else
