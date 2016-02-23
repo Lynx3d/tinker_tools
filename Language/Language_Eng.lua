@@ -10,45 +10,37 @@ Lang["English"] = {}
 Lang["English"].Intro = {}
 Lang["English"].Intro.Label = "Intro"
 Lang["English"].Intro.Text1 = "\
-Hello Dimensioneers,\
+Hello Dimensioneers!\
 \
-I am Kikimora, add-on programmer and dimension builder who has always liked\
-using Dimension Toolbox by Arkzy.\
+This Addon is the continuation of Dimension Tools, originally developed\
+by Kikimora with the support of the Rift Dream Dimensions team.\
+And Dimension Tools is an advancement of Dimension Toolbox by Arkzy.\
 \
-Over the months our game of Rift has changed so inspired by Dimension Toolbox\
-and with the expertise and support of the members of Rift Dream Dimensions I\
-managed to create Dimension Tools. I hope you will enjoy Dtools as much as I\
-enjoyed making it.\
-\
-The following is a simplified check list of what Dimension Tools offers:\
+The following is a summary of the core features:\
 \
 <u>Dimension Tools Features:</u>\
-- Dimension Tools is smaller giving  more space on your screen when building\
-  in your dimensions. All the tools can be brought up by clicking on the\
-  buttons provided in the main window.\
+- Compact user interface giving you more screen space when building dimensions.\
+  All the tools can be brought up individually with the buttons provided in\
+  the main window.\
 \
-- With Dimension Tools you can move, scale and rotate hundreds of items at once\
-  without any problems. (Though you must keep in mind the more items you use\
-  the longer it takes to finish processing it.)\
+- Move, scale and rotate hundreds of items at once precisely in various modes.\
+  (Though you must keep in mind that the more items you modify, the longer it\
+  takes to finish processing it.)\
 \
-- With the Copy/Paste option in Dimension Tools you can copy 1 item and place\
-  multiple copies of it in your dimension with or without offset directly from\
-  your bags, bank or both.\
+- The functionality of the Copy/Paste tool ranges from transfering selected values\
+  between items with optional offset to cloning whole groups of items and placing\
+  multiple copies in your dimension directly from your bags and/or bank.\
 \
-- With the new Load/Save feature you can now choose between using one of the\
-  default sets or your own saved sets. A nice new feature to the Load/Save\
-  feature is that you can save a set and place multiple copies of it at once\
-  with an offset on the X, Y or X axis.\
+- With the Load/Save feature you can choose between loading one of the\
+  default sets or your own saved sets. And for convenience you can place\
+  multiple copies of a saved set at once with an offset on the X, Y or X axis.\
 \
-- The new Import/Export feature allows you to export sets you made to a file\
+- The Import/Export feature allows you to export your saved sets to a file\
   and share that with your friends by just sending them the file. On their\
-  turn they can then import the set or even multiple sets to their own saved\
-  sets.\
+  turn they can choose which sets to import to their own saved sets.\
 \
-With the RDD team we will continue testing possible new features and ensuring\
-current ones continue to work well as Rift evolves.!\
-\
-Thanks and have fun building Dream Dimensions!"
+Thanks for all the support from the dimension community,\
+and have fun building your dreams!"
 
 Lang["English"].Intro.Text2 = ""
 Lang["English"].Intro.Text3 = ""
@@ -57,23 +49,27 @@ Lang["English"].Intro.Text3 = ""
 Lang["English"].Main = {}
 Lang["English"].Main.Label = "Main"
 Lang["English"].Main.Text1 = "\
-The main window is where it all starts. This is the only window visible by\
-default and will hold the basic information about the items along with the\
-buttons to open up all the other tools in Dimension Tools.\
+The tool button is where it all starts. Left-click it to open the main window,\
+right-click it to drag it. The main window holds the basic information about\
+the selected items along with the buttons to open up all the individual tools.\
 \
-Dimension Tools can only be opened inside of dimensions."
+Dimension Tools can only be opened inside of dimensions, unless you override\
+this with the '/dt force' chat command."
 
 Lang["English"].Main.Text2 = "\
+The item icon has a small 'x'-button to clear the selection, and a righ-click\
+on the icon will set a waypoint on the minimap.\
+\
 <u>Buttons:</u>\
 - ?: Opens up this help window.\
-- Move Window: Opens up a window for the Move tools.\
-- Rotate Window: Opens up a window for the Rotate Tools.\
-- Scale Window: Opens up a window for the Scale Tools.\
+- Move: Opens up a window for the Move Tools.\
+- Rotate: Opens up a window for the Rotate Tools.\
+- Scale: Opens up a window for the Scale Tools.\
+- Offset Calc.: Opens up a window for the Offset Calculator.\
 - Copy / Paste: Opens up a window for the Copy and Paste Tools.\
 - Load / Save: Opens up a window for the Load and Save Tools.\
-- Import / Export: Opens up a window for the Import and Export Tools.\
 - Tribal Magic: Opens up a window for Tribal Magic.\
-- Offset Calc.: Opens up a window for the Offset Calculator."
+- Alfiebet: Opens up a window for the Alfiebet text creator."
 
 Lang["English"].Main.Text3 = ""
 
@@ -81,16 +77,18 @@ Lang["English"].Main.Text3 = ""
 Lang["English"].Move = {}
 Lang["English"].Move.Label = "Move"
 Lang["English"].Move.Text1 = "\
-The Move Window is where you set the positions of the selected item(s)."
+The Move Window is where you modify the positions of the selected items."
 
 Lang["English"].Move.Text2 = "\
 <u>Descriptions:</u>\
-- X: Sets the coordinates for the X axis.\
-- Y: Sets the coordinates for the Y axis.\
-- Z: Sets the coordinates for the Z axis.\
+- X/Y/Z: Specifies the coordinates for the X/Y/Z axis.\
+  Empty fields will leave the associated axis unaffected.\
 - Absolute: Moves the item(s) to the coordinates set in X,Y,Z.\
 - Relative: Moves the item(s) with an offset from current position by the\
-  numbers set in X,Y,Z.\n- Move: Starts the moving of the item(s).\
+  numbers set in X,Y,Z.\
+- As Group: Treats the whole selection as one object with the selection center\
+  as position; only available in absolute mode.\
+- Move: Starts the moving of the item(s).\
 - Reset: Resets the item(s) to your current position."
 
 Lang["English"].Move.Text3 = ""
@@ -99,26 +97,31 @@ Lang["English"].Move.Text3 = ""
 Lang["English"].Rotate = {}
 Lang["English"].Rotate.Label = "Rotate"
 Lang["English"].Rotate.Text1 = "\
-The Rotate Window is where you set the Rotation of the selected item(s).\
-Here I have to start with some information about rotation in add-ons, so\
-far in the add-on I have not been able to find a way to actually get group\
-rotation done. So even though it can handle a lot of items at once they\
-will all get the same rotation done on each item and will not be rotated\
-as a group."
+The Rotate Window is where you modify the Rotation of the selected item(s)."
 
 Lang["English"].Rotate.Text2 = "\
 <u>Descriptions:</u>\
-- Yaw: Sets the Rotation over the Yaw axis.\
-- Pitch: Sets the Rotation over the Pitch axis.\
-- Roll: Sets the Rotation over the Roll axis.\
-- Absolute: Sets the item(s) Rotation to the exact numbers you put in Yaw,\
-  Pitch and Roll.\
+- Pitch: Specifies the rotation about the X axis.\
+- Yaw: Specifies the rotation about the Y axis.\
+- Roll: Specifies the rotation about the Z axis.\
+- Absolute: Sets the item(s) rotation to the exact numbers you put in Pitch,\
+  Yaw and Roll.\
+  NOTE: While empty fields will use the current values, there is always more\
+  than one way to represent the same rotation. Rift may convert the angles if\
+  your input exceeds certain boundaries, and hence chance all 3 values, which\
+  may greatly confuse you on subsequent rotation adjustments. So it is highly\
+  recommended to not leave fields empty in absolute mode.\
 - Relative: Rotates the item(s) with the numbers you set in Yaw, Pitch and\
-  Roll from the current rotation. So if current rotation is 20 degrees Yaw\
+  Roll from the current rotation. So if current rotation is 30 degrees Yaw\
   and you put 20 degrees in the Yaw box it will end up having a rotation\
-  of 40 degrees.\
+  of 50 degrees.\
+- As Group: Treats the whole selection as one object. Note that since selections\
+  are temporary, there is no way to save a current rotation for the group.\
+  This has two consequences: This mode is only available in relative mode, and\
+  the rotation happens around the global axis.\
+  Note that you can rotate a single item around global axis too this way.\
 - Rotate: Starts the rotation of the item(s).\
-- Reset: Resets the item(s) rotation to Yaw, Pitch, Roll / 0, 0, 0."
+- Reset: Resets the item(s) Pitch, Yaw and Roll to 0 degrees."
 
 Lang["English"].Rotate.Text3 = ""
 
@@ -126,16 +129,21 @@ Lang["English"].Rotate.Text3 = ""
 Lang["English"].Scale = {}
 Lang["English"].Scale.Label = "Scale"
 Lang["English"].Scale.Text1 = "\
-The Scale Window is where you set the Scale of the selected item(s)."
+The Scale Window is where you modify the Scale of the selected item(s)."
 
 Lang["English"].Scale.Text2 = "\
 <u>Descriptions:</u>\
-- Scale: Sets the Scale for the selected item(s).\
-- Absolute: Sets the Scale of the item(s) to the exact number you put in.\
-- Relative: Sets the Scale of the item(s) to the current Scale plus the\
-  number you put in.\
-- Scale: Starts the Scaling of the item(s).\
-- Reset: Resets the item(s) Scale to 1."
+- Scale: Specifies the scale factor for the selected item(s).\
+- Absolute: Sets the scale of the item(s) to the exact number you put in.\
+- Relative: Sets the scale of the item(s) to the current scale multiplied by\
+  the number you put in.\
+- As Group: Treats the whole selection as one object. Note that since selections\
+  are temporary, there is no way to determine a current scale of the group,\
+  so it is only available in relative mode.\
+  Warning: Items have diverse scale limitations. If you exceed those, your group\
+  will fall apart, so to speak, because this mode also has to move items.\
+- Scale: Starts the scaling of the item(s).\
+- Reset: Resets the item(s) scale to 1."
 
 Lang["English"].Scale.Text3 = ""
 
@@ -143,47 +151,52 @@ Lang["English"].Scale.Text3 = ""
 Lang["English"].CopyandPaste = {}
 Lang["English"].CopyandPaste.Label = "Copy and Paste"
 Lang["English"].CopyandPaste.Text1 = "\
-The Copy / Paste Items window can be used to copy the stats of an item and\
-transfer those stats to other items in your dimension or place multiple\
-copies of the item in your dimension from your bags or bank. You can do this\
-with or without a offset."
+The Copy / Paste Tool is pretty versatile, and behaves a bit different\
+depending on what you do.\
+When you copy a single item, you can paste its values to any other item,\
+the item type gets ignored in this case, and individual values can be excluded.\
+But the real power lies in the ability to copy a group of items and paste an\
+array with incremental offsets, using items from your inventory."
 
 Lang["English"].CopyandPaste.Text2 = "\
 You can disable and enable any of the offsets by clicking the selection box\
-in front of the text fields. By doing this you can choose what stats are\
-transferred to the other item(s).\
+in front of the text fields. When pasting to a single selected object, this\
+also controls which properties are transferred to the selected item.\
 \
 <u>Descriptions:</u>\
 - Offset X, Y, Z: Sets the offset for the X, Y, Z axis for the item(s) you\
-  have selected to transfer the stats to or want to place new in your dimension.\
-- Offset Yaw, Pitch, Roll: Sets the rotation offset over the Yaw, Pitch,\
-  Roll axis for the item(s) you have selected to transfer the stats to or\
-  want to place new in your dimension.\
-- Offset Scale: Sets the Scale for the item(s) you have selected to transfer\
-  the stats to or want to place new in your dimension.\
+  are going to paste the clipboard to.\
+- Offset Pitch, Yaw, Roll: Sets the rotation offset for the Pitch, Yaw,\
+  Roll axis for the item(s) you are going to paste the clipboard to.\
+  For single items, the values are simply added to the original values.\
+  For item groups or when a pivot is used, the items get transformed using the\
+  global coordinate axis.\
+- Offset Scale: Sets the scale change for the paste. For example, 0.2 will make\
+  the placed copy 20% larger, and -0.2 consequently 20% smaller.\
 - Copy: Copies the stats of the item you have selected.\
 - Paste: Pastes the stats of the copied item to the item(s) you have selected\
   or places the new item(s) from your bags or bank in your dimension.\
-- Offset multiple items: Makes it possible to paste an offset to all selected\
-  items or new items you place. Each time it takes the stats of the last placed\
-  item and applies the offset to the next item in row. Can be used to for example\
-  create a wall or well designed patterns.\
-- Use New Item: Activates the possibility to place new items from your bags or\
-  bank into your dimension."
+- Offset multiple copies: Makes it possible to paste an array by iteratively adding\
+  the offsets to the values of the previously placed copy.\
+- Use New Items: Activates the possibility to place new items from your bags or\
+  bank into your dimension. Your inventory will be scanned to ensure you have\
+  enough items before the pasting begins\
+- Flicker reduction: This adds a small offset to each placed copy to prevent\
+  visual flickering from overlapping coplanar parts (Z-fighting).\
+- Custom Pivot: This causes rotation and scaling to be calculated relative to the\
+  point you picked. Activating it shows the 'Pick' button that lets you record the\
+  position of your current selection. This lets you for example build a spiral\
+  staircase around a specific center point. The pivot is kept until you pick a new\
+  one, and doesn't change if you move the item(s) afterwards."
 
 Lang["English"].CopyandPaste.Text3 = "\
 <u>Descriptions of new options:</u>\
-- Bags: Will set it so that only items from your bags are taken to place as\
-  new items.\
-- Bank Bags: Will set it so that only items from your bank bags are taken to\
-  place as new items.\
-- Vaults: Will set it so that only items from your bank vaults are taken to\
-  place as new items.\
-- Nr. of Items (As seen in the picture below): This will be showing up when both\
-  Offset multiple items and Use New Item is activated. This gives you the\
-  possibility to paste in multiple new items from your bags or bank. It will\
-  check if you have enough items to place if not then it will say how many\
-  items you can max place."
+- Bags: Will set it to include items from your bags to place as new items.\
+- Bank: Will set it to include items from your bank (bags and vaults) to\
+  place as new items. Note that this has limitations when you don't have\
+  actual bank access.\
+- Nr. of Copies (As seen in the picture below): This will be showing up when\
+  Offset multiple copies is activated."
 
 
 ---Load and Save----------------------------------------------------------
@@ -218,7 +231,7 @@ Lang["English"].LoadandSave.Text2 = "\
 - Load New Items: Makes it possible to load the set using items from your bags.\
 \
 The following items will only be active when Saved Sets or Tbx Sets are activated.\
-- Remove Set: Removes the selected set from your saved list (only Saved Sets) .\
+- Delete Set: Removes the selected set from your saved list (only Saved Sets) .\
 - Load at original location: If this is selected the set will be loaded with\
   the stats it was originally saved with. Otherwise the set will be loaded close\
   to your current position.\
@@ -351,32 +364,31 @@ Lang["English"].ChanceLog.Text3 = ""
 Lang["English"].Afterword = {}
 Lang["English"].Afterword.Label = "Afterword"
 Lang["English"].Afterword.Text1 = "\
-Many thanks to the Rift Dream Dimensions team for supporting\
-me on the making of this add-on and beta testing it for me.\
+Many thanks to the Rift Community for supporting me. Your feedback\
+and in-game donations have helped me a lot to stay motivated and continue\
+from where Kikimora left Dimension Tools at.\
 \
-I hope you will all enjoy the addon and make a lot of wonderful creations\
-with it.\
-For questions, errors or other information about the addon you want to share\
-with us, visit http://riftdreamdimensions.com/ \
+A lot of work was put into refactoring the old code, effectively making\
+this a whole new addon.\
+\
+I hope you will enjoy the addon with its signifficant interface changes\
+and keep making a lot of wonderful creations with it.\
+For questions, errors, suggestions or other information about the addon you\
+want to share, have a look at the Dimensions section of the Rift forums.\
 \
 Special Thanks:\
-AladdinRift, for letting me use his code from Magic Carpet to integrate it\
-into Dimension Tools.\
+AladdinRift, for allowing to integrate his code from Magic Carpet into\
+Dimension Tools.\
 \
 The Translators:\
 Aeryle, French translations.\
-Sven, German Translations. (In progress)\
-Thanks for offering to translate Dimension Tools for me and the work you\
-guys put into doing this.\
+Thanks for continuing to work on the translation for this remake of the\
+Dimension Tools addon.\
 \
 A little word from Aeryle:\
 It was a pleasure for me to translate this Add-on in French.\
 I hope the French Dimension community will enjoy it and i hope this\
-translation will allow them to use this add-on more easily!\
-\
-Websites:\
-http://inhousegaming.com/ - For all your Trion game fun.\
-http://www.curse.com/addons/rift - This Add-on and many others."
+translation will allow them to use this add-on more easily!"
 
 Lang["English"].Afterword.Text2 = ""
 Lang["English"].Afterword.Text3 = ""
@@ -391,19 +403,19 @@ This tool has come to life because of questions about how you determine the\
 offset of a building block."
 
 Lang["English"].OffsetCalc.Text2 = "\
-- Type: Here you choose the type of item you want the offset for.\
-  Supported Types: Pole, Tile, Cube, Plank and Rectangle.\
+- Shape: Here you choose the type of item you want the offset for.\
+  Supported shapes: Pole, Tile, Cube, Plank, Rectangle and Floors.\
 - Orientation:  Here you choose the orientation of an item.\
-  Supported Orientations:\
-  Default: Yaw, Pitch and Roll all at 0\
-  Yaw 90: Yaw at 90, Pitch and Roll at 0\
-  Pitch 90: Pitch at 90, Yaw and Roll at 0\
-  Roll 90: Roll at 90, Yaw and Pitch at 0\
+  Supported are all 6 possible +/- 90° rotation combinations\
+  A special case is 'Selection Delta', this does not work on the\
+  shape of an item, but calculates the differences between two\
+  selected items.\
 - Scale: Here you set the scale of the item.\
 - Calculate: Calculates the offsets for you.\
 - X: The offset on the X axis.\
 - Y: The offset on the Y axis.\
-- Z: The offset on the Z axis."
+- Z: The offset on the Z axis.\
+- Detect: This tries to detect all parameters from the selection."
 
 Lang["English"].OffsetCalc.Text3 = ""
 
@@ -438,9 +450,9 @@ Lang["English"].Alfiebet.Text3 = ""
 --Buttons
 ----------------------------------------
 Lang["English"].Buttons = {}
-Lang["English"].Buttons.MoveWindow = "Move Window"
-Lang["English"].Buttons.RotateWindow = "Rotate Window"
-Lang["English"].Buttons.ScaleWindow = "Scale Window"
+Lang["English"].Buttons.MoveWindow = "Move"
+Lang["English"].Buttons.RotateWindow = "Rotate"
+Lang["English"].Buttons.ScaleWindow = "Scale"
 Lang["English"].Buttons.CopyPaste = "Copy / Paste"
 Lang["English"].Buttons.LoadSave = "Load / Save"
 Lang["English"].Buttons.ImportExport = "Import / Export"
@@ -476,10 +488,10 @@ Lang["English"].Menus = {}
 Lang["English"].Menus.WindowStyle = { "Default", "Borderless" }
 Lang["English"].Menus.ItemType = {
 	"Cubes",
-	"Planks",
-	"Poles",
-	"Rectangles",
-	"Tiles",
+	"Plank",
+	"Pole",
+	"Rectangle",
+	"Tile",
 	"Floor",
 	"Hall Floor",
 	"Large Floor"
@@ -499,14 +511,14 @@ Lang["English"].Menus.Orientation = {
 ----------------------------------------
 Lang["English"].Titles = {}
 Lang["English"].Titles.Main = "Dimension Tools"
-Lang["English"].Titles.Move = "Move Window"
-Lang["English"].Titles.Rotate = "Rotate Window"
-Lang["English"].Titles.Scale = "Scale Window"
+Lang["English"].Titles.Move = "Move"
+Lang["English"].Titles.Rotate = "Rotate"
+Lang["English"].Titles.Scale = "Scale"
 Lang["English"].Titles.CopyPaste = "Copy / Paste Items"
 Lang["English"].Titles.LoadSave = "Load / Save Sets"
 Lang["English"].Titles.ImportExport = "Import / Export Sets"
 Lang["English"].Titles.TribalMagic = "Tribal Magic"
-Lang["English"].Titles.OffsetCalc = "Offset Calc."
+Lang["English"].Titles.OffsetCalc = "Offset Calculation"
 Lang["English"].Titles.Help = "Dimension Tools Help"
 Lang["English"].Titles.Settings = "Settings"
 
@@ -542,7 +554,7 @@ Lang["English"].Text.NrCopies = "Nr. Copies"
 Lang["English"].Text.Absolute = "Absolute"
 Lang["English"].Text.Relative = "Relative"
 Lang["English"].Text.MoveAsGroup = "As group"
-Lang["English"].Text.Type = "Type"
+Lang["English"].Text.Type = "Shape"
 Lang["English"].Text.Orientation = "Orientation"
 Lang["English"].Text.Word = "Word"
 Lang["English"].Text.Font = "Font"
