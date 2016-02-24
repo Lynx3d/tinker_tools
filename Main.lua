@@ -11,14 +11,8 @@ local Lang = Dta.Lang
 Dta.selectedItems = {}
 Dta.selectionCount = 0
 Dta.clipboard = {}
-Dta.groupClipboard = {}
-Dta.itemList = {}
--- unused -- Dta.AllItems = {}
--- unused -- Dta.DimensionItemCount = 0
--- unused -- Dta.PasteSets = 0
 
 --Load & Save
-Dta.Setname = ""
 Dta.constructions = {}
 Dta.constructionsdefaults = {}
 Dta.constructionstbx = {}
@@ -41,7 +35,6 @@ Dta.lastFrameTime = 0
 --Copy & Paste
 Dta.FlickerOffset = true
 Dta.FlickerReduc = 0.0003
---Dta.PastingItems = false
 
 --Others
 Dta.PlayerID = Inspect.Unit.Lookup("player")
@@ -117,49 +110,6 @@ function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a
 		coroutine.resume(Dta.AddItem_Co)
 	end
 
-	if Dta.alphabet.PlaceLetter_Co_Active then
-		for id, value in pairs(dimensionItem) do
-			local data = Inspect.Dimension.Layout.Detail(id)
-			if data ~= nil then
-				coroutine.resume(Dta.alphabet.Co_PlaceLetter)
-			end
-		end
-	elseif Dta.alphabet.PlaceWord_Co_Active then
-		for id, value in pairs(dimensionItem) do
-			local data = Inspect.Dimension.Layout.Detail(id)
-			if data ~= nil then
-				coroutine.resume(Dta.alphabet.Co_PlaceWord)
-			end
-		end
-	end
-
-	--if #Dta.pendingActions == 1 then
-	--	print(Lang[Dta.Language].Prints.ProcessFinished)
-	--end
-
-	if not Dta.FinishedSet then
-		if Dta.ItemsPlaced < Dta.ItemsToPlace then
-			--print("ItemsPlaced: " .. Dta.ItemsPlaced .. " out of " .. Dta.ItemsToPlace)
-			for id, value in pairs(dimensionItem) do
-				local data = Inspect.Dimension.Layout.Detail(id)
-				if data ~= nil then
-					Dta.items.QueueSelection(id)
-				end
-			end
-			Dta.ItemsPlaced = Dta.ItemsPlaced + 1
-		elseif Dta.ItemsPlaced == Dta.ItemsToPlace then
-			for id, value in pairs(dimensionItem) do
-				local data = Inspect.Dimension.Layout.Detail(id)
-				if data ~= nil then
-					Dta.items.QueueSelection(id)
-				end
-			end
-			--print("ItemsPlaced: " .. Dta.ItemsPlaced .. " out of " .. Dta.ItemsToPlace)
-			Dta.FinishedSet = true
-			Dta.ItemsPlaced = 1
-		end
-	end
-
 	if Dta.waitingForCarpet == true then
 		for id, value in pairs(dimensionItem) do
 			local data = Inspect.Dimension.Layout.Detail(id)
@@ -181,7 +131,6 @@ function Dta.removeEventHandler(hEvent, dimensionItem) --Executed when item is r
 		Dta.CPrint(Lang[Dta.Language].Prints.ProcessFinished)
 	end
 	if Dta.losa.tableLength(Dta.selectedItems) > 0 then
-		-- unused -- Dta.Deleting = true
 		Dta.items.updateSelection(dimensionItem, true)
 		--print("Item Removed")
 	end
@@ -193,22 +142,6 @@ function Dta.updateEventHandler(hEvent, dimensionItem) --Executed on every selec
 	--	print(Lang[Dta.Language].Prints.ProcessFinished)
 	--end
 	Dta.items.updateSelection(dimensionItem, false)
-
-	if Dta.FinishedSet and Dta.Setname ~= "" and #Dta.SelectionQueue == 1 then
-		Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetFinished, Dta.Setname))
-		Dta.Setname = ""
-	end
-
-	if Dta.FinishedSet and Dta.PastingItems and #Dta.SelectionQueue == 1 then
-		Dta.CPrint(Lang[Dta.Language].Prints.PasteFinished)
-		Dta.PastingItems = false
-	end
-
-	if Dta.FinishedSet and Dta.alphabet.PastingWord and #Dta.SelectionQueue == 1 then
-		Dta.CPrint(Lang[Dta.Language].Prints.WordFinished)
-		Dta.alphabet.PastingWord = false
-	end
-
 end
 
 local function EnterDimension()

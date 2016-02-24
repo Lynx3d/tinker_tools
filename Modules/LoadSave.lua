@@ -253,10 +253,9 @@ function Dta.losa.tableLength(t)
 end
 
 function Dta.losa.getGroupShoppingList(itemlist)
-	local group = itemlist or Dta.groupClipboard
-	if #group > 0 then
+	if #itemlist > 0 then
 		local shoppingList = {}
-		for k, details in pairs(group) do
+		for k, details in pairs(itemlist) do
 			if shoppingList[details.type] == nil then
 				shoppingList[details.type] = {name = details.name, amount = 1}
 			else
