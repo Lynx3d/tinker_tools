@@ -214,63 +214,31 @@ end
 ---------------------------------
 
 function Dta.losa.printShoppingList(name)
+	local constructionSet
 	if Dta.ui.loadLoSa == "Default" then
-		if name ~= nil and name ~= "" then
-			if Dta.constructionsdefaults[name] ~= nil then
-				Dta.groupClipboard = Dta.constructionsdefaults[name]
-				local list = Dta.losa.getGroupShoppingList()
-				if list ~= nil and Dta.losa.tableLength(list) > 0 then
-					Dta.CPrint(string.format(Lang[Dta.Language].Prints.LoadNeededItems, name))
-					for id, details in pairs(list) do
-						Dta.CPrint(string.format("%s: %d", details.name, details.amount))
-					end
-				else
-					Dta.CPrint(Lang[Dta.Language].Prints.WordCouldNotPrint)
-				end
-			else
-				Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
-			end
-		else
-			Dta.CPrint(Lang[Dta.Language].Prints.LoadPrintMats)
-		end
+		constructionSet = Dta.constructionsdefaults
 	elseif Dta.ui.loadLoSa == "Saved" then
-		if name ~= nil and name ~= "" then
-			if Dta.constructions[name] ~= nil then
-				Dta.groupClipboard = Dta.constructions[name]
-				local list = Dta.losa.getGroupShoppingList()
-				if list ~= nil and Dta.losa.tableLength(list) > 0 then
-					Dta.CPrint(string.format(Lang[Dta.Language].Prints.LoadNeededItems, name))
-					for id, details in pairs(list) do
-						Dta.CPrint(string.format("%s: %d", details.name, details.amount))
-					end
-				else
-					Dta.CPrint(Lang[Dta.Language].Prints.WordCouldNotPrint)
-				end
-			else
-				Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
-			end
-		else
-			Dta.CPrint(Lang[Dta.Language].Prints.LoadPrintMats)
-		end
+		constructionSet = Dta.constructions
 	elseif Dta.ui.loadLoSa == "Tbx" then
-		if name ~= nil and name ~= "" then
-			if Dta.constructionstbx[name] ~= nil then
-				Dta.groupClipboard = Dta.constructionstbx[name]
-				local list = Dta.losa.getGroupShoppingList()
-				if list ~= nil and Dta.losa.tableLength(list) > 0 then
-					Dta.CPrint(string.format(Lang[Dta.Language].Prints.LoadNeededItems, name))
-					for id, details in pairs(list) do
-						Dta.CPrint(string.format("%s: %d", details.name, details.amount))
-					end
-				else
-					Dta.CPrint(Lang[Dta.Language].Prints.WordCouldNotPrint)
+		constructionSet = Dta.constructionstbx
+	end
+
+	if name ~= nil and name ~= "" then
+		if constructionSet and constructionSet[name] ~= nil then
+			local list = Dta.losa.getGroupShoppingList(constructionSet[name])
+			if list ~= nil and Dta.losa.tableLength(list) > 0 then
+				Dta.CPrint(string.format(Lang[Dta.Language].Prints.LoadNeededItems, name))
+				for id, details in pairs(list) do
+					Dta.CPrint(string.format("%s: %d", details.name, details.amount))
 				end
 			else
-				Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
+				Dta.CPrint(Lang[Dta.Language].Prints.WordCouldNotPrint)
 			end
 		else
-			Dta.CPrint(Lang[Dta.Language].Prints.LoadPrintMats)
+			Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
 		end
+	else
+		Dta.CPrint(Lang[Dta.Language].Prints.LoadPrintMats)
 	end
 end
 
@@ -326,7 +294,7 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 
 	local constructionSet
 	if Dta.ui.loadLoSa == "Default" then
-		constructionSet = constructionsdefaults
+		constructionSet = Dta.constructionsdefaults
 	elseif Dta.ui.loadLoSa == "Saved" then
 		constructionSet = Dta.constructions
 	elseif Dta.ui.loadLoSa == "Tbx" then
