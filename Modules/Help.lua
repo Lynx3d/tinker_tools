@@ -154,7 +154,7 @@ Dta.Help = {}
 		text03 = Lang[Dta.Language].CopyandPaste.Text3,
 		pic01 = "Copy_Window_01.jpg",
 		pic02 = "Copy_Window_02.jpg",
-		pic03 = "Copy_Window_03.jpg"
+		pic03 = ""
 		}
 	}
 
@@ -166,7 +166,7 @@ Dta.Help = {}
 		text03 = Lang[Dta.Language].LoadandSave.Text3,
 		pic01 = "Load_Window_01.jpg",
 		pic02 = "Load_Window_02.jpg",
-		pic03 = "Load_Window_03.jpg"
+		pic03 = ""
 		}
 	}
 
