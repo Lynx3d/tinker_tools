@@ -173,30 +173,32 @@ also controls which properties are transferred to the selected item.\
   global coordinate axis.\
 - Offset Scale: Sets the scale change for the paste. For example, 0.2 will make\
   the placed copy 20% larger, and -0.2 consequently 20% smaller.\
-- Copy: Copies the stats of the item you have selected.\
-- Paste: Pastes the stats of the copied item to the item(s) you have selected\
-  or places the new item(s) from your bags or bank in your dimension.\
-- Offset multiple copies: Makes it possible to paste an array by iteratively adding\
+- Offset multiple items: Makes it possible to paste an array by iteratively adding\
   the offsets to the values of the previously placed copy.\
-- Use New Items: Activates the possibility to place new items from your bags or\
-  bank into your dimension. Your inventory will be scanned to ensure you have\
-  enough items before the pasting begins\
 - Flicker reduction: This adds a small offset to each placed copy to prevent\
   visual flickering from overlapping coplanar parts (Z-fighting).\
 - Custom Pivot: This causes rotation and scaling to be calculated relative to the\
-  point you picked. Activating it shows the 'Pick' button that lets you record the\
-  position of your current selection. This lets you for example build a spiral\
-  staircase around a specific center point. The pivot is kept until you pick a new\
-  one, and doesn't change if you move the item(s) afterwards."
+  point you picked (see below for details).\
+- Use New Items: Activates the possibility to place new items from your bags or\
+  bank into your dimension. Your inventory will be scanned to ensure you have\
+  enough items before the pasting begins\
+- Copy: Copies the stats of the items you have selected to clipboard.\
+- Paste: Pastes the clipboard according to the settings you made.\
+  This may take a while when placing many new items.\
+\
+Depending on the settings, additional controls become available, as seen below:"
 
 Lang["English"].CopyandPaste.Text3 = "\
-<u>Descriptions of new options:</u>\
-- Bags: Will set it to include items from your bags to place as new items.\
-- Bank: Will set it to include items from your bank (bags and vaults) to\
-  place as new items. Note that this has limitations when you don't have\
-  actual bank access.\
-- Nr. of Copies (As seen in the picture below): This will be showing up when\
-  Offset multiple copies is activated."
+<u>Descriptions of additional options:</u>\
+- Nr. of Copies: This will be showing up when Offset multiple items is activated.\
+- Pick: This button is available when Custom Pivot is active and lets you record the\
+  position of your current selection. This lets you for example build a spiral\
+  staircase around a specific center point. The pivot is kept until you pick a new\
+  one, and doesn't change if you move the item(s) afterwards.\
+- Bags: Controls whether to include items from your bags to place new items.\
+- Bank: Controls whether to include items from your bank (bags and vaults) to\
+  place new items. Note that this has limitations when you don't have\
+  actual bank access."
 
 
 ---Load and Save----------------------------------------------------------
