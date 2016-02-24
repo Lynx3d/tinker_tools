@@ -57,7 +57,7 @@ Dimension Tools can only be opened inside of dimensions, unless you override\
 this with the '/dt force' chat command."
 
 Lang["English"].Main.Text2 = "\
-The item icon has a small 'x'-button to clear the selection, and a righ-click\
+The item icon has a small 'x'-button to clear the selection, and a right-click\
 on the icon will set a waypoint on the minimap.\
 \
 <u>Buttons:</u>\
@@ -328,34 +328,10 @@ Lang["English"].TribalMagic.Text3 = ""
 Lang["English"].ChanceLog = {}
 Lang["English"].ChanceLog.Label = "Change Log"
 Lang["English"].ChanceLog.Text1 = "\
-Version 1.3.2\
--Dimension Tools has gone French. French translation are done by Aeryle.\
+For the changes please refer to the included Changelog.txt\
 \
-Version 1.3.0\
-- Added the New Tool called Alfiebet, write words in dimensions.\
-- Added Alfiebet to the help function.\
-- Fixed error when leaving dimension while still on Tribal Magic.\
-- Made some changes in Zone Check to be more accurate.\
-- Added command (/Dt help), So you can open the help window outside of your\
-  dimensions.\
-\
-Version 1.2.2\
-- Added Offset Calculator module.\
-- Added Offset Calculator to help.\
-- Added Dimension detection, so that DT can only be opened inside dimensions.\
-\
-Version 1.2.1.r17\
-- adjusted help to match new options in copy & paste\
-\
-Version 1.2.0.r16\
-- Rewrote Central point calculations.\
-- Made some small changes in Tribal Magic, to improve performance.\
-\
-Version 1.2.0.r15\
-- Changed: The options Bags, Bank, Both under Copy/Paste to Bags, Bank Bags,\
-  Vaults. This to give a more precise choice of where to take the items from.\
-- Added a counter to the main menu for selected items, you can now see how\
-  many items you have selected."
+For a more detailed list of changes, you can also check the commit log at\
+https://github.com/Lynx3d/dimension_tools/commits/master"
 
 Lang["English"].ChanceLog.Text2 = ""
 Lang["English"].ChanceLog.Text3 = ""
@@ -406,7 +382,7 @@ Lang["English"].OffsetCalc.Text2 = "\
 - Shape: Here you choose the type of item you want the offset for.\
   Supported shapes: Pole, Tile, Cube, Plank, Rectangle and Floors.\
 - Orientation:  Here you choose the orientation of an item.\
-  Supported are all 6 possible +/- 90° rotation combinations\
+  Supported are all 6 possible +/- 90Â° rotation combinations.\
   A special case is 'Selection Delta', this does not work on the\
   shape of an item, but calculates the differences between two\
   selected items.\
