@@ -1,3 +1,17 @@
+Version 1.9.11
+- There's now a configuration window!
+  You can open it with '/dt config'
+- Console output can now be configured.
+- Language can now be set to differ from client language.
+- German localization added (still in progress, so not auto-selected yet)
+- Some UI fixes and tweaks, hopefully no more overlapping text in
+  French locale.
+- New confirmation dialog! Deleting a set now asks for confirmation too.
+- Right-clicking the reload button in move and rotate window now loads all values.
+- Reset of Move tool was reverted to the original functionality; it moves
+  the item close to you again.
+- Updated the english help text, including new screenshots!
+
 Version 1.9.10
 - New offset calculation tool "selection delta" to measure the coordinate
   differences between two items
