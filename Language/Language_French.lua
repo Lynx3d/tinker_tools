@@ -338,6 +338,13 @@ Lang["French"].TribalMagic.Text3 = ""
 Lang["French"].ChanceLog = {}
 Lang["French"].ChanceLog.Label = "Notes de Mise à jour"
 Lang["French"].ChanceLog.Text1 = "\
+Notes de mise à jour régulières et détaillés à l'adresse:\
+https://github.com/Lynx3d/dimension_tools/commits/master\
+et dans le fichier changelog.txt\
+\
+Version 1.9.11\
+-Mise à jour de la traduction française.\
+\
 Version 1.3.2\
 -Dimension Tools dispose désormais d'une traduction Française.\
  Traduction Française réalisée par Aeryle.\
@@ -483,6 +490,7 @@ Lang["French"].Buttons.TribalMagic = "Tribal Magic"
 Lang["French"].Buttons.OffsetCalc = "Calc. Align."
 Lang["French"].Buttons.Copy = "Copier"
 Lang["French"].Buttons.Paste = "Coller"
+Lang["French"].Buttons.Pick = "Choisir"
 Lang["French"].Buttons.Import = "Importer"
 Lang["French"].Buttons.Export = "Exporter"
 Lang["French"].Buttons.Place = "Placer"
@@ -496,7 +504,37 @@ Lang["French"].Buttons.Reset = "Reset"
 Lang["French"].Buttons.Rotate = "Pivoter"
 Lang["French"].Buttons.Scale = "Dimensionner"
 Lang["French"].Buttons.Calculate = "Calculer"
+Lang["French"].Buttons.Detect = "Détecter"
 Lang["French"].Buttons.LoadWord = "Charger mot"
+Lang["French"].Buttons.Yes = "Oui"
+Lang["French"].Buttons.No = "Non"
+Lang["French"].Buttons.OK = "OK"
+Lang["French"].Buttons.Cancel = "ANNULER"
+
+----------------------------------------
+--Menus
+----------------------------------------
+Lang["French"].Menus = {}
+Lang["French"].Menus.WindowStyle = { "Par défaut", "Sans bordures" }
+Lang["French"].Menus.ItemType = {
+	"Cube",
+	"Planche",
+	"Poteau",
+	"Rectangle",
+	"Carreau",
+	"Plancher",
+	"Plancher de hall",
+	"Plancher à large lattes"
+}
+Lang["French"].Menus.Orientation = {
+	"Défaut",
+	"Rot X 90°",
+	"Rot Y 90°",
+	"Rot Z 90°",
+	"Rot X & Rot Y 90°",
+	"Rot X & Rot Z 90°",
+	"Sélection Delta"
+}
 
 ----------------------------------------
 --Titles
@@ -512,6 +550,7 @@ Lang["French"].Titles.ImportExport = "Importer / Exporter"
 Lang["French"].Titles.TribalMagic = "Tribal Magic"
 Lang["French"].Titles.OffsetCalc = "Calculateur Alignement"
 Lang["French"].Titles.Help = " Aide Dimension Tools"
+Lang["French"].Titles.Settings = "Paramètres"
 
 
 ----------------------------------------
@@ -527,21 +566,24 @@ Lang["French"].Text.NrSelectItems = "Nb. d'objets sélect. :"
 Lang["French"].Text.MultiSelectItems = "Plusieurs objets sélectionnés"
 Lang["French"].Text.Offset = "Décalage"
 Lang["French"].Text.OffsetMultiItems = "Décalage objets multiples"
-Lang["French"].Text.UseNewItems = "Utiliser nvx objets"
+Lang["French"].Text.FlickerReduce = "Réduction du vacillement"
+Lang["French"].Text.UseNewItems = "Utiliser nouveaux objets"
+Lang["French"].Text.SelectionPivot = "Pivot personnalisé"
 Lang["French"].Text.NrItems = "Nb. d'objets"
 Lang["French"].Text.Bags = "Sacs"
-Lang["French"].Text.BankBags = "Sacs Banque"
+Lang["French"].Text.BankBags = "Banque"
 Lang["French"].Text.Vaults = "Coffres"
 Lang["French"].Text.DefaultSets = "Sets de base "
 Lang["French"].Text.SavedSets = "Sets Sauv. "
 Lang["French"].Text.TbxSets = "Sets Tbx"
 Lang["French"].Text.Name = "Nom"
+Lang["French"].Text.Search = "Recherche"
 Lang["French"].Text.LoadOrigionalLocation = "Charger au point d'origine"
 Lang["French"].Text.MultiCopies = "Placer plusieures Copies du Set"
 Lang["French"].Text.NrCopies = "Nb. Copies"
 Lang["French"].Text.Absolute = "Absolu"
 Lang["French"].Text.Relative = "Relatif"
-Lang["French"].Text.MoveAsGroup = "Déplacer l'ensemble"
+Lang["French"].Text.MoveAsGroup = "Comme un tout"
 Lang["French"].Text.Type = "Type"
 Lang["French"].Text.Orientation = "Orientation"
 Lang["French"].Text.Word = "Mot"
@@ -550,6 +592,10 @@ Lang["French"].Text.Size = "Taille"
 Lang["French"].Text.Skin = "Skin"
 Lang["French"].Text.Horizontal = "Horizontal"
 Lang["French"].Text.Vertical = "Vertical"
+Lang["French"].Text.ConsoleMessages = "Fenêtre de Messages"
+Lang["French"].Text.WindowStyle = "Style de fenêtre"
+Lang["French"].Text.NotIdleNotification = "L'opération précédente n'est pas terminée.\n Abandonner l'opération en cours d'éxécution?"
+Lang["French"].Text.ConfirmDeleteSet = "Effacer l'ensemble d'objet '%s'?"
 
 
 ----------------------------------------
@@ -563,15 +609,12 @@ Lang["French"].Prints.SetFinished = "Set d'objets \"%s\" chargé et sélectionn�
 Lang["French"].Prints.PasteFinished = "Tous les objets sont placés et sélectionnés."
 Lang["French"].Prints.WordFinished = "Le mot est crée et sélectionné."
 --Copy / Paste
-Lang["French"].Prints.Copy_SingleItem = "La fonction de copie ne fonctionne qu'avec une sélection d'un seul objet pour le moment."
 Lang["French"].Prints.Copy_SelectItem = "Sélectionnez un objet pour en copier les propriétées."
 Lang["French"].Prints.NumbersOnly = "Entrez des valeurs numériques uniquement"
 Lang["French"].Prints.CopyFirst = "Copiez un objet avant de coller!"
-Lang["French"].Prints.Bags_ItemCount = "Vous n'avez que \"%s\" exemplaire(s) de cet objet dans vos sacs."
-Lang["French"].Prints.BankBags_ItemCount = "Vous n'avez que \"%s\" exemplaire(s) de cet objet dans vos sacs en banque."
-Lang["French"].Prints.Vaults_ItemCount = "Vous n'avez que \"%s\" exemplaire(s) de cet objets dans vos coffres."
-Lang["French"].Prints.NotEnoughItems = "Vous n'avez pas assez d'exemplaires de cet objet!"
-Lang["French"].Prints.SelectFirst = "Avant tout, sélectionnez un objet!"
+Lang["French"].Prints.SelectItemSource = "Sélectionner au moins un emplacement de stockage des nouveaux objets."
+Lang["French"].Prints.NotPasteInventory = "Impossible de coller - les objets suivants ne sont pas dans vos sacs:"
+Lang["French"].Prints.NotPasteSelection = "Impossible de coller - les objets suivants ne sont pas sélectionnés:"
 --Tribal Magic
 Lang["French"].Prints.NoRoundTable = "Vous n'avez pas de Table tribale ronde dans votre inventaire!"
 --Alfiebet
@@ -606,9 +649,7 @@ Lang["French"].Prints.RemoveSelectSet = "Vous devez sélectionner un set pour le
 Lang["French"].Prints.SelectType = "Indiquez un type"
 Lang["French"].Prints.SelectOrientation = "Indiquez une Orientation"
 Lang["French"].Prints.TypeSize = "Indiquez une taille"
-Lang["French"].Prints.SizeC = "La taille doit être comprise entre 0.25 et 12"
-Lang["French"].Prints.SizeA = "La taille doit être comprise entre 0.25 et 5"
-Lang["French"].Prints.SizeB = "La taille doit être comprise entre 0.25 et 6"
+Lang["French"].Prints.SizeC = "La taille doit être comprise entre %.2f et %.1f"
 --Move, Rotate, Scale
 Lang["French"].Prints.ModifyPosition = "Sélectionnez un objet pour modifier sa position"
 Lang["French"].Prints.ModifyRotation = "Sélectionnez un objet pour modifier sa rotation"
