@@ -273,17 +273,13 @@ function Dta.tick(handle)
 		local action = table.remove(Dta.pendingActions, 1)
 		if action.op == "scale" then
 			Command.Dimension.Layout.Place(action.id, {scale=action.amount})
-		end
-		if action.op == "move" then
+		elseif action.op == "move" then
 			Command.Dimension.Layout.Place(action.id, {coordX=action.x, coordY=action.y, coordZ=action.z})
-		end
-		if action.op == "rotate" then
+		elseif action.op == "rotate" then
 			Command.Dimension.Layout.Place(action.id, {pitch=action.pitch, yaw=action.yaw, roll=action.roll})
-		end
-		if action.op == "select" then
+		elseif action.op == "select" then
 			Command.Dimension.Layout.Select(action.id, true)
-		end
-		if action.op == "add" then
+		elseif action.op == "add" then
 			Dta.pending_add = true
 			-- Command.Dimension.Layout.Place(action.id, action.details)
 			-- *NOTE*: below code is to get more useful information about a seemingly random error
