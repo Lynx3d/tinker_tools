@@ -69,8 +69,15 @@ function Dta.measurements_ui.buildMeasurementsWindow()
 	Measurementswindow.Measurements.SizeLabel = Dta.ui.createText("MeasurementsSizeLabel", Measurementswindow.Measurements, 0, 60, Lang[Dta.Language].Text.Scale, 14)
 	Measurementswindow.Measurements.Size = Dta.ui.createTextfield("MeasurementsSize", Measurementswindow.Measurements, 80, 60, 50)
 
-	Measurementswindow.Measurements.Calculate = Dta.ui.createButton("MeasurementsCalculate", Measurementswindow.Measurements, 165, 55, nil, nil, Lang[Dta.Language].Buttons.Calculate, nil, Dta.measurements.CalculationsClicked)
-	Measurementswindow.Measurements.Detect = Dta.ui.createButton("MeasurementsDetect", Measurementswindow.Measurements, 165, 145, nil, nil, Lang[Dta.Language].Buttons.Detect, nil, Dta.measurements.DetectClicked)
+	Measurementswindow.Measurements.Calculate = Dta.ui.createButton("MeasurementsCalculate", Measurementswindow.Measurements, 0, 145, nil, nil, Lang[Dta.Language].Buttons.Calculate, nil, Dta.measurements.CalculationsClicked)
+	Measurementswindow.Measurements.Detect = Dta.ui.createButton("MeasurementsDetect", Measurementswindow.Measurements, 135, 145, nil, nil, Lang[Dta.Language].Buttons.Detect, nil, Dta.measurements.DetectClicked)
+	Measurementswindow.Measurements.TransferBtn = Dta.ui.Button.Create("MeasurementsTransfer",
+		Measurementswindow.Measurements, Dta.measurements.TogglePopup,
+		"DimensionWindow_I107.dds", "DimensionWindow_I109.dds",
+		"DimensionWindow_I10B.dds", "DimensionWindow_I10D.dds")
+	Measurementswindow.Measurements.TransferBtn:SetWidth(32)
+	Measurementswindow.Measurements.TransferBtn:SetHeight(32)
+	Measurementswindow.Measurements.TransferBtn:SetPoint("TOPLEFT", Measurementswindow.Measurements, "TOPLEFT", 275, 145)
 
 	Measurementswindow.Divider1 = Dta.ui.createTexture("MeasurementsDivider1", Measurementswindow, "Dimtools", "textures/divider.png", 20, 100, Measurementswindow:GetWidth()-40)
 	Measurementswindow.Divider1:SetLayer(29)
@@ -85,9 +92,25 @@ function Dta.measurements_ui.buildMeasurementsWindow()
 
 	-- TODO: temp fix for new window hierarchy
 	newWindow.Measurements = Measurementswindow.Measurements
+	newWindow.TransferPopup = Dta.measurements_ui.buildTransferPopup(Measurementswindow)
+	newWindow.TransferPopup:ClearPoint("TOPLEFT")
+	newWindow.TransferPopup:SetPoint("BOTTOMLEFT", Measurementswindow, "BOTTOMRIGHT", 10, 0)
 	return newWindow
 end
 
+function Dta.measurements_ui.buildTransferPopup(parent)
+	local popup = Dta.ui.Window.CreatePopup("Xfer popup", parent, 200, 180, 0, 0, false)
+	popup:SetVisible(false)
+	popup.Title = Dta.ui.createText("Xfer Title", popup, 20, 10, Lang[Dta.Language].Titles.TransferValues , 16)
+	popup.ToMove = Dta.ui.createCheckbox("ToMove", popup, 20, 40, Lang[Dta.Language].Buttons.MoveWindow)
+	popup.ToCopa = Dta.ui.createCheckbox("ToCopa", popup, 20, 65, Lang[Dta.Language].Buttons.CopyPaste)
+	popup.x = Dta.ui.createCheckbox("XferX", popup, 20, 90, "X", true, {1, 0, 0, 1})
+	popup.y = Dta.ui.createCheckbox("XferY", popup, 60, 90, "Y", true, {0, 1, 0, 1})
+	popup.z = Dta.ui.createCheckbox("XferZ", popup, 100, 90, "Z", true, {0, 1, 1, 1})
+	popup.Invert = Dta.ui.createCheckbox("XferInvert", popup, 20, 115, Lang[Dta.Language].Text.Invert)
+	popup.Transfer = Dta.ui.createButton("Transfer", popup, 30, 140, nil, nil, Lang[Dta.Language].Buttons.Transfer, nil, Dta.measurements.TransferClicked)
+	return popup
+end
 -- Show the toolbox window
 function Dta.measurements_ui.showMeasurementsWindow()
 	if Dta.ui.windowMeasurements == nil then

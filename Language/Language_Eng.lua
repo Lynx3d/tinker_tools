@@ -453,6 +453,7 @@ Lang["English"].Buttons.Rotate = "Rotate"
 Lang["English"].Buttons.Scale = "Scale"
 Lang["English"].Buttons.Calculate = "Calculate"
 Lang["English"].Buttons.Detect = "Detect"
+Lang["English"].Buttons.Transfer = "Transfer"
 Lang["English"].Buttons.LoadWord = "Load Word"
 Lang["English"].Buttons.Yes = "Yes"
 Lang["English"].Buttons.No = "No"
@@ -481,7 +482,10 @@ Lang["English"].Menus.Orientation = {
 	"Roll 90",
 	"Pitch & Yaw 90",
 	"Pitch & Roll 90",
-	"Selection Delta"
+	"Selection Delta",
+	"Transformed X Offset",
+	"Transformed Y Offset",
+	"Transformed Z Offset"
 }
 
 ----------------------------------------
@@ -499,6 +503,7 @@ Lang["English"].Titles.TribalMagic = "Tribal Magic"
 Lang["English"].Titles.OffsetCalc = "Offset Calculation"
 Lang["English"].Titles.Help = "Dimension Tools Help"
 Lang["English"].Titles.Settings = "Settings"
+Lang["English"].Titles.TransferValues = "Transfer Values to:"
 
 
 ----------------------------------------
@@ -544,6 +549,7 @@ Lang["English"].Text.ConsoleMessages = "Console Messages"
 Lang["English"].Text.WindowStyle = "Window Style"
 Lang["English"].Text.NotIdleNotification = "Previous operation has not finished yet.\nAbort currently running operation now?"
 Lang["English"].Text.ConfirmDeleteSet = "Delete item set '%s'?"
+Lang["English"].Text.Invert = "Inverse Direction"
 
 
 ----------------------------------------
@@ -598,6 +604,8 @@ Lang["English"].Prints.SelectType = "Select a Type"
 Lang["English"].Prints.SelectOrientation = "Select an Orientation"
 Lang["English"].Prints.TypeSize = "Type a Size"
 Lang["English"].Prints.SizeC = "Make sure Size is between %.2f and %.1f"
+Lang["English"].Prints.Selection1 = "Transformed mode requires one selected item."
+Lang["English"].Prints.Selection2 = "Selection Delta requires two selected items."
 --Move, Rotate, Scale
 Lang["English"].Prints.ModifyPosition = "Please select an item in order to modify its position"
 Lang["English"].Prints.ModifyRotation = "Please select an item in order to modify its rotation"

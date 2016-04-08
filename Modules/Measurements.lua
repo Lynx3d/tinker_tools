@@ -21,6 +21,7 @@ Dta.measurements.Dimensions = {
 	{ x = 4, y = 0.25, z = 4, minScale = 0.25, maxScale = 2 }, -- Floor
 	{ x = 4, y = 0.25, z = 8, minScale = 0.25, maxScale = 2 }, -- Hall Floor
 	{ x = 8, y = 0.25, z = 8, minScale = 0.25, maxScale = 2 } -- Large Floor
+--	{ x = 0.371, y = 5, z = 0.3725, minScale = 0.25, maxScale = 2 } -- Corner Post
 }
 
 function Dta.measurements.CalculationsClicked()
@@ -34,11 +35,14 @@ function Dta.measurements.CalculationsClicked()
 		if orientation ~= 7 then
 			return Dta.CPrint(Lang[Dta.Language].Prints.SelectType)
 		elseif Dta.selectionCount ~= 2 then
-			return Dta.CPrint("this mode requires two selected items") -- TODO: localization
+			return Dta.CPrint(Lang[Dta.Language].Prints.Selection2)
 		end
 	else
 		if not scale or not scale_ok then
 			return Dta.CPrint(Lang[Dta.Language].Prints.TypeSize)
+		end
+		if orientation > 7 and Dta.selectionCount ~=1 then
+			return Dta.CPrint(Lang[Dta.Language].Prints.Selection1)
 		end
 
 		dims = Dta.measurements.Dimensions[shape]
@@ -54,15 +58,31 @@ function Dta.measurements.CalculationsClicked()
 	if orientation == 7 then
 		local id, details1 = next(Dta.selectedItems)
 		local _, details2 = next(Dta.selectedItems, id)
-		Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(details1.coordX - details2.coordX, 4)))
-		Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(details1.coordY - details2.coordY, 4)))
-		Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(details1.coordZ - details2.coordZ, 4)))
-	else
+		Dta.measurements.result = { details1.coordX - details2.coordX,
+									details1.coordY - details2.coordY,
+									details1.coordZ - details2.coordZ }
+	elseif orientation < 7 then
 		local axisMap = Dta.measurements.OrientationAxisMap[orientation]
-		Dta.ui.windowMeasurements.Measurements.x:SetText(tostring(Dta.items.round(scale * dims[axisMap[1]], 4)))
-		Dta.ui.windowMeasurements.Measurements.y:SetText(tostring(Dta.items.round(scale * dims[axisMap[2]], 4)))
-		Dta.ui.windowMeasurements.Measurements.z:SetText(tostring(Dta.items.round(scale * dims[axisMap[3]], 4)))
+		Dta.measurements.result = { scale * dims[axisMap[1]],
+									scale * dims[axisMap[2]],
+									scale * dims[axisMap[3]] }
+	else
+		local _, details = next(Dta.selectedItems)
+		local vec = { 0, 0, 0 }
+		if orientation == 8 then
+			vec[1] = dims.x * scale
+		elseif orientation == 9 then
+			vec[2] = dims.y * scale
+		else
+			vec[3] = dims.z * scale
+		end
+		local m_rot = Dta.Matrix.createZYX(details.pitch, details.yaw, details.roll, true)
+		Dta.measurements.result = Dta.Matrix.Transform(m_rot, vec)
 	end
+	local Measurement_UI = Dta.ui.windowMeasurements.Measurements
+	Measurement_UI.x:SetText(tostring(Dta.items.round(Dta.measurements.result[1], 4)))
+	Measurement_UI.y:SetText(tostring(Dta.items.round(Dta.measurements.result[2], 4)))
+	Measurement_UI.z:SetText(tostring(Dta.items.round(Dta.measurements.result[3], 4)))
 end
 
 local half_pi = 0.5 * math.pi
@@ -136,5 +156,47 @@ function Dta.measurements.DetectClicked()
 			end
 		end
 		Dta.ui.windowMeasurements.Measurements.Size:SetText(tostring(details.scale))
+	end
+end
+
+function Dta.measurements.TogglePopup(self)
+	if Dta.ui.windowMeasurements.TransferPopup:GetVisible() then
+		Dta.ui.windowMeasurements.TransferPopup:SetVisible(false)
+		self:Toggle(false)
+	else
+		Dta.ui.windowMeasurements.TransferPopup:SetVisible(true)
+		self:Toggle(true)
+	end
+end
+
+function Dta.measurements.TransferOffset(controls, mask, invert)
+	local values = Dta.measurements.result
+	for index, _ in pairs(mask) do
+		controls[index]:SetText(tostring(Dta.items.round(invert and -values[index] or values[index], 4)))
+	end
+end
+
+function Dta.measurements.TransferClicked()
+	local transfer = Dta.ui.windowMeasurements.TransferPopup
+	local measurement = Dta.ui.windowMeasurements.Measurements
+	local mask = { transfer.x:GetChecked() or nil, transfer.y:GetChecked() or nil, transfer.z:GetChecked() or nil }
+	local invert = transfer.Invert:GetChecked()
+	--if not (transfer.x:GetChecked() or transfer.y:GetChecked() or transfer.z:GetChecked())
+	if not next(mask) or not Dta.measurements.result then
+		return
+	end
+	if transfer.ToMove:GetChecked() then
+		if not Dta.ui.activeMove then
+			Dta.move_ui.showMoveWindow()
+		end
+		local move = Dta.ui.windowMove.modifyPosition
+		Dta.measurements.TransferOffset({move.x, move.y, move.z}, mask, invert)
+	end
+	if transfer.ToCopa:GetChecked() then
+		if not Dta.ui.activeCopyPaste then
+			Dta.copa_ui.showCopyPastewindow()
+		end
+		local copyPaste = Dta.ui.windowCopyPaste.copyPaste
+		Dta.measurements.TransferOffset({copyPaste.xOffset, copyPaste.yOffset, copyPaste.zOffset}, mask, invert)
 	end
 end
