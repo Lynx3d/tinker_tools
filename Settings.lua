@@ -134,44 +134,8 @@ function Dta.settings.get_savedsets(setting)
 	end
 end
 
-function Dta.settings.get_defaultsets(setting)
-	if Dta.Defaults[setting] ~= nil then
-		return Dta.Defaults[setting]
-	else
-		return nil
-	end
-end
-
-function Dta.settings.get_alphabetFonts(setting)
-	if Dta.Defaults[setting] ~= nil then
-		return Dta.Defaults[setting]
-	else
-		return nil
-	end
-end
-
-function Dta.settings.get_alphabetSize(setting, font)
-	if Dta.Defaults[setting][font] ~= nil then
-		return Dta.Defaults[setting][font]
-	else
-		return nil
-	end
-end
-
-function Dta.settings.get_alphabetLetters(setting, font, size)
-	if Dta.Defaults[setting][font][size] ~= nil then
-		return Dta.Defaults[setting][font][size]
-	else
-		return nil
-	end
-end
-
-function Dta.settings.get_Skins(setting)
-	if Dta.Defaults[setting] ~= nil then
-		return Dta.Defaults[setting]
-	else
-		return nil
-	end
+function Dta.settings.get_defaults(setting)
+	return Dta.Defaults[setting]
 end
 
 function Dta.settings.set_savedsets(setting, value)
@@ -182,14 +146,6 @@ function Dta.settings.set_savedsets(setting, value)
 	end
 
 	return Dta.settings.savedsets[setting]
-end
-
-function Dta.settings.get_tbxsets(setting)
-	if tbx_Settings[setting] ~= nil then
-		return tbx_Settings[setting]
-	else
-		return nil
-	end
 end
 
 Dta.settings.main()

@@ -401,7 +401,7 @@ end
 -- Show the Main window
 function Dta.ui.showMainWindow()
 	Dta.constructions = Dta.settings.get_savedsets("SavedSets") --or {}
-	Dta.constructionsdefaults = Dta.settings.get_defaultsets("SavedSets") --or {}
+	Dta.constructionsdefaults = Dta.settings.get_defaults("SavedSets") --or {}
 	Dta.constructionstbx = tbx_import.get("savedConstructions")
 	Dta.ExportImport_Sets = Dta_export.get("ExportImport")--or {}
 	--Dta.alphabet.Fonts = Dta.settings.get_alphabetFonts("SavedAlphabets")

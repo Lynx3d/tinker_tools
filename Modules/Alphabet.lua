@@ -23,7 +23,7 @@ end
 
 function Dta.alphabet.loadFonts()
 	local items = {}
-	local fonts = Dta.settings.get_alphabetFonts("SavedAlphabets")
+	local fonts = Dta.settings.get_defaults("SavedAlphabets")
 	if fonts then
 		for name, _ in pairs(fonts) do
 			table.insert(items, name)
@@ -33,7 +33,7 @@ function Dta.alphabet.loadFonts()
 end
 
 function Dta.alphabet.FontSelected(font)
-	Dta.alphabet.Size = Dta.settings.get_alphabetSize("SavedAlphabets", font)
+	Dta.alphabet.Size = Dta.settings.get_defaults("SavedAlphabets")[font]
 	Dta.ui.windowAlphabet.Alphabet.SizeLoad:SetItems(Dta.alphabet.loadSize())
 	Dta.ui.windowAlphabet.Alphabet.SizeLoad:ResizeToFit()
 	Dta.ui.windowAlphabet.Alphabet.SizeLoad:SetWidth(100)
@@ -90,7 +90,7 @@ function Dta.alphabet.CheckInput()
 	elseif Dta.ui.windowAlphabet.Alphabet.modeVertical:GetChecked() then
 		settings.orientation = "Vertical"
 	end
-	settings.letters = Dta.settings.get_alphabetLetters("SavedAlphabets", settings.font, settings.size)
+	settings.letters = Dta.settings.get_defaults("SavedAlphabets")[settings.font][settings.size]
 	return settings
 end
 
