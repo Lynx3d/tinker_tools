@@ -66,7 +66,10 @@ LangG.Menus.Orientation = {
 	"Roll 90",
 	"Pitch & Yaw 90",
 	"Pitch & Roll 90",
-	"Auswahl-Delta"
+	"Auswahl-Delta",
+	"Transformierter X-Abstand",
+	"Transformierter Y-Abstand",
+	"Transformierter Z-Abstand"
 }
 ----------------------------------------
 --Titles
@@ -180,6 +183,8 @@ LangG.Prints.SelectType = "Wähle eine Form."
 LangG.Prints.SelectOrientation = "Wähle eine Ausrichtung."
 LangG.Prints.TypeSize = "Wähle eine Größe."
 LangG.Prints.SizeC = "Die Größe muß im Bereich von %.2f bis %.1f liegen."
+LangG.Prints.Selection1 = "Transformierte Modi benötigen einen ausgewählten Gegenstand."
+LangG.Prints.Selection2 = "Auswahl-Delta benötigt zwei ausgewählte Gegenstände."
 --Move, Rotate, Scale
 LangG.Prints.ModifyPosition = "Bitte wähle einen Gegenstand aus um dessen Position zu verändern."
 LangG.Prints.ModifyRotation = "Bitte wähle einen Gegenstand aus um dessen Rotation zu verändern."

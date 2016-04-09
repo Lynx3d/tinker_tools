@@ -533,7 +533,11 @@ Lang["French"].Menus.Orientation = {
 	"Rot Z 90°",
 	"Rot X & Rot Y 90°",
 	"Rot X & Rot Z 90°",
-	"Sélection Delta"
+	"Sélection Delta",
+	-- TODO:
+	"Transformed X Offset",
+	"Transformed Y Offset",
+	"Transformed Z Offset"
 }
 
 ----------------------------------------
