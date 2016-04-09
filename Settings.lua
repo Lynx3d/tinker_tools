@@ -1,4 +1,4 @@
-local Dta = select(2, ...)
+local addon, Dta = ...
 local Lang = Dta.Lang
 -- Set English as Default and fallback
 function addLangFallback(language)
@@ -62,15 +62,17 @@ Dta.settings.revisions = {
 }
 
 function Dta.settings.main()
-	Command.Event.Attach(Event.Addon.SavedVariables.Load.End, Dta.settings.load, "Loaded settings")
-	Command.Event.Attach(Event.Addon.SavedVariables.Save.Begin, Dta.settings.save, "Saved settings")
-	Command.Event.Attach(Event.Addon.SavedVariables.Load.End, Dta.settings.loadSets, "Loaded Sets")
-	Command.Event.Attach(Event.Addon.SavedVariables.Save.Begin, Dta.settings.saveSets, "Saved Sets")
+	Command.Event.Attach(Event.Addon.SavedVariables.Load.End, Dta.settings.loadEnd, "Loaded settings")
+	Command.Event.Attach(Event.Addon.SavedVariables.Save.Begin, Dta.settings.saveBegin, "Save settings")
 end
 
 -- Load the settings into the settings table
-function Dta.settings.load(hEvent, addon)
+function Dta.settings.loadEnd(hEvent, addonID)
+	if addonID ~= addon.toc.Identifier then return end
+
 	if Dta_Settings ~= nil then Dta.settings.settings = Dta_Settings end
+	if Dta_Sets ~= nil then Dta.settings.savedsets = Dta_Sets end
+
 	local language = Dta.settings.get("Language")
 	if language ~= "Auto" then
 		if not Lang[language] then
@@ -86,19 +88,11 @@ function Dta.settings.load(hEvent, addon)
 end
 
 --Save the settings table
-function Dta.settings.save(hEvent, addon)
+function Dta.settings.saveBegin(hEvent, addonID)
+	if addonID ~= addon.toc.Identifier then return end
 	-- set a revision to track changes in setting data layout
 	Dta.settings.set("Revision", Dta.SettingsRevision)
 	Dta_Settings = Dta.settings.settings
-end
-
--- Load the Sets into the settings table
-function Dta.settings.loadSets(hEvent, addon)
-	if Dta_Sets ~= nil then Dta.settings.savedsets = Dta_Sets end
-end
-
---Save the Sets table
-function Dta.settings.saveSets(hEvent, addon)
 	Dta_Sets = Dta.settings.savedsets
 end
 
