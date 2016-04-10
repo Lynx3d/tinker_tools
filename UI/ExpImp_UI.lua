@@ -56,7 +56,7 @@ function Dta.expimp_ui.buildExpImpWindow()
 	ExpImpwindow.ImportExport.ExportLoad:SetEnabled(true)
 	ExpImpwindow.ImportExport.Export = Dta.ui.createButton("ImportExport_Export", ExpImpwindow.ImportExport, 0, 50, nil, nil, Lang[Dta.Language].Buttons.Export, nil, Dta.expimp.ImportExport_ExportClicked)
 
-	ExpImpwindow.divider5 = Dta.ui.createTexture("divider5", ExpImpwindow, "Dimtools", "textures/divider.png", 10, 95, ExpImpwindow:GetWidth()-10)
+	ExpImpwindow.divider5 = Dta.ui.createTexture("divider5", ExpImpwindow, Dta.AddonID, "textures/divider.png", 10, 95, ExpImpwindow:GetWidth()-10)
 	ExpImpwindow.divider5:SetLayer(29)
 
 	ExpImpwindow.ImportExport.ImportLabel = Dta.ui.createText("ImportExportImportLabel", ExpImpwindow.ImportExport, 0, 110, Lang[Dta.Language].Text.Name, 14)

@@ -79,7 +79,7 @@ function Dta.measurements_ui.buildMeasurementsWindow()
 	Measurementswindow.Measurements.TransferBtn:SetHeight(32)
 	Measurementswindow.Measurements.TransferBtn:SetPoint("TOPLEFT", Measurementswindow.Measurements, "TOPLEFT", 275, 145)
 
-	Measurementswindow.Divider1 = Dta.ui.createTexture("MeasurementsDivider1", Measurementswindow, "Dimtools", "textures/divider.png", 20, 100, Measurementswindow:GetWidth()-40)
+	Measurementswindow.Divider1 = Dta.ui.createTexture("MeasurementsDivider1", Measurementswindow, Dta.AddonID, "textures/divider.png", 20, 100, Measurementswindow:GetWidth()-40)
 	Measurementswindow.Divider1:SetLayer(29)
 
 	Measurementswindow.Measurements.xLabel = Dta.ui.createText("MeasurementsXLabel", Measurementswindow.Measurements, 0, 120, "X", 16, {1, 0, 0, 1})

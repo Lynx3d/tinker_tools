@@ -87,7 +87,7 @@ function Dta.items.updateItemDetails()
 		if Dta.selectionCount > 0 then
 			Dta.ui.windowtest.itemDetails.clearSelection:SetVisible(true)
 			if Dta.selectionCount > 1 then
-				Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/multiple.png")
+				Dta.ui.windowtest.itemDetails.icon:SetTexture(Dta.AddonID, "textures/multiple.png")
 				Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.MultiSelectItems)
 				Dta.ui.windowtest.itemDetails.name:SetFontColor(1, 1, 1)
 				local cp = Dta.items.getCentralPoint(Dta.selectedItems)
@@ -105,7 +105,7 @@ function Dta.items.updateItemDetails()
 				local ItemID = next(Dta.selectedItems)
 				if ItemID ~= nil then
 					if Dta.selectedItems[ItemID].icon == "" then
-						Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/default.png")
+						Dta.ui.windowtest.itemDetails.icon:SetTexture(Dta.AddonID, "textures/default.png")
 					else
 						Dta.ui.windowtest.itemDetails.icon:SetTexture("Rift", Dta.selectedItems[ItemID].icon)
 					end
@@ -125,7 +125,7 @@ function Dta.items.updateItemDetails()
 			end
 		else
 			Dta.ui.windowtest.itemDetails.clearSelection:SetVisible(false)
-			Dta.ui.windowtest.itemDetails.icon:SetTexture("Dimtools", "textures/blank.png")
+			Dta.ui.windowtest.itemDetails.icon:SetTexture(Dta.AddonID, "textures/blank.png")
 			Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.NothingSelected)
 			Dta.ui.windowtest.itemDetails.name:SetFontColor(1, 1, 1)
 			Dta.selectionCenter = nil

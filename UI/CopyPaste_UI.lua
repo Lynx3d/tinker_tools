@@ -89,9 +89,6 @@ function Dta.copa_ui.buildCopyPasteWindow()
 	CopyPastewindow.copyPaste.pickPivotBtn = Dta.ui.createButton("pickPivotBtn", CopyPastewindow.copyPaste, 165, 140, nil, nil, Lang[Dta.Language].Buttons.Pick, nil, Dta.copa.pickButtonClicked)
 	CopyPastewindow.copyPaste.pickPivotBtn:SetVisible(false)
 
-	--CopyPastewindow.copyPaste.divider1 = Dta.ui.createTexture("dividerCopa", CopyPastewindow, "Dimtools", "textures/divider.png", 10, 195, CopyPastewindow:GetWidth()-10)
-	--CopyPastewindow.copyPaste.divider1:SetLayer(29)
-
 	CopyPastewindow.copyPaste.NewItem = Dta.ui.createCheckbox("copyPasteNewItem", CopyPastewindow.copyPaste, 0, 170, Lang[Dta.Language].Text.UseNewItems, false, nil, Dta.copa.CopaNewItemChanged)
 
 	CopyPastewindow.copyPaste.Bags = Dta.ui.createCheckbox("copyPasteBags", CopyPastewindow.copyPaste, 15, 195, Lang[Dta.Language].Text.Bags, true, nil)

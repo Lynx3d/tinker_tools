@@ -30,7 +30,7 @@ Dta.Help = {}
 			InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo01:GetHeight() + 20
 
 			Dta.ui.windowHelp.PicInfo01:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-			Dta.ui.windowHelp.PicInfo01:SetTexture("Dimtools", "textures/"..InfoPic01)
+			Dta.ui.windowHelp.PicInfo01:SetTexture(Dta.AddonID, "textures/"..InfoPic01)
 
 			InfoPosition = InfoPosition + Dta.ui.windowHelp.PicInfo01:GetHeight() + 20
 
@@ -41,7 +41,7 @@ Dta.Help = {}
 			InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo02:GetHeight() + 20
 
 			Dta.ui.windowHelp.PicInfo02:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-			Dta.ui.windowHelp.PicInfo02:SetTexture("Dimtools", "textures/"..InfoPic02)
+			Dta.ui.windowHelp.PicInfo02:SetTexture(Dta.AddonID, "textures/"..InfoPic02)
 
 			InfoPosition = InfoPosition + Dta.ui.windowHelp.PicInfo02:GetHeight() + 20
 
@@ -52,7 +52,7 @@ Dta.Help = {}
 			InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo03:GetHeight() + 20
 
 			Dta.ui.windowHelp.PicInfo03:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-			Dta.ui.windowHelp.PicInfo03:SetTexture("Dimtools", "textures/"..InfoPic03)
+			Dta.ui.windowHelp.PicInfo03:SetTexture(Dta.AddonID, "textures/"..InfoPic03)
 
 			local HeaderHeight = Dta.ui.windowHelp.HeaderInfo:GetHeight()
 			local Text01Height = Dta.ui.windowHelp.TextInfo01:GetHeight()

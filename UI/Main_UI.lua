@@ -171,7 +171,7 @@ function Dta.ui.createReloadButton(name, parent, x, y, callback)
 			"textures/reload_btn_over.png",
 			"textures/reload_btn_click.png",
 			"textures/reload_btn_disable.png",
-			"Dimtools"
+			Dta.AddonID
 			)
 	reloadBtn:SetWidth(20)
 	reloadBtn:SetHeight(20)
