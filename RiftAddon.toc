@@ -1,50 +1,49 @@
-﻿Identifier = "Dimtools"
+﻿Identifier = "TinkerTools"
 Name = {
-    English = "Dimension Tools"
+    English = "Tinker Tools"
 }
-NameShort = "DT"
+NameShort = "TT"
 Description = {
     English = [[
 This Addon is written to assist you in the creation of your dimensions.
 
 Use:
-/Dt
-Starts the addon, this will only work inside a dimension.
+/tt
+Without arguments, toggles the main interface.
+This will only work inside a dimension.
 
-/Dt help
-Opens up the help window outside of dimensions.
+/tt help
+Opens up the help window. Also works outside of dimensions.
 
-/Dt reset
-Reset all Dimension Tools windows to their default positions.
+/tt config
+Opens the settings dialog.
+
+/tt reset
+Reset all Tinker Tools windows to their default positions.
 
 Special thanks:
-Arkzy,  the original toolbox maker who inspired
-        me to make this addon.
-RDD members, who made it possible for me to
-        test things and keep me motivated.
-AladdinRift, for letting me use his code from
-        Magic Carpet to integrate it into
-        Dimension Tools.
+Arkzy, the Dimension Toolbox creator,
+        who got the ball rolling.
+Kikimora, the creator of Dimension Tools,
+        which this addon is based on.
+AladdinRift, for inventing the Magic Carpet.
 
-The Translators:
+Translation:
 Aeryle, French translations.
-Sven, German Translations. (In progress)
-Thanks for offering to translate Dimension Tools for me and the work you
-guys put into doing this.
 ]],
 
-    French = [[
+--[=[    French = [[
 Cet add-on a été conçu pour vous aider dans l'élaboration de vos dimensions.
 
 Use:
-/Dt
+/tt
 Démarre l'add-on. Celà ne fonctionne que dans les dimensions!
 
-/Dt help
+/tt help
 Ouvre la fenêtre d'aide, même en dehors des dimensions.
 
-/Dt reset
-Restaure la position des fenêtres de Dimension Tools à leur emplacement initial.
+/tt reset
+Restaure la position des fenêtres de Tinker Tools à leur emplacement initial.
 
 Remerciements:
 Arkzy,  le créateur de Toolbox qui m'a inspiré pour créer cet add on.
@@ -57,12 +56,13 @@ Aeryle, Traduction Française.
 Sven, Traduction Allemande. (En cours)
 Merci d'avoir proposé votre aide pour la traduction de Dimension Tools
 et pour le travail de traduction effectué.
-]],
+]]
+]=]
 }
-Author = "Kikimora"
-Website = "http://riftdreamdimensions.com/"
-Version = "v1.9.11"
-Email = "Kikimora@riftdreamdimensions.com"
+Author = "Lynx3d"
+Website = "https://github.com/Lynx3d"
+Version = "v1.0.0"
+Email = "lynx (dot) mw (at) gmail (dot) com"
 Environment = "2.5"
 
 RunOnStartup = {
@@ -107,7 +107,6 @@ RunOnStartup = {
   "Modules/Replacement.lua",
   "Modules/Alphabet.lua",
   "Modules/Measurements.lua"
-
 }
 
 Embed = {
@@ -118,8 +117,8 @@ Embed = {
 }
 
 SavedVariables = {
-  Dta_Settings = "account",
-  Dta_Sets = "account",
+  TinkerT_Settings = "account",
+  TinkerT_Sets = "account",
 }
 
 Dependencies = {

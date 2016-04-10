@@ -70,8 +70,8 @@ end
 function Dta.settings.loadEnd(hEvent, addonID)
 	if addonID ~= addon.toc.Identifier then return end
 
-	if Dta_Settings ~= nil then Dta.settings.settings = Dta_Settings end
-	if Dta_Sets ~= nil then Dta.settings.savedsets = Dta_Sets end
+	if TinkerT_Settings ~= nil then Dta.settings.settings = TinkerT_Settings end
+	if TinkerT_Sets ~= nil then Dta.settings.savedsets = TinkerT_Sets end
 
 	local language = Dta.settings.get("Language")
 	if language ~= "Auto" then
@@ -92,8 +92,8 @@ function Dta.settings.saveBegin(hEvent, addonID)
 	if addonID ~= addon.toc.Identifier then return end
 	-- set a revision to track changes in setting data layout
 	Dta.settings.set("Revision", Dta.SettingsRevision)
-	Dta_Settings = Dta.settings.settings
-	Dta_Sets = Dta.settings.savedsets
+	TinkerT_Settings = Dta.settings.settings
+	TinkerT_Sets = Dta.settings.savedsets
 end
 
 --------------------------------------

@@ -18,7 +18,7 @@ And Dimension Tools is an advancement of Dimension Toolbox by Arkzy.\
 \
 The following is a summary of the core features:\
 \
-<u>Dimension Tools Features:</u>\
+<u>Tinker Tools Features:</u>\
 - Compact user interface giving you more screen space when building dimensions.\
   All the tools can be brought up individually with the buttons provided in\
   the main window.\
@@ -53,8 +53,8 @@ The tool button is where it all starts. Left-click it to open the main window,\
 right-click it to drag it. The main window holds the basic information about\
 the selected items along with the buttons to open up all the individual tools.\
 \
-Dimension Tools can only be opened inside of dimensions, unless you override\
-this with the '/dt force' chat command."
+Tinker Tools can only be opened inside of dimensions, unless you override\
+this with the '/tt force' chat command."
 
 Lang["English"].Main.Text2 = "\
 The item icon has a small 'x'-button to clear the selection, and a right-click\
@@ -251,7 +251,7 @@ The options used for this are shown in the picture below here.\
 Lang["English"].LoadandSave.Text3 = "\
 Tbx Sets is somewhat special. By default that set is empty, but for old Dimension\
 Toolbox users this is a way to get your sets that you made with Dimension\
-Toolbox to work within Dimension Tools as well.\
+Toolbox to work within Tinker Tools as well.\
 \
 To get your old sets loaded into Dimension Tools you need to do the following:\
 1: Locate the tbx.lua File, found under:\
@@ -279,7 +279,7 @@ The file can be found under:\
 
 Lang["English"].ImportandExport.Text2 = "\
 <u>Descriptions:</u>\
-- Saved Sets: Sets the first drop box to your Dimension Tools Sets.\
+- Saved Sets: Sets the first drop box to your Tinker Tools Sets.\
 - Tbx Sets: Sets the first drop box to your Toolbox Sets.\
 - Name (First drop box): Here you can select any of your own saved sets to\
   export to file.\
@@ -492,7 +492,7 @@ Lang["English"].Menus.Orientation = {
 --Titles
 ----------------------------------------
 Lang["English"].Titles = {}
-Lang["English"].Titles.Main = "Dimension Tools"
+Lang["English"].Titles.Main = "Tinker Tools"
 Lang["English"].Titles.Move = "Move"
 Lang["English"].Titles.Rotate = "Rotate"
 Lang["English"].Titles.Scale = "Scale"
@@ -501,7 +501,7 @@ Lang["English"].Titles.LoadSave = "Load / Save Sets"
 Lang["English"].Titles.ImportExport = "Import / Export Sets"
 Lang["English"].Titles.TribalMagic = "Tribal Magic"
 Lang["English"].Titles.OffsetCalc = "Offset Calculation"
-Lang["English"].Titles.Help = "Dimension Tools Help"
+Lang["English"].Titles.Help = "Tinker Tools Help"
 Lang["English"].Titles.Settings = "Settings"
 Lang["English"].Titles.TransferValues = "Transfer Values to:"
 

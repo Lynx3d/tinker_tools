@@ -64,7 +64,7 @@ Dta.pending_add = false
 --------------------------------------
 
 function Dta.main()
-	Command.Event.Attach(Command.Slash.Register("Dt"), Dta.commandHandler, "Dimtools Command")
+	Command.Event.Attach(Command.Slash.Register("tt"), Dta.commandHandler, "Tinker Tools Command")
 	Command.Event.Attach(Event.Unit.Availability.Full, Dta.Event_Unit_Availability_Full, "Event_Unit_Availability_Full")
 	Command.Event.Attach(Event.Unit.Detail.Zone, Dta.Event_Unit_Detail_Zone, "Event_Unit_Detail_Zone")
 	Command.Event.Attach(Event.System.Update.Begin, Dta.tick, "refresh")
