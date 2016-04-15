@@ -199,10 +199,33 @@ end
 --PASTE CLIPBOARD ITEMS
 --------------------------------------
 
-function Dta.copyTable(tbl)
-	local t_copy = {}
-	for k, v in pairs(tbl) do t_copy[k] = v end
-	return t_copy
+function Dta.copyTable(tbl, recursive)
+	assert(type(tbl) == "table")
+	if recursive then
+		return Dta.copyTableRecursive(tbl, {})
+	else
+		local t_copy = {}
+		for k, v in pairs(tbl) do t_copy[k] = v end
+		return t_copy
+	end
+end
+
+function Dta.copyTableRecursive(orig, refs)
+	-- assert(type(refs) == "table")
+	local copy = refs[orig]
+	if copy ~= nil then
+		return copy
+	end
+	copy = {}
+	refs[orig] = copy
+	for k, v in pairs(orig) do
+		if type(v) == "table" then
+			copy[k] = Dta.copyTableRecursive(v, refs)
+		else
+			copy[k] = v
+		end
+	end
+	return copy
 end
 
 function Dta.copa.pasteSingleItem(details, shoppingList, newItem)
