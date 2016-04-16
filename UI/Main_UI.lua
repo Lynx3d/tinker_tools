@@ -400,7 +400,6 @@ end
 
 -- Show the Main window
 function Dta.ui.showMainWindow()
-	Dta.constructions = Dta.settings.get_savedsets("SavedSets") --or {}
 	Dta.constructionsdefaults = Dta.settings.get_defaults("SavedSets") --or {}
 	Dta.constructionstbx = tbx_import.get("savedConstructions")
 	Dta.ExportImport_Sets = Dta_export.get("ExportImport")--or {}
@@ -421,8 +420,6 @@ end
 function Dta.ui.hideMainWindow()
 	Dta.ui.windowtest:SetVisible(false)
 --	Dta.ui.windowtest = nil
-	Dta.constructions = {}
-	Dta.constructionsdefaults = {}
 	Dta.ui.active = false
 	if Dta.ui.activeMove then Dta.move_ui.hideMoveWindow() end
 	if Dta.ui.activeScale then Dta.scale_ui.hideScaleWindow() end

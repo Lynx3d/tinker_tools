@@ -189,8 +189,9 @@ function Dta.expimp.ImportGroupItemAttributes(name)
 											roll = item.roll,
 											scale = item.scale})
 			end
-			Dta.constructions[name] = groupDetails
-			Dta.settings.set_savedsets("SavedSets", Dta.constructions)
+			local constructions = Dta.settings.get_savedsets("SavedSets") or {}
+			constructions[name] = groupDetails
+			Dta.settings.set_savedsets("SavedSets", constructions)
 			Dta.CPrint(string.format(Lang[Dta.Language].Prints.Imported, name))
 			Dta.expimp.removeImportedSet(name)
 		else

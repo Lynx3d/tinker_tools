@@ -143,7 +143,7 @@ function Dta.losa.loadConstructions()
 	if Dta.ui.loadLoSa == "Default" then
 		constructs = Dta.constructionsdefaults
 	elseif Dta.ui.loadLoSa == "Saved" then
-		constructs = Dta.constructions
+		constructs = Dta.settings.get_savedsets("SavedSets")
 	elseif Dta.ui.loadLoSa == "Tbx" then
 		constructs = Dta.constructionstbx
 	end
@@ -198,8 +198,9 @@ function Dta.losa.saveGroupItemAttributes(name)
 											roll = item.roll,
 											scale = item.scale})
 			end
-			Dta.constructions[name] = groupDetails
-			Dta.settings.set_savedsets("SavedSets", Dta.constructions)
+			local constructions = Dta.settings.get_savedsets("SavedSets") or {}
+			constructions[name] = groupDetails
+			Dta.settings.set_savedsets("SavedSets", constructions)
 			Dta.CPrint(string.format(Lang[Dta.Language].Prints.Saved, name))
 		else
 			Dta.CPrint(Lang[Dta.Language].Prints.MinOneItem)
@@ -218,7 +219,7 @@ function Dta.losa.printShoppingList(name)
 	if Dta.ui.loadLoSa == "Default" then
 		constructionSet = Dta.constructionsdefaults
 	elseif Dta.ui.loadLoSa == "Saved" then
-		constructionSet = Dta.constructions
+		constructionSet = Dta.settings.get_savedsets("SavedSets")
 	elseif Dta.ui.loadLoSa == "Tbx" then
 		constructionSet = Dta.constructionstbx
 	end
@@ -295,7 +296,7 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 	if Dta.ui.loadLoSa == "Default" then
 		constructionSet = Dta.constructionsdefaults
 	elseif Dta.ui.loadLoSa == "Saved" then
-		constructionSet = Dta.constructions
+		constructionSet = Dta.settings.get_savedsets("SavedSets")
 	elseif Dta.ui.loadLoSa == "Tbx" then
 		constructionSet = Dta.constructionstbx
 	end
@@ -353,14 +354,16 @@ end
 ----------------------------------
 
 function Dta.losa.deleteItemSet(name)
-	Dta.constructions[name] = nil
+	local constructions = Dta.settings.get_savedsets("SavedSets")
+	constructions[name] = nil
 	Dta.losa.refreshLoadSelect()
 	Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetRemoved, name))
 end
 
 function Dta.losa.removeGroupItem(name)
+	local constructions = Dta.settings.get_savedsets("SavedSets")
 	if name ~= nil and name ~= "" then
-		if Dta.constructions[name] ~= nil then
+		if constructions and constructions[name] ~= nil then
 			Dta.ui.showConfirmation(string.format(Lang["English"].Text.ConfirmDeleteSet, name),
 									Dta.losa.deleteItemSet, nil, name)
 		else

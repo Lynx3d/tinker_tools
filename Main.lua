@@ -14,7 +14,6 @@ Dta.selectionCount = 0
 Dta.clipboard = {}
 
 --Load & Save
-Dta.constructions = {}
 Dta.constructionsdefaults = {}
 Dta.constructionstbx = {}
 Dta.FinishedSet = true
