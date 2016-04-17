@@ -246,6 +246,8 @@ function Dta.commandHandler(hEvent, command)
 		print("Position reset")
 	elseif command == "help" then
 		Dta.help_ui.toggleHelpWindow()
+	elseif command == "import_dt" then
+		Dta.settings.import_dimtools()
 	elseif command == "config" then
 		Dta.config_ui.showConfigWindow()
 	elseif command == "force" then

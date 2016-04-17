@@ -149,3 +149,29 @@ function Dta.settings.set_savedsets(setting, value)
 end
 
 Dta.settings.main()
+
+--------------------------------------
+-- Import Dimension Tools settings
+--------------------------------------
+
+function Dta.settings.import_dimtools()
+	if not Dta.settings.savedsets.SavedSets then
+		Dta.settings.savedsets.SavedSets = {}
+	end
+	local tinker_sets = Dta.settings.savedsets.SavedSets
+
+	if type(Dta_Sets) == "table" and type(Dta_Sets.SavedSets) == "table" then
+		for set_name, set_data in pairs(Dta_Sets.SavedSets) do
+			if tinker_sets[set_name] then
+				Dta.CPrint(string.format("skipped: %s", set_name))
+			else
+				tinker_sets[set_name] = Dta.copyTable(set_data, true)
+				Dta.CPrint(string.format("copied: %s", set_name))
+			end
+		end
+	end
+	-- refresh load/save list if window exists
+	if Dta.ui.windowLoSa then
+		Dta.losa.refreshLoadSelect()
+	end
+end
