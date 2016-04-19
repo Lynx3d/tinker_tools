@@ -102,24 +102,24 @@ function Dta.items.updateItemDetails()
 				Dta.ui.windowtest.itemDetails.scale:SetText("-")
 				if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(true) end
 			else
-				local ItemID = next(Dta.selectedItems)
-				if ItemID ~= nil then
-					if Dta.selectedItems[ItemID].icon == "" then
+				local ItemID, details = next(Dta.selectedItems)
+				if details ~= nil then
+					if details.icon == "" then
 						Dta.ui.windowtest.itemDetails.icon:SetTexture(Dta.AddonID, "textures/default.png")
 					else
-						Dta.ui.windowtest.itemDetails.icon:SetTexture("Rift", Dta.selectedItems[ItemID].icon)
+						Dta.ui.windowtest.itemDetails.icon:SetTexture("Rift", details.icon)
 					end
-					Dta.selectionCenter = { ["x"] = Dta.selectedItems[ItemID].coordX, ["y"] = Dta.selectedItems[ItemID].coordY, ["z"] = Dta.selectedItems[ItemID].coordZ }
-					Dta.ui.windowtest.itemDetails.name:SetText(tostring(Dta.selectedItems[ItemID].name))
-					Dta.items.setItemColor(Dta.selectedItems[ItemID].type)
+					Dta.selectionCenter = { x = details.coordX, y = details.coordY, z = details.coordZ }
+					Dta.ui.windowtest.itemDetails.name:SetText(tostring(details.name))
+					Dta.items.setItemColor(details.type)
 					Dta.ui.windowtest.itemDetails.nrItems:SetText(tostring(Dta.selectionCount))
-					Dta.ui.windowtest.itemDetails.x:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].coordX,4)))
-					Dta.ui.windowtest.itemDetails.y:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].coordY,4)))
-					Dta.ui.windowtest.itemDetails.z:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].coordZ,4)))
-					Dta.ui.windowtest.itemDetails.yaw:SetText(tostring(Dta.items.round(Dta.items.toDegrees(Dta.selectedItems[ItemID].yaw),4)))
-					Dta.ui.windowtest.itemDetails.pitch:SetText(tostring(Dta.items.round(Dta.items.toDegrees(Dta.selectedItems[ItemID].pitch),4)))
-					Dta.ui.windowtest.itemDetails.roll:SetText(tostring(Dta.items.round(Dta.items.toDegrees(Dta.selectedItems[ItemID].roll),4)))
-					Dta.ui.windowtest.itemDetails.scale:SetText(tostring(Dta.items.round(Dta.selectedItems[ItemID].scale,4)))
+					Dta.ui.windowtest.itemDetails.x:SetText(tostring(Dta.items.round(details.coordX,4)))
+					Dta.ui.windowtest.itemDetails.y:SetText(tostring(Dta.items.round(details.coordY,4)))
+					Dta.ui.windowtest.itemDetails.z:SetText(tostring(Dta.items.round(details.coordZ,4)))
+					Dta.ui.windowtest.itemDetails.yaw:SetText(tostring(Dta.items.round(math.deg(details.yaw),4)))
+					Dta.ui.windowtest.itemDetails.pitch:SetText(tostring(Dta.items.round(math.deg(details.pitch),4)))
+					Dta.ui.windowtest.itemDetails.roll:SetText(tostring(Dta.items.round(math.deg(details.roll),4)))
+					Dta.ui.windowtest.itemDetails.scale:SetText(tostring(Dta.items.round(details.scale,4)))
 					if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(false) end
 				end
 			end
@@ -186,13 +186,6 @@ function Dta.items.StartDetails()
 	end
 end
 
-function Dta.items.GetDimensionKey(t, value)
-	for k, details in pairs(t) do
-		if details.id==value then return k end
-	end
-	return nil
-end
-
 function Dta.items.DeselectAll()
 	for id,Details in pairs(Dta.selectedItems) do
 		local detail = Inspect.Dimension.Layout.Detail(Details.id)
@@ -208,14 +201,6 @@ function Dta.items.round(num, dp)
 	local mult = 10^(dp or 0)
 	if num >= 0 then return math.floor(num * mult + 0.5) / mult end
 	return math.ceil(num * mult - 0.5) / mult
-end
-
-function Dta.items.toRadians(num)
-	return math.rad(num)
-end
-
-function Dta.items.toDegrees(num)
-	return math.deg(num)
 end
 
 --------------------------------------
