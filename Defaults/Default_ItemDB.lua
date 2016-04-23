@@ -623,6 +623,156 @@ Dta.Defaults.ItemDB =
 		type = "I40AC23891893C680,E2A013511D2CFD71,,,,,,",
 		shape = "tile"
 	},
+	-----------
+	-- Misc. --
+	-----------
+	-- Ice
+	["I22A79B1D657B31D9,5A86827970176F3F,,,,,,"] =
+	{
+		name = "Building Block: Ice Triangle",
+		type = "I22A79B1D657B31D9,5A86827970176F3F,,,,,,",
+		shape = "triangle"
+	},
+	["I237032CF70B37A62,4138D47D4E39B99F,,,,,,"] =
+	{
+		name = "Building Block: Ice Disc",
+		type = "I237032CF70B37A62,4138D47D4E39B99F,,,,,,",
+		shape = "disc"
+	},
+	["I6B59D27B2DC1132A,DA0832CD98B12A09,,,,,,"] =
+	{
+		name = "Building Block: Ice Plank",
+		type = "I6B59D27B2DC1132A,DA0832CD98B12A09,,,,,,",
+		shape = "plank"
+	},
+	["I3A506E305876407E,0DB1440928EBF6AA,,,,,,"] =
+	{
+		name = "Building Block: Ice Pole",
+		type = "I3A506E305876407E,0DB1440928EBF6AA,,,,,,",
+		shape = "pole"
+	},
+	["I46DEDDFA1B1EF2B1,12B6DB6640573B89,,,,,,"] =
+	{
+		name = "Building Block: Ice Tile",
+		type = "I46DEDDFA1B1EF2B1,12B6DB6640573B89,,,,,,",
+		shape = "tile"
+	},
+	["I6B41D47E7A06497D,15871F43AB87855A,,,,,,"] =
+	{
+		name = "Building Block: Ice Sphere",
+		type = "I6B41D47E7A06497D,15871F43AB87855A,,,,,,",
+		shape = "sphere"
+	},
+	["I70AAD55D7D382F63,CA0CA796136E401D,,,,,,"] =
+	{
+		name = "Building Block: Ice Cube",
+		type = "I70AAD55D7D382F63,CA0CA796136E401D,,,,,,",
+		shape = "cube"
+	},
+	["I1302EFA22521A21B,107FDE65CBEA718C,,,,,,"] =
+	{
+		name = "Building Block: Ice Rectangle",
+		type = "I1302EFA22521A21B,107FDE65CBEA718C,,,,,,",
+		shape = "rectangle"
+	},
+	-- Glass
+	["I784602D1145F1FA3,1C52D7225625EF23,,,,,,"] =
+	{
+		name = "Building Block: Glass Cube",
+		type = "I784602D1145F1FA3,1C52D7225625EF23,,,,,,",
+		shape = "cube"
+	},
+	["I784602CC29D10429,6D0BBDC900615D14,,,,,,"] =
+	{
+		name = "Building Block: Glass Disc",
+		type = "I784602CC29D10429,6D0BBDC900615D14,,,,,,",
+		shape = "disc"
+	},
+	["I784602D01551C3CA,863977B44C6A4241,,,,,,"] =
+	{
+		name = "Building Block: Glass Plank",
+		type = "I784602D01551C3CA,863977B44C6A4241,,,,,,",
+		shape = "plank"
+	},
+	["I784602CD40FD9F07,83D6DDA4B2346984,,,,,,"] =
+	{
+		name = "Building Block: Glass Pole",
+		type = "I784602CD40FD9F07,83D6DDA4B2346984,,,,,,",
+		shape = "pole"
+	},
+	["I784602CA53E99F38,3256CF6227E0035F,,,,,,"] =
+	{
+		name = "Building Block: Glass Rectangle",
+		type = "I784602CA53E99F38,3256CF6227E0035F,,,,,,",
+		shape = "rectangle"
+	},
+	["I784602CF347BE7CF,15325962BAA314BC,,,,,,"] =
+	{
+		name = "Building Block: Glass Sphere",
+		type = "I784602CF347BE7CF,15325962BAA314BC,,,,,,",
+		shape = "sphere"
+	},
+	["I784602CE13838AA1,556EB47356AF6483,,,,,,"] =
+	{
+		name = "Building Block: Glass Tile",
+		type = "I784602CE13838AA1,556EB47356AF6483,,,,,,",
+		shape = "tile"
+	},
+	["I784602CB07F3B04F,3333BB6F6E71EDB4,,,,,,"] =
+	{
+		name = "Building Block: Glass Triangle",
+		type = "I784602CB07F3B04F,3333BB6F6E71EDB4,,,,,,",
+		shape = "triangle"
+	},
+	-- Water
+	["I784602D913007285,4949C035AC42DC57,,,,,,"] =
+	{
+		name = "Building Block: Water Cube",
+		type = "I784602D913007285,4949C035AC42DC57,,,,,,",
+		shape = "cube"
+	},
+	["I784602D41F00B39A,148CF9D4CF2F4694,,,,,,"] =
+	{
+		name = "Building Block: Water Disc",
+		type = "I784602D41F00B39A,148CF9D4CF2F4694,,,,,,",
+		shape = "disc"
+	},
+	["I784602D87B5DFCD4,3AE9E0465AF56A07,,,,,,"] =
+	{
+		name = "Building Block: Water Plank",
+		type = "I784602D87B5DFCD4,3AE9E0465AF56A07,,,,,,",
+		shape = "plank"
+	},
+	["I784602D57AA4DCC1,4360FAB40A02EED5,,,,,,"] =
+	{
+		name = "Building Block: Water Pole",
+		type = "I784602D57AA4DCC1,4360FAB40A02EED5,,,,,,",
+		shape = "pole"
+	},
+	["I784602D27EC61370,426904BD02C5B958,,,,,,"] =
+	{
+		name = "Building Block: Water Rectangle",
+		type = "I784602D27EC61370,426904BD02C5B958,,,,,,",
+		shape = "rectangle"
+	},
+	["I784602D77AA6302D,37EE4478A3D4311F,,,,,,"] =
+	{
+		name = "Building Block: Water Sphere",
+		type = "I784602D77AA6302D,37EE4478A3D4311F,,,,,,",
+		shape = "sphere"
+	},
+	["I784602D650FF82A7,872E664CD3431A4B,,,,,,"] =
+	{
+		name = "Building Block: Water Tile",
+		type = "I784602D650FF82A7,872E664CD3431A4B,,,,,,",
+		shape = "tile"
+	},
+	["I784602D35A6C051F,546BDF208E228082,,,,,,"] =
+	{
+		name = "Building Block: Water Triangle",
+		type = "I784602D35A6C051F,546BDF208E228082,,,,,,",
+		shape = "triangle"
+	},
 	------------
 	-- FLOORS --
 	------------

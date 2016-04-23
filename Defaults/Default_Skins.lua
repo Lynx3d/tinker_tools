@@ -107,6 +107,30 @@ skin["Green Marble"] = {
 	["triangle"] = itemDB["I391DEDB80182998A,BFD390E843FEDBDA,,,,,,"],
 	["pole"] = itemDB["I391DEDB47498E0D1,D3F316F28C3CCB90,,,,,,"]
 }
+skin["Ice"] = {
+	["tile"] = itemDB["I46DEDDFA1B1EF2B1,12B6DB6640573B89,,,,,,"],
+	["rectangle"] = itemDB["I1302EFA22521A21B,107FDE65CBEA718C,,,,,,"],
+	["plank"] = itemDB["I6B59D27B2DC1132A,DA0832CD98B12A09,,,,,,"],
+	["cube"] = itemDB["I70AAD55D7D382F63,CA0CA796136E401D,,,,,,"],
+	["triangle"] = itemDB["I22A79B1D657B31D9,5A86827970176F3F,,,,,,"],
+	["pole"] = itemDB["I3A506E305876407E,0DB1440928EBF6AA,,,,,,"]
+}
+skin["Glass"] = {
+	["tile"] = itemDB["I784602CE13838AA1,556EB47356AF6483,,,,,,"],
+	["rectangle"] = itemDB["I784602CA53E99F38,3256CF6227E0035F,,,,,,"],
+	["plank"] = itemDB["I784602D01551C3CA,863977B44C6A4241,,,,,,"],
+	["cube"] = itemDB["I784602D1145F1FA3,1C52D7225625EF23,,,,,,"],
+	["triangle"] = itemDB["I784602CB07F3B04F,3333BB6F6E71EDB4,,,,,,"],
+	["pole"] = itemDB["I784602CD40FD9F07,83D6DDA4B2346984,,,,,,"]
+}
+skin["Water"] = {
+	["tile"] = itemDB["I784602D650FF82A7,872E664CD3431A4B,,,,,,"],
+	["rectangle"] = itemDB["I784602D27EC61370,426904BD02C5B958,,,,,,"],
+	["plank"] = itemDB["I784602D87B5DFCD4,3AE9E0465AF56A07,,,,,,"],
+	["cube"] = itemDB["I784602D913007285,4949C035AC42DC57,,,,,,"],
+	["triangle"] = itemDB["I784602D35A6C051F,546BDF208E228082,,,,,,"],
+	["pole"] = itemDB["I784602D57AA4DCC1,4360FAB40A02EED5,,,,,,"]
+}
 
 Dta.Defaults.Skins = skin
 
