@@ -12,43 +12,33 @@ Lang["French"].Intro.Label = "Introduction"
 Lang["French"].Intro.Text1 = "\
 Bonjour Dimensioneurs et Dimensionneuses,\
 \
-Je suis Kikimora, programmeuse d'add-on et constructrice de dimensions qui a\
-toujours aimé utiliser l'add-on Dimension Toolbox de Arkzy.\
+Cet add-on est dans la lignée de dimension tools, initialement crée par Kikimora.\
 \
-Rift a évolué ces derniers mois, aussi, inspirée par Dimension Toolbox et aidée\
-par le soutien et l'expertise des membres de Rift Dream Dimensions, j'ai réussi\
-à créer Dimensions Tools. J'espère que vous aimerez autant utiliser Dimensions \
-Tools que j'ai adoré le créer!\
+Voici un résumé de ce que Tinker Tools peut offrir:\
 \
-Voici un résumé de ce que Dimension Tools peut offrir:\
-\
-<u>Fonctionnalités de Dimension Tools:</u>\
-- Dimension Tools occupe moins de place sur votre écran quand vous élaborez\
+<u>Fonctionnalités de Tinker Tools:</u>\
+- Tinker Tools occupe moins de place sur votre écran quand vous élaborez\
   vos dimensions. Tous les outils sont accessibles en cliquant sur les boutons\
   disponibles sur la fenêtre principale.\
 \
-- Avec Dimension Tools vous pouvez déplacer, redimensionner ou faire pivoter\
+- Avec Tinker Tools vous pouvez déplacer, redimensionner ou faire pivoter\
   des centaines d'objets d'un seul coup sans aucun problème! (mais gardez à \
   l'esprit que plus vous manipulerez d'objets d'un seul coup, plus le \
   processus sera long.) \
 \
-- Avec le module Copier/Coller de Dimension Tools, vous pouvez copier 1 objet\
+- Avec le module Copier/Coller de Tinker Tools, vous pouvez copier 1 objet\
   et le coller de multiples fois avec ou sans décalage dans votre dimension.\
   Les objets pourront provenir de vos sacs et/ou de votre banque.\
 \
-- Avec le nouveau module Charger/Sauvegarder, vous pouvez maintenant choisir\
+- Avec le module Charger/Sauvegarder, vous pouvez maintenant choisir\
   d'utiliser les sets par défaut, ou vos propres sets préalablement sauvegardés.\
   Une des nouvelles fonctions du module Charger/Sauvegarder est la possibilité\
   de sauvegardé un set et d'en placer de multiples copies avec un décalage sur les\
   axes X, Y et Z.\
 \
-- Le nouveau module Import/Export vous permet d'exporter des sets dans un fichier\
+- Le module Import/Export vous permet d'exporter des sets dans un fichier\
   que vous pouvez partager avec vos amis. Ils pourront les récupérer dans leurs\
   liste de sets sauvegardés grâce à la fonction d'import.\
-\
-Avec l'équipe RDD, nous continuerons à tester de possibles nouvelles\
-fonctionnalités et nous assurerons que les modules actuels continueront de\
-fonctionner correctement avec les mises à jour futures de Rift!\
 \
 Merci et amusez vous à construire des Dimensions de rêve!"
 
@@ -62,9 +52,9 @@ Lang["French"].Main.Text1 = "\
 La fenêtre principale est celle que vous avez à l'ouverture de l'add-on.\
 C'est la seule fenêtre visible par défaut. Elle donne des informations\
 basiques à propos des objets sélectionnés. Elle contient également les\
-boutons permettant d'ouvrir tous les autres modules de Dimensions Tools.\
+boutons permettant d'ouvrir tous les autres modules de Tinker Tools.\
 \
-Dimension Tools ne peut être ouvert que dans les dimensions."
+Tinker Tools ne peut être ouvert que dans les dimensions."
 
 Lang["French"].Main.Text2 = "\
 <u>Buttons:</u>\
@@ -185,7 +175,7 @@ au(x) autre(s) objet(s).\
   Dimension. Les objets seront pris dans vos sacs ou dans votre banque."
 
 Lang["French"].CopyandPaste.Text3 = "\
-<u>Description des nouvelles options:</u>\
+<u>Description des options:</u>\
 - Sacs: Les objets à placer seront pris dans vos sacs.\
 - Sacs banque: Les objets à placer seront pris dans les sacs de votre banque.\
 - Coffre: Les objets à placer seront pris dans vos coffres de banque.\
@@ -249,7 +239,7 @@ Les options suivantes sont illustrées dans l'image ci-dessous.\
 Lang["French"].LoadandSave.Text3 = "\
 Sets Tbx est une fonction particulière. Par défaut, la liste est vide, mais \
 pour les utilisateurs de l'ancien add-on Toolbox, celà offre l'opportunité de\
-récupérer dans Dimension Tools, les ensembles sauvegardés avec Toolbox.\
+récupérer dans Tinker Tools, les ensembles sauvegardés avec Toolbox.\
 \
 Pour récupérer vos anciens ensembles dans dimensions tools, \
 veuillez suivre les étapes suivantes:\
@@ -340,43 +330,7 @@ Lang["French"].ChanceLog.Label = "Notes de Mise à jour"
 Lang["French"].ChanceLog.Text1 = "\
 Notes de mise à jour régulières et détaillés à l'adresse:\
 https://github.com/Lynx3d/dimension_tools/commits/master\
-et dans le fichier changelog.txt\
-\
-Version 1.9.11\
--Mise à jour de la traduction française.\
-\
-Version 1.3.2\
--Dimension Tools dispose désormais d'une traduction Française.\
- Traduction Française réalisée par Aeryle.\
-\
-Version 1.3.0\
-- Ajout du module nommé Alfiebet, écrivez dans les dimensions.\
-- Ajout de Alfiebet au fichier d'aide.\
-- Correction d'une erreur occasionnée par un départ de la dimension en \
-  utilisant Tribal Magic.\
-- Changements sur les cases à cocher pour plus de précision.\
-- Ajout de la commande (/Dt help), Vous pouvez ainsi ouvrir l'aide en dehors\
-  d'une dimension.\
-\
-Version 1.2.2\
-- Ajout du module calculateur d'alignement.\
-- Ajout du calculateur d'alignement au fichier d'aide.\
-- Ajout de la détection de dimensions. Dimension Tools ne peut plus être\
-  ouvert en dehors d'une dimension.\
-\
-Version 1.2.1.r17\
-- Correction de l'aide suite aux changements du module copier/coller.\
-\
-Version 1.2.0.r16\
-- Réécritude des calcul du point central.\
-- Changements mineurs de Tribal Magic pour améliorer les performances.\
-\
-Version 1.2.0.r15\
-- Changement des options d'utilisations des sacs, des sacs en banques \
-  et des coffres dans le module copier/coller.\
-  Celà offre un choix plus précis de la provenance des objets à utiliser.\
-- Ajout d'un compteur d'objets dans le fenêtre principale. Vous pouvez \
-  désormais voir combien d'objets vous avez sélectionné."
+et dans le fichier changelog.txt"
 
 Lang["French"].ChanceLog.Text2 = ""
 Lang["French"].ChanceLog.Text3 = ""
@@ -544,7 +498,7 @@ Lang["French"].Menus.Orientation = {
 --Titles
 ----------------------------------------
 Lang["French"].Titles = {}
-Lang["French"].Titles.Main = "Dimension Tools"
+Lang["French"].Titles.Main = "Tinker Tools"
 Lang["French"].Titles.Move = "Translation"
 Lang["French"].Titles.Rotate = "Rotation"
 Lang["French"].Titles.Scale = "Taille"
@@ -553,7 +507,7 @@ Lang["French"].Titles.LoadSave = "Charger / Sauvegarder"
 Lang["French"].Titles.ImportExport = "Importer / Exporter"
 Lang["French"].Titles.TribalMagic = "Tribal Magic"
 Lang["French"].Titles.OffsetCalc = "Calculateur Alignement"
-Lang["French"].Titles.Help = " Aide Dimension Tools"
+Lang["French"].Titles.Help = " Aide Tinker Tools"
 Lang["French"].Titles.Settings = "Paramètres"
 
 
