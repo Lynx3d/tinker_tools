@@ -522,6 +522,8 @@ function Dta.ui.buildNotificationWindow()
 	return newWindow
 end
 
+-- if btn<n>_callcack is a function, it will be called with userdata as argument on button press,
+-- else if userdata is a coroutine, the coroutine will be resumed with btn<n>_callback as argument
 function Dta.ui.showNotification(message, btn1_callback, btn2_callback, userdata, btn1_text, btn2_text)
 	if Dta.ui.notificationWindow == nil then
 		Dta.ui.notificationWindow = Dta.ui.buildNotificationWindow()
@@ -547,5 +549,7 @@ function Dta.ui.notificationWindowButtonClicked(self, event)
 	Dta.ui.notificationWindow:SetVisible(false)
 	if type(self.click_callback) == "function" then
 		self.click_callback(Dta.ui.notificationWindow.user_data)
+	elseif type(Dta.ui.notificationWindow.user_data) == "thread" then
+		coroutine.resume(Dta.ui.notificationWindow.user_data, self.click_callback)
 	end
 end
