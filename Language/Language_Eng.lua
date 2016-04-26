@@ -549,6 +549,7 @@ Lang["English"].Text.ConsoleMessages = "Console Messages"
 Lang["English"].Text.WindowStyle = "Window Style"
 Lang["English"].Text.NotIdleNotification = "Previous operation has not finished yet.\nAbort currently running operation now?"
 Lang["English"].Text.ConfirmDeleteSet = "Delete item set '%s'?"
+Lang["English"].Text.ConfirmUsePosition = "The original position of this set is %.1fm away.\nContinue operation?"
 Lang["English"].Text.Invert = "Inverse Direction"
 
 

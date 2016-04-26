@@ -130,6 +130,7 @@ LangG.Text.ConsoleMessages = "Konsolen-Nachrichten"
 LangG.Text.WindowStyle = "Fenster-Stil"
 LangG.Text.NotIdleNotification = "Previous operation has not finished yet.\nAbort currently running operation now?"
 LangG.Text.ConfirmDeleteSet = "Gegenstands-Set '%s' löschen?"
+LangG.Text.ConfirmUsePosition = "Die ursprüngliche Position dieses Sets ist %.1fm entfernt.\nDen Vorgang fortsetzen?"
 
 ----------------------------------------
 --Prints

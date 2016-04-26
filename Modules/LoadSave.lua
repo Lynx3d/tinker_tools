@@ -97,7 +97,9 @@ function Dta.losa.constructionSaveClicked()
 end
 
 function Dta.losa.constructionLoadClicked()
-	Dta.losa.loadItemSet(Dta.ui.windowLoSa.constructions.nameLoad:GetSelectedItem(), Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:GetChecked(), Dta.ui.windowLoSa.constructions.LoadNewItems:GetChecked())
+	local losaUI = Dta.ui.windowLoSa.constructions
+	local cr = coroutine.wrap(Dta.losa.loadItemSet)
+	cr(losaUI.nameLoad:GetSelectedItem(), losaUI.loadAtOriginalLoc:GetChecked(), losaUI.LoadNewItems:GetChecked())
 end
 
 function Dta.losa.constructionRemoveClicked()
@@ -302,6 +304,20 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 	end
 
 	if constructionSet and constructionSet[name] ~= nil then
+		settings.cp = Dta.items.getCentralPoint(constructionSet[name])
+		-- check if set location is reasonably near
+		if atOriginalLoc then
+			local player = Inspect.Unit.Detail("player")
+			local vec = { settings.cp.x - player.coordX, settings.cp.y - player.coordY, settings.cp.z - player.coordZ }
+			local distance = math.sqrt(vec[1] * vec[1] + vec[2] * vec[2] + vec[3] * vec[3])
+			if distance > 200 then
+				Dta.ui.showConfirmation(string.format(Lang[Dta.Language].Text.ConfirmUsePosition, distance), true, false, coroutine.running())
+				local result = coroutine.yield()
+				if not result then
+					return
+				end
+			end
+		end
 		-- check available items
 		local shoppingList = Dta.losa.getGroupShoppingList(constructionSet[name])
 		if newItems then
@@ -334,11 +350,10 @@ function Dta.losa.pasteGroup(itemSet, shoppingList, settings, new_items, atOrigi
 	-- determine new position unless at pasting at original position
 	local newPlacement = { coordX = 0, coordY = 0, coordZ = 0 }
 	if not atOriginalLoc then
-		local cp = Dta.items.getCentralPoint(itemSet)
 		local player = Inspect.Unit.Detail("player")
-		newPlacement.coordX = player.coordX - cp.x + 15
-		newPlacement.coordY = player.coordY - cp.minValuaY + 0.05
-		newPlacement.coordZ = player.coordZ - cp.z
+		newPlacement.coordX = player.coordX - settings.cp.x + 15
+		newPlacement.coordY = player.coordY - settings.cp.minValuaY + 0.05
+		newPlacement.coordZ = player.coordZ - settings.cp.z
 	end
 	-- paste the requested number of copies
 	for k = 0, settings.n_copies - 1, 1 do
