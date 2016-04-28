@@ -1,3 +1,22 @@
+Version 1.0.0
+Official release of Tinker Tools, a revival of the dead Dimension Tools
+project. Changes from previous development release (1.9.11):
+- Updated French translation (by Aeryle)
+- New orientation modes in Offset Calc:
+  transformed object axis give the offset to join arbitrarily rotated
+  building blocks on one of their local axis
+- Fixed a bug where the main window would not update when re-opened
+- Fix scale input field not resetting key focus with 'return'
+- Added Ice, Glass and Water building blocks support
+- Demand confirmation when the original location of a set is more
+  than 200 units away from the player's current location.
+
+=====================================================================
+This project is now officially continued as Tinker Tools
+Below are the changes of the development versions (1.9.xx), followed
+by the original change log of Dimension Tools project pre-fork.
+=====================================================================
+
 Version 1.9.11
 - There's now a configuration window!
   You can open it with '/dt config'
