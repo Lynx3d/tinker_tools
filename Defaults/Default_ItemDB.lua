@@ -33,6 +33,16 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Metal Pole",
 		shape = "pole"
 	},
+	["I40AC238873FE2176,0DBFC34FDAE24B48,,,,,,"] =
+	{
+		name = "Building Block: Metal Sphere",
+		shape = "sphere"
+	},
+	["I05D035633B0AA6B9,73A70FE1B9F24527,,,,,,"] =
+	{
+		name = "Building Block: Metal Disc",
+		shape = "disc"
+	},
 	-----------
 	-- Stone --
 	-----------
@@ -67,6 +77,16 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Black Marble Pole",
 		shape = "pole"
 	},
+	["I073E1B4404FD78A3,EECA186F0B7BEA75,,,,,,"] =
+	{
+		name = "Building Block: Black Marble Sphere",
+		shape = "sphere"
+	},
+	["I471E8BFC0EA98298,334F6B4E0F979E19,,,,,,"] =
+	{
+		name = "Building Block: Black Marble Disc",
+		shape = "disc"
+	},
 	-- Brown Brick
 	["I296C209A26B7D855,07F0B32DA1DB49D2,,,,,,"] =
 	{
@@ -97,6 +117,11 @@ Dta.Defaults.ItemDB =
 	{
 		name = "Building Block: Brown Brick Pole",
 		shape = "pole"
+	},
+	["IFA704C5663135ADF,070BA63B822BB231,,,,,,"] =
+	{
+		name = "Building Block: Brown Brick Disc",
+		shape = "disc"
 	},
 	-- Granite
 	["I391DEDBA3602AEE7,0BAE6DA5E14A8F15,,,,,,"] =
@@ -129,6 +154,16 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Granite Pole",
 		shape = "pole"
 	},
+	["I391DEDBC5376E825,07DD708AF171F87F,,,,,,"] =
+	{
+		name = "Building Block: Granite Sphere",
+		shape = "sphere"
+	},
+	["I471590822DD4BB08,BBD409F6967FAEA1,,,,,,"] =
+	{
+		name = "Building Block: Granite Disc",
+		shape = "disc"
+	},
 	-- Green Marble
 	["I391DEDB7666F40AB,BBB226C82076B285,,,,,,"] =
 	{
@@ -159,6 +194,16 @@ Dta.Defaults.ItemDB =
 	{
 		name = "Building Block: Green Marble Pole",
 		shape = "pole"
+	},
+	["I391DEDB559E08ED3,1AF279FEE6B2DFE5,,,,,,"] =
+	{
+		name = "Building Block: Green Marble Sphere",
+		shape = "sphere"
+	},
+	["I4F3DEDB24D02A2C2,32478B55CFF44C0F,,,,,,"] =
+	{
+		name = "Building Block: Green Marble Disc",
+		shape = "disc"
 	},
 	-- Colored Marble Tiles
 	["I446B1D966FE150B1,02A43028CD909F80,,,,,,"] =
@@ -282,6 +327,16 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Limestone Pole",
 		shape = "pole"
 	},
+	["I3818BAD371E4257E,F7513C38B300DBFF,,,,,,"] =
+	{
+		name = "Building Block: Limestone Sphere",
+		shape = "sphere"
+	},
+	["I7A2176B11E144AFB,10873940C25619F2,,,,,,"] =
+	{
+		name = "Building Block: Limestone Disc",
+		shape = "disc"
+	},
 	-- Mossy Brick"
 	["I073E1B3F29924608,1CCC2F2CD61807A0,,,,,,"] =
 	{
@@ -313,6 +368,11 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Mossy Brick Pole",
 		shape = "pole"
 	},
+	["I28334F4E209BE38E,1B92DA346FB03B0E,,,,,,"] =
+	{
+		name = "Building Block: Mossy Brick Disc",
+		shape = "disc"
+	},
 	-- Plain Stone
 	["IFC27A53A7D93B3C5,28927815564C4D18,,,,,,"] =
 	{
@@ -343,6 +403,28 @@ Dta.Defaults.ItemDB =
 	{
 		name = "Building Block: Stone Pole",
 		shape = "pole"
+	},
+	["I40AC238718345605,D83A9430A4B46758,,,,,,"] =
+	{
+		name = "Building Block: Stone Sphere",
+		shape = "sphere"
+	},
+	["I28CB06FA7E88F136,3B9939D780AA925B,,,,,,"] =
+	{
+		name = "Building Block: Stone Disc",
+		shape = "disc"
+	},
+	-- Greenstone
+	["I671DEC4B6676EC51,09BB5C6E55D78F97,,,,,,"] =
+	{
+		name = "Building Block: Greenstone Disc",
+		shape = "disc"
+	},
+	-- Greystone
+	["I4E582BF15BEDE239,3E82E339D762FEA6,,,,,,"] =
+	{
+		name = "Building Block: Greystone Disc",
+		shape = "disc"
 	},
 	----------
 	-- Wood --
@@ -378,6 +460,11 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Blue Wood Pole",
 		shape = "pole"
 	},
+	["I316E0F501572B1C9,65E15CBC8BA0C01B,,,,,,"] =
+	{
+		name = "Building Block: Blue Wood Disc",
+		shape = "disc"
+	},
 	-- Carved Wood
 	["I3818BADB6A10DCFC,F63E89D9C91C3874,,,,,,"] =
 	{
@@ -408,6 +495,11 @@ Dta.Defaults.ItemDB =
 	{
 		name = "Building Block: Carved Wood Pole",
 		shape = "pole"
+	},
+	["I3E9A150B19634F49,3C9DF322C13AA502,,,,,,"] =
+	{
+		name = "Building Block: Carved Wood Disc",
+		shape = "disc"
 	},
 	-- Green Wood
 	["I296C20913F3B871C,E1D4959F081A5A79,,,,,,"] =
@@ -440,6 +532,11 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Green Wood Pole",
 		shape = "pole"
 	},
+	["I3B7236883A273B68,EF464DAFC99F4889,,,,,,"] =
+	{
+		name = "Building Block: Green Wood Disc",
+		shape = "disc"
+	},
 	-- Red Wood
 	["I296C209213A44A57,D229F38471CA2871,,,,,,"] =
 	{
@@ -471,6 +568,11 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Red Wood Pole",
 		shape = "pole"
 	},
+	["I0C5CAF1B26772D55,0CFE78F9847293D1,,,,,,"] =
+	{
+		name = "Building Block: Red Wood Disc",
+		shape = "disc"
+	},
 	-- Plain Wood
 	["IFE33236342049AFE,D721F224FC31EDF2,,,,,,"] =
 	{
@@ -501,6 +603,22 @@ Dta.Defaults.ItemDB =
 	{
 		name = "Building Block: Wood Triangle",
 		shape = "triangle"
+	},
+	["I40AC23860DF2E6E5,C349D19DBCDEF6A9,,,,,,"] =
+	{
+		name = "Building Block: Wood Sphere",
+		shape = "sphere"
+	},
+	["I3F8EE74E0D145C77,56C322D325A0A49A,,,,,,"] =
+	{
+		name = "Building Block: Wood Disc",
+		shape = "disc"
+	},
+	-- Greywood
+	["I3DF6E3CB3779FD8A,4ED9EC2055550794,,,,,,"] =
+	{
+		name = "Building Block: Greywood Disc",
+		shape = "disc"
 	},
 	-- Wood Beam
 	["I40AC238A1D97D570,BFA55E6FD970776E,,,,,,"] =
