@@ -415,12 +415,42 @@ Dta.Defaults.ItemDB =
 		shape = "disc"
 	},
 	-- Greenstone
+	["IFF1D8E4A6A25E35C,1F129CFC26DC5AA7,,,,,,"] =
+	{
+		name = "Building Block: Greenstone Tile",
+		shape = "tile"
+	},
+	["IFF1BEE2F77076368,408BF5DACD6542A7,,,,,,"] =
+	{
+		name = "Building Block: Greenstone Rectangle",
+		shape = "rectangle"
+	},
+	["I0E057DA0036E7490,EF5E2DE384B620FB,,,,,,"] =
+	{
+		name = "Building Block: Greenstone Triangle",
+		shape = "triangle"
+	},
 	["I671DEC4B6676EC51,09BB5C6E55D78F97,,,,,,"] =
 	{
 		name = "Building Block: Greenstone Disc",
 		shape = "disc"
 	},
 	-- Greystone
+	["IFF1BEE2E068D20E3,DE1784EBCB8A1282,,,,,,"] =
+	{
+		name = "Building Block: Greystone Tile",
+		shape = "tile"
+	},
+	["IFF1BEE2D5B75764D,2D5723717AF97EFD,,,,,,"] =
+	{
+		name = "Building Block: Greystone Rectangle",
+		shape = "rectangle"
+	},
+	["I0E057DA1730AA5E3,1EF83DBC68DFC413,,,,,,"] =
+	{
+		name = "Building Block: Greystone Triangle",
+		shape = "triangle"
+	},
 	["I4E582BF15BEDE239,3E82E339D762FEA6,,,,,,"] =
 	{
 		name = "Building Block: Greystone Disc",
@@ -615,6 +645,26 @@ Dta.Defaults.ItemDB =
 		shape = "disc"
 	},
 	-- Greywood
+	["I3818BACE65BAECAE,CB64CFBB2FE0F71C,,,,,,"] =
+	{
+		name = "Building Block: Greywood Tile",
+		shape = "tile"
+	},
+	["I391DEDC1145BB696,FBDDE244C8FF6361,,,,,,"] =
+	{
+		name = "Building Block: Greywood Rectangle",
+		shape = "rectangle"
+	},
+	["I391DEDC044825E6A,2C0F2BEF9496217D,,,,,,"] =
+	{
+		name = "Building Block: Greywood Cube",
+		shape = "cube"
+	},
+	["I3818BACF6A31F262,C8E7923BA3CEB795,,,,,,"] =
+	{
+		name = "Building Block: Greywood Triangle",
+		shape = "triangle"
+	},
 	["I3DF6E3CB3779FD8A,4ED9EC2055550794,,,,,,"] =
 	{
 		name = "Building Block: Greywood Disc",
