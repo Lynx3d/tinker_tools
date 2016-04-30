@@ -51,7 +51,7 @@ function Dta.alphabet.loadSize()
 end
 
 function Dta.alphabet.CheckInput()
-	settings = {}
+	local settings = {}
 	settings.word = Dta.ui.windowAlphabet.Alphabet.Word:GetText()
 	settings.font = Dta.ui.windowAlphabet.Alphabet.FontLoad:GetSelectedItem()
 	settings.size = Dta.ui.windowAlphabet.Alphabet.SizeLoad:GetSelectedItem()

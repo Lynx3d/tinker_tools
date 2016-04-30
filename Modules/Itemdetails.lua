@@ -138,7 +138,6 @@ function Dta.items.updateItemDetails()
 			Dta.ui.windowtest.itemDetails.roll:SetText("-")
 			Dta.ui.windowtest.itemDetails.scale:SetText("-")
 			if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(false) end
-			-- Dta.ui.needsReset = false
 		end
 	end
 end

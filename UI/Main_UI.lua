@@ -42,8 +42,6 @@ Dta.ui.activeMeasurements = false
 Dta.ui.loadLoSa = "Default"
 Dta.ui.loadExpImp = "Saved"
 
-Dta.ui.needsReset = true
-
 function Dta.ui.checkNumber(n_str, default)
 	if not n_str or n_str == "" then
 		return default, true
