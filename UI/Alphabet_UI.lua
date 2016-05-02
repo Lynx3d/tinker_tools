@@ -58,7 +58,6 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 	Alphabetwindow.Alphabet.FontLoad.Event.ItemSelect = function(view, item) Dta.alphabet.FontSelected(item) end
 	Alphabetwindow.Alphabet.FontLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
 	Alphabetwindow.Alphabet.FontLoad:SetWidth(220)
-	Alphabetwindow.Alphabet.FontLoad:SetEnabled(true)
 
 	Alphabetwindow.Alphabet.SizeLabel = Dta.ui.createText("AlphabetFontLabel", Alphabetwindow.Alphabet, 0, 60, Lang[Dta.Language].Text.Size, 14)
 	Alphabetwindow.Alphabet.SizeLoad = UI.CreateFrame("SimpleSelect", "AlphabetFontLoad", Alphabetwindow.Alphabet)
@@ -68,7 +67,6 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 	--Alphabetwindow.Alphabet.SizeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.SizeSelected(item) end
 	Alphabetwindow.Alphabet.SizeLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
 	Alphabetwindow.Alphabet.SizeLoad:SetWidth(100)
-	Alphabetwindow.Alphabet.SizeLoad:SetEnabled(true)
 
 	Alphabetwindow.Alphabet.TypeLabel = Dta.ui.createText("AlphabetTypeLabel", Alphabetwindow.Alphabet, 0, 90, Lang[Dta.Language].Text.Skin, 14)
 	Alphabetwindow.Alphabet.TypeLoad = UI.CreateFrame("SimpleSelect", "AlphabetTypeLoad", Alphabetwindow.Alphabet)
@@ -78,7 +76,6 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 	--Alphabetwindow.Alphabet.TypeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.SkinSelected(item) end
 	Alphabetwindow.Alphabet.TypeLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
 	Alphabetwindow.Alphabet.TypeLoad:SetWidth(220)
-	Alphabetwindow.Alphabet.TypeLoad:SetEnabled(true)
 
 	Alphabetwindow.Alphabet.modeHorizontal = Dta.ui.createCheckbox("AlphabetmodeHorizontal", Alphabetwindow.Alphabet, 10, 120, Lang[Dta.Language].Text.Horizontal, true, nil, Dta.alphabet.AlphabetmodeHorizontalChanged)
 	Alphabetwindow.Alphabet.modeVertical = Dta.ui.createCheckbox("AlphabetmodeVertical", Alphabetwindow.Alphabet, 170, 120, Lang[Dta.Language].Text.Vertical, false, nil, Dta.alphabet.AlphabetmodeVerticalChanged)
@@ -97,6 +94,9 @@ function Dta.alphabet_ui.showAlphabetWindow()
 		Dta.ui.windowAlphabet = Dta.alphabet_ui.buildAlphabetWindow()
 	else
 		Dta.ui.windowAlphabet:SetVisible(true)
+		Dta.ui.windowAlphabet.Alphabet.FontLoad:SetEnabled(true)
+		Dta.ui.windowAlphabet.Alphabet.SizeLoad:SetEnabled(true)
+		Dta.ui.windowAlphabet.Alphabet.TypeLoad:SetEnabled(true)
 	end
 	Dta.ui.activeAlphabet = true
 end
