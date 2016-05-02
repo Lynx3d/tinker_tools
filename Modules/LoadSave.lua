@@ -121,6 +121,11 @@ function Dta.losa.constructionPrintMaterials()
 	Dta.losa.printShoppingList(Dta.ui.windowLoSa.constructions.nameLoad:GetSelectedItem())
 end
 
+function Dta.losa.constructionToClipboard()
+	local cr = coroutine.wrap(Dta.losa.copyToClipboard)
+	cr(Dta.ui.windowLoSa.constructions.nameLoad:GetSelectedItem())
+end
+
 function Dta.losa.constructionSearchKeyUp(frame, hEvent, key)
 	if key == "Return" then
 		Dta.ui.windowLoSa.constructions.nameLoad:SetItems(Dta.losa.filterConstructions())
@@ -140,15 +145,18 @@ local function sortAlphabet(str1, str2)
 	end
 end
 
-function Dta.losa.loadConstructions()
-	local constructs
+function Dta.losa.getConstructionSet()
 	if Dta.ui.loadLoSa == "Default" then
-		constructs = Dta.constructionsdefaults
+		return Dta.constructionsdefaults, false
 	elseif Dta.ui.loadLoSa == "Saved" then
-		constructs = Dta.settings.get_savedsets("SavedSets")
+		return Dta.settings.get_savedsets("SavedSets"), true
 	elseif Dta.ui.loadLoSa == "Tbx" then
-		constructs = Dta.constructionstbx
+		return Dta.constructionstbx, true
 	end
+end
+
+function Dta.losa.loadConstructions()
+	local constructs = Dta.losa.getConstructionSet()
 
 	-- TODO: cache for all 3 sources, and only redo on demand
 	Dta.losa.sortedConstructions = {}
@@ -178,6 +186,49 @@ function Dta.losa.filterConstructions()
 		end
 	end
 	return filteredSets
+end
+
+function Dta.losa.confirmPlayerDistance(player, cp)
+	local vec = { cp.x - player.coordX, cp.y - player.coordY, cp.z - player.coordZ }
+	local distance = math.sqrt(vec[1] * vec[1] + vec[2] * vec[2] + vec[3] * vec[3])
+	if distance > 200 then
+		Dta.ui.showConfirmation(string.format(Lang[Dta.Language].Text.ConfirmUsePosition, distance), true, false, coroutine.running())
+		return coroutine.yield()
+	end
+	return true
+end
+
+--------------------------------------
+-- COPY SET TO CLIPBOARD
+--------------------------------------
+
+function Dta.losa.copyToClipboard(name)
+	local losa_ui = Dta.ui.windowLoSa.constructions
+	local constructionSet, atOriginalLoc = Dta.losa.getConstructionSet()
+	atOriginalLoc = atOriginalLoc and losa_ui.loadAtOriginalLoc:GetChecked()
+
+	if constructionSet and constructionSet[name] ~= nil then
+		local cp = Dta.items.getCentralPoint(constructionSet[name])
+		local player = Inspect.Unit.Detail("player")
+		-- check if set location is reasonably near
+		if atOriginalLoc and not Dta.losa.confirmPlayerDistance(player, cp) then
+			return
+		end
+		-- TODO: check if clipboard empty
+		Dta.clipboard.items = Dta.copyTable(constructionSet[name], true)
+		Dta.clipboard.itemCount = #Dta.clipboard.items
+		if not atOriginalLoc then
+			local offset_x = player.coordX - cp.x + 15
+			local offset_y = player.coordY - cp.minValuaY + 0.05
+			local offset_z = player.coordZ - cp.z
+			for _, item in pairs(Dta.clipboard.items) do
+				item.coordX = item.coordX + offset_x
+				item.coordY = item.coordY + offset_y
+				item.coordZ = item.coordZ + offset_z
+			end
+		end
+		Dta.CPrint(string.format(Lang[Dta.Language].Prints.CopiedClipboard, name))
+	end
 end
 
 --------------------------------------
@@ -217,14 +268,7 @@ end
 ---------------------------------
 
 function Dta.losa.printShoppingList(name)
-	local constructionSet
-	if Dta.ui.loadLoSa == "Default" then
-		constructionSet = Dta.constructionsdefaults
-	elseif Dta.ui.loadLoSa == "Saved" then
-		constructionSet = Dta.settings.get_savedsets("SavedSets")
-	elseif Dta.ui.loadLoSa == "Tbx" then
-		constructionSet = Dta.constructionstbx
-	end
+	local constructionSet = Dta.losa.getConstructionSet()
 
 	if name ~= nil and name ~= "" then
 		if constructionSet and constructionSet[name] ~= nil then
@@ -294,29 +338,14 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 		return
 	end
 
-	local constructionSet
-	if Dta.ui.loadLoSa == "Default" then
-		constructionSet = Dta.constructionsdefaults
-	elseif Dta.ui.loadLoSa == "Saved" then
-		constructionSet = Dta.settings.get_savedsets("SavedSets")
-	elseif Dta.ui.loadLoSa == "Tbx" then
-		constructionSet = Dta.constructionstbx
-	end
+	local constructionSet = Dta.losa.getConstructionSet()
 
 	if constructionSet and constructionSet[name] ~= nil then
 		settings.cp = Dta.items.getCentralPoint(constructionSet[name])
+		settings.player = Inspect.Unit.Detail("player")
 		-- check if set location is reasonably near
-		if atOriginalLoc then
-			local player = Inspect.Unit.Detail("player")
-			local vec = { settings.cp.x - player.coordX, settings.cp.y - player.coordY, settings.cp.z - player.coordZ }
-			local distance = math.sqrt(vec[1] * vec[1] + vec[2] * vec[2] + vec[3] * vec[3])
-			if distance > 200 then
-				Dta.ui.showConfirmation(string.format(Lang[Dta.Language].Text.ConfirmUsePosition, distance), true, false, coroutine.running())
-				local result = coroutine.yield()
-				if not result then
-					return
-				end
-			end
+		if atOriginalLoc and not Dta.losa.confirmPlayerDistance(settings.player, settings.cp) then 
+			return
 		end
 		-- check available items
 		local shoppingList = Dta.losa.getGroupShoppingList(constructionSet[name])
@@ -350,7 +379,7 @@ function Dta.losa.pasteGroup(itemSet, shoppingList, settings, new_items, atOrigi
 	-- determine new position unless at pasting at original position
 	local newPlacement = { coordX = 0, coordY = 0, coordZ = 0 }
 	if not atOriginalLoc then
-		local player = Inspect.Unit.Detail("player")
+		local player = settings.player
 		newPlacement.coordX = player.coordX - settings.cp.x + 15
 		newPlacement.coordY = player.coordY - settings.cp.minValuaY + 0.05
 		newPlacement.coordZ = player.coordZ - settings.cp.z

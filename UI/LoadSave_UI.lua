@@ -75,6 +75,7 @@ function Dta.losa_ui.buildLoSaWindow()
 	LoSawindow.constructions.remove = Dta.ui.createButton("constructionsRemove", LoSawindow.constructions, 0, 230, nil, nil, Lang[Dta.Language].Buttons.RemoveSet, nil, Dta.losa.constructionRemoveClicked)
 	LoSawindow.constructions.remove:SetVisible(false)
 	LoSawindow.constructions.printReqs = Dta.ui.createButton("constructionsPrintReqs", LoSawindow.constructions, 165, 195, nil, nil, Lang[Dta.Language].Buttons.PrintMaterials, nil, Dta.losa.constructionPrintMaterials)
+	LoSawindow.constructions.toClipboard = Dta.ui.createButton("constructionstoClipboard", LoSawindow.constructions, 165, 230, nil, nil, Lang[Dta.Language].Buttons.ToClipboard, nil, Dta.losa.constructionToClipboard)
 
 	LoSawindow.constructions.loadAtOriginalLoc = Dta.ui.createCheckbox("constructionLoadAtOriginalLoc", LoSawindow.constructions, 135, 170, Lang[Dta.Language].Text.LoadOrigionalLocation, false)
 	LoSawindow.constructions.loadAtOriginalLoc:SetVisible(false)
