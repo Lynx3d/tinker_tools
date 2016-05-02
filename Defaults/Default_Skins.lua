@@ -157,6 +157,32 @@ skin["Water"] = {
 	["sphere"] = itemDB["I784602D77AA6302D,37EE4478A3D4311F,,,,,,"],
 	["disc"] = itemDB["I784602D41F00B39A,148CF9D4CF2F4694,,,,,,"]
 }
+-- "incomplete" skins not useable for alphabet fonts
+skin["Greenstone"] = {
+	["tile"] = itemDB["IFF1D8E4A6A25E35C,1F129CFC26DC5AA7,,,,,,"],
+	["rectangle"] = itemDB["IFF1BEE2F77076368,408BF5DACD6542A7,,,,,,"],
+	["triangle"] = itemDB["I0E057DA0036E7490,EF5E2DE384B620FB,,,,,,"],
+	["disc"] = itemDB["I671DEC4B6676EC51,09BB5C6E55D78F97,,,,,,"]
+}
+skin["Greystone"] = {
+	["tile"] = itemDB["IFF1BEE2E068D20E3,DE1784EBCB8A1282,,,,,,"],
+	["rectangle"] = itemDB["IFF1BEE2D5B75764D,2D5723717AF97EFD,,,,,,"],
+	["triangle"] = itemDB["I0E057DA1730AA5E3,1EF83DBC68DFC413,,,,,,"],
+	["disc"] = itemDB["I4E582BF15BEDE239,3E82E339D762FEA6,,,,,,"]
+}
+skin["Greywood"] = {
+	["tile"] = itemDB["I3818BACE65BAECAE,CB64CFBB2FE0F71C,,,,,,"],
+	["rectangle"] = itemDB["I391DEDC1145BB696,FBDDE244C8FF6361,,,,,,"],
+	["cube"] = itemDB["I391DEDC044825E6A,2C0F2BEF9496217D,,,,,,"],
+	["triangle"] = itemDB["I3818BACF6A31F262,C8E7923BA3CEB795,,,,,,"],
+	["disc"] = itemDB["I3DF6E3CB3779FD8A,4ED9EC2055550794,,,,,,"]
+}
+skin["Wood Beam"] = {
+	["tile"] = itemDB["I40AC23891893C680,E2A013511D2CFD71,,,,,,"],
+	["rectangle"] = itemDB["I40AC238A1D97D570,BFA55E6FD970776E,,,,,,"],
+	["cube"] = itemDB["I40AC238B45C0D1CB,2043F0845228074B,,,,,,"],
+	["triangle"] = itemDB["I785EE30E5A5C8EE5,2DDECF9329ACC08F,,,,,,"]
+}
 
 Dta.Defaults.Skins = skin
 
