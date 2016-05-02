@@ -19,3 +19,14 @@ function Dta.Replacement.loadSkins()
 	end
 	return items
 end
+
+-- fonts need plank, tile and pole, not all skins have them:
+function Dta.Replacement.loadAlphabetSkins()
+	local items = {}
+	for name, skin in pairs(Dta.Defaults.Skins) do
+		if skin.tile and skin.plank and skin.pole then
+			table.insert(items, name)
+		end
+	end
+	return items
+end

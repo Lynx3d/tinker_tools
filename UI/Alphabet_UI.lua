@@ -72,7 +72,7 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 	Alphabetwindow.Alphabet.TypeLoad = UI.CreateFrame("SimpleSelect", "AlphabetTypeLoad", Alphabetwindow.Alphabet)
 	Alphabetwindow.Alphabet.TypeLoad:SetPoint("TOPLEFT", Alphabetwindow.Alphabet, "TOPLEFT", 70, 90)
 	Alphabetwindow.Alphabet.TypeLoad:SetLayer(100)
-	Alphabetwindow.Alphabet.TypeLoad:SetItems(Dta.Replacement.loadSkins())
+	Alphabetwindow.Alphabet.TypeLoad:SetItems(Dta.Replacement.loadAlphabetSkins())
 	--Alphabetwindow.Alphabet.TypeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.SkinSelected(item) end
 	Alphabetwindow.Alphabet.TypeLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
 	Alphabetwindow.Alphabet.TypeLoad:SetWidth(220)
