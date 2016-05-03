@@ -12,7 +12,7 @@ end
 
 DraggableFrame.MouseUpCallback = function(self, handle)
 	self.dragging = false
-	if type(self.movedCallback) == "function" then self.movedCallback() end
+	if type(self.movedCallback) == "function" then self.movedCallback(self.window) end
 	self:EventDetach(Event.UI.Input.Mouse.Cursor.Move, DraggableFrame.MouseMoveCallback)
 end
 
