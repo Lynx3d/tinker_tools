@@ -459,6 +459,7 @@ Lang["French"].Buttons.Rotate = "Pivoter"
 Lang["French"].Buttons.Scale = "Dimensionner"
 Lang["French"].Buttons.Calculate = "Calculer"
 Lang["French"].Buttons.Detect = "Détecter"
+Lang["French"].Buttons.Transfer = "Transférer"
 Lang["French"].Buttons.LoadWord = "Charger mot"
 Lang["French"].Buttons.Yes = "Oui"
 Lang["French"].Buttons.No = "Non"
@@ -509,6 +510,7 @@ Lang["French"].Titles.TribalMagic = "Tribal Magic"
 Lang["French"].Titles.OffsetCalc = "Calculateur Alignement"
 Lang["French"].Titles.Help = " Aide Tinker Tools"
 Lang["French"].Titles.Settings = "Paramètres"
+Lang["French"].Titles.TransferValues = "Valeurs de transfert à:"
 
 
 ----------------------------------------
@@ -554,6 +556,8 @@ Lang["French"].Text.ConsoleMessages = "Fenêtre de Messages"
 Lang["French"].Text.WindowStyle = "Style de fenêtre"
 Lang["French"].Text.NotIdleNotification = "L'opération précédente n'est pas terminée.\n Abandonner l'opération en cours d'éxécution?"
 Lang["French"].Text.ConfirmDeleteSet = "Effacer l'ensemble d'objet '%s'?"
+Lang["French"].Text.ConfirmUsePosition = "Le positionnement d'origine du set est à %.1fm .\nContinuer l'opération?"
+Lang["French"].Text.Invert = "Inverser Direction"
 
 
 ----------------------------------------
@@ -608,6 +612,8 @@ Lang["French"].Prints.SelectType = "Indiquez un type"
 Lang["French"].Prints.SelectOrientation = "Indiquez une Orientation"
 Lang["French"].Prints.TypeSize = "Indiquez une taille"
 Lang["French"].Prints.SizeC = "La taille doit être comprise entre %.2f et %.1f"
+Lang["French"].Prints.Selection1 = "Mode transformation nécessite un objet sélectionné."
+Lang["French"].Prints.Selection2 = "Selection Delta nécessite deux objets sélectionnés."
 --Move, Rotate, Scale
 Lang["French"].Prints.ModifyPosition = "Sélectionnez un objet pour modifier sa position"
 Lang["French"].Prints.ModifyRotation = "Sélectionnez un objet pour modifier sa rotation"
