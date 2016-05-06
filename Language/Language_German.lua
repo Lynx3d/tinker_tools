@@ -38,7 +38,8 @@ LangG.Buttons.Reset = "Zurücksetzen"
 LangG.Buttons.Rotate = "Drehen"
 LangG.Buttons.Scale = "Skalieren"
 LangG.Buttons.Calculate = "Berechnen"
-LangG.Buttons.Detect = "Ermitteln"
+LangG.Buttons.Detect = "Erkennen"
+LangG.Buttons.Transfer = "Übertragen"
 LangG.Buttons.LoadWord = "Wort laden"
 LangG.Buttons.Yes = "Ja"
 LangG.Buttons.No = "Nein"
@@ -87,6 +88,7 @@ LangG.Titles.TribalMagic = "Tribal Magic"
 LangG.Titles.OffsetCalc = "Abstand Berechnen"
 LangG.Titles.Help = "Dimension Tools Hilfe"
 LangG.Titles.Settings = "Einstellungen"
+LangG.Titles.TransferValues = "Werte übergeben an:"
 
 ----------------------------------------
 --Text
@@ -132,6 +134,7 @@ LangG.Text.WindowStyle = "Fenster-Stil"
 LangG.Text.NotIdleNotification = "Previous operation has not finished yet.\nAbort currently running operation now?"
 LangG.Text.ConfirmDeleteSet = "Gegenstands-Set '%s' löschen?"
 LangG.Text.ConfirmUsePosition = "Die ursprüngliche Position dieses Sets ist %.1fm entfernt.\nDen Vorgang fortsetzen?"
+LangG.Text.Invert = "Umgekehrte Richtung"
 
 ----------------------------------------
 --Prints
