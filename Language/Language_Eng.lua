@@ -462,6 +462,8 @@ Lang["English"].Buttons.No = "No"
 Lang["English"].Buttons.OK = "OK"
 Lang["English"].Buttons.Cancel = "CANCEL"
 Lang["English"].Buttons.Apply = "Apply"
+Lang["English"].Buttons.More = "More..."
+Lang["English"].Buttons.Less = "Less..."
 
 ----------------------------------------
 --Menus

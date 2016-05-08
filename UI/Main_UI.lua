@@ -377,7 +377,14 @@ function Dta.ui.buildMainWindow()
 	Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow.itemDetails, 145, 175, 160, nil, Lang[Dta.Language].Buttons.LoadSave, nil, Dta.ui.modifySaveButtonClicked)
 	--Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 290, 150, 160, nil, Lang[Dta.Language].Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
 	Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow.itemDetails, 0, 200, 160, nil, Lang[Dta.Language].Buttons.TribalMagic, nil, Dta.ui.modifyDFlyingButtonClicked)
+	Mainwindow.itemDetails.MoreBtn = Dta.ui.createButton("itemDetailMoreBtn", Mainwindow.itemDetails, 145, 200, 160, nil, Lang[Dta.Language].Buttons.More, nil, Dta.ui.moreBtnClicked)
+	-- Expanded
 	Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow.itemDetails, 145, 200, 160, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
+	Mainwindow.itemDetails.ReskinBtn = Dta.ui.createButton("itemDetailReskinBtn", Mainwindow.itemDetails, 0, 225, 160, nil, Lang[Dta.Language].Buttons.Reskin, nil, Dta.ui.toggleReskinWindow)
+	Mainwindow.itemDetails.LessBtn = Dta.ui.createButton("itemDetailLessBtn", Mainwindow.itemDetails, 145, 225, 160, nil, Lang[Dta.Language].Buttons.Less, nil, Dta.ui.lessBtnClicked)
+	Mainwindow.itemDetails.Alphabet:SetVisible(false)
+	Mainwindow.itemDetails.ReskinBtn:SetVisible(false)
+	Mainwindow.itemDetails.LessBtn:SetVisible(false)
 
 	-- help button
 	newWindow.help = Dta.ui.Button.Create("mainwindow_help", newWindow, Dta.help_ui.toggleHelpWindow,
@@ -486,6 +493,24 @@ end
 
 function Dta.ui.modifyMeasurementsButtonClicked()
 	Dta.measurements_ui.toggleMeasurementsWindow()
+end
+
+function Dta.ui.moreBtnClicked()
+	local itemDetails = Dta.ui.windowtest.itemDetails
+	itemDetails.Alphabet:SetVisible(true)
+	itemDetails.ReskinBtn:SetVisible(true)
+	itemDetails.LessBtn:SetVisible(true)
+	itemDetails.MoreBtn:SetVisible(false)
+	Dta.ui.windowtest:SetContentHeight(MainWindowSettings.HEIGHT + 25)
+end
+
+function Dta.ui.lessBtnClicked()
+	local itemDetails = Dta.ui.windowtest.itemDetails
+	itemDetails.Alphabet:SetVisible(false)
+	itemDetails.ReskinBtn:SetVisible(false)
+	itemDetails.LessBtn:SetVisible(false)
+	itemDetails.MoreBtn:SetVisible(true)
+	Dta.ui.windowtest:SetContentHeight(MainWindowSettings.HEIGHT)
 end
 
 function Dta.ui.clearSelectionButtonClicked()

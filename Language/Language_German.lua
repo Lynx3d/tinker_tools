@@ -46,6 +46,8 @@ LangG.Buttons.No = "Nein"
 LangG.Buttons.OK = "O.K."
 LangG.Buttons.Cancel = "ABBRECHEN"
 LangG.Buttons.Apply = "Anwenden"
+LangG.Buttons.More = "Mehr..."
+LangG.Buttons.Less = "Weniger..."
 
 ----------------------------------------
 --Menus
