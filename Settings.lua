@@ -52,6 +52,8 @@ Dta.settings.defaults = {
 	AlphabetwindowPosY = 530,
 	MeasurementswindowPosX = 0,
 	MeasurementswindowPosY = 490,
+	ReskinwindowPosX = 5,
+	ReskinwindowPosY = 400,
 	Language = "Auto",
 	WindowStyle = "default",
 	ConsoleOutput = { [1] = true }

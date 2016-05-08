@@ -45,6 +45,7 @@ LangG.Buttons.Yes = "Ja"
 LangG.Buttons.No = "Nein"
 LangG.Buttons.OK = "O.K."
 LangG.Buttons.Cancel = "ABBRECHEN"
+LangG.Buttons.Apply = "Anwenden"
 
 ----------------------------------------
 --Menus
@@ -89,6 +90,7 @@ LangG.Titles.OffsetCalc = "Abstand Berechnen"
 LangG.Titles.Help = "Dimension Tools Hilfe"
 LangG.Titles.Settings = "Einstellungen"
 LangG.Titles.TransferValues = "Werte übergeben an:"
+LangG.Titles.Reskin = "Oberfläche Ersetzen"
 
 ----------------------------------------
 --Text
@@ -135,6 +137,16 @@ LangG.Text.NotIdleNotification = "Previous operation has not finished yet.\nAbor
 LangG.Text.ConfirmDeleteSet = "Gegenstands-Set '%s' löschen?"
 LangG.Text.ConfirmUsePosition = "Die ursprüngliche Position dieses Sets ist %.1fm entfernt.\nDen Vorgang fortsetzen?"
 LangG.Text.Invert = "Umgekehrte Richtung"
+LangG.Text.OldSkin = "Alte Oberfläche"
+LangG.Text.NewSkin = "Neue Oberfläche"
+LangG.Text.Tile = "Platte"
+LangG.Text.Rectangle = "Rechteck"
+LangG.Text.Triangle = "Dreieck"
+LangG.Text.Plank = "Planke"
+LangG.Text.Cube = "Würfel"
+LangG.Text.Sphere = "Kugel"
+LangG.Text.Pole = "Pfosten"
+LangG.Text.Disc = "Scheibe"
 
 ----------------------------------------
 --Prints
@@ -195,3 +207,6 @@ LangG.Prints.Selection2 = "Auswahl-Delta benötigt zwei ausgewählte Gegenständ
 LangG.Prints.ModifyPosition = "Bitte wähle einen Gegenstand aus um dessen Position zu verändern."
 LangG.Prints.ModifyRotation = "Bitte wähle einen Gegenstand aus um dessen Rotation zu verändern."
 LangG.Prints.ModifyScale = "Bitte wähle einen Gegenstand aus um dessen Größe zu verändern."
+--Reskin
+LangG.Prints.ClipboardEmpty = "Die Zwischenablage von \"Kopieren & Einfügen\" ist leer."
+LangG.Prints.Summary = "Zusammenfassung der Ersetzungen:"

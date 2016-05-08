@@ -39,6 +39,8 @@ Dta.ui.activeAlphabet = false
 Dta.ui.windowMeasurements = nil
 Dta.ui.activeMeasurements = false
 
+Dta.ui.activeReskin = false
+
 Dta.ui.loadLoSa = "Default"
 Dta.ui.loadExpImp = "Saved"
 

@@ -436,6 +436,7 @@ Lang["English"].Buttons.LoadSave = "Load / Save"
 Lang["English"].Buttons.ImportExport = "Import / Export"
 Lang["English"].Buttons.TribalMagic = "Tribal Magic"
 Lang["English"].Buttons.OffsetCalc = "Offset Calc."
+Lang["English"].Buttons.Reskin = "Reskin"
 Lang["English"].Buttons.Copy = "Copy"
 Lang["English"].Buttons.Paste = "Paste"
 Lang["English"].Buttons.Pick = "Pick"
@@ -460,6 +461,7 @@ Lang["English"].Buttons.Yes = "Yes"
 Lang["English"].Buttons.No = "No"
 Lang["English"].Buttons.OK = "OK"
 Lang["English"].Buttons.Cancel = "CANCEL"
+Lang["English"].Buttons.Apply = "Apply"
 
 ----------------------------------------
 --Menus
@@ -505,6 +507,7 @@ Lang["English"].Titles.OffsetCalc = "Offset Calculation"
 Lang["English"].Titles.Help = "Tinker Tools Help"
 Lang["English"].Titles.Settings = "Settings"
 Lang["English"].Titles.TransferValues = "Transfer Values to:"
+Lang["English"].Titles.Reskin = "Replace Skins"
 
 
 ----------------------------------------
@@ -552,6 +555,16 @@ Lang["English"].Text.NotIdleNotification = "Previous operation has not finished 
 Lang["English"].Text.ConfirmDeleteSet = "Delete item set '%s'?"
 Lang["English"].Text.ConfirmUsePosition = "The original position of this set is %.1fm away.\nContinue operation?"
 Lang["English"].Text.Invert = "Inverse Direction"
+Lang["English"].Text.OldSkin = "Old Skin"
+Lang["English"].Text.NewSkin = "New Skin"
+Lang["English"].Text.Tile = "Tile"
+Lang["English"].Text.Rectangle = "Rectangle"
+Lang["English"].Text.Triangle = "Triangle"
+Lang["English"].Text.Plank = "Plank"
+Lang["English"].Text.Cube = "Cube"
+Lang["English"].Text.Sphere = "Sphere"
+Lang["English"].Text.Pole = "Pole"
+Lang["English"].Text.Disc = "Disc"
 
 
 ----------------------------------------
@@ -613,3 +626,6 @@ Lang["English"].Prints.Selection2 = "Selection Delta requires two selected items
 Lang["English"].Prints.ModifyPosition = "Please select an item in order to modify its position"
 Lang["English"].Prints.ModifyRotation = "Please select an item in order to modify its rotation"
 Lang["English"].Prints.ModifyScale = "Please select an item in order to modify its scale"
+--Reskin
+Lang["English"].Prints.ClipboardEmpty = "The Copy & Paste clipboard is empty."
+Lang["English"].Prints.Summary = "Replacement summary:"
