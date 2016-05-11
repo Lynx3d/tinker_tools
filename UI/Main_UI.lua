@@ -436,6 +436,7 @@ function Dta.ui.hideMainWindow()
 	if Dta.ui.activeFlying then Dta.flying_ui.hideFlyingWindow() end
 	if Dta.ui.activeAlphabet then Dta.alphabet_ui.hideAlphabetWindow() end
 	if Dta.ui.activeMeasurements then Dta.measurements_ui.hideMeasurementsWindow() end
+	if Dta.ui.activeReskin then Dta.ui.hideReskinWindow() end
 end
 
 -- Toggle the Main window
