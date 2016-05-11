@@ -442,6 +442,7 @@ Lang["French"].Buttons.LoadSave = "Charger / Sauv."
 Lang["French"].Buttons.ImportExport = "Import / Export"
 Lang["French"].Buttons.TribalMagic = "Tribal Magic"
 Lang["French"].Buttons.OffsetCalc = "Calc. Align."
+Lang["French"].Buttons.Reskin = "Reskin"
 Lang["French"].Buttons.Copy = "Copier"
 Lang["French"].Buttons.Paste = "Coller"
 Lang["French"].Buttons.Pick = "Choisir"
@@ -453,6 +454,7 @@ Lang["French"].Buttons.SaveSet = "Sauv. Set"
 Lang["French"].Buttons.LoadSet = "Charger Set"
 Lang["French"].Buttons.RemoveSet = "Supprimer Set"
 Lang["French"].Buttons.PrintMaterials = "Liste Objets"
+Lang["French"].Buttons.ToClipboard = "Vers presse-papier"
 Lang["French"].Buttons.Move = "Déplacer"
 Lang["French"].Buttons.Reset = "Reset"
 Lang["French"].Buttons.Rotate = "Pivoter"
@@ -465,6 +467,9 @@ Lang["French"].Buttons.Yes = "Oui"
 Lang["French"].Buttons.No = "Non"
 Lang["French"].Buttons.OK = "OK"
 Lang["French"].Buttons.Cancel = "ANNULER"
+Lang["French"].Buttons.Apply = "Appliquer"
+Lang["French"].Buttons.More = "Plus..."
+Lang["French"].Buttons.Less = "Moins..."
 
 ----------------------------------------
 --Menus
@@ -489,10 +494,9 @@ Lang["French"].Menus.Orientation = {
 	"Rot X & Rot Y 90°",
 	"Rot X & Rot Z 90°",
 	"Sélection Delta",
-	-- TODO:
-	"Transformed X Offset",
-	"Transformed Y Offset",
-	"Transformed Z Offset"
+	"Offset X transformé",
+	"Offset Y transformé",
+	"Offset Z transformé"
 }
 
 ----------------------------------------
@@ -511,6 +515,7 @@ Lang["French"].Titles.OffsetCalc = "Calculateur Alignement"
 Lang["French"].Titles.Help = " Aide Tinker Tools"
 Lang["French"].Titles.Settings = "Paramètres"
 Lang["French"].Titles.TransferValues = "Valeurs de transfert à:"
+Lang["French"].Titles.Reskin = "Module Reskin"
 
 
 ----------------------------------------
@@ -558,6 +563,16 @@ Lang["French"].Text.NotIdleNotification = "L'opération précédente n'est pas t
 Lang["French"].Text.ConfirmDeleteSet = "Effacer l'ensemble d'objet '%s'?"
 Lang["French"].Text.ConfirmUsePosition = "Le positionnement d'origine du set est à %.1fm .\nContinuer l'opération?"
 Lang["French"].Text.Invert = "Inverser Direction"
+Lang["French"].Text.OldSkin = "Ancien Skin"
+Lang["French"].Text.NewSkin = "Nouveau Skin"
+Lang["French"].Text.Tile = "Carreau"
+Lang["French"].Text.Rectangle = "Rectangle"
+Lang["French"].Text.Triangle = "Triangle"
+Lang["French"].Text.Plank = "Planche"
+Lang["French"].Text.Cube = "Cube"
+Lang["French"].Text.Sphere = "Sphère"
+Lang["French"].Text.Pole = "Poteau"
+Lang["French"].Text.Disc = "Disque"
 
 
 ----------------------------------------
@@ -607,6 +622,7 @@ Lang["French"].Prints.SetLoaded = "Set d'objets \"%s\" chargé"
 Lang["French"].Prints.SetRemoved = "Set d'objets \"%s\" supprimé"
 Lang["French"].Prints.NotRemoved = "Impossible de supprimer \"%s\" - Ce set est introuvable"
 Lang["French"].Prints.RemoveSelectSet = "Vous devez sélectionner un set pour le supprimer"
+Lang["French"].Prints.CopiedClipboard =  "Le set d'objets \"%s\" a été copié dans le presse-papier de l'add-on."
 --Measurements
 Lang["French"].Prints.SelectType = "Indiquez un type"
 Lang["French"].Prints.SelectOrientation = "Indiquez une Orientation"
@@ -618,3 +634,6 @@ Lang["French"].Prints.Selection2 = "Selection Delta nécessite deux objets séle
 Lang["French"].Prints.ModifyPosition = "Sélectionnez un objet pour modifier sa position"
 Lang["French"].Prints.ModifyRotation = "Sélectionnez un objet pour modifier sa rotation"
 Lang["French"].Prints.ModifyScale = "Sélectionnez un objet pour modifier sa taille"
+--Reskin
+Lang["French"].Prints.ClipboardEmpty = "Le presse papier de l'add-on est vide!"
+Lang["French"].Prints.Summary = "Compte-rendu du reskin:"
