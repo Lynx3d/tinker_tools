@@ -8,6 +8,8 @@ local ExpImpWindowSettings = {
 	HEIGHT = 185,
 	CLOSABLE = true,
 	MOVABLE = true,
+	POS_X = "ExpImpwindowPosX",
+	POS_Y = "ExpImpwindowPosY"
 }
 
 function Dta.expimp_ui.buildExpImpWindow()
@@ -23,8 +25,9 @@ function Dta.expimp_ui.buildExpImpWindow()
 							ExpImpWindowSettings.CLOSABLE,
 							ExpImpWindowSettings.MOVABLE,
 							Dta.expimp_ui.ExpImpWindowClosed,
-							Dta.expimp_ui.ExpImpWindowMoved
+							Dta.ui.WindowMoved
 							)
+	newWindow.settings = ExpImpWindowSettings
 	local ExpImpwindow = newWindow.content
 
 	ExpImpwindow.background2 = UI.CreateFrame("Texture", "ExpImpwindowBackground2", ExpImpwindow)
@@ -105,10 +108,4 @@ end
 --Called when the window has been closed
 function Dta.expimp_ui.ExpImpWindowClosed()
 	Dta.expimp_ui.hideExpImpWindow()
-end
-
---Called when the window has been moved
-function Dta.expimp_ui.ExpImpWindowMoved()
-	Dta.settings.set("ExpImpwindowPosX", Dta.ui.windowExpImp:GetLeft())
-	Dta.settings.set("ExpImpwindowPosY", Dta.ui.windowExpImp:GetTop())
 end

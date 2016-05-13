@@ -13,6 +13,8 @@ local AlphabetWindowSettings = {
 	HEIGHT = 195,
 	CLOSABLE = true,
 	MOVABLE = true,
+	POS_X = "AlphabetwindowPosX",
+	POS_Y = "AlphabetwindowPosY"
 }
 
 function Dta.alphabet_ui.buildAlphabetWindow()
@@ -28,8 +30,9 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 							AlphabetWindowSettings.CLOSABLE,
 							AlphabetWindowSettings.MOVABLE,
 							Dta.alphabet_ui.AlphabetWindowClosed,
-							Dta.alphabet_ui.AlphabetWindowMoved
+							Dta.ui.WindowMoved
 							)
+	newWindow.settings = AlphabetWindowSettings
 	local Alphabetwindow = newWindow.content
 
 	Alphabetwindow.background2 = UI.CreateFrame("Texture", "AlphabetWindowBackground2", Alphabetwindow)
@@ -120,10 +123,4 @@ end
 --Called when the window has been closed
 function Dta.alphabet_ui.AlphabetWindowClosed()
 	Dta.alphabet_ui.hideAlphabetWindow()
-end
-
---Called when the window has been moved
-function Dta.alphabet_ui.AlphabetWindowMoved()
-	Dta.settings.set("AlphabetwindowPosX", Dta.ui.windowAlphabet:GetLeft())
-	Dta.settings.set("AlphabetwindowPosY", Dta.ui.windowAlphabet:GetTop())
 end

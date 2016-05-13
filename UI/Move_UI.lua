@@ -12,6 +12,8 @@ local MoveWindowSettings = {
 	HEIGHT = 130,
 	CLOSABLE = true,
 	MOVABLE = true,
+	POS_X = "MovewindowPosX",
+	POS_Y = "MovewindowPosY"
 }
 
 function Dta.move_ui.buildMoveWindow()
@@ -28,8 +30,9 @@ function Dta.move_ui.buildMoveWindow()
 							MoveWindowSettings.CLOSABLE,
 							MoveWindowSettings.MOVABLE,
 							Dta.move_ui.MoveWindowClosed,
-							Dta.move_ui.MoveWindowMoved
+							Dta.ui.WindowMoved
 							)
+	newWindow.settings = MoveWindowSettings
 	local Movewindow = newWindow.content
 
 	Movewindow.background2 = UI.CreateFrame("Texture", "MoveWindowBackground2", Movewindow)
@@ -110,10 +113,4 @@ end
 --Called when the window has been closed
 function Dta.move_ui.MoveWindowClosed()
 	Dta.move_ui.hideMoveWindow()
-end
-
---Called when the window has been moved
-function Dta.move_ui.MoveWindowMoved()
-	Dta.settings.set("MovewindowPosX", Dta.ui.windowMove:GetLeft())
-	Dta.settings.set("MovewindowPosY", Dta.ui.windowMove:GetTop())
 end

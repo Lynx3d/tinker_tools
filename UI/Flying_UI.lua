@@ -8,6 +8,8 @@ local FlyingWindowSettings = {
 	HEIGHT = 265,
 	CLOSABLE = true,
 	MOVABLE = true,
+	POS_X = "FlyingwindowPosX",
+	POS_Y = "FlyingwindowPosY"
 }
 
 function Dta.flying_ui.buildFlyingWindow()
@@ -23,8 +25,9 @@ function Dta.flying_ui.buildFlyingWindow()
 							FlyingWindowSettings.CLOSABLE,
 							FlyingWindowSettings.MOVABLE,
 							Dta.flying_ui.FlyingWindowClosed,
-							Dta.flying_ui.FlyingWindowMoved
+							Dta.ui.WindowMoved
 							)
+	newWindow.settings = FlyingWindowSettings
 	local Flyingwindow = newWindow.content
 
 	Flyingwindow.background2 = UI.CreateFrame("Texture", "FlyingwindowBackground2", Flyingwindow)
@@ -108,10 +111,4 @@ end
 --Called when the window has been closed
 function Dta.flying_ui.FlyingWindowClosed()
 	Dta.flying_ui.hideFlyingWindow()
-end
-
---Called when the window has been moved
-function Dta.flying_ui.FlyingWindowMoved()
-	Dta.settings.set("FlyingwindowPosX", Dta.ui.windowFlying:GetLeft())
-	Dta.settings.set("FlyingwindowPosY", Dta.ui.windowFlying:GetTop())
 end

@@ -62,7 +62,7 @@ function Dta.help_ui.createWindowHelp(name, parent, title, width, height, x, y, 
 
 		windowHelp.moveFrame:EventAttach(Event.UI.Input.Mouse.Left.Up, function(self, h)
 			dragging = false
-			if moveCallback ~= nil then moveCallback() end
+			if moveCallback ~= nil then moveCallback(windowHelp) end
 		end, "LMouseUp")
 
 		windowHelp.moveFrame:EventAttach(Event.UI.Input.Mouse.Cursor.Move, function(self,h)
@@ -84,6 +84,8 @@ local HelpWindowSettings = {
 	HEIGHT = 600,
 	CLOSABLE = true,
 	MOVABLE = true,
+	POS_X = "HelpwindowPosX",
+	POS_Y = "HelpwindowPosY"
 }
 
 function Dta.help_ui.buildHelpWindow()
@@ -99,9 +101,10 @@ function Dta.help_ui.buildHelpWindow()
 							HelpWindowSettings.CLOSABLE,
 							HelpWindowSettings.MOVABLE,
 							Dta.help_ui.HelpWindowClosed,
-							Dta.help_ui.HelpWindowMoved
+							Dta.ui.WindowMoved
 							)
 
+	Helpwindow.settings = HelpWindowSettings
 	-------------------------------
 	--ITEM DETAILS
 	-------------------------------
@@ -195,10 +198,4 @@ end
 --Called when the window has been closed
 function Dta.help_ui.HelpWindowClosed()
 	Dta.help_ui.hideHelpWindow()
-end
-
---Called when the window has been moved
-function Dta.help_ui.HelpWindowMoved()
-	Dta.settings.set("HelpwindowPosX", Helpwindow:GetLeft())
-	Dta.settings.set("HelpwindowPosY", Helpwindow:GetTop())
 end

@@ -6,7 +6,7 @@ local ReskinWindowSettings = {
 	CLOSABLE = true,
 	MOVABLE = true,
 	POS_X = "ReskinwindowPosX",
-	POS_Y = "ReskinwindowPosY",
+	POS_Y = "ReskinwindowPosY"
 }
 
 function Dta.ui.buildReskinWindow()
@@ -23,7 +23,7 @@ function Dta.ui.buildReskinWindow()
 							ReskinWindowSettings.CLOSABLE,
 							ReskinWindowSettings.MOVABLE,
 							Dta.ui.hideReskinWindow,
-							Dta.ui.ReskinWindowMoved
+							Dta.ui.WindowMoved
 							)
 	local reskinWindow = newWindow.content
 	newWindow.settings = ReskinWindowSettings
@@ -83,9 +83,4 @@ end
 function Dta.ui.toggleReskinWindow()
 	if Dta.ui.activeReskin then Dta.ui.hideReskinWindow()
 	else Dta.ui.showReskinWindow() end
-end
-
-function Dta.ui.ReskinWindowMoved(self)
-	Dta.settings.set(self.settings.POS_X, self:GetLeft())
-	Dta.settings.set(self.settings.POS_Y, self:GetTop())
 end

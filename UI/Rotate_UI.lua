@@ -12,6 +12,8 @@ local RotateWindowSettings = {
 	HEIGHT = 130,
 	CLOSABLE = true,
 	MOVABLE = true,
+	POS_X = "RotatewindowPosX",
+	POS_Y = "RotatewindowPosY"
 }
 
 function Dta.rotate_ui.buildRotateWindow()
@@ -27,8 +29,9 @@ function Dta.rotate_ui.buildRotateWindow()
 							RotateWindowSettings.CLOSABLE,
 							RotateWindowSettings.MOVABLE,
 							Dta.rotate_ui.RotateWindowClosed,
-							Dta.rotate_ui.RotateWindowMoved
+							Dta.ui.WindowMoved
 							)
+	newWindow.settings = RotateWindowSettings
 	local Rotatewindow = newWindow.content
 
 	Rotatewindow.background2 = UI.CreateFrame("Texture", "RotatewindowBackground2", Rotatewindow)
@@ -106,10 +109,4 @@ end
 --Called when the window has been closed
 function Dta.rotate_ui.RotateWindowClosed()
 	Dta.rotate_ui.hideRotateWindow()
-end
-
---Called when the window has been moved
-function Dta.rotate_ui.RotateWindowMoved()
-	Dta.settings.set("RotatewindowPosX", Dta.ui.windowRotate:GetLeft())
-	Dta.settings.set("RotatewindowPosY", Dta.ui.windowRotate:GetTop())
 end

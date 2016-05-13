@@ -12,6 +12,8 @@ local ScaleWindowSettings = {
 	HEIGHT = 130,
 	CLOSABLE = true,
 	MOVABLE = true,
+	POS_X = "ScalewindowPosX",
+	POS_Y = "ScalewindowPosY"
 }
 
 function Dta.scale_ui.buildScaleWindow()
@@ -27,8 +29,9 @@ function Dta.scale_ui.buildScaleWindow()
 							ScaleWindowSettings.CLOSABLE,
 							ScaleWindowSettings.MOVABLE,
 							Dta.scale_ui.ScaleWindowClosed,
-							Dta.scale_ui.ScaleWindowMoved
+							Dta.ui.WindowMoved
 							)
+	newWindow.settings = ScaleWindowSettings
 	local Scalewindow = newWindow.content
 
 	Scalewindow.background2 = UI.CreateFrame("Texture", "ScaleWindowBackground2", Scalewindow)
@@ -96,10 +99,4 @@ end
 --Called when the window has been closed
 function Dta.scale_ui.ScaleWindowClosed()
 	Dta.scale_ui.hideScaleWindow()
-end
-
---Called when the window has been moved
-function Dta.scale_ui.ScaleWindowMoved()
-	Dta.settings.set("ScalewindowPosX", Dta.ui.windowScale:GetLeft())
-	Dta.settings.set("ScalewindowPosY", Dta.ui.windowScale:GetTop())
 end

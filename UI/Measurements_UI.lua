@@ -12,6 +12,8 @@ local MeasurementsWindowSettings = {
 	HEIGHT = 190,
 	CLOSABLE = true,
 	MOVABLE = true,
+	POS_X = "MeasurementswindowPosX",
+	POS_Y = "MeasurementswindowPosY"
 }
 
 function Dta.measurements_ui.buildMeasurementsWindow()
@@ -27,8 +29,9 @@ function Dta.measurements_ui.buildMeasurementsWindow()
 								MeasurementsWindowSettings.CLOSABLE,
 								MeasurementsWindowSettings.MOVABLE,
 								Dta.measurements_ui.MeasurementsWindowClosed,
-								Dta.measurements_ui.MeasurementsWindowMoved
+								Dta.ui.WindowMoved
 								)
+	newWindow.settings = MeasurementsWindowSettings
 	local Measurementswindow = newWindow.content
 
 	Measurementswindow.background2 = UI.CreateFrame("Texture", "MeasurementsVindowBackground2", Measurementswindow)
@@ -143,10 +146,4 @@ end
 --Called when the window has been closed
 function Dta.measurements_ui.MeasurementsWindowClosed()
 	Dta.measurements_ui.hideMeasurementsWindow()
-end
-
---Called when the window has been moved
-function Dta.measurements_ui.MeasurementsWindowMoved()
-	Dta.settings.set("MeasurementswindowPosX", Dta.ui.windowMeasurements:GetLeft())
-	Dta.settings.set("MeasurementswindowPosY", Dta.ui.windowMeasurements:GetTop())
 end

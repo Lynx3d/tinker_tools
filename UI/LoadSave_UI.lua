@@ -12,6 +12,8 @@ local LoSaWindowSettings = {
 	HEIGHT = 345,
 	CLOSABLE = true,
 	MOVABLE = true,
+	POS_X = "LoSawindowPosX",
+	POS_Y = "LoSawindowPosY"
 }
 
 function Dta.losa_ui.buildLoSaWindow()
@@ -27,8 +29,9 @@ function Dta.losa_ui.buildLoSaWindow()
 							LoSaWindowSettings.CLOSABLE,
 							LoSaWindowSettings.MOVABLE,
 							Dta.losa_ui.LoSaWindowClosed,
-							Dta.losa_ui.LoSaWindowMoved
+							Dta.ui.WindowMoved
 							)
+	newWindow.settings = LoSaWindowSettings
 	local LoSawindow = newWindow.content
 
 	LoSawindow.background2 = UI.CreateFrame("Texture", "LoSaWindowBackground2", LoSawindow)
@@ -142,10 +145,4 @@ end
 --Called when the window has been closed
 function Dta.losa_ui.LoSaWindowClosed()
 	Dta.losa_ui.hideLoSaWindow()
-end
-
---Called when the window has been moved
-function Dta.losa_ui.LoSaWindowMoved()
-	Dta.settings.set("LoSawindowPosX", Dta.ui.windowLoSa:GetLeft())
-	Dta.settings.set("LoSawindowPosY", Dta.ui.windowLoSa:GetTop())
 end

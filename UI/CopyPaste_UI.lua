@@ -12,6 +12,8 @@ local CopyPasteWindowSettings = {
 	HEIGHT = 260,
 	CLOSABLE = true,
 	MOVABLE = true,
+	POS_X = "CopyPastewindowPosX",
+	POS_Y = "CopyPastewindowPosY"
 }
 
 function Dta.copa_ui.buildCopyPasteWindow()
@@ -27,8 +29,9 @@ function Dta.copa_ui.buildCopyPasteWindow()
 							CopyPasteWindowSettings.CLOSABLE,
 							CopyPasteWindowSettings.MOVABLE,
 							Dta.copa_ui.CopyPastewindowClosed,
-							Dta.copa_ui.CopyPastewindowMoved
+							Dta.ui.WindowMoved
 							)
+	newWindow.settings = CopyPasteWindowSettings
 	local CopyPastewindow = newWindow.content
 
 	CopyPastewindow.background2 = UI.CreateFrame("Texture", "CopyPasteWindowBackground2", CopyPastewindow)
@@ -137,10 +140,4 @@ end
 --Called when the window has been closed
 function Dta.copa_ui.CopyPastewindowClosed()
 	Dta.copa_ui.hideCopyPastewindow()
-end
-
---Called when the window has been moved
-function Dta.copa_ui.CopyPastewindowMoved()
-	Dta.settings.set("CopyPastewindowPosX", Dta.ui.windowCopyPaste:GetLeft())
-	Dta.settings.set("CopyPastewindowPosY", Dta.ui.windowCopyPaste:GetTop())
 end

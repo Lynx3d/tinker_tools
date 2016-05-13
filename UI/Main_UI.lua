@@ -249,11 +249,10 @@ end
 -- BUILD THE MAINWINDOW TOGGLE BUTTON
 -------------------------------
 
---Called when the window has been moved
-function Dta.ui.MainButtonMoved()
-	Dta.settings.set("MainbuttonPosX", Dta.ui.buttonMainToggle:GetLeft())
-	Dta.settings.set("MainbuttonPosY", Dta.ui.buttonMainToggle:GetTop())
-end
+local MainButtonSettings = {
+	POS_X = "MainbuttonPosX",
+	POS_Y = "MainbuttonPosY"
+}
 
 function Dta.ui.showMainButton()
 	if not Dta.ui.buttonMainToggle then
@@ -264,11 +263,12 @@ function Dta.ui.showMainButton()
 			"btn_dimensions_top_edit_(click).png.dds",
 			"btn_dimensions_top_edit_(disabled).png.dds"
 			)
+		Dta.ui.buttonMainToggle.settings = MainButtonSettings
 		Dta.ui.buttonMainToggle:SetWidth(48)
 		Dta.ui.buttonMainToggle:SetHeight(48)
 		Dta.ui.buttonMainToggle:SetLayer(-1)
 		Dta.ui.buttonMainToggle:SetPoint("TOPLEFT", UIParent, "TOPLEFT", Dta.settings.get("MainbuttonPosX"), Dta.settings.get("MainbuttonPosY"))
-		Dta.ui.DraggableFrame.Setup(Dta.ui.buttonMainToggle, Dta.ui.buttonMainToggle, Dta.ui.MainButtonMoved, "Right")
+		Dta.ui.DraggableFrame.Setup(Dta.ui.buttonMainToggle, Dta.ui.buttonMainToggle, Dta.ui.WindowMoved, "Right")
 	end
 	Dta.ui.buttonMainToggle:SetVisible(true)
 end
@@ -287,6 +287,8 @@ local MainWindowSettings = {
 	HEIGHT = 260,
 	CLOSABLE = true,
 	MOVABLE = true,
+	POS_X = "MainwindowPosX",
+	POS_Y = "MainwindowPosY"
 }
 local BGwidth, BGheight = 313, 125
 local BGpath = {	{x = 0, y = 10},
@@ -312,8 +314,9 @@ function Dta.ui.buildMainWindow()
 							MainWindowSettings.CLOSABLE,
 							MainWindowSettings.MOVABLE,
 							Dta.ui.MainWindowClosed,
-							Dta.ui.MainWindowMoved
+							Dta.ui.WindowMoved
 							)
+	newWindow.settings = MainWindowSettings
 	newWindow.versionText = Dta.ui.createText("versionText", newWindow, 20, 10, Dta.Version, 12, {0.3, 0.6, 0.6, 1})
 	newWindow.versionText:SetLayer(15)
 	local Mainwindow = newWindow.content
@@ -446,9 +449,9 @@ function Dta.ui.toggleMainWindow()
 end
 
 --Called when the window has been moved
-function Dta.ui.MainWindowMoved()
-	Dta.settings.set("MainwindowPosX", Dta.ui.windowtest:GetLeft())
-	Dta.settings.set("MainwindowPosY", Dta.ui.windowtest:GetTop())
+function Dta.ui.WindowMoved(self)
+	Dta.settings.set(self.settings.POS_X, self:GetLeft())
+	Dta.settings.set(self.settings.POS_Y, self:GetTop())
 end
 
 --Called when the window has been closed
