@@ -209,41 +209,20 @@ end
 function Dta.commandHandler(hEvent, command)
 
 	if command == "reset" then
-		Dta.settings.set("MainwindowPosX", 0)
-		Dta.settings.set("MainwindowPosY", 32)
-		Dta.settings.set("MovewindowPosX", 0)
-		Dta.settings.set("MovewindowPosY", 370)
-		Dta.settings.set("RotatewindowPosX", 0)
-		Dta.settings.set("RotatewindowPosY", 410)
-		Dta.settings.set("ScalewindowPosX", 0)
-		Dta.settings.set("ScalewindowPosY", 450)
-		Dta.settings.set("CopyPastewindowPosX", 320)
-		Dta.settings.set("CopyPastewindowPosY", 410)
-		Dta.settings.set("LoSawindowPosX", 320)
-		Dta.settings.set("LoSawindowPosY", 450)
-		Dta.settings.set("ExpImpwindowPosX", 320)
-		Dta.settings.set("ExpImpwindowPosY", 370)
-		Dta.settings.set("HelpwindowPosX", 650)
-		Dta.settings.set("HelpwindowPosY", 335)
-		Dta.settings.set("FlyingwindowPosX", 475)
-		Dta.settings.set("FlyingwindowPosY", 32)
-		Dta.settings.set("AlphabetwindowPosX", 0)
-		Dta.settings.set("AlphabetwindowPosY", 530)
-		Dta.settings.set("MeasurementswindowPosX", 0)
-		Dta.settings.set("MeasurementswindowPosY", 490)
-
-		if Dta.ui.windowtest then Dta.ui.windowtest:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 32) end
-		if Dta.ui.windowMove then Dta.ui.windowMove:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 370) end
-		if Dta.ui.windowRotate then Dta.ui.windowRotate:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 410) end
-		if Dta.ui.windowScale then Dta.ui.windowScale:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 450) end
-		if Dta.ui.windowCopyPaste then Dta.ui.windowCopyPaste:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 320, 410) end
-		if Dta.ui.windowLoSa then Dta.ui.windowLoSa:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 320, 450) end
-		if Dta.ui.windowExpImp then Dta.ui.windowExpImp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 320, 370) end
-		if Dta.ui.windowHelp then Dta.ui.windowHelp:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 650, 335) end
-		if Dta.ui.windowFlying then Dta.ui.windowFlying:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 475, 32) end
-		if Dta.ui.windowAlphabet then Dta.ui.windowAlphabet:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 530) end
-		if Dta.ui.windowMeasurements then Dta.ui.windowMeasurements:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 490) end
-		print("Position reset")
+		for name, val in pairs(Dta.settings.defaults) do
+			if string.sub(name, -4, -2) == "Pos" then
+				Dta.settings.set(name, val)
+			end
+		end
+		for _, window in pairs({ Dta.ui.windowtest, Dta.ui.windowMove, Dta.ui.windowRotate,
+					Dta.ui.windowScale, Dta.ui.windowCopyPaste, Dta.ui.windowLoSa, Dta.ui.windowHelp,
+					Dta.ui.windowExpImp, Dta.ui.windowAlphabet, Dta.ui.windowFlying,
+					Dta.ui.windowMeasurements, Dta.ui.windowReskin, Dta.ui.buttonMainToggle }) do
+			if window then
+				window:SetPoint("TOPLEFT", UIParent, "TOPLEFT", Dta.settings.get(window.settings.POS_X), Dta.settings.get(window.settings.POS_Y))
+			end
+		end
+		Dta.CPrint("Positions reset")
 	elseif command == "help" then
 		Dta.help_ui.toggleHelpWindow()
 	elseif command == "import_dt" then
