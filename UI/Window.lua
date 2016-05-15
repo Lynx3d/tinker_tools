@@ -168,7 +168,7 @@ function Window.drawBackground(canvas)
 					source = "Rift",
 					transform = { width_scale, 0, -crop * width_scale, 0, height_scale, -crop * height_scale },
 					texture = "dimension_window_bg_right_large.png.dds" }
-	canvas:SetShape(Window.rectPath, fill, nil)
+	canvas:SetShape(path, fill, nil)
 end
 
 function Window.SetContentHeight(self, newHeight)
