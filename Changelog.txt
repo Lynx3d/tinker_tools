@@ -1,3 +1,16 @@
+Version 1.1.0
+- New tool "Reskin": Edit your Copy&Paste clipboard by replacing
+  building blocks based on their skin. Select all shapes you want
+  to replace in a single operation.
+- Updated the item database with ice, glass and water skins,
+  aswell as the incomplete greystone, greenstone and greywood skins.
+- Added missing disc and sphere building blocks to existing skins
+- Add the possibility to copy saved sets to the Copy&Paste cliboard
+- Don't delete the cliboard whenever the Copy&Paste window is closed
+- Updated French and German localization
+- Fix "reset" chat command to include all new UI elements
+- Fix various minor UI bugs and glitches
+
 Version 1.0.0
 Official release of Tinker Tools, a revival of the dead Dimension Tools
 project. Changes from previous development release (1.9.11):
@@ -56,7 +69,7 @@ Version 1.9.8
 - Make notification about a Rift selection bug less mysterious
 
 Version 1.9.7
-- Add workaround to an API bug that inverts pitch value when yaw is +/-90°
+- Add workaround to an API bug that inverts pitch value when yaw is +/-90Â°
 - Return key now clears key focus on input fields
 - Enhance move/rotate/scale input fields with buttons to fetch the
   values from the current selection, if available
