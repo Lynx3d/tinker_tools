@@ -10,14 +10,23 @@ function Dta.Replacement.GetItemForSkin(item_type, skin)
 	return skin[details.shape]
 end
 
---Dta.Replacement.Skins = {}
+local function sortSkins(skins, translation)
+	table.sort(skins)
+	local value_table = {}
+	for index, name in pairs(skins) do
+		value_table[index] = translation[name]
+	end
+	return skins, value_table
+end
 
 function Dta.Replacement.loadSkins()
-	local items = {}
-	for name, _ in pairs(Dta.Defaults.Skins) do
-		table.insert(items, name)
+	local skins, translation = {}, {}
+	for name, data in pairs(Dta.Defaults.Skins) do
+		local name_local = data[Dta.Language] or name
+		table.insert(skins, name_local)
+		translation[name_local] = name
 	end
-	return items
+	return sortSkins(skins, translation)
 end
 
 -- fonts need plank, tile and pole, not all skins have them:
@@ -34,8 +43,8 @@ end
 function Dta.Replacement.ReplaceClicked()
 	local settings = {}
 	local reskinWindow = Dta.ui.windowReskin
-	local old_skin = reskinWindow.oldSkinSelect:GetSelectedItem()
-	local new_skin = reskinWindow.newSkinSelect:GetSelectedItem()
+	local old_skin = reskinWindow.oldSkinSelect:GetSelectedValue()
+	local new_skin = reskinWindow.newSkinSelect:GetSelectedValue()
 
 	if not old_skin or not Dta.Defaults.Skins[old_skin] or
 	   not new_skin or not Dta.Defaults.Skins[new_skin] then
@@ -44,7 +53,9 @@ function Dta.Replacement.ReplaceClicked()
 	end
 	settings.old_skin_lookup = {}
 	for shape, details in pairs(Dta.Defaults.Skins[old_skin]) do
-		settings.old_skin_lookup[details.type] = shape
+		if type(details) == "table" then -- skip the language entries
+			settings.old_skin_lookup[details.type] = shape
+		end
 	end
 	--dump(settings.old_skin_lookup) -- TEMP
 	settings.skin_data = Dta.Defaults.Skins[new_skin]
