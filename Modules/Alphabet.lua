@@ -55,7 +55,7 @@ function Dta.alphabet.CheckInput()
 	settings.word = Dta.ui.windowAlphabet.Alphabet.Word:GetText()
 	settings.font = Dta.ui.windowAlphabet.Alphabet.FontLoad:GetSelectedItem()
 	settings.size = Dta.ui.windowAlphabet.Alphabet.SizeLoad:GetSelectedItem()
-	settings.skin = Dta.ui.windowAlphabet.Alphabet.TypeLoad:GetSelectedItem()
+	settings.skin = Dta.ui.windowAlphabet.Alphabet.TypeLoad:GetSelectedValue()
 
 	if settings.font == nil or settings.font == "" then
 		Dta.CPrint(Lang[Dta.Language].Prints.SelectFont)

@@ -31,13 +31,15 @@ end
 
 -- fonts need plank, tile and pole, not all skins have them:
 function Dta.Replacement.loadAlphabetSkins()
-	local items = {}
+	local skins, translation = {}, {}
 	for name, skin in pairs(Dta.Defaults.Skins) do
 		if skin.tile and skin.plank and skin.pole then
-			table.insert(items, name)
+			local name_local = skin[Dta.Language] or name
+			table.insert(skins, name_local)
+			translation[name_local] = name
 		end
 	end
-	return items
+	return sortSkins(skins, translation)
 end
 
 function Dta.Replacement.ReplaceClicked()
