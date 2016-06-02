@@ -655,15 +655,30 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Greywood Rectangle",
 		shape = "rectangle"
 	},
+	["I4CF0820D3C7CE954,721EF7930F0633C2,,,,,,"] =
+	{
+		name = "Building Block: Greywood Plank",
+		shape = "plank"
+	},
 	["I391DEDC044825E6A,2C0F2BEF9496217D,,,,,,"] =
 	{
 		name = "Building Block: Greywood Cube",
 		shape = "cube"
 	},
+	["I5061383166421B87,6A62D6F1ED761E9A,,,,,,"] =
+	{
+		name = "Building Block: Greyood Pole",
+		shape = "pole"
+	},
 	["I3818BACF6A31F262,C8E7923BA3CEB795,,,,,,"] =
 	{
 		name = "Building Block: Greywood Triangle",
 		shape = "triangle"
+	},
+	["I1D6F773153CDA645,526E57A293BC3A19,,,,,,"] =
+	{
+		name = "Building Block: Greywood Sphere",
+		shape = "sphere"
 	},
 	["I3DF6E3CB3779FD8A,4ED9EC2055550794,,,,,,"] =
 	{
@@ -681,15 +696,35 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Wood Beam Triangle",
 		shape = "triangle"
 	},
+	["I48810DEB3ED588C4,59BEB80B9B74C380,,,,,,"] =
+	{
+		name = "Building Block: Wood Beam Plank",
+		shape = "plank"
+	},
 	["I40AC238B45C0D1CB,2043F0845228074B,,,,,,"] =
 	{
 		name = "Building Block: Wood Beam Cube",
 		shape = "cube"
 	},
+	["I5F86754D1DC031C7,448E5E6AF855D9AB,,,,,,"] =
+	{
+		name = "Building Block: Wood Beam Pole",
+		shape = "pole"
+	},
 	["I40AC23891893C680,E2A013511D2CFD71,,,,,,"] =
 	{
 		name = "Building Block: Wood Beam Tile",
 		shape = "tile"
+	},
+	["I3EE00E2311A0E1B8,1411003D9E157F34,,,,,,"] =
+	{
+		name = "Building Block: Wood Beam Sphere",
+		shape = "sphere"
+	},
+	["I7225C62478610192,13A8487ED267CDDE,,,,,,"] =
+	{
+		name = "Building Block: Wood Beam Disc",
+		shape = "disc"
 	},
 	-----------
 	-- Misc. --

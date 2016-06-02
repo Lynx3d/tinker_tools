@@ -184,6 +184,28 @@ skin["Water (No Collision)"] = {
 	["sphere"] = itemDB["I1D712E3D3F5E47D3,D85C7D2BB13DB00F,,,,,,"],
 	["disc"] = itemDB["I511B4EA1406AD6CA,B65FFFBCAB30AD86,,,,,,"]
 }
+skin["Greywood"] = {
+	["German"] = "Grauholz",
+	["tile"] = itemDB["I3818BACE65BAECAE,CB64CFBB2FE0F71C,,,,,,"],
+	["rectangle"] = itemDB["I391DEDC1145BB696,FBDDE244C8FF6361,,,,,,"],
+	["plank"] = itemDB["I4CF0820D3C7CE954,721EF7930F0633C2,,,,,,"],
+	["cube"] = itemDB["I391DEDC044825E6A,2C0F2BEF9496217D,,,,,,"],
+	["triangle"] = itemDB["I3818BACF6A31F262,C8E7923BA3CEB795,,,,,,"],
+	["pole"] = itemDB["I5061383166421B87,6A62D6F1ED761E9A,,,,,,"],
+	["sphere"] = itemDB["I1D6F773153CDA645,526E57A293BC3A19,,,,,,"],
+	["disc"] = itemDB["I3DF6E3CB3779FD8A,4ED9EC2055550794,,,,,,"]
+}
+skin["Wood Beam"] = {
+	["German"] = "Holzbalken",
+	["tile"] = itemDB["I40AC23891893C680,E2A013511D2CFD71,,,,,,"],
+	["rectangle"] = itemDB["I40AC238A1D97D570,BFA55E6FD970776E,,,,,,"],
+	["plank"] = itemDB["I48810DEB3ED588C4,59BEB80B9B74C380,,,,,,"],
+	["cube"] = itemDB["I40AC238B45C0D1CB,2043F0845228074B,,,,,,"],
+	["triangle"] = itemDB["I785EE30E5A5C8EE5,2DDECF9329ACC08F,,,,,,"],
+	["pole"] = itemDB["I5F86754D1DC031C7,448E5E6AF855D9AB,,,,,,"],
+	["sphere"] = itemDB["I3EE00E2311A0E1B8,1411003D9E157F34,,,,,,"],
+	["disc"] = itemDB["I7225C62478610192,13A8487ED267CDDE,,,,,,"]
+}
 -- "incomplete" skins not useable for alphabet fonts
 skin["Greenstone"] = {
 	["German"] = "Grünstein",
@@ -198,21 +220,6 @@ skin["Greystone"] = {
 	["rectangle"] = itemDB["IFF1BEE2D5B75764D,2D5723717AF97EFD,,,,,,"],
 	["triangle"] = itemDB["I0E057DA1730AA5E3,1EF83DBC68DFC413,,,,,,"],
 	["disc"] = itemDB["I4E582BF15BEDE239,3E82E339D762FEA6,,,,,,"]
-}
-skin["Greywood"] = {
-	["German"] = "Grauholz",
-	["tile"] = itemDB["I3818BACE65BAECAE,CB64CFBB2FE0F71C,,,,,,"],
-	["rectangle"] = itemDB["I391DEDC1145BB696,FBDDE244C8FF6361,,,,,,"],
-	["cube"] = itemDB["I391DEDC044825E6A,2C0F2BEF9496217D,,,,,,"],
-	["triangle"] = itemDB["I3818BACF6A31F262,C8E7923BA3CEB795,,,,,,"],
-	["disc"] = itemDB["I3DF6E3CB3779FD8A,4ED9EC2055550794,,,,,,"]
-}
-skin["Wood Beam"] = {
-	["German"] = "Holzbalken",
-	["tile"] = itemDB["I40AC23891893C680,E2A013511D2CFD71,,,,,,"],
-	["rectangle"] = itemDB["I40AC238A1D97D570,BFA55E6FD970776E,,,,,,"],
-	["cube"] = itemDB["I40AC238B45C0D1CB,2043F0845228074B,,,,,,"],
-	["triangle"] = itemDB["I785EE30E5A5C8EE5,2DDECF9329ACC08F,,,,,,"]
 }
 
 Dta.Defaults.Skins = skin
