@@ -94,6 +94,7 @@ function Dta.rotate.setItemRotations(yaw, pitch, roll, relative, grouped)
 			end
 		end)
 		coroutine.resume(Dta.rotate.Co_RotateItem)
+		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
 	end
 end
 
@@ -109,6 +110,7 @@ function Dta.rotate.resetItemRotations()
 			end
 		end)
 		coroutine.resume(Dta.rotate.Co_RotateItemReset)
+		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
 	end
 end
 

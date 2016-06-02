@@ -12,6 +12,7 @@ local Lang = Dta.Lang
 Dta.selectedItems = {}
 Dta.selectionCount = 0
 Dta.clipboard = {}
+Dta.notifyThreshold = 10
 
 --Load & Save
 Dta.constructionsdefaults = {}
@@ -275,6 +276,8 @@ function Dta.tick(handle)
 			end
 		elseif action.op == "xform" then
 			Command.Dimension.Layout.Place(action.id, action.details)
+		elseif action.op == "notify" then
+			Dta.CPrint(action.text)
 		end
 	end
 

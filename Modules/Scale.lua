@@ -54,6 +54,7 @@ function Dta.scale.setItemScales(scale, relative, as_group)
 			end
 		end)
 		coroutine.resume(Dta.scale.Co_setScale)
+		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
 	end
 end
 
@@ -69,6 +70,7 @@ function Dta.scale.resetItemScales()
 			end
 		end)
 		coroutine.resume(Dta.scale.Co_ResetScale)
+		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
 	end
 end
 

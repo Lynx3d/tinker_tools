@@ -129,6 +129,7 @@ function Dta.move.setItemPositions(x, y, z, relative, groupMode)
 			end)
 			coroutine.resume(Dta.move.Co_MoveItem)
 		end
+		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
 	end
 end
 
@@ -145,5 +146,6 @@ function Dta.move.resetItemPositions()
 			end
 		end)
 		coroutine.resume(Dta.move.Co_MoveItemReset)
+		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
 	end
 end

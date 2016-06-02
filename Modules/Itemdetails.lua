@@ -49,6 +49,12 @@ function Dta.items.QueueTransform(id, x, y, z, pitch, yaw, roll, scale)
 		id=id })
 end
 
+function Dta.items.QueueNotification(message, action_count)
+	if action_count and action_count >= Dta.Dta.notifyThreshold then
+		table.insert(Dta.pendingActions, {op="notify", text=message})
+	end
+end
+
 function Dta.items.QueueSelection(id)
 	table.insert(Dta.SelectionQueue, {op="select", id=id})
 end
@@ -77,8 +83,8 @@ function Dta.items.fixRotation(details)
 		details.pitch = -details.pitch
 	end
 	-- TODO: find way to cleanup pitch/roll effectively flipping item ontop and back
-	-- to keep -90° < yaw < 90°. While that's a valid way to handle it, I find it
-	-- rather unintuitive to work with, especially when pitch+roll are +/- 180°
+	-- to keep -90Â° < yaw < 90Â°. While that's a valid way to handle it, I find it
+	-- rather unintuitive to work with, especially when pitch+roll are +/- 180Â°
 	-- would affect rotate tool with empty fields though
 end
 

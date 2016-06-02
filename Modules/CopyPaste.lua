@@ -102,6 +102,7 @@ function Dta.copa.pasteButtonClicked()
 			shoppingList[id].stock = 1
 		end
 		Dta.copa.pasteClipboard(shoppingList, settings)
+		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
 	end
 end
 
@@ -269,7 +270,7 @@ function Dta.copa.pasteSet(itemSet, shoppingList, offset, newItems)
 				new_details.roll = new_rot.roll
 			else
 				pos_rel = {	new_details.coordX - offset.pivot.x,
-							new_details.coordY - offset.pivot.y, 
+							new_details.coordY - offset.pivot.y,
 							new_details.coordZ - offset.pivot.z }
 			end
 			if offset.scale then
