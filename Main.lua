@@ -16,7 +16,6 @@ Dta.clipboard = {}
 --Load & Save
 Dta.constructionsdefaults = {}
 Dta.constructionstbx = {}
-Dta.FinishedSet = true
 Dta.SelectionQueue = {}
 Dta.ItemsToPlace = 0
 Dta.ItemsPlaced = 1
@@ -286,7 +285,7 @@ function Dta.tick(handle)
 		end
 	end
 
-	if #Dta.SelectionQueue > 0 and Dta.FinishedSet and not Dta.AddItem_Co then
+	if #Dta.SelectionQueue > 0 and not Dta.AddItem_Co then
 		local action = table.remove(Dta.SelectionQueue, 1)
 		if action.op == "deselect" then
 			Command.Dimension.Layout.Select(action.id, false)
