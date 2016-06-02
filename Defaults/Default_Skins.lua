@@ -173,6 +173,17 @@ skin["Water"] = {
 	["sphere"] = itemDB["I784602D77AA6302D,37EE4478A3D4311F,,,,,,"],
 	["disc"] = itemDB["I784602D41F00B39A,148CF9D4CF2F4694,,,,,,"]
 }
+skin["Water (No Collision)"] = {
+	["German"] = "Wasser (keine Kollision)",
+	["tile"] = itemDB["I783A11337F048555,4F30C26CC3945D5F,,,,,,"],
+	["rectangle"] = itemDB["IFB8E921A5AE404DD,D984FB1F8F968002,,,,,,"],
+	["plank"] = itemDB["I694CB84065D70443,7D2F4E151A093742,,,,,,"],
+	["cube"] = itemDB["I4E8218B3662200A6,24942046EA4B026B,,,,,,"],
+	["triangle"] = itemDB["I791185A6354E63A1,EF1EBA549CC8CF54,,,,,,"],
+	["pole"] = itemDB["I5BE9C17954CCAC68,1DE9D35FAFB1064B,,,,,,"],
+	["sphere"] = itemDB["I1D712E3D3F5E47D3,D85C7D2BB13DB00F,,,,,,"],
+	["disc"] = itemDB["I511B4EA1406AD6CA,B65FFFBCAB30AD86,,,,,,"]
+}
 -- "incomplete" skins not useable for alphabet fonts
 skin["Greenstone"] = {
 	["German"] = "Grünstein",

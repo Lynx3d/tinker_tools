@@ -817,6 +817,47 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Water Triangle",
 		shape = "triangle"
 	},
+	-- Water (No Collision)
+	["I4E8218B3662200A6,24942046EA4B026B,,,,,,"] =
+	{
+		name = "Building Block: Water Cube (No Collision)",
+		shape = "cube"
+	},
+	["I511B4EA1406AD6CA,B65FFFBCAB30AD86,,,,,,"] =
+	{
+		name = "Building Block: Water Disc (No Collision)",
+		shape = "disc"
+	},
+	["I694CB84065D70443,7D2F4E151A093742,,,,,,"] =
+	{
+		name = "Building Block: Water Plank (No Collision)",
+		shape = "plank"
+	},
+	["I5BE9C17954CCAC68,1DE9D35FAFB1064B,,,,,,"] =
+	{
+		name = "Building Block: Water Pole (No Collision)",
+		shape = "pole"
+	},
+	["IFB8E921A5AE404DD,D984FB1F8F968002,,,,,,"] =
+	{
+		name = "Building Block: Water Rectangle (No Collision)",
+		shape = "rectangle"
+	},
+	["I1D712E3D3F5E47D3,D85C7D2BB13DB00F,,,,,,"] =
+	{
+		name = "Building Block: Water Sphere (No Collision)",
+		shape = "sphere"
+	},
+	["I783A11337F048555,4F30C26CC3945D5F,,,,,,"] =
+	{
+		name = "Building Block: Water Tile (No Collision)",
+		shape = "tile"
+	},
+	["I791185A6354E63A1,EF1EBA549CC8CF54,,,,,,"] =
+	{
+		name = "Building Block: Water Triangle (No Collision)",
+		shape = "triangle"
+	},
 	------------
 	-- FLOORS --
 	------------
