@@ -5,6 +5,7 @@ local itemDB = Dta.Defaults.ItemDB
 
 skin["Granite"] = {
 	["German"] = "Granit",
+	["French"] = "Granite",
 	["tile"] = itemDB["I391DEDBA3602AEE7,0BAE6DA5E14A8F15,,,,,,"],
 	["rectangle"] = itemDB["I391DEDBB37D6C62E,209FB386C9208314,,,,,,"],
 	["plank"] = itemDB["I391DEDBE1401B33C,BD07066F4CF5E056,,,,,,"],
@@ -16,6 +17,7 @@ skin["Granite"] = {
 }
 skin["Brown Brick"] = {
 	["German"] = "Brauner Ziegel",
+	["French"] = "Brique brune",
 	["tile"] = itemDB["I296C209A26B7D855,07F0B32DA1DB49D2,,,,,,"],
 	["rectangle"] = itemDB["I296C20993F79CDBE,D90A2BAE1B474B70,,,,,,"],
 	["plank"] = itemDB["I296C20971A76948D,45D55944C8DB0478,,,,,,"],
@@ -26,6 +28,7 @@ skin["Brown Brick"] = {
 }
 skin["Plain Wood"] = {
 	["German"] = "Schlichtes Holz",
+	["French"] = "Bois ordinaire",
 	["tile"] = itemDB["IFE33236342049AFE,D721F224FC31EDF2,,,,,,"],
 	["rectangle"] = itemDB["IFF73FC9D69486DB4,369028719C371C12,,,,,,"],
 	["plank"] = itemDB["IFA2C50EE0883B241,146F58B81707AFF4,,,,,,"],
@@ -37,6 +40,7 @@ skin["Plain Wood"] = {
 }
 skin["Rivited Metal"] = {
 	["German"] = "Genietetes Metall",
+	["French"] = "Métallique",
 	["tile"] = itemDB["IFC4B896620716CD2,FB8EBAD1EF4F50C4,,,,,,"],
 	["rectangle"] = itemDB["IFC4B896518A1F73D,A9255B483DEAB8E9,,,,,,"],
 	["plank"] = itemDB["IFC4B89636C1A7384,B74150E86591A10F,,,,,,"],
@@ -48,6 +52,7 @@ skin["Rivited Metal"] = {
 }
 skin["Plain Stone"] = {
 	["German"] = "Einfacher Stein",
+	["French"] = "Pierre ordinaire",
 	["tile"] = itemDB["IFC27A53A7D93B3C5,28927815564C4D18,,,,,,"],
 	["rectangle"] = itemDB["IFC27A5392C8F2D7D,2011B804CCFA965A,,,,,,"],
 	["plank"] = itemDB["IFC27A5376CAD89FE,0C2B252DD2777324,,,,,,"],
@@ -59,6 +64,7 @@ skin["Plain Stone"] = {
 }
 skin["Black Marble"] = {
 	["German"] = "Schwarzer Marmor",
+	["French"] = "Marbre noir",
 	["tile"] = itemDB["I073E1B4612DE4C8A,F92F979003F4808F,,,,,,"],
 	["rectangle"] = itemDB["I073E1B4526891DBC,32303483297E6C39,,,,,,"],
 	["plank"] = itemDB["I073E1B4205A5AD2C,DBA30B02D2220DFA,,,,,,"],
@@ -70,6 +76,7 @@ skin["Black Marble"] = {
 }
 skin["Green Wood"] = {
 	["German"] = "Grünes Holz",
+	["French"] = "Bois vert",
 	["tile"] = itemDB["I296C20913F3B871C,E1D4959F081A5A79,,,,,,"],
 	["rectangle"] = itemDB["I296C208E796419FE,0A211A7DC4570BCE,,,,,,"],
 	["plank"] = itemDB["I40AC23904F4F7F9C,E97FC82D46AA206F,,,,,,"],
@@ -80,6 +87,7 @@ skin["Green Wood"] = {
 }
 skin["Red Wood"] = {
 	["German"] = "Rotes Holz",
+	["French"] = "Bois rouge",
 	["tile"] = itemDB["I296C209213A44A57,D229F38471CA2871,,,,,,"],
 	["rectangle"] = itemDB["I296C208F33BDC5E1,CFB7E23A8CB358E2,,,,,,"],
 	["plank"] = itemDB["I40AC23917D1C7144,FB821F425206644A,,,,,,"],
@@ -90,6 +98,7 @@ skin["Red Wood"] = {
 }
 skin["Blue Wood"] = {
 	["German"] = "Blaues Holz",
+	["French"] = "Bois bleu",
 	["tile"] = itemDB["I296C2090527FF26A,36F51BEF35044AFE,,,,,,"],
 	["rectangle"] = itemDB["I296C208D1D704C59,11BDF271D73B3CDD,,,,,,"],
 	["plank"] = itemDB["I40AC238F489B44D9,F461A18236849080,,,,,,"],
@@ -100,6 +109,7 @@ skin["Blue Wood"] = {
 }
 skin["Carved Wood"] = {
 	["German"] = "Geschnitztes Holz",
+	["French"] = "Bois sculpté",
 	["tile"] = itemDB["I3818BADB6A10DCFC,F63E89D9C91C3874,,,,,,"],
 	["rectangle"] = itemDB["I3818BADA6ED04521,10D72EFD29EF69EF,,,,,,"],
 	["plank"] = itemDB["I3818BAD86D04D244,348BC924BC59DEB6,,,,,,"],
@@ -110,6 +120,7 @@ skin["Carved Wood"] = {
 }
 skin["Mossy Brick"] = {
 	["German"] = "Moosiger Ziegel",
+	["French"] = "Brique moussue",
 	["tile"] = itemDB["I073E1B3F29924608,1CCC2F2CD61807A0,,,,,,"],
 	["rectangle"] = itemDB["I073E1B3E772473D9,3420563DD9F57D68,,,,,,"],
 	["plank"] = itemDB["I073E1B3C6C1EFF1C,2CECCE90F2B24CE0,,,,,,"],
@@ -120,6 +131,7 @@ skin["Mossy Brick"] = {
 }
 skin["Limestone"] = {
 	["German"] = "Kalkstein",
+	["French"] = "Calcaire",
 	["tile"] = itemDB["I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,"],
 	["rectangle"] = itemDB["I3818BAD207A81EB9,EE1EBBB901974266,,,,,,"],
 	["plank"] = itemDB["I3818BAD530B1947F,E65961B97AA1A075,,,,,,"],
@@ -131,6 +143,7 @@ skin["Limestone"] = {
 }
 skin["Green Marble"] = {
 	["German"] = "Grüner Marmor",
+	["French"] = "Marbre vert",
 	["tile"] = itemDB["I391DEDB7666F40AB,BBB226C82076B285,,,,,,"],
 	["rectangle"] = itemDB["I391DEDB60587B53E,C694001D10509F46,,,,,,"],
 	["plank"] = itemDB["I391DEDB3402D4989,F3A8CA73730395E0,,,,,,"],
@@ -142,6 +155,7 @@ skin["Green Marble"] = {
 }
 skin["Ice"] = {
 	["German"] = "Eis",
+	["French"] = "Glace",
 	["tile"] = itemDB["I46DEDDFA1B1EF2B1,12B6DB6640573B89,,,,,,"],
 	["rectangle"] = itemDB["I1302EFA22521A21B,107FDE65CBEA718C,,,,,,"],
 	["plank"] = itemDB["I6B59D27B2DC1132A,DA0832CD98B12A09,,,,,,"],
@@ -153,6 +167,7 @@ skin["Ice"] = {
 }
 skin["Glass"] = {
 	["German"] = "Glas",
+	["French"] = "Verre",
 	["tile"] = itemDB["I784602CE13838AA1,556EB47356AF6483,,,,,,"],
 	["rectangle"] = itemDB["I784602CA53E99F38,3256CF6227E0035F,,,,,,"],
 	["plank"] = itemDB["I784602D01551C3CA,863977B44C6A4241,,,,,,"],
@@ -164,6 +179,7 @@ skin["Glass"] = {
 }
 skin["Water"] = {
 	["German"] = "Wasser",
+	["French"] = "Eau",
 	["tile"] = itemDB["I784602D650FF82A7,872E664CD3431A4B,,,,,,"],
 	["rectangle"] = itemDB["I784602D27EC61370,426904BD02C5B958,,,,,,"],
 	["plank"] = itemDB["I784602D87B5DFCD4,3AE9E0465AF56A07,,,,,,"],
@@ -175,6 +191,7 @@ skin["Water"] = {
 }
 skin["Water (No Collision)"] = {
 	["German"] = "Wasser (keine Kollision)",
+	["French"] = "Eau (sans collision)",
 	["tile"] = itemDB["I783A11337F048555,4F30C26CC3945D5F,,,,,,"],
 	["rectangle"] = itemDB["IFB8E921A5AE404DD,D984FB1F8F968002,,,,,,"],
 	["plank"] = itemDB["I694CB84065D70443,7D2F4E151A093742,,,,,,"],
@@ -186,6 +203,7 @@ skin["Water (No Collision)"] = {
 }
 skin["Greywood"] = {
 	["German"] = "Grauholz",
+	["French"] = "Bois gris",
 	["tile"] = itemDB["I3818BACE65BAECAE,CB64CFBB2FE0F71C,,,,,,"],
 	["rectangle"] = itemDB["I391DEDC1145BB696,FBDDE244C8FF6361,,,,,,"],
 	["plank"] = itemDB["I4CF0820D3C7CE954,721EF7930F0633C2,,,,,,"],
@@ -197,6 +215,7 @@ skin["Greywood"] = {
 }
 skin["Wood Beam"] = {
 	["German"] = "Holzbalken",
+	["French"] = "Poutre en bois",
 	["tile"] = itemDB["I40AC23891893C680,E2A013511D2CFD71,,,,,,"],
 	["rectangle"] = itemDB["I40AC238A1D97D570,BFA55E6FD970776E,,,,,,"],
 	["plank"] = itemDB["I48810DEB3ED588C4,59BEB80B9B74C380,,,,,,"],
@@ -209,6 +228,7 @@ skin["Wood Beam"] = {
 -- "incomplete" skins not useable for alphabet fonts
 skin["Greenstone"] = {
 	["German"] = "Grünstein",
+	["French"] = "Pierre verte",
 	["tile"] = itemDB["IFF1D8E4A6A25E35C,1F129CFC26DC5AA7,,,,,,"],
 	["rectangle"] = itemDB["IFF1BEE2F77076368,408BF5DACD6542A7,,,,,,"],
 	["triangle"] = itemDB["I0E057DA0036E7490,EF5E2DE384B620FB,,,,,,"],
@@ -216,6 +236,7 @@ skin["Greenstone"] = {
 }
 skin["Greystone"] = {
 	["German"] = "Graustein",
+	["French"] = "Pierre grise",
 	["tile"] = itemDB["IFF1BEE2E068D20E3,DE1784EBCB8A1282,,,,,,"],
 	["rectangle"] = itemDB["IFF1BEE2D5B75764D,2D5723717AF97EFD,,,,,,"],
 	["triangle"] = itemDB["I0E057DA1730AA5E3,1EF83DBC68DFC413,,,,,,"],
