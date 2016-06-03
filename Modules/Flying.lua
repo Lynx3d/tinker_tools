@@ -23,13 +23,12 @@ function Dta.flying.PlaceFlying()
 	for slot, id in pairs(items) do
 		if id ~= false then
 			local data = Inspect.Item.Detail(id)
-			if data.type == Dta.FlyingType then
+			if data and data.type == Dta.FlyingType then
 				Dta.ui.windowFlying.DFlying.placeButton:SetEnabled(false)
 				Dta.ui.windowFlying.DFlying.pickupButton:SetEnabled(true)
 				Dta.waitingForCarpet = true
 				Command.Dimension.Layout.Place(id, {scale=1})
 				return
-
 			end
 		end
 	end
