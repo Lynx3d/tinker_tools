@@ -50,7 +50,7 @@ function Dta.items.QueueTransform(id, x, y, z, pitch, yaw, roll, scale)
 end
 
 function Dta.items.QueueNotification(message, action_count)
-	if action_count and action_count >= Dta.Dta.notifyThreshold then
+	if action_count and action_count >= Dta.notifyThreshold then
 		table.insert(Dta.pendingActions, {op="notify", text=message})
 	end
 end
