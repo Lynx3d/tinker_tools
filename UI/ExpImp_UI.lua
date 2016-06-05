@@ -56,7 +56,6 @@ function Dta.expimp_ui.buildExpImpWindow()
 	ExpImpwindow.ImportExport.ExportLoad:SetItems(Dta.expimp.loadExport())
 	ExpImpwindow.ImportExport.ExportLoad:ResizeToFit()
 	ExpImpwindow.ImportExport.ExportLoad:SetWidth(245)
-	ExpImpwindow.ImportExport.ExportLoad:SetEnabled(true)
 	ExpImpwindow.ImportExport.Export = Dta.ui.createButton("ImportExport_Export", ExpImpwindow.ImportExport, 0, 50, nil, nil, Lang[Dta.Language].Buttons.Export, nil, Dta.expimp.ImportExport_ExportClicked)
 
 	ExpImpwindow.divider5 = Dta.ui.createTexture("divider5", ExpImpwindow, Dta.AddonID, "textures/divider.png", 10, 95, ExpImpwindow:GetWidth()-10)
@@ -69,7 +68,6 @@ function Dta.expimp_ui.buildExpImpWindow()
 	ExpImpwindow.ImportExport.ImportLoad:SetItems(Dta.expimp.loadImport())
 	ExpImpwindow.ImportExport.ImportLoad:ResizeToFit()
 	ExpImpwindow.ImportExport.ImportLoad:SetWidth(245)
-	ExpImpwindow.ImportExport.ImportLoad:SetEnabled(true)
 	ExpImpwindow.ImportExport.Import = Dta.ui.createButton("ImportExport_Import", ExpImpwindow.ImportExport, 0, 135, nil, nil, Lang[Dta.Language].Buttons.Import, nil, Dta.expimp.ImportExport_ImportClicked)
 
 	-- TODO: temp fix for new window hierarchy
@@ -84,6 +82,8 @@ function Dta.expimp_ui.showExpImpWindow()
 		Dta.ui.windowExpImp = Dta.expimp_ui.buildExpImpWindow()
 	else
 		Dta.ui.windowExpImp:SetVisible(true)
+		Dta.ui.windowExpImp.ImportExport.ExportLoad:SetEnabled(true)
+		Dta.ui.windowExpImp.ImportExport.ImportLoad:SetEnabled(true)
 	end
 	Dta.ui.activeExpImp = true
 	Dta.ui.loadExpImp = "Saved"
