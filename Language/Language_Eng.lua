@@ -441,6 +441,7 @@ Lang["English"].Buttons.Copy = "Copy"
 Lang["English"].Buttons.Paste = "Paste"
 Lang["English"].Buttons.Pick = "Pick"
 Lang["English"].Buttons.Import = "Import"
+Lang["English"].Buttons.ImportText = "Import Text"
 Lang["English"].Buttons.Export = "Export"
 Lang["English"].Buttons.Place = "Place"
 Lang["English"].Buttons.PickUp = "Pick Up"
@@ -567,7 +568,7 @@ Lang["English"].Text.Cube = "Cube"
 Lang["English"].Text.Sphere = "Sphere"
 Lang["English"].Text.Pole = "Pole"
 Lang["English"].Text.Disc = "Disc"
-
+Lang["English"].Text.NewName = "New Name"
 
 ----------------------------------------
 --Prints
@@ -603,6 +604,7 @@ Lang["English"].Prints.SelectExport = "You must select a set in order to Export 
 Lang["English"].Prints.Exported = "Item set \"%s\" Exported"
 Lang["English"].Prints.SelectImport = "You must select a set in order to Import it"
 Lang["English"].Prints.Imported = "Item set \"%s\" Imported"
+Lang["English"].Prints.TextHint = "<Text input/output>\nCtrl+C: Copy\nCtrl+V: Paste\nCtrl+A: Select all\n"
 --Load / Save
 Lang["English"].Prints.Saved = "Item set \"%s\" saved"
 Lang["English"].Prints.MinOneItem = "Must select 1 or more items in order to save them"
@@ -612,6 +614,7 @@ Lang["English"].Prints.LoadPrintMats = "You must select a set in order to print 
 Lang["English"].Prints.LoadSelectSet = "You must select a set in order to load it"
 Lang["English"].Prints.NotLoadedBags = "Cannot load set - the following items are missing from your bags:"
 Lang["English"].Prints.NotLoadedSelection = "Cannot load set - the following items are missing from your selection:"
+Lang["English"].Prints.SetExists = "Item set \"%s\" already exists. Please choose a different name."
 Lang["English"].Prints.SetLoaded = "Item set \"%s\" loaded"
 Lang["English"].Prints.SetRemoved = "Item set \"%s\" removed"
 Lang["English"].Prints.NotRemoved = "Could not remove \"%s\" - no such set found"

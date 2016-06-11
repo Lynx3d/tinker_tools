@@ -54,6 +54,11 @@ function Dta.expimp.refreshExportSelect()
 	end
 end
 
+function Dta.expimp.ImportTextClicked()
+	local expimpUI = Dta.ui.windowExpImp.ImportExport
+	Dta.expimp.ImportTbxSerialized(expimpUI.NewName:GetText(), expimpUI.TextView:GetText())
+end
+
 -------------------------------
 -- LOAD IMPORT AND EXPORT DROPDOWN
 -------------------------------
@@ -202,6 +207,57 @@ function Dta.expimp.ImportGroupItemAttributes(name)
 	end
 end
 
+----------------------------------
+--TOOLBOX STRING IMPORT
+----------------------------------
+
+function Dta.expimp.ImportTbxSerialized(name, data)
+	local saved_sets = Dta.settings.get_savedsets("SavedSets") or {}
+	if not name or name == "" then
+		Dta.CPrint(Lang[Dta.Language].Prints.EnterName)
+		return
+	end
+	if saved_sets[name] then
+		Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetExists, name))
+		return
+	end
+	local deserialized = Dta.expimp.Tbx_DeserializeTable(data)
+	if deserialized ~= nil and #deserialized > 0 then
+		saved_sets[name] = deserialized
+		Dta.settings.set_savedsets("SavedSets", saved_sets) -- in case it we didn't have any yet
+		Dta.CPrint(string.format(Lang[Dta.Language].Prints.Imported, name))
+		Dta.expimp.refreshExportSelect()
+	end
+end
+
+function Dta.expimp.Tbx_DeserializeTable(data)
+	local t = {}
+	for item, _ in string.gsplit(data, "|") do
+		local itemTable = {}
+		item = string.split(item, ";")
+		if #item < 9 then return nil end --Check we have 9 attributes
+		if not tonumber(item[3]) or --Check x, y, z, yaw, pitch, roll, scale are numbers
+		   not tonumber(item[4]) or
+		   not tonumber(item[5]) or
+		   not tonumber(item[6]) or
+		   not tonumber(item[7]) or
+		   not tonumber(item[8]) or
+		   not tonumber(item[9]) then
+		  return nil
+		end
+		itemTable.name = item[1]
+		itemTable.type = item[2]
+		itemTable.coordX = tonumber(item[3])
+		itemTable.coordY = tonumber(item[4])
+		itemTable.coordZ = tonumber(item[5])
+		itemTable.yaw = tonumber(item[6])
+		itemTable.pitch = tonumber(item[7])
+		itemTable.roll = tonumber(item[8])
+		itemTable.scale = tonumber(item[9])
+		table.insert(t, itemTable)
+	end
+	return t
+end
 ----------------------------------
 --REMOVE IMPORTED SET
 ----------------------------------
