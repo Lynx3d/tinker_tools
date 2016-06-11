@@ -41,43 +41,43 @@ function Dta.expimp_ui.buildExpImpWindow()
 	-------------------------------
 	--ITEM DETAILS
 	-------------------------------
-	ExpImpwindow.ImportExport = Dta.ui.createFrame("ImportExport", ExpImpwindow, 10, 5, ExpImpwindow:GetWidth()-20, ExpImpwindow:GetHeight()-20)
-	ExpImpwindow.ImportExport:SetLayer(30)
-	--ExpImpwindow.ImportExport:SetBackgroundColor(1, 0, 0, 0.5) --Debug
+	local expImp = Dta.ui.createFrame("ImportExport", ExpImpwindow, 10, 5, ExpImpwindow:GetWidth()-20, ExpImpwindow:GetHeight()-20)
+	expImp:SetLayer(30)
+	--expImp:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-	ExpImpwindow.ImportExport.ExportSavedCheckbox = Dta.ui.createCheckbox("ExportSavedCheckbox", ExpImpwindow.ImportExport, 55, 0, Lang[Dta.Language].Text.SavedSets, true, nil, Dta.expimp.ExportSavedCheckboxChanged)
-	ExpImpwindow.ImportExport.ExportTbxCheckbox = Dta.ui.createCheckbox("ExportTbxCheckbox", ExpImpwindow.ImportExport, 175, 0, Lang[Dta.Language].Text.TbxSets, false, nil, Dta.expimp.ExportTbxCheckboxChanged)
+	expImp.ExportSavedCheckbox = Dta.ui.createCheckbox("ExportSavedCheckbox", expImp, 55, 0, Lang[Dta.Language].Text.SavedSets, true, nil, Dta.expimp.ExportSavedCheckboxChanged)
+	expImp.ExportTbxCheckbox = Dta.ui.createCheckbox("ExportTbxCheckbox", expImp, 175, 0, Lang[Dta.Language].Text.TbxSets, false, nil, Dta.expimp.ExportTbxCheckboxChanged)
 
 
-	ExpImpwindow.ImportExport.ExportLabel = Dta.ui.createText("ImportExportExportLabel", ExpImpwindow.ImportExport, 0, 25, Lang[Dta.Language].Text.Name, 14)
-	ExpImpwindow.ImportExport.ExportLoad = UI.CreateFrame("SimpleSelect", "ExportNameSelect", ExpImpwindow.ImportExport)
-	ExpImpwindow.ImportExport.ExportLoad:SetPoint("TOPLEFT", ExpImpwindow.ImportExport, "TOPLEFT", 55, 25)
-	ExpImpwindow.ImportExport.ExportLoad:SetLayer(100)
-	ExpImpwindow.ImportExport.ExportLoad:SetItems(Dta.expimp.loadExport())
-	ExpImpwindow.ImportExport.ExportLoad:ResizeToFit()
-	ExpImpwindow.ImportExport.ExportLoad:SetWidth(245)
-	ExpImpwindow.ImportExport.Export = Dta.ui.createButton("ImportExport_Export", ExpImpwindow.ImportExport, 0, 50, nil, nil, Lang[Dta.Language].Buttons.Export, nil, Dta.expimp.ImportExport_ExportClicked)
+	expImp.ExportLabel = Dta.ui.createText("ImportExportExportLabel", expImp, 0, 25, Lang[Dta.Language].Text.Name, 14)
+	expImp.ExportLoad = UI.CreateFrame("SimpleSelect", "ExportNameSelect", expImp)
+	expImp.ExportLoad:SetPoint("TOPLEFT", expImp, "TOPLEFT", 55, 25)
+	expImp.ExportLoad:SetLayer(100)
+	expImp.ExportLoad:SetItems(Dta.expimp.loadExport())
+	expImp.ExportLoad:ResizeToFit()
+	expImp.ExportLoad:SetWidth(245)
+	expImp.Export = Dta.ui.createButton("ImportExport_Export", expImp, 0, 50, nil, nil, Lang[Dta.Language].Buttons.Export, nil, Dta.expimp.ImportExport_ExportClicked)
 
-	ExpImpwindow.divider5 = Dta.ui.createTexture("divider5", ExpImpwindow, "Rift", "divider_06.png.dds", 10, 85, ExpImpwindow:GetWidth()-20)
-	ExpImpwindow.divider5:SetLayer(29)
+	expImp.divider5 = Dta.ui.createTexture("divider5", expImp, "Rift", "divider_06.png.dds", 0, 80, expImp:GetWidth())
+	--ExpImpwindow.divider5:SetLayer(29)
 
-	ExpImpwindow.ImportExport.ImportLabel = Dta.ui.createText("ImportExportImportLabel", ExpImpwindow.ImportExport, 0, 100, Lang[Dta.Language].Text.Name, 14)
-	ExpImpwindow.ImportExport.ImportLoad = UI.CreateFrame("SimpleSelect", "ImportNameSelect", ExpImpwindow.ImportExport)
-	ExpImpwindow.ImportExport.ImportLoad:SetPoint("TOPLEFT", ExpImpwindow.ImportExport, "TOPLEFT", 55, 100)
-	ExpImpwindow.ImportExport.ImportLoad:SetLayer(101)
-	ExpImpwindow.ImportExport.ImportLoad:SetItems(Dta.expimp.loadImport())
-	ExpImpwindow.ImportExport.ImportLoad:ResizeToFit()
-	ExpImpwindow.ImportExport.ImportLoad:SetWidth(245)
-	ExpImpwindow.ImportExport.NewNameLabel = Dta.ui.createText("ImportExportNewNameLabel", ExpImpwindow.ImportExport, 0, 125, Lang[Dta.Language].Text.NewName, 14)
-	ExpImpwindow.ImportExport.NewName = Dta.ui.createTextfield("ImportExportNewName", ExpImpwindow.ImportExport, 85, 125, 215)
-	ExpImpwindow.ImportExport.Import = Dta.ui.createButton("ImportExport_Import", ExpImpwindow.ImportExport, 0, 150, nil, nil, Lang[Dta.Language].Buttons.Import, nil, Dta.expimp.ImportExport_ImportClicked)
-	ExpImpwindow.ImportExport.ImportText = Dta.ui.createButton("ImportExport_ImportText", ExpImpwindow.ImportExport, 165, 150, nil, nil, Lang[Dta.Language].Buttons.ImportText, nil, Dta.expimp.ImportTextClicked)
+	expImp.ImportLabel = Dta.ui.createText("ImportExportImportLabel", expImp, 0, 100, Lang[Dta.Language].Text.Name, 14)
+	expImp.ImportLoad = UI.CreateFrame("SimpleSelect", "ImportNameSelect", expImp)
+	expImp.ImportLoad:SetPoint("TOPLEFT", expImp, "TOPLEFT", 55, 100)
+	expImp.ImportLoad:SetLayer(101)
+	expImp.ImportLoad:SetItems(Dta.expimp.loadImport())
+	expImp.ImportLoad:ResizeToFit()
+	expImp.ImportLoad:SetWidth(245)
+	expImp.NewNameLabel = Dta.ui.createText("ImportExportNewNameLabel", expImp, 0, 125, Lang[Dta.Language].Text.NewName, 14)
+	expImp.NewName = Dta.ui.createTextfield("ImportExportNewName", expImp, 85, 125, 215)
+	expImp.Import = Dta.ui.createButton("ImportExport_Import", expImp, 0, 150, nil, nil, Lang[Dta.Language].Buttons.Import, nil, Dta.expimp.ImportExport_ImportClicked)
+	expImp.ImportText = Dta.ui.createButton("ImportExport_ImportText", expImp, 165, 150, nil, nil, Lang[Dta.Language].Buttons.ImportText, nil, Dta.expimp.ImportTextClicked)
 
-	ExpImpwindow.divider2 = Dta.ui.createTexture("expimp_divider2", ExpImpwindow, "Rift", "divider_06.png.dds", 10, 185, ExpImpwindow:GetWidth()-20)
-	ExpImpwindow.divider2:SetLayer(29)
+	expImp.divider2 = Dta.ui.createTexture("expimp_divider2", expImp, "Rift", "divider_06.png.dds", 0, 180, ExpImpwindow:GetWidth())
+	--ExpImpwindow.divider2:SetLayer(29)
 
-	local textView = Dta.ui.createTextfield("ExpImpText", ExpImpwindow.ImportExport, 0, 200, 305)
-	ExpImpwindow.ImportExport.TextView = textView
+	local textView = Dta.ui.createTextfield("ExpImpText", expImp, 0, 200, 305)
+	expImp.TextView = textView
 	textView:SetHeight(70)
 	textView:SetBackgroundColor(0, 0, 0, 0.5)
 	textView.textHint = Lang[Dta.Language].Prints.TextHint
@@ -100,7 +100,7 @@ function Dta.expimp_ui.buildExpImpWindow()
 	textView:EventAttach(Event.UI.Input.Key.Focus.Gain, KeyFocusGain, "TextHintHide")
 	textView:EventAttach(Event.UI.Input.Key.Focus.Loss, KeyFocusLoss, "TextHintShow")
 	-- TODO: temp fix for new window hierarchy
-	newWindow.ImportExport = ExpImpwindow.ImportExport
+	newWindow.ImportExport = expImp
 
 	return newWindow
 end
