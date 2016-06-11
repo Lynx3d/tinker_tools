@@ -25,8 +25,6 @@ Dta.ItemsPlaced = 1
 Dta.ExportTbx = {}
 Dta.ExportSaved = {}
 Dta.ExportImport_Sets = {}
-Dta.ExportSet = {}
-Dta.ImportSet = {}
 
 --Move, Rotate and Scale
 Dta.pendingActions = {}

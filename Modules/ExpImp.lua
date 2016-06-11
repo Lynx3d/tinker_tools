@@ -66,98 +66,74 @@ end
 function Dta.expimp.loadExport()
 	Dta.ExportSaved = Dta.settings.get_savedsets("SavedSets")--or {}
 	Dta.ExportTbx = tbx_import.get("savedConstructions")
-	if Dta.ui.loadExpImp == "Saved" then
-		if Dta.ExportSaved == nil or Dta.ExportSaved == {} then
-			return {}
-		else
-			local items = {}
-			for name, _ in pairs(Dta.ExportSaved) do
-				table.insert(items, name)
-			end
-			return items
+	local items = {}
+	if Dta.ui.loadExpImp == "Saved" and Dta.ExportSaved then
+		for name, _ in pairs(Dta.ExportSaved) do
+			table.insert(items, name)
 		end
-	elseif Dta.ui.loadExpImp == "Tbx" then
-		if Dta.ExportTbx == nil or Dta.ExportTbx == {} then
-			return {}
-		else
-			local items = {}
-			for name, _ in pairs(Dta.ExportTbx) do
-				table.insert(items, name)
-			end
-			return items
+	elseif Dta.ui.loadExpImp == "Tbx" and Dta.ExportTbx then
+		for name, _ in pairs(Dta.ExportTbx) do
+			table.insert(items, name)
 		end
 	end
+	return items
 end
 
 function Dta.expimp.loadImport()
 	Dta.ExportImport_Sets = Dta_export.get("ExportImport") --or {}
-	if Dta.ExportImport_Sets == nil or Dta.ExportImport_Sets == {} then
-		return {}
-	else
-		local items = {}
+	local items = {}
+	if Dta.ExportImport_Sets then
 		for name, _ in pairs(Dta.ExportImport_Sets) do
 		table.insert(items, name)
 		end
-		return items
 	end
+	return items
 end
 
 -------------------------------
 -- EXPORT
 -------------------------------
 function Dta.expimp.ExportLoadAttributes(name)
+	if not name or name == "" then
+		Dta.CPrint(Lang[Dta.Language].Prints.SelectExport)
+		return
+	end
 	if Dta.ui.loadExpImp == "Saved" then
-		if name ~= nil and name ~= "" then
-			if Dta.ExportSaved[name] ~= nil then
-				Dta.ExportSet = {}
-				Dta.ExportSet = Dta.ExportSaved[name]
-				Dta.expimp.ExportGroupItemAttributes(name)
-			else
-				Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
-			end
+		if Dta.ExportSaved[name] ~= nil then
+			Dta.expimp.ExportGroupItemAttributes(name, Dta.ExportSaved[name])
 		else
-			Dta.CPrint(Lang[Dta.Language].Prints.SelectExport)
+			Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
 		end
 	elseif Dta.ui.loadExpImp == "Tbx" then
-		if name ~= nil and name ~= "" then
-			if Dta.ExportTbx[name] ~= nil then
-				Dta.ExportSet = {}
-				Dta.ExportSet = Dta.ExportTbx[name]
-				Dta.expimp.ExportGroupItemAttributes(name)
-			else
-				Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
-			end
+		if Dta.ExportTbx[name] ~= nil then
+			Dta.expimp.ExportGroupItemAttributes(name, Dta.ExportTbx[name])
 		else
-			Dta.CPrint(Lang[Dta.Language].Prints.SelectExport)
+			Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
 		end
 	end
 end
 
 
-function Dta.expimp.ExportGroupItemAttributes(name)
-	if name ~= nil and name ~= "" then
-		if #Dta.ExportSet > 0 then
-			local groupDetails = {}
-			for _, item in pairs(Dta.ExportSet) do
-				table.insert(groupDetails, {name = item.name,
-											type = item.type,
-											coordX = item.coordX,
-											coordY = item.coordY,
-											coordZ = item.coordZ,
-											yaw = item.yaw,
-											pitch = item.pitch,
-											roll = item.roll,
-											scale = item.scale})
-			end
-			Dta.ExportImport_Sets[name] = groupDetails
-			Dta_export.set("ExportImport", Dta.ExportImport_Sets)
-			Dta.CPrint(string.format(Lang[Dta.Language].Prints.Exported, name))
-			Dta.expimp.refreshExportSelect()
-		else
-			Dta.CPrint("Something went wrong saving to Dta.ExportSet") --Debug
+function Dta.expimp.ExportGroupItemAttributes(name, set_data)
+	if #set_data > 0 then
+		local groupDetails = {}
+		for _, item in pairs(set_data) do
+			table.insert(groupDetails, {name = item.name,
+										type = item.type,
+										coordX = item.coordX,
+										coordY = item.coordY,
+										coordZ = item.coordZ,
+										yaw = item.yaw,
+										pitch = item.pitch,
+										roll = item.roll,
+										scale = item.scale})
 		end
+		Dta.ExportImport_Sets[name] = groupDetails
+		Dta_export.set("ExportImport", Dta.ExportImport_Sets)
+		Dta.CPrint(string.format(Lang[Dta.Language].Prints.Exported, name))
+		Dta.expimp.refreshExportSelect()
 	else
-		Dta.CPrint("Something went wrong sending from Dta.expimp.ExportLoadAttributes") --Debug
+		Dta.CPrint("Something went wrong in set_data") --Debug
 	end
 end
 
@@ -168,9 +144,7 @@ end
 function Dta.expimp.ImportLoadAttributes(name)
 	if name ~= nil and name ~= "" then
 		if Dta.ExportImport_Sets[name] ~= nil then
-			Dta.ImportSet = {}
-			Dta.ImportSet = Dta.ExportImport_Sets[name]
-			Dta.expimp.ImportGroupItemAttributes(name)
+			Dta.expimp.ImportGroupItemAttributes(name, Dta.ExportImport_Sets[name])
 		else
 			Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
 		end
@@ -179,11 +153,11 @@ function Dta.expimp.ImportLoadAttributes(name)
 	end
 end
 
-function Dta.expimp.ImportGroupItemAttributes(name)
+function Dta.expimp.ImportGroupItemAttributes(name, set_data)
 	if name ~= nil and name ~= "" then
-		if #Dta.ImportSet > 0 then
+		if #set_data > 0 then
 			local groupDetails = {}
-			for _, item in pairs(Dta.ImportSet) do
+			for _, item in pairs(set_data) do
 				table.insert(groupDetails, {name = item.name,
 											type = item.type,
 											coordX = item.coordX,
@@ -200,7 +174,7 @@ function Dta.expimp.ImportGroupItemAttributes(name)
 			Dta.CPrint(string.format(Lang[Dta.Language].Prints.Imported, name))
 			Dta.expimp.removeImportedSet(name)
 		else
-			--print("Something went wrong saving to Dta.ExportSet") --Debug
+			--print("Something went wrong in set_data") --Debug
 		end
 	else
 		--print("Something went wrong sending from Dta.expimp.ExportLoadAttributes") --Debug
