@@ -57,6 +57,7 @@ function Dta.expimp_ui.buildExpImpWindow()
 	expImp.ExportLoad:ResizeToFit()
 	expImp.ExportLoad:SetWidth(245)
 	expImp.Export = Dta.ui.createButton("ImportExport_Export", expImp, 0, 50, nil, nil, Lang[Dta.Language].Buttons.Export, nil, Dta.expimp.ImportExport_ExportClicked)
+	expImp.ExportText = Dta.ui.createButton("ImpExp_ExportText", expImp, 165, 50, nil, nil, Lang[Dta.Language].Buttons.ExportText, nil, Dta.expimp.ExportTextClicked)
 
 	expImp.divider5 = Dta.ui.createTexture("divider5", expImp, "Rift", "divider_06.png.dds", 0, 80, expImp:GetWidth())
 	--ExpImpwindow.divider5:SetLayer(29)

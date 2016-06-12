@@ -54,9 +54,30 @@ function Dta.expimp.refreshExportSelect()
 	end
 end
 
+function Dta.expimp.ExportTextClicked()
+	local name = Dta.ui.windowExpImp.ImportExport.ExportLoad:GetSelectedItem()
+	local savedSets = Dta.settings.get_savedsets("SavedSets")
+	if not name or name == "" then
+		Dta.CPrint(Lang[Dta.Language].Prints.SelectExport)
+		return
+	end
+	local text = "--TT " .. Dta.Version .. "\nset = {\n"
+	for i, details in ipairs(savedSets[name]) do
+		local item = { details.name, details.type, details.coordX, details.coordY, details.coordZ,
+						details.pitch, details.yaw, details.roll, details.scale }
+		if i > 1 then
+			text = text .. ",\n"
+		end
+		text = text .. Utility.Serialize.Inline(item)
+	end
+	text = text .. "\n}"
+	Dta.ui.windowExpImp.ImportExport.TextView:SetText(text)
+	Dta.ui.windowExpImp.ImportExport.TextView.hint_active = false
+end
+
 function Dta.expimp.ImportTextClicked()
 	local expimpUI = Dta.ui.windowExpImp.ImportExport
-	Dta.expimp.ImportTbxSerialized(expimpUI.NewName:GetText(), expimpUI.TextView:GetText())
+	Dta.expimp.ImportSerializedSet(expimpUI.NewName:GetText(), expimpUI.TextView:GetText())
 end
 
 -------------------------------
@@ -182,10 +203,10 @@ function Dta.expimp.ImportGroupItemAttributes(name, set_data)
 end
 
 ----------------------------------
---TOOLBOX STRING IMPORT
+-- STRING IMPORT
 ----------------------------------
 
-function Dta.expimp.ImportTbxSerialized(name, data)
+function Dta.expimp.ImportSerializedSet(name, data)
 	local saved_sets = Dta.settings.get_savedsets("SavedSets") or {}
 	if not name or name == "" then
 		Dta.CPrint(Lang[Dta.Language].Prints.EnterName)
@@ -195,13 +216,48 @@ function Dta.expimp.ImportTbxSerialized(name, data)
 		Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetExists, name))
 		return
 	end
-	local deserialized = Dta.expimp.Tbx_DeserializeTable(data)
-	if deserialized ~= nil and #deserialized > 0 then
+	local ok, deserialized
+	-- search for semi-colon delimited item string to detect Toolbox data
+	if string.match(data, ";I[%x,]+,,;") then
+		deserialized = Dta.expimp.Tbx_DeserializeTable(data)
+	else
+		ok, deserialized = pcall(Dta.expimp.DeserializeSet, data)
+		if not ok then
+			Dta.CPrint(deserialized)
+			return
+		end
+	end
+	if deserialized and #deserialized > 0 then
 		saved_sets[name] = deserialized
 		Dta.settings.set_savedsets("SavedSets", saved_sets) -- in case it we didn't have any yet
 		Dta.CPrint(string.format(Lang[Dta.Language].Prints.Imported, name))
 		Dta.expimp.refreshExportSelect()
 	end
+end
+
+function Dta.expimp.DeserializeSet(data)
+	local env_tbl = {}
+	local import_func, err = load(data, "tt_set", "t", env_tbl)
+	assert(import_func, err)
+	import_func()
+
+	if type(env_tbl.set) ~= "table" then
+		return nil
+	end
+	local new_set = {}
+	for i, item in ipairs(env_tbl.set) do
+		-- integrity check
+		assert(type(item) == "table", "'set' is not a table!")
+		assert(type(item[1]) == "string" and type(item[2]) == "string", "Value is not a string!")
+		for j = 3, 9, 1 do
+			assert (type(item[j]) == "number", "Value is not a number!")
+		end
+		-- restore item details
+		new_set[i] = { name = item[1], type = item[2],
+					  coordX = item[3], coordY = item[4], coordZ = item[5],
+					  pitch = item[6], yaw = item[7], roll = item[8], scale = item[9] }
+	end
+	return new_set
 end
 
 function Dta.expimp.Tbx_DeserializeTable(data)
