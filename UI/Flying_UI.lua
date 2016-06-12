@@ -1,5 +1,4 @@
 ﻿local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.flying_ui = {}
 
@@ -17,7 +16,7 @@ function Dta.flying_ui.buildFlyingWindow()
 	local y = Dta.settings.get("FlyingwindowPosY")
 	local newWindow = Dta.ui.Window.Create("FlyingWindow",
 							Dta.ui.context,
-							Lang[Dta.Language].Titles.TribalMagic,
+							Dta.Locale.Titles.TribalMagic,
 							FlyingWindowSettings.WIDTH,
 							FlyingWindowSettings.HEIGHT,
 							x,
@@ -45,7 +44,7 @@ function Dta.flying_ui.buildFlyingWindow()
 	Flyingwindow.DFlying:SetLayer(30)
 	--Flyingwindow.DFlying:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-	Flyingwindow.DFlying.placeButton = Dta.ui.createButton("DFlyingPlaceBtn", Flyingwindow.DFlying, 0, 95, nil, nil, Lang[Dta.Language].Buttons.Place, nil, Dta.flying.PlaceFlying)
+	Flyingwindow.DFlying.placeButton = Dta.ui.createButton("DFlyingPlaceBtn", Flyingwindow.DFlying, 0, 95, nil, nil, Dta.Locale.Buttons.Place, nil, Dta.flying.PlaceFlying)
 	Flyingwindow.DFlying.placeButton:SetLayer(100)
 	if Dta.carpetId ~= "d" then
 		Flyingwindow.DFlying.placeButton:SetEnabled(false)
@@ -53,7 +52,7 @@ function Dta.flying_ui.buildFlyingWindow()
 		Flyingwindow.DFlying.placeButton:SetEnabled(true)
 	end
 
-	Flyingwindow.DFlying.pickupButton = Dta.ui.createButton("DFlyingPickUpBtn", Flyingwindow.DFlying, 0, 125, nil, nil, Lang[Dta.Language].Buttons.PickUp, nil, Dta.flying.PickUpFlying)
+	Flyingwindow.DFlying.pickupButton = Dta.ui.createButton("DFlyingPickUpBtn", Flyingwindow.DFlying, 0, 125, nil, nil, Dta.Locale.Buttons.PickUp, nil, Dta.flying.PickUpFlying)
 	Flyingwindow.DFlying.pickupButton:SetLayer(100)
 	if Dta.carpetId ~= "d" then
 		Flyingwindow.DFlying.pickupButton:SetEnabled(true)

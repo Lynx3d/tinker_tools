@@ -1,5 +1,4 @@
 ﻿local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.help_ui = {}
 
@@ -93,7 +92,7 @@ function Dta.help_ui.buildHelpWindow()
 	local y = Dta.settings.get("HelpwindowPosY")
 	Helpwindow = Dta.help_ui.createWindowHelp("HelpWindow",
 							Dta.ui.context,
-							Lang[Dta.Language].Titles.Help,
+							Dta.Locale.Titles.Help,
 							HelpWindowSettings.WIDTH,
 							HelpWindowSettings.HEIGHT,
 							x,

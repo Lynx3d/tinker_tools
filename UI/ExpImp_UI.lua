@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.expimp_ui = {}
 
@@ -17,7 +16,7 @@ function Dta.expimp_ui.buildExpImpWindow()
 	local y = Dta.settings.get("ExpImpwindowPosY")
 	local newWindow = Dta.ui.Window.Create("ExpImpWindow",
 							Dta.ui.context,
-							Lang[Dta.Language].Titles.ImportExport,
+							Dta.Locale.Titles.ImportExport,
 							ExpImpWindowSettings.WIDTH,
 							ExpImpWindowSettings.HEIGHT,
 							x,
@@ -45,43 +44,43 @@ function Dta.expimp_ui.buildExpImpWindow()
 	expImp:SetLayer(30)
 	--expImp:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-	expImp.ExportSavedCheckbox = Dta.ui.createCheckbox("ExportSavedCheckbox", expImp, 55, 0, Lang[Dta.Language].Text.SavedSets, true, nil, Dta.expimp.ExportSavedCheckboxChanged)
-	expImp.ExportTbxCheckbox = Dta.ui.createCheckbox("ExportTbxCheckbox", expImp, 175, 0, Lang[Dta.Language].Text.TbxSets, false, nil, Dta.expimp.ExportTbxCheckboxChanged)
+	expImp.ExportSavedCheckbox = Dta.ui.createCheckbox("ExportSavedCheckbox", expImp, 55, 0, Dta.Locale.Text.SavedSets, true, nil, Dta.expimp.ExportSavedCheckboxChanged)
+	expImp.ExportTbxCheckbox = Dta.ui.createCheckbox("ExportTbxCheckbox", expImp, 175, 0, Dta.Locale.Text.TbxSets, false, nil, Dta.expimp.ExportTbxCheckboxChanged)
 
 
-	expImp.ExportLabel = Dta.ui.createText("ImportExportExportLabel", expImp, 0, 25, Lang[Dta.Language].Text.Name, 14)
+	expImp.ExportLabel = Dta.ui.createText("ImportExportExportLabel", expImp, 0, 25, Dta.Locale.Text.Name, 14)
 	expImp.ExportLoad = UI.CreateFrame("SimpleSelect", "ExportNameSelect", expImp)
 	expImp.ExportLoad:SetPoint("TOPLEFT", expImp, "TOPLEFT", 55, 25)
 	expImp.ExportLoad:SetLayer(100)
 	expImp.ExportLoad:SetItems(Dta.expimp.loadExport())
 	expImp.ExportLoad:ResizeToFit()
 	expImp.ExportLoad:SetWidth(245)
-	expImp.Export = Dta.ui.createButton("ImportExport_Export", expImp, 0, 50, nil, nil, Lang[Dta.Language].Buttons.Export, nil, Dta.expimp.ImportExport_ExportClicked)
-	expImp.ExportText = Dta.ui.createButton("ImpExp_ExportText", expImp, 165, 50, nil, nil, Lang[Dta.Language].Buttons.ExportText, nil, Dta.expimp.ExportTextClicked)
+	expImp.Export = Dta.ui.createButton("ImportExport_Export", expImp, 0, 50, nil, nil, Dta.Locale.Buttons.Export, nil, Dta.expimp.ImportExport_ExportClicked)
+	expImp.ExportText = Dta.ui.createButton("ImpExp_ExportText", expImp, 165, 50, nil, nil, Dta.Locale.Buttons.ExportText, nil, Dta.expimp.ExportTextClicked)
 
 	expImp.divider5 = Dta.ui.createTexture("divider5", expImp, "Rift", "divider_06.png.dds", 0, 80, expImp:GetWidth())
 	--ExpImpwindow.divider5:SetLayer(29)
 
-	expImp.ImportLabel = Dta.ui.createText("ImportExportImportLabel", expImp, 0, 100, Lang[Dta.Language].Text.Name, 14)
+	expImp.ImportLabel = Dta.ui.createText("ImportExportImportLabel", expImp, 0, 100, Dta.Locale.Text.Name, 14)
 	expImp.ImportLoad = UI.CreateFrame("SimpleSelect", "ImportNameSelect", expImp)
 	expImp.ImportLoad:SetPoint("TOPLEFT", expImp, "TOPLEFT", 55, 100)
 	expImp.ImportLoad:SetLayer(101)
 	expImp.ImportLoad:SetItems(Dta.expimp.loadImport())
 	expImp.ImportLoad:ResizeToFit()
 	expImp.ImportLoad:SetWidth(245)
-	expImp.NewNameLabel = Dta.ui.createText("ImportExportNewNameLabel", expImp, 0, 125, Lang[Dta.Language].Text.NewName, 14)
+	expImp.NewNameLabel = Dta.ui.createText("ImportExportNewNameLabel", expImp, 0, 125, Dta.Locale.Text.NewName, 14)
 	expImp.NewName = Dta.ui.createTextfield("ImportExportNewName", expImp, 85, 125, 215)
-	expImp.Import = Dta.ui.createButton("ImportExport_Import", expImp, 0, 150, nil, nil, Lang[Dta.Language].Buttons.Import, nil, Dta.expimp.ImportExport_ImportClicked)
-	expImp.ImportText = Dta.ui.createButton("ImportExport_ImportText", expImp, 165, 150, nil, nil, Lang[Dta.Language].Buttons.ImportText, nil, Dta.expimp.ImportTextClicked)
+	expImp.Import = Dta.ui.createButton("ImportExport_Import", expImp, 0, 150, nil, nil, Dta.Locale.Buttons.Import, nil, Dta.expimp.ImportExport_ImportClicked)
+	expImp.ImportText = Dta.ui.createButton("ImportExport_ImportText", expImp, 165, 150, nil, nil, Dta.Locale.Buttons.ImportText, nil, Dta.expimp.ImportTextClicked)
 
-	expImp.divider2 = Dta.ui.createTexture("expimp_divider2", expImp, "Rift", "divider_06.png.dds", 0, 180, ExpImpwindow:GetWidth())
+	expImp.divider2 = Dta.ui.createTexture("expimp_divider2", expImp, "Rift", "divider_06.png.dds", 0, 180, expImp:GetWidth())
 	--ExpImpwindow.divider2:SetLayer(29)
 
 	local textView = Dta.ui.createTextfield("ExpImpText", expImp, 0, 200, 305)
 	expImp.TextView = textView
 	textView:SetHeight(70)
 	textView:SetBackgroundColor(0, 0, 0, 0.5)
-	textView.textHint = Lang[Dta.Language].Prints.TextHint
+	textView.textHint = Dta.Locale.Prints.TextHint
 	textView:SetText(textView.textHint)
 	textView.hint_active = true
 

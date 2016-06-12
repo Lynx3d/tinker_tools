@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.losa = {}
 
@@ -192,7 +191,7 @@ function Dta.losa.confirmPlayerDistance(player, cp)
 	local vec = { cp.x - player.coordX, cp.y - player.coordY, cp.z - player.coordZ }
 	local distance = math.sqrt(vec[1] * vec[1] + vec[2] * vec[2] + vec[3] * vec[3])
 	if distance > 200 then
-		Dta.ui.showConfirmation(string.format(Lang[Dta.Language].Text.ConfirmUsePosition, distance), true, false, coroutine.running())
+		Dta.ui.showConfirmation(string.format(Dta.Locale.Text.ConfirmUsePosition, distance), true, false, coroutine.running())
 		return coroutine.yield()
 	end
 	return true
@@ -227,7 +226,7 @@ function Dta.losa.copyToClipboard(name)
 				item.coordZ = item.coordZ + offset_z
 			end
 		end
-		Dta.CPrint(string.format(Lang[Dta.Language].Prints.CopiedClipboard, name))
+		Dta.CPrint(string.format(Dta.Locale.Prints.CopiedClipboard, name))
 	end
 end
 
@@ -254,12 +253,12 @@ function Dta.losa.saveGroupItemAttributes(name)
 			local constructions = Dta.settings.get_savedsets("SavedSets") or {}
 			constructions[name] = groupDetails
 			Dta.settings.set_savedsets("SavedSets", constructions)
-			Dta.CPrint(string.format(Lang[Dta.Language].Prints.Saved, name))
+			Dta.CPrint(string.format(Dta.Locale.Prints.Saved, name))
 		else
-			Dta.CPrint(Lang[Dta.Language].Prints.MinOneItem)
+			Dta.CPrint(Dta.Locale.Prints.MinOneItem)
 		end
 	else
-		Dta.CPrint(Lang[Dta.Language].Prints.EnterName)
+		Dta.CPrint(Dta.Locale.Prints.EnterName)
 	end
 end
 
@@ -274,18 +273,18 @@ function Dta.losa.printShoppingList(name)
 		if constructionSet and constructionSet[name] ~= nil then
 			local list = Dta.losa.getGroupShoppingList(constructionSet[name])
 			if list ~= nil and Dta.losa.tableLength(list) > 0 then
-				Dta.CPrint(string.format(Lang[Dta.Language].Prints.LoadNeededItems, name))
+				Dta.CPrint(string.format(Dta.Locale.Prints.LoadNeededItems, name))
 				for id, details in pairs(list) do
 					Dta.CPrint(string.format("%s: %d", details.name, details.amount))
 				end
 			else
-				Dta.CPrint(Lang[Dta.Language].Prints.WordCouldNotPrint)
+				Dta.CPrint(Dta.Locale.Prints.WordCouldNotPrint)
 			end
 		else
-			Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
+			Dta.CPrint(string.format(Dta.Locale.Prints.SetNotFound, name))
 		end
 	else
-		Dta.CPrint(Lang[Dta.Language].Prints.LoadPrintMats)
+		Dta.CPrint(Dta.Locale.Prints.LoadPrintMats)
 	end
 end
 
@@ -334,7 +333,7 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 		not success.y or
 		not success.z or
 		not success.n_copies then
-		Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
+		Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
 		return
 	end
 
@@ -344,7 +343,7 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 		settings.cp = Dta.items.getCentralPoint(constructionSet[name])
 		settings.player = Inspect.Unit.Detail("player")
 		-- check if set location is reasonably near
-		if atOriginalLoc and not Dta.losa.confirmPlayerDistance(settings.player, settings.cp) then 
+		if atOriginalLoc and not Dta.losa.confirmPlayerDistance(settings.player, settings.cp) then
 			return
 		end
 		-- check available items
@@ -353,11 +352,11 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 			Dta.losa.ScanInventory(shoppingList, true, false) -- settings.include_bags, settings.include_bank)
 			local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
 			if missing then
-				Dta.losa.printMissingItems(missing, shoppingList, Lang[Dta.Language].Prints.NotLoadedBags)
+				Dta.losa.printMissingItems(missing, shoppingList, Dta.Locale.Prints.NotLoadedBags)
 				return
 			end
 			Dta.items.DeselectAll()
-			Dta.Co_DoneMessage = string.format(Lang[Dta.Language].Prints.SetLoaded, name)
+			Dta.Co_DoneMessage = string.format(Dta.Locale.Prints.SetLoaded, name)
 			Dta.AddItem_Co = coroutine.create(Dta.losa.pasteGroup)
 			local ok, err = coroutine.resume(Dta.AddItem_Co, constructionSet[name], shoppingList, settings, newItems, atOriginalLoc)
 			if not ok then dump(err) end
@@ -365,13 +364,13 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 			Dta.losa.ScanSelection(shoppingList)
 			local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
 			if missing then
-				Dta.losa.printMissingItems(missing, shoppingList, Lang[Dta.Language].Prints.NotLoadedSelection)
+				Dta.losa.printMissingItems(missing, shoppingList, Dta.Locale.Prints.NotLoadedSelection)
 				return
 			end
 			Dta.losa.pasteGroup(constructionSet[name], shoppingList, settings, newItems, atOriginalLoc)
 		end
 	else
-		Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
+		Dta.CPrint(string.format(Dta.Locale.Prints.SetNotFound, name))
 	end
 end
 
@@ -401,7 +400,7 @@ function Dta.losa.deleteItemSet(name)
 	local constructions = Dta.settings.get_savedsets("SavedSets")
 	constructions[name] = nil
 	Dta.losa.refreshLoadSelect()
-	Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetRemoved, name))
+	Dta.CPrint(string.format(Dta.Locale.Prints.SetRemoved, name))
 end
 
 function Dta.losa.removeGroupItem(name)
@@ -411,9 +410,9 @@ function Dta.losa.removeGroupItem(name)
 			Dta.ui.showConfirmation(string.format(Lang["English"].Text.ConfirmDeleteSet, name),
 									Dta.losa.deleteItemSet, nil, name)
 		else
-			Dta.CPrint(string.format(Lang[Dta.Language].Prints.NotRemoved, name))
+			Dta.CPrint(string.format(Dta.Locale.Prints.NotRemoved, name))
 		end
 	else
-		Dta.CPrint(Lang[Dta.Language].Prints.RemoveSelectSet)
+		Dta.CPrint(Dta.Locale.Prints.RemoveSelectSet)
 	end
 end

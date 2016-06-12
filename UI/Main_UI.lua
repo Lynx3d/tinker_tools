@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.ui = {}
 
@@ -307,7 +306,7 @@ function Dta.ui.buildMainWindow()
 	--Mainwindow = Dta.ui.createWindow("MainWindow",
 	local newWindow = Dta.ui.Window.Create("MainWindowNew",
 							Dta.ui.context,
-							Lang[Dta.Language].Titles.Main,
+							Dta.Locale.Titles.Main,
 							MainWindowSettings.WIDTH,
 							MainWindowSettings.HEIGHT,
 							x, y,
@@ -334,7 +333,7 @@ function Dta.ui.buildMainWindow()
 
 	Mainwindow.itemDetails.icon = Dta.ui.createIcon("itemDetailsIcon", Mainwindow.itemDetails, nil, 0, 0, 25)
 	Mainwindow.itemDetails.icon:SetLayer(35)
-	Mainwindow.itemDetails.name = Dta.ui.createText("itemDetailsName", Mainwindow.itemDetails, 30, 0, Lang[Dta.Language].Text.NothingSelected, 16)
+	Mainwindow.itemDetails.name = Dta.ui.createText("itemDetailsName", Mainwindow.itemDetails, 30, 0, Dta.Locale.Text.NothingSelected, 16)
 	Mainwindow.itemDetails.name:SetWidth(280)
 	Mainwindow.itemDetails.name:SetWordwrap(true)
 	Mainwindow.itemDetails.name:ClearPoint("TOPLEFT")
@@ -358,34 +357,34 @@ function Dta.ui.buildMainWindow()
 	Mainwindow.itemDetails.y = Dta.ui.createText("itemDetailsY", Mainwindow.itemDetails, 25, 50, "-", 14)
 	Mainwindow.itemDetails.z = Dta.ui.createText("itemDetailsZ", Mainwindow.itemDetails, 25, 70, "-", 14)
 
-	Mainwindow.itemDetails.pitchLabel = Dta.ui.createText("itemDetailsPitchLabel", Mainwindow.itemDetails, 125, 30, Lang[Dta.Language].Text.Pitch, 14, {1, 0, 0, 1})
-	Mainwindow.itemDetails.yawLabel = Dta.ui.createText("itemDetailsYawLabel", Mainwindow.itemDetails, 125, 50, Lang[Dta.Language].Text.Yaw, 14, {0, 1, 0, 1})
-	Mainwindow.itemDetails.rollLabel = Dta.ui.createText("itemDetailsRollLabel", Mainwindow.itemDetails, 125, 70, Lang[Dta.Language].Text.Roll, 14, {0, 1, 1, 1})
+	Mainwindow.itemDetails.pitchLabel = Dta.ui.createText("itemDetailsPitchLabel", Mainwindow.itemDetails, 125, 30, Dta.Locale.Text.Pitch, 14, {1, 0, 0, 1})
+	Mainwindow.itemDetails.yawLabel = Dta.ui.createText("itemDetailsYawLabel", Mainwindow.itemDetails, 125, 50, Dta.Locale.Text.Yaw, 14, {0, 1, 0, 1})
+	Mainwindow.itemDetails.rollLabel = Dta.ui.createText("itemDetailsRollLabel", Mainwindow.itemDetails, 125, 70, Dta.Locale.Text.Roll, 14, {0, 1, 1, 1})
 
 	Mainwindow.itemDetails.pitch = Dta.ui.createText("itemDetailsPitch", Mainwindow.itemDetails, 175, 30, "-", 14)
 	Mainwindow.itemDetails.yaw = Dta.ui.createText("itemDetailsYaw", Mainwindow.itemDetails, 175, 50, "-", 14)
 	Mainwindow.itemDetails.roll = Dta.ui.createText("itemDetailsRoll", Mainwindow.itemDetails, 175, 70, "-", 14)
 
-	Mainwindow.itemDetails.scaleLabel = Dta.ui.createText("itemDetailsScaleLabel", Mainwindow.itemDetails, 0, 90, Lang[Dta.Language].Text.Scale, 14)
+	Mainwindow.itemDetails.scaleLabel = Dta.ui.createText("itemDetailsScaleLabel", Mainwindow.itemDetails, 0, 90, Dta.Locale.Text.Scale, 14)
 	Mainwindow.itemDetails.scale = Dta.ui.createText("itemDetailsScale", Mainwindow.itemDetails, 50, 90, "-", 14)
 
-	Mainwindow.itemDetails.nrItemsLabel = Dta.ui.createText("itemDetailsnrItemsLabel", Mainwindow.itemDetails, 125, 90, Lang[Dta.Language].Text.NrSelectItems, 14)
+	Mainwindow.itemDetails.nrItemsLabel = Dta.ui.createText("itemDetailsnrItemsLabel", Mainwindow.itemDetails, 125, 90, Dta.Locale.Text.NrSelectItems, 14)
 	Mainwindow.itemDetails.nrItems = Dta.ui.createText("itemDetailsnrItems", Mainwindow.itemDetails, 265, 90, "-", 14)
 
 	-- Tool Buttons
-	Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow, 8, 133, 160, nil, Lang[Dta.Language].Buttons.MoveWindow, nil, Dta.ui.modifyMoveButtonClicked)
-	Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow, 157, 133, 160, nil, Lang[Dta.Language].Buttons.RotateWindow, nil, Dta.ui.modifyRotateButtonClicked)
-	Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow, 8, 160, 160, nil, Lang[Dta.Language].Buttons.ScaleWindow, nil, Dta.ui.modifyScaleButtonClicked)
-	Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow, 157, 160, 160, nil, Lang[Dta.Language].Buttons.OffsetCalc, nil, Dta.ui.modifyMeasurementsButtonClicked)
-	Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow, 8, 187, 160, nil, Lang[Dta.Language].Buttons.CopyPaste, nil, Dta.ui.modifyCoPaButtonClicked)
-	Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow, 157, 187, 160, nil, Lang[Dta.Language].Buttons.LoadSave, nil, Dta.ui.modifySaveButtonClicked)
-	--Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 290, 150, 160, nil, Lang[Dta.Language].Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
-	Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow, 8, 214, 160, nil, Lang[Dta.Language].Buttons.TribalMagic, nil, Dta.ui.modifyDFlyingButtonClicked)
-	Mainwindow.itemDetails.MoreBtn = Dta.ui.createButton("itemDetailMoreBtn", Mainwindow, 157, 214, 160, nil, Lang[Dta.Language].Buttons.More, nil, Dta.ui.moreBtnClicked)
+	Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow, 8, 133, 160, nil, Dta.Locale.Buttons.MoveWindow, nil, Dta.ui.modifyMoveButtonClicked)
+	Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow, 157, 133, 160, nil, Dta.Locale.Buttons.RotateWindow, nil, Dta.ui.modifyRotateButtonClicked)
+	Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow, 8, 160, 160, nil, Dta.Locale.Buttons.ScaleWindow, nil, Dta.ui.modifyScaleButtonClicked)
+	Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow, 157, 160, 160, nil, Dta.Locale.Buttons.OffsetCalc, nil, Dta.ui.modifyMeasurementsButtonClicked)
+	Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow, 8, 187, 160, nil, Dta.Locale.Buttons.CopyPaste, nil, Dta.ui.modifyCoPaButtonClicked)
+	Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow, 157, 187, 160, nil, Dta.Locale.Buttons.LoadSave, nil, Dta.ui.modifySaveButtonClicked)
+	--Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 290, 150, 160, nil, Dta.Locale.Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
+	Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow, 8, 214, 160, nil, Dta.Locale.Buttons.TribalMagic, nil, Dta.ui.modifyDFlyingButtonClicked)
+	Mainwindow.itemDetails.MoreBtn = Dta.ui.createButton("itemDetailMoreBtn", Mainwindow, 157, 214, 160, nil, Dta.Locale.Buttons.More, nil, Dta.ui.moreBtnClicked)
 	-- Expanded
 	Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow, 157, 214, 160, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
-	Mainwindow.itemDetails.ReskinBtn = Dta.ui.createButton("itemDetailReskinBtn", Mainwindow, 8, 241, 160, nil, Lang[Dta.Language].Buttons.Reskin, nil, Dta.ui.toggleReskinWindow)
-	Mainwindow.itemDetails.LessBtn = Dta.ui.createButton("itemDetailLessBtn", Mainwindow, 157, 241, 160, nil, Lang[Dta.Language].Buttons.Less, nil, Dta.ui.lessBtnClicked)
+	Mainwindow.itemDetails.ReskinBtn = Dta.ui.createButton("itemDetailReskinBtn", Mainwindow, 8, 241, 160, nil, Dta.Locale.Buttons.Reskin, nil, Dta.ui.toggleReskinWindow)
+	Mainwindow.itemDetails.LessBtn = Dta.ui.createButton("itemDetailLessBtn", Mainwindow, 157, 241, 160, nil, Dta.Locale.Buttons.Less, nil, Dta.ui.lessBtnClicked)
 	Mainwindow.itemDetails.Alphabet:SetVisible(false)
 	Mainwindow.itemDetails.ReskinBtn:SetVisible(false)
 	Mainwindow.itemDetails.LessBtn:SetVisible(false)
@@ -547,8 +546,8 @@ function Dta.ui.buildNotificationWindow()
 	newWindow.Message = Dta.ui.createText("confirmationDialogueMessage", newWindow, 10, 0, "-", 16)
 	newWindow.Message:ClearPoint("TOPLEFT")
 	newWindow.Message:SetPoint("TOPCENTER", newWindow, "TOPCENTER", 0, 10)
-	newWindow.YesBtn = Dta.ui.createButton("errorBtn_Yes", newWindow, 80, 70, 160, nil, Lang[Dta.Language].Buttons.Yes, nil, Dta.ui.notificationWindowButtonClicked)
-	newWindow.NoBtn = Dta.ui.createButton("errorBtn_No", newWindow, 260, 70, 160, nil, Lang[Dta.Language].Buttons.No, nil, Dta.ui.notificationWindowButtonClicked)
+	newWindow.YesBtn = Dta.ui.createButton("errorBtn_Yes", newWindow, 80, 70, 160, nil, Dta.Locale.Buttons.Yes, nil, Dta.ui.notificationWindowButtonClicked)
+	newWindow.NoBtn = Dta.ui.createButton("errorBtn_No", newWindow, 260, 70, 160, nil, Dta.Locale.Buttons.No, nil, Dta.ui.notificationWindowButtonClicked)
 	return newWindow
 end
 
@@ -559,8 +558,8 @@ function Dta.ui.showNotification(message, btn1_callback, btn2_callback, userdata
 		Dta.ui.notificationWindow = Dta.ui.buildNotificationWindow()
 	end
 	Dta.ui.notificationWindow.Message:SetText(message)
-	Dta.ui.notificationWindow.YesBtn:SetText(btn1_text or Lang[Dta.Language].Buttons.Yes)
-	Dta.ui.notificationWindow.NoBtn:SetText(btn2_text or Lang[Dta.Language].Buttons.No)
+	Dta.ui.notificationWindow.YesBtn:SetText(btn1_text or Dta.Locale.Buttons.Yes)
+	Dta.ui.notificationWindow.NoBtn:SetText(btn2_text or Dta.Locale.Buttons.No)
 	Dta.ui.notificationWindow.YesBtn.click_callback = btn1_callback
 	Dta.ui.notificationWindow.NoBtn.click_callback = btn2_callback
 	Dta.ui.notificationWindow.user_data = userdata
@@ -572,7 +571,7 @@ end
 
 function Dta.ui.showConfirmation(message, btn1_callback, btn2_callback, userdata)
 	Dta.ui.showNotification(message, btn1_callback, btn2_callback, userdata,
-							Lang[Dta.Language].Buttons.OK, Lang[Dta.Language].Buttons.Cancel)
+							Dta.Locale.Buttons.OK, Dta.Locale.Buttons.Cancel)
 end
 
 function Dta.ui.notificationWindowButtonClicked(self, event)

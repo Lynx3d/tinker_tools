@@ -1,5 +1,4 @@
 ﻿local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.scale_ui = {}
 
@@ -21,7 +20,7 @@ function Dta.scale_ui.buildScaleWindow()
 	local y = Dta.settings.get("ScalewindowPosY")
 	local newWindow = Dta.ui.Window.Create("Scalewindow",
 							Dta.ui.context,
-							Lang[Dta.Language].Titles.Scale,
+							Dta.Locale.Titles.Scale,
 							ScaleWindowSettings.WIDTH,
 							ScaleWindowSettings.HEIGHT,
 							x,
@@ -50,18 +49,18 @@ function Dta.scale_ui.buildScaleWindow()
 	Scalewindow.modifyScale:SetLayer(30)
 	--Scalewindow.modifyScale:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-	Scalewindow.modifyScale.label = Dta.ui.createText("modifyScaleLabel", Scalewindow.modifyScale, 0, 25, Lang[Dta.Language].Text.Scale, 14)
+	Scalewindow.modifyScale.label = Dta.ui.createText("modifyScaleLabel", Scalewindow.modifyScale, 0, 25, Dta.Locale.Text.Scale, 14)
 
 	Scalewindow.modifyScale.scale = Dta.ui.createTextfield("modifyScaleScale", Scalewindow.modifyScale, 45, 25, 80)
 	Scalewindow.modifyScale.fetchScale = Dta.ui.createReloadButton("fetchScale", Scalewindow.modifyScale, 125, 25, Dta.scale.fetchScaleButtonClicked)
 
-	Scalewindow.modifyScale.modeAbs = Dta.ui.createCheckbox("modifyScaleModeAbs", Scalewindow.modifyScale, 160, 5, Lang[Dta.Language].Text.Absolute, true, nil, Dta.scale.modifyScaleModeAbsChanged)
-	Scalewindow.modifyScale.modeRel = Dta.ui.createCheckbox("modifyScaleModeRel", Scalewindow.modifyScale, 160, 25, Lang[Dta.Language].Text.Relative, false, nil, Dta.scale.modifyScaleModeRelChanged)
-	Scalewindow.modifyScale.modeGrp = Dta.ui.createCheckbox("modifyScaleModeGrp", Scalewindow.modifyScale, 175, 45, Lang[Dta.Language].Text.MoveAsGroup, false, nil, nil)
+	Scalewindow.modifyScale.modeAbs = Dta.ui.createCheckbox("modifyScaleModeAbs", Scalewindow.modifyScale, 160, 5, Dta.Locale.Text.Absolute, true, nil, Dta.scale.modifyScaleModeAbsChanged)
+	Scalewindow.modifyScale.modeRel = Dta.ui.createCheckbox("modifyScaleModeRel", Scalewindow.modifyScale, 160, 25, Dta.Locale.Text.Relative, false, nil, Dta.scale.modifyScaleModeRelChanged)
+	Scalewindow.modifyScale.modeGrp = Dta.ui.createCheckbox("modifyScaleModeGrp", Scalewindow.modifyScale, 175, 45, Dta.Locale.Text.MoveAsGroup, false, nil, nil)
 	Scalewindow.modifyScale.modeGrp:CBSetEnabled(false)
 
-	Scalewindow.modifyScale.changeBtn = Dta.ui.createButton("modifyScaleBtn", Scalewindow.modifyScale, 0, 85, nil, nil, Lang[Dta.Language].Buttons.Scale, nil, Dta.scale.modifyScaleButtonClicked)
-	Scalewindow.modifyScale.resetBtn = Dta.ui.createButton("modifyScaleResetBtn", Scalewindow.modifyScale, 150, 85, nil, nil, Lang[Dta.Language].Buttons.Reset, nil, Dta.scale.modifyScaleResetButtonClicked)
+	Scalewindow.modifyScale.changeBtn = Dta.ui.createButton("modifyScaleBtn", Scalewindow.modifyScale, 0, 85, nil, nil, Dta.Locale.Buttons.Scale, nil, Dta.scale.modifyScaleButtonClicked)
+	Scalewindow.modifyScale.resetBtn = Dta.ui.createButton("modifyScaleResetBtn", Scalewindow.modifyScale, 150, 85, nil, nil, Dta.Locale.Buttons.Reset, nil, Dta.scale.modifyScaleResetButtonClicked)
 
 	-- "abuse" cycle function for clearing input focus on 'return' key
 	Scalewindow:EventAttach(Event.UI.Input.Key.Up.Dive, Dta.ui.FocusCycleCallback, "Scalewindow_TabFocusCycle")

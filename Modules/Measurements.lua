@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.measurements = {}
 
@@ -33,29 +32,29 @@ function Dta.measurements.CalculationsClicked()
 
 	if not shape then
 		if orientation ~= 7 then
-			return Dta.CPrint(Lang[Dta.Language].Prints.SelectType)
+			return Dta.CPrint(Dta.Locale.Prints.SelectType)
 		end
 	else
 		dims = Dta.measurements.Dimensions[shape]
 		if orientation ~= 7 then
 			if not (scale and scale_ok) then
-				return Dta.CPrint(Lang[Dta.Language].Prints.TypeSize)
+				return Dta.CPrint(Dta.Locale.Prints.TypeSize)
 			elseif scale > dims.maxScale or scale < dims.minScale then
-				return Dta.CPrint(string.format(Lang[Dta.Language].Prints.SizeC, dims.minScale, dims.maxScale))
+				return Dta.CPrint(string.format(Dta.Locale.Prints.SizeC, dims.minScale, dims.maxScale))
 			end
 		end
 		if orientation > 7 and Dta.selectionCount ~=1 then
-			return Dta.CPrint(Lang[Dta.Language].Prints.Selection1)
+			return Dta.CPrint(Dta.Locale.Prints.Selection1)
 		end
 	end
 
 	if not orientation then
-		return Dta.CPrint(Lang[Dta.Language].Prints.SelectOrientation)
+		return Dta.CPrint(Dta.Locale.Prints.SelectOrientation)
 	end
 
 	if orientation == 7 then
 		if Dta.selectionCount ~= 2 then
-			return Dta.CPrint(Lang[Dta.Language].Prints.Selection2)
+			return Dta.CPrint(Dta.Locale.Prints.Selection2)
 		end
 		local id, details1 = next(Dta.selectedItems)
 		local _, details2 = next(Dta.selectedItems, id)

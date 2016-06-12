@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.expimp = {}
 
@@ -58,7 +57,7 @@ function Dta.expimp.ExportTextClicked()
 	local name = Dta.ui.windowExpImp.ImportExport.ExportLoad:GetSelectedItem()
 	local savedSets = Dta.settings.get_savedsets("SavedSets")
 	if not name or name == "" then
-		Dta.CPrint(Lang[Dta.Language].Prints.SelectExport)
+		Dta.CPrint(Dta.Locale.Prints.SelectExport)
 		return
 	end
 	local text = "--TT " .. Dta.Version .. "\nset = {\n"
@@ -116,20 +115,20 @@ end
 -------------------------------
 function Dta.expimp.ExportLoadAttributes(name)
 	if not name or name == "" then
-		Dta.CPrint(Lang[Dta.Language].Prints.SelectExport)
+		Dta.CPrint(Dta.Locale.Prints.SelectExport)
 		return
 	end
 	if Dta.ui.loadExpImp == "Saved" then
 		if Dta.ExportSaved[name] ~= nil then
 			Dta.expimp.ExportGroupItemAttributes(name, Dta.ExportSaved[name])
 		else
-			Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
+			Dta.CPrint(string.format(Dta.Locale.Prints.SetNotFound, name))
 		end
 	elseif Dta.ui.loadExpImp == "Tbx" then
 		if Dta.ExportTbx[name] ~= nil then
 			Dta.expimp.ExportGroupItemAttributes(name, Dta.ExportTbx[name])
 		else
-			Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
+			Dta.CPrint(string.format(Dta.Locale.Prints.SetNotFound, name))
 		end
 	end
 end
@@ -151,7 +150,7 @@ function Dta.expimp.ExportGroupItemAttributes(name, set_data)
 		end
 		Dta.ExportImport_Sets[name] = groupDetails
 		Dta_export.set("ExportImport", Dta.ExportImport_Sets)
-		Dta.CPrint(string.format(Lang[Dta.Language].Prints.Exported, name))
+		Dta.CPrint(string.format(Dta.Locale.Prints.Exported, name))
 		Dta.expimp.refreshExportSelect()
 	else
 		Dta.CPrint("Something went wrong in set_data") --Debug
@@ -167,10 +166,10 @@ function Dta.expimp.ImportLoadAttributes(name)
 		if Dta.ExportImport_Sets[name] ~= nil then
 			Dta.expimp.ImportGroupItemAttributes(name, Dta.ExportImport_Sets[name])
 		else
-			Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetNotFound, name))
+			Dta.CPrint(string.format(Dta.Locale.Prints.SetNotFound, name))
 		end
 	else
-		Dta.CPrint(Lang[Dta.Language].Prints.SelectImport)
+		Dta.CPrint(Dta.Locale.Prints.SelectImport)
 	end
 end
 
@@ -192,7 +191,7 @@ function Dta.expimp.ImportGroupItemAttributes(name, set_data)
 			local constructions = Dta.settings.get_savedsets("SavedSets") or {}
 			constructions[name] = groupDetails
 			Dta.settings.set_savedsets("SavedSets", constructions)
-			Dta.CPrint(string.format(Lang[Dta.Language].Prints.Imported, name))
+			Dta.CPrint(string.format(Dta.Locale.Prints.Imported, name))
 			Dta.expimp.removeImportedSet(name)
 		else
 			--print("Something went wrong in set_data") --Debug
@@ -209,11 +208,11 @@ end
 function Dta.expimp.ImportSerializedSet(name, data)
 	local saved_sets = Dta.settings.get_savedsets("SavedSets") or {}
 	if not name or name == "" then
-		Dta.CPrint(Lang[Dta.Language].Prints.EnterName)
+		Dta.CPrint(Dta.Locale.Prints.EnterName)
 		return
 	end
 	if saved_sets[name] then
-		Dta.CPrint(string.format(Lang[Dta.Language].Prints.SetExists, name))
+		Dta.CPrint(string.format(Dta.Locale.Prints.SetExists, name))
 		return
 	end
 	local ok, deserialized
@@ -230,7 +229,7 @@ function Dta.expimp.ImportSerializedSet(name, data)
 	if deserialized and #deserialized > 0 then
 		saved_sets[name] = deserialized
 		Dta.settings.set_savedsets("SavedSets", saved_sets) -- in case it we didn't have any yet
-		Dta.CPrint(string.format(Lang[Dta.Language].Prints.Imported, name))
+		Dta.CPrint(string.format(Dta.Locale.Prints.Imported, name))
 		Dta.expimp.refreshExportSelect()
 	end
 end

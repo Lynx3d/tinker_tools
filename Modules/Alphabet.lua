@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.alphabet = {}
 
@@ -58,31 +57,31 @@ function Dta.alphabet.CheckInput()
 	settings.skin = Dta.ui.windowAlphabet.Alphabet.TypeLoad:GetSelectedValue()
 
 	if settings.font == nil or settings.font == "" then
-		Dta.CPrint(Lang[Dta.Language].Prints.SelectFont)
+		Dta.CPrint(Dta.Locale.Prints.SelectFont)
 		return false
 	end
 
 	if settings.size == nil or settings.size == "" then
-		Dta.CPrint(Lang[Dta.Language].Prints.SelectSize)
+		Dta.CPrint(Dta.Locale.Prints.SelectSize)
 		return false
 	end
 
 	if settings.skin == nil or settings.skin == "" then
-		Dta.CPrint(Lang[Dta.Language].Prints.SelectSkin)
+		Dta.CPrint(Dta.Locale.Prints.SelectSkin)
 		return false
 	end
 	settings.skin_data = Dta.Defaults.Skins[settings.skin]
 
 	if settings.word ~= "" then
 		if(settings.word:match("%d+")) then
-			Dta.CPrint(Lang[Dta.Language].Prints.OnlyLetters)
+			Dta.CPrint(Dta.Locale.Prints.OnlyLetters)
 			return false
 		elseif(settings.word:match("%W")) then
-			Dta.CPrint(Lang[Dta.Language].Prints.OnlyLetters)
+			Dta.CPrint(Dta.Locale.Prints.OnlyLetters)
 			return false
 		end
 	else
-		Dta.CPrint(Lang[Dta.Language].Prints.TypeWord)
+		Dta.CPrint(Dta.Locale.Prints.TypeWord)
 		return false
 	end
 	if Dta.ui.windowAlphabet.Alphabet.modeHorizontal:GetChecked() then
@@ -124,13 +123,13 @@ function Dta.alphabet.AlphabetLoadClicked()
 	Dta.losa.ScanInventory(shoppingList, true, false) -- only inventory currently
 	local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
 	if missing then
-		Dta.losa.printMissingItems(missing, shoppingList, Lang[Dta.Language].Prints.WordMissingItems)
+		Dta.losa.printMissingItems(missing, shoppingList, Dta.Locale.Prints.WordMissingItems)
 		return
 	end
 	local player = Inspect.Unit.Detail("player")
 	settings.player = { coordX = player.coordX, coordY = player.coordY, coordZ = player.coordZ }
 	Dta.items.DeselectAll()
-	Dta.Co_DoneMessage = Lang[Dta.Language].Prints.WordFinished
+	Dta.Co_DoneMessage = Dta.Locale.Prints.WordFinished
 	Dta.AddItem_Co = coroutine.create(Dta.alphabet.LoadWord)
 	local ok, err = coroutine.resume(Dta.AddItem_Co, shoppingList, settings)
 	if not ok then dump(err) end
@@ -166,12 +165,12 @@ end
 
 function Dta.alphabet.PrintShoppingList(list, word)
 	if list ~= nil and Dta.losa.tableLength(list) > 0 then
-		Dta.CPrint(string.format(Lang[Dta.Language].Prints.WordNeededItems, word))
+		Dta.CPrint(string.format(Dta.Locale.Prints.WordNeededItems, word))
 		for id, details in pairs(list) do
 			Dta.CPrint(string.format("%s: %d", details.name, details.amount))
 		end
 	else
-		Dta.CPrint(Lang[Dta.Language].Prints.WordCouldNotPrint)
+		Dta.CPrint(Dta.Locale.Prints.WordCouldNotPrint)
 	end
 end
 

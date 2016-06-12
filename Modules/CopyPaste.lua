@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.copa = {}
 
@@ -71,7 +70,7 @@ function Dta.copa.pasteButtonClicked()
 			end
 		end
 	else
-		Dta.CPrint(Lang[Dta.Language].Prints.CopyFirst)
+		Dta.CPrint(Dta.Locale.Prints.CopyFirst)
 		return
 	end
 	if settings.new_items then
@@ -79,11 +78,11 @@ function Dta.copa.pasteButtonClicked()
 		Dta.losa.ScanInventory(shoppingList, settings.include_bags, settings.include_bank)
 		local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
 		if missing then
-			Dta.losa.printMissingItems(missing, shoppingList, Lang[Dta.Language].Prints.NotPasteInventory)
+			Dta.losa.printMissingItems(missing, shoppingList, Dta.Locale.Prints.NotPasteInventory)
 			return
 		end
 		Dta.items.DeselectAll()
-		Dta.Co_DoneMessage = Lang[Dta.Language].Prints.PasteFinished
+		Dta.Co_DoneMessage = Dta.Locale.Prints.PasteFinished
 		Dta.AddItem_Co = coroutine.create(Dta.copa.pasteClipboard)
 		local ok, err = coroutine.resume(Dta.AddItem_Co, shoppingList, settings)
 		if not ok then dump(err) end
@@ -92,7 +91,7 @@ function Dta.copa.pasteButtonClicked()
 			Dta.losa.ScanSelection(shoppingList)
 			local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
 			if missing then
-				Dta.losa.printMissingItems(missing, shoppingList, Lang[Dta.Language].Prints.NotPasteSelection)
+				Dta.losa.printMissingItems(missing, shoppingList, Dta.Locale.Prints.NotPasteSelection)
 				return
 			end
 		else -- single item, ignore item type
@@ -102,7 +101,7 @@ function Dta.copa.pasteButtonClicked()
 			shoppingList[id].stock = 1
 		end
 		Dta.copa.pasteClipboard(shoppingList, settings)
-		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
+		Dta.items.QueueNotification(Dta.Locale.Prints.ProcessFinished, Dta.selectionCount)
 	end
 end
 
@@ -147,7 +146,7 @@ function Dta.copa.checkInput()
 	values.selection_pivot = Dta.copa.pivot and Dta.ui.windowCopyPaste.copyPaste.SelectionPivot:GetChecked()
 	if values.new_items then
 		if not values.include_bags and not values.include_bank then
-			Dta.CPrint(Lang[Dta.Language].Prints.SelectItemSource)
+			Dta.CPrint(Dta.Locale.Prints.SelectItemSource)
 			return false
 		end
 	end
@@ -159,7 +158,7 @@ function Dta.copa.checkInput()
 
 	for k, v in pairs(success) do
 		if not v then
-			Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
+			Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
 			return false
 		end
 	end
@@ -192,7 +191,7 @@ function Dta.copa.copyItemAttributes()
 			})
 		end
 	else
-		Dta.CPrint(Lang[Dta.Language].Prints.Copy_SelectItem)
+		Dta.CPrint(Dta.Locale.Prints.Copy_SelectItem)
 	end
 end
 

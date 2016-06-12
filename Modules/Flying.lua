@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.flying = {}
 
@@ -32,7 +31,7 @@ function Dta.flying.PlaceFlying()
 			end
 		end
 	end
-	dump(Lang[Dta.Language].Prints.NoRoundTable)
+	dump(Dta.Locale.Prints.NoRoundTable)
 end
 
 function Dta.flying.PickUpFlying()

@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.rotate = {}
 
@@ -30,7 +29,7 @@ function Dta.rotate.modifyRotationButtonClicked()
 	local yaw, yaw_ok = Dta.ui.checkNumber(Dta.ui.windowRotate.modifyRotation.yaw:GetText())
 	local roll, roll_ok = Dta.ui.checkNumber(Dta.ui.windowRotate.modifyRotation.roll:GetText())
 	if not (pitch_ok and yaw_ok and roll_ok) then
-		Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
+		Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
 		return
 	end
 	Dta.rotate.setItemRotations(yaw, pitch, roll,
@@ -94,7 +93,7 @@ function Dta.rotate.setItemRotations(yaw, pitch, roll, relative, grouped)
 			end
 		end)
 		coroutine.resume(Dta.rotate.Co_RotateItem)
-		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
+		Dta.items.QueueNotification(Dta.Locale.Prints.ProcessFinished, Dta.selectionCount)
 	end
 end
 
@@ -110,7 +109,7 @@ function Dta.rotate.resetItemRotations()
 			end
 		end)
 		coroutine.resume(Dta.rotate.Co_RotateItemReset)
-		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
+		Dta.items.QueueNotification(Dta.Locale.Prints.ProcessFinished, Dta.selectionCount)
 	end
 end
 
@@ -137,7 +136,7 @@ function Dta.rotate.setItemRotation(index, yaw, pitch, roll, relative)
 
 		Dta.items.QueueRotate(Dta.selectedItems[index].id, newPlacement.pitch, newPlacement.roll, newPlacement.yaw)
 	else
-		Dta.CPrint(Lang[Dta.Language].Prints.ModifyRotation)
+		Dta.CPrint(Dta.Locale.Prints.ModifyRotation)
 	end
 end
 

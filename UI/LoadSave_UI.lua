@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.losa_ui = {}
 
@@ -21,7 +20,7 @@ function Dta.losa_ui.buildLoSaWindow()
 	local y = Dta.settings.get("LoSawindowPosY")
 	newWindow = Dta.ui.Window.Create("LoSaWindow",
 							Dta.ui.context,
-							Lang[Dta.Language].Titles.LoadSave,
+							Dta.Locale.Titles.LoadSave,
 							LoSaWindowSettings.WIDTH,
 							LoSaWindowSettings.HEIGHT,
 							x,
@@ -49,23 +48,23 @@ function Dta.losa_ui.buildLoSaWindow()
 	LoSawindow.constructions:SetLayer(30)
 	--LoSawindow.constructions:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-	LoSawindow.constructions.nameLabel = Dta.ui.createText("constructionsNameLabel", LoSawindow.constructions, 0, 0, Lang[Dta.Language].Text.Name, 14)
+	LoSawindow.constructions.nameLabel = Dta.ui.createText("constructionsNameLabel", LoSawindow.constructions, 0, 0, Dta.Locale.Text.Name, 14)
 	LoSawindow.constructions.name = Dta.ui.createTextfield("constructionsName", LoSawindow.constructions, 55, 0, 245)
-	LoSawindow.constructions.save = Dta.ui.createButton("constructionsSave", LoSawindow.constructions, 0, 25, nil, nil, Lang[Dta.Language].Buttons.SaveSet, nil, Dta.losa.constructionSaveClicked)
-	LoSawindow.constructions.ImpExpBtn = Dta.ui.createButton("constructionsImpExpBtn", LoSawindow.constructions, 145, 25, 160, nil, Lang[Dta.Language].Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
+	LoSawindow.constructions.save = Dta.ui.createButton("constructionsSave", LoSawindow.constructions, 0, 25, nil, nil, Dta.Locale.Buttons.SaveSet, nil, Dta.losa.constructionSaveClicked)
+	LoSawindow.constructions.ImpExpBtn = Dta.ui.createButton("constructionsImpExpBtn", LoSawindow.constructions, 145, 25, 160, nil, Dta.Locale.Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
 
 	LoSawindow.divider5 = Dta.ui.createTexture("divider5", LoSawindow, Dta.AddonID, "textures/divider.png", 10, 70, LoSawindow:GetWidth()-10)
 	LoSawindow.divider5:SetLayer(29)
 
-	LoSawindow.constructions.loadDeafaultSets = Dta.ui.createCheckbox("constructionLoadDeafaultSets", LoSawindow.constructions, 0, 85, Lang[Dta.Language].Text.DefaultSets, true, nil, Dta.losa.constructionLoadDeafaultSetsChanged)
-	LoSawindow.constructions.loadSavedSets = Dta.ui.createCheckbox("constructionLoadSavedSets", LoSawindow.constructions, 100, 85, Lang[Dta.Language].Text.SavedSets, false, nil, Dta.losa.constructionLoadSavedSetsChanged)
-	LoSawindow.constructions.loadTbxSets = Dta.ui.createCheckbox("constructionLoadTbxSets", LoSawindow.constructions, 210, 85, Lang[Dta.Language].Text.TbxSets, false, nil, Dta.losa.constructionLoadTbxSetsChanged)
+	LoSawindow.constructions.loadDeafaultSets = Dta.ui.createCheckbox("constructionLoadDeafaultSets", LoSawindow.constructions, 0, 85, Dta.Locale.Text.DefaultSets, true, nil, Dta.losa.constructionLoadDeafaultSetsChanged)
+	LoSawindow.constructions.loadSavedSets = Dta.ui.createCheckbox("constructionLoadSavedSets", LoSawindow.constructions, 100, 85, Dta.Locale.Text.SavedSets, false, nil, Dta.losa.constructionLoadSavedSetsChanged)
+	LoSawindow.constructions.loadTbxSets = Dta.ui.createCheckbox("constructionLoadTbxSets", LoSawindow.constructions, 210, 85, Dta.Locale.Text.TbxSets, false, nil, Dta.losa.constructionLoadTbxSetsChanged)
 
-	LoSawindow.constructions.searchLabel = Dta.ui.createText("constructionsSearchLabel", LoSawindow.constructions, 0, 115, Lang[Dta.Language].Text.Search, 14)
+	LoSawindow.constructions.searchLabel = Dta.ui.createText("constructionsSearchLabel", LoSawindow.constructions, 0, 115, Dta.Locale.Text.Search, 14)
 	LoSawindow.constructions.search = Dta.ui.createTextfield("constructionsSearch", LoSawindow.constructions, 55, 115, 245)
 	LoSawindow.constructions.search:EventAttach(Event.UI.Input.Key.Up, Dta.losa.constructionSearchKeyUp, "LoSa_SearchApply")
 
-	LoSawindow.constructions.nameLabel2 = Dta.ui.createText("constructionsNameLabel2", LoSawindow.constructions, 0, 140, Lang[Dta.Language].Text.Name, 14)
+	LoSawindow.constructions.nameLabel2 = Dta.ui.createText("constructionsNameLabel2", LoSawindow.constructions, 0, 140, Dta.Locale.Text.Name, 14)
 	LoSawindow.constructions.nameLoad = UI.CreateFrame("SimpleSelect", "constructionsNameSelect", LoSawindow.constructions)
 	LoSawindow.constructions.nameLoad:SetPoint("TOPLEFT", LoSawindow.constructions, "TOPLEFT", 55, 140)
 	LoSawindow.constructions.nameLoad:SetLayer(100)
@@ -74,23 +73,23 @@ function Dta.losa_ui.buildLoSaWindow()
 	LoSawindow.constructions.nameLoad:SetWidth(245)
 	LoSawindow.constructions.nameLoad:SetEnabled(true)
 
-	LoSawindow.constructions.load = Dta.ui.createButton("constructionsLoad", LoSawindow.constructions, 0, 195, nil, nil, Lang[Dta.Language].Buttons.LoadSet, nil, Dta.losa.constructionLoadClicked)
-	LoSawindow.constructions.remove = Dta.ui.createButton("constructionsRemove", LoSawindow.constructions, 0, 230, nil, nil, Lang[Dta.Language].Buttons.RemoveSet, nil, Dta.losa.constructionRemoveClicked)
+	LoSawindow.constructions.load = Dta.ui.createButton("constructionsLoad", LoSawindow.constructions, 0, 195, nil, nil, Dta.Locale.Buttons.LoadSet, nil, Dta.losa.constructionLoadClicked)
+	LoSawindow.constructions.remove = Dta.ui.createButton("constructionsRemove", LoSawindow.constructions, 0, 230, nil, nil, Dta.Locale.Buttons.RemoveSet, nil, Dta.losa.constructionRemoveClicked)
 	LoSawindow.constructions.remove:SetVisible(false)
-	LoSawindow.constructions.printReqs = Dta.ui.createButton("constructionsPrintReqs", LoSawindow.constructions, 165, 195, nil, nil, Lang[Dta.Language].Buttons.PrintMaterials, nil, Dta.losa.constructionPrintMaterials)
-	LoSawindow.constructions.toClipboard = Dta.ui.createButton("constructionsToClipboard", LoSawindow.constructions, 165, 230, nil, nil, Lang[Dta.Language].Buttons.ToClipboard, nil, Dta.losa.constructionToClipboard)
+	LoSawindow.constructions.printReqs = Dta.ui.createButton("constructionsPrintReqs", LoSawindow.constructions, 165, 195, nil, nil, Dta.Locale.Buttons.PrintMaterials, nil, Dta.losa.constructionPrintMaterials)
+	LoSawindow.constructions.toClipboard = Dta.ui.createButton("constructionsToClipboard", LoSawindow.constructions, 165, 230, nil, nil, Dta.Locale.Buttons.ToClipboard, nil, Dta.losa.constructionToClipboard)
 
-	LoSawindow.constructions.loadAtOriginalLoc = Dta.ui.createCheckbox("constructionLoadAtOriginalLoc", LoSawindow.constructions, 135, 170, Lang[Dta.Language].Text.LoadOrigionalLocation, false)
+	LoSawindow.constructions.loadAtOriginalLoc = Dta.ui.createCheckbox("constructionLoadAtOriginalLoc", LoSawindow.constructions, 135, 170, Dta.Locale.Text.LoadOrigionalLocation, false)
 	LoSawindow.constructions.loadAtOriginalLoc:SetVisible(false)
-	LoSawindow.constructions.LoadNewItems = Dta.ui.createCheckbox("constructionLoadNewItems", LoSawindow.constructions, 0, 170, Lang[Dta.Language].Text.UseNewItems, false, nil, Dta.losa.constructionLoadNewItemsChanged)
+	LoSawindow.constructions.LoadNewItems = Dta.ui.createCheckbox("constructionLoadNewItems", LoSawindow.constructions, 0, 170, Dta.Locale.Text.UseNewItems, false, nil, Dta.losa.constructionLoadNewItemsChanged)
 	LoSawindow.constructions.LoadNewItems:SetVisible(true)
 
-	LoSawindow.constructions.LoadMultipleSets = Dta.ui.createCheckbox("constructionLoadMultipleSets", LoSawindow.constructions, 0, 265, Lang[Dta.Language].Text.MultiCopies, false, nil, Dta.losa.constructionLoadMultipleSetsChanged)
+	LoSawindow.constructions.LoadMultipleSets = Dta.ui.createCheckbox("constructionLoadMultipleSets", LoSawindow.constructions, 0, 265, Dta.Locale.Text.MultiCopies, false, nil, Dta.losa.constructionLoadMultipleSetsChanged)
 	LoSawindow.constructions.LoadMultipleSets:SetVisible(false)
 
-	LoSawindow.constructions.NrCopiesLabel = Dta.ui.createText("constructionsNrCopiesLabel", LoSawindow.constructions, 0, 290, Lang[Dta.Language].Text.NrCopies, 14)
+	LoSawindow.constructions.NrCopiesLabel = Dta.ui.createText("constructionsNrCopiesLabel", LoSawindow.constructions, 0, 290, Dta.Locale.Text.NrCopies, 14)
 	LoSawindow.constructions.NrCopiesLabel:SetVisible(false)
-	LoSawindow.constructions.OffsetLabel = Dta.ui.createText("constructionsOffsetLabel", LoSawindow.constructions, 0, 315, Lang[Dta.Language].Text.Offset, 14)
+	LoSawindow.constructions.OffsetLabel = Dta.ui.createText("constructionsOffsetLabel", LoSawindow.constructions, 0, 315, Dta.Locale.Text.Offset, 14)
 	LoSawindow.constructions.OffsetLabel:SetVisible(false)
 	LoSawindow.constructions.xLabel = Dta.ui.createText("constructionsXLabel", LoSawindow.constructions, 70, 315, "X", 14, {1, 0, 0, 1})
 	LoSawindow.constructions.xLabel:SetVisible(false)

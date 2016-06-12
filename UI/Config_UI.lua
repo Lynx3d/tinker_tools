@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.config_ui = {}
 
@@ -34,7 +33,7 @@ function Dta.config_ui.buildConfigWindow()
 	local y = (UIParent:GetHeight() - ConfigWindowSettings.HEIGHT)/2
 	local newWindow = Dta.ui.Window.Create("ConfigWindow",
 							Dta.ui.context,
-							Lang[Dta.Language].Titles.Settings,
+							Dta.Locale.Titles.Settings,
 							ConfigWindowSettings.WIDTH,
 							ConfigWindowSettings.HEIGHT,
 							x,
@@ -53,14 +52,14 @@ function Dta.config_ui.buildConfigWindow()
 	Configwindow.Lang:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
 	Configwindow.Lang:SetWidth(110)
 	-- Skin
-	Configwindow.SkinLabel = Dta.ui.createText("ConfigLangLabel", Configwindow, 20, 50, Lang[Dta.Language].Text.WindowStyle, 14)
+	Configwindow.SkinLabel = Dta.ui.createText("ConfigLangLabel", Configwindow, 20, 50, Dta.Locale.Text.WindowStyle, 14)
 	Configwindow.Skin = UI.CreateFrame("SimpleSelect", "WindowStyle", Configwindow)
 	Configwindow.Skin:SetPoint("TOPLEFT", Configwindow, "TOPLEFT", 190, 50)
-	Configwindow.Skin:SetItems(Lang[Dta.Language].Menus.WindowStyle)
+	Configwindow.Skin:SetItems(Dta.Locale.Menus.WindowStyle)
 	Configwindow.Skin:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
 	Configwindow.Skin:SetWidth(110)
 	-- Console Options:
-	Configwindow.ConsoleLabel = Dta.ui.createText("ConsoleLabel", Configwindow, 20, 75, Lang[Dta.Language].Text.ConsoleMessages, 14)
+	Configwindow.ConsoleLabel = Dta.ui.createText("ConsoleLabel", Configwindow, 20, 75, Dta.Locale.Text.ConsoleMessages, 14)
 	Configwindow.Console = {}
 	Configwindow.Console[1] = Dta.ui.createCheckbox("Console_1", Configwindow, 50, 100, "#1", true, nil, nil)
 	Configwindow.Console[2] = Dta.ui.createCheckbox("Console_2", Configwindow, 50, 125, "#2", true, nil, nil)
@@ -70,7 +69,7 @@ function Dta.config_ui.buildConfigWindow()
 	Configwindow.Console[6] = Dta.ui.createCheckbox("Console_6", Configwindow, 170, 125, "#6", true, nil, nil)
 	Configwindow.Console[7] = Dta.ui.createCheckbox("Console_7", Configwindow, 170, 150, "#7", true, nil, nil)
 
-	Configwindow.Accept = Dta.ui.createButton("Config_Accept", Configwindow, 30, 260, nil, nil, Lang[Dta.Language].Buttons.OK, nil, Dta.config_ui.applyButtonClicked)
+	Configwindow.Accept = Dta.ui.createButton("Config_Accept", Configwindow, 30, 260, nil, nil, Dta.Locale.Buttons.OK, nil, Dta.config_ui.applyButtonClicked)
 
 	return newWindow
 end

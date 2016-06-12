@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.items = {}
 
@@ -94,7 +93,7 @@ function Dta.items.updateItemDetails()
 			Dta.ui.windowtest.itemDetails.clearSelection:SetVisible(true)
 			if Dta.selectionCount > 1 then
 				Dta.ui.windowtest.itemDetails.icon:SetTexture(Dta.AddonID, "textures/multiple.png")
-				Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.MultiSelectItems)
+				Dta.ui.windowtest.itemDetails.name:SetText(Dta.Locale.Text.MultiSelectItems)
 				Dta.ui.windowtest.itemDetails.name:SetFontColor(1, 1, 1)
 				local cp = Dta.items.getCentralPoint(Dta.selectedItems)
 				Dta.selectionCenter = cp
@@ -132,7 +131,7 @@ function Dta.items.updateItemDetails()
 		else
 			Dta.ui.windowtest.itemDetails.clearSelection:SetVisible(false)
 			Dta.ui.windowtest.itemDetails.icon:SetTexture(Dta.AddonID, "textures/blank.png")
-			Dta.ui.windowtest.itemDetails.name:SetText(Lang[Dta.Language].Text.NothingSelected)
+			Dta.ui.windowtest.itemDetails.name:SetText(Dta.Locale.Text.NothingSelected)
 			Dta.ui.windowtest.itemDetails.name:SetFontColor(1, 1, 1)
 			Dta.selectionCenter = nil
 			Dta.ui.windowtest.itemDetails.nrItems:SetText("-")

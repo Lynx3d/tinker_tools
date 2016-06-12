@@ -6,7 +6,6 @@ Dta.AddonID = addon.toc.Identifier
 Dta.SettingsRevision = 1
 Dta.Language = Inspect.System.Language()
 Dta.Lang = {}
-local Lang = Dta.Lang
 
 --Items
 Dta.selectedItems = {}
@@ -88,7 +87,7 @@ end
 function Dta.checkIdle()
 	if Dta.AddItem_Co then
 		-- ask user whether to abort
-		Dta.ui.showNotification(Lang[Dta.Language].Text.NotIdleNotification,
+		Dta.ui.showNotification(Dta.Locale.Text.NotIdleNotification,
 			Dta.killProcess, nil)
 		return false
 	end
@@ -126,7 +125,7 @@ end
 
 function Dta.removeEventHandler(hEvent, dimensionItem) --Executed when item is removed
 	if #Dta.pendingActions == 1 then
-		Dta.CPrint(Lang[Dta.Language].Prints.ProcessFinished)
+		Dta.CPrint(Dta.Locale.Prints.ProcessFinished)
 	end
 	if Dta.losa.tableLength(Dta.selectedItems) > 0 then
 		Dta.items.updateSelection(dimensionItem, true)
@@ -137,7 +136,7 @@ end
 
 function Dta.updateEventHandler(hEvent, dimensionItem) --Executed on every select/ deselect or change of an dimension item
 	--if #Dta.pendingActions == 1 then
-	--	print(Lang[Dta.Language].Prints.ProcessFinished)
+	--	print(Dta.Locale.Prints.ProcessFinished)
 	--end
 	Dta.items.updateSelection(dimensionItem, false)
 end
@@ -233,7 +232,7 @@ function Dta.commandHandler(hEvent, command)
 		if Dta.InDimension == true then
 			Dta.ui.toggleMainWindow()
 		else
-			Dta.CPrint(Lang[Dta.Language].Prints.DimensionOnly)
+			Dta.CPrint(Dta.Locale.Prints.DimensionOnly)
 		end
 	end
 end

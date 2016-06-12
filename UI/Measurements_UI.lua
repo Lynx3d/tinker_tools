@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.measurements_ui = {}
 
@@ -21,7 +20,7 @@ function Dta.measurements_ui.buildMeasurementsWindow()
 	local y = Dta.settings.get("MeasurementswindowPosY")
 	local newWindow = Dta.ui.Window.Create("MeasurementsWindow",
 								Dta.ui.context,
-								Lang[Dta.Language].Titles.OffsetCalc,
+								Dta.Locale.Titles.OffsetCalc,
 								MeasurementsWindowSettings.WIDTH,
 								MeasurementsWindowSettings.HEIGHT,
 								x,
@@ -49,31 +48,31 @@ function Dta.measurements_ui.buildMeasurementsWindow()
 	Measurementswindow.Measurements:SetLayer(30)
 	--Measurementswindow.modifyRotation:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-	Measurementswindow.Measurements.TypeLabel = Dta.ui.createText("MeasurementsTypeLabel", Measurementswindow.Measurements, 0, 0, Lang[Dta.Language].Text.Type, 14)
+	Measurementswindow.Measurements.TypeLabel = Dta.ui.createText("MeasurementsTypeLabel", Measurementswindow.Measurements, 0, 0, Dta.Locale.Text.Type, 14)
 	Measurementswindow.Measurements.TypeLoad = UI.CreateFrame("SimpleSelect", "MeasurementsTypeLoad", Measurementswindow.Measurements)
 	Measurementswindow.Measurements.TypeLoad:SetPoint("TOPLEFT", Measurementswindow.Measurements, "TOPLEFT", 80, 0)
 	Measurementswindow.Measurements.TypeLoad:SetLayer(100)
-	Measurementswindow.Measurements.TypeLoad:SetItems(Lang[Dta.Language].Menus.ItemType)
+	Measurementswindow.Measurements.TypeLoad:SetItems(Dta.Locale.Menus.ItemType)
 	--Measurementswindow.Measurements.TypeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.FontSelected(item) end
 	Measurementswindow.Measurements.TypeLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
 	Measurementswindow.Measurements.TypeLoad:SetWidth(150)
 	Measurementswindow.Measurements.TypeLoad:SetEnabled(true)
 
-	Measurementswindow.Measurements.OrientationLabel = Dta.ui.createText("MeasurementsOrientationLabel", Measurementswindow.Measurements, 0, 30, Lang[Dta.Language].Text.Orientation, 14)
+	Measurementswindow.Measurements.OrientationLabel = Dta.ui.createText("MeasurementsOrientationLabel", Measurementswindow.Measurements, 0, 30, Dta.Locale.Text.Orientation, 14)
 	Measurementswindow.Measurements.OrientationLoad = UI.CreateFrame("SimpleSelect", "MeasurementsOrientationLoad", Measurementswindow.Measurements)
 	Measurementswindow.Measurements.OrientationLoad:SetPoint("TOPLEFT", Measurementswindow.Measurements, "TOPLEFT", 80, 30)
 	Measurementswindow.Measurements.OrientationLoad:SetLayer(100)
-	Measurementswindow.Measurements.OrientationLoad:SetItems(Lang[Dta.Language].Menus.Orientation)
+	Measurementswindow.Measurements.OrientationLoad:SetItems(Dta.Locale.Menus.Orientation)
 	--Measurementswindow.Measurements.OrientationLoad.Event.ItemSelect = function(view, item) Dta.alphabet.FontSelected(item) end
 	Measurementswindow.Measurements.OrientationLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
 	Measurementswindow.Measurements.OrientationLoad:SetWidth(150)
 	Measurementswindow.Measurements.OrientationLoad:SetEnabled(true)
 
-	Measurementswindow.Measurements.SizeLabel = Dta.ui.createText("MeasurementsSizeLabel", Measurementswindow.Measurements, 0, 60, Lang[Dta.Language].Text.Scale, 14)
+	Measurementswindow.Measurements.SizeLabel = Dta.ui.createText("MeasurementsSizeLabel", Measurementswindow.Measurements, 0, 60, Dta.Locale.Text.Scale, 14)
 	Measurementswindow.Measurements.Size = Dta.ui.createTextfield("MeasurementsSize", Measurementswindow.Measurements, 80, 60, 50)
 
-	Measurementswindow.Measurements.Calculate = Dta.ui.createButton("MeasurementsCalculate", Measurementswindow.Measurements, 0, 145, nil, nil, Lang[Dta.Language].Buttons.Calculate, nil, Dta.measurements.CalculationsClicked)
-	Measurementswindow.Measurements.Detect = Dta.ui.createButton("MeasurementsDetect", Measurementswindow.Measurements, 135, 145, nil, nil, Lang[Dta.Language].Buttons.Detect, nil, Dta.measurements.DetectClicked)
+	Measurementswindow.Measurements.Calculate = Dta.ui.createButton("MeasurementsCalculate", Measurementswindow.Measurements, 0, 145, nil, nil, Dta.Locale.Buttons.Calculate, nil, Dta.measurements.CalculationsClicked)
+	Measurementswindow.Measurements.Detect = Dta.ui.createButton("MeasurementsDetect", Measurementswindow.Measurements, 135, 145, nil, nil, Dta.Locale.Buttons.Detect, nil, Dta.measurements.DetectClicked)
 	Measurementswindow.Measurements.TransferBtn = Dta.ui.Button.Create("MeasurementsTransfer",
 		Measurementswindow.Measurements, Dta.measurements.TogglePopup,
 		"DimensionWindow_I107.dds", "DimensionWindow_I109.dds",
@@ -104,14 +103,14 @@ end
 function Dta.measurements_ui.buildTransferPopup(parent)
 	local popup = Dta.ui.Window.CreatePopup("Xfer popup", parent, 200, 180, 0, 0, false)
 	popup:SetVisible(false)
-	popup.Title = Dta.ui.createText("Xfer Title", popup, 20, 10, Lang[Dta.Language].Titles.TransferValues , 16)
-	popup.ToMove = Dta.ui.createCheckbox("ToMove", popup, 20, 40, Lang[Dta.Language].Buttons.MoveWindow)
-	popup.ToCopa = Dta.ui.createCheckbox("ToCopa", popup, 20, 65, Lang[Dta.Language].Buttons.CopyPaste)
+	popup.Title = Dta.ui.createText("Xfer Title", popup, 20, 10, Dta.Locale.Titles.TransferValues , 16)
+	popup.ToMove = Dta.ui.createCheckbox("ToMove", popup, 20, 40, Dta.Locale.Buttons.MoveWindow)
+	popup.ToCopa = Dta.ui.createCheckbox("ToCopa", popup, 20, 65, Dta.Locale.Buttons.CopyPaste)
 	popup.x = Dta.ui.createCheckbox("XferX", popup, 20, 90, "X", true, {1, 0, 0, 1})
 	popup.y = Dta.ui.createCheckbox("XferY", popup, 60, 90, "Y", true, {0, 1, 0, 1})
 	popup.z = Dta.ui.createCheckbox("XferZ", popup, 100, 90, "Z", true, {0, 1, 1, 1})
-	popup.Invert = Dta.ui.createCheckbox("XferInvert", popup, 20, 115, Lang[Dta.Language].Text.Invert)
-	popup.Transfer = Dta.ui.createButton("Transfer", popup, 30, 140, nil, nil, Lang[Dta.Language].Buttons.Transfer, nil, Dta.measurements.TransferClicked)
+	popup.Invert = Dta.ui.createCheckbox("XferInvert", popup, 20, 115, Dta.Locale.Text.Invert)
+	popup.Transfer = Dta.ui.createButton("Transfer", popup, 30, 140, nil, nil, Dta.Locale.Buttons.Transfer, nil, Dta.measurements.TransferClicked)
 	return popup
 end
 -- Show the toolbox window

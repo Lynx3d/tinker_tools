@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.Help = {}
 
@@ -67,19 +66,19 @@ Dta.Help = {}
 	end
 
 	Dta.Help.helpIndex = {
-		Lang[Dta.Language].Intro.Label,
-		Lang[Dta.Language].Main.Label,
-		Lang[Dta.Language].Move.Label,
-		Lang[Dta.Language].Rotate.Label,
-		Lang[Dta.Language].Scale.Label,
-		Lang[Dta.Language].CopyandPaste.Label,
-		Lang[Dta.Language].LoadandSave.Label,
-		Lang[Dta.Language].ImportandExport.Label,
-		Lang[Dta.Language].TribalMagic.Label,
-		Lang[Dta.Language].OffsetCalc.Label,
-		Lang[Dta.Language].Alfiebet.Label,
-		Lang[Dta.Language].ChanceLog.Label,
-		Lang[Dta.Language].Afterword.Label
+		Dta.Locale.Intro.Label,
+		Dta.Locale.Main.Label,
+		Dta.Locale.Move.Label,
+		Dta.Locale.Rotate.Label,
+		Dta.Locale.Scale.Label,
+		Dta.Locale.CopyandPaste.Label,
+		Dta.Locale.LoadandSave.Label,
+		Dta.Locale.ImportandExport.Label,
+		Dta.Locale.TribalMagic.Label,
+		Dta.Locale.OffsetCalc.Label,
+		Dta.Locale.Alfiebet.Label,
+		Dta.Locale.ChanceLog.Label,
+		Dta.Locale.Afterword.Label
 	}
 
 	Dta.Help.helpTopic = {} --{label = "", text = ""}
@@ -88,10 +87,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[1]] = {
 		{
-		label = Lang[Dta.Language].Intro.Label,
-		text01 = Lang[Dta.Language].Intro.Text1,
-		text02 = Lang[Dta.Language].Intro.Text2,
-		text03 = Lang[Dta.Language].Intro.Text3,
+		label = Dta.Locale.Intro.Label,
+		text01 = Dta.Locale.Intro.Text1,
+		text02 = Dta.Locale.Intro.Text2,
+		text03 = Dta.Locale.Intro.Text3,
 		pic01 = "",
 		pic02 = "",
 		pic03 = ""
@@ -100,10 +99,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[2]] = {
 		{
-		label = Lang[Dta.Language].Main.Label,
-		text01 = Lang[Dta.Language].Main.Text1,
-		text02 = Lang[Dta.Language].Main.Text2,
-		text03 = Lang[Dta.Language].Main.Text3,
+		label = Dta.Locale.Main.Label,
+		text01 = Dta.Locale.Main.Text1,
+		text02 = Dta.Locale.Main.Text2,
+		text03 = Dta.Locale.Main.Text3,
 		pic01 = "Main_window.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -112,10 +111,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[3]] = {
 		{
-		label = Lang[Dta.Language].Move.Label,
-		text01 = Lang[Dta.Language].Move.Text1,
-		text02 = Lang[Dta.Language].Move.Text2,
-		text03 = Lang[Dta.Language].Move.Text3,
+		label = Dta.Locale.Move.Label,
+		text01 = Dta.Locale.Move.Text1,
+		text02 = Dta.Locale.Move.Text2,
+		text03 = Dta.Locale.Move.Text3,
 		pic01 = "Move_Window.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -124,10 +123,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[4]] = {
 		{
-		label = Lang[Dta.Language].Rotate.Label,
-		text01 = Lang[Dta.Language].Rotate.Text1,
-		text02 = Lang[Dta.Language].Rotate.Text2,
-		text03 = Lang[Dta.Language].Rotate.Text3,
+		label = Dta.Locale.Rotate.Label,
+		text01 = Dta.Locale.Rotate.Text1,
+		text02 = Dta.Locale.Rotate.Text2,
+		text03 = Dta.Locale.Rotate.Text3,
 		pic01 = "Rotate_Window.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -136,10 +135,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[5]] = {
 		{
-		label = Lang[Dta.Language].Scale.Label,
-		text01 = Lang[Dta.Language].Scale.Text1,
-		text02 = Lang[Dta.Language].Scale.Text2,
-		text03 = Lang[Dta.Language].Scale.Text3,
+		label = Dta.Locale.Scale.Label,
+		text01 = Dta.Locale.Scale.Text1,
+		text02 = Dta.Locale.Scale.Text2,
+		text03 = Dta.Locale.Scale.Text3,
 		pic01 = "Scale_Window.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -148,10 +147,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[6]] = {
 		{
-		label = Lang[Dta.Language].CopyandPaste.Label,
-		text01 = Lang[Dta.Language].CopyandPaste.Text1,
-		text02 = Lang[Dta.Language].CopyandPaste.Text2,
-		text03 = Lang[Dta.Language].CopyandPaste.Text3,
+		label = Dta.Locale.CopyandPaste.Label,
+		text01 = Dta.Locale.CopyandPaste.Text1,
+		text02 = Dta.Locale.CopyandPaste.Text2,
+		text03 = Dta.Locale.CopyandPaste.Text3,
 		pic01 = "Copy_Window_01.jpg",
 		pic02 = "Copy_Window_02.jpg",
 		pic03 = ""
@@ -160,10 +159,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[7]] = {
 		{
-		label = Lang[Dta.Language].LoadandSave.Label,
-		text01 = Lang[Dta.Language].LoadandSave.Text1,
-		text02 = Lang[Dta.Language].LoadandSave.Text2,
-		text03 = Lang[Dta.Language].LoadandSave.Text3,
+		label = Dta.Locale.LoadandSave.Label,
+		text01 = Dta.Locale.LoadandSave.Text1,
+		text02 = Dta.Locale.LoadandSave.Text2,
+		text03 = Dta.Locale.LoadandSave.Text3,
 		pic01 = "Load_Window_01.jpg",
 		pic02 = "Load_Window_02.jpg",
 		pic03 = ""
@@ -172,10 +171,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[8]] = {
 		{
-		label = Lang[Dta.Language].ImportandExport.Label,
-		text01 = Lang[Dta.Language].ImportandExport.Text1,
-		text02 = Lang[Dta.Language].ImportandExport.Text2,
-		text03 = Lang[Dta.Language].ImportandExport.Text3,
+		label = Dta.Locale.ImportandExport.Label,
+		text01 = Dta.Locale.ImportandExport.Text1,
+		text02 = Dta.Locale.ImportandExport.Text2,
+		text03 = Dta.Locale.ImportandExport.Text3,
 		pic01 = "Import_Window.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -184,10 +183,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[9]] = {
 		{
-		label = Lang[Dta.Language].TribalMagic.Label,
-		text01 = Lang[Dta.Language].TribalMagic.Text1,
-		text02 = Lang[Dta.Language].TribalMagic.Text2,
-		text03 = Lang[Dta.Language].TribalMagic.Text3,
+		label = Dta.Locale.TribalMagic.Label,
+		text01 = Dta.Locale.TribalMagic.Text1,
+		text02 = Dta.Locale.TribalMagic.Text2,
+		text03 = Dta.Locale.TribalMagic.Text3,
 		pic01 = "Flying_Window.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -196,10 +195,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[10]] = {
 		{
-		label = Lang[Dta.Language].OffsetCalc.Label,
-		text01 = Lang[Dta.Language].OffsetCalc.Text1,
-		text02 = Lang[Dta.Language].OffsetCalc.Text2,
-		text03 = Lang[Dta.Language].OffsetCalc.Text3,
+		label = Dta.Locale.OffsetCalc.Label,
+		text01 = Dta.Locale.OffsetCalc.Text1,
+		text02 = Dta.Locale.OffsetCalc.Text2,
+		text03 = Dta.Locale.OffsetCalc.Text3,
 		pic01 = "Offset_Calc_Window.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -209,10 +208,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[11]] = {
 		{
-		label = Lang[Dta.Language].Alfiebet.Label,
-		text01 = Lang[Dta.Language].Alfiebet.Text1,
-		text02 = Lang[Dta.Language].Alfiebet.Text2,
-		text03 = Lang[Dta.Language].Alfiebet.Text3,
+		label = Dta.Locale.Alfiebet.Label,
+		text01 = Dta.Locale.Alfiebet.Text1,
+		text02 = Dta.Locale.Alfiebet.Text2,
+		text03 = Dta.Locale.Alfiebet.Text3,
 		pic01 = "Alfiebet_Window_01.jpg",
 		pic02 = "",
 		pic03 = ""
@@ -221,10 +220,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[12]] = {
 		{
-		label = Lang[Dta.Language].ChanceLog.Label,
-		text01 = Lang[Dta.Language].ChanceLog.Text1,
-		text02 = Lang[Dta.Language].ChanceLog.Text2,
-		text03 = Lang[Dta.Language].ChanceLog.Text3,
+		label = Dta.Locale.ChanceLog.Label,
+		text01 = Dta.Locale.ChanceLog.Text1,
+		text02 = Dta.Locale.ChanceLog.Text2,
+		text03 = Dta.Locale.ChanceLog.Text3,
 		pic01 = "",
 		pic02 = "",
 		pic03 = ""
@@ -233,10 +232,10 @@ Dta.Help = {}
 
 	helpTopic[helpIndex[13]] = {
 		{
-		label = Lang[Dta.Language].Afterword.Label,
-		text01 = Lang[Dta.Language].Afterword.Text1,
-		text02 = Lang[Dta.Language].Afterword.Text2,
-		text03 = Lang[Dta.Language].Afterword.Text3,
+		label = Dta.Locale.Afterword.Label,
+		text01 = Dta.Locale.Afterword.Text1,
+		text02 = Dta.Locale.Afterword.Text2,
+		text03 = Dta.Locale.Afterword.Text3,
 		pic01 = "",
 		pic02 = "",
 		pic03 = ""

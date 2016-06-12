@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.move = {}
 
@@ -77,7 +76,7 @@ function Dta.move.setItemPosition(index, x, y, z, relative)
 			if not tonumber(x) or
 			   not tonumber(y) or
 			   not tonumber(z) then
-				Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
+				Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
 				return
 			end
 
@@ -90,7 +89,7 @@ function Dta.move.setItemPosition(index, x, y, z, relative)
 			if not tonumber(x) or
 			   not tonumber(y) or
 			   not tonumber(z) then
-				Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
+				Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
 				return
 			end
 
@@ -99,7 +98,7 @@ function Dta.move.setItemPosition(index, x, y, z, relative)
 
 		Dta.items.QueueMove(Dta.selectedItems[index].id, newPlacement.coordX, newPlacement.coordY, newPlacement.coordZ)
 	else
-		Dta.CPrint(Lang[Dta.Language].Prints.ModifyPosition)
+		Dta.CPrint(Dta.Locale.Prints.ModifyPosition)
 	end
 end
 
@@ -129,7 +128,7 @@ function Dta.move.setItemPositions(x, y, z, relative, groupMode)
 			end)
 			coroutine.resume(Dta.move.Co_MoveItem)
 		end
-		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
+		Dta.items.QueueNotification(Dta.Locale.Prints.ProcessFinished, Dta.selectionCount)
 	end
 end
 
@@ -146,6 +145,6 @@ function Dta.move.resetItemPositions()
 			end
 		end)
 		coroutine.resume(Dta.move.Co_MoveItemReset)
-		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
+		Dta.items.QueueNotification(Dta.Locale.Prints.ProcessFinished, Dta.selectionCount)
 	end
 end

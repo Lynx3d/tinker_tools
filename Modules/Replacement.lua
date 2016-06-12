@@ -50,7 +50,7 @@ function Dta.Replacement.ReplaceClicked()
 
 	if not old_skin or not Dta.Defaults.Skins[old_skin] or
 	   not new_skin or not Dta.Defaults.Skins[new_skin] then
-		Dta.CPrint(Dta.Lang[Dta.Language].Prints.SelectSkin)
+		Dta.CPrint(Dta.Locale.Prints.SelectSkin)
 		return
 	end
 	settings.old_skin_lookup = {}
@@ -76,9 +76,9 @@ function Dta.Replacement.ReplaceClicked()
 end
 
 function Dta.Replacement.ReplaceClipboard(settings)
-	local Lang = Dta.Lang[Dta.Language]
+	local Locale = Dta.Locale
 	if not Dta.clipboard.items then
-		Dta.CPrint(Lang.Prints.ClipboardEmpty)
+		Dta.CPrint(Locale.Prints.ClipboardEmpty)
 		return
 	end
 	local stats = {}
@@ -92,13 +92,13 @@ function Dta.Replacement.ReplaceClipboard(settings)
 		end
 	end
 	-- print statistics:
-	Dta.CPrint(Lang.Prints.Summary)
-	if stats.tile then 		Dta.CPrint(Lang.Text.Tile .. string.format(": %i", stats.tile)) end
-	if stats.rectangle then	Dta.CPrint(Lang.Text.Rectangle .. string.format(": %i", stats.rectangle)) end
-	if stats.triangle then	Dta.CPrint(Lang.Text.Triangle .. string.format(": %i", stats.triangle)) end
-	if stats.plank then		Dta.CPrint(Lang.Text.Plank .. string.format(": %i", stats.plank)) end
-	if stats.cube then		Dta.CPrint(Lang.Text.Cube .. string.format(": %i", stats.cube)) end
-	if stats.sphere then	Dta.CPrint(Lang.Text.Sphere .. string.format(": %i", stats.sphere)) end
-	if stats.pole then		Dta.CPrint(Lang.Text.Pole .. string.format(": %i", stats.pole)) end
-	if stats.disc then		Dta.CPrint(Lang.Text.Disc .. string.format(": %i", stats.disc)) end
+	Dta.CPrint(Locale.Prints.Summary)
+	if stats.tile then 		Dta.CPrint(Locale.Text.Tile .. string.format(": %i", stats.tile)) end
+	if stats.rectangle then	Dta.CPrint(Locale.Text.Rectangle .. string.format(": %i", stats.rectangle)) end
+	if stats.triangle then	Dta.CPrint(Locale.Text.Triangle .. string.format(": %i", stats.triangle)) end
+	if stats.plank then		Dta.CPrint(Locale.Text.Plank .. string.format(": %i", stats.plank)) end
+	if stats.cube then		Dta.CPrint(Locale.Text.Cube .. string.format(": %i", stats.cube)) end
+	if stats.sphere then	Dta.CPrint(Locale.Text.Sphere .. string.format(": %i", stats.sphere)) end
+	if stats.pole then		Dta.CPrint(Locale.Text.Pole .. string.format(": %i", stats.pole)) end
+	if stats.disc then		Dta.CPrint(Locale.Text.Disc .. string.format(": %i", stats.disc)) end
 end

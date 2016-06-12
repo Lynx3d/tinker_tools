@@ -15,6 +15,7 @@ if not Lang[Dta.Language] or Dta.Language == "German" then -- german is w.i.p.
 end
 addLangFallback("French")
 addLangFallback("German")
+Dta.Locale = Lang[Dta.Language]
 
 Dta.settings = {}
 
@@ -81,6 +82,7 @@ function Dta.settings.loadEnd(hEvent, addonID)
 			Dta.CPrint("Language '" .. language .. "' is not available.")
 		else
 			Dta.Language = language
+			Dta.Locale = Lang[Dta.Language]
 		end
 	end
 	-- correct unintended cross-reference of saved sets in settings

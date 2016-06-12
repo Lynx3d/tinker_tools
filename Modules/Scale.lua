@@ -1,5 +1,4 @@
 local Dta = select(2, ...)
-local Lang = Dta.Lang
 
 Dta.scale = {}
 
@@ -54,7 +53,7 @@ function Dta.scale.setItemScales(scale, relative, as_group)
 			end
 		end)
 		coroutine.resume(Dta.scale.Co_setScale)
-		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
+		Dta.items.QueueNotification(Dta.Locale.Prints.ProcessFinished, Dta.selectionCount)
 	end
 end
 
@@ -70,7 +69,7 @@ function Dta.scale.resetItemScales()
 			end
 		end)
 		coroutine.resume(Dta.scale.Co_ResetScale)
-		Dta.items.QueueNotification(Lang[Dta.Language].Prints.ProcessFinished, Dta.selectionCount)
+		Dta.items.QueueNotification(Dta.Locale.Prints.ProcessFinished, Dta.selectionCount)
 	end
 end
 
@@ -86,7 +85,7 @@ function Dta.scale.setItemScale(details, scale, relative, as_group)
 
 			scale = tonumber(scale)
 			if not scale then
-				Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
+				Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
 				return
 			end
 
@@ -101,7 +100,7 @@ function Dta.scale.setItemScale(details, scale, relative, as_group)
 			if scale == nil or scale == "" then scale = details.scale end
 
 			if not tonumber(scale) then
-				Dta.CPrint(Lang[Dta.Language].Prints.NumbersOnly)
+				Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
 				return
 			end
 
@@ -110,6 +109,6 @@ function Dta.scale.setItemScale(details, scale, relative, as_group)
 		Dta.items.QueueTransform(details.id, newPlacement.x, newPlacement.y, newPlacement.z,
 								 nil, nil, nil, newPlacement.scale)
 	else
-		Dta.CPrint(Lang[Dta.Language].Prints.ModifyScale)
+		Dta.CPrint(Dta.Locale.Prints.ModifyScale)
 	end
 end
