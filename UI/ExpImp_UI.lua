@@ -122,6 +122,7 @@ end
 -- Hide the toolbox window
 function Dta.expimp_ui.hideExpImpWindow()
 	Dta.ui.windowExpImp:SetVisible(false)
+	Dta.ui.windowExpImp:ClearKeyFocus()
 	Dta.ui.windowExpImp.ImportExport.ExportLoad:SetEnabled(false)
 	Dta.ui.windowExpImp.ImportExport.ImportLoad:SetEnabled(false)
 --	Dta.ui.windowExpImp = nil
