@@ -244,6 +244,15 @@ function Dta.ui.createButton(name, parent, x, y, width, height, text, skin, clic
 	return button
 end
 
+-- create drop-down
+function Dta.ui.createDropdown(name, parent, x, y, width)
+	local dropdown = UI.CreateFrame("SimpleSelect", name, parent)
+	dropdown:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
+	dropdown:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
+	if width then dropdown:SetWidth(width) end
+	return dropdown
+end
+
 -------------------------------
 -- BUILD THE MAINWINDOW TOGGLE BUTTON
 -------------------------------

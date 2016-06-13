@@ -25,12 +25,12 @@ function Dta.expimp.ExportTbxCheckboxChanged()
 	end
 end
 
-function Dta.expimp.ImportExport_ExportClicked ()
+function Dta.expimp.ExportClicked()
 	Dta.expimp.ExportLoadAttributes(Dta.ui.windowExpImp.ImportExport.ExportLoad:GetSelectedItem())
 	Dta.expimp.refreshImportSelect()
 end
 
-function Dta.expimp.ImportExport_ImportClicked ()
+function Dta.expimp.ImportClicked ()
 	Dta.expimp.ImportLoadAttributes(Dta.ui.windowExpImp.ImportExport.ImportLoad:GetSelectedItem())
 	Dta.expimp.refreshImportSelect()
 	Dta.expimp.refreshExportSelect()
@@ -38,18 +38,12 @@ end
 
 function Dta.expimp.refreshImportSelect()
 	Dta.ui.windowExpImp.ImportExport.ImportLoad:SetItems(Dta.expimp.loadImport())
-	Dta.ui.windowExpImp.ImportExport.ImportLoad:ResizeToFit()
-	Dta.ui.windowExpImp.ImportExport.ImportLoad:SetWidth(245)
 end
 
 function Dta.expimp.refreshExportSelect()
 	Dta.ui.windowExpImp.ImportExport.ExportLoad:SetItems(Dta.expimp.loadExport())
-	Dta.ui.windowExpImp.ImportExport.ExportLoad:ResizeToFit()
-	Dta.ui.windowExpImp.ImportExport.ExportLoad:SetWidth(245)
 	if Dta.ui.windowLoSa then
 		Dta.ui.windowLoSa.constructions.nameLoad:SetItems(Dta.losa.loadConstructions())
-		Dta.ui.windowLoSa.constructions.nameLoad:ResizeToFit()
-		Dta.ui.windowLoSa.constructions.nameLoad:SetWidth(245)
 	end
 end
 
