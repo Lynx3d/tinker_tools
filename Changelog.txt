@@ -1,3 +1,13 @@
+Version 1.2.0
+- New export/import options:
+  * export and import to/from a Lua-based text format for easy copy and paste
+  * support for importing the old toolbox text format (auto-detected)
+- Prevent import operations from overwriting existing saved sets
+- Add localized skin names and sort drop-downs alphabetically
+- Add "Water (No Collision)" skin and new Greywood and Wood Beam blocks
+- Restore chat notifications when operations on 10 or more items complete
+- Fix possible error when scanning inventory for Tribal Magic
+
 Version 1.1.0
 - New tool "Reskin": Edit your Copy&Paste clipboard by replacing
   building blocks based on their skin. Select all shapes you want
