@@ -31,7 +31,8 @@ function Dta.expimp.ExportClicked()
 end
 
 function Dta.expimp.ImportClicked ()
-	Dta.expimp.ImportLoadAttributes(Dta.ui.windowExpImp.ImportExport.ImportLoad:GetSelectedItem())
+	local expimpUI = Dta.ui.windowExpImp.ImportExport
+	Dta.expimp.ImportLoadAttributes(expimpUI.ImportLoad:GetSelectedItem(), expimpUI.NewName:GetText())
 	Dta.expimp.refreshImportSelect()
 	Dta.expimp.refreshExportSelect()
 end
@@ -155,10 +156,22 @@ end
 -- IMPORT
 -------------------------------
 
-function Dta.expimp.ImportLoadAttributes(name)
-	if name ~= nil and name ~= "" then
+function Dta.expimp.ImportLoadAttributes(name, new_name)
+	if not new_name or new_name == "" then
+		new_name = name
+	end
+	local saved_sets = Dta.settings.get_savedsets("SavedSets") or {}
+	if saved_sets[new_name] then
+		Dta.CPrint(string.format(Dta.Locale.Prints.SetExists, new_name))
+		return
+	end
+	if name and name ~= "" then
 		if Dta.ExportImport_Sets[name] ~= nil then
-			Dta.expimp.ImportGroupItemAttributes(name, Dta.ExportImport_Sets[name])
+			local new_set = Dta.expimp.ImportGroupItemAttributes(Dta.ExportImport_Sets[name])
+			saved_sets[new_name] = new_set
+			Dta.settings.set_savedsets("SavedSets", saved_sets)
+			Dta.CPrint(string.format(Dta.Locale.Prints.Imported, name))
+			Dta.expimp.removeImportedSet(name)
 		else
 			Dta.CPrint(string.format(Dta.Locale.Prints.SetNotFound, name))
 		end
@@ -167,31 +180,23 @@ function Dta.expimp.ImportLoadAttributes(name)
 	end
 end
 
-function Dta.expimp.ImportGroupItemAttributes(name, set_data)
-	if name ~= nil and name ~= "" then
-		if #set_data > 0 then
-			local groupDetails = {}
-			for _, item in pairs(set_data) do
-				table.insert(groupDetails, {name = item.name,
-											type = item.type,
-											coordX = item.coordX,
-											coordY = item.coordY,
-											coordZ = item.coordZ,
-											yaw = item.yaw,
-											pitch = item.pitch,
-											roll = item.roll,
-											scale = item.scale})
-			end
-			local constructions = Dta.settings.get_savedsets("SavedSets") or {}
-			constructions[name] = groupDetails
-			Dta.settings.set_savedsets("SavedSets", constructions)
-			Dta.CPrint(string.format(Dta.Locale.Prints.Imported, name))
-			Dta.expimp.removeImportedSet(name)
-		else
-			--print("Something went wrong in set_data") --Debug
+function Dta.expimp.ImportGroupItemAttributes(set_data)
+	if #set_data > 0 then
+		local groupDetails = {}
+		for _, item in pairs(set_data) do
+			table.insert(groupDetails, {name = item.name,
+										type = item.type,
+										coordX = item.coordX,
+										coordY = item.coordY,
+										coordZ = item.coordZ,
+										yaw = item.yaw,
+										pitch = item.pitch,
+										roll = item.roll,
+										scale = item.scale})
 		end
+		return groupDetails
 	else
-		--print("Something went wrong sending from Dta.expimp.ExportLoadAttributes") --Debug
+		--print("Something went wrong in set_data") --Debug
 	end
 end
 
