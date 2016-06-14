@@ -407,7 +407,7 @@ function Dta.losa.removeGroupItem(name)
 	local constructions = Dta.settings.get_savedsets("SavedSets")
 	if name ~= nil and name ~= "" then
 		if constructions and constructions[name] ~= nil then
-			Dta.ui.showConfirmation(string.format(Lang["English"].Text.ConfirmDeleteSet, name),
+			Dta.ui.showConfirmation(string.format(Dta.Locale.Text.ConfirmDeleteSet, name),
 									Dta.losa.deleteItemSet, nil, name)
 		else
 			Dta.CPrint(string.format(Dta.Locale.Prints.NotRemoved, name))
