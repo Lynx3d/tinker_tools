@@ -321,6 +321,10 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 		return
 	end
 	-- check input
+	if not name then
+		Dta.CPrint(Dta.Locale.Prints.LoadSelectSet)
+		return
+	end
 	local settings = {}
 	local success = {}
 	local losa_ui = Dta.ui.windowLoSa.constructions
