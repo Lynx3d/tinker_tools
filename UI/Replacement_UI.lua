@@ -29,17 +29,11 @@ function Dta.ui.buildReskinWindow()
 	newWindow.settings = ReskinWindowSettings
 
 	newWindow.oldSkinLabel = Dta.ui.createText("OldSkinLabel", reskinWindow, 10, 5, Locale.Text.OldSkin, 14)
-	newWindow.oldSkinSelect = UI.CreateFrame("SimpleSelect", "OldSkinSelect", reskinWindow)
-	newWindow.oldSkinSelect:SetPoint("TOPLEFT", reskinWindow, "TOPLEFT", 120, 5)
-	newWindow.oldSkinSelect:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
-	newWindow.oldSkinSelect:SetWidth(180)
+	newWindow.oldSkinSelect = Dta.ui.createDropdown("OldSkinSelect", reskinWindow, 120, 5, 180)
 	newWindow.oldSkinSelect:SetItems(Dta.Replacement.loadSkins())
 
 	newWindow.newSkinLabel = Dta.ui.createText("NewSkinLabel", reskinWindow, 10, 30, Locale.Text.NewSkin, 14)
-	newWindow.newSkinSelect = UI.CreateFrame("SimpleSelect", "NewSkinSelect", reskinWindow)
-	newWindow.newSkinSelect:SetPoint("TOPLEFT", reskinWindow, "TOPLEFT", 120, 30)
-	newWindow.newSkinSelect:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
-	newWindow.newSkinSelect:SetWidth(180)
+	newWindow.newSkinSelect = Dta.ui.createDropdown("NewSkinSelect", reskinWindow, 120, 30, 180)
 	newWindow.newSkinSelect:SetItems(Dta.Replacement.loadSkins())
 
 	newWindow.tile = Dta.ui.createCheckbox("replaceTiles", reskinWindow, 20, 60, Locale.Text.Tile, true)

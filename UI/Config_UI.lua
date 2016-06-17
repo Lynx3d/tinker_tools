@@ -46,18 +46,12 @@ function Dta.config_ui.buildConfigWindow()
 	local Configwindow = newWindow.content
 
 	Configwindow.LangLabel = Dta.ui.createText("ConfigLangLabel", Configwindow, 20, 25, "Language/Sprache/Langue", 14)
-	Configwindow.Lang = UI.CreateFrame("SimpleSelect", "Language", Configwindow)
-	Configwindow.Lang:SetPoint("TOPLEFT", Configwindow, "TOPLEFT", 190, 25)
+	Configwindow.Lang = Dta.ui.createDropdown("Language", Configwindow, 190, 25, 110)
 	Configwindow.Lang:SetItems(langMenu)
-	Configwindow.Lang:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
-	Configwindow.Lang:SetWidth(110)
 	-- Skin
 	Configwindow.SkinLabel = Dta.ui.createText("ConfigLangLabel", Configwindow, 20, 50, Dta.Locale.Text.WindowStyle, 14)
-	Configwindow.Skin = UI.CreateFrame("SimpleSelect", "WindowStyle", Configwindow)
-	Configwindow.Skin:SetPoint("TOPLEFT", Configwindow, "TOPLEFT", 190, 50)
+	Configwindow.Skin = Dta.ui.createDropdown("WindowStyle", Configwindow, 190, 50, 110)
 	Configwindow.Skin:SetItems(Dta.Locale.Menus.WindowStyle)
-	Configwindow.Skin:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
-	Configwindow.Skin:SetWidth(110)
 	-- Console Options:
 	Configwindow.ConsoleLabel = Dta.ui.createText("ConsoleLabel", Configwindow, 20, 75, Dta.Locale.Text.ConsoleMessages, 14)
 	Configwindow.Console = {}

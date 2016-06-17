@@ -53,31 +53,17 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 	Alphabetwindow.Alphabet.Word = Dta.ui.createTextfield("AlphabetWord", Alphabetwindow.Alphabet, 70, 0, 220)
 
 	Alphabetwindow.Alphabet.FontLabel = Dta.ui.createText("AlphabetFontLabel", Alphabetwindow.Alphabet, 0, 30, Dta.Locale.Text.Font, 14)
-	Alphabetwindow.Alphabet.FontLoad = UI.CreateFrame("SimpleSelect", "AlphabetFontLoad", Alphabetwindow.Alphabet)
-	Alphabetwindow.Alphabet.FontLoad:SetPoint("TOPLEFT", Alphabetwindow.Alphabet, "TOPLEFT", 70, 30)
-	Alphabetwindow.Alphabet.FontLoad:SetLayer(100)
+	Alphabetwindow.Alphabet.FontLoad = Dta.ui.createDropdown("AlphabetFontLoad", Alphabetwindow.Alphabet, 70, 30, 220)
 	Alphabetwindow.Alphabet.FontLoad:SetItems(Dta.alphabet.loadFonts())
 	Alphabetwindow.Alphabet.FontLoad.Event.ItemSelect = function(view, item) Dta.alphabet.FontSelected(item) end
-	Alphabetwindow.Alphabet.FontLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
-	Alphabetwindow.Alphabet.FontLoad:SetWidth(220)
 
-	Alphabetwindow.Alphabet.SizeLabel = Dta.ui.createText("AlphabetFontLabel", Alphabetwindow.Alphabet, 0, 60, Dta.Locale.Text.Size, 14)
-	Alphabetwindow.Alphabet.SizeLoad = UI.CreateFrame("SimpleSelect", "AlphabetFontLoad", Alphabetwindow.Alphabet)
-	Alphabetwindow.Alphabet.SizeLoad:SetPoint("TOPLEFT", Alphabetwindow.Alphabet, "TOPLEFT", 70, 60)
-	Alphabetwindow.Alphabet.SizeLoad:SetLayer(100)
+	Alphabetwindow.Alphabet.SizeLabel = Dta.ui.createText("AlphabetSizeLabel", Alphabetwindow.Alphabet, 0, 60, Dta.Locale.Text.Size, 14)
+	Alphabetwindow.Alphabet.SizeLoad = Dta.ui.createDropdown("AlphabetSizeLoad", Alphabetwindow.Alphabet, 70, 60, 100)
 	Alphabetwindow.Alphabet.SizeLoad:SetItems(Dta.alphabet.loadSize())
-	--Alphabetwindow.Alphabet.SizeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.SizeSelected(item) end
-	Alphabetwindow.Alphabet.SizeLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
-	Alphabetwindow.Alphabet.SizeLoad:SetWidth(100)
 
 	Alphabetwindow.Alphabet.TypeLabel = Dta.ui.createText("AlphabetTypeLabel", Alphabetwindow.Alphabet, 0, 90, Dta.Locale.Text.Skin, 14)
-	Alphabetwindow.Alphabet.TypeLoad = UI.CreateFrame("SimpleSelect", "AlphabetTypeLoad", Alphabetwindow.Alphabet)
-	Alphabetwindow.Alphabet.TypeLoad:SetPoint("TOPLEFT", Alphabetwindow.Alphabet, "TOPLEFT", 70, 90)
-	Alphabetwindow.Alphabet.TypeLoad:SetLayer(100)
+	Alphabetwindow.Alphabet.TypeLoad = Dta.ui.createDropdown("AlphabetTypeLoad", Alphabetwindow.Alphabet, 70, 90, 220)
 	Alphabetwindow.Alphabet.TypeLoad:SetItems(Dta.Replacement.loadAlphabetSkins())
-	--Alphabetwindow.Alphabet.TypeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.SkinSelected(item) end
-	Alphabetwindow.Alphabet.TypeLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
-	Alphabetwindow.Alphabet.TypeLoad:SetWidth(220)
 
 	Alphabetwindow.Alphabet.modeHorizontal = Dta.ui.createCheckbox("AlphabetmodeHorizontal", Alphabetwindow.Alphabet, 10, 120, Dta.Locale.Text.Horizontal, true, nil, Dta.alphabet.AlphabetmodeHorizontalChanged)
 	Alphabetwindow.Alphabet.modeVertical = Dta.ui.createCheckbox("AlphabetmodeVertical", Alphabetwindow.Alphabet, 170, 120, Dta.Locale.Text.Vertical, false, nil, Dta.alphabet.AlphabetmodeVerticalChanged)

@@ -49,24 +49,12 @@ function Dta.measurements_ui.buildMeasurementsWindow()
 	--Measurementswindow.modifyRotation:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
 	Measurementswindow.Measurements.TypeLabel = Dta.ui.createText("MeasurementsTypeLabel", Measurementswindow.Measurements, 0, 0, Dta.Locale.Text.Type, 14)
-	Measurementswindow.Measurements.TypeLoad = UI.CreateFrame("SimpleSelect", "MeasurementsTypeLoad", Measurementswindow.Measurements)
-	Measurementswindow.Measurements.TypeLoad:SetPoint("TOPLEFT", Measurementswindow.Measurements, "TOPLEFT", 80, 0)
-	Measurementswindow.Measurements.TypeLoad:SetLayer(100)
+	Measurementswindow.Measurements.TypeLoad = Dta.ui.createDropdown("MeasurementsTypeLoad", Measurementswindow.Measurements, 80, 0, 150)
 	Measurementswindow.Measurements.TypeLoad:SetItems(Dta.Locale.Menus.ItemType)
-	--Measurementswindow.Measurements.TypeLoad.Event.ItemSelect = function(view, item) Dta.alphabet.FontSelected(item) end
-	Measurementswindow.Measurements.TypeLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
-	Measurementswindow.Measurements.TypeLoad:SetWidth(150)
-	Measurementswindow.Measurements.TypeLoad:SetEnabled(true)
 
 	Measurementswindow.Measurements.OrientationLabel = Dta.ui.createText("MeasurementsOrientationLabel", Measurementswindow.Measurements, 0, 30, Dta.Locale.Text.Orientation, 14)
-	Measurementswindow.Measurements.OrientationLoad = UI.CreateFrame("SimpleSelect", "MeasurementsOrientationLoad", Measurementswindow.Measurements)
-	Measurementswindow.Measurements.OrientationLoad:SetPoint("TOPLEFT", Measurementswindow.Measurements, "TOPLEFT", 80, 30)
-	Measurementswindow.Measurements.OrientationLoad:SetLayer(100)
+	Measurementswindow.Measurements.OrientationLoad = Dta.ui.createDropdown("MeasurementsOrientationLoad", Measurementswindow.Measurements, 80, 30, 150)
 	Measurementswindow.Measurements.OrientationLoad:SetItems(Dta.Locale.Menus.Orientation)
-	--Measurementswindow.Measurements.OrientationLoad.Event.ItemSelect = function(view, item) Dta.alphabet.FontSelected(item) end
-	Measurementswindow.Measurements.OrientationLoad:SetBackgroundColor(0.07, 0.05, 0.01, 0.85)
-	Measurementswindow.Measurements.OrientationLoad:SetWidth(150)
-	Measurementswindow.Measurements.OrientationLoad:SetEnabled(true)
 
 	Measurementswindow.Measurements.SizeLabel = Dta.ui.createText("MeasurementsSizeLabel", Measurementswindow.Measurements, 0, 60, Dta.Locale.Text.Scale, 14)
 	Measurementswindow.Measurements.Size = Dta.ui.createTextfield("MeasurementsSize", Measurementswindow.Measurements, 80, 60, 50)
