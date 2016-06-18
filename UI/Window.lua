@@ -153,9 +153,10 @@ end
 function Window.drawBackground(canvas)
 	local width = canvas:GetWidth()
 	local height = canvas:GetHeight()
-	local crop = 6
-	local width_scale = width / (1024 - 2*crop)
-	local height_scale = math.max(width_scale, height / (512 - 2*crop)) -- don't squash vertically, only stretch if proportion too wide
+	local crop = canvas.crop
+	local width_scale = width / (crop[3] - crop[1])
+	-- don't squash vertically below min_aspect, only stretch if proportion too wide
+	local height_scale = math.max(canvas.min_height * width_scale, height / (crop[4] - crop[2]))
 	-- round top corners to match window frame
 	local path = {	{x = 0, y = 10},
 					{x = 10, y = 0, xControl = 0, yControl = 0},
@@ -165,10 +166,19 @@ function Window.drawBackground(canvas)
 					{x = 0, y = height },
 					{x = 0, y = 10} }
 	local fill = {	type = 'texture',
-					source = "Rift",
-					transform = { width_scale, 0, -crop * width_scale, 0, height_scale, -crop * height_scale },
-					texture = "dimension_window_bg_right_large.png.dds" }
+					source = canvas.source,
+					transform = { width_scale, 0, -crop[1] * width_scale, 0, height_scale, -crop[2] * height_scale },
+					texture = canvas.asset }
 	canvas:SetShape(path, fill, nil)
+end
+
+function Window.SetBackground(self, resource, asset, crop, min_height)
+	local bg = self.background
+	bg.source = resource
+	bg.asset = asset
+	bg.crop = crop
+	bg.min_height = min_height or 0
+	Window.drawBackground(bg)
 end
 
 function Window.SetContentHeight(self, newHeight)
@@ -186,7 +196,7 @@ function Window.createFramedWindow(name, parent, title, width, height, x, y, clo
 	newWindow.background = UI.CreateFrame("Canvas", name .. "Background", newWindow)
 	newWindow.background:SetPoint("TOPLEFT", newWindow, "TOPLEFT", 0, 0)
 	newWindow.background:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT", 0, 0)
-	Window.drawBackground(newWindow.background)
+	Window.SetBackground(newWindow, "Rift", "dimension_window_bg_right_large.png.dds", {6, 6, 1018, 506}, 1)
 	newWindow.background:SetLayer(1)
 	newWindow.background:EventAttach(Event.UI.Layout.Size, Window.drawBackground, "redrawBackground")
 
@@ -241,8 +251,13 @@ function Window.createFramedWindow(name, parent, title, width, height, x, y, clo
 	newWindow.content:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT")
 	newWindow.content:SetLayer(4)
 	newWindow.SetContentHeight = Window.SetContentHeight
+	newWindow.SetBackground = Window.SetBackground
 
 	return newWindow
+end
+
+function Window.SetBackground_FL(self, resource, asset)
+	self.background:SetTexture(resource, asset)
 end
 
 function Window.createFramelessWindow(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
@@ -300,6 +315,7 @@ function Window.createFramelessWindow(name, parent, title, width, height, x, y, 
 	newWindow.content:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT")
 	newWindow.content:SetLayer(4)
 	newWindow.SetContentHeight = Window.SetContentHeight
+	newWindow.SetBackground = Window.SetBackground_FL
 
 	return newWindow
 end
