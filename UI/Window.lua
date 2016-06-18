@@ -256,8 +256,15 @@ function Window.createFramedWindow(name, parent, title, width, height, x, y, clo
 	return newWindow
 end
 
-function Window.SetBackground_FL(self, resource, asset)
+function Window.SetBackground_FL(self, resource, asset, overlap)
 	self.background:SetTexture(resource, asset)
+	if overlap then
+		self.background:SetPoint("TOPLEFT", self, "TOPLEFT", -overlap[1], Window.classicHeaderSize - overlap[2])
+		self.background:SetPoint("BOTTOMRIGHT", self, "BOTTOMRIGHT", overlap[3], overlap[4])
+	else
+		self.background:SetPoint("TOPLEFT", self, "TOPLEFT", 0, Window.classicHeaderSize)
+		self.background:SetPoint("BOTTOMRIGHT", self, "BOTTOMRIGHT", 0, 0)
+	end
 end
 
 function Window.createFramelessWindow(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
