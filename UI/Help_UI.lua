@@ -88,6 +88,7 @@ end
 -- Show the toolbox window
 function Dta.help_ui.showHelpWindow()
 	if Dta.ui.windowHelp == nil then
+		Dta.Help.Init()
 		Dta.ui.windowHelp = Dta.help_ui.buildHelpWindow()
 	else
 		Dta.ui.windowHelp:SetVisible(true)
