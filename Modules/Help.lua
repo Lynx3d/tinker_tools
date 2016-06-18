@@ -3,7 +3,8 @@ local Dta = select(2, ...)
 Dta.Help = {}
 
 	function Dta.Help.InfoHandler(Item)
-		Dta.ui.windowHelp.ScrollInfoLoad:ScrollTo(0)
+		local helpUI = Dta.ui.windowHelp.content
+		helpUI.ScrollInfoLoad:ScrollTo(0)
 		local test = Dta.Help.helpTopic[Item]
 		for i = 1, table.getn(test), 1 do
 			local InfoLabel = test[i].label
@@ -16,52 +17,52 @@ Dta.Help = {}
 			local InfoEmpty = ""
 			local InfoPosition = 0
 
-			Dta.ui.windowHelp.HeaderInfo:SetFontSize(30)
-			Dta.ui.windowHelp.HeaderInfo:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, 0)
-			Dta.ui.windowHelp.HeaderInfo:SetText("<u>"..InfoLabel.."</u>", true)
+			helpUI.HeaderInfo:SetFontSize(30)
+			helpUI.HeaderInfo:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, 0)
+			helpUI.HeaderInfo:SetText("<u>"..InfoLabel.."</u>", true)
 
-			InfoPosition = InfoPosition + Dta.ui.windowHelp.HeaderInfo:GetHeight() + 20
+			InfoPosition = InfoPosition + helpUI.HeaderInfo:GetHeight() + 20
 
-			Dta.ui.windowHelp.TextInfo01:SetFontSize(15)
-			Dta.ui.windowHelp.TextInfo01:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-			Dta.ui.windowHelp.TextInfo01:SetText(InfoText01, true)
+			helpUI.TextInfo01:SetFontSize(15)
+			helpUI.TextInfo01:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
+			helpUI.TextInfo01:SetText(InfoText01, true)
 
-			InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo01:GetHeight() + 20
+			InfoPosition = InfoPosition + helpUI.TextInfo01:GetHeight() + 20
 
-			Dta.ui.windowHelp.PicInfo01:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-			Dta.ui.windowHelp.PicInfo01:SetTexture(Dta.AddonID, "textures/"..InfoPic01)
+			helpUI.PicInfo01:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
+			helpUI.PicInfo01:SetTexture(Dta.AddonID, "textures/"..InfoPic01)
 
-			InfoPosition = InfoPosition + Dta.ui.windowHelp.PicInfo01:GetHeight() + 20
+			InfoPosition = InfoPosition + helpUI.PicInfo01:GetHeight() + 20
 
-			Dta.ui.windowHelp.TextInfo02:SetFontSize(15)
-			Dta.ui.windowHelp.TextInfo02:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-			Dta.ui.windowHelp.TextInfo02:SetText(InfoText02, true)
+			helpUI.TextInfo02:SetFontSize(15)
+			helpUI.TextInfo02:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
+			helpUI.TextInfo02:SetText(InfoText02, true)
 
-			InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo02:GetHeight() + 20
+			InfoPosition = InfoPosition + helpUI.TextInfo02:GetHeight() + 20
 
-			Dta.ui.windowHelp.PicInfo02:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-			Dta.ui.windowHelp.PicInfo02:SetTexture(Dta.AddonID, "textures/"..InfoPic02)
+			helpUI.PicInfo02:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
+			helpUI.PicInfo02:SetTexture(Dta.AddonID, "textures/"..InfoPic02)
 
-			InfoPosition = InfoPosition + Dta.ui.windowHelp.PicInfo02:GetHeight() + 20
+			InfoPosition = InfoPosition + helpUI.PicInfo02:GetHeight() + 20
 
-			Dta.ui.windowHelp.TextInfo03:SetFontSize(15)
-			Dta.ui.windowHelp.TextInfo03:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-			Dta.ui.windowHelp.TextInfo03:SetText(InfoText03, true)
+			helpUI.TextInfo03:SetFontSize(15)
+			helpUI.TextInfo03:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
+			helpUI.TextInfo03:SetText(InfoText03, true)
 
-			InfoPosition = InfoPosition + Dta.ui.windowHelp.TextInfo03:GetHeight() + 20
+			InfoPosition = InfoPosition + helpUI.TextInfo03:GetHeight() + 20
 
-			Dta.ui.windowHelp.PicInfo03:SetPoint("TOPLEFT", Helpwindow.HelpInfo, "TOPLEFT", 0, InfoPosition)
-			Dta.ui.windowHelp.PicInfo03:SetTexture(Dta.AddonID, "textures/"..InfoPic03)
+			helpUI.PicInfo03:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
+			helpUI.PicInfo03:SetTexture(Dta.AddonID, "textures/"..InfoPic03)
 
-			local HeaderHeight = Dta.ui.windowHelp.HeaderInfo:GetHeight()
-			local Text01Height = Dta.ui.windowHelp.TextInfo01:GetHeight()
-			local Text02Height = Dta.ui.windowHelp.TextInfo02:GetHeight()
-			local Text03Height = Dta.ui.windowHelp.TextInfo03:GetHeight()
-			local Pic01Height = Dta.ui.windowHelp.PicInfo01:GetHeight()
-			local Pic02Height = Dta.ui.windowHelp.PicInfo02:GetHeight()
-			local Pic03Height = Dta.ui.windowHelp.PicInfo03:GetHeight()
+			local HeaderHeight = helpUI.HeaderInfo:GetHeight()
+			local Text01Height = helpUI.TextInfo01:GetHeight()
+			local Text02Height = helpUI.TextInfo02:GetHeight()
+			local Text03Height = helpUI.TextInfo03:GetHeight()
+			local Pic01Height = helpUI.PicInfo01:GetHeight()
+			local Pic02Height = helpUI.PicInfo02:GetHeight()
+			local Pic03Height = helpUI.PicInfo03:GetHeight()
 			local InfoTotalHeight = HeaderHeight + Text01Height + Text02Height + Text03Height + Pic01Height + Pic02Height + Pic03Height + 150
-			Dta.ui.windowHelp.HelpInfo:SetHeight(InfoTotalHeight)
+			helpUI.HelpInfo:SetHeight(InfoTotalHeight)
 		end
 	end
 
