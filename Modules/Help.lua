@@ -2,68 +2,59 @@ local Dta = select(2, ...)
 
 Dta.Help = {}
 
-function Dta.Help.InfoHandler(Item)
+function Dta.Help.InfoHandler(index)
 	local helpUI = Dta.ui.windowHelp.content
 	helpUI.ScrollInfoLoad:ScrollTo(0)
-	local test = Dta.Help.helpTopic[Item]
-	for i = 1, table.getn(test), 1 do
-		local InfoLabel = test[i].label
-		local InfoText01 = test[i].text01
-		local InfoText02 = test[i].text02
-		local InfoText03 = test[i].text03
-		local InfoPic01 = test[i].pic01
-		local InfoPic02 = test[i].pic02
-		local InfoPic03 = test[i].pic03
-		local InfoEmpty = ""
-		local InfoPosition = 0
+	local info = Dta.Help.helpTopic[index]
 
-		helpUI.HeaderInfo:SetFontSize(30)
-		helpUI.HeaderInfo:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, 0)
-		helpUI.HeaderInfo:SetText("<u>"..InfoLabel.."</u>", true)
+	local InfoLabel = info.label
+	local InfoText01 = info.text01
+	local InfoText02 = info.text02
+	local InfoText03 = info.text03
+	local InfoPic01 = info.pic01
+	local InfoPic02 = info.pic02
+	local InfoPic03 = info.pic03
+	local InfoPosition = 0
 
-		InfoPosition = InfoPosition + helpUI.HeaderInfo:GetHeight() + 20
+	helpUI.HeaderInfo:SetFontSize(30)
+	helpUI.HeaderInfo:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, 0)
+	helpUI.HeaderInfo:SetText("<u>"..InfoLabel.."</u>", true)
 
-		helpUI.TextInfo01:SetFontSize(15)
-		helpUI.TextInfo01:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
-		helpUI.TextInfo01:SetText(InfoText01, true)
+	InfoPosition = InfoPosition + helpUI.HeaderInfo:GetHeight() + 20
 
-		InfoPosition = InfoPosition + helpUI.TextInfo01:GetHeight() + 20
+	helpUI.TextInfo01:SetFontSize(15)
+	helpUI.TextInfo01:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
+	helpUI.TextInfo01:SetText(InfoText01, true)
 
-		helpUI.PicInfo01:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
-		helpUI.PicInfo01:SetTexture(Dta.AddonID, "textures/"..InfoPic01)
+	InfoPosition = InfoPosition + helpUI.TextInfo01:GetHeight() + 20
 
-		InfoPosition = InfoPosition + helpUI.PicInfo01:GetHeight() + 20
+	helpUI.PicInfo01:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 30, InfoPosition)
+	helpUI.PicInfo01:SetTexture(Dta.AddonID, "textures/"..InfoPic01)
 
-		helpUI.TextInfo02:SetFontSize(15)
-		helpUI.TextInfo02:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
-		helpUI.TextInfo02:SetText(InfoText02, true)
+	InfoPosition = InfoPosition + helpUI.PicInfo01:GetHeight() + 20
 
-		InfoPosition = InfoPosition + helpUI.TextInfo02:GetHeight() + 20
+	helpUI.TextInfo02:SetFontSize(15)
+	helpUI.TextInfo02:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
+	helpUI.TextInfo02:SetText(InfoText02, true)
 
-		helpUI.PicInfo02:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
-		helpUI.PicInfo02:SetTexture(Dta.AddonID, "textures/"..InfoPic02)
+	InfoPosition = InfoPosition + helpUI.TextInfo02:GetHeight() + 20
 
-		InfoPosition = InfoPosition + helpUI.PicInfo02:GetHeight() + 20
+	helpUI.PicInfo02:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 30, InfoPosition)
+	helpUI.PicInfo02:SetTexture(Dta.AddonID, "textures/"..InfoPic02)
 
-		helpUI.TextInfo03:SetFontSize(15)
-		helpUI.TextInfo03:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
-		helpUI.TextInfo03:SetText(InfoText03, true)
+	InfoPosition = InfoPosition + helpUI.PicInfo02:GetHeight() + 20
 
-		InfoPosition = InfoPosition + helpUI.TextInfo03:GetHeight() + 20
+	helpUI.TextInfo03:SetFontSize(15)
+	helpUI.TextInfo03:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
+	helpUI.TextInfo03:SetText(InfoText03, true)
 
-		helpUI.PicInfo03:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 0, InfoPosition)
-		helpUI.PicInfo03:SetTexture(Dta.AddonID, "textures/"..InfoPic03)
+	InfoPosition = InfoPosition + helpUI.TextInfo03:GetHeight() + 20
 
-		local HeaderHeight = helpUI.HeaderInfo:GetHeight()
-		local Text01Height = helpUI.TextInfo01:GetHeight()
-		local Text02Height = helpUI.TextInfo02:GetHeight()
-		local Text03Height = helpUI.TextInfo03:GetHeight()
-		local Pic01Height = helpUI.PicInfo01:GetHeight()
-		local Pic02Height = helpUI.PicInfo02:GetHeight()
-		local Pic03Height = helpUI.PicInfo03:GetHeight()
-		local InfoTotalHeight = HeaderHeight + Text01Height + Text02Height + Text03Height + Pic01Height + Pic02Height + Pic03Height + 150
-		helpUI.HelpInfo:SetHeight(InfoTotalHeight)
-	end
+	helpUI.PicInfo03:SetPoint("TOPLEFT", helpUI.HelpInfo, "TOPLEFT", 30, InfoPosition)
+	helpUI.PicInfo03:SetTexture(Dta.AddonID, "textures/"..InfoPic03)
+
+	local InfoTotalHeight = InfoPosition + helpUI.PicInfo03:GetHeight() + 30
+	helpUI.HelpInfo:SetHeight(InfoTotalHeight)
 end
 
 function Dta.Help.Init()
@@ -83,12 +74,10 @@ function Dta.Help.Init()
 		Dta.Locale.Afterword.Label
 	}
 
-	Dta.Help.helpTopic = {} --{label = "", text = ""}
-	local helpIndex = Dta.Help.helpIndex
+	Dta.Help.helpTopic = {}
 	local helpTopic = Dta.Help.helpTopic
 
-	helpTopic[helpIndex[1]] = {
-		{
+	helpTopic[1] = {
 		label = Dta.Locale.Intro.Label,
 		text01 = Dta.Locale.Intro.Text1,
 		text02 = Dta.Locale.Intro.Text2,
@@ -96,11 +85,9 @@ function Dta.Help.Init()
 		pic01 = "",
 		pic02 = "",
 		pic03 = ""
-		}
 	}
 
-	helpTopic[helpIndex[2]] = {
-		{
+	helpTopic[2] = {
 		label = Dta.Locale.Main.Label,
 		text01 = Dta.Locale.Main.Text1,
 		text02 = Dta.Locale.Main.Text2,
@@ -108,11 +95,9 @@ function Dta.Help.Init()
 		pic01 = "Main_window.jpg",
 		pic02 = "",
 		pic03 = ""
-		}
 	}
 
-	helpTopic[helpIndex[3]] = {
-		{
+	helpTopic[3] = {
 		label = Dta.Locale.Move.Label,
 		text01 = Dta.Locale.Move.Text1,
 		text02 = Dta.Locale.Move.Text2,
@@ -120,11 +105,9 @@ function Dta.Help.Init()
 		pic01 = "Move_Window.jpg",
 		pic02 = "",
 		pic03 = ""
-			}
 	}
 
-	helpTopic[helpIndex[4]] = {
-		{
+	helpTopic[4] = {
 		label = Dta.Locale.Rotate.Label,
 		text01 = Dta.Locale.Rotate.Text1,
 		text02 = Dta.Locale.Rotate.Text2,
@@ -132,11 +115,9 @@ function Dta.Help.Init()
 		pic01 = "Rotate_Window.jpg",
 		pic02 = "",
 		pic03 = ""
-			}
 	}
 
-	helpTopic[helpIndex[5]] = {
-		{
+	helpTopic[5] = {
 		label = Dta.Locale.Scale.Label,
 		text01 = Dta.Locale.Scale.Text1,
 		text02 = Dta.Locale.Scale.Text2,
@@ -144,11 +125,9 @@ function Dta.Help.Init()
 		pic01 = "Scale_Window.jpg",
 		pic02 = "",
 		pic03 = ""
-			}
 	}
 
-	helpTopic[helpIndex[6]] = {
-		{
+	helpTopic[6] = {
 		label = Dta.Locale.CopyandPaste.Label,
 		text01 = Dta.Locale.CopyandPaste.Text1,
 		text02 = Dta.Locale.CopyandPaste.Text2,
@@ -156,11 +135,9 @@ function Dta.Help.Init()
 		pic01 = "Copy_Window_01.jpg",
 		pic02 = "Copy_Window_02.jpg",
 		pic03 = ""
-		}
 	}
 
-	helpTopic[helpIndex[7]] = {
-		{
+	helpTopic[7] = {
 		label = Dta.Locale.LoadandSave.Label,
 		text01 = Dta.Locale.LoadandSave.Text1,
 		text02 = Dta.Locale.LoadandSave.Text2,
@@ -168,11 +145,9 @@ function Dta.Help.Init()
 		pic01 = "Load_Window_01.jpg",
 		pic02 = "Load_Window_02.jpg",
 		pic03 = ""
-		}
 	}
 
-	helpTopic[helpIndex[8]] = {
-		{
+	helpTopic[8] = {
 		label = Dta.Locale.ImportandExport.Label,
 		text01 = Dta.Locale.ImportandExport.Text1,
 		text02 = Dta.Locale.ImportandExport.Text2,
@@ -180,11 +155,9 @@ function Dta.Help.Init()
 		pic01 = "Import_Window.jpg",
 		pic02 = "",
 		pic03 = ""
-		}
 	}
 
-	helpTopic[helpIndex[9]] = {
-		{
+	helpTopic[9] = {
 		label = Dta.Locale.TribalMagic.Label,
 		text01 = Dta.Locale.TribalMagic.Text1,
 		text02 = Dta.Locale.TribalMagic.Text2,
@@ -192,11 +165,9 @@ function Dta.Help.Init()
 		pic01 = "Flying_Window.jpg",
 		pic02 = "",
 		pic03 = ""
-		}
 	}
 
-	helpTopic[helpIndex[10]] = {
-		{
+	helpTopic[10] = {
 		label = Dta.Locale.OffsetCalc.Label,
 		text01 = Dta.Locale.OffsetCalc.Text1,
 		text02 = Dta.Locale.OffsetCalc.Text2,
@@ -204,12 +175,9 @@ function Dta.Help.Init()
 		pic01 = "Offset_Calc_Window.jpg",
 		pic02 = "",
 		pic03 = ""
-		}
 	}
 
-
-	helpTopic[helpIndex[11]] = {
-		{
+	helpTopic[11] = {
 		label = Dta.Locale.Alfiebet.Label,
 		text01 = Dta.Locale.Alfiebet.Text1,
 		text02 = Dta.Locale.Alfiebet.Text2,
@@ -217,11 +185,9 @@ function Dta.Help.Init()
 		pic01 = "Alfiebet_Window_01.jpg",
 		pic02 = "",
 		pic03 = ""
-		}
 	}
 
-	helpTopic[helpIndex[12]] = {
-		{
+	helpTopic[12] = {
 		label = Dta.Locale.ChanceLog.Label,
 		text01 = Dta.Locale.ChanceLog.Text1,
 		text02 = Dta.Locale.ChanceLog.Text2,
@@ -229,11 +195,9 @@ function Dta.Help.Init()
 		pic01 = "",
 		pic02 = "",
 		pic03 = ""
-		}
 	}
 
-	helpTopic[helpIndex[13]] = {
-		{
+	helpTopic[13] = {
 		label = Dta.Locale.Afterword.Label,
 		text01 = Dta.Locale.Afterword.Text1,
 		text02 = Dta.Locale.Afterword.Text2,
@@ -241,6 +205,5 @@ function Dta.Help.Init()
 		pic01 = "",
 		pic02 = "",
 		pic03 = ""
-		}
 	}
 end

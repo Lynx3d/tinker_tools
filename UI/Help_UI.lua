@@ -49,7 +49,7 @@ function Dta.help_ui.buildHelpWindow()
 	Helpwindow.ScrollIndexLoad:SetBackgroundColor(0, 0, 0, 0)
 
 	Helpwindow.HelpIndex = UI.CreateFrame("SimpleList", "HelpIndex", Helpwindow.ScrollIndexLoad)
-	Helpwindow.HelpIndex.Event.ItemSelect = function(view, item) Dta.Help.InfoHandler(item) end
+	Helpwindow.HelpIndex.Event.ItemSelect = function(view, item, val, index) Dta.Help.InfoHandler(index) end
 	local HelpIndex = Dta.Help.helpIndex
 	Helpwindow.HelpIndex:SetItems(HelpIndex)
 	Helpwindow.HelpIndex:SetBackgroundColor(0, 0, 0, 0)
