@@ -228,6 +228,24 @@ function Dta.commandHandler(hEvent, command)
 		Dta.config_ui.showConfigWindow()
 	elseif command == "force" then
 		EnterDimension()
+	elseif command == "check_lang" then
+		local function checkLang(lang1, lang2, stack)
+			for key, val in pairs(lang1) do
+				if type(val) == "table" then
+					if not rawget(lang2, key) then
+						Dta.CPrint("Missing table: " .. table.concat(stack, ".") .. "." .. key)
+					else
+						table.insert(stack, key)
+						checkLang(val, lang2[key], stack)
+						table.remove(stack)
+					end
+				elseif not rawget(lang2, key) then
+					Dta.CPrint("Missing string: " .. table.concat(stack, ".") ..  "." .. key)
+				end
+			end
+		end
+		checkLang(Dta.Lang.English, Dta.Lang.French, {"French"})
+		checkLang(Dta.Lang.English, Dta.Lang.German, {"German"})
 	else
 		if Dta.InDimension == true then
 			Dta.ui.toggleMainWindow()
