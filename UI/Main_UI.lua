@@ -124,16 +124,6 @@ function Dta.ui.createText(name, parent, x, y, text, fontsize, color, shadow)
 	return textFrame
 end
 
--- create icon
-function Dta.ui.createIcon(name, parent, texture, x, y, size)
-	local textureFrame = UI.CreateFrame("Texture", name, parent)
-	if texture ~= nil then textureFrame:SetTexture("Rift", texture) end
-	textureFrame:SetWidth(size)
-	textureFrame:SetHeight(size)
-	textureFrame:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
-	return textureFrame
-end
-
 -- create texture
 function Dta.ui.createTexture(name, parent, source, texture, x, y, width, height)
 	local textureFrame = UI.CreateFrame("Texture", name, parent)
@@ -340,7 +330,7 @@ function Dta.ui.buildMainWindow()
 	Mainwindow.itemDetails:SetLayer(30)
 	--Mainwindow.itemDetails:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-	Mainwindow.itemDetails.icon = Dta.ui.createIcon("itemDetailsIcon", Mainwindow.itemDetails, nil, 0, 0, 25)
+	Mainwindow.itemDetails.icon = Dta.ui.createTexture("itemDetailsIcon", Mainwindow.itemDetails, nil, nil, 0, 0, 25, 25)
 	Mainwindow.itemDetails.icon:SetLayer(35)
 	Mainwindow.itemDetails.name = Dta.ui.createText("itemDetailsName", Mainwindow.itemDetails, 30, 0, Dta.Locale.Text.NothingSelected, 16)
 	Mainwindow.itemDetails.name:SetWidth(280)
