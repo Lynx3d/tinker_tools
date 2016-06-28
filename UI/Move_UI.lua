@@ -65,11 +65,13 @@ function Dta.move_ui.buildMoveWindow()
 	Movewindow.modifyPosition.fetchY:EventAttach(Event.UI.Input.Mouse.Right.Click, Dta.move.fetchAllButtonClicked, "FetchAll")
 	Movewindow.modifyPosition.fetchZ:EventAttach(Event.UI.Input.Mouse.Right.Click, Dta.move.fetchAllButtonClicked, "FetchAll")
 
-	Movewindow.modifyPosition.modeAbs = Dta.ui.createCheckbox("modifyPositionModeAbs", Movewindow.modifyPosition, 160, 5, Dta.Locale.Text.Absolute, true, nil, Dta.move.modifyPositionModeAbsChanged)
-	Movewindow.modifyPosition.modeRel = Dta.ui.createCheckbox("modifyPositionModeRel", Movewindow.modifyPosition, 160, 45, Dta.Locale.Text.Relative, false, nil, Dta.move.modifyPositionModeRelChanged)
+	Movewindow.modifyPosition.modeAbs = Dta.ui.createCheckbox("modifyPositionModeAbs", Movewindow.modifyPosition, 160, 0, Dta.Locale.Text.Absolute, true, nil, Dta.move.modifyPositionModeAbsChanged)
+	Movewindow.modifyPosition.modeRel = Dta.ui.createCheckbox("modifyPositionModeRel", Movewindow.modifyPosition, 160, 40, Dta.Locale.Text.Relative, false, nil, Dta.move.modifyPositionModeRelChanged)
 
-	Movewindow.modifyPosition.moveAsGrp = Dta.ui.createCheckbox("modifyPositionMoveAsGrp", Movewindow.modifyPosition, 175, 25, Dta.Locale.Text.MoveAsGroup, false)
+	Movewindow.modifyPosition.moveAsGrp = Dta.ui.createCheckbox("modifyPositionMoveAsGrp", Movewindow.modifyPosition, 175, 20, Dta.Locale.Text.MoveAsGroup, false)
 	Movewindow.modifyPosition.moveAsGrp:SetVisible(Dta.selectionCount > 1)
+	Movewindow.modifyPosition.modeLocal = Dta.ui.createCheckbox("modifyPositionModeLocal", Movewindow.modifyPosition, 175, 60, Dta.Locale.Text.LocalAxes, false)
+	Movewindow.modifyPosition.modeLocal:CBSetEnabled(false)
 
 	Movewindow.modifyPosition.changeBtn = Dta.ui.createButton("modifyPositionBtn", Movewindow.modifyPosition, 0, 85, nil, nil, Dta.Locale.Buttons.Move, nil, Dta.move.modifyPositionButtonClicked)
 	Movewindow.modifyPosition.resetBtn = Dta.ui.createButton("modifyPositionResetBtn", Movewindow.modifyPosition, 150, 85, nil, nil, Dta.Locale.Buttons.Reset, nil, Dta.move.modifyPositionResetButtonClicked)
