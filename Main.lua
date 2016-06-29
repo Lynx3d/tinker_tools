@@ -266,33 +266,42 @@ function Dta.tick(handle)
 	Dta.lastFrameTime = currentFrameTime
 
 	if #Dta.pendingActions > 0 and not Dta.pending_add then
-		local action = table.remove(Dta.pendingActions, 1)
-		if action.op == "scale" then
-			Command.Dimension.Layout.Place(action.id, {scale=action.amount})
-		elseif action.op == "move" then
-			Command.Dimension.Layout.Place(action.id, {coordX=action.x, coordY=action.y, coordZ=action.z})
-		elseif action.op == "rotate" then
-			Command.Dimension.Layout.Place(action.id, {pitch=action.pitch, yaw=action.yaw, roll=action.roll})
-		elseif action.op == "select" then
-			Command.Dimension.Layout.Select(action.id, true)
-		elseif action.op == "add" then
-			Dta.pending_add = true
-			-- Command.Dimension.Layout.Place(action.id, action.details)
-			-- *NOTE*: below code is to get more useful information about a seemingly random error
-			-- that claims incorrect function usage despite the given arguments should always have
-			-- the same structure, and at least their data type clearly matches the docs.
-			local success, rval = pcall(Command.Dimension.Layout.Place, action.id, action.details)
-			if not success then
-				local details = Inspect.Item.Detail(action.id)
-				local item_info = details and Utility.Serialize.Inline(details) or "N/A"
-				local placement_info = Utility.Serialize.Inline(action.details)
-				local error_details = "Item Details:\n" .. item_info .. "\nPlacement Info:\n" .. placement_info .. "\n Rift error:\n" .. rval
-				error(error_details)
+		-- Rift (3.6) has a global command queue with a depth of 100 and throttling (25/sec ?).
+		-- We don't want to completely cram the queue, but keep 20 command slots for other addons;
+		-- 10 commands per tick should also be plenty to reach queue limit eventually.
+		local count = 0
+		while #Dta.pendingActions > 0 and count < 10 and Inspect.Queue.Status("global", 20) do
+			local action = table.remove(Dta.pendingActions, 1)
+			if action.op == "scale" then
+				Command.Dimension.Layout.Place(action.id, {scale=action.amount})
+			elseif action.op == "move" then
+				Command.Dimension.Layout.Place(action.id, {coordX=action.x, coordY=action.y, coordZ=action.z})
+			elseif action.op == "rotate" then
+				Command.Dimension.Layout.Place(action.id, {pitch=action.pitch, yaw=action.yaw, roll=action.roll})
+			elseif action.op == "select" then
+				Command.Dimension.Layout.Select(action.id, true)
+			elseif action.op == "add" then
+				Dta.pending_add = true
+				-- Command.Dimension.Layout.Place(action.id, action.details)
+				-- *NOTE*: below code is to get more useful information about a seemingly random error
+				-- that claims incorrect function usage despite the given arguments should always have
+				-- the same structure, and at least their data type clearly matches the docs.
+				local success, rval = pcall(Command.Dimension.Layout.Place, action.id, action.details)
+				if not success then
+					local details = Inspect.Item.Detail(action.id)
+					local item_info = details and Utility.Serialize.Inline(details) or "N/A"
+					local placement_info = Utility.Serialize.Inline(action.details)
+					local error_details = "Item Details:\n" .. item_info .. "\nPlacement Info:\n" .. placement_info .. "\n Rift error:\n" .. rval
+					error(error_details)
+				end
+				-- can't queue multiple new items placements
+				break
+			elseif action.op == "xform" then
+				Command.Dimension.Layout.Place(action.id, action.details)
+			elseif action.op == "notify" then
+				Dta.CPrint(action.text)
 			end
-		elseif action.op == "xform" then
-			Command.Dimension.Layout.Place(action.id, action.details)
-		elseif action.op == "notify" then
-			Dta.CPrint(action.text)
+			count = count + 1
 		end
 	end
 
@@ -304,16 +313,19 @@ function Dta.tick(handle)
 	end
 
 	if #Dta.SelectionQueue > 0 and not Dta.AddItem_Co then
-		local action = table.remove(Dta.SelectionQueue, 1)
-		if action.op == "deselect" then
-			Command.Dimension.Layout.Select(action.id, false)
-		end
-		if action.op == "select" then
-			Command.Dimension.Layout.Select(action.id, true)
-		end
-		if not next(Dta.SelectionQueue) and Dta.Co_DoneMessage then
-			Dta.CPrint(Dta.Co_DoneMessage)
-			Dta.Co_DoneMessage = nil
+		local count = 0
+		while #Dta.SelectionQueue > 0 and count < 10 and Inspect.Queue.Status("global", 20) do
+			local action = table.remove(Dta.SelectionQueue, 1)
+			if action.op == "deselect" then
+				Command.Dimension.Layout.Select(action.id, false)
+			elseif action.op == "select" then
+				Command.Dimension.Layout.Select(action.id, true)
+			end
+			if not next(Dta.SelectionQueue) and Dta.Co_DoneMessage then
+				Dta.CPrint(Dta.Co_DoneMessage)
+				Dta.Co_DoneMessage = nil
+			end
+			count = count + 1
 		end
 	end
 
