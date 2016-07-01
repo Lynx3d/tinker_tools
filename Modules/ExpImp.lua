@@ -55,7 +55,7 @@ function Dta.expimp.ExportTextClicked()
 		Dta.CPrint(Dta.Locale.Prints.SelectExport)
 		return
 	end
-	local text = "--TT " .. Dta.Version .. "\nset = {\n"
+	local text = "--[[TT " .. Dta.Version .. "]]\nset = {\n"
 	for i, details in ipairs(savedSets[name]) do
 		local item = { details.name, details.type, details.coordX, details.coordY, details.coordZ,
 						details.pitch, details.yaw, details.roll, details.scale }
