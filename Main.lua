@@ -168,6 +168,10 @@ local function IsDimension(zoneID)
 	if string.sub(ZoneName, 1, 9) == "Dimension" or string.sub(ZoneName, 1, 9) == "Измерение" then
 		return true
 	end
+	-- Octus Monastery fix:
+	if ZoneDetails.id == "z7E4460FA8D2B98EF" then
+		return true
+	end
 	return false
 end
 ------------------------
