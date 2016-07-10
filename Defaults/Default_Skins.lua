@@ -15,6 +15,7 @@ skin["Brown Brick"] = {
 	["cube"] = itemDB["I296C20967263B3C3,4BFE645BDD20A963,,,,,,"],
 	["triangle"] = itemDB["I073E1B3A25ABB71D,29E3DC76D58EDB81,,,,,,"],
 	["pole"] = itemDB["I296C209846B36DBE,D9AD8F345D5BEF37,,,,,,"],
+	["sphere"] = itemDB["I43A6E038332DD71C,DC3C5E3A9D3B088A,,,,,,"],
 	["disc"] = itemDB["IFA704C5663135ADF,070BA63B822BB231,,,,,,"]
 }
 skin["Dark Brick"] = {
@@ -50,6 +51,7 @@ skin["Mossy Brick"] = {
 	["cube"] = itemDB["I073E1B3B5CE2309B,D8C9E0A8DC225694,,,,,,"],
 	["triangle"] = itemDB["I073E1B4021744470,26C13F685E095120,,,,,,"],
 	["pole"] = itemDB["I073E1B3D5C2DB9D2,F0BA3A29BBF27856,,,,,,"],
+	["sphere"] = itemDB["I53795D7204ABF8FE,B82FA73A39762C6B,,,,,,"],
 	["disc"] = itemDB["I28334F4E209BE38E,1B92DA346FB03B0E,,,,,,"]
 }
 skin["Red Brick"] = {
@@ -78,6 +80,66 @@ skin["Limestone"] = {
 	["pole"] = itemDB["I3818BAD4523D3998,060F153AE1676428,,,,,,"],
 	["sphere"] = itemDB["I3818BAD371E4257E,F7513C38B300DBFF,,,,,,"],
 	["disc"] = itemDB["I7A2176B11E144AFB,10873940C25619F2,,,,,,"]
+}
+skin["Baby Blue Limestone"] = {
+	["tile"] = itemDB["I1CBA02CA1094C662,0EF972EAA2531CFF,,,,,,"],
+	["rectangle"] = itemDB["I3ECA7BD7754F9216,027A800E2D71B53B,,,,,,"],
+	["plank"] = itemDB["I64957C922A2CE5C2,11D628E468F6A2D3,,,,,,"],
+	["cube"] = itemDB["I5C3F6A37788F5729,199667A004F02E5D,,,,,,"],
+	["triangle"] = itemDB["I546E5F663956487B,08684109C7FE6255,,,,,,"],
+	["pole"] = itemDB["I5041D5F94D1B260C,EA3BC84509BEC2C7,,,,,,"],
+	["sphere"] = itemDB["I16B87D4950DD6F11,3990C2DCDC8FD86E,,,,,,"],
+	["disc"] = itemDB["I7E83975B3167C57B,0B565A1D39E55570,,,,,,"]
+}
+skin["Lavender Limestone"] = {
+	["tile"] = itemDB["IFAADE2B9615824FD,2AE3B547205D4F21,,,,,,"],
+	["rectangle"] = itemDB["IFB8C87E964E763EB,0EDBFD54E7492DDF,,,,,,"],
+	["plank"] = itemDB["I183F23F37125DFE6,DDCB2B6379E95D21,,,,,,"],
+	["cube"] = itemDB["I35AF4075637378C5,F4A1125AEC3F5916,,,,,,"],
+	["triangle"] = itemDB["I4141F89070E577C9,0B42D92CE3498A58,,,,,,"],
+	["pole"] = itemDB["I256F5322545184EE,3EE070C67B2B7C0A,,,,,,"],
+	["sphere"] = itemDB["I21D1F8154E99388E,2190E9F4B33CE27C,,,,,,"],
+	["disc"] = itemDB["I08A68FED6C110E03,D497E81BCB494E4C,,,,,,"]
+}
+skin["Mint Green Limestone"] = {
+	["tile"] = itemDB["I0F145A0E3632FC97,1562ADD196E599B2,,,,,,"],
+	["rectangle"] = itemDB["I538792E549DA1924,1334E735141425B1,,,,,,"],
+	["plank"] = itemDB["I0A192959721B77F3,224CE60DFB031C92,,,,,,"],
+	["cube"] = itemDB["I686B2FBB7DCDA85A,BD3C7FBFE2B3BA87,,,,,,"],
+	["triangle"] = itemDB["I604E90BA3152F3C0,FEE39772CC7BF154,,,,,,"],
+	["pole"] = itemDB["I2D2FFBE152E21887,0F8818CC1F9DBC1B,,,,,,"],
+	["sphere"] = itemDB["I7AFF4E9F6ADCEBCE,6247AFBEE8061B11,,,,,,"],
+	["disc"] = itemDB["I40416A412B4FE852,33F4DA4989D1D8D3,,,,,,"]
+}
+skin["Pale Yellow Limestone"] = {
+	["tile"] = itemDB["I417A0D9B4E287F23,30CD26A3AF4669C1,,,,,,"],
+	["rectangle"] = itemDB["I2333D52544517C25,6C2FB0DAE56B005E,,,,,,"],
+	["plank"] = itemDB["IFEAB6C7D740E1F06,73C9FFF4048D2273,,,,,,"],
+	["cube"] = itemDB["I7DA36B0710713B3A,2AC79A146AF28630,,,,,,"],
+	["triangle"] = itemDB["I70F84A6A5AD0F270,190008691732F396,,,,,,"],
+	["pole"] = itemDB["I7098CB9126C1FF00,4E48B6BF0F0CEB77,,,,,,"],
+	["sphere"] = itemDB["I68AD214817038F85,91BB9E79D57327FC,,,,,,"],
+	["disc"] = itemDB["I18A8244D3D5817CF,FA67AA1044981ECB,,,,,,"]
+}
+skin["Rose Limestone"] = {
+	["tile"] = itemDB["I3874323D2E537BA8,EF3AA588502E7F91,,,,,,"],
+	["rectangle"] = itemDB["I16F0248C6AFD8689,CD824DA81F2DC4D2,,,,,,"],
+	["plank"] = itemDB["I6439F5A36F3F9DA7,2EA84E9B6D99B686,,,,,,"],
+	["cube"] = itemDB["I6FA075CA1D4F4F92,0A8BF790C6B96975,,,,,,"],
+	["triangle"] = itemDB["I35D2A968332F00C4,652F4FE4C45E882B,,,,,,"],
+	["pole"] = itemDB["I488F12FF6F434FCF,56954C12463DF2D4,,,,,,"],
+	["sphere"] = itemDB["I2A1ACD974099E1F0,FA3DC5571511F398,,,,,,"],
+	["disc"] = itemDB["I32C7AE1A1EDB5879,EBE598C108998C25,,,,,,"]
+}
+skin["Tangerine Limestone"] = {
+	["tile"] = itemDB["I49BE60B612275BD3,02597159049416B0,,,,,,"],
+	["rectangle"] = itemDB["IFE07E0122221B81D,35A90A3D952B2088,,,,,,"],
+	["plank"] = itemDB["I1DA6714059F3E8A0,13D0756B91C12B3D,,,,,,"],
+	["cube"] = itemDB["I63C10F0040A96E6D,32D9996B5BB2E9E3,,,,,,"],
+	["triangle"] = itemDB["I04726E6733582FF8,1548B26BCA593EF2,,,,,,"],
+	["pole"] = itemDB["I61A62BF447C2B291,0EA73AD3B4AE063B,,,,,,"],
+	["sphere"] = itemDB["I224D2ED74E1BB0EE,D75995016650FC09,,,,,,"],
+	["disc"] = itemDB["I74DE447D7222FBDE,58C424E986231736,,,,,,"]
 }
 -----------
 -- Stone --
@@ -241,6 +303,7 @@ skin["Carved Wood"] = {
 	["cube"] = itemDB["I3818BAD726D6F247,E9D76853DC14A2B4,,,,,,"],
 	["triangle"] = itemDB["I3818BADC01097FD6,252511584FB0BA26,,,,,,"],
 	["pole"] = itemDB["I3818BAD918BD92CD,FCFEF90E156F027F,,,,,,"],
+	["sphere"] = itemDB["I6846DACA1918E2B7,3F9B19453FC10B42,,,,,,"],
 	["disc"] = itemDB["I3E9A150B19634F49,3C9DF322C13AA502,,,,,,"]
 }
 skin["Dark Wood"] = {

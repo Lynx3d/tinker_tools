@@ -77,6 +77,11 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Brown Brick Pole",
 		shape = "pole"
 	},
+	["I43A6E038332DD71C,DC3C5E3A9D3B088A,,,,,,"] =
+	{
+		name = "Building Block: Brown Brick Sphere",
+		shape = "sphere"
+	},
 	["IFA704C5663135ADF,070BA63B822BB231,,,,,,"] =
 	{
 		name = "Building Block: Brown Brick Disc",
@@ -194,6 +199,11 @@ Dta.Defaults.ItemDB =
 	{
 		name = "Building Block: Mossy Brick Pole",
 		shape = "pole"
+	},
+	["I53795D7204ABF8FE,B82FA73A39762C6B,,,,,,"] =
+	{
+		name = "Building Block: Mossy Brick Sphere",
+		shape = "sphere"
 	},
 	["I28334F4E209BE38E,1B92DA346FB03B0E,,,,,,"] =
 	{
@@ -447,6 +457,296 @@ Dta.Defaults.ItemDB =
 	["I7A3BACFF1E144AFB,C6DDAF5A89928AE1,,,,,,"] =
 	{
 		name = "Building Block: Tin Sheet Roof Disc",
+		shape = "disc"
+	},
+	---------------
+	-- Limestone --
+	---------------
+	-- Limestone
+	["I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,"] =
+	{
+		name = "Building Block: Limestone Tile",
+		shape = "tile"
+	},
+	["I3818BAD207A81EB9,EE1EBBB901974266,,,,,,"] =
+	{
+		name = "Building Block: Limestone Rectangle",
+		shape = "rectangle"
+	},
+	["I3818BAD530B1947F,E65961B97AA1A075,,,,,,"] =
+	{
+		name = "Building Block: Limestone Plank",
+		shape = "plank"
+	},
+	["I3818BAD6412DB4F4,F85BB8CE85FE679E,,,,,,"] =
+	{
+		name = "Building Block: Limestone Cube",
+		shape = "cube"
+	},
+	["I3818BAD05D2F4C6F,DAE9E950AF2B7EBE,,,,,,"] =
+	{
+		name = "Building Block: Limestone Triangle",
+		shape = "triangle"
+	},
+	["I3818BAD4523D3998,060F153AE1676428,,,,,,"] =
+	{
+		name = "Building Block: Limestone Pole",
+		shape = "pole"
+	},
+	["I3818BAD371E4257E,F7513C38B300DBFF,,,,,,"] =
+	{
+		name = "Building Block: Limestone Sphere",
+		shape = "sphere"
+	},
+	["I7A2176B11E144AFB,10873940C25619F2,,,,,,"] =
+	{
+		name = "Building Block: Limestone Disc",
+		shape = "disc"
+	},
+	-- Baby Blue Limestone
+	["I1CBA02CA1094C662,0EF972EAA2531CFF,,,,,,"] =
+	{
+		name = "Building Block: Baby Blue Limestone Square",
+		shape = "tile"
+	},
+	["I3ECA7BD7754F9216,027A800E2D71B53B,,,,,,"] =
+	{
+		name = "Building Block: Baby Blue Limestone Rectangle",
+		shape = "rectangle"
+	},
+	["I64957C922A2CE5C2,11D628E468F6A2D3,,,,,,"] =
+	{
+		name = "Building Block: Baby Blue Limestone Plank",
+		shape = "plank"
+	},
+	["I5C3F6A37788F5729,199667A004F02E5D,,,,,,"] =
+	{
+		name = "Building Block: Baby Blue Limestone Cube",
+		shape = "cube"
+	},
+	["I546E5F663956487B,08684109C7FE6255,,,,,,"] =
+	{
+		name = "Building Block: Baby Blue Limestone Triangle",
+		shape = "triangle"
+	},
+	["I5041D5F94D1B260C,EA3BC84509BEC2C7,,,,,,"] =
+	{
+		name = "Building Block: Baby Blue Limestone Pole",
+		shape = "pole"
+	},
+	["I16B87D4950DD6F11,3990C2DCDC8FD86E,,,,,,"] =
+	{
+		name = "Building Block: Baby Blue Limestone Sphere",
+		shape = "sphere"
+	},
+	["I7E83975B3167C57B,0B565A1D39E55570,,,,,,"] =
+	{
+		name = "Building Block: Baby Blue Limestone Disc",
+		shape = "disc"
+	},
+	-- Lavender Limestone
+	["IFAADE2B9615824FD,2AE3B547205D4F21,,,,,,"] =
+	{
+		name = "Building Block: Lavender Limestone Square",
+		shape = "tile"
+	},
+	["IFB8C87E964E763EB,0EDBFD54E7492DDF,,,,,,"] =
+	{
+		name = "Building Block: Lavender Limestone Rectangle",
+		shape = "rectangle"
+	},
+	["I183F23F37125DFE6,DDCB2B6379E95D21,,,,,,"] =
+	{
+		name = "Building Block: Lavender Limestone Plank",
+		shape = "plank"
+	},
+	["I35AF4075637378C5,F4A1125AEC3F5916,,,,,,"] =
+	{
+		name = "Building Block: Lavender Limestone Cube",
+		shape = "cube"
+	},
+	["I4141F89070E577C9,0B42D92CE3498A58,,,,,,"] =
+	{
+		name = "Building Block: Lavender Limestone Triangle",
+		shape = "triangle"
+	},
+	["I256F5322545184EE,3EE070C67B2B7C0A,,,,,,"] =
+	{
+		name = "Building Block: Lavender Limestone Pole",
+		shape = "pole"
+	},
+	["I21D1F8154E99388E,2190E9F4B33CE27C,,,,,,"] =
+	{
+		name = "Building Block: Lavender Limestone Sphere",
+		shape = "sphere"
+	},
+	["I08A68FED6C110E03,D497E81BCB494E4C,,,,,,"] =
+	{
+		name = "Building Block: Lavender Limestone Disc",
+		shape = "disc"
+	},
+	-- Mint Green Limestone
+	["I0F145A0E3632FC97,1562ADD196E599B2,,,,,,"] =
+	{
+		name = "Building Block: Mint Green Limestone Square",
+		shape = "tile"
+	},
+	["I538792E549DA1924,1334E735141425B1,,,,,,"] =
+	{
+		name = "Building Block: Mint Green Limestone Rectangle",
+		shape = "rectangle"
+	},
+	["I0A192959721B77F3,224CE60DFB031C92,,,,,,"] =
+	{
+		name = "Building Block: Mint Green Limestone Plank",
+		shape = "plank"
+	},
+	["I686B2FBB7DCDA85A,BD3C7FBFE2B3BA87,,,,,,"] =
+	{
+		name = "Building Block: Mint Green Limestone Cube",
+		shape = "cube"
+	},
+	["I604E90BA3152F3C0,FEE39772CC7BF154,,,,,,"] =
+	{
+		name = "Building Block: Mint Green Limestone Triangle",
+		shape = "triangle"
+	},
+	["I2D2FFBE152E21887,0F8818CC1F9DBC1B,,,,,,"] =
+	{
+		name = "Building Block: Mint Green Limestone Pole",
+		shape = "pole"
+	},
+	["I7AFF4E9F6ADCEBCE,6247AFBEE8061B11,,,,,,"] =
+	{
+		name = "Building Block: Mint Green Limestone Sphere",
+		shape = "sphere"
+	},
+	["I40416A412B4FE852,33F4DA4989D1D8D3,,,,,,"] =
+	{
+		name = "Building Block: Mint Green Limestone Disc",
+		shape = "disc"
+	},
+	-- Pale Yellow Limestone
+	["I417A0D9B4E287F23,30CD26A3AF4669C1,,,,,,"] =
+	{
+		name = "Building Block: Pale Yellow Limestone Square",
+		shape = "tile"
+	},
+	["I2333D52544517C25,6C2FB0DAE56B005E,,,,,,"] =
+	{
+		name = "Building Block: Pale Yellow Limestone Rectangle",
+		shape = "rectangle"
+	},
+	["IFEAB6C7D740E1F06,73C9FFF4048D2273,,,,,,"] =
+	{
+		name = "Building Block: Pale Yellow Limestone Plank",
+		shape = "plank"
+	},
+	["I7DA36B0710713B3A,2AC79A146AF28630,,,,,,"] =
+	{
+		name = "Building Block: Pale Yellow Limestone Cube",
+		shape = "cube"
+	},
+	["I70F84A6A5AD0F270,190008691732F396,,,,,,"] =
+	{
+		name = "Building Block: Pale Yellow Limestone Triangle",
+		shape = "triangle"
+	},
+	["I7098CB9126C1FF00,4E48B6BF0F0CEB77,,,,,,"] =
+	{
+		name = "Building Block: Pale Yellow Limestone Pole",
+		shape = "pole"
+	},
+	["I68AD214817038F85,91BB9E79D57327FC,,,,,,"] =
+	{
+		name = "Building Block: Pale Yellow Limestone Sphere",
+		shape = "sphere"
+	},
+	["I18A8244D3D5817CF,FA67AA1044981ECB,,,,,,"] =
+	{
+		name = "Building Block: Pale Yellow Limestone Disc",
+		shape = "disc"
+	},
+	-- Rose Limestone
+	["I3874323D2E537BA8,EF3AA588502E7F91,,,,,,"] =
+	{
+		name = "Building Block: Rose Limestone Square",
+		shape = "tile"
+	},
+	["I16F0248C6AFD8689,CD824DA81F2DC4D2,,,,,,"] =
+	{
+		name = "Building Block: Rose Limestone Rectangle",
+		shape = "rectangle"
+	},
+	["I6439F5A36F3F9DA7,2EA84E9B6D99B686,,,,,,"] =
+	{
+		name = "Building Block: Rose Limestone Plank",
+		shape = "plank"
+	},
+	["I6FA075CA1D4F4F92,0A8BF790C6B96975,,,,,,"] =
+	{
+		name = "Building Block: Rose Limestone Cube",
+		shape = "cube"
+	},
+	["I35D2A968332F00C4,652F4FE4C45E882B,,,,,,"] =
+	{
+		name = "Building Block: Rose Limestone Triangle",
+		shape = "triangle"
+	},
+	["I488F12FF6F434FCF,56954C12463DF2D4,,,,,,"] =
+	{
+		name = "Building Block: Rose Limestone Pole",
+		shape = "pole"
+	},
+	["I2A1ACD974099E1F0,FA3DC5571511F398,,,,,,"] =
+	{
+		name = "Building Block: Rose Limestone Sphere",
+		shape = "sphere"
+	},
+	["I32C7AE1A1EDB5879,EBE598C108998C25,,,,,,"] =
+	{
+		name = "Building Block: Rose Limestone Disc",
+		shape = "disc"
+	},
+	-- Tangerine Limestone
+	["I49BE60B612275BD3,02597159049416B0,,,,,,"] =
+	{
+		name = "Building Block: Tangerine Limestone Square",
+		shape = "tile"
+	},
+	["IFE07E0122221B81D,35A90A3D952B2088,,,,,,"] =
+	{
+		name = "Building Block: Tangerine Limestone Rectangle",
+		shape = "rectangle"
+	},
+	["I1DA6714059F3E8A0,13D0756B91C12B3D,,,,,,"] =
+	{
+		name = "Building Block: Tangerine Limestone Plank",
+		shape = "plank"
+	},
+	["I63C10F0040A96E6D,32D9996B5BB2E9E3,,,,,,"] =
+	{
+		name = "Building Block: Tangerine Limestone Cube",
+		shape = "cube"
+	},
+	["I04726E6733582FF8,1548B26BCA593EF2,,,,,,"] =
+	{
+		name = "Building Block: Tangerine Limestone Triangle",
+		shape = "triangle"
+	},
+	["I61A62BF447C2B291,0EA73AD3B4AE063B,,,,,,"] =
+	{
+		name = "Building Block: Tangerine Limestone Pole",
+		shape = "pole"
+	},
+	["I224D2ED74E1BB0EE,D75995016650FC09,,,,,,"] =
+	{
+		name = "Building Block: Tangerine Limestone Sphere",
+		shape = "sphere"
+	},
+	["I74DE447D7222FBDE,58C424E986231736,,,,,,"] =
+	{
+		name = "Building Block: Tangerine Limestone Disc",
 		shape = "disc"
 	},
 	-----------
@@ -746,47 +1046,6 @@ Dta.Defaults.ItemDB =
 	["I4E582BF15BEDE239,3E82E339D762FEA6,,,,,,"] =
 	{
 		name = "Building Block: Greystone Disc",
-		shape = "disc"
-	},
-	-- Limestone
-	["I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,"] =
-	{
-		name = "Building Block: Limestone Tile",
-		shape = "tile"
-	},
-	["I3818BAD207A81EB9,EE1EBBB901974266,,,,,,"] =
-	{
-		name = "Building Block: Limestone Rectangle",
-		shape = "rectangle"
-	},
-	["I3818BAD530B1947F,E65961B97AA1A075,,,,,,"] =
-	{
-		name = "Building Block: Limestone Plank",
-		shape = "plank"
-	},
-	["I3818BAD6412DB4F4,F85BB8CE85FE679E,,,,,,"] =
-	{
-		name = "Building Block: Limestone Cube",
-		shape = "cube"
-	},
-	["I3818BAD05D2F4C6F,DAE9E950AF2B7EBE,,,,,,"] =
-	{
-		name = "Building Block: Limestone Triangle",
-		shape = "triangle"
-	},
-	["I3818BAD4523D3998,060F153AE1676428,,,,,,"] =
-	{
-		name = "Building Block: Limestone Pole",
-		shape = "pole"
-	},
-	["I3818BAD371E4257E,F7513C38B300DBFF,,,,,,"] =
-	{
-		name = "Building Block: Limestone Sphere",
-		shape = "sphere"
-	},
-	["I7A2176B11E144AFB,10873940C25619F2,,,,,,"] =
-	{
-		name = "Building Block: Limestone Disc",
 		shape = "disc"
 	},
 	-- Plain Stone
@@ -1112,6 +1371,11 @@ Dta.Defaults.ItemDB =
 	{
 		name = "Building Block: Carved Wood Pole",
 		shape = "pole"
+	},
+	["I6846DACA1918E2B7,3F9B19453FC10B42,,,,,,"] =
+	{
+		name = "Building Block: Carved Wood Sphere",
+		shape = "sphere"
 	},
 	["I3E9A150B19634F49,3C9DF322C13AA502,,,,,,"] =
 	{
