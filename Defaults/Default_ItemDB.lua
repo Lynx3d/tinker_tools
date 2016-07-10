@@ -46,6 +46,42 @@ Dta.Defaults.ItemDB =
 	-----------
 	-- Brick --
 	-----------
+	-- Brown Brick
+	["I296C209A26B7D855,07F0B32DA1DB49D2,,,,,,"] =
+	{
+		name = "Building Block: Brown Brick Tile",
+		shape = "tile"
+	},
+	["I296C20993F79CDBE,D90A2BAE1B474B70,,,,,,"] =
+	{
+		name = "Building Block: Brown Brick Rectangle",
+		shape = "rectangle"
+	},
+	["I296C20971A76948D,45D55944C8DB0478,,,,,,"] =
+	{
+		name = "Building Block: Brown Brick Plank",
+		shape = "plank"
+	},
+	["I296C20967263B3C3,4BFE645BDD20A963,,,,,,"] =
+	{
+		name = "Building Block: Brown Brick Cube",
+		shape = "cube"
+	},
+	["I073E1B3A25ABB71D,29E3DC76D58EDB81,,,,,,"] =
+	{
+		name = "Building Block: Brown Brick Triangle",
+		shape = "triangle"
+	},
+	["I296C209846B36DBE,D9AD8F345D5BEF37,,,,,,"] =
+	{
+		name = "Building Block: Brown Brick Pole",
+		shape = "pole"
+	},
+	["IFA704C5663135ADF,070BA63B822BB231,,,,,,"] =
+	{
+		name = "Building Block: Brown Brick Disc",
+		shape = "disc"
+	},
 	-- Dark Brick
 	["I6D568BFE12E22261,1DFD6FE492757B86,,,,,,"] =
 	{
@@ -126,6 +162,42 @@ Dta.Defaults.ItemDB =
 	["I7BA38E7E1E144AFB,8019A72AFD7A8AAC,,,,,,"] =
 	{
 		name = "Building Block: Grey Brick Disc",
+		shape = "disc"
+	},
+	-- Mossy Brick"
+	["I073E1B3F29924608,1CCC2F2CD61807A0,,,,,,"] =
+	{
+		name = "Building Block: Mossy Brick Tile",
+		shape = "tile"
+	},
+	["I073E1B3E772473D9,3420563DD9F57D68,,,,,,"] =
+	{
+		name = "Building Block: Mossy Brick Rectangle",
+		shape = "rectangle"
+	},
+	["I073E1B3C6C1EFF1C,2CECCE90F2B24CE0,,,,,,"] =
+	{
+		name = "Building Block: Mossy Brick Plank",
+		shape = "plank"
+	},
+	["I073E1B3B5CE2309B,D8C9E0A8DC225694,,,,,,"] =
+	{
+		name = "Building Block: Mossy Brick Cube",
+		shape = "cube"
+	},
+	["I073E1B4021744470,26C13F685E095120,,,,,,"] =
+	{
+		name = "Building Block: Mossy Brick Triangle",
+		shape = "triangle"
+	},
+	["I073E1B3D5C2DB9D2,F0BA3A29BBF27856,,,,,,"] =
+	{
+		name = "Building Block: Mossy Brick Pole",
+		shape = "pole"
+	},
+	["I28334F4E209BE38E,1B92DA346FB03B0E,,,,,,"] =
+	{
+		name = "Building Block: Mossy Brick Disc",
 		shape = "disc"
 	},
 	-- Red Brick
@@ -421,42 +493,6 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Black Marble Disc",
 		shape = "disc"
 	},
-	-- Brown Brick
-	["I296C209A26B7D855,07F0B32DA1DB49D2,,,,,,"] =
-	{
-		name = "Building Block: Brown Brick Tile",
-		shape = "tile"
-	},
-	["I296C20993F79CDBE,D90A2BAE1B474B70,,,,,,"] =
-	{
-		name = "Building Block: Brown Brick Rectangle",
-		shape = "rectangle"
-	},
-	["I296C20971A76948D,45D55944C8DB0478,,,,,,"] =
-	{
-		name = "Building Block: Brown Brick Plank",
-		shape = "plank"
-	},
-	["I296C20967263B3C3,4BFE645BDD20A963,,,,,,"] =
-	{
-		name = "Building Block: Brown Brick Cube",
-		shape = "cube"
-	},
-	["I073E1B3A25ABB71D,29E3DC76D58EDB81,,,,,,"] =
-	{
-		name = "Building Block: Brown Brick Triangle",
-		shape = "triangle"
-	},
-	["I296C209846B36DBE,D9AD8F345D5BEF37,,,,,,"] =
-	{
-		name = "Building Block: Brown Brick Pole",
-		shape = "pole"
-	},
-	["IFA704C5663135ADF,070BA63B822BB231,,,,,,"] =
-	{
-		name = "Building Block: Brown Brick Disc",
-		shape = "disc"
-	},
 	-- Granite
 	["I391DEDBA3602AEE7,0BAE6DA5E14A8F15,,,,,,"] =
 	{
@@ -630,124 +666,6 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Navy Marble Tile",
 		shape = "tile"
 	},
-	-- Limestone
-	["I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,"] =
-	{
-		name = "Building Block: Limestone Tile",
-		shape = "tile"
-	},
-	["I3818BAD207A81EB9,EE1EBBB901974266,,,,,,"] =
-	{
-		name = "Building Block: Limestone Rectangle",
-		shape = "rectangle"
-	},
-	["I3818BAD530B1947F,E65961B97AA1A075,,,,,,"] =
-	{
-		name = "Building Block: Limestone Plank",
-		shape = "plank"
-	},
-	["I3818BAD6412DB4F4,F85BB8CE85FE679E,,,,,,"] =
-	{
-		name = "Building Block: Limestone Cube",
-		shape = "cube"
-	},
-	["I3818BAD05D2F4C6F,DAE9E950AF2B7EBE,,,,,,"] =
-	{
-		name = "Building Block: Limestone Triangle",
-		shape = "triangle"
-	},
-	["I3818BAD4523D3998,060F153AE1676428,,,,,,"] =
-	{
-		name = "Building Block: Limestone Pole",
-		shape = "pole"
-	},
-	["I3818BAD371E4257E,F7513C38B300DBFF,,,,,,"] =
-	{
-		name = "Building Block: Limestone Sphere",
-		shape = "sphere"
-	},
-	["I7A2176B11E144AFB,10873940C25619F2,,,,,,"] =
-	{
-		name = "Building Block: Limestone Disc",
-		shape = "disc"
-	},
-	-- Mossy Brick"
-	["I073E1B3F29924608,1CCC2F2CD61807A0,,,,,,"] =
-	{
-		name = "Building Block: Mossy Brick Tile",
-		shape = "tile"
-	},
-	["I073E1B3E772473D9,3420563DD9F57D68,,,,,,"] =
-	{
-		name = "Building Block: Mossy Brick Rectangle",
-		shape = "rectangle"
-	},
-	["I073E1B3C6C1EFF1C,2CECCE90F2B24CE0,,,,,,"] =
-	{
-		name = "Building Block: Mossy Brick Plank",
-		shape = "plank"
-	},
-	["I073E1B3B5CE2309B,D8C9E0A8DC225694,,,,,,"] =
-	{
-		name = "Building Block: Mossy Brick Cube",
-		shape = "cube"
-	},
-	["I073E1B4021744470,26C13F685E095120,,,,,,"] =
-	{
-		name = "Building Block: Mossy Brick Triangle",
-		shape = "triangle"
-	},
-	["I073E1B3D5C2DB9D2,F0BA3A29BBF27856,,,,,,"] =
-	{
-		name = "Building Block: Mossy Brick Pole",
-		shape = "pole"
-	},
-	["I28334F4E209BE38E,1B92DA346FB03B0E,,,,,,"] =
-	{
-		name = "Building Block: Mossy Brick Disc",
-		shape = "disc"
-	},
-	-- Plain Stone
-	["IFC27A53A7D93B3C5,28927815564C4D18,,,,,,"] =
-	{
-		name = "Building Block: Stone Tile",
-		shape = "tile"
-	},
-	["IFC27A5392C8F2D7D,2011B804CCFA965A,,,,,,"] =
-	{
-		name = "Building Block: Stone Rectangle",
-		shape = "rectangle"
-	},
-	["IFC27A5376CAD89FE,0C2B252DD2777324,,,,,,"] =
-	{
-		name = "Building Block: Stone Plank",
-		shape = "plank"
-	},
-	["IFC27A53820DB3178,41B0544C88A55715,,,,,,"] =
-	{
-		name = "Building Block: Stone Cube",
-		shape = "cube"
-	},
-	["I0E057DA33EC7161D,FCD4C3F5C0E8B7AB,,,,,,"] =
-	{
-		name = "Building Block: Stone Triangle",
-		shape = "triangle"
-	},
-	["IFC27A5362A2868B0,FA284ACA471A28AC,,,,,,"] =
-	{
-		name = "Building Block: Stone Pole",
-		shape = "pole"
-	},
-	["I40AC238718345605,D83A9430A4B46758,,,,,,"] =
-	{
-		name = "Building Block: Stone Sphere",
-		shape = "sphere"
-	},
-	["I28CB06FA7E88F136,3B9939D780AA925B,,,,,,"] =
-	{
-		name = "Building Block: Stone Disc",
-		shape = "disc"
-	},
 	-- Greenstone
 	["IFF1D8E4A6A25E35C,1F129CFC26DC5AA7,,,,,,"] =
 	{
@@ -830,6 +748,88 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Greystone Disc",
 		shape = "disc"
 	},
+	-- Limestone
+	["I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,"] =
+	{
+		name = "Building Block: Limestone Tile",
+		shape = "tile"
+	},
+	["I3818BAD207A81EB9,EE1EBBB901974266,,,,,,"] =
+	{
+		name = "Building Block: Limestone Rectangle",
+		shape = "rectangle"
+	},
+	["I3818BAD530B1947F,E65961B97AA1A075,,,,,,"] =
+	{
+		name = "Building Block: Limestone Plank",
+		shape = "plank"
+	},
+	["I3818BAD6412DB4F4,F85BB8CE85FE679E,,,,,,"] =
+	{
+		name = "Building Block: Limestone Cube",
+		shape = "cube"
+	},
+	["I3818BAD05D2F4C6F,DAE9E950AF2B7EBE,,,,,,"] =
+	{
+		name = "Building Block: Limestone Triangle",
+		shape = "triangle"
+	},
+	["I3818BAD4523D3998,060F153AE1676428,,,,,,"] =
+	{
+		name = "Building Block: Limestone Pole",
+		shape = "pole"
+	},
+	["I3818BAD371E4257E,F7513C38B300DBFF,,,,,,"] =
+	{
+		name = "Building Block: Limestone Sphere",
+		shape = "sphere"
+	},
+	["I7A2176B11E144AFB,10873940C25619F2,,,,,,"] =
+	{
+		name = "Building Block: Limestone Disc",
+		shape = "disc"
+	},
+	-- Plain Stone
+	["IFC27A53A7D93B3C5,28927815564C4D18,,,,,,"] =
+	{
+		name = "Building Block: Stone Tile",
+		shape = "tile"
+	},
+	["IFC27A5392C8F2D7D,2011B804CCFA965A,,,,,,"] =
+	{
+		name = "Building Block: Stone Rectangle",
+		shape = "rectangle"
+	},
+	["IFC27A5376CAD89FE,0C2B252DD2777324,,,,,,"] =
+	{
+		name = "Building Block: Stone Plank",
+		shape = "plank"
+	},
+	["IFC27A53820DB3178,41B0544C88A55715,,,,,,"] =
+	{
+		name = "Building Block: Stone Cube",
+		shape = "cube"
+	},
+	["I0E057DA33EC7161D,FCD4C3F5C0E8B7AB,,,,,,"] =
+	{
+		name = "Building Block: Stone Triangle",
+		shape = "triangle"
+	},
+	["IFC27A5362A2868B0,FA284ACA471A28AC,,,,,,"] =
+	{
+		name = "Building Block: Stone Pole",
+		shape = "pole"
+	},
+	["I40AC238718345605,D83A9430A4B46758,,,,,,"] =
+	{
+		name = "Building Block: Stone Sphere",
+		shape = "sphere"
+	},
+	["I28CB06FA7E88F136,3B9939D780AA925B,,,,,,"] =
+	{
+		name = "Building Block: Stone Disc",
+		shape = "disc"
+	},
 	------------------
 	-- Painted Wood --
 	------------------
@@ -874,6 +874,88 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Black Wood Disc",
 		shape = "disc"
 	},
+	-- Blue Wood
+	["I296C2090527FF26A,36F51BEF35044AFE,,,,,,"] =
+	{
+		name = "Building Block: Blue Wood Tile",
+		shape = "tile"
+	},
+	["I296C208D1D704C59,11BDF271D73B3CDD,,,,,,"] =
+	{
+		name = "Building Block: Blue Wood Rectangle",
+		shape = "rectangle"
+	},
+	["I40AC238F489B44D9,F461A18236849080,,,,,,"] =
+	{
+		name = "Building Block: Blue Wood Plank",
+		shape = "plank"
+	},
+	["I40AC238C51DB6536,E3AA0C99702A890F,,,,,,"] =
+	{
+		name = "Building Block: Blue Wood Cube",
+		shape = "cube"
+	},
+	["I296C209352FAB5BB,17C13E8EBA267586,,,,,,"] =
+	{
+		name = "Building Block: Blue Wood Triangle",
+		shape = "triangle"
+	},
+	["I40AC239212A0FB19,1E545218A1B0F61C,,,,,,"] =
+	{
+		name = "Building Block: Blue Wood Pole",
+		shape = "pole"
+	},
+	["I4690F20571E4257E,F3186EBB977423AB,,,,,,"] =
+	{
+		name = "Building Block: Blue Wood Sphere",
+		shape = "sphere"
+	},
+	["I316E0F501572B1C9,65E15CBC8BA0C01B,,,,,,"] =
+	{
+		name = "Building Block: Blue Wood Disc",
+		shape = "disc"
+	},
+	-- Green Wood
+	["I296C20913F3B871C,E1D4959F081A5A79,,,,,,"] =
+	{
+		name = "Building Block: Green Wood Tile",
+		shape = "tile"
+	},
+	["I296C208E796419FE,0A211A7DC4570BCE,,,,,,"] =
+	{
+		name = "Building Block: Green Wood Rectangle",
+		shape = "rectangle"
+	},
+	["I40AC23904F4F7F9C,E97FC82D46AA206F,,,,,,"] =
+	{
+		name = "Building Block: Green Wood Plank",
+		shape = "plank"
+	},
+	["I40AC238D623F33E2,E7CB76B993B22F16,,,,,,"] =
+	{
+		name = "Building Block: Green Wood Cube",
+		shape = "cube"
+	},
+	["I296C20946482DFDC,41321904B96A6998,,,,,,"] =
+	{
+		name = "Building Block: Green Wood Triangle",
+		shape = "triangle"
+	},
+	["I40AC239314B5AEBA,3056A92D2D0E4094,,,,,,"] =
+	{
+		name = "Building Block: Green Wood Pole",
+		shape = "pole"
+	},
+	["I30A3F79C71E4257E,CFBACFF2921417C2,,,,,,"] =
+	{
+		name = "Building Block: Green Wood Sphere",
+		shape = "sphere"
+	},
+	["I3B7236883A273B68,EF464DAFC99F4889,,,,,,"] =
+	{
+		name = "Building Block: Green Wood Disc",
+		shape = "disc"
+	},
 	-- Grey Wood
 	["IFE55763712E22261,6E424275E575ED1E,,,,,,"] =
 	{
@@ -913,6 +995,47 @@ Dta.Defaults.ItemDB =
 	["I08B697CD1E144AFB,3EC93269BFC4E3C5,,,,,,"] =
 	{
 		name = "Building Block: Grey Wood Disc",
+		shape = "disc"
+	},
+	-- Red Wood
+	["I296C209213A44A57,D229F38471CA2871,,,,,,"] =
+	{
+		name = "Building Block: Red Wood Tile",
+		shape = "tile"
+	},
+	["I296C208F33BDC5E1,CFB7E23A8CB358E2,,,,,,"] =
+	{
+		name = "Building Block: Red Wood Rectangle",
+		shape = "rectangle"
+	},
+	["I40AC23917D1C7144,FB821F425206644A,,,,,,"] =
+	{
+		name = "Building Block: Red Wood Plank",
+		shape = "plank"
+	},
+	["I40AC238E2007C28D,E60244E1E5369AE2,,,,,,"] =
+	{
+		name = "Building Block: Red Wood Cube",
+		shape = "cube"
+	},
+	["I296C2095060E84F6,F70B8DBB4F162467,,,,,,"] =
+	{
+		name = "Building Block: Red Wood Triangle",
+		shape = "triangle"
+	},
+	["I296C208C3E68A987,E2D76AF250A7C1C9,,,,,,"] =
+	{
+		name = "Building Block: Red Wood Pole",
+		shape = "pole"
+	},
+	["I775F866D71E4257E,450C14FACAD318B9,,,,,,"] =
+	{
+		name = "Building Block: Red Wood Sphere",
+		shape = "sphere"
+	},
+	["I0C5CAF1B26772D55,0CFE78F9847293D1,,,,,,"] =
+	{
+		name = "Building Block: Red Wood Disc",
 		shape = "disc"
 	},
 	-- White Wood
@@ -959,45 +1082,40 @@ Dta.Defaults.ItemDB =
 	----------
 	-- Wood --
 	----------
-	-- Blue Wood
-	["I296C2090527FF26A,36F51BEF35044AFE,,,,,,"] =
+	-- Carved Wood
+	["I3818BADB6A10DCFC,F63E89D9C91C3874,,,,,,"] =
 	{
-		name = "Building Block: Blue Wood Tile",
+		name = "Building Block: Carved Wood Tile",
 		shape = "tile"
 	},
-	["I296C208D1D704C59,11BDF271D73B3CDD,,,,,,"] =
+	["I3818BADA6ED04521,10D72EFD29EF69EF,,,,,,"] =
 	{
-		name = "Building Block: Blue Wood Rectangle",
+		name = "Building Block: Carved Wood Rectangle",
 		shape = "rectangle"
 	},
-	["I40AC238F489B44D9,F461A18236849080,,,,,,"] =
+	["I3818BAD86D04D244,348BC924BC59DEB6,,,,,,"] =
 	{
-		name = "Building Block: Blue Wood Plank",
+		name = "Building Block: Carved Wood Plank",
 		shape = "plank"
 	},
-	["I40AC238C51DB6536,E3AA0C99702A890F,,,,,,"] =
+	["I3818BAD726D6F247,E9D76853DC14A2B4,,,,,,"] =
 	{
-		name = "Building Block: Blue Wood Cube",
+		name = "Building Block: Carved Wood Cube",
 		shape = "cube"
 	},
-	["I296C209352FAB5BB,17C13E8EBA267586,,,,,,"] =
+	["I3818BADC01097FD6,252511584FB0BA26,,,,,,"] =
 	{
-		name = "Building Block: Blue Wood Triangle",
+		name = "Building Block: Carved Wood Triangle",
 		shape = "triangle"
 	},
-	["I40AC239212A0FB19,1E545218A1B0F61C,,,,,,"] =
+	["I3818BAD918BD92CD,FCFEF90E156F027F,,,,,,"] =
 	{
-		name = "Building Block: Blue Wood Pole",
+		name = "Building Block: Carved Wood Pole",
 		shape = "pole"
 	},
-	["I4690F20571E4257E,F3186EBB977423AB,,,,,,"] =
+	["I3E9A150B19634F49,3C9DF322C13AA502,,,,,,"] =
 	{
-		name = "Building Block: Blue Wood Sphere",
-		shape = "sphere"
-	},
-	["I316E0F501572B1C9,65E15CBC8BA0C01B,,,,,,"] =
-	{
-		name = "Building Block: Blue Wood Disc",
+		name = "Building Block: Carved Wood Disc",
 		shape = "disc"
 	},
 	-- Dark Wood
@@ -1039,165 +1157,6 @@ Dta.Defaults.ItemDB =
 	["I0DFFF2E11E144AFB,311A4A2E29E699AC,,,,,,"] =
 	{
 		name = "Building Block: Dark Wood Disc",
-		shape = "disc"
-	},
-	-- Carved Wood
-	["I3818BADB6A10DCFC,F63E89D9C91C3874,,,,,,"] =
-	{
-		name = "Building Block: Carved Wood Tile",
-		shape = "tile"
-	},
-	["I3818BADA6ED04521,10D72EFD29EF69EF,,,,,,"] =
-	{
-		name = "Building Block: Carved Wood Rectangle",
-		shape = "rectangle"
-	},
-	["I3818BAD86D04D244,348BC924BC59DEB6,,,,,,"] =
-	{
-		name = "Building Block: Carved Wood Plank",
-		shape = "plank"
-	},
-	["I3818BAD726D6F247,E9D76853DC14A2B4,,,,,,"] =
-	{
-		name = "Building Block: Carved Wood Cube",
-		shape = "cube"
-	},
-	["I3818BADC01097FD6,252511584FB0BA26,,,,,,"] =
-	{
-		name = "Building Block: Carved Wood Triangle",
-		shape = "triangle"
-	},
-	["I3818BAD918BD92CD,FCFEF90E156F027F,,,,,,"] =
-	{
-		name = "Building Block: Carved Wood Pole",
-		shape = "pole"
-	},
-	["I3E9A150B19634F49,3C9DF322C13AA502,,,,,,"] =
-	{
-		name = "Building Block: Carved Wood Disc",
-		shape = "disc"
-	},
-	-- Green Wood
-	["I296C20913F3B871C,E1D4959F081A5A79,,,,,,"] =
-	{
-		name = "Building Block: Green Wood Tile",
-		shape = "tile"
-	},
-	["I296C208E796419FE,0A211A7DC4570BCE,,,,,,"] =
-	{
-		name = "Building Block: Green Wood Rectangle",
-		shape = "rectangle"
-	},
-	["I40AC23904F4F7F9C,E97FC82D46AA206F,,,,,,"] =
-	{
-		name = "Building Block: Green Wood Plank",
-		shape = "plank"
-	},
-	["I40AC238D623F33E2,E7CB76B993B22F16,,,,,,"] =
-	{
-		name = "Building Block: Green Wood Cube",
-		shape = "cube"
-	},
-	["I296C20946482DFDC,41321904B96A6998,,,,,,"] =
-	{
-		name = "Building Block: Green Wood Triangle",
-		shape = "triangle"
-	},
-	["I40AC239314B5AEBA,3056A92D2D0E4094,,,,,,"] =
-	{
-		name = "Building Block: Green Wood Pole",
-		shape = "pole"
-	},
-	["I30A3F79C71E4257E,CFBACFF2921417C2,,,,,,"] =
-	{
-		name = "Building Block: Green Wood Sphere",
-		shape = "sphere"
-	},
-	["I3B7236883A273B68,EF464DAFC99F4889,,,,,,"] =
-	{
-		name = "Building Block: Green Wood Disc",
-		shape = "disc"
-	},
-	-- Red Wood
-	["I296C209213A44A57,D229F38471CA2871,,,,,,"] =
-	{
-		name = "Building Block: Red Wood Tile",
-		shape = "tile"
-	},
-	["I296C208F33BDC5E1,CFB7E23A8CB358E2,,,,,,"] =
-	{
-		name = "Building Block: Red Wood Rectangle",
-		shape = "rectangle"
-	},
-	["I40AC23917D1C7144,FB821F425206644A,,,,,,"] =
-	{
-		name = "Building Block: Red Wood Plank",
-		shape = "plank"
-	},
-	["I40AC238E2007C28D,E60244E1E5369AE2,,,,,,"] =
-	{
-		name = "Building Block: Red Wood Cube",
-		shape = "cube"
-	},
-	["I296C2095060E84F6,F70B8DBB4F162467,,,,,,"] =
-	{
-		name = "Building Block: Red Wood Triangle",
-		shape = "triangle"
-	},
-	["I296C208C3E68A987,E2D76AF250A7C1C9,,,,,,"] =
-	{
-		name = "Building Block: Red Wood Pole",
-		shape = "pole"
-	},
-	["I775F866D71E4257E,450C14FACAD318B9,,,,,,"] =
-	{
-		name = "Building Block: Red Wood Sphere",
-		shape = "sphere"
-	},
-	["I0C5CAF1B26772D55,0CFE78F9847293D1,,,,,,"] =
-	{
-		name = "Building Block: Red Wood Disc",
-		shape = "disc"
-	},
-	-- Plain Wood
-	["IFE33236342049AFE,D721F224FC31EDF2,,,,,,"] =
-	{
-		name = "Building Block: Wood Tile",
-		shape = "tile"
-	},
-	["IFF73FC9D69486DB4,369028719C371C12,,,,,,"] =
-	{
-		name = "Building Block: Wood Rectangle",
-		shape = "rectangle"
-	},
-	["IFA2C50EE0883B241,146F58B81707AFF4,,,,,,"] =
-	{
-		name = "Building Block: Wood Plank",
-		shape = "plank"
-	},
-	["IFD1D82C91B96FF04,2DE987CE7FA240C7,,,,,,"] =
-	{
-		name = "Building Block: Wood Cube",
-		shape = "cube"
-	},
-	["IFA78D5AE7889F999,4B12478968ABE5AB,,,,,,"] =
-	{
-		name = "Building Block: Wood Pole",
-		shape = "pole"
-	},
-	["I0E057DA426550772,4D553AB71D69591C,,,,,,"] =
-	{
-		name = "Building Block: Wood Triangle",
-		shape = "triangle"
-	},
-	["I40AC23860DF2E6E5,C349D19DBCDEF6A9,,,,,,"] =
-	{
-		name = "Building Block: Wood Sphere",
-		shape = "sphere"
-	},
-	["I3F8EE74E0D145C77,56C322D325A0A49A,,,,,,"] =
-	{
-		name = "Building Block: Wood Disc",
 		shape = "disc"
 	},
 	-- Greywood
@@ -1321,6 +1280,47 @@ Dta.Defaults.ItemDB =
 	["I2522F2171E144AFB,2C7DBB5FA3227FDF,,,,,,"] =
 	{
 		name = "Building Block: Oak Wood Disc",
+		shape = "disc"
+	},
+		-- Plain Wood
+	["IFE33236342049AFE,D721F224FC31EDF2,,,,,,"] =
+	{
+		name = "Building Block: Wood Tile",
+		shape = "tile"
+	},
+	["IFF73FC9D69486DB4,369028719C371C12,,,,,,"] =
+	{
+		name = "Building Block: Wood Rectangle",
+		shape = "rectangle"
+	},
+	["IFA2C50EE0883B241,146F58B81707AFF4,,,,,,"] =
+	{
+		name = "Building Block: Wood Plank",
+		shape = "plank"
+	},
+	["IFD1D82C91B96FF04,2DE987CE7FA240C7,,,,,,"] =
+	{
+		name = "Building Block: Wood Cube",
+		shape = "cube"
+	},
+	["IFA78D5AE7889F999,4B12478968ABE5AB,,,,,,"] =
+	{
+		name = "Building Block: Wood Pole",
+		shape = "pole"
+	},
+	["I0E057DA426550772,4D553AB71D69591C,,,,,,"] =
+	{
+		name = "Building Block: Wood Triangle",
+		shape = "triangle"
+	},
+	["I40AC23860DF2E6E5,C349D19DBCDEF6A9,,,,,,"] =
+	{
+		name = "Building Block: Wood Sphere",
+		shape = "sphere"
+	},
+	["I3F8EE74E0D145C77,56C322D325A0A49A,,,,,,"] =
+	{
+		name = "Building Block: Wood Disc",
 		shape = "disc"
 	},
 	-- Wood Beam
