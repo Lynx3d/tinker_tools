@@ -267,6 +267,36 @@ skin["Grey Wood"] = {
 	["sphere"] = itemDB["I35863C7071E4257E,2AEA9A4911A81D16,,,,,,"],
 	["disc"] = itemDB["I08B697CD1E144AFB,3EC93269BFC4E3C5,,,,,,"]
 }
+skin["Orange Wood"] = {
+	["tile"] = itemDB["I382046281AC59678,21C4738225059BED,,,,,,"],
+	["rectangle"] = itemDB["I38B1938F069E41A5,2A135CF2C479FA5A,,,,,,"],
+	["plank"] = itemDB["I2F3B97244D64F18C,FF6F935C882B2ADD,,,,,,"],
+	["cube"] = itemDB["I478BFAAF0FAD4C3A,692D9124057CE578,,,,,,"],
+	["triangle"] = itemDB["I4DC91D0C2351ECB9,E8847230C538EA43,,,,,,"],
+	["pole"] = itemDB["I3D89997A414C158D,4A201047DA9BAB58,,,,,,"],
+	["sphere"] = itemDB["I3B1B44CC17FD37AF,35875B84A6D6C7F2,,,,,,"],
+	["disc"] = itemDB["I4F03BB16771A571E,18C4FC2A162E83F5,,,,,,"],
+}
+skin["Pink Wood"] = {
+	["tile"] = itemDB["I6671FD092BBD97AF,0C8AFC14CAAE4D1C,,,,,,"],
+	["rectangle"] = itemDB["I4AB2792310D7E971,E5A8D53060EAE97B,,,,,,"],
+	["plank"] = itemDB["I43C6B15B2B94A8EA,348FA72DBA0B243D,,,,,,"],
+	["cube"] = itemDB["I4EB5154F67FD7999,0F8802B732943B41,,,,,,"],
+	["triangle"] = itemDB["I2AE82CE0756220D4,E1EBE48D9F618214,,,,,,"],
+	["pole"] = itemDB["I4BEF28FA0BA08B69,202ED0238B2BFA19,,,,,,"],
+	["sphere"] = itemDB["I430ADCEE654B2502,DE443AD8CE6467B7,,,,,,"],
+	["disc"] = itemDB["I6595EABA50F5F3ED,F8C2DE5A36202291,,,,,,"],
+}
+skin["Purple Wood"] = {
+	["tile"] = itemDB["I508B34B957B008DC,317E3892829BB98A,,,,,,"],
+	["rectangle"] = itemDB["I724FBE48147B0EB7,CFCCD850D57F148B,,,,,,"],
+	["plank"] = itemDB["I747D2CB03E1D6BAA,CF7D605B9448FE2C,,,,,,"],
+	["cube"] = itemDB["I549EF4A046F0819B,F34A11AB87CD1372,,,,,,"],
+	["triangle"] = itemDB["I4934EEA76311FF33,520D955C50F0A601,,,,,,"],
+	["pole"] = itemDB["I667069E87DB50E0C,09519BCDBD0F51C3,,,,,,"],
+	["sphere"] = itemDB["I5B60C49967DBDD46,72BFDD81233568EC,,,,,,"],
+	["disc"] = itemDB["I7AF14E60724FB700,F2BEE36E0EE4DBC3,,,,,,"],
+}
 skin["Red Wood"] = {
 	["German"] = "Rotes Holz",
 	["French"] = "Bois rouge",
@@ -290,6 +320,16 @@ skin["White Wood"] = {
 	["pole"] = itemDB["I2443AC70523D3998,D9631641F95BE9EB,,,,,,"],
 	["sphere"] = itemDB["IFD13525F71E4257E,53E92D28B670111F,,,,,,"],
 	["disc"] = itemDB["I07137EA21E144AFB,3927034D866A25F1,,,,,,"]
+}
+skin["Yellow Wood"] = {
+	["tile"] = itemDB["I79EED1FE12E22261,830E1623B1C381FB,,,,,,"],
+	["rectangle"] = itemDB["I74EEA42D1CFF735F,D66EAB74F966ABE0,,,,,,"],
+	["plank"] = itemDB["I7FA1E26671F74743,B7EC4F8117B16987,,,,,,"],
+	["cube"] = itemDB["I6C0C73C81B0714D6,4A33BB10576BB5B5,,,,,,"],
+	["triangle"] = itemDB["I5369D5E9526A025E,D6344E060047C47A,,,,,,"],
+	["pole"] = itemDB["I7BA99FD93FC632EA,254AB326928F05B4,,,,,,"],
+	["sphere"] = itemDB["I709DA24B41BCF9F2,D6C9317B1D434C67,,,,,,"],
+	["disc"] = itemDB["I7DABF6E013163282,3E95BEC770535E3E,,,,,,"],
 }
 ----------
 -- Wood --

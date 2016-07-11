@@ -1256,6 +1256,129 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Grey Wood Disc",
 		shape = "disc"
 	},
+	-- Orange Wood
+	["I382046281AC59678,21C4738225059BED,,,,,,"] =
+	{
+		name = "Building Block: Orange Wood Square",
+		shape = "tile"
+	},
+	["I38B1938F069E41A5,2A135CF2C479FA5A,,,,,,"] =
+	{
+		name = "Building Block: Orange Wood Rectangle",
+		shape = "rectangle"
+	},
+	["I2F3B97244D64F18C,FF6F935C882B2ADD,,,,,,"] =
+	{
+		name = "Building Block: Orange Wood Plank",
+		shape = "plank"
+	},
+	["I478BFAAF0FAD4C3A,692D9124057CE578,,,,,,"] =
+	{
+		name = "Building Block: Orange Wood Cube",
+		shape = "cube"
+	},
+	["I4DC91D0C2351ECB9,E8847230C538EA43,,,,,,"] =
+	{
+		name = "Building Block: Orange Wood Triangle",
+		shape = "triangle"
+	},
+	["I3D89997A414C158D,4A201047DA9BAB58,,,,,,"] =
+	{
+		name = "Building Block: Orange Wood Pole",
+		shape = "pole"
+	},
+	["I3B1B44CC17FD37AF,35875B84A6D6C7F2,,,,,,"] =
+	{
+		name = "Building Block: Orange Wood Sphere",
+		shape = "sphere"
+	},
+	["I4F03BB16771A571E,18C4FC2A162E83F5,,,,,,"] =
+	{
+		name = "Building Block: Orange Wood Disc",
+		shape = "disc"
+	},
+	-- Pink Wood
+	["I6671FD092BBD97AF,0C8AFC14CAAE4D1C,,,,,,"] =
+	{
+		name = "Building Block: Pink Wood Square",
+		shape = "tile"
+	},
+	["I4AB2792310D7E971,E5A8D53060EAE97B,,,,,,"] =
+	{
+		name = "Building Block: Pink Wood Rectangle",
+		shape = "rectangle"
+	},
+	["I43C6B15B2B94A8EA,348FA72DBA0B243D,,,,,,"] =
+	{
+		name = "Building Block: Pink Wood Plank",
+		shape = "plank"
+	},
+	["I4EB5154F67FD7999,0F8802B732943B41,,,,,,"] =
+	{
+		name = "Building Block: Pink Wood Cube",
+		shape = "cube"
+	},
+	["I2AE82CE0756220D4,E1EBE48D9F618214,,,,,,"] =
+	{
+		name = "Building Block: Pink Wood Triangle",
+		shape = "triangle"
+	},
+	["I4BEF28FA0BA08B69,202ED0238B2BFA19,,,,,,"] =
+	{
+		name = "Building Block: Pink Wood Pole",
+		shape = "pole"
+	},
+	["I430ADCEE654B2502,DE443AD8CE6467B7,,,,,,"] =
+	{
+		name = "Building Block: Pink Wood Sphere",
+		shape = "sphere"
+	},
+	["I6595EABA50F5F3ED,F8C2DE5A36202291,,,,,,"] =
+	{
+		name = "Building Block: Pink Wood Disc",
+		shape = "disc"
+	},
+	-- Purple Wood
+	["I508B34B957B008DC,317E3892829BB98A,,,,,,"] =
+	{
+		name = "Building Block: Purple Wood Square",
+		shape = "tile"
+	},
+	["I724FBE48147B0EB7,CFCCD850D57F148B,,,,,,"] =
+	{
+		name = "Building Block: Purple Wood Rectangle",
+		shape = "rectangle"
+	},
+	["I747D2CB03E1D6BAA,CF7D605B9448FE2C,,,,,,"] =
+	{
+		name = "Building Block: Purple Wood Plank",
+		shape = "plank"
+	},
+	["I549EF4A046F0819B,F34A11AB87CD1372,,,,,,"] =
+	{
+		name = "Building Block: Purple Wood Cube",
+		shape = "cube"
+	},
+	["I4934EEA76311FF33,520D955C50F0A601,,,,,,"] =
+	{
+		name = "Building Block: Purple Wood Triangle",
+		shape = "triangle"
+	},
+	["I667069E87DB50E0C,09519BCDBD0F51C3,,,,,,"] =
+	{
+		name = "Building Block: Purple Wood Pole",
+		shape = "pole"
+	},
+	["I5B60C49967DBDD46,72BFDD81233568EC,,,,,,"] =
+	{
+		name = "Building Block: Purple Wood Sphere",
+		shape = "sphere"
+	},
+	["I7AF14E60724FB700,F2BEE36E0EE4DBC3,,,,,,"] =
+	{
+		name = "Building Block: Purple Wood Disc",
+		shape = "disc"
+	},
 	-- Red Wood
 	["I296C209213A44A57,D229F38471CA2871,,,,,,"] =
 	{
@@ -1336,6 +1459,47 @@ Dta.Defaults.ItemDB =
 	["I07137EA21E144AFB,3927034D866A25F1,,,,,,"] =
 	{
 		name = "Building Block: White Wood Disc",
+		shape = "disc"
+	},
+	-- Yellow Wood
+	["I79EED1FE12E22261,830E1623B1C381FB,,,,,,"] =
+	{
+		name = "Building Block: Yellow Wood Square",
+		shape = "tile"
+	},
+	["I74EEA42D1CFF735F,D66EAB74F966ABE0,,,,,,"] =
+	{
+		name = "Building Block: Yellow Wood Rectangle",
+		shape = "rectangle"
+	},
+	["I7FA1E26671F74743,B7EC4F8117B16987,,,,,,"] =
+	{
+		name = "Building Block: Yellow Wood Plank",
+		shape = "plank"
+	},
+	["I6C0C73C81B0714D6,4A33BB10576BB5B5,,,,,,"] =
+	{
+		name = "Building Block: Yellow Wood Cube",
+		shape = "cube"
+	},
+	["I5369D5E9526A025E,D6344E060047C47A,,,,,,"] =
+	{
+		name = "Building Block: Yellow Wood Triangle",
+		shape = "triangle"
+	},
+	["I7BA99FD93FC632EA,254AB326928F05B4,,,,,,"] =
+	{
+		name = "Building Block: Yellow Wood Pole",
+		shape = "pole"
+	},
+	["I709DA24B41BCF9F2,D6C9317B1D434C67,,,,,,"] =
+	{
+		name = "Building Block: Yellow Wood Sphere",
+		shape = "sphere"
+	},
+	["I7DABF6E013163282,3E95BEC770535E3E,,,,,,"] =
+	{
+		name = "Building Block: Yellow Wood Disc",
 		shape = "disc"
 	},
 	----------
