@@ -61,7 +61,7 @@ LangG.Menus.ItemType = {
 	"Planke",
 	"Pfosten",
 	"Rechteck",
-	"Platte",
+	"Quadrat",
 	"Boden",
 	"Flurboden",
 	"Großer Boden"
@@ -144,7 +144,7 @@ LangG.Text.ConfirmUsePosition = "Die ursprüngliche Position dieses Sets ist %.1
 LangG.Text.Invert = "Umgekehrte Richtung"
 LangG.Text.OldSkin = "Alte Oberfläche"
 LangG.Text.NewSkin = "Neue Oberfläche"
-LangG.Text.Tile = "Platte"
+LangG.Text.Tile = "Quadrat"
 LangG.Text.Rectangle = "Rechteck"
 LangG.Text.Triangle = "Dreieck"
 LangG.Text.Plank = "Planke"

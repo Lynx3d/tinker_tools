@@ -382,7 +382,7 @@ offset of a building block."
 
 Lang["English"].OffsetCalc.Text2 = "\
 - Shape: Here you choose the type of item you want the offset for.\
-  Supported shapes: Pole, Tile, Cube, Plank, Rectangle and Floors.\
+  Supported shapes: Pole, Square, Cube, Plank, Rectangle and Floors.\
 - Orientation:  Here you choose the orientation of an item.\
   Supported are all 6 possible +/- 90° rotation combinations.\
   A special case is 'Selection Delta', this does not work on the\
@@ -477,7 +477,7 @@ Lang["English"].Menus.ItemType = {
 	"Plank",
 	"Pole",
 	"Rectangle",
-	"Tile",
+	"Square",
 	"Floor",
 	"Hall Floor",
 	"Large Floor"
@@ -562,7 +562,7 @@ Lang["English"].Text.ConfirmUsePosition = "The original position of this set is 
 Lang["English"].Text.Invert = "Inverse Direction"
 Lang["English"].Text.OldSkin = "Old Skin"
 Lang["English"].Text.NewSkin = "New Skin"
-Lang["English"].Text.Tile = "Tile"
+Lang["English"].Text.Tile = "Square"
 Lang["English"].Text.Rectangle = "Rectangle"
 Lang["English"].Text.Triangle = "Triangle"
 Lang["English"].Text.Plank = "Plank"
