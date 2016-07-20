@@ -1,3 +1,18 @@
+Version 1.2.1
+- New Move option: "Local Axes" moves items along their transformed axes
+- Add new 3.7 building block skins:
+  * Bricks: Dark, Grey, Red
+  * Roofs: Blue Tile, Brown Shingle, Green Scale, Grey Scale, Tin Sheet
+  * Painted Woods: Black, Grey, White
+  * Woods: Dark, Oak, Mahogany
+  * Skin Completions: Greenstone, Greystone, Painted Wood Spheres
+- Implement proper command throttling to prevent dropping item operations
+- Refurbish Help Window design and fix the scrollbar
+- Improve text export format to still be valid when line breaks get lost
+- Detect Octus Monestary dimension by zone ID
+- Fix error when pressing "Load Set" before selecting a set
+- Localization updates
+
 Version 1.2.0
 - New export/import options:
   * export and import to/from a Lua-based text format for easy copy and paste
