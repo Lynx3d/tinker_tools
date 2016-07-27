@@ -82,7 +82,7 @@ LangG.Menus.Orientation = {
 --Titles
 ----------------------------------------
 LangG.Titles = {}
-LangG.Titles.Main = "Dimension Tools"
+LangG.Titles.Main = "Tinker Tools"
 LangG.Titles.Move = "Verschieben"
 LangG.Titles.Rotate = "Drehen"
 LangG.Titles.Scale = "Skalieren"
@@ -91,7 +91,7 @@ LangG.Titles.LoadSave = "Laden / Speichern"
 LangG.Titles.ImportExport = "Import / Export"
 LangG.Titles.TribalMagic = "Tribal Magic"
 LangG.Titles.OffsetCalc = "Abstand Berechnen"
-LangG.Titles.Help = "Dimension Tools Hilfe"
+LangG.Titles.Help = "Tinker Tools Hilfe"
 LangG.Titles.Settings = "Einstellungen"
 LangG.Titles.TransferValues = "Werte übergeben an:"
 LangG.Titles.Reskin = "Oberfläche Ersetzen"
