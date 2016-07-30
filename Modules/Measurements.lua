@@ -30,6 +30,10 @@ function Dta.measurements.CalculationsClicked()
 	local scale, scale_ok = Dta.ui.checkNumber(size, nil)
 	local dims
 
+	if not orientation then
+		return Dta.CPrint(Dta.Locale.Prints.SelectOrientation)
+	end
+
 	if not shape then
 		if orientation ~= 7 then
 			return Dta.CPrint(Dta.Locale.Prints.SelectType)
@@ -46,10 +50,6 @@ function Dta.measurements.CalculationsClicked()
 		if orientation > 7 and Dta.selectionCount ~=1 then
 			return Dta.CPrint(Dta.Locale.Prints.Selection1)
 		end
-	end
-
-	if not orientation then
-		return Dta.CPrint(Dta.Locale.Prints.SelectOrientation)
 	end
 
 	if orientation == 7 then
