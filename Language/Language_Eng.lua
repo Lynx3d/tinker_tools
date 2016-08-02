@@ -35,14 +35,17 @@ The following is a summary of the core features:\
   default sets or your own saved sets. And for convenience you can place\
   multiple copies of a saved set at once with an offset on the X, Y or X axis.\
 \
-- The Import/Export feature allows you to export your saved sets to a file\
-  and share that with your friends by just sending them the file. On their\
-  turn they can choose which sets to import to their own saved sets.\
+- The Import/Export feature allows you to transfer your saved sets using a global file\
+  or via text copy and paste. Also supports importing Toolbox sets in text format.\
 \
 Thanks for all the support from the dimension community,\
 and have fun building your dreams!"
 
-Lang["English"].Intro.Text2 = ""
+Lang["English"].Intro.Text2 = "<u>Change Log</u>\
+For the changes please refer to the included Changelog.txt file.\
+\
+For a more detailed list of changes, you can also check the commit log at\
+https://github.com/Lynx3d/dimension_tools/commits/master"
 Lang["English"].Intro.Text3 = ""
 
 ---Main-------------------------------------------------------------------
@@ -60,16 +63,17 @@ Lang["English"].Main.Text2 = "\
 The item icon has a small 'x'-button to clear the selection, and a right-click\
 on the icon will set a waypoint on the minimap.\
 \
-<u>Buttons:</u>\
+<u>Window Toggle Buttons:</u>\
 - ?: Opens up this help window.\
-- Move: Opens up a window for the Move Tools.\
-- Rotate: Opens up a window for the Rotate Tools.\
-- Scale: Opens up a window for the Scale Tools.\
-- Offset Calc.: Opens up a window for the Offset Calculator.\
-- Copy / Paste: Opens up a window for the Copy and Paste Tools.\
-- Load / Save: Opens up a window for the Load and Save Tools.\
-- Tribal Magic: Opens up a window for Tribal Magic.\
-- Alfiebet: Opens up a window for the Alfiebet text creator."
+- Move: A tool to move items in various modes.\
+- Rotate: A tool to rotate items in various modes.\
+- Scale: A tool to scale items in various modes.\
+- Offset Calc.: A tool to determine offset values for proper item alignment.\
+- Copy / Paste: A tool to copy and paste items with many options.\
+- Load / Save: A tool to load and save structures. Also links to Import / Export.\
+- Tribal Magic: A tool that allows you to move more freely.\
+- Alfiebet: A text creation tool using standard building blocks.\
+- Reskin: A tool to replace building blocks with a different appearance."
 
 Lang["English"].Main.Text3 = ""
 
@@ -88,6 +92,10 @@ Lang["English"].Move.Text2 = "\
   numbers set in X,Y,Z.\
 - As Group: Treats the whole selection as one object with the selection center\
   as position; only available in absolute mode.\
+- Local Axes: Moves each item along its local axes. Local axis means the item's\
+  rotation is applied to the global axis, creating a coordinate system that rotates\
+  with the object. Since the item itself defines the origin, this is only available\
+  in relative mode.\
 - Move: Starts the moving of the item(s).\
 - Reset: Resets the item(s) to your current position."
 
@@ -193,8 +201,9 @@ Lang["English"].CopyandPaste.Text3 = "\
 - Nr. of Copies: This will be showing up when Offset multiple items is activated.\
 - Pick: This button is available when Custom Pivot is active and lets you record the\
   position of your current selection. This lets you for example build a spiral\
-  staircase around a specific center point. The pivot is kept until you pick a new\
-  one, and doesn't change if you move the item(s) afterwards.\
+  staircase around a specific center point.\
+  The pivot is kept until you pick a new one (or leave the dimension), and doesn't\
+  change if you move or remove the item(s) afterwards.\
 - Bags: Controls whether to include items from your bags to place new items.\
 - Bank: Controls whether to include items from your bank (bags and vaults) to\
   place new items. Note that this has limitations when you don't have\
@@ -273,34 +282,42 @@ Lang["English"].ImportandExport.Label = "Import and Export"
 Lang["English"].ImportandExport.Text1 = "\
 The Import / Export Sets window is all about sharing your sets with other\
 friends in the game.\
-The sets will be saved in and loaded from a file called: Dimtools_Export.lua\
-The file can be found under:\
-/Users/[YourName]/Documents/RIFT/Interface/Saved/SavedVariables"
+There are two ways to exchange sets, with the Dimension Tools export addon\
+and by converting it to/from text you can copy/paste using the system clipboard.\
+\
+The Dimension Tools export is an embedded addon that uses saved variabls to\
+exchange the data, the file will be named Dimtools_Export.lua\
+Usually you will find that file at:\
+C:/Users/%USERNAME%/My Documents/RIFT/Interface/Saved/SavedVariables\
+Note that the default path depends on the Windows version and locale, and\
+furthermore depends on the DocumentsDirectory variable in rift.cfg.\
+But generally, Saved/ resides in the same directory as your Addons/ directory,\
+which can be opened from Rift's addons configuration dialog."
 
 Lang["English"].ImportandExport.Text2 = "\
 <u>Descriptions:</u>\
-- Saved Sets: Sets the first drop box to your Tinker Tools Sets.\
-- Tbx Sets: Sets the first drop box to your Toolbox Sets.\
-- Name (First drop box): Here you can select any of your own saved sets to\
-  export to file.\
-- Export: Exports the selected set to file.\
-- Name (Second drop box): Here you can select any of the sets saved in the\
+- Saved Sets: Sets the source for sets to your Tinker Tools saved sets.\
+- Tbx Sets: Sets the source to your Toolbox sets that were auto-imported.\
+- Name (First drop-down): Here you can select any of your own saved sets to\
+  be exported.\
+- Export: Exports the selected set to the Dimtools_Export.lua file.\
+- Export Text: Exports the selected set to the text box at the bottom.\
+- Name (Second drop-down): Here you can select any of the sets saved in the\
   export File.\
-- Import: Imports the selected set to your own saved sets list and then removes\
+- New Name: Specify the name this set will have. Optional for Dimension Tools\
+  Import, mandatory for Text Import.\
+- Import: Imports the selected set to your saved sets list and then removes\
   the set from the export file.\
+- Import Text: Imports the text from the text box at the bottom to your saved\
+  sets list. Also accepts the Dimension Toolbox format (auto-detected).\
 \
-To give a set or multiple sets you have to export the sets and then\
-logout or type [/reloadui] in the chat to save the file. After that you can\
-send the Dimtools_Export.lua file located at:\
-/Users/[YourName]/Documents/RIFT/Interface/Saved/SavedVariables\
+When using Dimension Tools file export, keep in mind that addon data is not\
+written to disk until addons are unloaded, so either logout or use the /reloadui\
+chat command to save the data to Dimtools_Export.lua\
 \
-When you recieve a set or multiple sets in a  Dimtools_Export.lua file you\
-have to copy it into the SavedVariables directory found under:\
-/Users/[YourName]/Documents/RIFT/Interface/Saved/SavedVariables\
-Then start the game and then you can use the import option to get the set or\
-sets in your saved sets. Keep in mind you can NOT copy the file into the\
-directory if you are logged into the game. The game does NOT allow overwriting\
-of files when you are logged in."
+When you import from a foreign Dimtools_Export.lua file, you must not be logged in\
+with your character when you copy it into the SavedVariables directory, otherwise\
+it will be overwritten before you can import anything from it."
 
 Lang["English"].ImportandExport.Text3 = ""
 
@@ -309,8 +326,8 @@ Lang["English"].TribalMagic = {}
 Lang["English"].TribalMagic.Label = "Tribal Magic"
 Lang["English"].TribalMagic.Text1 = "\
 Tribal Magic is the Magic Carpet addon made by AladdinRift integrated into\
-Dimension Tools with only a small adjustment to the items it uses. Instead of\
-using an Ogre Rug I went for the smaller Round Tribal Table to give you more\
+Tinker Tools with only a small adjustment to the items it uses. Instead of\
+an Ogre Rug it uses the smaller Round Tribal Table to give you more\
 room to look around without seeing the edges of the item you fly on."
 
 Lang["English"].TribalMagic.Text2 = "\
@@ -326,18 +343,25 @@ Lang["English"].TribalMagic.Text2 = "\
 
 Lang["English"].TribalMagic.Text3 = ""
 
----Chance Log-------------------------------------------------------------
-Lang["English"].ChanceLog = {}
-Lang["English"].ChanceLog.Label = "Change Log"
-Lang["English"].ChanceLog.Text1 = "\
-For the changes please refer to the included Changelog.txt\
-\
-For a more detailed list of changes, you can also check the commit log at\
-https://github.com/Lynx3d/dimension_tools/commits/master"
-
-Lang["English"].ChanceLog.Text2 = ""
-Lang["English"].ChanceLog.Text3 = ""
-
+---Reskin-----------------------------------------------------------------
+Lang["English"].Reskin = {}
+Lang["English"].Reskin.Label = "Reskin"
+Lang["English"].Reskin.Text1 = "\
+The Reskin Tool replaces building blocks of one surface appearance (skin)\
+with another skin of your choice.\
+It works on the Copy / Paste clipboard, so before you can start, you need\
+to copy something first. Note that you can also copy a saved set to the\
+clipboard.\
+When you're finished, you can paste the reskinned clipboard. You'll probably\
+want to activate the 'Use New Items' option for this, and pick up the original\
+structure if you're pasting at the original location."
+Lang["English"].Reskin.Text2 = "\
+<u>Descriptions:</u>\
+- Old Skin: The skin you want to replace.\
+- New Skin: The skin that will replace the old one.\
+- Checkboxes: Select the building block shapes you want to be included.\
+- Apply: Applies the changes to the clipboard and prints a summary."
+Lang["English"].Reskin.Text3 = ""
 ---Afterword--------------------------------------------------------------
 Lang["English"].Afterword = {}
 Lang["English"].Afterword.Label = "Afterword"
@@ -385,15 +409,17 @@ Lang["English"].OffsetCalc.Text2 = "\
   Supported shapes: Pole, Square, Cube, Plank, Rectangle and Floors.\
 - Orientation:  Here you choose the orientation of an item.\
   Supported are all 6 possible +/- 90° rotation combinations.\
+  For arbitrarily rotated items, Transformed X, Y and Z Offset give the\
+  vector that represents the item's local X, Y or Z vector respectively.\
   A special case is 'Selection Delta', this does not work on the\
   shape of an item, but calculates the differences between two\
-  selected items.\
+  selected items, and hence ignores the Shape setting.\
 - Scale: Here you set the scale of the item.\
 - Calculate: Calculates the offsets for you.\
 - X: The offset on the X axis.\
 - Y: The offset on the Y axis.\
 - Z: The offset on the Z axis.\
-- Detect: This tries to detect all parameters from the selection."
+- Detect: This tries to detect all parameters from the item selection."
 
 Lang["English"].OffsetCalc.Text3 = ""
 

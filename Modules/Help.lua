@@ -70,7 +70,7 @@ function Dta.Help.Init()
 		Dta.Locale.TribalMagic.Label,
 		Dta.Locale.OffsetCalc.Label,
 		Dta.Locale.Alfiebet.Label,
-		Dta.Locale.ChanceLog.Label,
+		Dta.Locale.Reskin.Label,
 		Dta.Locale.Afterword.Label
 	}
 
@@ -188,10 +188,10 @@ function Dta.Help.Init()
 	}
 
 	helpTopic[12] = {
-		label = Dta.Locale.ChanceLog.Label,
-		text01 = Dta.Locale.ChanceLog.Text1,
-		text02 = Dta.Locale.ChanceLog.Text2,
-		text03 = Dta.Locale.ChanceLog.Text3,
+		label = Dta.Locale.Reskin.Label,
+		text01 = Dta.Locale.Reskin.Text1,
+		text02 = Dta.Locale.Reskin.Text2,
+		text03 = Dta.Locale.Reskin.Text3,
 		pic01 = "",
 		pic02 = "",
 		pic03 = ""
