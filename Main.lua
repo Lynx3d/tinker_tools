@@ -97,6 +97,12 @@ end
 function Dta.killProcess()
 	Dta.AddItem_Co = nil
 	Dta.pending_add = false
+	if #Dta.pendingActions > 0 then
+		Dta.pendingActions = {}
+	end
+	if #Dta.SelectionQueue > 0 then
+		Dta.SelectionQueue = {}
+	end
 end
 
 function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a dimension
