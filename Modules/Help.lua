@@ -192,7 +192,7 @@ function Dta.Help.Init()
 		text01 = Dta.Locale.Reskin.Text1,
 		text02 = Dta.Locale.Reskin.Text2,
 		text03 = Dta.Locale.Reskin.Text3,
-		pic01 = "",
+		pic01 = "Reskin_Window.jpg",
 		pic02 = "",
 		pic03 = ""
 	}
