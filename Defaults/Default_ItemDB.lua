@@ -5,7 +5,7 @@ Dta.Defaults.ItemDB =
 	-- Rivited Metal
 	["IFC4B896620716CD2,FB8EBAD1EF4F50C4,,,,,,"] =
 	{
-		name = "Building Block: Metal Tile",
+		name = "Building Block: Metal Square",
 		shape = "tile"
 	},
 	["IFC4B896518A1F73D,A9255B483DEAB8E9,,,,,,"] =
@@ -49,7 +49,7 @@ Dta.Defaults.ItemDB =
 	-- Brown Brick
 	["I296C209A26B7D855,07F0B32DA1DB49D2,,,,,,"] =
 	{
-		name = "Building Block: Brown Brick Tile",
+		name = "Building Block: Brown Brick Square",
 		shape = "tile"
 	},
 	["I296C20993F79CDBE,D90A2BAE1B474B70,,,,,,"] =
@@ -172,7 +172,7 @@ Dta.Defaults.ItemDB =
 	-- Mossy Brick"
 	["I073E1B3F29924608,1CCC2F2CD61807A0,,,,,,"] =
 	{
-		name = "Building Block: Mossy Brick Tile",
+		name = "Building Block: Mossy Brick Square",
 		shape = "tile"
 	},
 	["I073E1B3E772473D9,3420563DD9F57D68,,,,,,"] =
@@ -465,7 +465,7 @@ Dta.Defaults.ItemDB =
 	-- Limestone
 	["I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,"] =
 	{
-		name = "Building Block: Limestone Tile",
+		name = "Building Block: Limestone Square",
 		shape = "tile"
 	},
 	["I3818BAD207A81EB9,EE1EBBB901974266,,,,,,"] =
@@ -755,7 +755,7 @@ Dta.Defaults.ItemDB =
 	-- Black Marble
 	["I073E1B4612DE4C8A,F92F979003F4808F,,,,,,"] =
 	{
-		name = "Building Block: Black Marble Tile",
+		name = "Building Block: Black Marble Square",
 		shape = "tile"
 	},
 	["I073E1B4526891DBC,32303483297E6C39,,,,,,"] =
@@ -796,7 +796,7 @@ Dta.Defaults.ItemDB =
 	-- Granite
 	["I391DEDBA3602AEE7,0BAE6DA5E14A8F15,,,,,,"] =
 	{
-		name = "Building Block: Granite Tile",
+		name = "Building Block: Granite Square",
 		shape = "tile"
 	},
 	["I391DEDBB37D6C62E,209FB386C9208314,,,,,,"] =
@@ -837,7 +837,7 @@ Dta.Defaults.ItemDB =
 	-- Green Marble
 	["I391DEDB7666F40AB,BBB226C82076B285,,,,,,"] =
 	{
-		name = "Building Block: Green Marble Tile",
+		name = "Building Block: Green Marble Square",
 		shape = "tile"
 	},
 	["I391DEDB60587B53E,C694001D10509F46,,,,,,"] =
@@ -878,98 +878,98 @@ Dta.Defaults.ItemDB =
 	-- Colored Marble Tiles
 	["I446B1D966FE150B1,02A43028CD909F80,,,,,,"] =
 	{
-		name = "Building Block: Orange Marble Tile",
+		name = "Building Block: Orange Marble Square",
 		shape = "tile"
 	},
 	["I446B1D9B5E06059F,D0F11E304FF428E8,,,,,,"] =
 	{
-		name = "Building Block: Grey Marble Tile",
+		name = "Building Block: Grey Marble Square",
 		shape = "tile"
 	},
 	["I446B1D9576850C1F,F0A1D913C233D857,,,,,,"] =
 	{
-		name = "Building Block: Mustard Marble Tile",
+		name = "Building Block: Mustard Marble Square",
 		shape = "tile"
 	},
 	["I446B1D97357E515A,AA94BB0CC42E0575,,,,,,"] =
 	{
-		name = "Building Block: Amber Marble Tile",
+		name = "Building Block: Amber Marble Square",
 		shape = "tile"
 	},
 	["I446B1D9922B2B3AD,C68C225DD77B92CF,,,,,,"] =
 	{
-		name = "Building Block: Blood Marble Tile",
+		name = "Building Block: Blood Marble Square",
 		shape = "tile"
 	},
 	["I446B1D9A10E44AE0,2900934C5956C2F3,,,,,,"] =
 	{
-		name = "Building Block: White Marble Tile",
+		name = "Building Block: White Marble Square",
 		shape = "tile"
 	},
 	["I446B1D9F41049106,B4700BB624CC615C,,,,,,"] =
 	{
-		name = "Building Block: Pink Marble Tile",
+		name = "Building Block: Pink Marble Square",
 		shape = "tile"
 	},
 	["I446B1DA058307EF0,D4534FC017FDC659,,,,,,"] =
 	{
-		name = "Building Block: Ruby Marble Tile",
+		name = "Building Block: Ruby Marble Square",
 		shape = "tile"
 	},
 	["I446B1D947899BFC0,CF9C3E89A374FB16,,,,,,"] =
 	{
-		name = "Building Block: Yellow Marble Tile",
+		name = "Building Block: Yellow Marble Square",
 		shape = "tile"
 	},
 	["I2F94903B4BE58484,79515EE6968341DA,,,,,,"] =
 	{
-		name = "Building Block: Jade Marble Tile",
+		name = "Building Block: Jade Marble Square",
 		shape = "tile"
 	},
 	["I446B1D9D08FBB08D,0BA68FE5287605ED,,,,,,"] =
 	{
-		name = "Building Block: Teal Marble Tile",
+		name = "Building Block: Teal Marble Square",
 		shape = "tile"
 	},
 	["I446B1D9E7274313F,12B6E8D1A876D8C9,,,,,,"] =
 	{
-		name = "Building Block: Aqua Marble Tile",
+		name = "Building Block: Aqua Marble Square",
 		shape = "tile"
 	},
 	["I446B1D9C493E6256,0C4A76B9EA8AA9B5,,,,,,"] =
 	{
-		name = "Building Block: Steel Marble Tile",
+		name = "Building Block: Steel Marble Square",
 		shape = "tile"
 	},
 	["I446B1D93333390A3,240CBBBB45970E87,,,,,,"] =
 	{
-		name = "Building Block: Purple Marble Tile",
+		name = "Building Block: Purple Marble Square",
 		shape = "tile"
 	},
 	["I446B1D923286C90C,C87BC0C987F220B0,,,,,,"] =
 	{
-		name = "Building Block: Violet Marble Tile",
+		name = "Building Block: Violet Marble Square",
 		shape = "tile"
 	},
 	["I446B1D980563F11F,17A59ADDD0E7946C,,,,,,"] =
 	{
-		name = "Building Block: Red Marble Tile",
+		name = "Building Block: Red Marble Square",
 		shape = "tile"
 	},
 	["I446B1DA10511C0A9,E655A6D5235A8D82,,,,,,"] =
 	{
-		name = "Building Block: Blue Marble Tile",
+		name = "Building Block: Blue Marble Square",
 		shape = "tile"
 	},
 	["I446B1DA26E22B4E5,D7D1565AF9714BE7,,,,,,"] =
 	{
-		name = "Building Block: Navy Marble Tile",
+		name = "Building Block: Navy Marble Square",
 		shape = "tile"
 	},
 	-- Greenstone
 	["IFF1D8E4A6A25E35C,1F129CFC26DC5AA7,,,,,,"] =
 	{
-		name = "Building Block: Greenstone Tile",
+		name = "Building Block: Greenstone Square",
 		shape = "tile"
 	},
 	["IFF1BEE2F77076368,408BF5DACD6542A7,,,,,,"] =
@@ -1010,7 +1010,7 @@ Dta.Defaults.ItemDB =
 	-- Greystone
 	["IFF1BEE2E068D20E3,DE1784EBCB8A1282,,,,,,"] =
 	{
-		name = "Building Block: Greystone Tile",
+		name = "Building Block: Greystone Square",
 		shape = "tile"
 	},
 	["IFF1BEE2D5B75764D,2D5723717AF97EFD,,,,,,"] =
@@ -1051,7 +1051,7 @@ Dta.Defaults.ItemDB =
 	-- Plain Stone
 	["IFC27A53A7D93B3C5,28927815564C4D18,,,,,,"] =
 	{
-		name = "Building Block: Stone Tile",
+		name = "Building Block: Stone Square",
 		shape = "tile"
 	},
 	["IFC27A5392C8F2D7D,2011B804CCFA965A,,,,,,"] =
@@ -1136,7 +1136,7 @@ Dta.Defaults.ItemDB =
 	-- Blue Wood
 	["I296C2090527FF26A,36F51BEF35044AFE,,,,,,"] =
 	{
-		name = "Building Block: Blue Wood Tile",
+		name = "Building Block: Blue Wood Square",
 		shape = "tile"
 	},
 	["I296C208D1D704C59,11BDF271D73B3CDD,,,,,,"] =
@@ -1177,7 +1177,7 @@ Dta.Defaults.ItemDB =
 	-- Green Wood
 	["I296C20913F3B871C,E1D4959F081A5A79,,,,,,"] =
 	{
-		name = "Building Block: Green Wood Tile",
+		name = "Building Block: Green Wood Square",
 		shape = "tile"
 	},
 	["I296C208E796419FE,0A211A7DC4570BCE,,,,,,"] =
@@ -1382,7 +1382,7 @@ Dta.Defaults.ItemDB =
 	-- Red Wood
 	["I296C209213A44A57,D229F38471CA2871,,,,,,"] =
 	{
-		name = "Building Block: Red Wood Tile",
+		name = "Building Block: Red Wood Square",
 		shape = "tile"
 	},
 	["I296C208F33BDC5E1,CFB7E23A8CB358E2,,,,,,"] =
@@ -1508,7 +1508,7 @@ Dta.Defaults.ItemDB =
 	-- Carved Wood
 	["I3818BADB6A10DCFC,F63E89D9C91C3874,,,,,,"] =
 	{
-		name = "Building Block: Carved Wood Tile",
+		name = "Building Block: Carved Wood Square",
 		shape = "tile"
 	},
 	["I3818BADA6ED04521,10D72EFD29EF69EF,,,,,,"] =
@@ -1590,7 +1590,7 @@ Dta.Defaults.ItemDB =
 	-- Greywood
 	["I3818BACE65BAECAE,CB64CFBB2FE0F71C,,,,,,"] =
 	{
-		name = "Building Block: Greywood Tile",
+		name = "Building Block: Greywood Square",
 		shape = "tile"
 	},
 	["I391DEDC1145BB696,FBDDE244C8FF6361,,,,,,"] =
@@ -1713,7 +1713,7 @@ Dta.Defaults.ItemDB =
 		-- Plain Wood
 	["IFE33236342049AFE,D721F224FC31EDF2,,,,,,"] =
 	{
-		name = "Building Block: Wood Tile",
+		name = "Building Block: Wood Square",
 		shape = "tile"
 	},
 	["IFF73FC9D69486DB4,369028719C371C12,,,,,,"] =
@@ -1779,7 +1779,7 @@ Dta.Defaults.ItemDB =
 	},
 	["I40AC23891893C680,E2A013511D2CFD71,,,,,,"] =
 	{
-		name = "Building Block: Wood Beam Tile",
+		name = "Building Block: Wood Beam Square",
 		shape = "tile"
 	},
 	["I3EE00E2311A0E1B8,1411003D9E157F34,,,,,,"] =
@@ -1818,7 +1818,7 @@ Dta.Defaults.ItemDB =
 	},
 	["I46DEDDFA1B1EF2B1,12B6DB6640573B89,,,,,,"] =
 	{
-		name = "Building Block: Ice Tile",
+		name = "Building Block: Ice Square",
 		shape = "tile"
 	},
 	["I6B41D47E7A06497D,15871F43AB87855A,,,,,,"] =
@@ -1869,7 +1869,7 @@ Dta.Defaults.ItemDB =
 	},
 	["I784602CE13838AA1,556EB47356AF6483,,,,,,"] =
 	{
-		name = "Building Block: Glass Tile",
+		name = "Building Block: Glass Square",
 		shape = "tile"
 	},
 	["I784602CB07F3B04F,3333BB6F6E71EDB4,,,,,,"] =
@@ -1910,7 +1910,7 @@ Dta.Defaults.ItemDB =
 	},
 	["I784602D650FF82A7,872E664CD3431A4B,,,,,,"] =
 	{
-		name = "Building Block: Water Tile",
+		name = "Building Block: Water Square",
 		shape = "tile"
 	},
 	["I784602D35A6C051F,546BDF208E228082,,,,,,"] =
