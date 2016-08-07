@@ -153,7 +153,24 @@ function Dta.copa.checkInput()
 
 	values.flicker_reduce = copa_ui.flickerReduce:GetChecked()
 	if copa_ui.multiplyOffsets:GetChecked() then
-		values.n_copies, success.n_copies = Dta.ui.checkNumber(copa_ui.NewItemNr:GetText(), 1)
+		--values.n_copies, success.n_copies = Dta.ui.checkNumber(copa_ui.NewItemNr:GetText(), 1)
+		local count_or_range = copa_ui.NewItemNr:GetText()
+		local first, last = string.match(count_or_range, "(%-?[%d]+)%s*:%s*(%-?[%d]+)")
+		if first and last then
+			-- range given
+			values.first = tonumber(first)
+			values.last = tonumber(last)
+			-- make sure first <= last
+			if values.first > values.last then
+				values.first = values.last
+				values.last = tonumber(first)
+			end
+			values.n_copies = values.last - values.first + 1
+		else
+			values.first = 1
+			values.n_copies, success.n_copies = Dta.ui.checkNumber(count_or_range, 1)
+			values.last = values.n_copies
+		end
 	end
 
 	for k, v in pairs(success) do
@@ -299,7 +316,7 @@ function Dta.copa.applyFlickerOffset(details, settings)
 end
 
 function Dta.copa.pasteArray(clipboard, shoppingList, settings, new_items)
-	for k = 1, settings.n_copies, 1 do
+	for k = settings.first, settings.last, 1 do
 		local offset = { coordX = k * settings.coordX, coordY = k * settings.coordY,
 						coordZ = k * settings.coordZ, pivot = settings.pivot }
 		if settings.rotate then
