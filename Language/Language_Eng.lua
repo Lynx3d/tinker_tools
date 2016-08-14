@@ -613,8 +613,8 @@ Lang["English"].Prints.Copy_SelectItem = "Please select an item in order to copy
 Lang["English"].Prints.NumbersOnly = "Please enter numeric values only"
 Lang["English"].Prints.CopyFirst = "Please copy an item before pasting"
 Lang["English"].Prints.SelectItemSource = "Please select at least one source for new items"
-Lang["English"].Prints.NotPasteInventory = "Cannot paste clipboard - the following items are missing from your bags:"
-Lang["English"].Prints.NotPasteSelection = "Cannot paste clipboard - the following items are missing from your selection:"
+Lang["English"].Prints.NotPasteInventory = "Cannot paste clipboard - your inventory is missing the following items:"
+Lang["English"].Prints.NotPasteSelection = "Cannot paste clipboard - the selection is missing the following items:"
 --Tribal Magic
 Lang["English"].Prints.NoRoundTable = "You do not seem to have an Round Tribal Table in your inventory!"
 --Alfiebet

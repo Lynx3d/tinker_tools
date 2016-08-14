@@ -77,6 +77,7 @@ end
 function Dta.losa.printMissingItems(missing, shoppingList, message)
 	Dta.CPrint(message)
 	for id, amount in pairs(missing) do
-		Dta.CPrint(string.format("%s: %d", shoppingList[id].name, amount))
+		local stock = shoppingList[id].stock or 0
+		Dta.CPrint(string.format("%s: %d (%d/%d)", shoppingList[id].name, amount, stock, stock+amount))
 	end
 end
