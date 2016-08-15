@@ -182,7 +182,11 @@ also controls which properties are transferred to the selected item.\
 - Offset Scale: Sets the scale change for the paste. For example, 0.2 will make\
   the placed copy 20% larger, and -0.2 consequently 20% smaller.\
 - Offset multiple items: Makes it possible to paste an array by iteratively adding\
-  the offsets to the values of the previously placed copy.\
+  the offsets to the values of the previously placed copy. This accepts either\
+  a count or a range in the form first:last. So 5 is equivalent to 1:5. First and\
+  last may be zero or even negative. This way you can include the original position\
+  with 0:5, extend a previously pasted array like 6:10 for 5 more copies, inverse\
+  the direction with -1:-5 etc.\
 - Flicker reduction: This adds a small offset to each placed copy to prevent\
   visual flickering from overlapping coplanar parts (Z-fighting).\
 - Custom Pivot: This causes rotation and scaling to be calculated relative to the\
