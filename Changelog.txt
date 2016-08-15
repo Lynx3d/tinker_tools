@@ -1,3 +1,15 @@
+Version 1.2.2
+- Copy/Paste now accepts a range when pasting multiple items;
+  range notation is "first:last", while first and last may be zero or negative
+- Add French skin names for 3.7 (Aeryle)
+- German Localization fixes
+- Update english help with some new options, clarifications and screenshots
+- Append (available/required) item counts when printing missing materials when
+  pasting and loading sets to hopefully reduce confusion
+- Fix Lua error in Offset Calc. when user omits required settings in some cases
+- Clear selection queue when aborting a placement operation to avoid unexpected
+  results later (e.g. after stalls from hitting the dimension's item limit)
+
 Version 1.2.1
 - New Move option: "Local Axes" moves items along their transformed axes
 - Add new 3.7 building block skins:
@@ -9,7 +21,7 @@ Version 1.2.1
 - Implement proper command throttling to prevent dropping item operations
 - Refurbish Help Window design and fix the scrollbar
 - Improve text export format to still be valid when line breaks get lost
-- Detect Octus Monestary dimension by zone ID
+- Detect Octus Monastery dimension by zone ID
 - Fix error when pressing "Load Set" before selecting a set
 - Localization updates
 
