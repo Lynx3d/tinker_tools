@@ -31,6 +31,14 @@ function Dta.copa.CopaNewItemChanged()
 	end
 end
 
+function Dta.copa.FlickerRedChanged(self)
+	if self:GetChecked() then
+		Dta.ui.windowCopyPaste.copyPaste.flickerAmplitude:SetVisible(true)
+	else
+		Dta.ui.windowCopyPaste.copyPaste.flickerAmplitude:SetVisible(false)
+	end
+end
+
 function Dta.copa.PivotChanged(self)
 	if self:GetChecked() then
 		Dta.ui.windowCopyPaste.copyPaste.pickPivotBtn:SetVisible(true)
@@ -152,6 +160,9 @@ function Dta.copa.checkInput()
 	end
 
 	values.flicker_reduce = copa_ui.flickerReduce:GetChecked()
+	if values.flicker_reduce then
+		values.flicker_amp, success.flicker_amp = Dta.ui.checkNumber(copa_ui.flickerAmplitude:GetText(), 0.0005)
+	end
 	if copa_ui.multiplyOffsets:GetChecked() then
 		--values.n_copies, success.n_copies = Dta.ui.checkNumber(copa_ui.NewItemNr:GetText(), 1)
 		local count_or_range = copa_ui.NewItemNr:GetText()
@@ -307,7 +318,7 @@ end
 -- flicker reduction: alternate between adding and substracting a small offset
 function Dta.copa.applyFlickerOffset(details, settings)
 	if settings.flicker_reduce then
-		local FlickerReduc = Dta.FlickerOffset and Dta.FlickerReduc or -Dta.FlickerReduc
+		local FlickerReduc = Dta.FlickerOffset and settings.flicker_amp or -settings.flicker_amp
 		details.coordX = details.coordX + FlickerReduc
 		details.coordY = details.coordY + FlickerReduc
 		details.coordZ = details.coordZ + FlickerReduc

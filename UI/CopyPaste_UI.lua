@@ -76,7 +76,7 @@ function Dta.copa_ui.buildCopyPasteWindow()
 	CopyPastewindow.copyPaste.scaleOffset = Dta.ui.createTextfield("copyPasteScaleOffset", CopyPastewindow.copyPaste, 235, 40, 45)
 
 	CopyPastewindow.copyPaste.multiplyOffsets = Dta.ui.createCheckbox("copyPasteMultiplyOffsets", CopyPastewindow.copyPaste, 0, 95, Dta.Locale.Text.OffsetMultiItems, false, nil, Dta.copa.CopaOffsetChanged)
-	CopyPastewindow.copyPaste.multiplyOffsets:SetVisible(true)
+	--CopyPastewindow.copyPaste.multiplyOffsets:SetVisible(true)
 
 	CopyPastewindow.copyPaste.NewItemNrLabel = Dta.ui.createText("copyPasteNewItemLabel", CopyPastewindow.copyPaste, 170, 93, Dta.Locale.Text.NrItems, 14)
 	CopyPastewindow.copyPaste.NewItemNrLabel:SetVisible(false)
@@ -84,7 +84,9 @@ function Dta.copa_ui.buildCopyPasteWindow()
 	CopyPastewindow.copyPaste.NewItemNr = Dta.ui.createTextfield("copyPasteNewItemNr", CopyPastewindow.copyPaste, 260, 95, 40)
 	CopyPastewindow.copyPaste.NewItemNr:SetVisible(false)
 
-	CopyPastewindow.copyPaste.flickerReduce = Dta.ui.createCheckbox("copyPasteFlickerReduce", CopyPastewindow.copyPaste, 0, 120, Dta.Locale.Text.FlickerReduce, false, nil)
+	CopyPastewindow.copyPaste.flickerReduce = Dta.ui.createCheckbox("copyPasteFlickerReduce", CopyPastewindow.copyPaste, 0, 120, Dta.Locale.Text.FlickerReduce, false, nil, Dta.copa.FlickerRedChanged)
+	CopyPastewindow.copyPaste.flickerAmplitude = Dta.ui.createTextfield("copyPasteFlickerAmp", CopyPastewindow.copyPaste, 170, 120, 50, "0.0005")
+	CopyPastewindow.copyPaste.flickerAmplitude:SetVisible(false)
 
 	CopyPastewindow.copyPaste.SelectionPivot = Dta.ui.createCheckbox("copyPasteSelPivot", CopyPastewindow.copyPaste, 0, 145, Dta.Locale.Text.SelectionPivot, false, nil, Dta.copa.PivotChanged)
 

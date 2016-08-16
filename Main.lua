@@ -31,7 +31,6 @@ Dta.lastFrameTime = 0
 
 --Copy & Paste
 Dta.FlickerOffset = true
-Dta.FlickerReduc = 0.0003
 
 --Others
 Dta.PlayerID = Inspect.Unit.Lookup("player")
