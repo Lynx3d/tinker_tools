@@ -41,11 +41,11 @@ Dta.desiredPitch = 0
 Dta.pitchButtons = {}
 Dta.waitingForCarpet = false
 Dta.FlyingType = "IFEC11D174272F87C,3E1F104FE8C67224,,,,,,"
-Dta.magicYOffset = 0.47
-Dta.carpetId = "d"
+Dta.magicYOffset = 0.4755 -- height of Tribal Table
+Dta.carpetId = false
 Dta.lastPlayerPos = {coordX = 0, coordY = 0, coordZ = 0}
-Dta.olderPlayerPos = Dta.lastPlayerPos
-Dta.evenOlderPlayerPos = Dta.olderPlayerPos
+Dta.savePosNew = {coordX = 0, coordY = 0, coordZ = 0}
+Dta.savePosOld = {coordX = -0.2, coordY = 0, coordZ = 0}
 Dta.lastCarpetMove = 0
 Dta.lastYaw = 0
 
@@ -119,8 +119,6 @@ function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a
 				if data.type == Dta.FlyingType then
 					Dta.carpetId = id
 					Dta.waitingForCarpet = false
-					Dta.magicYOffset = Inspect.Unit.Detail("player").coordY - Inspect.Dimension.Layout.Detail(id).coordY
-					Dta.magicYOffset = Dta.magicYOffset + 0.47
 				end
 			end
 		end
@@ -129,14 +127,16 @@ function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a
 end
 
 function Dta.removeEventHandler(hEvent, dimensionItem) --Executed when item is removed
-	if #Dta.pendingActions == 1 then
-		Dta.CPrint(Dta.Locale.Prints.ProcessFinished)
-	end
-	if Dta.losa.tableLength(Dta.selectedItems) > 0 then
-		Dta.items.updateSelection(dimensionItem, true)
-		--print("Item Removed")
+	--if #Dta.pendingActions == 1 then
+	--	Dta.CPrint(Dta.Locale.Prints.ProcessFinished)
+	--end
+	if Dta.carpetId and dimensionItem[Dta.carpetId] then
+		Dta.flying.FlyingRemoved()
 	end
 
+	if Dta.selectionCount > 0 then
+		Dta.items.updateSelection(dimensionItem, true)
+	end
 end
 
 function Dta.updateEventHandler(hEvent, dimensionItem) --Executed on every select/ deselect or change of an dimension item
@@ -193,6 +193,10 @@ function Dta.Event_Unit_Detail_Zone(hEvent, u)
 			EnterDimension()
 		else
 			LeaveDimension()
+		end
+		if Dta.carpetId then
+			Dta.flying.FlyingRemoved()
+			--Dta.CPrint("You left Tribal Magic behind...")
 		end
 	end
 end
@@ -338,164 +342,8 @@ function Dta.tick(handle)
 		end
 	end
 
-	if Dta.carpetId ~= "d" then
-		local playerDetails = Inspect.Unit.Detail("player")
-		if playerDetails["coordX"] == nil then
-			Dta.carpetId = "d"
-			return
-		end
-
-		--if Dta.lastPlayerPos["coordX"] == nil then
-		--	return
-		--end
-
-		local xDiff = playerDetails["coordX"] - Dta.lastPlayerPos["coordX"]
-		local yDiff = playerDetails["coordY"] - Dta.lastPlayerPos["coordY"]
-		local zDiff = playerDetails["coordZ"] - Dta.lastPlayerPos["coordZ"]
-		if math.abs(xDiff) > 0.001 or
-			math.abs(yDiff) > 0.02 or
-			math.abs(zDiff) > 0.001 then
-
-			if playerDetails["coordX"] ~= Dta.lastPlayerPos["coordX"] or playerDetails["coordY"] ~= Dta.lastPlayerPos["coordY"] or playerDetails["coordZ"] ~= Dta.lastPlayerPos["coordZ"] then
-				Dta.lastCarpetMove = currentFrameTime
-				local update = {}
-				update["coordX"] = playerDetails["coordX"]
-				update["coordY"] = playerDetails["coordY"] - Dta.magicYOffset
-				-- 0.2044681331
-				update["coordZ"] = playerDetails["coordZ"]
-
-				if Dta.desiredPitch > 0 then
-					update["coordY"] = update["coordY"] - Dta.desiredPitch * 0.125
-				end
-
-				if math.abs(xDiff) > 0.01 or math.abs(zDiff) > 0.01 then
-					if Dta.olderPlayerPos["coordX"] ~= 0 then
-						update["yaw"] = math.atan2(playerDetails["coordZ"] - Dta.evenOlderPlayerPos["coordZ"], playerDetails["coordX"] - Dta.evenOlderPlayerPos["coordX"]) + (math.pi / 2)
-					else
-						update["yaw"] = math.atan2(zDiff, xDiff) + (math.pi / 2)
-					end
-
-					if update["yaw"] > math.pi then
-						update["yaw"] = update["yaw"] - 2 * math.pi
-					end
-
-					if update["yaw"] < -math.pi then
-						update["yaw"] = update["yaw"] + 2 * math.pi
-					end
-
-					local yawDiff = math.abs(update["yaw"] - Dta.lastYaw)
-					if yawDiff > 2 * math.pi then
-						yawDiff = yawDiff - 2 * math.pi
-					end
-
-					if yawDiff < 0.105 then
-						update["yaw"] = Dta.lastYaw
-					end
-					Dta.lastYaw = update["yaw"]
-
-					while Dta.lastYaw > math.pi do
-						Dta.lastYaw = Dta.lastYaw - math.pi * 2
-					end
-
-					while Dta.lastYaw < -math.pi do
-						Dta.lastYaw = Dta.lastYaw + math.pi * 2
-					end
-
-					--if Dta.desiredPitch ~= 0 then
-					-- MakeZRotation
-					local zMatrix = {}
-					zMatrix[0] = {}
-					zMatrix[1] = {}
-					zMatrix[2] = {}
-
-					local sn = math.sin(Dta.desiredPitch)
-					local cs = math.cos(Dta.desiredPitch)
-
-					zMatrix[0][0] = cs
-					zMatrix[0][1] = sn
-					zMatrix[0][2] = 0
-					zMatrix[1][0] = -sn
-					zMatrix[1][1] = cs
-					zMatrix[1][2] = 0
-					zMatrix[2][0] = 0
-					zMatrix[2][1] = 0
-					zMatrix[2][2] = 1
-
-					local yMatrix = {}
-					yMatrix[0] = {}
-					yMatrix[1] = {}
-					yMatrix[2] = {}
-
-					sn = math.sin(Dta.lastYaw)
-					cs = math.cos(Dta.lastYaw)
-
-					yMatrix[0][0] = cs
-					yMatrix[0][1] = 0
-					yMatrix[0][2] = -sn
-					yMatrix[1][0] = 0
-					yMatrix[1][1] = 1
-					yMatrix[1][2] = 0
-					yMatrix[2][0] = sn
-					yMatrix[2][1] = 0
-					yMatrix[2][2] = cs
-
-					local aMatrix = zMatrix
-					local bMatrix = yMatrix
-
-					local rMatrix = {}
-					rMatrix[0] = {}
-					rMatrix[1] = {}
-					rMatrix[2] = {}
-
-					rMatrix[0][0] = aMatrix[0][0]*bMatrix[0][0] + aMatrix[0][1]*bMatrix[1][0] + aMatrix[0][2]*bMatrix[2][0]
-					rMatrix[1][0] = aMatrix[1][0]*bMatrix[0][0] + aMatrix[1][1]*bMatrix[1][0] + aMatrix[1][2]*bMatrix[2][0]
-					rMatrix[2][0] = aMatrix[2][0]*bMatrix[0][0] + aMatrix[2][1]*bMatrix[1][0] + aMatrix[2][2]*bMatrix[2][0]
-					rMatrix[0][1] = aMatrix[0][0]*bMatrix[0][1] + aMatrix[0][1]*bMatrix[1][1] + aMatrix[0][2]*bMatrix[2][1]
-					rMatrix[1][1] = aMatrix[1][0]*bMatrix[0][1] + aMatrix[1][1]*bMatrix[1][1] + aMatrix[1][2]*bMatrix[2][1]
-					rMatrix[2][1] = aMatrix[2][0]*bMatrix[0][1] + aMatrix[2][1]*bMatrix[1][1] + aMatrix[2][2]*bMatrix[2][1]
-					rMatrix[0][2] = aMatrix[0][0]*bMatrix[0][2] + aMatrix[0][1]*bMatrix[1][2] + aMatrix[0][2]*bMatrix[2][2]
-					rMatrix[1][2] = aMatrix[1][0]*bMatrix[0][2] + aMatrix[1][1]*bMatrix[1][2] + aMatrix[1][2]*bMatrix[2][2]
-					rMatrix[2][2] = aMatrix[2][0]*bMatrix[0][2] + aMatrix[2][1]*bMatrix[1][2] + aMatrix[2][2]*bMatrix[2][2]
-
-
-					--rMatrix = yMatrix
-
-					local rfxAngle = 0
-					local rfyAngle = 0
-					local rfzAngle = 0
-
-					rfyAngle = -math.asin(rMatrix[0][2])
-					if rfyAngle < math.pi/2 then
-						if rfyAngle > -math.pi/2 then
-							rfxAngle = -math.atan2(-rMatrix[1][2], rMatrix[2][2])
-							rfzAngle = -math.atan2(-rMatrix[0][1], rMatrix[0][0])
-						else
-							local frmy = math.atan2(rMatrix[1][0], rMatrix[1][1])
-							rfzAngle = 0
-							rfxAngle = frmy - rfzAngle
-						end
-					else
-						local frpy = math.atan2(rMatrix[1][0], rMatrix[1][1])
-						rfzAngle = 0
-						rfxAngle = rfzAngle - frpy
-					end
-
-					update["pitch"] = rfzAngle
-					update["roll"] = rfxAngle
-					update["yaw"] = rfyAngle
-				end
-
-
-				Command.Dimension.Layout.Place(Dta.carpetId, update)
-
-				Dta.evenOlderPlayerPos = Dta.olderPlayerPos
-				Dta.olderPlayerPos = Dta.lastPlayerPos
-
-				Dta.lastPlayerPos["coordX"] = playerDetails["coordX"]
-				Dta.lastPlayerPos["coordY"] = playerDetails["coordY"]
-				Dta.lastPlayerPos["coordZ"] = playerDetails["coordZ"]
-			end
-		end
+	if Dta.carpetId then
+		Dta.flying.UpdateCarpet()
 	end
 end
 Dta.main()

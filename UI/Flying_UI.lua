@@ -46,7 +46,7 @@ function Dta.flying_ui.buildFlyingWindow()
 
 	Flyingwindow.DFlying.placeButton = Dta.ui.createButton("DFlyingPlaceBtn", Flyingwindow.DFlying, 0, 95, nil, nil, Dta.Locale.Buttons.Place, nil, Dta.flying.PlaceFlying)
 	Flyingwindow.DFlying.placeButton:SetLayer(100)
-	if Dta.carpetId ~= "d" then
+	if Dta.carpetId then
 		Flyingwindow.DFlying.placeButton:SetEnabled(false)
 	else
 		Flyingwindow.DFlying.placeButton:SetEnabled(true)
@@ -54,7 +54,7 @@ function Dta.flying_ui.buildFlyingWindow()
 
 	Flyingwindow.DFlying.pickupButton = Dta.ui.createButton("DFlyingPickUpBtn", Flyingwindow.DFlying, 0, 125, nil, nil, Dta.Locale.Buttons.PickUp, nil, Dta.flying.PickUpFlying)
 	Flyingwindow.DFlying.pickupButton:SetLayer(100)
-	if Dta.carpetId ~= "d" then
+	if Dta.carpetId then
 		Flyingwindow.DFlying.pickupButton:SetEnabled(true)
 	else
 		Flyingwindow.DFlying.pickupButton:SetEnabled(false)
