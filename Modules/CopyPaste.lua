@@ -224,7 +224,7 @@ function Dta.copa.copyItemAttributes()
 end
 
 --------------------------------------
---PASTE CLIPBOARD ITEMS
+-- Utility functions
 --------------------------------------
 
 function Dta.copyTable(tbl, recursive)
@@ -255,6 +255,39 @@ function Dta.copyTableRecursive(orig, refs)
 	end
 	return copy
 end
+
+local function haltonNext(self)
+	local r = 1.0 - self.value - 0.0000000001
+	if self.invBase < r then
+		self.value = self.value + self.invBase
+	else
+		local h, hh = self.invBase, nil
+		repeat
+			hh = h
+			h = h * self.invBase
+		until h < r
+		self.value = self.value + hh + h - 1.0
+	end
+	return self.value
+end
+
+local function haltonSetStart(self, i)
+	self.value = 0
+	local f, factor = self.invBase, self.invBase
+	while i > 0 do
+		self.value = self.value + (i % self.base) * factor
+		i = math.floor (i * self.invBase)
+		factor = factor * f
+	end
+end
+
+function Dta.Halton(base)
+	return { base = base, invBase = 1.0/base, value = 0, GetNext = haltonNext, SetStart = haltonSetStart }
+end
+
+--------------------------------------
+--PASTE CLIPBOARD ITEMS
+--------------------------------------
 
 function Dta.copa.pasteSingleItem(details, shoppingList, newItem)
 	-- find item in "shelf" info of our shopping list
@@ -318,11 +351,12 @@ end
 -- flicker reduction: alternate between adding and substracting a small offset
 function Dta.copa.applyFlickerOffset(details, settings)
 	if settings.flicker_reduce then
-		local FlickerReduc = Dta.FlickerOffset and settings.flicker_amp or -settings.flicker_amp
+		--local FlickerReduc = Dta.FlickerOffset and settings.flicker_amp or -settings.flicker_amp
+		local FlickerReduc = (2 * settings.halton:GetNext() - 1) * settings.flicker_amp
 		details.coordX = details.coordX + FlickerReduc
 		details.coordY = details.coordY + FlickerReduc
 		details.coordZ = details.coordZ + FlickerReduc
-		Dta.FlickerOffset = not Dta.FlickerOffset
+		--Dta.FlickerOffset = not Dta.FlickerOffset
 	end
 end
 
@@ -367,6 +401,14 @@ function Dta.copa.genNewDetails(details, settings)
 end
 
 function Dta.copa.pasteClipboard(shoppingList, settings)
+	-- setup flicker reduction sequence
+	if settings.flicker_reduce then
+		settings.halton = Dta.Halton(2)
+		if settings.first and settings.first > 0 then
+			settings.halton:SetStart(settings.first)
+		end
+	end
+
 	if settings.n_copies then
 		Dta.copa.pasteArray(Dta.clipboard.items, shoppingList, settings, settings.new_items)
 	elseif Dta.clipboard.itemCount > 1 or settings.selection_pivot then
