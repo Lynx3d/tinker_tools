@@ -483,6 +483,32 @@ Button.mouseUp = function(self, handle)
 	self:SetTexture(self.skin_resource, self.skin_over)
 end
 
+function Button.SetEnabled(self, enabled)
+	if enabled == self.is_enabled then
+		return
+	end
+	if enabled then
+		self:SetTexture(self.skin_resource, self.skin_normal)
+		self:EventAttach(Event.UI.Input.Mouse.Cursor.In, Button.mouseIn, "Button.MouseIn")
+		self:EventAttach(Event.UI.Input.Mouse.Cursor.Out, Button.mouseOut, "Button.MouseOut")
+		self:EventAttach(Event.UI.Input.Mouse.Left.Down, Button.mouseDown, "Button.MouseDown")
+		self:EventAttach(Event.UI.Input.Mouse.Left.Up, Button.mouseUp, "Button.MouseUp")
+		if self.click_callback then
+			self:EventAttach(Event.UI.Input.Mouse.Left.Click, self.click_callback, "Button.UserAction")
+		end
+	else
+		self:SetTexture(self.skin_resource, self.skin_disabled)
+		self:EventDetach(Event.UI.Input.Mouse.Cursor.In, Button.mouseIn, "Button.MouseIn")
+		self:EventDetach(Event.UI.Input.Mouse.Cursor.Out, Button.mouseOut, "Button.MouseOut")
+		self:EventDetach(Event.UI.Input.Mouse.Left.Down, Button.mouseDown, "Button.MouseDown")
+		self:EventDetach(Event.UI.Input.Mouse.Left.Up, Button.mouseUp, "Button.MouseUp")
+		if self.click_callback then
+			self:EventDetach(Event.UI.Input.Mouse.Left.Click, self.click_callback, "Button.UserAction")
+		end
+	end
+	self.is_enabled = enabled
+end
+
 -- if 'pressed' is nil, it will just toggle, otherwise set it to given state
 function Button.Toggle(self, pressed)
 	if pressed == nil then state = not self.is_pressed end
@@ -503,8 +529,11 @@ function Button.Create(name, parent, click_callback, tex_normal, tex_over, tex_p
 	btn.skin_normal = tex_normal
 	btn.skin_over = tex_over
 	btn.skin_pressed = tex_pressed
+	btn.skin_disabled = tex_disabled
 	btn.is_pressed = false
+	btn.is_enabled = true
 	btn.Toggle = Button.Toggle
+	btn.SetEnabled = Button.SetEnabled
 
 	btn:SetTexture(resource, tex_normal)
 	btn:EventAttach(Event.UI.Input.Mouse.Cursor.In, Button.mouseIn, "Button.MouseIn")
@@ -512,6 +541,7 @@ function Button.Create(name, parent, click_callback, tex_normal, tex_over, tex_p
 	btn:EventAttach(Event.UI.Input.Mouse.Left.Down, Button.mouseDown, "Button.MouseDown")
 	btn:EventAttach(Event.UI.Input.Mouse.Left.Up, Button.mouseUp, "Button.MouseUp")
 	if click_callback then
+		btn.click_callback = click_callback
 		btn:EventAttach(Event.UI.Input.Mouse.Left.Click, click_callback, "Button.UserAction")
 	end
 
