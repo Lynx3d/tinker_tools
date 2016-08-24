@@ -118,7 +118,9 @@ function Dta.ui.createText(name, parent, x, y, text, fontsize, color, shadow)
 	local textFrame = UI.CreateFrame("Text", name, parent)
 	textFrame:SetFontSize(fontsize)
 	textFrame:SetText(text)
-	textFrame:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
+	if x and y then
+		textFrame:SetPoint("TOPLEFT", parent, "TOPLEFT", x, y)
+	end
 	if color ~= nil then textFrame:SetFontColor(color[1], color[2], color[3], color[4]) end
 	if shadow ~= false then textFrame:SetEffectGlow({offsetX=1, offsetY=1}) end
 	return textFrame
