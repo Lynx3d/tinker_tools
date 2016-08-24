@@ -6,15 +6,13 @@ Dta.flying = {}
 -- TRIBAL MAGIC BUTTON HANDLERS
 --------------------------------------
 
-function Dta.flying.AdjustPitch(newVal)
-	for i = 1, 9, 1 do
-		if i == newVal then
-			Dta.pitchButtons[i]:SetEnabled(false)
-		else
-			Dta.pitchButtons[i]:SetEnabled(true)
-		end
-	end
-	Dta.desiredPitch = (-5+newVal)/8
+function Dta.flying.ChangePitch(button)
+	-- attaching the event callback while it is executed freezes rift, so prevent that
+	assert(button ~= Dta.ui.windowFlying.pitchButtons[Dta.flying.pitchIndex])
+	Dta.desiredPitch = (5 - button.pitchIndex)/8
+	button:SetEnabled(false)
+	Dta.ui.windowFlying.pitchButtons[Dta.flying.pitchIndex]:SetEnabled(true)
+	Dta.flying.pitchIndex = button.pitchIndex
 end
 
 function Dta.flying.PlaceFlying()
