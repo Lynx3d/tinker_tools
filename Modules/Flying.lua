@@ -6,13 +6,28 @@ Dta.flying = {}
 -- TRIBAL MAGIC BUTTON HANDLERS
 --------------------------------------
 
-function Dta.flying.ChangePitch(button)
-	-- attaching the event callback while it is executed freezes rift, so prevent that
-	assert(button ~= Dta.ui.windowFlying.pitchButtons[Dta.flying.pitchIndex])
-	Dta.desiredPitch = (5 - button.pitchIndex)/8
-	button:SetEnabled(false)
-	Dta.ui.windowFlying.pitchButtons[Dta.flying.pitchIndex]:SetEnabled(true)
-	Dta.flying.pitchIndex = button.pitchIndex
+function Dta.flying.PitchWheelBack(slider, hEvent)
+	local min, max = slider:GetRange()
+	local pos = slider:GetPosition()
+	if pos > min then
+		slider:SetPosition(pos - 1)
+	end
+end
+
+function Dta.flying.PitchWheelForward(slider, hEvent)
+	local min, max = slider:GetRange()
+	local pos = slider:GetPosition()
+	if pos < max then
+		slider:SetPosition(pos + 1)
+	end
+end
+
+function Dta.flying.SliderMoved(slider)
+	local newVal = slider:GetPosition()
+	Dta.ui.windowFlying.pitchLabels[Dta.flying.pitchPosition+5]:SetFontColor(1, 1, 1)
+	Dta.ui.windowFlying.pitchLabels[newVal+5]:SetFontColor(107/255, 203/255, 189/255)
+	Dta.flying.pitchPosition = newVal
+	Dta.desiredPitch = -newVal/8
 end
 
 function Dta.flying.PlaceFlying()

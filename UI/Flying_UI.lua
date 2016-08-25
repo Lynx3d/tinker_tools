@@ -40,51 +40,51 @@ function Dta.flying_ui.buildFlyingWindow()
 	-------------------------------
 	--ITEM DETAILS
 	-------------------------------
-	Flyingwindow.DFlying = Dta.ui.createFrame("ImportExport", Flyingwindow, 10, 5, Flyingwindow:GetWidth()-20, Flyingwindow:GetHeight()-20)
-	Flyingwindow.DFlying:SetLayer(30)
-	--Flyingwindow.DFlying:SetBackgroundColor(1, 0, 0, 0.5) --Debug
+	local DFlying = Dta.ui.createFrame("ImportExport", Flyingwindow, 10, 5, Flyingwindow:GetWidth()-20, Flyingwindow:GetHeight()-20)
+	DFlying:SetLayer(30)
 
-	Flyingwindow.DFlying.placeButton = Dta.ui.createButton("DFlyingPlaceBtn", Flyingwindow.DFlying, 0, 55, nil, nil, Dta.Locale.Buttons.Place, nil, Dta.flying.PlaceFlying)
-	Flyingwindow.DFlying.placeButton:SetLayer(100)
+	DFlying.placeButton = Dta.ui.createButton("DFlyingPlaceBtn", DFlying, 0, 55, nil, nil, Dta.Locale.Buttons.Place, nil, Dta.flying.PlaceFlying)
+	DFlying.placeButton:SetLayer(100)
 	if Dta.carpetId then
-		Flyingwindow.DFlying.placeButton:SetEnabled(false)
+		DFlying.placeButton:SetEnabled(false)
 	else
-		Flyingwindow.DFlying.placeButton:SetEnabled(true)
+		DFlying.placeButton:SetEnabled(true)
 	end
 
-	Flyingwindow.DFlying.pickupButton = Dta.ui.createButton("DFlyingPickUpBtn", Flyingwindow.DFlying, 140, 55, nil, nil, Dta.Locale.Buttons.PickUp, nil, Dta.flying.PickUpFlying)
-	Flyingwindow.DFlying.pickupButton:SetLayer(100)
+	DFlying.pickupButton = Dta.ui.createButton("DFlyingPickUpBtn", DFlying, 140, 55, nil, nil, Dta.Locale.Buttons.PickUp, nil, Dta.flying.PickUpFlying)
+	DFlying.pickupButton:SetLayer(100)
 	if Dta.carpetId then
-		Flyingwindow.DFlying.pickupButton:SetEnabled(true)
+		DFlying.pickupButton:SetEnabled(true)
 	else
-		Flyingwindow.DFlying.pickupButton:SetEnabled(false)
+		DFlying.pickupButton:SetEnabled(false)
 	end
 
-	local pitchButtons = {}
+	DFlying.pitchSlider = UI.CreateFrame("RiftSlider", "FlyingwindowSlider", DFlying)
+	DFlying.pitchSlider:SetPoint("TOPLEFT", DFlying, "TOPLEFT", 20, 5)
+	DFlying.pitchSlider:SetWidth(240)
+	DFlying.pitchSlider:SetHeight(40)
+	DFlying.pitchSlider:SetRange(-4, 4)
+	DFlying.pitchSlider:SetPosition(0)
+	DFlying.pitchSlider:EventAttach(Event.UI.Input.Mouse.Wheel.Back, Dta.flying.PitchWheelBack, "PitchWheelBack")
+	DFlying.pitchSlider:EventAttach(Event.UI.Input.Mouse.Wheel.Forward, Dta.flying.PitchWheelForward, "PitchWheelForward")
+	DFlying.pitchSlider:EventAttach(Event.UI.Slider.Change, Dta.flying.SliderMoved, "PitchChanged")
+	Dta.flying.pitchPosition = 0
+
+	local labels = {}
 	for i = 1, 9 do
-		local button = Dta.ui.Button.Create("PitchButton"..i, Flyingwindow.DFlying, Dta.flying.ChangePitch,
-											"btn_slider_(disable).png.dds",
-											"btn_slider_(over).png.dds",
-											"btn_slider_(click).png.dds",
-											"btn_slider_(normal).png.dds")
-		button:SetPoint("TOPLEFT", Flyingwindow.DFlying, "TOPLEFT", 5 + (i-1)*30, 25)
-		button:SetHeight(23)
-		button:SetWidth(23)
-		button.pitchIndex = i
 		local labelText = tostring(i-5)
 		if i-5 > 0 then
 			labelText = "+"..labelText
 		end
-		button.label = Dta.ui.createText("PitchButtonLabel"..i, Flyingwindow.DFlying, nil, nil, labelText, 14)
-		button.label:SetPoint("BOTTOMCENTER", button, "TOPCENTER")
-		pitchButtons[i] = button
+		local label = Dta.ui.createText("PitchLabel"..i, DFlying, nil, nil, labelText, 14)
+		label:SetPoint("BOTTOMCENTER", DFlying.pitchSlider, "BOTTOMLEFT", (i-1)*30, 0)
+		labels[i] = label
 	end
-	pitchButtons[5]:SetEnabled(false)
-	newWindow.pitchButtons = pitchButtons
-	Dta.flying.pitchIndex = 5
+	labels[5]:SetFontColor(107/255, 203/255, 189/255)
+	newWindow.pitchLabels = labels
 
 	-- TODO: temp fix for new window hierarchy
-	newWindow.DFlying = Flyingwindow.DFlying
+	newWindow.DFlying = DFlying
 
 	return newWindow
 end
