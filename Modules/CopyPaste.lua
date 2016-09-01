@@ -161,7 +161,7 @@ function Dta.copa.checkInput()
 
 	values.flicker_reduce = copa_ui.flickerReduce:GetChecked()
 	if values.flicker_reduce then
-		values.flicker_amp, success.flicker_amp = Dta.ui.checkNumber(copa_ui.flickerAmplitude:GetText(), 0.0005)
+		values.flicker_amp, success.flicker_amp = Dta.ui.checkNumber(copa_ui.flickerAmplitude:GetText(), 0.001)
 	end
 	if copa_ui.multiplyOffsets:GetChecked() then
 		--values.n_copies, success.n_copies = Dta.ui.checkNumber(copa_ui.NewItemNr:GetText(), 1)

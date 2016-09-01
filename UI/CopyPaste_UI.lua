@@ -85,7 +85,7 @@ function Dta.copa_ui.buildCopyPasteWindow()
 	CopyPastewindow.copyPaste.NewItemNr:SetVisible(false)
 
 	CopyPastewindow.copyPaste.flickerReduce = Dta.ui.createCheckbox("copyPasteFlickerReduce", CopyPastewindow.copyPaste, 0, 120, Dta.Locale.Text.FlickerReduce, false, nil, Dta.copa.FlickerRedChanged)
-	CopyPastewindow.copyPaste.flickerAmplitude = Dta.ui.createTextfield("copyPasteFlickerAmp", CopyPastewindow.copyPaste, 170, 120, 50, "0.0005")
+	CopyPastewindow.copyPaste.flickerAmplitude = Dta.ui.createTextfield("copyPasteFlickerAmp", CopyPastewindow.copyPaste, 170, 120, 50, "0.001")
 	CopyPastewindow.copyPaste.flickerAmplitude:SetVisible(false)
 
 	CopyPastewindow.copyPaste.SelectionPivot = Dta.ui.createCheckbox("copyPasteSelPivot", CopyPastewindow.copyPaste, 0, 145, Dta.Locale.Text.SelectionPivot, false, nil, Dta.copa.PivotChanged)
