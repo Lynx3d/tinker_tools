@@ -18,6 +18,13 @@ Opens up the help window. Also works outside of dimensions.
 /tt config
 Opens the settings dialog.
 
+/tt import_dt
+Import saved sets from Dimension Tools.
+Dimension Tools must be installed and enabled for this.
+
+/tt force
+Override dimension detection; resets on zone changes.
+
 /tt reset
 Reset all Tinker Tools windows to their default positions.
 
