@@ -187,8 +187,9 @@ also controls which properties are transferred to the selected item.\
   last may be zero or even negative. This way you can include the original position\
   with 0:5, extend a previously pasted array like 6:10 for 5 more copies, inverse\
   the direction with -1:-5 etc.\
-- Flicker reduction: This adds a small offset to each placed copy to prevent\
-  visual flickering from overlapping coplanar parts (Z-fighting).\
+- Flicker reduction: This adds a small quasi-random offset to each placed copy to\
+  prevent visual flickering from overlapping coplanar parts (Z-fighting).\
+  The input field lets you adjust the amplitude of the offset sequence.\
 - Custom Pivot: This causes rotation and scaling to be calculated relative to the\
   point you picked (see below for details).\
 - Use New Items: Activates the possibility to place new items from your bags or\
@@ -329,21 +330,20 @@ Lang["English"].ImportandExport.Text3 = ""
 Lang["English"].TribalMagic = {}
 Lang["English"].TribalMagic.Label = "Tribal Magic"
 Lang["English"].TribalMagic.Text1 = "\
-Tribal Magic is the Magic Carpet addon made by AladdinRift integrated into\
-Tinker Tools with only a small adjustment to the items it uses. Instead of\
-an Ogre Rug it uses the smaller Round Tribal Table to give you more\
-room to look around without seeing the edges of the item you fly on."
+Tribal Magic is based on the Magic Carpet addon made by AladdinRift.\
+Instead of an Ochre Rug it uses the smaller Round Tribal Table to give you\
+more room to look around without seeing the edges of the item you fly on."
 
 Lang["English"].TribalMagic.Text2 = "\
 <u>Descriptions:</u>\
 - Place: places the Round Tribal Table in your dimension for flying.\
 - Pick up: Picks up the Round Tribal Table from your dimension.\
-- 0: Levels out the Round Tribal Table, so you can move around on the altitude\
-  you currently are.\
-- +1 to +4: Change the angle of the Round Tribal Table. The higher the number\
-  the faster you will go Up (+) in your dimension.\
-- -1 to -4: Change the angle of the Round Tribal Table. The lower the number\
-  the faster you will go Down (-)in your dimension."
+- Slider: Changes the angle of the Round Tribal Table.\
+    0: Levels out the Round Tribal Table, so you can move around on the altitude\
+        you currently are.\
+    +1 to +4: The higher the number the more you will go upwards as you move.\
+    -1 to -4: The lower the number the more you will go downwards as you move.\
+  The slider can also be moved with the mouse wheel when the cursor is above it."
 
 Lang["English"].TribalMagic.Text3 = ""
 
