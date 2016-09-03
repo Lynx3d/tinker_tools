@@ -1,3 +1,12 @@
+Version 1.2.3
+- Copy/Paste now allows adjusting the flicker reduction amplitude
+- Flicker reduction now uses a low discrepancy sequecne to avoid repeating offsets
+- Tribal Magic has been completely redone:
+  * New UI is more compact and uses a slider to adjust slope
+  * Slightly increase maximum angle
+  * Correctly reset when the table is not picked up with the Tribal Magic UI
+  * More robust height and direction calculation
+
 Version 1.2.2
 - Copy/Paste now accepts a range when pasting multiple items;
   range notation is "first:last", while first and last may be zero or negative
