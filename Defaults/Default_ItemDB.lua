@@ -750,6 +750,214 @@ Dta.Defaults.ItemDB =
 		shape = "disc"
 	},
 	-----------
+	-- Metal --
+	-----------
+	-- Bronze
+	["I5302F994283375AC,FCD4610995B98CBD,,,,,,"] =
+	{
+		name = "Building Block: Bronze Square",
+		shape = "tile"
+	},
+	["I3D535EBA5E2A951A,51513FD7EFDC8066,,,,,,"] =
+	{
+		name = "Building Block: Bronze Rectangle",
+		shape = "rectangle"
+	},
+	["I6603EC66015333C4,02B0DE81A55D8885,,,,,,"] =
+	{
+		name = "Building Block: Bronze Plank",
+		shape = "plank"
+	},
+	["IFDAF85847069ECC2,F38BFD7257173922,,,,,,"] =
+	{
+		name = "Building Block: Bronze Cube",
+		shape = "cube"
+	},
+	["I435751FE261A75EB,047248A2AA276B26,,,,,,"] =
+	{
+		name = "Building Block: Bronze Triangle",
+		shape = "triangle"
+	},
+	["I5C6C2AE136326474,7979892CF3A0E331,,,,,,"] =
+	{
+		name = "Building Block: Bronze Pole",
+		shape = "pole"
+	},
+	["I599DF6F5730EC5F4,F949C4B1D688A2C1,,,,,,"] =
+	{
+		name = "Building Block: Bronze Sphere",
+		shape = "sphere"
+	},
+	["I43064738336125F9,F6547E2BE313DB0B,,,,,,"] =
+	{
+		name = "Building Block: Bronze Disc",
+		shape = "disc"
+	},
+	-- Copper
+	["I6AB0C4036E7F55BB,ECE46B0559DD0B8A,,,,,,"] =
+	{
+		name = "Building Block: Copper Square",
+		shape = "tile"
+	},
+	["I3DD92F79356E473F,341511B9D21BB771,,,,,,"] =
+	{
+		name = "Building Block: Copper Rectangle",
+		shape = "rectangle"
+	},
+	["I789E8BF2611BB593,15AEEC288FDC3434,,,,,,"] =
+	{
+		name = "Building Block: Copper Plank",
+		shape = "plank"
+	},
+	["I3F37BC9C16614A67,FE8C91EAE8155D6E,,,,,,"] =
+	{
+		name = "Building Block: Copper Cube",
+		shape = "cube"
+	},
+	["I13CC6DDE5EB4CBF3,BEB21B003AA4E8B3,,,,,,"] =
+	{
+		name = "Building Block: Copper Triangle",
+		shape = "triangle"
+	},
+	["I617E64B626BC5302,84005283DE7FF744,,,,,,"] =
+	{
+		name = "Building Block: Copper Pole",
+		shape = "pole"
+	},
+	["I599DF6F63C7EB5ED,FB2E0073C5AEFECE,,,,,,"] =
+	{
+		name = "Building Block: Copper Sphere",
+		shape = "sphere"
+	},
+	["I45BD9AB03F2D8F7A,349417B8B0F64332,,,,,,"] =
+	{
+		name = "Building Block: Copper Disc",
+		shape = "disc"
+	},
+	-- Gold
+	["I79BAED7B03B964C6,C03254E697824186,,,,,,"] =
+	{
+		name = "Building Block: Gold Square",
+		shape = "tile"
+	},
+	["I4DBA84834765AD7A,58E33B690A17481A,,,,,,"] =
+	{
+		name = "Building Block: Gold Rectangle",
+		shape = "rectangle"
+	},
+	["I15FF4B330B031214,03EC79FD984F30F1,,,,,,"] =
+	{
+		name = "Building Block: Gold Plank",
+		shape = "plank"
+	},
+	["I59FCF6C30F39E7EA,DFA261EBA56735FB,,,,,,"] =
+	{
+		name = "Building Block: Gold Cube",
+		shape = "cube"
+	},
+	["I2049ED9E6D1B4E0C,E3D9DF961934C432,,,,,,"] =
+	{
+		name = "Building Block: Gold Triangle",
+		shape = "triangle"
+	},
+	["I184E28255EAD7124,37A42F8F8E70A0B0,,,,,,"] =
+	{
+		name = "Building Block: Gold Pole",
+		shape = "pole"
+	},
+	["I599DF6F71D66415B,328AE63BB06B7052,,,,,,"] =
+	{
+		name = "Building Block: Gold Sphere",
+		shape = "sphere"
+	},
+	["I7D978086383E695C,E7CFE3E44685AFE8,,,,,,"] =
+	{
+		name = "Building Block: Gold Disc",
+		shape = "disc"
+	},
+	-- Iron
+	["I7CBC98471899CF5C,8098132ADB130804,,,,,,"] =
+	{
+		name = "Building Block: Iron Square",
+		shape = "tile"
+	},
+	["I11B9C2F02179AF9C,53B1A71B1E1D404E,,,,,,"] =
+	{
+		name = "Building Block: Iron Rectangle",
+		shape = "rectangle"
+	},
+	["I22EC967F280DD5D2,1D67E0AB94686625,,,,,,"] =
+	{
+		name = "Building Block: Iron Plank",
+		shape = "plank"
+	},
+	["I7DFB344B282452DF,22B0E09CFC731091,,,,,,"] =
+	{
+		name = "Building Block: Iron Cube",
+		shape = "cube"
+	},
+	["I23C4D1014BDE5382,CF257D294935B5D5,,,,,,"] =
+	{
+		name = "Building Block: Iron Triangle",
+		shape = "triangle"
+	},
+	["I1F2A51075E54BF25,36B43EEB150DC716,,,,,,"] =
+	{
+		name = "Building Block: Iron Pole",
+		shape = "pole"
+	},
+	["I599DF6F81BB32E78,F8DFF11CAAE71EEC,,,,,,"] =
+	{
+		name = "Building Block: Iron Sphere",
+		shape = "sphere"
+	},
+	["I0192B2FE60774270,EC1221D7817CDBBF,,,,,,"] =
+	{
+		name = "Building Block: Iron Disc",
+		shape = "disc"
+	},
+	-- Silver
+	["I7F3829BB2914E927,16963BEEB07956DA,,,,,,"] =
+	{
+		name = "Building Block: Silver Square",
+		shape = "tile"
+	},
+	["I1A8E12EF786B7B7D,F7C811C6EB17FC5B,,,,,,"] =
+	{
+		name = "Building Block: Silver Rectangle",
+		shape = "rectangle"
+	},
+	["I265CB62B1B03B6EA,4D3FC42904BEDC5B,,,,,,"] =
+	{
+		name = "Building Block: Silver Plank",
+		shape = "plank"
+	},
+	["I1CDAD8FB19FA8980,D597CC95E5BEB05B,,,,,,"] =
+	{
+		name = "Building Block: Silver Cube",
+		shape = "cube"
+	},
+	["I2C39B78D113CDCE6,0AB510CBF16ED993,,,,,,"] =
+	{
+		name = "Building Block: Silver Triangle",
+		shape = "triangle"
+	},
+	["I2AA680953BF81E12,55AB446CA22CFD44,,,,,,"] =
+	{
+		name = "Building Block: Silver Pole",
+		shape = "pole"
+	},
+	["I599DF6F91AA8B52A,4153210583FBBF66,,,,,,"] =
+	{
+		name = "Building Block: Silver Sphere",
+		shape = "sphere"
+	},
+	["I15288651608C4C0E,30D948AE9ACC207D,,,,,,"] =
+	{
+		name = "Building Block: Silver Disc",
+		shape = "disc"
+	},
+	-----------
 	-- Stone --
 	-----------
 	-- Black Marble
@@ -1710,7 +1918,7 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Oak Wood Disc",
 		shape = "disc"
 	},
-		-- Plain Wood
+	-- Plain Wood
 	["IFE33236342049AFE,D721F224FC31EDF2,,,,,,"] =
 	{
 		name = "Building Block: Wood Square",
@@ -1876,6 +2084,47 @@ Dta.Defaults.ItemDB =
 	{
 		name = "Building Block: Glass Triangle",
 		shape = "triangle"
+	},
+	-- Matte Black
+	["I21F02BCD3E046281,5BF69CFB2BA11883,,,,,,"] =
+	{
+		name = "Building Block: Matte Black Square",
+		shape = "tile"
+	},
+	["I02B3816417EF32DF,289F777337601F2B,,,,,,"] =
+	{
+		name = "Building Block: Matte Black Rectangle",
+		shape = "rectangle"
+	},
+	["I2FD487046088A2CC,4B09EC43ACD9314D,,,,,,"] =
+	{
+		name = "Building Block: Matte Black Plank",
+		shape = "plank"
+	},
+	["I36ADFE527B0ED047,0B3950FD135CDABE,,,,,,"] =
+	{
+		name = "Building Block: Matte Black Cube",
+		shape = "cube"
+	},
+	["I3420F93A778D86DE,D5EF41A6CE1F6AAC,,,,,,"] =
+	{
+		name = "Building Block: Matte Black Triangle",
+		shape = "triangle"
+	},
+	["I372208105FB7713C,F97B6E2981527076,,,,,,"] =
+	{
+		name = "Building Block: Matte Black Pole",
+		shape = "pole"
+	},
+	["I599DF6FA214429BA,F6D85025BA29A356,,,,,,"] =
+	{
+		name = "Building Block: Matte Black Sphere",
+		shape = "sphere"
+	},
+	["I3A29DB8F6CCB7C58,191811B1AB90E083,,,,,,"] =
+	{
+		name = "Building Block: Matte Black Disc",
+		shape = "disc"
 	},
 	-- Water
 	["I784602D913007285,4949C035AC42DC57,,,,,,"] =
