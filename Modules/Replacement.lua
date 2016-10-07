@@ -19,9 +19,10 @@ local function sortSkins(skins, translation)
 	return skins, value_table
 end
 
-function Dta.Replacement.loadSkins()
+function Dta.Replacement.loadSkins(category)
 	local skins, translation = {}, {}
-	for name, data in pairs(Dta.Defaults.Skins) do
+	local skin_table = category and Dta.Defaults.Skin_Category_Index[category] or Dta.Defaults.Skins
+	for name, data in pairs(skin_table) do
 		local name_local = data[Dta.Language] or name
 		table.insert(skins, name_local)
 		translation[name_local] = name
@@ -40,6 +41,27 @@ function Dta.Replacement.loadAlphabetSkins()
 		end
 	end
 	return sortSkins(skins, translation)
+end
+
+function Dta.Replacement.loadSkinCategories()
+	local categories, categories_loc = {}, {}
+	for idx, category in pairs(Dta.Defaults.Skin_Categories) do
+		categories[idx] = category.name
+		categories_loc[idx] = category[Dta.Language] or category.name
+	end
+	return categories_loc, categories
+end
+
+function Dta.Replacement.FilterOldChanged()
+	local reskinWindow = Dta.ui.windowReskin
+	local category = reskinWindow.oldFilterSelect:GetSelectedValue()
+	reskinWindow.oldSkinSelect:SetItems(Dta.Replacement.loadSkins(category))
+end
+
+function Dta.Replacement.FilterNewChanged()
+	local reskinWindow = Dta.ui.windowReskin
+	local category = reskinWindow.newFilterSelect:GetSelectedValue()
+	reskinWindow.newSkinSelect:SetItems(Dta.Replacement.loadSkins(category))
 end
 
 function Dta.Replacement.ReplaceClicked()

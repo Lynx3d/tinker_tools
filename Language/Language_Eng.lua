@@ -601,6 +601,7 @@ Lang["English"].Text.Sphere = "Sphere"
 Lang["English"].Text.Pole = "Pole"
 Lang["English"].Text.Disc = "Disc"
 Lang["English"].Text.NewName = "New Name"
+Lang["English"].Text.Category = "Category"
 
 ----------------------------------------
 --Prints

@@ -153,6 +153,7 @@ LangG.Text.Sphere = "Kugel"
 LangG.Text.Pole = "Pfosten"
 LangG.Text.Disc = "Scheibe"
 LangG.Text.NewName = "Neuer Name"
+LangG.Text.Category = "Kategorie"
 
 ----------------------------------------
 --Prints

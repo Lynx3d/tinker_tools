@@ -9,6 +9,7 @@ local itemDB = Dta.Defaults.ItemDB
 skin["Brown Brick"] = {
 	["German"] = "Brauner Ziegel",
 	["French"] = "Brique brune",
+	category = "Brick",
 	["tile"] = itemDB["I296C209A26B7D855,07F0B32DA1DB49D2,,,,,,"],
 	["rectangle"] = itemDB["I296C20993F79CDBE,D90A2BAE1B474B70,,,,,,"],
 	["plank"] = itemDB["I296C20971A76948D,45D55944C8DB0478,,,,,,"],
@@ -21,6 +22,7 @@ skin["Brown Brick"] = {
 skin["Dark Brick"] = {
 	["German"] = "Dunkler Ziegel",
 	["French"] = "Brique foncée",
+	category = "Brick",
 	["tile"] = itemDB["I6D568BFE47182F04,1DFD6FE492757B86,,,,,,"],
 	["rectangle"] = itemDB["I744AC6D2299A6548,00C5DB25E2471D10,,,,,,"],
 	["plank"] = itemDB["I35CDC7222822084E,0B56463EA48971F7,,,,,,"],
@@ -33,6 +35,7 @@ skin["Dark Brick"] = {
 skin["Grey Brick"] = {
 	["German"] = "Grauer Ziegel",
 	["French"] = "Brique grise",
+	category = "Brick",
 	["tile"] = itemDB["I4E10406235D4540A,20E4756DE87B93A8,,,,,,"],
 	["rectangle"] = itemDB["I63243ACD6B14FB2E,CCC6908778E4941C,,,,,,"],
 	["plank"] = itemDB["I2990730D3C721518,E70235D65C25DB09,,,,,,"],
@@ -45,6 +48,7 @@ skin["Grey Brick"] = {
 skin["Mossy Brick"] = {
 	["German"] = "Moosiger Ziegel",
 	["French"] = "Brique moussue",
+	category = "Brick",
 	["tile"] = itemDB["I073E1B3F29924608,1CCC2F2CD61807A0,,,,,,"],
 	["rectangle"] = itemDB["I073E1B3E772473D9,3420563DD9F57D68,,,,,,"],
 	["plank"] = itemDB["I073E1B3C6C1EFF1C,2CECCE90F2B24CE0,,,,,,"],
@@ -57,6 +61,7 @@ skin["Mossy Brick"] = {
 skin["Red Brick"] = {
 	["German"] = "Roter Ziegel",
 	["French"] = "Brique rouge",
+	category = "Brick",
 	["tile"] = itemDB["I3F97A13C3095C5DC,1D458A0CC04B0061,,,,,,"],
 	["rectangle"] = itemDB["I1BD2BE265E8D9C87,52448B947FE99E82,,,,,,"],
 	["plank"] = itemDB["I1BA3B34224BD7009,4F5F957F993387A0,,,,,,"],
@@ -72,6 +77,7 @@ skin["Red Brick"] = {
 skin["Limestone"] = {
 	["German"] = "Kalkstein",
 	["French"] = "Calcaire",
+	category = "Limestone",
 	["tile"] = itemDB["I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,"],
 	["rectangle"] = itemDB["I3818BAD207A81EB9,EE1EBBB901974266,,,,,,"],
 	["plank"] = itemDB["I3818BAD530B1947F,E65961B97AA1A075,,,,,,"],
@@ -84,6 +90,7 @@ skin["Limestone"] = {
 skin["Baby Blue Limestone"] = {
 	["German"] = "Babyblauer Kalkstein",
 	["French"] = "Calcaire bleu ciel",
+	category = "Limestone",
 	["tile"] = itemDB["I1CBA02CA1094C662,0EF972EAA2531CFF,,,,,,"],
 	["rectangle"] = itemDB["I3ECA7BD7754F9216,027A800E2D71B53B,,,,,,"],
 	["plank"] = itemDB["I64957C922A2CE5C2,11D628E468F6A2D3,,,,,,"],
@@ -96,6 +103,7 @@ skin["Baby Blue Limestone"] = {
 skin["Lavender Limestone"] = {
 	["German"] = "Lavendel-Kalkstein",
 	["French"] = "Calcaire améthyste",
+	category = "Limestone",
 	["tile"] = itemDB["IFAADE2B9615824FD,2AE3B547205D4F21,,,,,,"],
 	["rectangle"] = itemDB["IFB8C87E964E763EB,0EDBFD54E7492DDF,,,,,,"],
 	["plank"] = itemDB["I183F23F37125DFE6,DDCB2B6379E95D21,,,,,,"],
@@ -108,6 +116,7 @@ skin["Lavender Limestone"] = {
 skin["Mint Green Limestone"] = {
 	["German"] = "Mintgrüner Kalkstein",
 	["French"] = "Calcaire vert menthe",
+	category = "Limestone",
 	["tile"] = itemDB["I0F145A0E3632FC97,1562ADD196E599B2,,,,,,"],
 	["rectangle"] = itemDB["I538792E549DA1924,1334E735141425B1,,,,,,"],
 	["plank"] = itemDB["I0A192959721B77F3,224CE60DFB031C92,,,,,,"],
@@ -120,6 +129,7 @@ skin["Mint Green Limestone"] = {
 skin["Pale Yellow Limestone"] = {
 	["German"] = "Blassgelber Kalkstein",
 	["French"] = "Calcaire jaune pâle",
+	category = "Limestone",
 	["tile"] = itemDB["I417A0D9B4E287F23,30CD26A3AF4669C1,,,,,,"],
 	["rectangle"] = itemDB["I2333D52544517C25,6C2FB0DAE56B005E,,,,,,"],
 	["plank"] = itemDB["IFEAB6C7D740E1F06,73C9FFF4048D2273,,,,,,"],
@@ -132,6 +142,7 @@ skin["Pale Yellow Limestone"] = {
 skin["Rose Limestone"] = {
 	["German"] = "Rosa Kalkstein",
 	["French"] = "Calcaire rose",
+	category = "Limestone",
 	["tile"] = itemDB["I3874323D2E537BA8,EF3AA588502E7F91,,,,,,"],
 	["rectangle"] = itemDB["I16F0248C6AFD8689,CD824DA81F2DC4D2,,,,,,"],
 	["plank"] = itemDB["I6439F5A36F3F9DA7,2EA84E9B6D99B686,,,,,,"],
@@ -144,6 +155,7 @@ skin["Rose Limestone"] = {
 skin["Tangerine Limestone"] = {
 	["German"] = "Orangeroter Kalkstein",
 	["French"] = "Calcaire mandarine",
+	category = "Limestone",
 	["tile"] = itemDB["I49BE60B612275BD3,02597159049416B0,,,,,,"],
 	["rectangle"] = itemDB["IFE07E0122221B81D,35A90A3D952B2088,,,,,,"],
 	["plank"] = itemDB["I1DA6714059F3E8A0,13D0756B91C12B3D,,,,,,"],
@@ -158,6 +170,7 @@ skin["Tangerine Limestone"] = {
 -----------
 skin["Bronze"] = {
 	["German"] = "Bronze",
+	category = "Metal",
 	["tile"] = itemDB["I5302F994283375AC,FCD4610995B98CBD,,,,,,"],
 	["rectangle"] = itemDB["I3D535EBA5E2A951A,51513FD7EFDC8066,,,,,,"],
 	["plank"] = itemDB["I6603EC66015333C4,02B0DE81A55D8885,,,,,,"],
@@ -169,6 +182,7 @@ skin["Bronze"] = {
 }
 skin["Copper"] = {
 	["German"] = "Kupfer",
+	category = "Metal",
 	["tile"] = itemDB["I6AB0C4036E7F55BB,ECE46B0559DD0B8A,,,,,,"],
 	["rectangle"] = itemDB["I3DD92F79356E473F,341511B9D21BB771,,,,,,"],
 	["plank"] = itemDB["I789E8BF2611BB593,15AEEC288FDC3434,,,,,,"],
@@ -180,6 +194,7 @@ skin["Copper"] = {
 }
 skin["Gold"] = {
 	["German"] = "Gold",
+	category = "Metal",
 	["tile"] = itemDB["I79BAED7B03B964C6,C03254E697824186,,,,,,"],
 	["rectangle"] = itemDB["I4DBA84834765AD7A,58E33B690A17481A,,,,,,"],
 	["plank"] = itemDB["I15FF4B330B031214,03EC79FD984F30F1,,,,,,"],
@@ -191,6 +206,7 @@ skin["Gold"] = {
 }
 skin["Iron"] = {
 	["German"] = "Eisen",
+	category = "Metal",
 	["tile"] = itemDB["I7CBC98471899CF5C,8098132ADB130804,,,,,,"],
 	["rectangle"] = itemDB["I11B9C2F02179AF9C,53B1A71B1E1D404E,,,,,,"],
 	["plank"] = itemDB["I22EC967F280DD5D2,1D67E0AB94686625,,,,,,"],
@@ -202,6 +218,7 @@ skin["Iron"] = {
 }
 skin["Silver"] = {
 	["German"] = "Silber",
+	category = "Metal",
 	["tile"] = itemDB["I7F3829BB2914E927,16963BEEB07956DA,,,,,,"],
 	["rectangle"] = itemDB["I1A8E12EF786B7B7D,F7C811C6EB17FC5B,,,,,,"],
 	["plank"] = itemDB["I265CB62B1B03B6EA,4D3FC42904BEDC5B,,,,,,"],
@@ -217,6 +234,7 @@ skin["Silver"] = {
 skin["Black Marble"] = {
 	["German"] = "Schwarzer Marmor",
 	["French"] = "Marbre noir",
+	category = "Stone",
 	["tile"] = itemDB["I073E1B4612DE4C8A,F92F979003F4808F,,,,,,"],
 	["rectangle"] = itemDB["I073E1B4526891DBC,32303483297E6C39,,,,,,"],
 	["plank"] = itemDB["I073E1B4205A5AD2C,DBA30B02D2220DFA,,,,,,"],
@@ -229,6 +247,7 @@ skin["Black Marble"] = {
 skin["Granite"] = {
 	["German"] = "Granit",
 	["French"] = "Granite",
+	category = "Stone",
 	["tile"] = itemDB["I391DEDBA3602AEE7,0BAE6DA5E14A8F15,,,,,,"],
 	["rectangle"] = itemDB["I391DEDBB37D6C62E,209FB386C9208314,,,,,,"],
 	["plank"] = itemDB["I391DEDBE1401B33C,BD07066F4CF5E056,,,,,,"],
@@ -241,6 +260,7 @@ skin["Granite"] = {
 skin["Green Marble"] = {
 	["German"] = "Grüner Marmor",
 	["French"] = "Marbre vert",
+	category = "Stone",
 	["tile"] = itemDB["I391DEDB7666F40AB,BBB226C82076B285,,,,,,"],
 	["rectangle"] = itemDB["I391DEDB60587B53E,C694001D10509F46,,,,,,"],
 	["plank"] = itemDB["I391DEDB3402D4989,F3A8CA73730395E0,,,,,,"],
@@ -253,6 +273,7 @@ skin["Green Marble"] = {
 skin["Greenstone"] = {
 	["German"] = "Grünstein",
 	["French"] = "Pierre verte",
+	category = "Brick",
 	["tile"] = itemDB["IFF1D8E4A6A25E35C,1F129CFC26DC5AA7,,,,,,"],
 	["rectangle"] = itemDB["IFF1BEE2F77076368,408BF5DACD6542A7,,,,,,"],
 	["plank"] = itemDB["I595317063D221222,BCB1CB6689D600F4,,,,,,"],
@@ -265,6 +286,7 @@ skin["Greenstone"] = {
 skin["Greystone"] = {
 	["German"] = "Graustein",
 	["French"] = "Pierre grise",
+	category = "Brick",
 	["tile"] = itemDB["IFF1BEE2E068D20E3,DE1784EBCB8A1282,,,,,,"],
 	["rectangle"] = itemDB["IFF1BEE2D5B75764D,2D5723717AF97EFD,,,,,,"],
 	["plank"] = itemDB["I42857375124AE699,A775AFA6E9819C92,,,,,,"],
@@ -277,6 +299,7 @@ skin["Greystone"] = {
 skin["Plain Stone"] = {
 	["German"] = "Einfacher Stein",
 	["French"] = "Pierre ordinaire",
+	category = "Stone",
 	["tile"] = itemDB["IFC27A53A7D93B3C5,28927815564C4D18,,,,,,"],
 	["rectangle"] = itemDB["IFC27A5392C8F2D7D,2011B804CCFA965A,,,,,,"],
 	["plank"] = itemDB["IFC27A5376CAD89FE,0C2B252DD2777324,,,,,,"],
@@ -292,6 +315,7 @@ skin["Plain Stone"] = {
 skin["Black Wood"] = {
 	["German"] = "Schwarzes Holz",
 	["French"] = "Bois noir",
+	category = "Painted Wood",
 	["tile"] = itemDB["I225B19741ECF919B,5FCF6985FBE76B7E,,,,,,"],
 	["rectangle"] = itemDB["I1F41D458736422A4,227CCE6B4903624F,,,,,,"],
 	["plank"] = itemDB["I49ED20CF0347AB5E,EDE3E705D657F55B,,,,,,"],
@@ -304,6 +328,7 @@ skin["Black Wood"] = {
 skin["Blue Wood"] = {
 	["German"] = "Blaues Holz",
 	["French"] = "Bois bleu",
+	category = "Painted Wood",
 	["tile"] = itemDB["I296C2090527FF26A,36F51BEF35044AFE,,,,,,"],
 	["rectangle"] = itemDB["I296C208D1D704C59,11BDF271D73B3CDD,,,,,,"],
 	["plank"] = itemDB["I40AC238F489B44D9,F461A18236849080,,,,,,"],
@@ -316,6 +341,7 @@ skin["Blue Wood"] = {
 skin["Green Wood"] = {
 	["German"] = "Grünes Holz",
 	["French"] = "Bois vert",
+	category = "Painted Wood",
 	["tile"] = itemDB["I296C20913F3B871C,E1D4959F081A5A79,,,,,,"],
 	["rectangle"] = itemDB["I296C208E796419FE,0A211A7DC4570BCE,,,,,,"],
 	["plank"] = itemDB["I40AC23904F4F7F9C,E97FC82D46AA206F,,,,,,"],
@@ -328,6 +354,7 @@ skin["Green Wood"] = {
 skin["Grey Wood"] = {
 	["German"] = "Graues Holz",
 	["French"] = "Bois gris (peint)",
+	category = "Painted Wood",
 	["tile"] = itemDB["IFE55763728218075,6E424275E575ED1E,,,,,,"],
 	["rectangle"] = itemDB["IFD4FB6B32537401B,2E647DA7A1831AA3,,,,,,"],
 	["plank"] = itemDB["IFBC6132B6514F5F5,4E92801DA5A94749,,,,,,"],
@@ -340,6 +367,7 @@ skin["Grey Wood"] = {
 skin["Orange Wood"] = {
 	["German"] = "Oranges Holz",
 	["French"] = "Bois orange",
+	category = "Painted Wood",
 	["tile"] = itemDB["I382046281AC59678,21C4738225059BED,,,,,,"],
 	["rectangle"] = itemDB["I38B1938F069E41A5,2A135CF2C479FA5A,,,,,,"],
 	["plank"] = itemDB["I2F3B97244D64F18C,FF6F935C882B2ADD,,,,,,"],
@@ -352,6 +380,7 @@ skin["Orange Wood"] = {
 skin["Pink Wood"] = {
 	["German"] = "Pinkes Holz",
 	["French"] = "Bois rose",
+	category = "Painted Wood",
 	["tile"] = itemDB["I6671FD092BBD97AF,0C8AFC14CAAE4D1C,,,,,,"],
 	["rectangle"] = itemDB["I4AB2792310D7E971,E5A8D53060EAE97B,,,,,,"],
 	["plank"] = itemDB["I43C6B15B2B94A8EA,348FA72DBA0B243D,,,,,,"],
@@ -364,6 +393,7 @@ skin["Pink Wood"] = {
 skin["Purple Wood"] = {
 	["German"] = "Violettes Holz",
 	["French"] = "Bois violet",
+	category = "Painted Wood",
 	["tile"] = itemDB["I508B34B957B008DC,317E3892829BB98A,,,,,,"],
 	["rectangle"] = itemDB["I724FBE48147B0EB7,CFCCD850D57F148B,,,,,,"],
 	["plank"] = itemDB["I747D2CB03E1D6BAA,CF7D605B9448FE2C,,,,,,"],
@@ -376,6 +406,7 @@ skin["Purple Wood"] = {
 skin["Red Wood"] = {
 	["German"] = "Rotes Holz",
 	["French"] = "Bois rouge",
+	category = "Painted Wood",
 	["tile"] = itemDB["I296C209213A44A57,D229F38471CA2871,,,,,,"],
 	["rectangle"] = itemDB["I296C208F33BDC5E1,CFB7E23A8CB358E2,,,,,,"],
 	["plank"] = itemDB["I40AC23917D1C7144,FB821F425206644A,,,,,,"],
@@ -388,6 +419,7 @@ skin["Red Wood"] = {
 skin["White Wood"] = {
 	["German"] = "Weißes Holz",
 	["French"] = "Bois blanc",
+	category = "Painted Wood",
 	["tile"] = itemDB["IFC8ABCEB0BDE99BD,08005855E62E2C2D,,,,,,"],
 	["rectangle"] = itemDB["IFA1EC9315434666B,18A8CD0825FFD33E,,,,,,"],
 	["plank"] = itemDB["IFA1AE7594ADD5456,E4753059B4A878D0,,,,,,"],
@@ -400,6 +432,7 @@ skin["White Wood"] = {
 skin["Yellow Wood"] = {
 	["German"] = "Gelbes Holz",
 	["French"] = "Bois jaune",
+	category = "Painted Wood",
 	["tile"] = itemDB["I79EED1FE12E22261,830E1623B1C381FB,,,,,,"],
 	["rectangle"] = itemDB["I74EEA42D1CFF735F,D66EAB74F966ABE0,,,,,,"],
 	["plank"] = itemDB["I7FA1E26671F74743,B7EC4F8117B16987,,,,,,"],
@@ -415,6 +448,7 @@ skin["Yellow Wood"] = {
 skin["Carved Wood"] = {
 	["German"] = "Geschnitztes Holz",
 	["French"] = "Bois sculpté",
+	category = "Wood",
 	["tile"] = itemDB["I3818BADB6A10DCFC,F63E89D9C91C3874,,,,,,"],
 	["rectangle"] = itemDB["I3818BADA6ED04521,10D72EFD29EF69EF,,,,,,"],
 	["plank"] = itemDB["I3818BAD86D04D244,348BC924BC59DEB6,,,,,,"],
@@ -427,6 +461,7 @@ skin["Carved Wood"] = {
 skin["Dark Wood"] = {
 	["German"] = "Dunkles Holz",
 	["French"] = "Bois foncé",
+	category = "Wood",
 	["tile"] = itemDB["I4390449D04E5F368,84B928CA65DE0EE0,,,,,,"],
 	["rectangle"] = itemDB["I56E5E8EA1EF90962,5D0746BF85DBFC23,,,,,,"],
 	["plank"] = itemDB["I674D9B7F7947C364,489E1D34A1604689,,,,,,"],
@@ -439,6 +474,7 @@ skin["Dark Wood"] = {
 skin["Greywood"] = {
 	["German"] = "Grauholz",
 	["French"] = "Bois gris",
+	category = "Wood",
 	["tile"] = itemDB["I3818BACE65BAECAE,CB64CFBB2FE0F71C,,,,,,"],
 	["rectangle"] = itemDB["I391DEDC1145BB696,FBDDE244C8FF6361,,,,,,"],
 	["plank"] = itemDB["I4CF0820D3C7CE954,721EF7930F0633C2,,,,,,"],
@@ -451,6 +487,7 @@ skin["Greywood"] = {
 skin["Mahogany Wood"] = {
 	["German"] = "Mahagoniholz",
 	["French"] = "Acajou",
+	category = "Wood",
 	["tile"] = itemDB["I2B82E9F86386F5C0,33EF1DB6A44B749B,,,,,,"],
 	["rectangle"] = itemDB["I0A6CB1110E6DBA47,EAC71800AB74AAFD,,,,,,"],
 	["plank"] = itemDB["I42EDA2E16662817E,24F3A09411280741,,,,,,"],
@@ -463,6 +500,7 @@ skin["Mahogany Wood"] = {
 skin["Oak Wood"] = {
 	["German"] = "Eichenholz",
 	["French"] = "Chêne",
+	category = "Wood",
 	["tile"] = itemDB["I30BE36EC507BA0B1,5C09E2E3AE41C009,,,,,,"],
 	["rectangle"] = itemDB["I0AE383E32EB63261,C6E67030C0B8CEBA,,,,,,"],
 	["plank"] = itemDB["I222B45C722A64D95,BBB199BC5DAE2D19,,,,,,"],
@@ -475,6 +513,7 @@ skin["Oak Wood"] = {
 skin["Plain Wood"] = {
 	["German"] = "Schlichtes Holz",
 	["French"] = "Bois ordinaire",
+	category = "Wood",
 	["tile"] = itemDB["IFE33236342049AFE,D721F224FC31EDF2,,,,,,"],
 	["rectangle"] = itemDB["IFF73FC9D69486DB4,369028719C371C12,,,,,,"],
 	["plank"] = itemDB["IFA2C50EE0883B241,146F58B81707AFF4,,,,,,"],
@@ -487,6 +526,7 @@ skin["Plain Wood"] = {
 skin["Wood Beam"] = {
 	["German"] = "Holzbalken",
 	["French"] = "Poutre en bois",
+	category = "Wood",
 	["tile"] = itemDB["I40AC23891893C680,E2A013511D2CFD71,,,,,,"],
 	["rectangle"] = itemDB["I40AC238A1D97D570,BFA55E6FD970776E,,,,,,"],
 	["plank"] = itemDB["I48810DEB3ED588C4,59BEB80B9B74C380,,,,,,"],
@@ -502,6 +542,7 @@ skin["Wood Beam"] = {
 skin["Blue Roof Tile"] = {
 	["German"] = "Blaue Dachfliesen",
 	["French"] = "Tuiles de toit bleu",
+	category = "Roof",
 	["tile"] = itemDB["I3E35E8BC171BC10D,E28046BA0E806B77,,,,,,"],
 	["rectangle"] = itemDB["I06086BDB4FE45C5D,072C387D245670B4,,,,,,"],
 	["plank"] = itemDB["I0F56765F226664F5,CB4EC024EFBD106A,,,,,,"],
@@ -514,6 +555,7 @@ skin["Blue Roof Tile"] = {
 skin["Brown Shingle"] = {
 	["German"] = "Braune Schindel",
 	["French"] = "Bardeaux marron",
+	category = "Roof",
 	["tile"] = itemDB["I25BC9D8B72566637,DAAA134487FBFA2D,,,,,,"],
 	["rectangle"] = itemDB["I0A65AAA93E0D4D64,5C0050F32CDD979C,,,,,,"],
 	["plank"] = itemDB["I084A34F02B5C1FFC,199ADF952878802E,,,,,,"],
@@ -526,6 +568,7 @@ skin["Brown Shingle"] = {
 skin["Green Scale Roof Tile"] = {
 	["German"] = "Grüne Schuppendachfliesen",
 	["French"] = "Tuiles de toit en écailles vertes",
+	category = "Roof",
 	["tile"] = itemDB["I48B8AABB4842D25D,C44D674FB17E8A81,,,,,,"],
 	["rectangle"] = itemDB["I427CDFF94E65E1E2,EECEA89C2DB6B3A7,,,,,,"],
 	["plank"] = itemDB["I57D52398015CF6D6,E3018CFDFC7CF093,,,,,,"],
@@ -538,6 +581,7 @@ skin["Green Scale Roof Tile"] = {
 skin["Grey Scale Roof Tile"] = {
 	["German"] = "Graue Schuppendachfliesen",
 	["French"] = "Tuiles de toit en écailles grises",
+	category = "Roof",
 	["tile"] = itemDB["I2AF349323B9AFF4E,EF41336E5DB10763,,,,,,"],
 	["rectangle"] = itemDB["I29FE763B5E7AB456,404DB270F3DA3529,,,,,,"],
 	["plank"] = itemDB["I13194B5B4FF22CE8,F4ADB7FE0B42AEAE,,,,,,"],
@@ -550,6 +594,7 @@ skin["Grey Scale Roof Tile"] = {
 skin["Tin Sheet Roof"] = {
 	["German"] = "Blechdach",
 	["French"] = "Tôles de toiture en étain",
+	category = "Roof",
 	["tile"] = itemDB["I77E07F3E45A432A8,61D8EC1625CB69C3,,,,,,"],
 	["rectangle"] = itemDB["I56850DD20C132D60,677E54C86C296D09,,,,,,"],
 	["plank"] = itemDB["I50D79AF475F531D7,FEA06357B94719A3,,,,,,"],
@@ -565,6 +610,7 @@ skin["Tin Sheet Roof"] = {
 skin["Rivited Metal"] = {
 	["German"] = "Genietetes Metall",
 	["French"] = "Métallique",
+	category = "Metal",
 	["tile"] = itemDB["IFC4B896620716CD2,FB8EBAD1EF4F50C4,,,,,,"],
 	["rectangle"] = itemDB["IFC4B896518A1F73D,A9255B483DEAB8E9,,,,,,"],
 	["plank"] = itemDB["IFC4B89636C1A7384,B74150E86591A10F,,,,,,"],
@@ -636,11 +682,70 @@ skin["Water (No Collision)"] = {
 
 Dta.Defaults.Skins = skin
 
--- integrity check
+Dta.Defaults.Skin_Categories = {
+	{
+		name = "All",
+		German = "Alles"
+	},
+	{
+		name = "Wood",
+		German = "Holz"
+	},
+	{
+		name = "Painted Wood",
+		German = "Bemaltes Holz"
+	},
+	{
+		name = "Stone",
+		German = "Stein"
+	},
+	{
+		name = "Limestone",
+		German = "Kalkstein"
+	},
+	{
+		name = "Brick",
+		German = "Ziegel"
+	},
+	{
+		name = "Metal",
+		German = "Metall"
+	},
+	{
+		name = "Roof",
+		German = "Dach"
+	},
+	{
+		name = "Glowing",
+		German = "Leuchtend"
+	},
+	{
+		name = "Miscellanious",
+		German = "Sonstiges"
+	}
+}
+
+local category_lookup = {}
+
+for i = 2, #Dta.Defaults.Skin_Categories do
+	category_lookup[Dta.Defaults.Skin_Categories[i].name] = {}
+end
+
+-- integrity check and indexing
 for name, skin_data in pairs(skin) do
 	for shape, details in pairs(skin_data) do
 		if type(details) == "table" and details.shape ~= shape then
 			print("invalid skin entry:", name ..":" .. shape)
 		end
 	end
+	local category = skin_data.category or "Miscellanious"
+	if not category_lookup[category] then
+		print("invalid skin category:", name .. ":" .. category)
+		category = "Miscellanious"
+	end
+	category_lookup[category][name] = skin_data
 end
+-- first category is all skins
+category_lookup[Dta.Defaults.Skin_Categories[1].name] = skins
+
+Dta.Defaults.Skin_Category_Index = category_lookup
