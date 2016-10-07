@@ -1,4 +1,4 @@
-local MIN_THICKNESS = 80
+local MIN_THICKNESS = 0.1 -- factor of the maxOffset
 
 -- Internal Functions
 
@@ -17,7 +17,7 @@ local function ContentResized(self)
     end
     self.scrollbarNeeded = true
     self.scrollbar:SetRange(0, maxOffset)
-    self.scrollbar:SetThickness(math.max(self:GetHeight() / self.content:GetHeight() * maxOffset, MIN_THICKNESS))
+    self.scrollbar:SetThickness(math.max(self:GetHeight() / self.content:GetHeight() * maxOffset, maxOffset * MIN_THICKNESS))
   end
   self:UpdateScrollbarVisiblity()
   self:PositionContent()
