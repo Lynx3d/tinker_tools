@@ -107,7 +107,7 @@ function Dta.copa_ui.buildCopyPasteWindow()
 	Dta.ui.AddFocusCycleElement(CopyPastewindow, CopyPastewindow.copyPaste.yawOffset)
 	Dta.ui.AddFocusCycleElement(CopyPastewindow, CopyPastewindow.copyPaste.rollOffset)
 	Dta.ui.AddFocusCycleElement(CopyPastewindow, CopyPastewindow.copyPaste.scaleOffset)
-	CopyPastewindow:EventAttach(Event.UI.Input.Key.Up.Dive, Dta.ui.FocusCycleCallback, "CoPaWindow_TabFocusCycle")
+	CopyPastewindow:EventAttach(Event.UI.Input.Key.Down.Dive, Dta.ui.FocusCycleCallback, "CoPaWindow_TabFocusCycle")
 
 	-- TODO: temp fix for new window hierarchy
 	newWindow.copyPaste = CopyPastewindow.copyPaste

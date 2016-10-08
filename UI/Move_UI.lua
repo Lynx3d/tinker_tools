@@ -79,7 +79,7 @@ function Dta.move_ui.buildMoveWindow()
 	Dta.ui.AddFocusCycleElement(Movewindow, Movewindow.modifyPosition.x)
 	Dta.ui.AddFocusCycleElement(Movewindow, Movewindow.modifyPosition.y)
 	Dta.ui.AddFocusCycleElement(Movewindow, Movewindow.modifyPosition.z)
-	Movewindow:EventAttach(Event.UI.Input.Key.Up.Dive, Dta.ui.FocusCycleCallback, "MoveWindow_TabFocusCycle")
+	Movewindow:EventAttach(Event.UI.Input.Key.Down.Dive, Dta.ui.FocusCycleCallback, "MoveWindow_TabFocusCycle")
 
 	-- TODO: temp fix for new window hierarchy
 	newWindow.modifyPosition = Movewindow.modifyPosition

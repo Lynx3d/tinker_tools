@@ -63,7 +63,7 @@ function Dta.scale_ui.buildScaleWindow()
 	Scalewindow.modifyScale.resetBtn = Dta.ui.createButton("modifyScaleResetBtn", Scalewindow.modifyScale, 150, 85, nil, nil, Dta.Locale.Buttons.Reset, nil, Dta.scale.modifyScaleResetButtonClicked)
 
 	-- "abuse" cycle function for clearing input focus on 'return' key
-	Scalewindow:EventAttach(Event.UI.Input.Key.Up.Dive, Dta.ui.FocusCycleCallback, "Scalewindow_TabFocusCycle")
+	Scalewindow:EventAttach(Event.UI.Input.Key.Down.Dive, Dta.ui.FocusCycleCallback, "Scalewindow_TabFocusCycle")
 
 	-- TODO: temp fix for new window hierarchy
 	newWindow.modifyScale = Scalewindow.modifyScale

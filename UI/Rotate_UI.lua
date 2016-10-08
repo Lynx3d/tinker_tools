@@ -74,7 +74,7 @@ function Dta.rotate_ui.buildRotateWindow()
 	Dta.ui.AddFocusCycleElement(Rotatewindow, Rotatewindow.modifyRotation.pitch)
 	Dta.ui.AddFocusCycleElement(Rotatewindow, Rotatewindow.modifyRotation.yaw)
 	Dta.ui.AddFocusCycleElement(Rotatewindow, Rotatewindow.modifyRotation.roll)
-	Rotatewindow:EventAttach(Event.UI.Input.Key.Up.Dive, Dta.ui.FocusCycleCallback, "RotateWindow_TabFocusCycle")
+	Rotatewindow:EventAttach(Event.UI.Input.Key.Down.Dive, Dta.ui.FocusCycleCallback, "RotateWindow_TabFocusCycle")
 
 	-- TODO: temp fix for new window hierarchy
 	newWindow.modifyRotation = Rotatewindow.modifyRotation
