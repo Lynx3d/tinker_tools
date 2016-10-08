@@ -459,6 +459,460 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Tin Sheet Roof Disc",
 		shape = "disc"
 	},
+	-------------
+	-- Glowing --
+	-------------
+	-- Blue Glowing
+	["I0F301FDE75740C8C,4D7CC1D2D79CF639,,,,,,"] =
+	{
+		name = "Building Block: Blue Glowing Square",
+		shape = "tile"
+	},
+	["I113820C517D3C9FE,3CF58B7266CBD298,,,,,,"] =
+	{
+		name = "Building Block: Blue Glowing Rectangle",
+		shape = "rectangle"
+	},
+	["I1DF6D087160B10D5,4157F7BA01FA4EC1,,,,,,"] =
+	{
+		name = "Building Block: Blue Glowing Plank",
+		shape = "plank"
+	},
+	["I044DC0F26C4F2294,F8839ECD7CBFA4E2,,,,,,"] =
+	{
+		name = "Building Block: Blue Glowing Cube",
+		shape = "cube"
+	},
+	["I5A895ECA0E92CE54,D3BEDC46951A8F96,,,,,,"] =
+	{
+		name = "Building Block: Blue Glowing Triangle",
+		shape = "triangle"
+	},
+	["I2925B2AB735F274A,F6C679C8F808BF91,,,,,,"] =
+	{
+		name = "Building Block: Blue Glowing Pole",
+		shape = "pole"
+	},
+	["I13512B0645333C92,1E0BCE6CE4BF87D9,,,,,,"] =
+	{
+		name = "Building Block: Blue Glowing Sphere",
+		shape = "sphere"
+	},
+	["I4318097900591EE2,B7D8ABB503901AC9,,,,,,"] =
+	{
+		name = "Building Block: Blue Glowing Disc",
+		shape = "disc"
+	},
+	-- Green Glowing
+	["IFF3ECC126AEDC433,48BA4E866E92D54F,,,,,,"] =
+	{
+		name = "Building Block: Green Glowing Square",
+		shape = "tile"
+	},
+	["I3BB1ECDA3E916BE0,4F120602C2840E5A,,,,,,"] =
+	{
+		name = "Building Block: Green Glowing Rectangle",
+		shape = "rectangle"
+	},
+	["I4208B13D15A58794,C2B72B762661E67B,,,,,,"] =
+	{
+		name = "Building Block: Green Glowing Plank",
+		shape = "plank"
+	},
+	["IFC4AC24351DBF123,0D199D173B855F2E,,,,,,"] =
+	{
+		name = "Building Block: Green Glowing Cube",
+		shape = "cube"
+	},
+	["IFF670DFC2956C5AC,060A3EC7E3ACFE7F,,,,,,"] =
+	{
+		name = "Building Block: Green Glowing Triangle",
+		shape = "triangle"
+	},
+	["I409EB7630D748B70,187A5AC75D32A32A,,,,,,"] =
+	{
+		name = "Building Block: Green Glowing Pole",
+		shape = "pole"
+	},
+	["I46A4B9414754A0C5,E13E3D4D99C611F0,,,,,,"] =
+	{
+		name = "Building Block: Green Glowing Sphere",
+		shape = "sphere"
+	},
+	["I6843A7E24EDB2CF8,7C0A779B593EF447,,,,,,"] =
+	{
+		name = "Building Block: Green Glowing Disc",
+		shape = "disc"
+	},
+	-- Grey Glowing
+	["I1133F573658C7042,EAD57D83CDFAC855,,,,,,"] =
+	{
+		name = "Building Block: Grey Glowing Square",
+		shape = "tile"
+	},
+	["I2DD9F2C94E6979B7,383F5D46ABF1C010,,,,,,"] =
+	{
+		name = "Building Block: Grey Glowing Rectangle",
+		shape = "rectangle"
+	},
+	["I203DBD530460D72D,3177E474A8029E6C,,,,,,"] =
+	{
+		name = "Building Block: Grey Glowing Plank",
+		shape = "plank"
+	},
+	["I176C919D075316BD,BDCB646B9D5849C3,,,,,,"] =
+	{
+		name = "Building Block: Grey Glowing Cube",
+		shape = "cube"
+	},
+	["I2BA2E3431CBF8446,FA8E8F2851F732EF,,,,,,"] =
+	{
+		name = "Building Block: Grey Glowing Triangle",
+		shape = "triangle"
+	},
+	["I2F33BFB877DCAA8D,168BEFA63998388C,,,,,,"] =
+	{
+		name = "Building Block: Grey Glowing Pole",
+		shape = "pole"
+	},
+	["I1C4344E0223D3750,29A738CF2EC16BEB,,,,,,"] =
+	{
+		name = "Building Block: Grey Glowing Sphere",
+		shape = "sphere"
+	},
+	["I363B83DD6F7F1F98,257185F7E7598CFB,,,,,,"] =
+	{
+		name = "Building Block: Grey Glowing Disc",
+		shape = "disc"
+	},
+	-- Light Blue Glowing
+	["I3DECC99E323D824B,1F8296A8E764C228,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Glowing Square",
+		shape = "tile"
+	},
+	["I494A9A1659778A00,7DCE163D94247522,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Glowing Rectangle",
+		shape = "rectangle"
+	},
+	["IFCF9FB54637B43BB,524C2695838C3057,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Glowing Plank",
+		shape = "plank"
+	},
+	["I49D46B776F4D76CB,29550418D2D64ED0,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Glowing Cube",
+		shape = "cube"
+	},
+	["I6D562CCE7875D9B3,7C2073F97E5F9EEB,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Glowing Triangle",
+		shape = "triangle"
+	},
+	["I4EE95681567E9523,53945A0C93A97CE0,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Glowing Pole",
+		shape = "pole"
+	},
+	["I5013CB0D60F06E9E,0210DC1562C03151,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Glowing Sphere",
+		shape = "sphere"
+	},
+	["I468BA9EB46F13843,EBEBF22226578D44,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Glowing Disc",
+		shape = "disc"
+	},
+	-- Light Green Glowing
+	["I5D90EDDD78815EBC,BB3CA2044F4E9391,,,,,,"] =
+	{
+		name = "Building Block: Light Green Glowing Square",
+		shape = "tile"
+	},
+	["I6D33EE872DEEE619,33BE373165603EDA,,,,,,"] =
+	{
+		name = "Building Block: Light Green Glowing Rectangle",
+		shape = "rectangle"
+	},
+	["I11A9E8C710A50D2A,4B0BAAD1B76B6AAB,,,,,,"] =
+	{
+		name = "Building Block: Light Green Glowing Plank",
+		shape = "plank"
+	},
+	["I75F42BA5163FB181,F67DA899426F875D,,,,,,"] =
+	{
+		name = "Building Block: Light Green Glowing Cube",
+		shape = "cube"
+	},
+	["I7B82FFA365D68CFA,D8579512A532BE10,,,,,,"] =
+	{
+		name = "Building Block: Light Green Glowing Triangle",
+		shape = "triangle"
+	},
+	["I56E8F74861E6AD62,F22486B041B5B794,,,,,,"] =
+	{
+		name = "Building Block: Light Green Glowing Pole",
+		shape = "pole"
+	},
+	["I66BE88BD3601DCC2,D72E021D1C130327,,,,,,"] =
+	{
+		name = "Building Block: Light Green Glowing Sphere",
+		shape = "sphere"
+	},
+	["I755601CD669846EC,11B984DF2B0D02DC,,,,,,"] =
+	{
+		name = "Building Block: Light Green Glowing Disc",
+		shape = "disc"
+	},
+	-- Orange Glowing
+	["IFE2A6E312F33700E,5B035A04FE131827,,,,,,"] =
+	{
+		name = "Building Block: Orange Glowing Square",
+		shape = "tile"
+	},
+	["I511070740B1F83E5,0CC1D62A92317482,,,,,,"] =
+	{
+		name = "Building Block: Orange Glowing Rectangle",
+		shape = "rectangle"
+	},
+	["I4557863A3987D200,D4E2B19B479EFB40,,,,,,"] =
+	{
+		name = "Building Block: Orange Glowing Plank",
+		shape = "plank"
+	},
+	["I44A72A35369E6F00,63BCB14B4F5707E9,,,,,,"] =
+	{
+		name = "Building Block: Orange Glowing Cube",
+		shape = "cube"
+	},
+	["IFFAF08D542524202,3CDB9A5B38ADE780,,,,,,"] =
+	{
+		name = "Building Block: Orange Glowing Triangle",
+		shape = "triangle"
+	},
+	["I411FC18B368D9A10,E1E5EFD99F2DCFF9,,,,,,"] =
+	{
+		name = "Building Block: Orange Glowing Pole",
+		shape = "pole"
+	},
+	["I4D61F6CF7829FC5D,E64C2E4B8C118FCD,,,,,,"] =
+	{
+		name = "Building Block: Orange Glowing Sphere",
+		shape = "sphere"
+	},
+	["I70929DB31A289BA0,1EDBEA3561D21540,,,,,,"] =
+	{
+		name = "Building Block: Orange Glowing Disc",
+		shape = "disc"
+	},
+	-- Pink Glowing
+	["I457B916B34A1ADBE,21E234B5FBDAB077,,,,,,"] =
+	{
+		name = "Building Block: Pink Glowing Square",
+		shape = "tile"
+	},
+	["I53DF679B1396F052,C77E96780A418398,,,,,,"] =
+	{
+		name = "Building Block: Pink Glowing Rectangle",
+		shape = "rectangle"
+	},
+	["I52F58DE70DD8FA2F,D4D8265918720340,,,,,,"] =
+	{
+		name = "Building Block: Pink Glowing Plank",
+		shape = "plank"
+	},
+	["I541F49E7179E7560,BC29281C4FF2356E,,,,,,"] =
+	{
+		name = "Building Block: Pink Glowing Cube",
+		shape = "cube"
+	},
+	["I62CC51BA41AE4D0E,13D19D21F18CF3AD,,,,,,"] =
+	{
+		name = "Building Block: Pink Glowing Triangle",
+		shape = "triangle"
+	},
+	["I5019D244446BFA4C,0952EAAD6FEBBDA3,,,,,,"] =
+	{
+		name = "Building Block: Pink Glowing Pole",
+		shape = "pole"
+	},
+	["I597ACF2004B15A6D,4B0C4868E2C14193,,,,,,"] =
+	{
+		name = "Building Block: Pink Glowing Sphere",
+		shape = "sphere"
+	},
+	["I0120B56228F16079,5A1674DE818F8390,,,,,,"] =
+	{
+		name = "Building Block: Pink Glowing Disc",
+		shape = "disc"
+	},
+	-- Purple Glowing
+	["I467AF2FB3E91183B,524C966DC4145D52,,,,,,"] =
+	{
+		name = "Building Block: Purple Glowing Square",
+		shape = "tile"
+	},
+	["I65DCBDFC1DEF6E6F,DDDA86916DE73928,,,,,,"] =
+	{
+		name = "Building Block: Purple Glowing Rectangle",
+		shape = "rectangle"
+	},
+	["I65BDD56B5A358404,5721D266930C848B,,,,,,"] =
+	{
+		name = "Building Block: Purple Glowing Plank",
+		shape = "plank"
+	},
+	["I55A9EF901FC6F190,285EB47B21CC24C9,,,,,,"] =
+	{
+		name = "Building Block: Purple Glowing Cube",
+		shape = "cube"
+	},
+	["I72E5F3974CCB8A35,D5FE34E0B313EBA9,,,,,,"] =
+	{
+		name = "Building Block: Purple Glowing Triangle",
+		shape = "triangle"
+	},
+	["I66BC01E50CF6A841,3D752F626738C5D5,,,,,,"] =
+	{
+		name = "Building Block: Purple Glowing Pole",
+		shape = "pole"
+	},
+	["I11C947F44F5B3EEF,84A41B7F9E583788,,,,,,"] =
+	{
+		name = "Building Block: Purple Glowing Sphere",
+		shape = "sphere"
+	},
+	["I7669FF194E55E5D2,491FE391890854AD,,,,,,"] =
+	{
+		name = "Building Block: Purple Glowing Disc",
+		shape = "disc"
+	},
+	-- Red Glowing
+	["I4E2EE8C656C56F88,349CB0F4ABC52A58,,,,,,"] =
+	{
+		name = "Building Block: Red Glowing Square",
+		shape = "tile"
+	},
+	["I79A55C7E4D4CC7F4,01195B2832E4A0C0,,,,,,"] =
+	{
+		name = "Building Block: Red Glowing Rectangle",
+		shape = "rectangle"
+	},
+	["I7894DDF476387D1D,12C4F7AD16C68BDD,,,,,,"] =
+	{
+		name = "Building Block: Red Glowing Plank",
+		shape = "plank"
+	},
+	["I5832C18D58FFB7F6,E2B8B602AEFEB9DA,,,,,,"] =
+	{
+		name = "Building Block: Red Glowing Cube",
+		shape = "cube"
+	},
+	["I1429C29A5BA24624,7887B356A5C73010,,,,,,"] =
+	{
+		name = "Building Block: Red Glowing Triangle",
+		shape = "triangle"
+	},
+	["I79ACF21101478C5A,0AF6644FF4C92C3F,,,,,,"] =
+	{
+		name = "Building Block: Red Glowing Pole",
+		shape = "pole"
+	},
+	["I1B4E52FD5C9B53F5,7D72C5B170D57B3B,,,,,,"] =
+	{
+		name = "Building Block: Red Glowing Sphere",
+		shape = "sphere"
+	},
+	["I23FB3ADD34715732,E846058002715BFD,,,,,,"] =
+	{
+		name = "Building Block: Red Glowing Disc",
+		shape = "disc"
+	},
+	-- White Glowing
+	["I6DB7D52C0E831124,16E67D5755EF86F1,,,,,,"] =
+	{
+		name = "Building Block: White Glowing Square",
+		shape = "tile"
+	},
+	["I2605A810595AD4CC,2B1F409333A23932,,,,,,"] =
+	{
+		name = "Building Block: White Glowing Rectangle",
+		shape = "rectangle"
+	},
+	["I1487FDC14B87AA54,C3886A79BDDA0890,,,,,,"] =
+	{
+		name = "Building Block: White Glowing Plank",
+		shape = "plank"
+	},
+	["I5CB8A6800EC13E44,E0D85B8E5F3110C2,,,,,,"] =
+	{
+		name = "Building Block: White Glowing Cube",
+		shape = "cube"
+	},
+	["I1A9DBA1B11134E76,EF19D60C052BAE4A,,,,,,"] =
+	{
+		name = "Building Block: White Glowing Triangle",
+		shape = "triangle"
+	},
+	["I1D1AB70F2BD642DF,B37ECC9FC0D078F0,,,,,,"] =
+	{
+		name = "Building Block: White Glowing Pole",
+		shape = "pole"
+	},
+	["I1DA6C13A701DA513,4F2CF9F211F8FC03,,,,,,"] =
+	{
+		name = "Building Block: White Glowing Sphere",
+		shape = "sphere"
+	},
+	["I272B3D145CAA9A90,0BD9FFFB97550D19,,,,,,"] =
+	{
+		name = "Building Block: White Glowing Disc",
+		shape = "disc"
+	},
+	-- Yellow Glowing
+	["I327DC08A10394595,D5E0C35880ACF462,,,,,,"] =
+	{
+		name = "Building Block: Yellow Glowing Square",
+		shape = "tile"
+	},
+	["I05E680E05B706411,D02A1A3DF361F41F,,,,,,"] =
+	{
+		name = "Building Block: Yellow Glowing Rectangle",
+		shape = "rectangle"
+	},
+	["I22F92DE974A7031A,0BAA06AFB4B2DA66,,,,,,"] =
+	{
+		name = "Building Block: Yellow Glowing Plank",
+		shape = "plank"
+	},
+	["I6B0E9E2713975781,28B47AF89BE0B704,,,,,,"] =
+	{
+		name = "Building Block: Yellow Glowing Cube",
+		shape = "cube"
+	},
+	["I1CACF4DE266F0A1C,592C560510CDEC04,,,,,,"] =
+	{
+		name = "Building Block: Yellow Glowing Triangle",
+		shape = "triangle"
+	},
+	["I032659B732D44B5A,2070ACA5D19C4EC5,,,,,,"] =
+	{
+		name = "Building Block: Yellow Glowing Pole",
+		shape = "pole"
+	},
+	["I3B8D641C6FFA5D04,775D9699650976B1,,,,,,"] =
+	{
+		name = "Building Block: Yellow Glowing Sphere",
+		shape = "sphere"
+	},
+	["I2B2B50943821BABB,1150AD0529D15040,,,,,,"] =
+	{
+		name = "Building Block: Yellow Glowing Disc",
+		shape = "disc"
+	},
 	---------------
 	-- Limestone --
 	---------------
