@@ -136,13 +136,20 @@ function Dta.ui.createTexture(name, parent, source, texture, x, y, width, height
 	return textureFrame
 end
 
--- textfield helper function
+-- textfield helper functions
 -- TODO: think about proper class hierarchies
 function Dta.ui.textfieldSelectAll(self)
 	local sval = self:GetText()
 	local slen = sval and string.len(sval) or 0
 	if slen > 0 then self:SetSelection(0, slen) end
 end
+
+local function textfieldSwapText(self)
+	local currentText = self:GetText()
+	self:SetText(self.text_alt or "")
+	self.text_alt = currentText
+end
+
 -- create textfield
 function Dta.ui.createTextfield(name, parent, x, y, width, text)
 	local textfield = UI.CreateFrame("RiftTextfield", name, parent)
@@ -152,6 +159,7 @@ function Dta.ui.createTextfield(name, parent, x, y, width, text)
 	if text ~= nil then textfield:SetText(text)
 	else textfield:SetText("") end
 	textfield.TabFocusCycled = Dta.ui.textfieldSelectAll
+	textfield.SwapText = textfieldSwapText
 	return textfield
 end
 

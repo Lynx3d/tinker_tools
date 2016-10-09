@@ -5,23 +5,35 @@ Dta.move = {}
 -------------------------------
 -- POSITION CHECKBOXES / BUTTON HANDLERS
 -------------------------------
+function Dta.move.ModeSwapped(move_ui)
+	move_ui.x:SwapText()
+	move_ui.y:SwapText()
+	move_ui.z:SwapText()
+end
+
 function Dta.move.modifyPositionModeAbsChanged()
-	if Dta.ui.windowMove.modifyPosition.modeAbs:GetChecked() then
-		Dta.ui.windowMove.modifyPosition.modeRel:SetChecked(false)
-		Dta.ui.windowMove.modifyPosition.moveAsGrp:CBSetEnabled(true)
-		Dta.ui.windowMove.modifyPosition.modeLocal:CBSetEnabled(false)
-	elseif not Dta.ui.windowMove.modifyPosition.modeRel:GetChecked() then
-		Dta.ui.windowMove.modifyPosition.modeAbs:SetChecked(true)
+	local move_ui = Dta.ui.windowMove.modifyPosition
+	-- both checked means we are now switching mode
+	if move_ui.modeAbs:GetChecked() and move_ui.modeRel:GetChecked() then
+		move_ui.modeRel:SetChecked(false)
+		move_ui.moveAsGrp:CBSetEnabled(true)
+		move_ui.modeLocal:CBSetEnabled(false)
+		Dta.move.ModeSwapped(move_ui)
+	elseif not move_ui.modeRel:GetChecked() then
+		move_ui.modeAbs:SetChecked(true)
 	end
 end
 
 function Dta.move.modifyPositionModeRelChanged()
-	if Dta.ui.windowMove.modifyPosition.modeRel:GetChecked() then
-		Dta.ui.windowMove.modifyPosition.modeAbs:SetChecked(false)
-		Dta.ui.windowMove.modifyPosition.moveAsGrp:CBSetEnabled(false)
-		Dta.ui.windowMove.modifyPosition.modeLocal:CBSetEnabled(true)
-	elseif not Dta.ui.windowMove.modifyPosition.modeAbs:GetChecked() then
-		Dta.ui.windowMove.modifyPosition.modeRel:SetChecked(true)
+	local move_ui = Dta.ui.windowMove.modifyPosition
+	-- both checked means we are now switching mode
+	if move_ui.modeRel:GetChecked() and move_ui.modeAbs:GetChecked() then
+		move_ui.modeAbs:SetChecked(false)
+		move_ui.moveAsGrp:CBSetEnabled(false)
+		move_ui.modeLocal:CBSetEnabled(true)
+		Dta.move.ModeSwapped(move_ui)
+	elseif not move_ui.modeAbs:GetChecked() then
+		move_ui.modeRel:SetChecked(true)
 	end
 end
 
@@ -50,29 +62,33 @@ function Dta.move.modifyPositionResetButtonClicked()
 end
 
 function Dta.move.fetchXButtonClicked()
-	if Dta.selectionCenter then
+	if Dta.ui.windowMove.modifyPosition.modeRel:GetChecked() then
+		Dta.ui.windowMove.modifyPosition.x:SetText("0")
+	elseif Dta.selectionCenter then
 		Dta.ui.windowMove.modifyPosition.x:SetText(tostring(Dta.items.round(Dta.selectionCenter.x, 4)))
 	end
 end
 
 function Dta.move.fetchYButtonClicked()
-	if Dta.selectionCenter then
+	if Dta.ui.windowMove.modifyPosition.modeRel:GetChecked() then
+		Dta.ui.windowMove.modifyPosition.y:SetText("0")
+	elseif Dta.selectionCenter then
 		Dta.ui.windowMove.modifyPosition.y:SetText(tostring(Dta.items.round(Dta.selectionCenter.y, 4)))
 	end
 end
 
 function Dta.move.fetchZButtonClicked()
-	if Dta.selectionCenter then
+	if Dta.ui.windowMove.modifyPosition.modeRel:GetChecked() then
+		Dta.ui.windowMove.modifyPosition.z:SetText("0")
+	elseif Dta.selectionCenter then
 		Dta.ui.windowMove.modifyPosition.z:SetText(tostring(Dta.items.round(Dta.selectionCenter.z, 4)))
 	end
 end
 
 function Dta.move.fetchAllButtonClicked()
-	if Dta.selectionCenter then
-		Dta.ui.windowMove.modifyPosition.x:SetText(tostring(Dta.items.round(Dta.selectionCenter.x, 4)))
-		Dta.ui.windowMove.modifyPosition.y:SetText(tostring(Dta.items.round(Dta.selectionCenter.y, 4)))
-		Dta.ui.windowMove.modifyPosition.z:SetText(tostring(Dta.items.round(Dta.selectionCenter.z, 4)))
-	end
+	Dta.move.fetchXButtonClicked()
+	Dta.move.fetchYButtonClicked()
+	Dta.move.fetchZButtonClicked()
 end
 
 --------------------------------------
