@@ -133,25 +133,25 @@ function Dta.measurements.DetectClicked()
 					-- default
 					Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(1)
 				elseif Dta.measurements.IsOrthogonal(details.roll) then
-					-- roll 90°
+					-- roll 90Â°
 					Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(4)
 				end
 			elseif Dta.measurements.IsOrthogonal(details.pitch) then
 				if Dta.measurements.IsAxisAligned(details.roll) then
-					-- pitch 90°
+					-- pitch 90Â°
 					Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(2)
 				elseif Dta.measurements.IsOrthogonal(details.roll) then
-					-- pitch 90° + roll 90°
+					-- pitch 90Â° + roll 90Â°
 					Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(6)
 				end
 			end
 		elseif Dta.measurements.IsOrthogonal(details.yaw) then
 			-- gimbal lock, roll should be zero because effect is identical to pitch
 			if Dta.measurements.IsAxisAligned(details.pitch) then
-				-- yaw 90°
+				-- yaw 90Â°
 				Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(3)
 			elseif Dta.measurements.IsOrthogonal(details.pitch) then
-				-- yaw 90° + pitch/roll 90°
+				-- yaw 90Â° + pitch/roll 90Â°
 				Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(5)
 			end
 		end
@@ -186,10 +186,10 @@ function Dta.measurements.TransferClicked()
 		return
 	end
 	if transfer.ToMove:GetChecked() then
-		if not Dta.ui.activeMove then
-			Dta.move_ui.showMoveWindow()
+		if not Dta.Tools.Move:IsActive() then
+			Dta.Tools.Move.Toggle()
 		end
-		local move = Dta.ui.windowMove.modifyPosition
+		local move = Dta.Tools.Move.window.modifyPosition
 		Dta.measurements.TransferOffset({move.x, move.y, move.z}, mask, invert)
 	end
 	if transfer.ToCopa:GetChecked() then

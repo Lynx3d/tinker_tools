@@ -28,7 +28,7 @@ function Dta.move_ui.buildMoveWindow()
 							y,
 							MoveWindowSettings.CLOSABLE,
 							MoveWindowSettings.MOVABLE,
-							Dta.move_ui.MoveWindowClosed,
+							Dta.move_ui.hideMoveWindow,
 							Dta.ui.WindowMoved
 							)
 	newWindow.settings = MoveWindowSettings
@@ -88,30 +88,14 @@ function Dta.move_ui.buildMoveWindow()
 end
 
 -- Show the toolbox window
-function Dta.move_ui.showMoveWindow()
-	if Dta.ui.windowMove == nil then
-		Dta.ui.windowMove = Dta.move_ui.buildMoveWindow()
-	else
-		Dta.ui.windowMove:SetVisible(true)
-	end
-	Dta.ui.activeMove = true
+function Dta.move_ui.showMoveWindow(move_window)
+	move_window:SetVisible(true)
 end
 
 -- Hide the toolbox window
-function Dta.move_ui.hideMoveWindow()
-	Dta.ui.windowMove:SetVisible(false)
-	Dta.ui.windowMove:ClearKeyFocus()
---	Dta.ui.windowMove = nil
-	Dta.ui.activeMove = false
+function Dta.move_ui.hideMoveWindow(move_window)
+	move_window:SetVisible(false)
+	move_window:ClearKeyFocus()
 end
 
--- Toggle the toolbox window
-function Dta.move_ui.toggleMoveWindow()
-	if Dta.ui.activeMove then Dta.move_ui.hideMoveWindow()
-	else Dta.move_ui.showMoveWindow() end
-end
-
---Called when the window has been closed
-function Dta.move_ui.MoveWindowClosed()
-	Dta.move_ui.hideMoveWindow()
-end
+Dta.RegisterTool("Move", Dta.move_ui.buildMoveWindow, Dta.move_ui.showMoveWindow, Dta.move_ui.hideMoveWindow)

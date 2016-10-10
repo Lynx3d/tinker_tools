@@ -107,7 +107,7 @@ function Dta.items.updateItemDetails()
 				Dta.ui.windowtest.itemDetails.pitch:SetText("-")
 				Dta.ui.windowtest.itemDetails.roll:SetText("-")
 				Dta.ui.windowtest.itemDetails.scale:SetText("-")
-				if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(true) end
+				if Dta.Tools.Move.window then Dta.Tools.Move.window.modifyPosition.moveAsGrp:SetVisible(true) end
 			else
 				local ItemID, details = next(Dta.selectedItems)
 				if details ~= nil then
@@ -127,7 +127,7 @@ function Dta.items.updateItemDetails()
 					Dta.ui.windowtest.itemDetails.pitch:SetText(tostring(Dta.items.round(math.deg(details.pitch),4)))
 					Dta.ui.windowtest.itemDetails.roll:SetText(tostring(Dta.items.round(math.deg(details.roll),4)))
 					Dta.ui.windowtest.itemDetails.scale:SetText(tostring(Dta.items.round(details.scale,4)))
-					if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(false) end
+					if Dta.Tools.Move.window then Dta.Tools.Move.window.modifyPosition.moveAsGrp:SetVisible(false) end
 				end
 			end
 		else
@@ -144,7 +144,7 @@ function Dta.items.updateItemDetails()
 			Dta.ui.windowtest.itemDetails.pitch:SetText("-")
 			Dta.ui.windowtest.itemDetails.roll:SetText("-")
 			Dta.ui.windowtest.itemDetails.scale:SetText("-")
-			if Dta.ui.windowMove then Dta.ui.windowMove.modifyPosition.moveAsGrp:SetVisible(false) end
+			if Dta.Tools.Move.window then Dta.Tools.Move.window.modifyPosition.moveAsGrp:SetVisible(false) end
 		end
 	end
 end

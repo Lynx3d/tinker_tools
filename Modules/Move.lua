@@ -12,7 +12,7 @@ function Dta.move.ModeSwapped(move_ui)
 end
 
 function Dta.move.modifyPositionModeAbsChanged()
-	local move_ui = Dta.ui.windowMove.modifyPosition
+	local move_ui = Dta.Tools.Move.window.modifyPosition
 	-- both checked means we are now switching mode
 	if move_ui.modeAbs:GetChecked() and move_ui.modeRel:GetChecked() then
 		move_ui.modeRel:SetChecked(false)
@@ -25,7 +25,7 @@ function Dta.move.modifyPositionModeAbsChanged()
 end
 
 function Dta.move.modifyPositionModeRelChanged()
-	local move_ui = Dta.ui.windowMove.modifyPosition
+	local move_ui = Dta.Tools.Move.window.modifyPosition
 	-- both checked means we are now switching mode
 	if move_ui.modeRel:GetChecked() and move_ui.modeAbs:GetChecked() then
 		move_ui.modeAbs:SetChecked(false)
@@ -42,7 +42,7 @@ function Dta.move.modifyPositionButtonClicked()
 		Dta.CPrint(Dta.Locale.Prints.ModifyPosition)
 		return
 	end
-	local move_ui = Dta.ui.windowMove.modifyPosition
+	local move_ui = Dta.Tools.Move.window.modifyPosition
 	local settings, ok = {}, {}
 	settings.x, ok.x = Dta.ui.checkNumber(move_ui.x:GetText(), nil)
 	settings.y, ok.y = Dta.ui.checkNumber(move_ui.y:GetText(), nil)
@@ -62,26 +62,26 @@ function Dta.move.modifyPositionResetButtonClicked()
 end
 
 function Dta.move.fetchXButtonClicked()
-	if Dta.ui.windowMove.modifyPosition.modeRel:GetChecked() then
-		Dta.ui.windowMove.modifyPosition.x:SetText("0")
+	if Dta.Tools.Move.window.modifyPosition.modeRel:GetChecked() then
+		Dta.Tools.Move.window.modifyPosition.x:SetText("0")
 	elseif Dta.selectionCenter then
-		Dta.ui.windowMove.modifyPosition.x:SetText(tostring(Dta.items.round(Dta.selectionCenter.x, 4)))
+		Dta.Tools.Move.window.modifyPosition.x:SetText(tostring(Dta.items.round(Dta.selectionCenter.x, 4)))
 	end
 end
 
 function Dta.move.fetchYButtonClicked()
-	if Dta.ui.windowMove.modifyPosition.modeRel:GetChecked() then
-		Dta.ui.windowMove.modifyPosition.y:SetText("0")
+	if Dta.Tools.Move.window.modifyPosition.modeRel:GetChecked() then
+		Dta.Tools.Move.window.modifyPosition.y:SetText("0")
 	elseif Dta.selectionCenter then
-		Dta.ui.windowMove.modifyPosition.y:SetText(tostring(Dta.items.round(Dta.selectionCenter.y, 4)))
+		Dta.Tools.Move.window.modifyPosition.y:SetText(tostring(Dta.items.round(Dta.selectionCenter.y, 4)))
 	end
 end
 
 function Dta.move.fetchZButtonClicked()
-	if Dta.ui.windowMove.modifyPosition.modeRel:GetChecked() then
-		Dta.ui.windowMove.modifyPosition.z:SetText("0")
+	if Dta.Tools.Move.window.modifyPosition.modeRel:GetChecked() then
+		Dta.Tools.Move.window.modifyPosition.z:SetText("0")
 	elseif Dta.selectionCenter then
-		Dta.ui.windowMove.modifyPosition.z:SetText(tostring(Dta.items.round(Dta.selectionCenter.z, 4)))
+		Dta.Tools.Move.window.modifyPosition.z:SetText(tostring(Dta.items.round(Dta.selectionCenter.z, 4)))
 	end
 end
 

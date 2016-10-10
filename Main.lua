@@ -6,6 +6,7 @@ Dta.AddonID = addon.toc.Identifier
 Dta.SettingsRevision = 1
 Dta.Language = Inspect.System.Language()
 Dta.Lang = {}
+Dta.Tools = {}
 
 --Items
 Dta.selectedItems = {}
@@ -82,6 +83,31 @@ function Dta.CPrint(text, html)
 		end
 	end
 end
+
+local function toolIsActive(self)
+	return self.window and self.window:GetVisible()
+end
+
+local function toolToggle(self)
+	if self.window then
+		if self.window:GetVisible() then
+			self.Hide(self.window)
+		else
+			self.Show(self.window)
+		end
+	else
+		self.window = self.CreateUI()
+	end
+end
+
+-- register a tool with some commonly required callbacks
+function Dta.RegisterTool(name, createFunc, showFunc, hideFunc)
+	assert(type(createFunc) == "function" and type(showFunc) == "function" and type(hideFunc) == "function")
+	local tool = { CreateUI = createFunc, Show = showFunc, Hide = hideFunc, IsActive = toolIsActive }
+	tool.Toggle = function() toolToggle(tool) end
+	Dta.Tools[name] = tool
+end
+
 
 function Dta.checkIdle()
 	if Dta.AddItem_Co then

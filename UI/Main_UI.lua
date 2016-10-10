@@ -8,9 +8,6 @@ Dta.ui.context_top:SetStrata("topmost")
 Dta.ui.windowtest = nil
 Dta.ui.active = false
 
-Dta.ui.windowMove = nil
-Dta.ui.activeMove = false
-
 Dta.ui.windowScale = nil
 Dta.ui.activeScale = false
 
@@ -381,7 +378,7 @@ function Dta.ui.buildMainWindow()
 	Mainwindow.itemDetails.nrItems = Dta.ui.createText("itemDetailsnrItems", Mainwindow.itemDetails, 265, 90, "-", 14)
 
 	-- Tool Buttons
-	Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow, 8, 133, 160, nil, Dta.Locale.Buttons.MoveWindow, nil, Dta.ui.modifyMoveButtonClicked)
+	Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow, 8, 133, 160, nil, Dta.Locale.Buttons.MoveWindow, nil, Dta.Tools.Move.Toggle)
 	Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow, 157, 133, 160, nil, Dta.Locale.Buttons.RotateWindow, nil, Dta.ui.modifyRotateButtonClicked)
 	Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow, 8, 160, 160, nil, Dta.Locale.Buttons.ScaleWindow, nil, Dta.ui.modifyScaleButtonClicked)
 	Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow, 157, 160, 160, nil, Dta.Locale.Buttons.OffsetCalc, nil, Dta.ui.modifyMeasurementsButtonClicked)
@@ -438,7 +435,7 @@ function Dta.ui.hideMainWindow()
 	Dta.ui.windowtest:SetVisible(false)
 --	Dta.ui.windowtest = nil
 	Dta.ui.active = false
-	if Dta.ui.activeMove then Dta.move_ui.hideMoveWindow() end
+	if Dta.Tools.Move:IsActive() then Dta.Tools.Move:Hide() end
 	if Dta.ui.activeScale then Dta.scale_ui.hideScaleWindow() end
 	if Dta.ui.activeCopyPaste then Dta.copa_ui.hideCopyPastewindow() end
 	if Dta.ui.activeRotate then Dta.rotate_ui.hideRotateWindow() end
@@ -471,10 +468,6 @@ end
 -------------------------------
 -- CALLBACKS FOR WINDOW BUTTONS
 -------------------------------
-
-function Dta.ui.modifyMoveButtonClicked()
-Dta.move_ui.toggleMoveWindow()
-end
 
 function Dta.ui.modifyRotateButtonClicked()
 Dta.rotate_ui.toggleRotateWindow()
