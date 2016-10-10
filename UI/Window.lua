@@ -45,9 +45,10 @@ Window.rectPath = {	{xProportional = 0, yProportional = 0},
 					{xProportional = 0, yProportional = 0} }
 
 function Window.defaultCloseCallback(self, handle)
-	self:GetParent():SetVisible(false)
+	local my_window = self:GetParent()
+	my_window:SetVisible(false)
 	-- function optionally passed to window construction
-	if type(self.closeCallback) == "function" then self.closeCallback() end
+	if type(self.closeCallback) == "function" then self.closeCallback(my_window) end
 end
 
 -- create a window border
