@@ -15,7 +15,7 @@ local MeasurementsWindowSettings = {
 	POS_Y = "MeasurementswindowPosY"
 }
 
-function Dta.measurements_ui.buildMeasurementsWindow()
+function Dta.measurements_ui.buildWindow()
 	local x = Dta.settings.get("MeasurementswindowPosX")
 	local y = Dta.settings.get("MeasurementswindowPosY")
 	local newWindow = Dta.ui.Window.Create("MeasurementsWindow",
@@ -27,7 +27,7 @@ function Dta.measurements_ui.buildMeasurementsWindow()
 								y,
 								MeasurementsWindowSettings.CLOSABLE,
 								MeasurementsWindowSettings.MOVABLE,
-								Dta.measurements_ui.MeasurementsWindowClosed,
+								Dta.measurements_ui.hideWindow,
 								Dta.ui.WindowMoved
 								)
 	newWindow.settings = MeasurementsWindowSettings
@@ -102,35 +102,19 @@ function Dta.measurements_ui.buildTransferPopup(parent)
 	return popup
 end
 -- Show the toolbox window
-function Dta.measurements_ui.showMeasurementsWindow()
-	if Dta.ui.windowMeasurements == nil then
-		Dta.ui.windowMeasurements = Dta.measurements_ui.buildMeasurementsWindow()
-	else
-		Dta.ui.windowMeasurements:SetVisible(true)
-		Dta.ui.windowMeasurements.Measurements.TypeLoad:SetEnabled(true)
-		Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetEnabled(true)
-	end
-	Dta.ui.activeMeasurements = true
+function Dta.measurements_ui.showWindow(mm_window)
+	mm_window:SetVisible(true)
+	mm_window.Measurements.TypeLoad:SetEnabled(true)
+	mm_window.Measurements.OrientationLoad:SetEnabled(true)
 end
 
 -- Hide the toolbox window
-function Dta.measurements_ui.hideMeasurementsWindow()
-	Dta.ui.windowMeasurements:SetVisible(false)
-	Dta.ui.windowMeasurements:ClearKeyFocus()
+function Dta.measurements_ui.hideWindow(mm_window)
+	mm_window:SetVisible(false)
+	mm_window:ClearKeyFocus()
 	-- workaround for dropdown not closing automatically
-	Dta.ui.windowMeasurements.Measurements.TypeLoad:SetEnabled(false)
-	Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetEnabled(false)
---	Dta.ui.windowMeasurements = nil
-	Dta.ui.activeMeasurements = false
+	mm_window.Measurements.TypeLoad:SetEnabled(false)
+	mm_window.Measurements.OrientationLoad:SetEnabled(false)
 end
 
--- Toggle the toolbox window
-function Dta.measurements_ui.toggleMeasurementsWindow()
-	if Dta.ui.activeMeasurements then Dta.measurements_ui.hideMeasurementsWindow()
-	else Dta.measurements_ui.showMeasurementsWindow() end
-end
-
---Called when the window has been closed
-function Dta.measurements_ui.MeasurementsWindowClosed()
-	Dta.measurements_ui.hideMeasurementsWindow()
-end
+Dta.RegisterTool("Offset", Dta.measurements_ui.buildWindow, Dta.measurements_ui.showWindow, Dta.measurements_ui.hideWindow)

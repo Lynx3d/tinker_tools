@@ -23,9 +23,6 @@ Dta.ui.activeFlying = false
 Dta.ui.windowAlphabet = nil
 Dta.ui.activeAlphabet = false
 
-Dta.ui.windowMeasurements = nil
-Dta.ui.activeMeasurements = false
-
 Dta.ui.activeReskin = false
 
 Dta.ui.loadLoSa = "Default"
@@ -372,7 +369,7 @@ function Dta.ui.buildMainWindow()
 	Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow, 8, 133, 160, nil, Dta.Locale.Buttons.MoveWindow, nil, Dta.Tools.Move.Toggle)
 	Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow, 157, 133, 160, nil, Dta.Locale.Buttons.RotateWindow, nil, Dta.Tools.Rotate.Toggle)
 	Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow, 8, 160, 160, nil, Dta.Locale.Buttons.ScaleWindow, nil, Dta.Tools.Scale.Toggle)
-	Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow, 157, 160, 160, nil, Dta.Locale.Buttons.OffsetCalc, nil, Dta.ui.modifyMeasurementsButtonClicked)
+	Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow, 157, 160, 160, nil, Dta.Locale.Buttons.OffsetCalc, nil, Dta.Tools.Offset.Toggle)
 	Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow, 8, 187, 160, nil, Dta.Locale.Buttons.CopyPaste, nil, Dta.Tools.CoPa.Toggle)
 	Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow, 157, 187, 160, nil, Dta.Locale.Buttons.LoadSave, nil, Dta.ui.modifySaveButtonClicked)
 	--Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 290, 150, 160, nil, Dta.Locale.Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
@@ -434,7 +431,6 @@ function Dta.ui.hideMainWindow()
 	if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
 	if Dta.ui.activeFlying then Dta.flying_ui.hideFlyingWindow() end
 	if Dta.ui.activeAlphabet then Dta.alphabet_ui.hideAlphabetWindow() end
-	if Dta.ui.activeMeasurements then Dta.measurements_ui.hideMeasurementsWindow() end
 	if Dta.ui.activeReskin then Dta.ui.hideReskinWindow() end
 end
 
@@ -473,10 +469,6 @@ end
 
 function Dta.ui.modifyAlphabetButtonClicked()
 	Dta.alphabet_ui.toggleAlphabetWindow()
-end
-
-function Dta.ui.modifyMeasurementsButtonClicked()
-	Dta.measurements_ui.toggleMeasurementsWindow()
 end
 
 function Dta.ui.moreBtnClicked()

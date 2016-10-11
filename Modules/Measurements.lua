@@ -24,9 +24,10 @@ Dta.measurements.Dimensions = {
 }
 
 function Dta.measurements.CalculationsClicked()
-	local size = Dta.ui.windowMeasurements.Measurements.Size:GetText()
-	local shape = Dta.ui.windowMeasurements.Measurements.TypeLoad:GetSelectedIndex()
-	local orientation = Dta.ui.windowMeasurements.Measurements.OrientationLoad:GetSelectedIndex()
+	local Measurement_UI = Dta.Tools.Offset.window.Measurements
+	local size = Measurement_UI.Size:GetText()
+	local shape = Measurement_UI.TypeLoad:GetSelectedIndex()
+	local orientation = Measurement_UI.OrientationLoad:GetSelectedIndex()
 	local scale, scale_ok = Dta.ui.checkNumber(size, nil)
 	local dims
 
@@ -79,7 +80,6 @@ function Dta.measurements.CalculationsClicked()
 		local m_rot = Dta.Matrix.createZYX(details.pitch, details.yaw, details.roll, true)
 		Dta.measurements.result = Dta.Matrix.Transform(m_rot, vec)
 	end
-	local Measurement_UI = Dta.ui.windowMeasurements.Measurements
 	Measurement_UI.x:SetText(tostring(Dta.items.round(Dta.measurements.result[1], 4)))
 	Measurement_UI.y:SetText(tostring(Dta.items.round(Dta.measurements.result[2], 4)))
 	Measurement_UI.z:SetText(tostring(Dta.items.round(Dta.measurements.result[3], 4)))
@@ -101,70 +101,72 @@ function Dta.measurements.IsOrthogonal(val)
 end
 
 function Dta.measurements.DetectClicked()
-	if Dta.selectionCount == 0 then return
+	local Measurement_UI = Dta.Tools.Offset.window.Measurements
+	if Dta.selectionCount == 0 then
+		return
 	elseif Dta.selectionCount == 2 then
-		Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(7)
+		Measurement_UI.OrientationLoad:SetSelectedIndex(7)
 		return
 	end
 	local _, details = next(Dta.selectedItems)
 	local entry = Dta.Defaults.ItemDB[details.type]
 	if entry then
 		if entry.shape == "cube" then
-			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(1)
+			Measurement_UI.TypeLoad:SetSelectedIndex(1)
 		elseif entry.shape == "plank" then
-			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(2)
+			Measurement_UI.TypeLoad:SetSelectedIndex(2)
 		elseif entry.shape == "pole" then
-			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(3)
+			Measurement_UI.TypeLoad:SetSelectedIndex(3)
 		elseif entry.shape == "rectangle" then
-			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(4)
+			Measurement_UI.TypeLoad:SetSelectedIndex(4)
 		elseif entry.shape == "tile" then
-			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(5)
+			Measurement_UI.TypeLoad:SetSelectedIndex(5)
 		elseif entry.shape == "floor" then
-			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(6)
+			Measurement_UI.TypeLoad:SetSelectedIndex(6)
 		elseif entry.shape == "hall floor" then
-			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(7)
+			Measurement_UI.TypeLoad:SetSelectedIndex(7)
 		elseif entry.shape == "large floor" then
-			Dta.ui.windowMeasurements.Measurements.TypeLoad:SetSelectedIndex(8)
+			Measurement_UI.TypeLoad:SetSelectedIndex(8)
 		end
 		-- orientation
 		if Dta.measurements.IsAxisAligned(details.yaw) then
 			if Dta.measurements.IsAxisAligned(details.pitch) then
 				if Dta.measurements.IsAxisAligned(details.roll) then
 					-- default
-					Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(1)
+					Measurement_UI.OrientationLoad:SetSelectedIndex(1)
 				elseif Dta.measurements.IsOrthogonal(details.roll) then
 					-- roll 90°
-					Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(4)
+					Measurement_UI.OrientationLoad:SetSelectedIndex(4)
 				end
 			elseif Dta.measurements.IsOrthogonal(details.pitch) then
 				if Dta.measurements.IsAxisAligned(details.roll) then
 					-- pitch 90°
-					Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(2)
+					Measurement_UI.OrientationLoad:SetSelectedIndex(2)
 				elseif Dta.measurements.IsOrthogonal(details.roll) then
 					-- pitch 90° + roll 90°
-					Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(6)
+					Measurement_UI.OrientationLoad:SetSelectedIndex(6)
 				end
 			end
 		elseif Dta.measurements.IsOrthogonal(details.yaw) then
 			-- gimbal lock, roll should be zero because effect is identical to pitch
 			if Dta.measurements.IsAxisAligned(details.pitch) then
 				-- yaw 90°
-				Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(3)
+				Measurement_UI.OrientationLoad:SetSelectedIndex(3)
 			elseif Dta.measurements.IsOrthogonal(details.pitch) then
 				-- yaw 90° + pitch/roll 90°
-				Dta.ui.windowMeasurements.Measurements.OrientationLoad:SetSelectedIndex(5)
+				Measurement_UI.OrientationLoad:SetSelectedIndex(5)
 			end
 		end
-		Dta.ui.windowMeasurements.Measurements.Size:SetText(tostring(details.scale))
+		Measurement_UI.Size:SetText(tostring(details.scale))
 	end
 end
 
 function Dta.measurements.TogglePopup(self)
-	if Dta.ui.windowMeasurements.TransferPopup:GetVisible() then
-		Dta.ui.windowMeasurements.TransferPopup:SetVisible(false)
+	if Dta.Tools.Offset.window.TransferPopup:GetVisible() then
+		Dta.Tools.Offset.window.TransferPopup:SetVisible(false)
 		self:Toggle(false)
 	else
-		Dta.ui.windowMeasurements.TransferPopup:SetVisible(true)
+		Dta.Tools.Offset.window.TransferPopup:SetVisible(true)
 		self:Toggle(true)
 	end
 end
@@ -177,8 +179,7 @@ function Dta.measurements.TransferOffset(controls, mask, invert)
 end
 
 function Dta.measurements.TransferClicked()
-	local transfer = Dta.ui.windowMeasurements.TransferPopup
-	local measurement = Dta.ui.windowMeasurements.Measurements
+	local transfer = Dta.Tools.Offset.window.TransferPopup
 	local mask = { transfer.x:GetChecked() or nil, transfer.y:GetChecked() or nil, transfer.z:GetChecked() or nil }
 	local invert = transfer.Invert:GetChecked()
 	--if not (transfer.x:GetChecked() or transfer.y:GetChecked() or transfer.z:GetChecked())
