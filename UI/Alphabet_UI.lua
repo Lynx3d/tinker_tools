@@ -16,7 +16,7 @@ local AlphabetWindowSettings = {
 	POS_Y = "AlphabetwindowPosY"
 }
 
-function Dta.alphabet_ui.buildAlphabetWindow()
+function Dta.alphabet_ui.buildWindow()
 	local x = Dta.settings.get("AlphabetwindowPosX")
 	local y = Dta.settings.get("AlphabetwindowPosY")
 	local newWindow = Dta.ui.Window.Create("AlphabetWindow",
@@ -28,7 +28,7 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 							y,
 							AlphabetWindowSettings.CLOSABLE,
 							AlphabetWindowSettings.MOVABLE,
-							Dta.alphabet_ui.AlphabetWindowClosed,
+							Dta.alphabet_ui.hideWindow,
 							Dta.ui.WindowMoved
 							)
 	newWindow.settings = AlphabetWindowSettings
@@ -77,35 +77,19 @@ function Dta.alphabet_ui.buildAlphabetWindow()
 end
 
 -- Show the toolbox window
-function Dta.alphabet_ui.showAlphabetWindow()
-	if Dta.ui.windowAlphabet == nil then
-		Dta.ui.windowAlphabet = Dta.alphabet_ui.buildAlphabetWindow()
-	else
-		Dta.ui.windowAlphabet:SetVisible(true)
-		Dta.ui.windowAlphabet.Alphabet.FontLoad:SetEnabled(true)
-		Dta.ui.windowAlphabet.Alphabet.SizeLoad:SetEnabled(true)
-		Dta.ui.windowAlphabet.Alphabet.TypeLoad:SetEnabled(true)
-	end
-	Dta.ui.activeAlphabet = true
+function Dta.alphabet_ui.showWindow(ab_window)
+	ab_window:SetVisible(true)
+	ab_window.Alphabet.FontLoad:SetEnabled(true)
+	ab_window.Alphabet.SizeLoad:SetEnabled(true)
+	ab_window.Alphabet.TypeLoad:SetEnabled(true)
 end
 
 -- Hide the toolbox window
-function Dta.alphabet_ui.hideAlphabetWindow()
-	Dta.ui.windowAlphabet:SetVisible(false)
-	Dta.ui.windowAlphabet.Alphabet.FontLoad:SetEnabled(false)
-	Dta.ui.windowAlphabet.Alphabet.SizeLoad:SetEnabled(false)
-	Dta.ui.windowAlphabet.Alphabet.TypeLoad:SetEnabled(false)
---	Dta.ui.windowAlphabet = nil
-	Dta.ui.activeAlphabet = false
+function Dta.alphabet_ui.hideWindow(ab_window)
+	ab_window:SetVisible(false)
+	ab_window.Alphabet.FontLoad:SetEnabled(false)
+	ab_window.Alphabet.SizeLoad:SetEnabled(false)
+	ab_window.Alphabet.TypeLoad:SetEnabled(false)
 end
 
--- Toggle the toolbox window
-function Dta.alphabet_ui.toggleAlphabetWindow()
-	if Dta.ui.activeAlphabet then Dta.alphabet_ui.hideAlphabetWindow()
-	else Dta.alphabet_ui.showAlphabetWindow() end
-end
-
---Called when the window has been closed
-function Dta.alphabet_ui.AlphabetWindowClosed()
-	Dta.alphabet_ui.hideAlphabetWindow()
-end
+Dta.RegisterTool("Alfiebet", Dta.alphabet_ui.buildWindow, Dta.alphabet_ui.showWindow, Dta.alphabet_ui.hideWindow)

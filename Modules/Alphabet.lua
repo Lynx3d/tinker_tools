@@ -5,18 +5,18 @@ Dta.alphabet = {}
 Dta.alphabet.Size = {}
 
 function Dta.alphabet.AlphabetmodeHorizontalChanged()
-	if Dta.ui.windowAlphabet.Alphabet.modeHorizontal:GetChecked() then
-		Dta.ui.windowAlphabet.Alphabet.modeVertical:SetChecked(false)
-	elseif not Dta.ui.windowAlphabet.Alphabet.modeVertical:GetChecked() then
-		Dta.ui.windowAlphabet.Alphabet.modeHorizontal:SetChecked(true)
+	if Dta.Tools.Alfiebet.window.Alphabet.modeHorizontal:GetChecked() then
+		Dta.Tools.Alfiebet.window.Alphabet.modeVertical:SetChecked(false)
+	elseif not Dta.Tools.Alfiebet.window.Alphabet.modeVertical:GetChecked() then
+		Dta.Tools.Alfiebet.window.Alphabet.modeHorizontal:SetChecked(true)
 	end
 end
 
 function Dta.alphabet.AlphabetmodeVerticalChanged()
-	if Dta.ui.windowAlphabet.Alphabet.modeVertical:GetChecked() then
-		Dta.ui.windowAlphabet.Alphabet.modeHorizontal:SetChecked(false)
-	elseif not Dta.ui.windowAlphabet.Alphabet.modeHorizontal:GetChecked() then
-		Dta.ui.windowAlphabet.Alphabet.modeVertical:SetChecked(true)
+	if Dta.Tools.Alfiebet.window.Alphabet.modeVertical:GetChecked() then
+		Dta.Tools.Alfiebet.window.Alphabet.modeHorizontal:SetChecked(false)
+	elseif not Dta.Tools.Alfiebet.window.Alphabet.modeHorizontal:GetChecked() then
+		Dta.Tools.Alfiebet.window.Alphabet.modeVertical:SetChecked(true)
 	end
 end
 
@@ -33,9 +33,9 @@ end
 
 function Dta.alphabet.FontSelected(font)
 	Dta.alphabet.Size = Dta.settings.get_defaults("SavedAlphabets")[font]
-	Dta.ui.windowAlphabet.Alphabet.SizeLoad:SetItems(Dta.alphabet.loadSize())
-	Dta.ui.windowAlphabet.Alphabet.SizeLoad:ResizeToFit()
-	Dta.ui.windowAlphabet.Alphabet.SizeLoad:SetWidth(100)
+	Dta.Tools.Alfiebet.window.Alphabet.SizeLoad:SetItems(Dta.alphabet.loadSize())
+	Dta.Tools.Alfiebet.window.Alphabet.SizeLoad:ResizeToFit()
+	Dta.Tools.Alfiebet.window.Alphabet.SizeLoad:SetWidth(100)
 
 end
 
@@ -50,11 +50,12 @@ function Dta.alphabet.loadSize()
 end
 
 function Dta.alphabet.CheckInput()
+	local alphabet_ui = Dta.Tools.Alfiebet.window.Alphabet
 	local settings = {}
-	settings.word = Dta.ui.windowAlphabet.Alphabet.Word:GetText()
-	settings.font = Dta.ui.windowAlphabet.Alphabet.FontLoad:GetSelectedItem()
-	settings.size = Dta.ui.windowAlphabet.Alphabet.SizeLoad:GetSelectedItem()
-	settings.skin = Dta.ui.windowAlphabet.Alphabet.TypeLoad:GetSelectedValue()
+	settings.word = alphabet_ui.Word:GetText()
+	settings.font = alphabet_ui.FontLoad:GetSelectedItem()
+	settings.size = alphabet_ui.SizeLoad:GetSelectedItem()
+	settings.skin = alphabet_ui.TypeLoad:GetSelectedValue()
 
 	if settings.font == nil or settings.font == "" then
 		Dta.CPrint(Dta.Locale.Prints.SelectFont)
@@ -84,9 +85,9 @@ function Dta.alphabet.CheckInput()
 		Dta.CPrint(Dta.Locale.Prints.TypeWord)
 		return false
 	end
-	if Dta.ui.windowAlphabet.Alphabet.modeHorizontal:GetChecked() then
+	if alphabet_ui.modeHorizontal:GetChecked() then
 		settings.orientation = "Horizontal"
-	elseif Dta.ui.windowAlphabet.Alphabet.modeVertical:GetChecked() then
+	elseif alphabet_ui.modeVertical:GetChecked() then
 		settings.orientation = "Vertical"
 	end
 	settings.letters = Dta.settings.get_defaults("SavedAlphabets")[settings.font][settings.size]

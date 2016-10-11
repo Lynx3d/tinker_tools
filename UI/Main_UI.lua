@@ -11,9 +11,6 @@ Dta.ui.active = false
 Dta.ui.windowHelp = nil
 Dta.ui.activeHelp = false
 
-Dta.ui.windowAlphabet = nil
-Dta.ui.activeAlphabet = false
-
 Dta.ui.activeReskin = false
 
 Dta.ui.loadLoSa = "Default"
@@ -367,7 +364,7 @@ function Dta.ui.buildMainWindow()
 	Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow, 8, 214, 160, nil, Dta.Locale.Buttons.TribalMagic, nil, Dta.Tools.Flying.Toggle)
 	Mainwindow.itemDetails.MoreBtn = Dta.ui.createButton("itemDetailMoreBtn", Mainwindow, 157, 214, 160, nil, Dta.Locale.Buttons.More, nil, Dta.ui.moreBtnClicked)
 	-- Expanded
-	Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow, 157, 214, 160, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
+	Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow, 157, 214, 160, nil, "Alfiebet", nil, Dta.Tools.Alfiebet.Toggle)
 	Mainwindow.itemDetails.ReskinBtn = Dta.ui.createButton("itemDetailReskinBtn", Mainwindow, 8, 241, 160, nil, Dta.Locale.Buttons.Reskin, nil, Dta.ui.toggleReskinWindow)
 	Mainwindow.itemDetails.LessBtn = Dta.ui.createButton("itemDetailLessBtn", Mainwindow, 157, 241, 160, nil, Dta.Locale.Buttons.Less, nil, Dta.ui.lessBtnClicked)
 	Mainwindow.itemDetails.Alphabet:SetVisible(false)
@@ -418,7 +415,6 @@ function Dta.ui.hideMainWindow()
 		if tool:IsActive() then tool.Toggle() end
 	end
 	if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
-	if Dta.ui.activeAlphabet then Dta.alphabet_ui.hideAlphabetWindow() end
 	if Dta.ui.activeReskin then Dta.ui.hideReskinWindow() end
 end
 
@@ -442,10 +438,6 @@ end
 -------------------------------
 -- CALLBACKS FOR WINDOW BUTTONS
 -------------------------------
-
-function Dta.ui.modifyAlphabetButtonClicked()
-	Dta.alphabet_ui.toggleAlphabetWindow()
-end
 
 function Dta.ui.moreBtnClicked()
 	local itemDetails = Dta.ui.windowtest.itemDetails
