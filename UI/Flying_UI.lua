@@ -23,7 +23,7 @@ function Dta.flying_ui.buildFlyingWindow()
 							y,
 							FlyingWindowSettings.CLOSABLE,
 							FlyingWindowSettings.MOVABLE,
-							Dta.flying_ui.FlyingWindowClosed,
+							Dta.flying_ui.hideFlyingWindow,
 							Dta.ui.WindowMoved
 							)
 	newWindow.settings = FlyingWindowSettings
@@ -90,29 +90,13 @@ function Dta.flying_ui.buildFlyingWindow()
 end
 
 -- Show the toolbox window
-function Dta.flying_ui.showFlyingWindow()
-	if Dta.ui.windowFlying == nil then
-		Dta.ui.windowFlying = Dta.flying_ui.buildFlyingWindow()
-	else
-		Dta.ui.windowFlying:SetVisible(true)
-	end
-	Dta.ui.activeFlying = true
+function Dta.flying_ui.showFlyingWindow(flying_window)
+	flying_window:SetVisible(true)
 end
 
 -- Hide the toolbox window
-function Dta.flying_ui.hideFlyingWindow()
-	Dta.ui.windowFlying:SetVisible(false)
---	Dta.ui.windowFlying = nil
-	Dta.ui.activeFlying = false
+function Dta.flying_ui.hideFlyingWindow(flying_window)
+	flying_window:SetVisible(false)
 end
 
--- Toggle the toolbox window
-function Dta.flying_ui.toggleFlyingWindow()
-	if Dta.ui.activeFlying then Dta.flying_ui.hideFlyingWindow()
-	else Dta.flying_ui.showFlyingWindow() end
-end
-
---Called when the window has been closed
-function Dta.flying_ui.FlyingWindowClosed()
-	Dta.flying_ui.hideFlyingWindow()
-end
+Dta.RegisterTool("Flying", Dta.flying_ui.buildFlyingWindow, Dta.flying_ui.showFlyingWindow, Dta.flying_ui.hideFlyingWindow)

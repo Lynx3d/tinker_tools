@@ -24,8 +24,8 @@ end
 
 function Dta.flying.SliderMoved(slider)
 	local newVal = slider:GetPosition()
-	Dta.ui.windowFlying.pitchLabels[Dta.flying.pitchPosition+5]:SetFontColor(1, 1, 1)
-	Dta.ui.windowFlying.pitchLabels[newVal+5]:SetFontColor(107/255, 203/255, 189/255)
+	Dta.Tools.Flying.window.pitchLabels[Dta.flying.pitchPosition+5]:SetFontColor(1, 1, 1)
+	Dta.Tools.Flying.window.pitchLabels[newVal+5]:SetFontColor(107/255, 203/255, 189/255)
 	Dta.flying.pitchPosition = newVal
 	Dta.desiredPitch = -newVal/8
 end
@@ -36,8 +36,8 @@ function Dta.flying.PlaceFlying()
 		if id ~= false then
 			local data = Inspect.Item.Detail(id)
 			if data and data.type == Dta.FlyingType then
-				Dta.ui.windowFlying.DFlying.placeButton:SetEnabled(false)
-				Dta.ui.windowFlying.DFlying.pickupButton:SetEnabled(true)
+				Dta.Tools.Flying.window.DFlying.placeButton:SetEnabled(false)
+				Dta.Tools.Flying.window.DFlying.pickupButton:SetEnabled(true)
 				Dta.waitingForCarpet = true
 				Command.Dimension.Layout.Place(id, {scale=1})
 				return
@@ -59,8 +59,8 @@ end
 --------------------------------------
 
 function Dta.flying.FlyingRemoved()
-	Dta.ui.windowFlying.DFlying.placeButton:SetEnabled(true)
-	Dta.ui.windowFlying.DFlying.pickupButton:SetEnabled(false)
+	Dta.Tools.Flying.window.DFlying.placeButton:SetEnabled(true)
+	Dta.Tools.Flying.window.DFlying.pickupButton:SetEnabled(false)
 	Dta.carpetId = false
 end
 

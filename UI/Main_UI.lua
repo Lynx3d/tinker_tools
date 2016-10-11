@@ -11,9 +11,6 @@ Dta.ui.active = false
 Dta.ui.windowHelp = nil
 Dta.ui.activeHelp = false
 
-Dta.ui.windowFlying = nil
-Dta.ui.activeFlying = false
-
 Dta.ui.windowAlphabet = nil
 Dta.ui.activeAlphabet = false
 
@@ -367,7 +364,7 @@ function Dta.ui.buildMainWindow()
 	Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow, 8, 187, 160, nil, Dta.Locale.Buttons.CopyPaste, nil, Dta.Tools.CoPa.Toggle)
 	Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow, 157, 187, 160, nil, Dta.Locale.Buttons.LoadSave, nil, Dta.Tools.LoSa.Toggle)
 	--Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 290, 150, 160, nil, Dta.Locale.Buttons.ImportExport, nil, Dta.Tools.ExpImp.Toggle)
-	Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow, 8, 214, 160, nil, Dta.Locale.Buttons.TribalMagic, nil, Dta.ui.modifyDFlyingButtonClicked)
+	Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow, 8, 214, 160, nil, Dta.Locale.Buttons.TribalMagic, nil, Dta.Tools.Flying.Toggle)
 	Mainwindow.itemDetails.MoreBtn = Dta.ui.createButton("itemDetailMoreBtn", Mainwindow, 157, 214, 160, nil, Dta.Locale.Buttons.More, nil, Dta.ui.moreBtnClicked)
 	-- Expanded
 	Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow, 157, 214, 160, nil, "Alfiebet", nil, Dta.ui.modifyAlphabetButtonClicked)
@@ -421,7 +418,6 @@ function Dta.ui.hideMainWindow()
 		if tool:IsActive() then tool.Toggle() end
 	end
 	if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
-	if Dta.ui.activeFlying then Dta.flying_ui.hideFlyingWindow() end
 	if Dta.ui.activeAlphabet then Dta.alphabet_ui.hideAlphabetWindow() end
 	if Dta.ui.activeReskin then Dta.ui.hideReskinWindow() end
 end
@@ -446,10 +442,6 @@ end
 -------------------------------
 -- CALLBACKS FOR WINDOW BUTTONS
 -------------------------------
-
-function Dta.ui.modifyDFlyingButtonClicked()
-	Dta.flying_ui.toggleFlyingWindow()
-end
 
 function Dta.ui.modifyAlphabetButtonClicked()
 	Dta.alphabet_ui.toggleAlphabetWindow()
