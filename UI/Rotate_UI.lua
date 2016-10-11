@@ -27,7 +27,7 @@ function Dta.rotate_ui.buildRotateWindow()
 							y,
 							RotateWindowSettings.CLOSABLE,
 							RotateWindowSettings.MOVABLE,
-							Dta.rotate_ui.RotateWindowClosed,
+							Dta.rotate_ui.hideRotateWindow,
 							Dta.ui.WindowMoved
 							)
 	newWindow.settings = RotateWindowSettings
@@ -82,30 +82,14 @@ function Dta.rotate_ui.buildRotateWindow()
 end
 
 -- Show the toolbox window
-function Dta.rotate_ui.showRotateWindow()
-	if Dta.ui.windowRotate == nil then
-		Dta.ui.windowRotate = Dta.rotate_ui.buildRotateWindow()
-	else
-		Dta.ui.windowRotate:SetVisible(true)
-	end
-	Dta.ui.activeRotate = true
+function Dta.rotate_ui.showRotateWindow(rotate_window)
+	rotate_window:SetVisible(true)
 end
 
 -- Hide the toolbox window
-function Dta.rotate_ui.hideRotateWindow()
-	Dta.ui.windowRotate:SetVisible(false)
-	Dta.ui.windowRotate:ClearKeyFocus()
---	Dta.ui.windowRotate = nil
-	Dta.ui.activeRotate = false
+function Dta.rotate_ui.hideRotateWindow(rotate_window)
+	rotate_window:SetVisible(false)
+	rotate_window:ClearKeyFocus()
 end
 
--- Toggle the toolbox window
-function Dta.rotate_ui.toggleRotateWindow()
-	if Dta.ui.activeRotate then Dta.rotate_ui.hideRotateWindow()
-	else Dta.rotate_ui.showRotateWindow() end
-end
-
---Called when the window has been closed
-function Dta.rotate_ui.RotateWindowClosed()
-	Dta.rotate_ui.hideRotateWindow()
-end
+Dta.RegisterTool("Rotate", Dta.rotate_ui.buildRotateWindow, Dta.rotate_ui.showRotateWindow, Dta.rotate_ui.hideRotateWindow)

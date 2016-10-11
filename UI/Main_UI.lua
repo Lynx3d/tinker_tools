@@ -14,9 +14,6 @@ Dta.ui.activeScale = false
 Dta.ui.windowCopyPaste = nil
 Dta.ui.activeCopyPaste = false
 
-Dta.ui.windowRotate = nil
-Dta.ui.activeRotate = false
-
 Dta.ui.windowLoSa = nil
 Dta.ui.activeLoSa = false
 
@@ -379,7 +376,7 @@ function Dta.ui.buildMainWindow()
 
 	-- Tool Buttons
 	Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow, 8, 133, 160, nil, Dta.Locale.Buttons.MoveWindow, nil, Dta.Tools.Move.Toggle)
-	Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow, 157, 133, 160, nil, Dta.Locale.Buttons.RotateWindow, nil, Dta.ui.modifyRotateButtonClicked)
+	Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow, 157, 133, 160, nil, Dta.Locale.Buttons.RotateWindow, nil, Dta.Tools.Rotate.Toggle)
 	Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow, 8, 160, 160, nil, Dta.Locale.Buttons.ScaleWindow, nil, Dta.ui.modifyScaleButtonClicked)
 	Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow, 157, 160, 160, nil, Dta.Locale.Buttons.OffsetCalc, nil, Dta.ui.modifyMeasurementsButtonClicked)
 	Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow, 8, 187, 160, nil, Dta.Locale.Buttons.CopyPaste, nil, Dta.ui.modifyCoPaButtonClicked)
@@ -435,10 +432,11 @@ function Dta.ui.hideMainWindow()
 	Dta.ui.windowtest:SetVisible(false)
 --	Dta.ui.windowtest = nil
 	Dta.ui.active = false
-	if Dta.Tools.Move:IsActive() then Dta.Tools.Move:Hide() end
+	for name, tool in pairs(Dta.Tools) do
+		if tool:IsActive() then tool.Toggle() end
+	end
 	if Dta.ui.activeScale then Dta.scale_ui.hideScaleWindow() end
 	if Dta.ui.activeCopyPaste then Dta.copa_ui.hideCopyPastewindow() end
-	if Dta.ui.activeRotate then Dta.rotate_ui.hideRotateWindow() end
 	if Dta.ui.activeLoSa then Dta.losa_ui.hideLoSaWindow() end
 	if Dta.ui.activeExpImp then Dta.expimp_ui.hideExpImpWindow() end
 	if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
@@ -468,10 +466,6 @@ end
 -------------------------------
 -- CALLBACKS FOR WINDOW BUTTONS
 -------------------------------
-
-function Dta.ui.modifyRotateButtonClicked()
-Dta.rotate_ui.toggleRotateWindow()
-end
 
 function Dta.ui.modifyScaleButtonClicked()
 Dta.scale_ui.toggleScaleWindow()

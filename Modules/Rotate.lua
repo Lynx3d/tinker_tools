@@ -12,7 +12,7 @@ function Dta.rotate.ModeSwapped(rotate_ui)
 end
 
 function Dta.rotate.modifyRotationModeAbsChanged()
-	local rotate_ui = Dta.ui.windowRotate.modifyRotation
+	local rotate_ui = Dta.Tools.Rotate.window.modifyRotation
 	-- both checked means we are now switching mode
 	if rotate_ui.modeAbs:GetChecked() and rotate_ui.modeRel:GetChecked() then
 		rotate_ui.modeRel:SetChecked(false)
@@ -24,7 +24,7 @@ function Dta.rotate.modifyRotationModeAbsChanged()
 end
 
 function Dta.rotate.modifyRotationModeRelChanged()
-	local rotate_ui = Dta.ui.windowRotate.modifyRotation
+	local rotate_ui = Dta.Tools.Rotate.window.modifyRotation
 	-- both checked means we are now switching mode
 	if rotate_ui.modeRel:GetChecked() and rotate_ui.modeAbs:GetChecked() then
 		rotate_ui.modeAbs:SetChecked(false)
@@ -36,16 +36,16 @@ function Dta.rotate.modifyRotationModeRelChanged()
 end
 
 function Dta.rotate.modifyRotationButtonClicked()
-	local pitch, pitch_ok = Dta.ui.checkNumber(Dta.ui.windowRotate.modifyRotation.pitch:GetText())
-	local yaw, yaw_ok = Dta.ui.checkNumber(Dta.ui.windowRotate.modifyRotation.yaw:GetText())
-	local roll, roll_ok = Dta.ui.checkNumber(Dta.ui.windowRotate.modifyRotation.roll:GetText())
+	local pitch, pitch_ok = Dta.ui.checkNumber(Dta.Tools.Rotate.window.modifyRotation.pitch:GetText())
+	local yaw, yaw_ok = Dta.ui.checkNumber(Dta.Tools.Rotate.window.modifyRotation.yaw:GetText())
+	local roll, roll_ok = Dta.ui.checkNumber(Dta.Tools.Rotate.window.modifyRotation.roll:GetText())
 	if not (pitch_ok and yaw_ok and roll_ok) then
 		Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
 		return
 	end
 	Dta.rotate.setItemRotations(yaw, pitch, roll,
-								Dta.ui.windowRotate.modifyRotation.modeRel:GetChecked(),
-								Dta.ui.windowRotate.modifyRotation.modeAsGrp:GetChecked())
+								Dta.Tools.Rotate.window.modifyRotation.modeRel:GetChecked(),
+								Dta.Tools.Rotate.window.modifyRotation.modeAsGrp:GetChecked())
 end
 
 function Dta.rotate.modifyRotationResetButtonClicked()
@@ -53,29 +53,29 @@ function Dta.rotate.modifyRotationResetButtonClicked()
 end
 
 function Dta.rotate.fetchPitchButtonClicked()
-	if Dta.ui.windowRotate.modifyRotation.modeRel:GetChecked() then
-		Dta.ui.windowRotate.modifyRotation.pitch:SetText("0")
+	if Dta.Tools.Rotate.window.modifyRotation.modeRel:GetChecked() then
+		Dta.Tools.Rotate.window.modifyRotation.pitch:SetText("0")
 	elseif Dta.selectionCount == 1 then
 		local id, item = next(Dta.selectedItems)
-		Dta.ui.windowRotate.modifyRotation.pitch:SetText(tostring(Dta.items.round(math.deg(item.pitch), 4)))
+		Dta.Tools.Rotate.window.modifyRotation.pitch:SetText(tostring(Dta.items.round(math.deg(item.pitch), 4)))
 	end
 end
 
 function Dta.rotate.fetchYawButtonClicked()
-	if Dta.ui.windowRotate.modifyRotation.modeRel:GetChecked() then
-		Dta.ui.windowRotate.modifyRotation.yaw:SetText("0")
+	if Dta.Tools.Rotate.window.modifyRotation.modeRel:GetChecked() then
+		Dta.Tools.Rotate.window.modifyRotation.yaw:SetText("0")
 	elseif Dta.selectionCount == 1 then
 		local id, item = next(Dta.selectedItems)
-		Dta.ui.windowRotate.modifyRotation.yaw:SetText(tostring(Dta.items.round(math.deg(item.yaw), 4)))
+		Dta.Tools.Rotate.window.modifyRotation.yaw:SetText(tostring(Dta.items.round(math.deg(item.yaw), 4)))
 	end
 end
 
 function Dta.rotate.fetchRollButtonClicked()
-	if Dta.ui.windowRotate.modifyRotation.modeRel:GetChecked() then
-		Dta.ui.windowRotate.modifyRotation.roll:SetText("0")
+	if Dta.Tools.Rotate.window.modifyRotation.modeRel:GetChecked() then
+		Dta.Tools.Rotate.window.modifyRotation.roll:SetText("0")
 	elseif Dta.selectionCount == 1 then
 		local id, item = next(Dta.selectedItems)
-		Dta.ui.windowRotate.modifyRotation.roll:SetText(tostring(Dta.items.round(math.deg(item.roll), 4)))
+		Dta.Tools.Rotate.window.modifyRotation.roll:SetText(tostring(Dta.items.round(math.deg(item.roll), 4)))
 	end
 end
 
