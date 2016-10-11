@@ -62,33 +62,23 @@ function Dta.ui.buildReskinWindow()
 end
 
 -- Show the reskin window
-function Dta.ui.showReskinWindow()
-	if Dta.ui.windowReskin == nil then
-		Dta.ui.windowReskin = Dta.ui.buildReskinWindow()
-	else
-		Dta.ui.windowReskin:SetVisible(true)
-		Dta.ui.windowReskin.oldFilterSelect:SetEnabled(true)
-		Dta.ui.windowReskin.newFilterSelect:SetEnabled(true)
-		Dta.ui.windowReskin.oldSkinSelect:SetEnabled(true)
-		Dta.ui.windowReskin.newSkinSelect:SetEnabled(true)
-	end
-	Dta.ui.activeReskin = true
+function Dta.ui.showReskinWindow(reskin_window)
+	reskin_window:SetVisible(true)
+	reskin_window.oldFilterSelect:SetEnabled(true)
+	reskin_window.newFilterSelect:SetEnabled(true)
+	reskin_window.oldSkinSelect:SetEnabled(true)
+	reskin_window.newSkinSelect:SetEnabled(true)
 end
 
 -- Hide the reskin window
-function Dta.ui.hideReskinWindow()
-	Dta.ui.windowReskin:SetVisible(false)
-	Dta.ui.windowReskin:ClearKeyFocus()
+function Dta.ui.hideReskinWindow(reskin_window)
+	reskin_window:SetVisible(false)
+	reskin_window:ClearKeyFocus()
 	-- workaround for dropdown not closing automatically
-	Dta.ui.windowReskin.oldFilterSelect:SetEnabled(false)
-	Dta.ui.windowReskin.newFilterSelect:SetEnabled(false)
-	Dta.ui.windowReskin.oldSkinSelect:SetEnabled(false)
-	Dta.ui.windowReskin.newSkinSelect:SetEnabled(false)
-	Dta.ui.activeReskin = false
+	reskin_window.oldFilterSelect:SetEnabled(false)
+	reskin_window.newFilterSelect:SetEnabled(false)
+	reskin_window.oldSkinSelect:SetEnabled(false)
+	reskin_window.newSkinSelect:SetEnabled(false)
 end
 
--- Toggle the reskin window
-function Dta.ui.toggleReskinWindow()
-	if Dta.ui.activeReskin then Dta.ui.hideReskinWindow()
-	else Dta.ui.showReskinWindow() end
-end
+Dta.RegisterTool("Reskin", Dta.ui.buildReskinWindow, Dta.ui.showReskinWindow, Dta.ui.hideReskinWindow)

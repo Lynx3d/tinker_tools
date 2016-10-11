@@ -53,20 +53,20 @@ function Dta.Replacement.loadSkinCategories()
 end
 
 function Dta.Replacement.FilterOldChanged()
-	local reskinWindow = Dta.ui.windowReskin
+	local reskinWindow = Dta.Tools.Reskin.window
 	local category = reskinWindow.oldFilterSelect:GetSelectedValue()
 	reskinWindow.oldSkinSelect:SetItems(Dta.Replacement.loadSkins(category))
 end
 
 function Dta.Replacement.FilterNewChanged()
-	local reskinWindow = Dta.ui.windowReskin
+	local reskinWindow = Dta.Tools.Reskin.window
 	local category = reskinWindow.newFilterSelect:GetSelectedValue()
 	reskinWindow.newSkinSelect:SetItems(Dta.Replacement.loadSkins(category))
 end
 
 function Dta.Replacement.ReplaceClicked()
 	local settings = {}
-	local reskinWindow = Dta.ui.windowReskin
+	local reskinWindow = Dta.Tools.Reskin.window
 	local old_skin = reskinWindow.oldSkinSelect:GetSelectedValue()
 	local new_skin = reskinWindow.newSkinSelect:GetSelectedValue()
 
