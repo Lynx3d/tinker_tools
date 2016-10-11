@@ -9,41 +9,42 @@ Dta.copa.CountedItems = 0
 --------------------------------------
 
 function Dta.copa.CopaOffsetChanged()
-	if Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked() then
-		Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(true)
-		Dta.ui.windowCopyPaste.copyPaste.NewItemNrLabel:SetVisible(true)
-		--Dta.ui.windowCopyPaste.copyPaste.flickerReduce:SetVisible(true)
-	elseif not Dta.ui.windowCopyPaste.copyPaste.multiplyOffsets:GetChecked() then
-		Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetVisible(false)
-		--Dta.ui.windowCopyPaste.copyPaste.NewItemNr:SetText("")
-		Dta.ui.windowCopyPaste.copyPaste.NewItemNrLabel:SetVisible(false)
-		--Dta.ui.windowCopyPaste.copyPaste.flickerReduce:SetVisible(false)
+	local copa_ui = Dta.Tools.CoPa.copyPaste.window
+	if copa_ui.multiplyOffsets:GetChecked() then
+		copa_ui.NewItemNr:SetVisible(true)
+		copa_ui.NewItemNrLabel:SetVisible(true)
+		--copa_ui.flickerReduce:SetVisible(true)
+	elseif not copa_ui.multiplyOffsets:GetChecked() then
+		copa_ui.NewItemNr:SetVisible(false)
+		--copa_ui.NewItemNr:SetText("")
+		copa_ui.NewItemNrLabel:SetVisible(false)
+		--copa_ui.flickerReduce:SetVisible(false)
 	end
 end
 
 function Dta.copa.CopaNewItemChanged()
-	if Dta.ui.windowCopyPaste.copyPaste.NewItem:GetChecked() then
-		Dta.ui.windowCopyPaste.copyPaste.Bags:SetVisible(true)
-		Dta.ui.windowCopyPaste.copyPaste.Bank:SetVisible(true)
+	if Dta.Tools.CoPa.copyPaste.window.NewItem:GetChecked() then
+		Dta.Tools.CoPa.copyPaste.window.Bags:SetVisible(true)
+		Dta.Tools.CoPa.copyPaste.window.Bank:SetVisible(true)
 	else
-		Dta.ui.windowCopyPaste.copyPaste.Bags:SetVisible(false)
-		Dta.ui.windowCopyPaste.copyPaste.Bank:SetVisible(false)
+		Dta.Tools.CoPa.copyPaste.window.Bags:SetVisible(false)
+		Dta.Tools.CoPa.copyPaste.window.Bank:SetVisible(false)
 	end
 end
 
 function Dta.copa.FlickerRedChanged(self)
 	if self:GetChecked() then
-		Dta.ui.windowCopyPaste.copyPaste.flickerAmplitude:SetVisible(true)
+		Dta.Tools.CoPa.copyPaste.window.flickerAmplitude:SetVisible(true)
 	else
-		Dta.ui.windowCopyPaste.copyPaste.flickerAmplitude:SetVisible(false)
+		Dta.Tools.CoPa.copyPaste.window.flickerAmplitude:SetVisible(false)
 	end
 end
 
 function Dta.copa.PivotChanged(self)
 	if self:GetChecked() then
-		Dta.ui.windowCopyPaste.copyPaste.pickPivotBtn:SetVisible(true)
+		Dta.Tools.CoPa.copyPaste.window.pickPivotBtn:SetVisible(true)
 	else
-		Dta.ui.windowCopyPaste.copyPaste.pickPivotBtn:SetVisible(false)
+		Dta.Tools.CoPa.copyPaste.window.pickPivotBtn:SetVisible(false)
 	end
 end
 
@@ -87,6 +88,8 @@ function Dta.copa.pasteButtonClicked()
 		local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
 		if missing then
 			Dta.losa.printMissingItems(missing, shoppingList, Dta.Locale.Prints.NotPasteInventory)
+			-- debug
+			dump(shoppingList)
 			return
 		end
 		Dta.items.DeselectAll()
@@ -116,7 +119,7 @@ end
 function Dta.copa.checkInput()
 	local values = {}
 	local success = {}
-	local copa_ui = Dta.ui.windowCopyPaste.copyPaste
+	local copa_ui = Dta.Tools.CoPa.copyPaste.window
 
 	if copa_ui.x:GetChecked() then
 		values.coordX, success.x = Dta.ui.checkNumber(copa_ui.xOffset:GetText(), 0)
@@ -151,7 +154,7 @@ function Dta.copa.checkInput()
 	values.new_items = copa_ui.NewItem:GetChecked()
 	values.include_bags = copa_ui.Bags:GetChecked()
 	values.include_bank = copa_ui.Bank:GetChecked()
-	values.selection_pivot = Dta.copa.pivot and Dta.ui.windowCopyPaste.copyPaste.SelectionPivot:GetChecked()
+	values.selection_pivot = Dta.copa.pivot and copa_ui.SelectionPivot:GetChecked()
 	if values.new_items then
 		if not values.include_bags and not values.include_bank then
 			Dta.CPrint(Dta.Locale.Prints.SelectItemSource)
@@ -389,7 +392,7 @@ end
 -- selectively copy items values
 function Dta.copa.genNewDetails(details, settings)
 	local new_details = { type = details.type }
-	local copa_ui = Dta.ui.windowCopyPaste.copyPaste
+	local copa_ui = Dta.Tools.CoPa.copyPaste.window
 	new_details.coordX = copa_ui.x:GetChecked() and details.coordX + settings.coordX or nil
 	new_details.coordY = copa_ui.y:GetChecked() and details.coordY + settings.coordY or nil
 	new_details.coordZ = copa_ui.z:GetChecked() and details.coordZ + settings.coordZ or nil

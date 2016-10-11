@@ -27,7 +27,7 @@ function Dta.copa_ui.buildCopyPasteWindow()
 							y,
 							CopyPasteWindowSettings.CLOSABLE,
 							CopyPasteWindowSettings.MOVABLE,
-							Dta.copa_ui.CopyPastewindowClosed,
+							Dta.copa_ui.hideCopyPastewindow,
 							Dta.ui.WindowMoved
 							)
 	newWindow.settings = CopyPasteWindowSettings
@@ -115,30 +115,14 @@ function Dta.copa_ui.buildCopyPasteWindow()
 end
 
 -- Show the toolbox window
-function Dta.copa_ui.showCopyPastewindow()
-	if Dta.ui.windowCopyPaste == nil then
-		Dta.ui.windowCopyPaste = Dta.copa_ui.buildCopyPasteWindow()
-	else
-		Dta.ui.windowCopyPaste:SetVisible(true)
-	end
-	Dta.ui.activeCopyPaste = true
+function Dta.copa_ui.showCopyPastewindow(copa_window)
+	copa_window:SetVisible(true)
 end
 
 -- Hide the toolbox window
-function Dta.copa_ui.hideCopyPastewindow()
-	Dta.ui.windowCopyPaste:SetVisible(false)
-	Dta.ui.windowCopyPaste:ClearKeyFocus()
---	Dta.ui.windowCopyPaste = nil
-	Dta.ui.activeCopyPaste = false
+function Dta.copa_ui.hideCopyPastewindow(copa_window)
+	copa_window:SetVisible(false)
+	copa_window:ClearKeyFocus()
 end
 
--- Toggle the toolbox window
-function Dta.copa_ui.toggleCopyPastewindow()
-	if Dta.ui.activeCopyPaste then Dta.copa_ui.hideCopyPastewindow()
-	else Dta.copa_ui.showCopyPastewindow() end
-end
-
---Called when the window has been closed
-function Dta.copa_ui.CopyPastewindowClosed()
-	Dta.copa_ui.hideCopyPastewindow()
-end
+Dta.RegisterTool("CoPa", Dta.copa_ui.buildCopyPasteWindow, Dta.copa_ui.showCopyPastewindow, Dta.copa_ui.hideCopyPastewindow)

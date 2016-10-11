@@ -8,9 +8,6 @@ Dta.ui.context_top:SetStrata("topmost")
 Dta.ui.windowtest = nil
 Dta.ui.active = false
 
-Dta.ui.windowCopyPaste = nil
-Dta.ui.activeCopyPaste = false
-
 Dta.ui.windowLoSa = nil
 Dta.ui.activeLoSa = false
 
@@ -376,7 +373,7 @@ function Dta.ui.buildMainWindow()
 	Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow, 157, 133, 160, nil, Dta.Locale.Buttons.RotateWindow, nil, Dta.Tools.Rotate.Toggle)
 	Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow, 8, 160, 160, nil, Dta.Locale.Buttons.ScaleWindow, nil, Dta.Tools.Scale.Toggle)
 	Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow, 157, 160, 160, nil, Dta.Locale.Buttons.OffsetCalc, nil, Dta.ui.modifyMeasurementsButtonClicked)
-	Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow, 8, 187, 160, nil, Dta.Locale.Buttons.CopyPaste, nil, Dta.ui.modifyCoPaButtonClicked)
+	Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow, 8, 187, 160, nil, Dta.Locale.Buttons.CopyPaste, nil, Dta.Tools.CoPa.Toggle)
 	Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow, 157, 187, 160, nil, Dta.Locale.Buttons.LoadSave, nil, Dta.ui.modifySaveButtonClicked)
 	--Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 290, 150, 160, nil, Dta.Locale.Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
 	Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow, 8, 214, 160, nil, Dta.Locale.Buttons.TribalMagic, nil, Dta.ui.modifyDFlyingButtonClicked)
@@ -432,7 +429,6 @@ function Dta.ui.hideMainWindow()
 	for name, tool in pairs(Dta.Tools) do
 		if tool:IsActive() then tool.Toggle() end
 	end
-	if Dta.ui.activeCopyPaste then Dta.copa_ui.hideCopyPastewindow() end
 	if Dta.ui.activeLoSa then Dta.losa_ui.hideLoSaWindow() end
 	if Dta.ui.activeExpImp then Dta.expimp_ui.hideExpImpWindow() end
 	if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
@@ -462,10 +458,6 @@ end
 -------------------------------
 -- CALLBACKS FOR WINDOW BUTTONS
 -------------------------------
-
-function Dta.ui.modifyCoPaButtonClicked()
-Dta.copa_ui.toggleCopyPastewindow()
-end
 
 function Dta.ui.modifySaveButtonClicked()
 Dta.losa_ui.toggleLoSaWindow()

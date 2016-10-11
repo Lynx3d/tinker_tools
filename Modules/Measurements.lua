@@ -193,10 +193,10 @@ function Dta.measurements.TransferClicked()
 		Dta.measurements.TransferOffset({move.x, move.y, move.z}, mask, invert)
 	end
 	if transfer.ToCopa:GetChecked() then
-		if not Dta.ui.activeCopyPaste then
-			Dta.copa_ui.showCopyPastewindow()
+		if not Dta.Tools.CoPa:IsActive() then
+			Dta.Tools.CoPa.Toggle()
 		end
-		local copyPaste = Dta.ui.windowCopyPaste.copyPaste
+		local copyPaste = Dta.Tools.CoPa.window.copyPaste
 		Dta.measurements.TransferOffset({copyPaste.xOffset, copyPaste.yOffset, copyPaste.zOffset}, mask, invert)
 	end
 end
