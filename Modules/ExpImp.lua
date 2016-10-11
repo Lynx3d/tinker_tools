@@ -6,50 +6,50 @@ Dta.expimp = {}
 -- IMPORT AND EXPORT BUTTON HANDLERS
 -------------------------------
 function Dta.expimp.ExportSavedCheckboxChanged()
-	if Dta.ui.windowExpImp.ImportExport.ExportSavedCheckbox:GetChecked() then
+	if Dta.Tools.ExpImp.window.ImportExport.ExportSavedCheckbox:GetChecked() then
 		Dta.ui.loadExpImp = "Saved"
-		Dta.ui.windowExpImp.ImportExport.ExportTbxCheckbox:SetChecked(false)
+		Dta.Tools.ExpImp.window.ImportExport.ExportTbxCheckbox:SetChecked(false)
 		Dta.expimp.refreshExportSelect()
-	elseif not Dta.ui.windowExpImp.ImportExport.ExportTbxCheckbox:GetChecked() then
-		Dta.ui.windowExpImp.ImportExport.ExportSavedCheckbox:SetChecked(true)
+	elseif not Dta.Tools.ExpImp.window.ImportExport.ExportTbxCheckbox:GetChecked() then
+		Dta.Tools.ExpImp.window.ImportExport.ExportSavedCheckbox:SetChecked(true)
 	end
 end
 
 function Dta.expimp.ExportTbxCheckboxChanged()
-	if Dta.ui.windowExpImp.ImportExport.ExportTbxCheckbox:GetChecked() then
+	if Dta.Tools.ExpImp.window.ImportExport.ExportTbxCheckbox:GetChecked() then
 		Dta.ui.loadExpImp = "Tbx"
-		Dta.ui.windowExpImp.ImportExport.ExportSavedCheckbox:SetChecked(false)
+		Dta.Tools.ExpImp.window.ImportExport.ExportSavedCheckbox:SetChecked(false)
 		Dta.expimp.refreshExportSelect()
-	elseif not Dta.ui.windowExpImp.ImportExport.ExportSavedCheckbox:GetChecked() then
-		Dta.ui.windowExpImp.ImportExport.ExportTbxCheckbox:SetChecked(true)
+	elseif not Dta.Tools.ExpImp.window.ImportExport.ExportSavedCheckbox:GetChecked() then
+		Dta.Tools.ExpImp.window.ImportExport.ExportTbxCheckbox:SetChecked(true)
 	end
 end
 
 function Dta.expimp.ExportClicked()
-	Dta.expimp.ExportLoadAttributes(Dta.ui.windowExpImp.ImportExport.ExportLoad:GetSelectedItem())
+	Dta.expimp.ExportLoadAttributes(Dta.Tools.ExpImp.window.ImportExport.ExportLoad:GetSelectedItem())
 	Dta.expimp.refreshImportSelect()
 end
 
 function Dta.expimp.ImportClicked ()
-	local expimpUI = Dta.ui.windowExpImp.ImportExport
+	local expimpUI = Dta.Tools.ExpImp.window.ImportExport
 	Dta.expimp.ImportLoadAttributes(expimpUI.ImportLoad:GetSelectedItem(), expimpUI.NewName:GetText())
 	Dta.expimp.refreshImportSelect()
 	Dta.expimp.refreshExportSelect()
 end
 
 function Dta.expimp.refreshImportSelect()
-	Dta.ui.windowExpImp.ImportExport.ImportLoad:SetItems(Dta.expimp.loadImport())
+	Dta.Tools.ExpImp.window.ImportExport.ImportLoad:SetItems(Dta.expimp.loadImport())
 end
 
 function Dta.expimp.refreshExportSelect()
-	Dta.ui.windowExpImp.ImportExport.ExportLoad:SetItems(Dta.expimp.loadExport())
+	Dta.Tools.ExpImp.window.ImportExport.ExportLoad:SetItems(Dta.expimp.loadExport())
 	if Dta.Tools.LoSa.window then
 		Dta.Tools.LoSa.window.constructions.nameLoad:SetItems(Dta.losa.loadConstructions())
 	end
 end
 
 function Dta.expimp.ExportTextClicked()
-	local name = Dta.ui.windowExpImp.ImportExport.ExportLoad:GetSelectedItem()
+	local name = Dta.Tools.ExpImp.window.ImportExport.ExportLoad:GetSelectedItem()
 	local savedSets = Dta.settings.get_savedsets("SavedSets")
 	if not name or name == "" then
 		Dta.CPrint(Dta.Locale.Prints.SelectExport)
@@ -65,12 +65,12 @@ function Dta.expimp.ExportTextClicked()
 		text = text .. Utility.Serialize.Inline(item)
 	end
 	text = text .. "\n}"
-	Dta.ui.windowExpImp.ImportExport.TextView:SetText(text)
-	Dta.ui.windowExpImp.ImportExport.TextView.hint_active = false
+	Dta.Tools.ExpImp.window.ImportExport.TextView:SetText(text)
+	Dta.Tools.ExpImp.window.ImportExport.TextView.hint_active = false
 end
 
 function Dta.expimp.ImportTextClicked()
-	local expimpUI = Dta.ui.windowExpImp.ImportExport
+	local expimpUI = Dta.Tools.ExpImp.window.ImportExport
 	Dta.expimp.ImportSerializedSet(expimpUI.NewName:GetText(), expimpUI.TextView:GetText())
 end
 

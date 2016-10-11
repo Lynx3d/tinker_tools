@@ -23,7 +23,7 @@ function Dta.expimp_ui.buildExpImpWindow()
 							y,
 							ExpImpWindowSettings.CLOSABLE,
 							ExpImpWindowSettings.MOVABLE,
-							Dta.expimp_ui.ExpImpWindowClosed,
+							Dta.expimp_ui.hideExpImpWindow,
 							Dta.ui.WindowMoved
 							)
 	newWindow.settings = ExpImpWindowSettings
@@ -96,36 +96,21 @@ function Dta.expimp_ui.buildExpImpWindow()
 end
 
 -- Show the toolbox window
-function Dta.expimp_ui.showExpImpWindow()
-	if Dta.ui.windowExpImp == nil then
-		Dta.ui.windowExpImp = Dta.expimp_ui.buildExpImpWindow()
-	else
-		Dta.ui.windowExpImp:SetVisible(true)
-		Dta.ui.windowExpImp.ImportExport.ExportLoad:SetEnabled(true)
-		Dta.ui.windowExpImp.ImportExport.ImportLoad:SetEnabled(true)
-	end
-	Dta.ui.activeExpImp = true
+function Dta.expimp_ui.showExpImpWindow(exim_window)
+	exim_window:SetVisible(true)
+	exim_window.ImportExport.ExportLoad:SetEnabled(true)
+	exim_window.ImportExport.ImportLoad:SetEnabled(true)
+	-- ??
 	Dta.ui.loadExpImp = "Saved"
 	Dta.expimp.refreshExportSelect()
 end
 
 -- Hide the toolbox window
-function Dta.expimp_ui.hideExpImpWindow()
-	Dta.ui.windowExpImp:SetVisible(false)
-	Dta.ui.windowExpImp:ClearKeyFocus()
-	Dta.ui.windowExpImp.ImportExport.ExportLoad:SetEnabled(false)
-	Dta.ui.windowExpImp.ImportExport.ImportLoad:SetEnabled(false)
---	Dta.ui.windowExpImp = nil
-	Dta.ui.activeExpImp = false
+function Dta.expimp_ui.hideExpImpWindow(exim_window)
+	exim_window:SetVisible(false)
+	exim_window:ClearKeyFocus()
+	exim_window.ImportExport.ExportLoad:SetEnabled(false)
+	exim_window.ImportExport.ImportLoad:SetEnabled(false)
 end
 
--- Toggle the toolbox window
-function Dta.expimp_ui.toggleExpImpWindow()
-	if Dta.ui.activeExpImp then Dta.expimp_ui.hideExpImpWindow()
-	else Dta.expimp_ui.showExpImpWindow() end
-end
-
---Called when the window has been closed
-function Dta.expimp_ui.ExpImpWindowClosed()
-	Dta.expimp_ui.hideExpImpWindow()
-end
+Dta.RegisterTool("ExpImp", Dta.expimp_ui.buildExpImpWindow, Dta.expimp_ui.showExpImpWindow, Dta.expimp_ui.hideExpImpWindow)

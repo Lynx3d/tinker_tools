@@ -115,10 +115,10 @@ function Dta.losa.refreshLoadSelect()
 	losa_ui.nameLoad:SetItems(Dta.losa.loadConstructions())
 	losa_ui.nameLoad:ResizeToFit()
 	losa_ui.nameLoad:SetWidth(245)
-	if Dta.ui.windowExpImp then
-		Dta.ui.windowExpImp.ImportExport.ExportLoad:SetItems(Dta.expimp.loadExport())
-		Dta.ui.windowExpImp.ImportExport.ExportLoad:ResizeToFit()
-		Dta.ui.windowExpImp.ImportExport.ExportLoad:SetWidth(245)
+	if Dta.Tools.ExpImp.window then
+		Dta.Tools.ExpImp.window.ImportExport.ExportLoad:SetItems(Dta.expimp.loadExport())
+		Dta.Tools.ExpImp.window.ImportExport.ExportLoad:ResizeToFit()
+		Dta.Tools.ExpImp.window.ImportExport.ExportLoad:SetWidth(245)
 	end
 end
 
