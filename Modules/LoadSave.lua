@@ -7,108 +7,114 @@ Dta.losa = {}
 --------------------------------------
 
 function Dta.losa.constructionLoadDeafaultSetsChanged()
-	if Dta.ui.windowLoSa.constructions.loadDeafaultSets:GetChecked() then
+	local losa_ui = Dta.Tools.LoSa.window.constructions
+	if losa_ui.loadDeafaultSets:GetChecked() then
 		Dta.ui.loadLoSa = "Default"
-		Dta.ui.windowLoSa.constructions.loadSavedSets:SetChecked(false)
-		Dta.ui.windowLoSa.constructions.loadTbxSets:SetChecked(false)
-		Dta.ui.windowLoSa.constructions.remove:SetVisible(false)
-		Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetVisible(false)
-		Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetChecked(false)
+		losa_ui.loadSavedSets:SetChecked(false)
+		losa_ui.loadTbxSets:SetChecked(false)
+		losa_ui.remove:SetVisible(false)
+		losa_ui.loadAtOriginalLoc:SetVisible(false)
+		losa_ui.loadAtOriginalLoc:SetChecked(false)
 		Dta.losa.constructionLoadNewItemsChanged()
 		Dta.losa.refreshLoadSelect()
-	elseif not Dta.ui.windowLoSa.constructions.loadSavedSets:GetChecked() and not Dta.ui.windowLoSa.constructions.loadTbxSets:GetChecked()then
-		Dta.ui.windowLoSa.constructions.loadDeafaultSets:SetChecked(true)
+	elseif not losa_ui.loadSavedSets:GetChecked() and not losa_ui.loadTbxSets:GetChecked()then
+		losa_ui.loadDeafaultSets:SetChecked(true)
 	end
 end
 
 function Dta.losa.constructionLoadSavedSetsChanged()
-	if Dta.ui.windowLoSa.constructions.loadSavedSets:GetChecked() then
+	local losa_ui = Dta.Tools.LoSa.window.constructions
+	if losa_ui.loadSavedSets:GetChecked() then
 		Dta.ui.loadLoSa = "Saved"
-		Dta.ui.windowLoSa.constructions.loadDeafaultSets:SetChecked(false)
-		Dta.ui.windowLoSa.constructions.loadTbxSets:SetChecked(false)
-		Dta.ui.windowLoSa.constructions.remove:SetVisible(true)
-		Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetVisible(true)
-		Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetChecked(false)
+		losa_ui.loadDeafaultSets:SetChecked(false)
+		losa_ui.loadTbxSets:SetChecked(false)
+		losa_ui.remove:SetVisible(true)
+		losa_ui.loadAtOriginalLoc:SetVisible(true)
+		losa_ui.loadAtOriginalLoc:SetChecked(false)
 		Dta.losa.constructionLoadNewItemsChanged()
 		Dta.losa.refreshLoadSelect()
-	elseif not Dta.ui.windowLoSa.constructions.loadDeafaultSets:GetChecked() and not Dta.ui.windowLoSa.constructions.loadTbxSets:GetChecked()then
-		Dta.ui.windowLoSa.constructions.loadSavedSets:SetChecked(true)
+	elseif not losa_ui.loadDeafaultSets:GetChecked() and not losa_ui.loadTbxSets:GetChecked()then
+		losa_ui.loadSavedSets:SetChecked(true)
 	end
 end
 
 function Dta.losa.constructionLoadTbxSetsChanged()
-	if Dta.ui.windowLoSa.constructions.loadTbxSets:GetChecked() then
+	local losa_ui = Dta.Tools.LoSa.window.constructions
+	if losa_ui.loadTbxSets:GetChecked() then
 		Dta.ui.loadLoSa = "Tbx"
-		Dta.ui.windowLoSa.constructions.loadSavedSets:SetChecked(false)
-		Dta.ui.windowLoSa.constructions.loadDeafaultSets:SetChecked(false)
-		Dta.ui.windowLoSa.constructions.remove:SetVisible(false)
-		Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetVisible(true)
-		Dta.ui.windowLoSa.constructions.loadAtOriginalLoc:SetChecked(false)
+		losa_ui.loadSavedSets:SetChecked(false)
+		losa_ui.loadDeafaultSets:SetChecked(false)
+		losa_ui.remove:SetVisible(false)
+		losa_ui.loadAtOriginalLoc:SetVisible(true)
+		losa_ui.loadAtOriginalLoc:SetChecked(false)
 		Dta.losa.constructionLoadNewItemsChanged()
 		Dta.losa.refreshLoadSelect()
-	elseif not Dta.ui.windowLoSa.constructions.loadSavedSets:GetChecked() and not Dta.ui.windowLoSa.constructions.loadDeafaultSets:GetChecked()then
-		Dta.ui.windowLoSa.constructions.loadTbxSets:SetChecked(true)
+	elseif not losa_ui.loadSavedSets:GetChecked() and not losa_ui.loadDeafaultSets:GetChecked()then
+		losa_ui.loadTbxSets:SetChecked(true)
 	end
 end
 
 function Dta.losa.constructionLoadNewItemsChanged()
-	if Dta.ui.windowLoSa.constructions.LoadNewItems:GetChecked() and Dta.ui.windowLoSa.constructions.loadSavedSets:GetChecked() then
-		Dta.ui.windowLoSa.constructions.LoadMultipleSets:SetVisible(true)
-	elseif Dta.ui.windowLoSa.constructions.LoadNewItems:GetChecked() and Dta.ui.windowLoSa.constructions.loadTbxSets:GetChecked() then
-		Dta.ui.windowLoSa.constructions.LoadMultipleSets:SetVisible(true)
+	local losa_ui = Dta.Tools.LoSa.window.constructions
+	if losa_ui.LoadNewItems:GetChecked() and losa_ui.loadSavedSets:GetChecked() then
+		losa_ui.LoadMultipleSets:SetVisible(true)
+	elseif losa_ui.LoadNewItems:GetChecked() and losa_ui.loadTbxSets:GetChecked() then
+		losa_ui.LoadMultipleSets:SetVisible(true)
 	else
-		Dta.ui.windowLoSa.constructions.LoadMultipleSets:SetVisible(false)
-		Dta.ui.windowLoSa.constructions.LoadMultipleSets:SetChecked(false)
+		losa_ui.LoadMultipleSets:SetVisible(false)
+		losa_ui.LoadMultipleSets:SetChecked(false)
 	end
 end
 
 function Dta.losa.constructionLoadMultipleSetsChanged()
-	if Dta.ui.windowLoSa.constructions.LoadMultipleSets:GetChecked() then
-		Dta.ui.windowLoSa.constructions.NrCopiesLabel:SetVisible(true)
-		Dta.ui.windowLoSa.constructions.OffsetLabel:SetVisible(true)
-		Dta.ui.windowLoSa.constructions.xLabel:SetVisible(true)
-		Dta.ui.windowLoSa.constructions.yLabel:SetVisible(true)
-		Dta.ui.windowLoSa.constructions.zLabel:SetVisible(true)
-		Dta.ui.windowLoSa.constructions.NrCopies:SetVisible(true)
-		Dta.ui.windowLoSa.constructions.x:SetVisible(true)
-		Dta.ui.windowLoSa.constructions.y:SetVisible(true)
-		Dta.ui.windowLoSa.constructions.z:SetVisible(true)
-	elseif not Dta.ui.windowLoSa.constructions.LoadMultipleSets:GetChecked() then
-		Dta.ui.windowLoSa.constructions.NrCopiesLabel:SetVisible(false)
-		Dta.ui.windowLoSa.constructions.OffsetLabel:SetVisible(false)
-		Dta.ui.windowLoSa.constructions.xLabel:SetVisible(false)
-		Dta.ui.windowLoSa.constructions.yLabel:SetVisible(false)
-		Dta.ui.windowLoSa.constructions.zLabel:SetVisible(false)
-		Dta.ui.windowLoSa.constructions.NrCopies:SetVisible(false)
-		Dta.ui.windowLoSa.constructions.NrCopies:SetText("")
-		Dta.ui.windowLoSa.constructions.x:SetVisible(false)
-		Dta.ui.windowLoSa.constructions.x:SetText("")
-		Dta.ui.windowLoSa.constructions.y:SetVisible(false)
-		Dta.ui.windowLoSa.constructions.y:SetText("")
-		Dta.ui.windowLoSa.constructions.z:SetVisible(false)
-		Dta.ui.windowLoSa.constructions.z:SetText("")
+	local losa_ui = Dta.Tools.LoSa.window.constructions
+	if losa_ui.LoadMultipleSets:GetChecked() then
+		losa_ui.NrCopiesLabel:SetVisible(true)
+		losa_ui.OffsetLabel:SetVisible(true)
+		losa_ui.xLabel:SetVisible(true)
+		losa_ui.yLabel:SetVisible(true)
+		losa_ui.zLabel:SetVisible(true)
+		losa_ui.NrCopies:SetVisible(true)
+		losa_ui.x:SetVisible(true)
+		losa_ui.y:SetVisible(true)
+		losa_ui.z:SetVisible(true)
+	elseif not losa_ui.LoadMultipleSets:GetChecked() then
+		losa_ui.NrCopiesLabel:SetVisible(false)
+		losa_ui.OffsetLabel:SetVisible(false)
+		losa_ui.xLabel:SetVisible(false)
+		losa_ui.yLabel:SetVisible(false)
+		losa_ui.zLabel:SetVisible(false)
+		losa_ui.NrCopies:SetVisible(false)
+		losa_ui.NrCopies:SetText("")
+		losa_ui.x:SetVisible(false)
+		losa_ui.x:SetText("")
+		losa_ui.y:SetVisible(false)
+		losa_ui.y:SetText("")
+		losa_ui.z:SetVisible(false)
+		losa_ui.z:SetText("")
 	end
 end
 
 function Dta.losa.constructionSaveClicked()
-	Dta.losa.saveGroupItemAttributes(Dta.ui.windowLoSa.constructions.name:GetText())
+	Dta.losa.saveGroupItemAttributes(Dta.Tools.LoSa.window.constructions.name:GetText())
 	Dta.losa.refreshLoadSelect()
 end
 
 function Dta.losa.constructionLoadClicked()
-	local losaUI = Dta.ui.windowLoSa.constructions
+	local losa_ui = Dta.Tools.LoSa.window.constructions
 	local cr = coroutine.wrap(Dta.losa.loadItemSet)
-	cr(losaUI.nameLoad:GetSelectedItem(), losaUI.loadAtOriginalLoc:GetChecked(), losaUI.LoadNewItems:GetChecked())
+	cr(losa_ui.nameLoad:GetSelectedItem(), losa_ui.loadAtOriginalLoc:GetChecked(), losa_ui.LoadNewItems:GetChecked())
 end
 
 function Dta.losa.constructionRemoveClicked()
-	Dta.losa.removeGroupItem(Dta.ui.windowLoSa.constructions.nameLoad:GetSelectedItem())
+	Dta.losa.removeGroupItem(Dta.Tools.LoSa.window.nameLoad:GetSelectedItem())
 end
 
 function Dta.losa.refreshLoadSelect()
-	Dta.ui.windowLoSa.constructions.nameLoad:SetItems(Dta.losa.loadConstructions())
-	Dta.ui.windowLoSa.constructions.nameLoad:ResizeToFit()
-	Dta.ui.windowLoSa.constructions.nameLoad:SetWidth(245)
+	local losa_ui = Dta.Tools.LoSa.window.constructions
+	losa_ui.nameLoad:SetItems(Dta.losa.loadConstructions())
+	losa_ui.nameLoad:ResizeToFit()
+	losa_ui.nameLoad:SetWidth(245)
 	if Dta.ui.windowExpImp then
 		Dta.ui.windowExpImp.ImportExport.ExportLoad:SetItems(Dta.expimp.loadExport())
 		Dta.ui.windowExpImp.ImportExport.ExportLoad:ResizeToFit()
@@ -117,17 +123,17 @@ function Dta.losa.refreshLoadSelect()
 end
 
 function Dta.losa.constructionPrintMaterials()
-	Dta.losa.printShoppingList(Dta.ui.windowLoSa.constructions.nameLoad:GetSelectedItem())
+	Dta.losa.printShoppingList(Dta.Tools.LoSa.window.constructions.nameLoad:GetSelectedItem())
 end
 
 function Dta.losa.constructionToClipboard()
 	local cr = coroutine.wrap(Dta.losa.copyToClipboard)
-	cr(Dta.ui.windowLoSa.constructions.nameLoad:GetSelectedItem())
+	cr(Dta.Tools.LoSa.window.constructions.nameLoad:GetSelectedItem())
 end
 
 function Dta.losa.constructionSearchKeyUp(frame, hEvent, key)
 	if key == "Return" then
-		Dta.ui.windowLoSa.constructions.nameLoad:SetItems(Dta.losa.filterConstructions())
+		Dta.Tools.LoSa.window.constructions.nameLoad:SetItems(Dta.losa.filterConstructions())
 	end
 end
 
@@ -173,7 +179,7 @@ function Dta.losa.loadConstructions()
 end
 
 function Dta.losa.filterConstructions()
-	local searchString = string.lower(Dta.ui.windowLoSa.constructions.search:GetText())
+	local searchString = string.lower(Dta.Tools.LoSa.window.constructions.search:GetText())
 	if searchString == "" then
 		return Dta.losa.sortedConstructions
 	end
@@ -202,7 +208,7 @@ end
 --------------------------------------
 
 function Dta.losa.copyToClipboard(name)
-	local losa_ui = Dta.ui.windowLoSa.constructions
+	local losa_ui = Dta.Tools.LoSa.window.constructions
 	local constructionSet, atOriginalLoc = Dta.losa.getConstructionSet()
 	atOriginalLoc = atOriginalLoc and losa_ui.loadAtOriginalLoc:GetChecked()
 
@@ -327,7 +333,7 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 	end
 	local settings = {}
 	local success = {}
-	local losa_ui = Dta.ui.windowLoSa.constructions
+	local losa_ui = Dta.Tools.LoSa.window.constructions
 	settings.coordX, success.x = Dta.ui.checkNumber(losa_ui.x:GetText(), 0)
 	settings.coordY, success.y = Dta.ui.checkNumber(losa_ui.y:GetText(), 0)
 	settings.coordZ, success.z = Dta.ui.checkNumber(losa_ui.z:GetText(), 0)

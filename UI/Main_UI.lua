@@ -8,9 +8,6 @@ Dta.ui.context_top:SetStrata("topmost")
 Dta.ui.windowtest = nil
 Dta.ui.active = false
 
-Dta.ui.windowLoSa = nil
-Dta.ui.activeLoSa = false
-
 Dta.ui.windowExpImp = nil
 Dta.ui.activeExpImp = false
 
@@ -371,7 +368,7 @@ function Dta.ui.buildMainWindow()
 	Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow, 8, 160, 160, nil, Dta.Locale.Buttons.ScaleWindow, nil, Dta.Tools.Scale.Toggle)
 	Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow, 157, 160, 160, nil, Dta.Locale.Buttons.OffsetCalc, nil, Dta.Tools.Offset.Toggle)
 	Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow, 8, 187, 160, nil, Dta.Locale.Buttons.CopyPaste, nil, Dta.Tools.CoPa.Toggle)
-	Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow, 157, 187, 160, nil, Dta.Locale.Buttons.LoadSave, nil, Dta.ui.modifySaveButtonClicked)
+	Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow, 157, 187, 160, nil, Dta.Locale.Buttons.LoadSave, nil, Dta.Tools.LoSa.Toggle)
 	--Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 290, 150, 160, nil, Dta.Locale.Buttons.ImportExport, nil, Dta.ui.modifyImpExpButtonClicked)
 	Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow, 8, 214, 160, nil, Dta.Locale.Buttons.TribalMagic, nil, Dta.ui.modifyDFlyingButtonClicked)
 	Mainwindow.itemDetails.MoreBtn = Dta.ui.createButton("itemDetailMoreBtn", Mainwindow, 157, 214, 160, nil, Dta.Locale.Buttons.More, nil, Dta.ui.moreBtnClicked)
@@ -426,7 +423,6 @@ function Dta.ui.hideMainWindow()
 	for name, tool in pairs(Dta.Tools) do
 		if tool:IsActive() then tool.Toggle() end
 	end
-	if Dta.ui.activeLoSa then Dta.losa_ui.hideLoSaWindow() end
 	if Dta.ui.activeExpImp then Dta.expimp_ui.hideExpImpWindow() end
 	if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
 	if Dta.ui.activeFlying then Dta.flying_ui.hideFlyingWindow() end
@@ -454,10 +450,6 @@ end
 -------------------------------
 -- CALLBACKS FOR WINDOW BUTTONS
 -------------------------------
-
-function Dta.ui.modifySaveButtonClicked()
-Dta.losa_ui.toggleLoSaWindow()
-end
 
 function Dta.ui.modifyImpExpButtonClicked()
 Dta.expimp_ui.toggleExpImpWindow()

@@ -43,8 +43,8 @@ end
 
 function Dta.expimp.refreshExportSelect()
 	Dta.ui.windowExpImp.ImportExport.ExportLoad:SetItems(Dta.expimp.loadExport())
-	if Dta.ui.windowLoSa then
-		Dta.ui.windowLoSa.constructions.nameLoad:SetItems(Dta.losa.loadConstructions())
+	if Dta.Tools.LoSa.window then
+		Dta.Tools.LoSa.window.constructions.nameLoad:SetItems(Dta.losa.loadConstructions())
 	end
 end
 

@@ -27,7 +27,7 @@ function Dta.losa_ui.buildLoSaWindow()
 							y,
 							LoSaWindowSettings.CLOSABLE,
 							LoSaWindowSettings.MOVABLE,
-							Dta.losa_ui.LoSaWindowClosed,
+							Dta.losa_ui.hideLoSaWindow,
 							Dta.ui.WindowMoved
 							)
 	newWindow.settings = LoSaWindowSettings
@@ -108,35 +108,16 @@ function Dta.losa_ui.buildLoSaWindow()
 end
 
 -- Show the toolbox window
-function Dta.losa_ui.showLoSaWindow()
-	if Dta.ui.windowLoSa == nil then
-		Dta.ui.windowLoSa = Dta.losa_ui.buildLoSaWindow()
-	else
-		Dta.ui.windowLoSa:SetVisible(true)
-		Dta.ui.windowLoSa.constructions.nameLoad:SetEnabled(true)
-	end
-	Dta.ui.activeLoSa = true
+function Dta.losa_ui.showLoSaWindow(losa_window)
+	losa_window:SetVisible(true)
+	losa_window.constructions.nameLoad:SetEnabled(true)
 end
 
 -- Hide the toolbox window
-function Dta.losa_ui.hideLoSaWindow()
-	Dta.ui.windowLoSa:SetVisible(false)
-	Dta.ui.windowLoSa:ClearKeyFocus()
-	Dta.ui.windowLoSa.constructions.nameLoad:SetEnabled(false)
---	Dta.ui.windowLoSa = nil
---	Dta.ui.loadLoSa = "Default"
-	--Dta.constructions = {}
-	--Dta.constructionsdefaults = {}
-	Dta.ui.activeLoSa = false
+function Dta.losa_ui.hideLoSaWindow(losa_window)
+	losa_window:SetVisible(false)
+	losa_window:ClearKeyFocus()
+	losa_window.constructions.nameLoad:SetEnabled(false)
 end
 
--- Toggle the toolbox window
-function Dta.losa_ui.toggleLoSaWindow()
-	if Dta.ui.activeLoSa then Dta.losa_ui.hideLoSaWindow()
-	else Dta.losa_ui.showLoSaWindow() end
-end
-
---Called when the window has been closed
-function Dta.losa_ui.LoSaWindowClosed()
-	Dta.losa_ui.hideLoSaWindow()
-end
+Dta.RegisterTool("LoSa", Dta.losa_ui.buildLoSaWindow, Dta.losa_ui.showLoSaWindow, Dta.losa_ui.hideLoSaWindow)
