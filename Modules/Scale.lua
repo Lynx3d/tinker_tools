@@ -7,7 +7,7 @@ Dta.scale = {}
 --------------------------------------
 
 function Dta.scale.modifyScaleModeAbsChanged()
-	local scale_ui = Dta.ui.windowScale.modifyScale
+	local scale_ui = Dta.Tools.Scale.window.modifyScale
 	-- both checked means we are now switching mode
 	if scale_ui.modeAbs:GetChecked() and scale_ui.modeRel:GetChecked() then
 		scale_ui.modeRel:SetChecked(false)
@@ -19,7 +19,7 @@ function Dta.scale.modifyScaleModeAbsChanged()
 end
 
 function Dta.scale.modifyScaleModeRelChanged()
-	local scale_ui = Dta.ui.windowScale.modifyScale
+	local scale_ui = Dta.Tools.Scale.window.modifyScale
 	-- both checked means we are now switching mode
 	if scale_ui.modeRel:GetChecked() and scale_ui.modeAbs:GetChecked() then
 		scale_ui.modeAbs:SetChecked(false)
@@ -31,9 +31,9 @@ function Dta.scale.modifyScaleModeRelChanged()
 end
 
 function Dta.scale.modifyScaleButtonClicked()
-	Dta.scale.setItemScales(Dta.ui.windowScale.modifyScale.scale:GetText(),
-							Dta.ui.windowScale.modifyScale.modeRel:GetChecked(),
-							Dta.ui.windowScale.modifyScale.modeGrp:GetChecked())
+	Dta.scale.setItemScales(Dta.Tools.Scale.window.modifyScale.scale:GetText(),
+							Dta.Tools.Scale.window.modifyScale.modeRel:GetChecked(),
+							Dta.Tools.Scale.window.modifyScale.modeGrp:GetChecked())
 end
 
 function Dta.scale.modifyScaleResetButtonClicked()
@@ -41,11 +41,11 @@ function Dta.scale.modifyScaleResetButtonClicked()
 end
 
 function Dta.scale.fetchScaleButtonClicked()
-	if Dta.ui.windowScale.modifyScale.modeRel:GetChecked() then
-		Dta.ui.windowScale.modifyScale.scale:SetText("1")
+	if Dta.Tools.Scale.window.modifyScale.modeRel:GetChecked() then
+		Dta.Tools.Scale.window.modifyScale.scale:SetText("1")
 	elseif Dta.selectionCount == 1 then
 		local id, item = next(Dta.selectedItems)
-		Dta.ui.windowScale.modifyScale.scale:SetText(tostring(Dta.items.round(item.scale, 4)))
+		Dta.Tools.Scale.window.modifyScale.scale:SetText(tostring(Dta.items.round(item.scale, 4)))
 	end
 end
 

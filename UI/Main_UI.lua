@@ -8,9 +8,6 @@ Dta.ui.context_top:SetStrata("topmost")
 Dta.ui.windowtest = nil
 Dta.ui.active = false
 
-Dta.ui.windowScale = nil
-Dta.ui.activeScale = false
-
 Dta.ui.windowCopyPaste = nil
 Dta.ui.activeCopyPaste = false
 
@@ -377,7 +374,7 @@ function Dta.ui.buildMainWindow()
 	-- Tool Buttons
 	Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow, 8, 133, 160, nil, Dta.Locale.Buttons.MoveWindow, nil, Dta.Tools.Move.Toggle)
 	Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow, 157, 133, 160, nil, Dta.Locale.Buttons.RotateWindow, nil, Dta.Tools.Rotate.Toggle)
-	Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow, 8, 160, 160, nil, Dta.Locale.Buttons.ScaleWindow, nil, Dta.ui.modifyScaleButtonClicked)
+	Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow, 8, 160, 160, nil, Dta.Locale.Buttons.ScaleWindow, nil, Dta.Tools.Scale.Toggle)
 	Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow, 157, 160, 160, nil, Dta.Locale.Buttons.OffsetCalc, nil, Dta.ui.modifyMeasurementsButtonClicked)
 	Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow, 8, 187, 160, nil, Dta.Locale.Buttons.CopyPaste, nil, Dta.ui.modifyCoPaButtonClicked)
 	Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow, 157, 187, 160, nil, Dta.Locale.Buttons.LoadSave, nil, Dta.ui.modifySaveButtonClicked)
@@ -435,7 +432,6 @@ function Dta.ui.hideMainWindow()
 	for name, tool in pairs(Dta.Tools) do
 		if tool:IsActive() then tool.Toggle() end
 	end
-	if Dta.ui.activeScale then Dta.scale_ui.hideScaleWindow() end
 	if Dta.ui.activeCopyPaste then Dta.copa_ui.hideCopyPastewindow() end
 	if Dta.ui.activeLoSa then Dta.losa_ui.hideLoSaWindow() end
 	if Dta.ui.activeExpImp then Dta.expimp_ui.hideExpImpWindow() end
@@ -466,10 +462,6 @@ end
 -------------------------------
 -- CALLBACKS FOR WINDOW BUTTONS
 -------------------------------
-
-function Dta.ui.modifyScaleButtonClicked()
-Dta.scale_ui.toggleScaleWindow()
-end
 
 function Dta.ui.modifyCoPaButtonClicked()
 Dta.copa_ui.toggleCopyPastewindow()

@@ -27,7 +27,7 @@ function Dta.scale_ui.buildScaleWindow()
 							y,
 							ScaleWindowSettings.CLOSABLE,
 							ScaleWindowSettings.MOVABLE,
-							Dta.scale_ui.ScaleWindowClosed,
+							Dta.scale_ui.hideScaleWindow,
 							Dta.ui.WindowMoved
 							)
 	newWindow.settings = ScaleWindowSettings
@@ -72,30 +72,19 @@ function Dta.scale_ui.buildScaleWindow()
 end
 
 -- Show the toolbox window
-function Dta.scale_ui.showScaleWindow()
-	if Dta.ui.windowScale == nil then
-		Dta.ui.windowScale = Dta.scale_ui.buildScaleWindow()
-	else
-		Dta.ui.windowScale:SetVisible(true)
-	end
-	Dta.ui.activeScale = true
+function Dta.scale_ui.showScaleWindow(scale_window)
+	scale_window:SetVisible(true)
 end
 
 -- Hide the toolbox window
-function Dta.scale_ui.hideScaleWindow()
-	Dta.ui.windowScale:SetVisible(false)
-	Dta.ui.windowScale:ClearKeyFocus()
---	Dta.ui.windowScale = nil
-	Dta.ui.activeScale = false
-end
-
--- Toggle the toolbox window
-function Dta.scale_ui.toggleScaleWindow()
-	if Dta.ui.activeScale then Dta.scale_ui.hideScaleWindow()
-	else Dta.scale_ui.showScaleWindow() end
+function Dta.scale_ui.hideScaleWindow(scale_window)
+	scale_window:SetVisible(false)
+	scale_window:ClearKeyFocus()
 end
 
 --Called when the window has been closed
 function Dta.scale_ui.ScaleWindowClosed()
 	Dta.scale_ui.hideScaleWindow()
 end
+
+Dta.RegisterTool("Scale", Dta.scale_ui.buildScaleWindow, Dta.scale_ui.showScaleWindow, Dta.scale_ui.hideScaleWindow)
