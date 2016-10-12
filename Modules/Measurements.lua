@@ -191,6 +191,9 @@ function Dta.measurements.TransferClicked()
 			Dta.Tools.Move.Toggle()
 		end
 		local move = Dta.Tools.Move.window.modifyPosition
+		if not move.modeRel:GetChecked() then
+			move.modeRel:SetChecked(true)
+		end
 		Dta.measurements.TransferOffset({move.x, move.y, move.z}, mask, invert)
 	end
 	if transfer.ToCopa:GetChecked() then
