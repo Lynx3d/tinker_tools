@@ -7,6 +7,7 @@ Dta.ui.context_top = UI.CreateContext("Dta_Top")
 Dta.ui.context_top:SetStrata("topmost")
 Dta.ui.windowtest = nil
 Dta.ui.active = false
+Dta.ui.restore = {}
 
 Dta.ui.windowHelp = nil
 Dta.ui.activeHelp = false
@@ -402,6 +403,13 @@ function Dta.ui.showMainWindow()
 	end
 	Dta.ui.active = true
 	Dta.items.updateItemDetails()
+	if Dta.settings.get("RestoreTools") then
+		for name, active in pairs(Dta.ui.restore) do
+			if active then
+				Dta.Tools[name]:Toggle()
+			end
+		end
+	end
 end
 
 -- Hide the Main window
@@ -410,7 +418,11 @@ function Dta.ui.hideMainWindow()
 --	Dta.ui.windowtest = nil
 	Dta.ui.active = false
 	for name, tool in pairs(Dta.Tools) do
-		if tool:IsActive() then tool.Toggle() end
+		local active = tool:IsActive()
+		if active then
+			tool.Toggle()
+		end
+		Dta.ui.restore[name] = active
 	end
 	if Dta.ui.activeHelp then Dta.help_ui.hideHelpWindow() end
 end

@@ -62,6 +62,8 @@ function Dta.config_ui.buildConfigWindow()
 	Configwindow.Console[5] = Dta.ui.createCheckbox("Console_5", Configwindow, 170, 100, "#5", true, nil, nil)
 	Configwindow.Console[6] = Dta.ui.createCheckbox("Console_6", Configwindow, 170, 125, "#6", true, nil, nil)
 	Configwindow.Console[7] = Dta.ui.createCheckbox("Console_7", Configwindow, 170, 150, "#7", true, nil, nil)
+	-- Restore opened tool windows with main window
+	Configwindow.RestoreTools = Dta.ui.createCheckbox("RestoreTools", Configwindow, 20, 200, Dta.Locale.Text.RestoreTools, false, nil, nil)
 
 	Configwindow.Accept = Dta.ui.createButton("Config_Accept", Configwindow, 30, 260, nil, nil, Dta.Locale.Buttons.OK, nil, Dta.config_ui.applyButtonClicked)
 
@@ -89,6 +91,7 @@ function Dta.config_ui.loadConfig()
 		Configwindow.Console[i].textFrame:SetText(consoleName)
 		Configwindow.Console[i]:SetChecked(console_settings[i] == true)
 	end
+	Configwindow.RestoreTools:SetChecked(Dta.settings.get("RestoreTools"))
 end
 
 function Dta.config_ui.applyButtonClicked()
@@ -104,6 +107,7 @@ function Dta.config_ui.applyButtonClicked()
 		end
 	end
 	local consoles = Dta.settings.set("ConsoleOutput", consoles)
+	Dta.settings.set("RestoreTools", Configwindow.RestoreTools:GetChecked())
 	Dta.ui.windowConfig:SetVisible(false)
 end
 

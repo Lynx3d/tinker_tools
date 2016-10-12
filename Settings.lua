@@ -57,7 +57,8 @@ Dta.settings.defaults = {
 	ReskinwindowPosY = 400,
 	Language = "Auto",
 	WindowStyle = "default",
-	ConsoleOutput = { [1] = true }
+	ConsoleOutput = { [1] = true },
+	RestoreTools = false
 }
 
 Dta.settings.revisions = {
