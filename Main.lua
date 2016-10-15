@@ -250,13 +250,12 @@ function Dta.commandHandler(hEvent, command)
 				Dta.settings.set(name, val)
 			end
 		end
-		for _, window in pairs({ Dta.ui.windowtest, Dta.ui.windowMove, Dta.ui.windowRotate,
-					Dta.ui.windowScale, Dta.ui.windowCopyPaste, Dta.ui.windowLoSa, Dta.ui.windowHelp,
-					Dta.ui.windowExpImp, Dta.ui.windowAlphabet, Dta.ui.windowFlying,
-					Dta.ui.windowMeasurements, Dta.ui.windowReskin, Dta.ui.buttonMainToggle }) do
-			if window then
-				window:SetPoint("TOPLEFT", UIParent, "TOPLEFT", Dta.settings.get(window.settings.POS_X), Dta.settings.get(window.settings.POS_Y))
-			end
+		local elements = { Dta.ui.windowtest, Dta.ui.buttonMainToggle, Dta.ui.windowHelp }
+		for _, tool in pairs(Dta.Tools) do
+			table.insert(elements, tool.window)
+		end
+		for _, window in pairs(elements) do
+			window:SetPoint("TOPLEFT", UIParent, "TOPLEFT", Dta.settings.get(window.settings.POS_X), Dta.settings.get(window.settings.POS_Y))
 		end
 		Dta.CPrint("Positions reset")
 	elseif command == "help" then
