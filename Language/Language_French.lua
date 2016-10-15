@@ -335,6 +335,21 @@ et dans le fichier changelog.txt"
 Lang["French"].ChanceLog.Text2 = ""
 Lang["French"].ChanceLog.Text3 = ""
 
+---Reskin-----------------------------------------------------------------
+Lang["French"].Reskin = {}
+Lang["French"].Reskin.Label = "Reskin"
+Lang["French"].Reskin.Text1 = "\
+Le module reskin change l'apparence (skin) de vos blocs de construction.\
+Celà fonctionne avec le copier / coller donc avant de commencer, vous \
+devez copier quelquechose. (Vous pouvez aussi copier un set enregistré!) \
+Un fois terminé, vous pouvez coller la structure reskinnée."
+Lang["French"].Reskin.Text2 = "\
+<u>Description:</u>\
+- Ancien Skin: Le skin à remplacer.\
+- Nouveau Skin: Le skin qui remplacera l'ancien.\
+- Checkboxes: Sélectionner le type de blocs de construction à reskinner.\
+- Appliquer: Appliique les changements dans le presse papier et affiche un résumé."
+Lang["French"].Reskin.Text3 = ""
 ---Afterword--------------------------------------------------------------
 Lang["French"].Afterword = {}
 Lang["French"].Afterword.Label = "Remerciements"
@@ -562,6 +577,7 @@ Lang["French"].Text.Horizontal = "Horizontal"
 Lang["French"].Text.Vertical = "Vertical"
 Lang["French"].Text.ConsoleMessages = "Fenêtre de Messages"
 Lang["French"].Text.WindowStyle = "Style de fenêtre"
+Lang["French"].Text.RestoreTools = "Se souvenir des modules ouverts\nlors de la fermeture du module principal"
 Lang["French"].Text.NotIdleNotification = "L'opération précédente n'est pas terminée.\n Abandonner l'opération en cours d'éxécution?"
 Lang["French"].Text.ConfirmDeleteSet = "Effacer l'ensemble d'objet '%s'?"
 Lang["French"].Text.ConfirmUsePosition = "Le positionnement d'origine du set est à %.1fm .\nContinuer l'opération?"
@@ -577,6 +593,7 @@ Lang["French"].Text.Sphere = "Sphère"
 Lang["French"].Text.Pole = "Poteau"
 Lang["French"].Text.Disc = "Disque"
 Lang["French"].Text.NewName = "Nouv. nom"
+Lang["French"].Text.Category = "Catégorie"
 
 ----------------------------------------
 --Prints

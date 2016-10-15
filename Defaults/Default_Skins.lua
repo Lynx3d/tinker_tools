@@ -76,6 +76,7 @@ skin["Red Brick"] = {
 -------------
 skin["Blue Glowing"] = {
 	German    = "Blau Leuchtend",
+	French    = "Bleu Luminescent",
 	category  = "Glowing",
 	tile      = itemDB["I0F301FDE75740C8C,4D7CC1D2D79CF639,,,,,,"],
 	rectangle = itemDB["I113820C517D3C9FE,3CF58B7266CBD298,,,,,,"],
@@ -88,6 +89,7 @@ skin["Blue Glowing"] = {
 }
 skin["Green Glowing"] = {
 	German    = "Grün Leuchtend",
+	French    = "Vert Luminescent",
 	category  = "Glowing",
 	tile      = itemDB["IFF3ECC126AEDC433,48BA4E866E92D54F,,,,,,"],
 	rectangle = itemDB["I3BB1ECDA3E916BE0,4F120602C2840E5A,,,,,,"],
@@ -100,6 +102,7 @@ skin["Green Glowing"] = {
 }
 skin["Grey Glowing"] = {
 	German    = "Grau Leuchtend",
+	French    = "Gris Luminescent",
 	category  = "Glowing",
 	tile      = itemDB["I1133F573658C7042,EAD57D83CDFAC855,,,,,,"],
 	rectangle = itemDB["I2DD9F2C94E6979B7,383F5D46ABF1C010,,,,,,"],
@@ -112,6 +115,7 @@ skin["Grey Glowing"] = {
 }
 skin["Light Blue Glowing"] = {
 	German    = "Hellblau Leuchtend",
+	French    = "Bleu clair Luminescent",
 	category  = "Glowing",
 	tile      = itemDB["I3DECC99E323D824B,1F8296A8E764C228,,,,,,"],
 	rectangle = itemDB["I494A9A1659778A00,7DCE163D94247522,,,,,,"],
@@ -124,6 +128,7 @@ skin["Light Blue Glowing"] = {
 }
 skin["Light Green Glowing"] = {
 	German    = "Hellgrün Leuchtend",
+	French    = "Vert clair Luminescent",
 	category  = "Glowing",
 	tile      = itemDB["I5D90EDDD78815EBC,BB3CA2044F4E9391,,,,,,"],
 	rectangle = itemDB["I6D33EE872DEEE619,33BE373165603EDA,,,,,,"],
@@ -136,6 +141,7 @@ skin["Light Green Glowing"] = {
 }
 skin["Orange Glowing"] = {
 	German    = "Orange Leuchtend",
+	French    = "Orange Luminescent",
 	category  = "Glowing",
 	tile      = itemDB["IFE2A6E312F33700E,5B035A04FE131827,,,,,,"],
 	rectangle = itemDB["I511070740B1F83E5,0CC1D62A92317482,,,,,,"],
@@ -148,6 +154,7 @@ skin["Orange Glowing"] = {
 }
 skin["Pink Glowing"] = {
 	German    = "Pink Leuchtend",
+	French    = "Rose Luminescent",
 	category  = "Glowing",
 	tile      = itemDB["I457B916B34A1ADBE,21E234B5FBDAB077,,,,,,"],
 	rectangle = itemDB["I53DF679B1396F052,C77E96780A418398,,,,,,"],
@@ -160,6 +167,7 @@ skin["Pink Glowing"] = {
 }
 skin["Purple Glowing"] = {
 	German    = "Violett Leuchtend",
+	French    = "Violet Luminescent",
 	category  = "Glowing",
 	tile      = itemDB["I467AF2FB3E91183B,524C966DC4145D52,,,,,,"],
 	rectangle = itemDB["I65DCBDFC1DEF6E6F,DDDA86916DE73928,,,,,,"],
@@ -172,6 +180,7 @@ skin["Purple Glowing"] = {
 }
 skin["Red Glowing"] = {
 	German    = "Rot Leuchtend",
+	French    = "Rouge Luminescent",
 	category  = "Glowing",
 	tile      = itemDB["I4E2EE8C656C56F88,349CB0F4ABC52A58,,,,,,"],
 	rectangle = itemDB["I79A55C7E4D4CC7F4,01195B2832E4A0C0,,,,,,"],
@@ -184,6 +193,7 @@ skin["Red Glowing"] = {
 }
 skin["White Glowing"] = {
 	German    = "Weiß Leuchtend",
+	French    = "Blanc Luminescent",
 	category  = "Glowing",
 	tile      = itemDB["I6DB7D52C0E831124,16E67D5755EF86F1,,,,,,"],
 	rectangle = itemDB["I2605A810595AD4CC,2B1F409333A23932,,,,,,"],
@@ -196,6 +206,7 @@ skin["White Glowing"] = {
 }
 skin["Yellow Glowing"] = {
 	German    = "Gelb Leuchtend",
+	French    = "Jaune Luminescent",
 	category  = "Glowing",
 	tile      = itemDB["I327DC08A10394595,D5E0C35880ACF462,,,,,,"],
 	rectangle = itemDB["I05E680E05B706411,D02A1A3DF361F41F,,,,,,"],
@@ -305,6 +316,7 @@ skin["Tangerine Limestone"] = {
 -----------
 skin["Bronze"] = {
 	German    = "Bronze",
+	French    = "Bronze",
 	category  = "Metal",
 	tile      = itemDB["I5302F994283375AC,FCD4610995B98CBD,,,,,,"],
 	rectangle = itemDB["I3D535EBA5E2A951A,51513FD7EFDC8066,,,,,,"],
@@ -317,6 +329,7 @@ skin["Bronze"] = {
 }
 skin["Copper"] = {
 	German    = "Kupfer",
+	French    = "Cuivre",
 	category  = "Metal",
 	tile      = itemDB["I6AB0C4036E7F55BB,ECE46B0559DD0B8A,,,,,,"],
 	rectangle = itemDB["I3DD92F79356E473F,341511B9D21BB771,,,,,,"],
@@ -329,6 +342,7 @@ skin["Copper"] = {
 }
 skin["Gold"] = {
 	German    = "Gold",
+	French    = "Or",
 	category  = "Metal",
 	tile      = itemDB["I79BAED7B03B964C6,C03254E697824186,,,,,,"],
 	rectangle = itemDB["I4DBA84834765AD7A,58E33B690A17481A,,,,,,"],
@@ -341,6 +355,7 @@ skin["Gold"] = {
 }
 skin["Iron"] = {
 	German    = "Eisen",
+	French    = "Fer",
 	category  = "Metal",
 	tile      = itemDB["I7CBC98471899CF5C,8098132ADB130804,,,,,,"],
 	rectangle = itemDB["I11B9C2F02179AF9C,53B1A71B1E1D404E,,,,,,"],
@@ -353,6 +368,7 @@ skin["Iron"] = {
 }
 skin["Silver"] = {
 	German    = "Silber",
+	French    = "Argent",
 	category  = "Metal",
 	tile      = itemDB["I7F3829BB2914E927,16963BEEB07956DA,,,,,,"],
 	rectangle = itemDB["I1A8E12EF786B7B7D,F7C811C6EB17FC5B,,,,,,"],
@@ -781,6 +797,7 @@ skin["Glass"] = {
 }
 skin["Matte Black"] = {
 	German    = "Mattschwarz",
+	French    = "Noir mat",
 	tile      = itemDB["I21F02BCD3E046281,5BF69CFB2BA11883,,,,,,"],
 	rectangle = itemDB["I02B3816417EF32DF,289F777337601F2B,,,,,,"],
 	plank     = itemDB["I2FD487046088A2CC,4B09EC43ACD9314D,,,,,,"],
@@ -820,43 +837,53 @@ Dta.Defaults.Skins = skin
 Dta.Defaults.Skin_Categories = {
 	{
 		name = "All",
-		German = "Alles"
+		German = "Alles",
+		French = "Tous"
 	},
 	{
 		name = "Wood",
-		German = "Holz"
+		German = "Holz",
+		French = "Bois"
 	},
 	{
 		name = "Painted Wood",
-		German = "Bemaltes Holz"
+		German = "Bemaltes Holz",
+		French = "Bois peint"
 	},
 	{
 		name = "Stone",
-		German = "Stein"
+		German = "Stein",
+		French = "Pierre"
 	},
 	{
 		name = "Limestone",
-		German = "Kalkstein"
+		German = "Kalkstein",
+		French = "Calcaire"
 	},
 	{
 		name = "Brick",
-		German = "Ziegel"
+		German = "Ziegel",
+		French = "Brique"
 	},
 	{
 		name = "Metal",
-		German = "Metall"
+		German = "Metall",
+		French = "Métal"
 	},
 	{
 		name = "Roof",
-		German = "Dach"
+		German = "Dach",
+		French = "Toit"
 	},
 	{
 		name = "Glowing",
-		German = "Leuchtend"
+		German = "Leuchtend",
+		French = "Luminescent"
 	},
 	{
 		name = "Miscellanious",
-		German = "Sonstiges"
+		German = "Sonstiges",
+		French = "Divers"
 	}
 }
 
