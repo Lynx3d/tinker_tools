@@ -1,3 +1,14 @@
+Version 1.2.4
+- Add new Metal, Matte and Glowing building blocks to skin database
+- Add category filters to skin selection in Reskin and Alfiebet tools
+- Separate input values for absolute and relative modes.
+  This should lower the danger to move items to invalid coordinates.
+  Note: transfering from the Offset Calculator automatically sets the Move tool
+  to relative mode now.
+- New config setting: "Remember opened tools when closing main window"
+  This will restore tool windows when re-opening the main window
+- Tab and Return now react on key-down rather than key-up to match the native UI
+
 Version 1.2.3
 - Copy/Paste now allows adjusting the flicker reduction amplitude
 - Flicker reduction now uses a low discrepancy sequecne to avoid repeating offsets
