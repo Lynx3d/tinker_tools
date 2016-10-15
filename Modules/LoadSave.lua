@@ -107,7 +107,7 @@ function Dta.losa.constructionLoadClicked()
 end
 
 function Dta.losa.constructionRemoveClicked()
-	Dta.losa.removeGroupItem(Dta.Tools.LoSa.window.nameLoad:GetSelectedItem())
+	Dta.losa.removeGroupItem(Dta.Tools.LoSa.window.constructions.nameLoad:GetSelectedItem())
 end
 
 function Dta.losa.refreshLoadSelect()
