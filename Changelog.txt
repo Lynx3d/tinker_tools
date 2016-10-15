@@ -1,4 +1,8 @@
 Version 1.2.4
+- Fix lua errors in Copy & Paste
+- Fix lua errors in Load & Save
+
+Version 1.2.4
 - Add new Metal, Matte and Glowing building blocks to skin database
 - Add category filters to skin selection in Reskin and Alfiebet tools
 - Separate input values for absolute and relative modes.
