@@ -9,7 +9,7 @@ Dta.copa.CountedItems = 0
 --------------------------------------
 
 function Dta.copa.CopaOffsetChanged()
-	local copa_ui = Dta.Tools.CoPa.copyPaste.window
+	local copa_ui = Dta.Tools.CoPa.window.copyPaste
 	if copa_ui.multiplyOffsets:GetChecked() then
 		copa_ui.NewItemNr:SetVisible(true)
 		copa_ui.NewItemNrLabel:SetVisible(true)
@@ -23,28 +23,28 @@ function Dta.copa.CopaOffsetChanged()
 end
 
 function Dta.copa.CopaNewItemChanged()
-	if Dta.Tools.CoPa.copyPaste.window.NewItem:GetChecked() then
-		Dta.Tools.CoPa.copyPaste.window.Bags:SetVisible(true)
-		Dta.Tools.CoPa.copyPaste.window.Bank:SetVisible(true)
+	if Dta.Tools.CoPa.window.copyPaste.NewItem:GetChecked() then
+		Dta.Tools.CoPa.window.copyPaste.Bags:SetVisible(true)
+		Dta.Tools.CoPa.window.copyPaste.Bank:SetVisible(true)
 	else
-		Dta.Tools.CoPa.copyPaste.window.Bags:SetVisible(false)
-		Dta.Tools.CoPa.copyPaste.window.Bank:SetVisible(false)
+		Dta.Tools.CoPa.window.copyPaste.Bags:SetVisible(false)
+		Dta.Tools.CoPa.window.copyPaste.Bank:SetVisible(false)
 	end
 end
 
 function Dta.copa.FlickerRedChanged(self)
 	if self:GetChecked() then
-		Dta.Tools.CoPa.copyPaste.window.flickerAmplitude:SetVisible(true)
+		Dta.Tools.CoPa.window.copyPaste.flickerAmplitude:SetVisible(true)
 	else
-		Dta.Tools.CoPa.copyPaste.window.flickerAmplitude:SetVisible(false)
+		Dta.Tools.CoPa.window.copyPaste.flickerAmplitude:SetVisible(false)
 	end
 end
 
 function Dta.copa.PivotChanged(self)
 	if self:GetChecked() then
-		Dta.Tools.CoPa.copyPaste.window.pickPivotBtn:SetVisible(true)
+		Dta.Tools.CoPa.window.copyPaste.pickPivotBtn:SetVisible(true)
 	else
-		Dta.Tools.CoPa.copyPaste.window.pickPivotBtn:SetVisible(false)
+		Dta.Tools.CoPa.window.copyPaste.pickPivotBtn:SetVisible(false)
 	end
 end
 
@@ -119,7 +119,7 @@ end
 function Dta.copa.checkInput()
 	local values = {}
 	local success = {}
-	local copa_ui = Dta.Tools.CoPa.copyPaste.window
+	local copa_ui = Dta.Tools.CoPa.window.copyPaste
 
 	if copa_ui.x:GetChecked() then
 		values.coordX, success.x = Dta.ui.checkNumber(copa_ui.xOffset:GetText(), 0)
@@ -392,7 +392,7 @@ end
 -- selectively copy items values
 function Dta.copa.genNewDetails(details, settings)
 	local new_details = { type = details.type }
-	local copa_ui = Dta.Tools.CoPa.copyPaste.window
+	local copa_ui = Dta.Tools.CoPa.window.copyPaste
 	new_details.coordX = copa_ui.x:GetChecked() and details.coordX + settings.coordX or nil
 	new_details.coordY = copa_ui.y:GetChecked() and details.coordY + settings.coordY or nil
 	new_details.coordZ = copa_ui.z:GetChecked() and details.coordZ + settings.coordZ or nil
