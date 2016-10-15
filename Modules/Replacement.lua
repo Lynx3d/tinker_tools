@@ -31,9 +31,10 @@ function Dta.Replacement.loadSkins(category)
 end
 
 -- fonts need plank, tile and pole, not all skins have them:
-function Dta.Replacement.loadAlphabetSkins()
+function Dta.Replacement.loadAlphabetSkins(category)
 	local skins, translation = {}, {}
-	for name, skin in pairs(Dta.Defaults.Skins) do
+	local skin_table = category and Dta.Defaults.Skin_Category_Index[category] or Dta.Defaults.Skins
+	for name, skin in pairs(skin_table) do
 		if skin.tile and skin.plank and skin.pole then
 			local name_local = skin[Dta.Language] or name
 			table.insert(skins, name_local)

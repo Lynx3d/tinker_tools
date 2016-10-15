@@ -39,6 +39,12 @@ function Dta.alphabet.FontSelected(font)
 
 end
 
+function Dta.alphabet.FilterChanged()
+	local alphabet_ui = Dta.Tools.Alfiebet.window.Alphabet
+	local category = alphabet_ui.FilterSelect:GetSelectedValue()
+	alphabet_ui.TypeLoad:SetItems(Dta.Replacement.loadAlphabetSkins(category))
+end
+
 function Dta.alphabet.loadSize()
 	local items = {}
 	if Dta.alphabet.Size then

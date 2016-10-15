@@ -45,34 +45,38 @@ function Dta.alphabet_ui.buildWindow()
 	-------------------------------
 	--ITEM DETAILS
 	-------------------------------
-	Alphabetwindow.Alphabet = Dta.ui.createFrame("Alphabet", Alphabetwindow, 10, 5, Alphabetwindow:GetWidth()-20, Alphabetwindow:GetHeight()-20)
-	Alphabetwindow.Alphabet:SetLayer(30)
+	local alphabet = Dta.ui.createFrame("Alphabet", Alphabetwindow, 10, 5, Alphabetwindow:GetWidth()-20, Alphabetwindow:GetHeight()-20)
+	alphabet:SetLayer(30)
 	--Alphabetwindow.modifyRotation:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
-	Alphabetwindow.Alphabet.WordLabel2 = Dta.ui.createText("AlphabetWordLabel", Alphabetwindow.Alphabet, 0, 0, Dta.Locale.Text.Word, 14)
-	Alphabetwindow.Alphabet.Word = Dta.ui.createTextfield("AlphabetWord", Alphabetwindow.Alphabet, 70, 0, 220)
+	alphabet.WordLabel2 = Dta.ui.createText("AlphabetWordLabel", alphabet, 0, 0, Dta.Locale.Text.Word, 14)
+	alphabet.Word = Dta.ui.createTextfield("AlphabetWord", alphabet, 70, 0, 220)
 
-	Alphabetwindow.Alphabet.FontLabel = Dta.ui.createText("AlphabetFontLabel", Alphabetwindow.Alphabet, 0, 30, Dta.Locale.Text.Font, 14)
-	Alphabetwindow.Alphabet.FontLoad = Dta.ui.createDropdown("AlphabetFontLoad", Alphabetwindow.Alphabet, 70, 30, 220)
-	Alphabetwindow.Alphabet.FontLoad:SetItems(Dta.alphabet.loadFonts())
-	Alphabetwindow.Alphabet.FontLoad.Event.ItemSelect = function(view, item) Dta.alphabet.FontSelected(item) end
+	alphabet.FontLabel = Dta.ui.createText("AlphabetFontLabel", alphabet, 0, 25, Dta.Locale.Text.Font, 14)
+	alphabet.FontLoad = Dta.ui.createDropdown("AlphabetFontLoad", alphabet, 70, 25, 220)
+	alphabet.FontLoad:SetItems(Dta.alphabet.loadFonts())
+	alphabet.FontLoad.Event.ItemSelect = function(view, item) Dta.alphabet.FontSelected(item) end
 
-	Alphabetwindow.Alphabet.SizeLabel = Dta.ui.createText("AlphabetSizeLabel", Alphabetwindow.Alphabet, 0, 60, Dta.Locale.Text.Size, 14)
-	Alphabetwindow.Alphabet.SizeLoad = Dta.ui.createDropdown("AlphabetSizeLoad", Alphabetwindow.Alphabet, 70, 60, 100)
-	Alphabetwindow.Alphabet.SizeLoad:SetItems(Dta.alphabet.loadSize())
+	alphabet.SizeLabel = Dta.ui.createText("AlphabetSizeLabel", alphabet, 0, 50, Dta.Locale.Text.Size, 14)
+	alphabet.SizeLoad = Dta.ui.createDropdown("AlphabetSizeLoad", alphabet, 70, 50, 100)
+	alphabet.SizeLoad:SetItems(Dta.alphabet.loadSize())
 
-	Alphabetwindow.Alphabet.TypeLabel = Dta.ui.createText("AlphabetTypeLabel", Alphabetwindow.Alphabet, 0, 90, Dta.Locale.Text.Skin, 14)
-	Alphabetwindow.Alphabet.TypeLoad = Dta.ui.createDropdown("AlphabetTypeLoad", Alphabetwindow.Alphabet, 70, 90, 220)
-	Alphabetwindow.Alphabet.TypeLoad:SetItems(Dta.Replacement.loadAlphabetSkins())
+	alphabet.FilterLabel = Dta.ui.createText("AlphabetSkinFilter", alphabet, 0, 75, Dta.Locale.Text.Category, 14)
+	alphabet.FilterSelect = Dta.ui.createDropdown("AlphabetCategorySelect", alphabet, 70, 75, 220)
+	alphabet.FilterSelect:SetItems(Dta.Replacement.loadSkinCategories())
+	alphabet.FilterSelect:SetSelectedIndex(1)
+	alphabet.FilterSelect.Event.ItemSelect = Dta.alphabet.FilterChanged
+	alphabet.TypeLabel = Dta.ui.createText("AlphabetTypeLabel", alphabet, 0, 100, Dta.Locale.Text.Skin, 14)
+	alphabet.TypeLoad = Dta.ui.createDropdown("AlphabetTypeLoad", alphabet, 70, 100, 220)
+	alphabet.TypeLoad:SetItems(Dta.Replacement.loadAlphabetSkins())
 
-	Alphabetwindow.Alphabet.modeHorizontal = Dta.ui.createCheckbox("AlphabetmodeHorizontal", Alphabetwindow.Alphabet, 10, 120, Dta.Locale.Text.Horizontal, true, nil, Dta.alphabet.AlphabetmodeHorizontalChanged)
-	Alphabetwindow.Alphabet.modeVertical = Dta.ui.createCheckbox("AlphabetmodeVertical", Alphabetwindow.Alphabet, 170, 120, Dta.Locale.Text.Vertical, false, nil, Dta.alphabet.AlphabetmodeVerticalChanged)
+	alphabet.modeHorizontal = Dta.ui.createCheckbox("AlphabetmodeHorizontal", alphabet, 10, 125, Dta.Locale.Text.Horizontal, true, nil, Dta.alphabet.AlphabetmodeHorizontalChanged)
+	alphabet.modeVertical = Dta.ui.createCheckbox("AlphabetmodeVertical", alphabet, 170, 125, Dta.Locale.Text.Vertical, false, nil, Dta.alphabet.AlphabetmodeVerticalChanged)
 
-	Alphabetwindow.Alphabet.load = Dta.ui.createButton("AlphabetLoad", Alphabetwindow.Alphabet, 0, 150, nil, nil, Dta.Locale.Buttons.LoadWord, nil, Dta.alphabet.AlphabetLoadClicked)
-	Alphabetwindow.Alphabet.printReqs = Dta.ui.createButton("AlphabetPrintReqs", Alphabetwindow.Alphabet, 165, 150, nil, nil, Dta.Locale.Buttons.PrintMaterials, nil, Dta.alphabet.AlphabetPrintMaterials)
+	alphabet.load = Dta.ui.createButton("AlphabetLoad", alphabet, 0, 150, nil, nil, Dta.Locale.Buttons.LoadWord, nil, Dta.alphabet.AlphabetLoadClicked)
+	alphabet.printReqs = Dta.ui.createButton("AlphabetPrintReqs", alphabet, 165, 150, nil, nil, Dta.Locale.Buttons.PrintMaterials, nil, Dta.alphabet.AlphabetPrintMaterials)
 
-	-- TODO: temp fix for new window hierarchy
-	newWindow.Alphabet = Alphabetwindow.Alphabet
+	newWindow.Alphabet = alphabet
 	return newWindow
 end
 
@@ -81,6 +85,7 @@ function Dta.alphabet_ui.showWindow(ab_window)
 	ab_window:SetVisible(true)
 	ab_window.Alphabet.FontLoad:SetEnabled(true)
 	ab_window.Alphabet.SizeLoad:SetEnabled(true)
+	ab_window.Alphabet.FilterSelect:SetEnabled(true)
 	ab_window.Alphabet.TypeLoad:SetEnabled(true)
 end
 
@@ -89,6 +94,7 @@ function Dta.alphabet_ui.hideWindow(ab_window)
 	ab_window:SetVisible(false)
 	ab_window.Alphabet.FontLoad:SetEnabled(false)
 	ab_window.Alphabet.SizeLoad:SetEnabled(false)
+	ab_window.Alphabet.FilterSelect:SetEnabled(false)
 	ab_window.Alphabet.TypeLoad:SetEnabled(false)
 end
 
