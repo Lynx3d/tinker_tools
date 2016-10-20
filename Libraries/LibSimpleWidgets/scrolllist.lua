@@ -117,7 +117,7 @@ local function ItemIsSelectable(self, index)
 end
 
 local function WheelForward(self)
-  if self.contentHeight < self:GetHeight() then
+  if self.contentHeight <= self:GetHeight() then
     return
   end
 
@@ -127,7 +127,7 @@ local function WheelForward(self)
 end
 
 local function WheelBack(self)
-  if self.contentHeight < self:GetHeight() then
+  if self.contentHeight <= self:GetHeight() then
     return
   end
 

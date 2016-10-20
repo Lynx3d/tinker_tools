@@ -557,6 +557,9 @@ Functions
 **SetCloseButtonVisible(visible)**  
 Sets whether the close button is displayed in the top right corner of the window.
 
+Events
+------
+
 **Close()**  
 Triggered when the window is closed by clicking the close button.
 
