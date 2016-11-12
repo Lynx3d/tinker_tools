@@ -88,8 +88,6 @@ function Dta.copa.pasteButtonClicked()
 		local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
 		if missing then
 			Dta.losa.printMissingItems(missing, shoppingList, Dta.Locale.Prints.NotPasteInventory)
-			-- debug
-			dump(shoppingList)
 			return
 		end
 		Dta.items.DeselectAll()
