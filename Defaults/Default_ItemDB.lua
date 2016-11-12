@@ -917,7 +917,7 @@ Dta.Defaults.ItemDB =
 	-- Limestone --
 	---------------
 	-- Limestone
-	["I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,"] =
+	["I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,"] =
 	{
 		name = "Building Block: Limestone Square",
 		shape = "tile"
