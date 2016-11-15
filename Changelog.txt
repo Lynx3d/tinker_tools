@@ -1,4 +1,10 @@
-Version 1.2.4
+Version 1.2.6
+- Update French localization
+- Update included LibSimpleWidget to fix drop-down wheel scrolling bug
+- Fix item type ID of Limestone Squares
+- Remove debug output that accidentally got commited
+
+Version 1.2.5
 - Fix lua errors in Copy & Paste
 - Fix lua errors in Load & Save
 
