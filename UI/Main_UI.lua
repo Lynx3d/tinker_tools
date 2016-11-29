@@ -478,6 +478,8 @@ function Dta.ui.clearSelectionButtonClicked()
 		-- already nil it here, item updates are not reliable when we lost sync unfortunately
 		Dta.selectedItems[id] = nil
 	end
+	Dta.selectionCount = 0
+	Dta.items.updateItemDetails()
 end
 
 -------------------------------
