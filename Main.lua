@@ -305,6 +305,8 @@ function Dta.tick(handle)
 				Command.Dimension.Layout.Place(action.id, {scale=action.amount})
 			elseif action.op == "move" then
 				Command.Dimension.Layout.Place(action.id, {coordX=action.x, coordY=action.y, coordZ=action.z})
+			elseif action.op == "pickup" then
+				Command.Dimension.Layout.Pickup(action.id)
 			elseif action.op == "rotate" then
 				Command.Dimension.Layout.Place(action.id, {pitch=action.pitch, yaw=action.yaw, roll=action.roll})
 			elseif action.op == "select" then
