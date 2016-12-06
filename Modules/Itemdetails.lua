@@ -32,6 +32,10 @@ function Dta.items.QueueRotate(id, pitch, roll, yaw)
 	table.insert(Dta.pendingActions, {op="rotate", pitch=pitch, yaw=yaw, roll=roll, id=id})
 end
 
+function Dta.items.QueuePickup(id)
+	table.insert(Dta.pendingActions, {op="pickup", id=id})
+end
+
 function Dta.items.QueueSelect(id)
 	table.insert(Dta.pendingActions, {op="select", id=id})
 end
