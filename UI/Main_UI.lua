@@ -386,9 +386,11 @@ function Dta.ui.buildMainWindow()
 	-- Expanded
 	Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow, 157, 214, 160, nil, "Alfiebet", nil, Dta.Tools.Alfiebet.Toggle)
 	Mainwindow.itemDetails.ReskinBtn = Dta.ui.createButton("itemDetailReskinBtn", Mainwindow, 8, 241, 160, nil, Dta.Locale.Buttons.Reskin, nil, Dta.Tools.Reskin.Toggle)
-	Mainwindow.itemDetails.LessBtn = Dta.ui.createButton("itemDetailLessBtn", Mainwindow, 157, 241, 160, nil, Dta.Locale.Buttons.Less, nil, Dta.ui.lessBtnClicked)
+	Mainwindow.itemDetails.SelectionsBtn = Dta.ui.createButton("itemDetailSelectionBtn", Mainwindow, 157, 241, 160, nil, "<Selections>", nil, Dta.Tools.Select.Toggle)
+	Mainwindow.itemDetails.LessBtn = Dta.ui.createButton("itemDetailLessBtn", Mainwindow, 8, 268, 160, nil, Dta.Locale.Buttons.Less, nil, Dta.ui.lessBtnClicked)
 	Mainwindow.itemDetails.Alphabet:SetVisible(false)
 	Mainwindow.itemDetails.ReskinBtn:SetVisible(false)
+	Mainwindow.itemDetails.SelectionsBtn:SetVisible(false)
 	Mainwindow.itemDetails.LessBtn:SetVisible(false)
 
 	-- help button
@@ -473,15 +475,17 @@ function Dta.ui.moreBtnClicked()
 	local itemDetails = Dta.ui.windowtest.itemDetails
 	itemDetails.Alphabet:SetVisible(true)
 	itemDetails.ReskinBtn:SetVisible(true)
+	itemDetails.SelectionsBtn:SetVisible(true)
 	itemDetails.LessBtn:SetVisible(true)
 	itemDetails.MoreBtn:SetVisible(false)
-	Dta.ui.windowtest:SetContentHeight(MainWindowSettings.HEIGHT + 27)
+	Dta.ui.windowtest:SetContentHeight(MainWindowSettings.HEIGHT + 2*27)
 end
 
 function Dta.ui.lessBtnClicked()
 	local itemDetails = Dta.ui.windowtest.itemDetails
 	itemDetails.Alphabet:SetVisible(false)
 	itemDetails.ReskinBtn:SetVisible(false)
+	itemDetails.SelectionsBtn:SetVisible(false)
 	itemDetails.LessBtn:SetVisible(false)
 	itemDetails.MoreBtn:SetVisible(true)
 	Dta.ui.windowtest:SetContentHeight(MainWindowSettings.HEIGHT)
