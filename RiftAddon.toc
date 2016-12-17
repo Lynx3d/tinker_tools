@@ -99,6 +99,7 @@ RunOnStartup = {
   "UI/Measurements_UI.lua",
   "UI/Alphabet_UI.lua",
   "UI/Replacement_UI.lua",
+  "UI/Selections_UI.lua",
   "UI/Window.lua",
 
   "Modules/Itemdetails.lua",
@@ -113,6 +114,7 @@ RunOnStartup = {
   "Modules/Help.lua",
   "Modules/Flying.lua",
   "Modules/Replacement.lua",
+  "Modules/Selections.lua",
   "Modules/Alphabet.lua",
   "Modules/Measurements.lua"
 }
