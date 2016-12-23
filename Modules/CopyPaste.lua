@@ -402,6 +402,9 @@ function Dta.copa.genNewDetails(details, settings)
 end
 
 function Dta.copa.pasteClipboard(shoppingList, settings)
+	if settings.new_items then
+		Dta.StartRecordingAdds()
+	end
 	-- setup flicker reduction sequence
 	if settings.flicker_reduce then
 		settings.halton = Dta.Halton(2)
@@ -430,5 +433,9 @@ function Dta.copa.pasteClipboard(shoppingList, settings)
 		end
 		Dta.copa.applyFlickerOffset(new_details, settings)
 		Dta.copa.pasteSingleItem(new_details, shoppingList, settings.new_items)
+	end
+	if settings.new_items then
+		local paste_selection = Dta.FinishRecordingAdds()
+		Dta.Selections.SaveSelection("<last paste>", paste_selection)
 	end
 end

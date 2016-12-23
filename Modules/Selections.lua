@@ -1,6 +1,7 @@
 local Dta = select(2, ...)
 
 Dta.Selections = {}
+Dta.Selections.saved = {}
 
 function Dta.Selections.PickupClicked()
 	Dta.ui.showConfirmation("<Are you sure you want to pickup all selected items?", Dta.Selections.PickupSelection, nil, nil)
@@ -12,12 +13,14 @@ function Dta.Selections.PickupSelection()
 	end
 end
 
+function Dta.Selections.SaveSelection(name, set)
+	Dta.Selections.saved[name] = set
+	Dta.Selections.RefreshList()
+end
+
 function Dta.Selections.SaveSelectionClicked()
 	local selUI = Dta.Tools.Select.window
 	local name = selUI.name:GetText()
-	if not Dta.Selections.saved then
-		Dta.Selections.saved = {}
-	end
 
 	if not name or #name == 0 then
 		Dta.CPrint("<enter name>")
@@ -33,18 +36,19 @@ function Dta.Selections.SaveSelectionClicked()
 	for id, _ in pairs(Dta.selectedItems) do
 		new_set[id] = true
 	end
-	Dta.Selections.saved[name] = new_set
-	Dta.Selections.RefreshList()
+	Dta.Selections.SaveSelection(name, new_set)
 end
 
 function Dta.Selections.RefreshList()
-	local nameList = {}
-	if Dta.Selections.saved then
+	local selUI = Dta.Tools.Select.window
+	if selUI then
+		local nameList = {}
 		for name, _ in pairs(Dta.Selections.saved) do
 			table.insert(nameList, name)
 		end
+		-- TODO: sort alphabetically
+		selUI.nameList:SetItems(nameList)
 	end
-	Dta.Tools.Select.window.nameList:SetItems(nameList)
 end
 
 function Dta.Selections.DeleteSelectionClicked()
