@@ -125,11 +125,28 @@ function Dta.killProcess()
 	end
 end
 
+function Dta.StartRecordingAdds()
+	Dta.recordedAdds = {}
+end
+
+function Dta.FinishRecordingAdds()
+	local itemList = Dta.recordedAdds
+	Dta.recordedAdds = nil
+	return itemList
+end
+
+-------------------------
+-- Event Handlers
+-------------------------
+
 function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a dimension
 	if Dta.pending_add then
 		local id, _ = next(dimensionItem)
 		Dta.items.QueueSelection(id)
 		Dta.pending_add = false
+		if Dta.recordedAdds then
+			Dta.recordedAdds[id] = true
+		end
 		coroutine.resume(Dta.AddItem_Co)
 	end
 
