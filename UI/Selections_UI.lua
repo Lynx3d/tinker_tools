@@ -41,6 +41,18 @@ function Dta.ui.buildSelectionWindow()
 	newWindow.pickupBtn = Dta.ui.createButton("PickupBtn", selWindow, 160, 160, nil, nil,
 											  "<Pick Up>", nil, Dta.Selections.PickupClicked)
 
+	function newWindow:RefreshNameList()
+		local nameList = {}
+		for name, _ in pairs(Dta.Selections.saved) do
+			table.insert(nameList, name)
+		end
+		-- TODO: sort alphabetically
+		self.nameList:SetItems(nameList)
+	end
+
+	-- other tools can already have created selection sets
+	newWindow:RefreshNameList()
+
 	return newWindow
 end
 
