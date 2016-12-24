@@ -42,12 +42,7 @@ end
 function Dta.Selections.RefreshList()
 	local selUI = Dta.Tools.Select.window
 	if selUI then
-		local nameList = {}
-		for name, _ in pairs(Dta.Selections.saved) do
-			table.insert(nameList, name)
-		end
-		-- TODO: sort alphabetically
-		selUI.nameList:SetItems(nameList)
+		selUI:RefreshNameList()
 	end
 end
 
