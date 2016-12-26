@@ -13,7 +13,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -57,7 +57,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -68,7 +68,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -82,7 +82,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -93,7 +93,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -104,7 +104,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -115,7 +115,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606606006622,
             	roll = 4.2141221001657e-007,
             	scale = 0.25000002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -126,7 +126,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -137,7 +137,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -148,7 +148,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606606006622,
             	roll = 4.2141221001657e-007,
             	scale = 0.25000002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -159,7 +159,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -170,7 +170,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -192,7 +192,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606606006622,
             	roll = 4.2141221001657e-007,
             	scale = 0.25000002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -203,7 +203,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -214,7 +214,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -225,7 +225,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606606006622,
             	roll = 4.2141221001657e-007,
             	scale = 0.25000002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -236,7 +236,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -247,7 +247,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -258,7 +258,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -272,7 +272,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5606595277786,
                 	roll = -0,
                 	scale = 0.25,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -283,7 +283,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5606595277786,
                 	roll = -0,
                 	scale = 0.25,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -294,7 +294,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5606595277786,
                 	roll = -0,
                 	scale = 0.25,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -305,7 +305,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5606595277786,
                 	roll = -0,
                 	scale = 0.25,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -327,7 +327,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5606595277786,
                 	roll = -0,
                 	scale = 0.25,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -338,7 +338,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5606595277786,
                 	roll = -0,
                 	scale = 0.25,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -349,7 +349,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5606595277786,
                 	roll = -0,
                 	scale = 0.25,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -360,7 +360,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5606595277786,
                 	roll = -0,
                 	scale = 0.25,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 }
 
@@ -374,7 +374,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -385,7 +385,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -396,7 +396,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606597661972,
             	roll = -4.6720120394639e-007,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.178097486496
             },
             {
@@ -407,7 +407,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606606006622,
             	roll = 4.2141221001657e-007,
             	scale = 0.25000002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -440,7 +440,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606606006622,
             	roll = 4.2141221001657e-007,
             	scale = 0.25000002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -451,7 +451,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606597661972,
             	roll = 4.6720120394639e-007,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 1.178097486496
             },
             {
@@ -462,7 +462,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -473,7 +473,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -498,7 +498,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -509,7 +509,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -520,7 +520,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -553,7 +553,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -564,7 +564,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -575,7 +575,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -589,7 +589,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -600,7 +600,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -611,7 +611,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -644,7 +644,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -658,7 +658,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -669,7 +669,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -680,7 +680,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -691,7 +691,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -713,7 +713,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -724,7 +724,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -735,7 +735,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -746,7 +746,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -757,7 +757,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -768,7 +768,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -779,7 +779,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -793,7 +793,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -837,7 +837,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -848,7 +848,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -859,7 +859,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -873,7 +873,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -895,7 +895,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -909,7 +909,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -920,7 +920,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -931,7 +931,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -953,7 +953,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -964,7 +964,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -975,7 +975,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -986,7 +986,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606607198715,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -1000,7 +1000,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1011,7 +1011,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1055,7 +1055,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1066,7 +1066,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -1080,7 +1080,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1102,7 +1102,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1113,7 +1113,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1124,7 +1124,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -1138,7 +1138,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1182,7 +1182,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1204,7 +1204,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1215,7 +1215,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1226,7 +1226,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -1240,7 +1240,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1251,7 +1251,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1295,7 +1295,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1306,7 +1306,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -1320,7 +1320,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1331,7 +1331,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1342,7 +1342,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1375,7 +1375,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1386,7 +1386,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1397,7 +1397,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -1411,7 +1411,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1422,7 +1422,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1433,7 +1433,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1444,7 +1444,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606606006622,
             	roll = 4.2141221001657e-007,
             	scale = 0.25000002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -1455,7 +1455,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1466,7 +1466,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1488,7 +1488,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1499,7 +1499,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1510,7 +1510,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1521,7 +1521,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606606006622,
             	roll = 4.2141221001657e-007,
             	scale = 0.25000002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -1532,7 +1532,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -1546,7 +1546,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1557,7 +1557,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1568,7 +1568,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1612,7 +1612,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1623,7 +1623,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1634,7 +1634,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -1648,7 +1648,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1659,7 +1659,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1670,7 +1670,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1681,7 +1681,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606606006622,
             	roll = 4.2141221001657e-007,
             	scale = 0.25000002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -1692,7 +1692,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1703,7 +1703,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1714,7 +1714,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606606006622,
             	roll = 4.2141221001657e-007,
             	scale = 0.25000002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -1725,7 +1725,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1736,7 +1736,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1747,7 +1747,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1780,7 +1780,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1791,7 +1791,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -1805,7 +1805,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1816,7 +1816,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1827,7 +1827,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1838,7 +1838,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1849,7 +1849,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1882,7 +1882,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1893,7 +1893,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1904,7 +1904,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1915,7 +1915,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1937,7 +1937,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1984,7 +1984,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -1995,7 +1995,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2006,7 +2006,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2017,7 +2017,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2042,7 +2042,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2064,7 +2064,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2075,7 +2075,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2086,7 +2086,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2108,7 +2108,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -2122,7 +2122,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2144,7 +2144,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2166,7 +2166,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -2180,7 +2180,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2191,7 +2191,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2202,7 +2202,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2257,7 +2257,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2268,7 +2268,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -2282,7 +2282,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2293,7 +2293,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2326,7 +2326,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2337,7 +2337,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -2351,7 +2351,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2362,7 +2362,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2395,7 +2395,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -2409,7 +2409,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2420,7 +2420,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2431,7 +2431,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2453,7 +2453,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2464,7 +2464,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2475,7 +2475,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5606595277786,
             	roll = -0,
             	scale = 0.25,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -2491,7 +2491,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2535,7 +2535,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2546,7 +2546,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -2560,7 +2560,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2582,7 +2582,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2593,7 +2593,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2604,7 +2604,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2615,7 +2615,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634444952011,
                 	roll = 8.0068326724358e-007,
                 	scale = 0.37500008940697,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = 0.78539872169495
                 },
                 {
@@ -2626,7 +2626,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2637,7 +2637,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2648,7 +2648,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634444952011,
                 	roll = 8.0068326724358e-007,
                 	scale = 0.37500008940697,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = 0.78539872169495
                 },
                 {
@@ -2659,7 +2659,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2670,7 +2670,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2681,7 +2681,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634444952011,
                 	roll = 8.0068326724358e-007,
                 	scale = 0.37500008940697,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = 0.78539872169495
                 },
                 {
@@ -2692,7 +2692,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2703,7 +2703,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2714,7 +2714,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634444952011,
                 	roll = 8.0068326724358e-007,
                 	scale = 0.37500008940697,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = 0.78539872169495
                 },
                 {
@@ -2725,7 +2725,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2736,7 +2736,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 }
 
@@ -2750,7 +2750,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2761,7 +2761,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2772,7 +2772,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2783,7 +2783,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2805,7 +2805,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2816,7 +2816,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2827,7 +2827,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2838,7 +2838,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -2852,7 +2852,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2863,7 +2863,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2874,7 +2874,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634391307831,
                 	roll = 2.3359989427263e-006,
                 	scale = 0.37499994039536,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -1.1780965328217
                 },
                 {
@@ -2885,7 +2885,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634449720383,
                 	roll = 9.6924827630573e-007,
                 	scale = 0.37500008940697,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = 0.78539890050888
                 },
                 {
@@ -2918,7 +2918,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634449720383,
                 	roll = 9.6924827630573e-007,
                 	scale = 0.37500008940697,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = 0.78539890050888
                 },
                 {
@@ -2929,7 +2929,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634391307831,
                 	roll = -2.3359989427263e-006,
                 	scale = 0.37499994039536,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = 1.1780965328217
                 },
                 {
@@ -2940,7 +2940,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2951,7 +2951,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.5634431838989,
                 	roll = -0,
                 	scale = 0.37500002980232,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -2976,7 +2976,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2987,7 +2987,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -2998,7 +2998,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3031,7 +3031,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3042,7 +3042,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3053,7 +3053,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -3067,7 +3067,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3078,7 +3078,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3089,7 +3089,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3122,7 +3122,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -3136,7 +3136,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3147,7 +3147,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3158,7 +3158,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3169,7 +3169,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3191,7 +3191,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3202,7 +3202,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3213,7 +3213,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3224,7 +3224,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3235,7 +3235,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3246,7 +3246,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3257,7 +3257,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -3271,7 +3271,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3282,7 +3282,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3326,7 +3326,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3337,7 +3337,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -3351,7 +3351,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3373,7 +3373,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -3387,7 +3387,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3398,7 +3398,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3409,7 +3409,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3431,7 +3431,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3442,7 +3442,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3453,7 +3453,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3464,7 +3464,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -3478,7 +3478,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3489,7 +3489,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3533,7 +3533,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3544,7 +3544,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -3558,7 +3558,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3580,7 +3580,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3591,7 +3591,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3602,7 +3602,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -3616,7 +3616,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3627,7 +3627,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3682,7 +3682,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3693,7 +3693,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3704,7 +3704,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -3718,7 +3718,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3729,7 +3729,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3773,7 +3773,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3784,7 +3784,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -3798,7 +3798,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3809,7 +3809,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3820,7 +3820,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3853,7 +3853,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3864,7 +3864,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3875,7 +3875,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -3889,7 +3889,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3900,7 +3900,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3911,7 +3911,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3922,7 +3922,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634444952011,
             	roll = 8.0068326724358e-007,
             	scale = 0.37500008940697,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -3933,7 +3933,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3944,7 +3944,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3955,7 +3955,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634444952011,
             	roll = 8.0068326724358e-007,
             	scale = 0.37500008940697,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -3966,7 +3966,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3977,7 +3977,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -3988,7 +3988,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4010,7 +4010,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -4024,7 +4024,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4035,7 +4035,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4046,7 +4046,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4090,7 +4090,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4101,7 +4101,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4112,7 +4112,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -4126,7 +4126,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4137,7 +4137,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4148,7 +4148,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4159,7 +4159,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634444952011,
             	roll = 8.0068326724358e-007,
             	scale = 0.37500008940697,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -4170,7 +4170,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4181,7 +4181,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4192,7 +4192,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634444952011,
             	roll = 8.0068326724358e-007,
             	scale = 0.37500008940697,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = 0.78539872169495
             },
             {
@@ -4203,7 +4203,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4214,7 +4214,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4225,7 +4225,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4258,7 +4258,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4269,7 +4269,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -4283,7 +4283,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4294,7 +4294,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4305,7 +4305,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4316,7 +4316,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4393,7 +4393,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4404,7 +4404,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4415,7 +4415,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4426,7 +4426,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -4440,7 +4440,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4451,7 +4451,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4462,7 +4462,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4484,7 +4484,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -4498,7 +4498,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4509,7 +4509,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4542,7 +4542,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4553,7 +4553,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4564,7 +4564,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -4578,7 +4578,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4589,7 +4589,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4622,7 +4622,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -4636,7 +4636,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4647,7 +4647,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4658,7 +4658,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4713,7 +4713,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4724,7 +4724,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -4738,7 +4738,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4749,7 +4749,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4782,7 +4782,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4793,7 +4793,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -4807,7 +4807,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4818,7 +4818,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4851,7 +4851,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634437799454,
             	roll = -0,
             	scale = 0.375,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -4865,7 +4865,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4876,7 +4876,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4887,7 +4887,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4909,7 +4909,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4920,7 +4920,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             },
             {
@@ -4931,7 +4931,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5634431838989,
             	roll = -0,
             	scale = 0.37500002980232,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0
             }
 
@@ -4947,7 +4947,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = -0,
                 	roll = 1.5899275541306,
                 	scale = 0.74999994039536,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -1.5686401128769
                 },
                 {
@@ -4991,7 +4991,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = -0,
                 	roll = 1.5899275541306,
                 	scale = 0.74999994039536,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -1.5686401128769
                 },
                 {
@@ -5002,7 +5002,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = -0,
                 	roll = 1.5899275541306,
                 	scale = 0.74999994039536,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -1.5686401128769
                 }
 
@@ -5016,7 +5016,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = -2.7645044610836e-005,
 		roll = 1.5899823904037,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -1.5686680078506
 	},
 	{
@@ -5027,7 +5027,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = -0,
 		roll = 1.5899275541306,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -1.5686401128769
 	},
 	{
@@ -5038,7 +5038,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = -0,
 		roll = 1.5899275541306,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -1.5686401128769
 	},
 	{
@@ -5049,7 +5049,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = 1.5877363681793,
 		roll = 0.0030461822170764,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -0.78542602062225
 	},
 	{
@@ -5060,7 +5060,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = -0,
 		roll = 1.5899275541306,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -1.5686401128769
 	},
 	{
@@ -5071,7 +5071,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = -0,
 		roll = 1.5899275541306,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -1.5686401128769
 	},
 	{
@@ -5082,7 +5082,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = 1.5877363681793,
 		roll = 0.0030461822170764,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -0.78542602062225
 	},
 	{
@@ -5093,7 +5093,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = -0,
 		roll = 1.5899275541306,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -1.5686401128769
 	},
 	{
@@ -5104,7 +5104,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = -0,
 		roll = 1.5899275541306,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -1.5686401128769
 	},
 	{
@@ -5115,7 +5115,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = 1.5877366065979,
 		roll = 0.0030458448454738,
 		scale = 0.75,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -0.78542602062225
 	},
 	{
@@ -5126,7 +5126,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = -0,
 		roll = 1.5899275541306,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -1.5686401128769
 	},
 	{
@@ -5137,7 +5137,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = -0,
 		roll = 1.5899275541306,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -1.5686401128769
 	},
 	{
@@ -5148,7 +5148,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = 1.5877363681793,
 		roll = 0.0030461822170764,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -0.78542602062225
 	},
 	{
@@ -5159,7 +5159,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = -0,
 		roll = 1.5899275541306,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -1.5686401128769
 	},
 	{
@@ -5170,7 +5170,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = -0,
 		roll = 1.5899275541306,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -1.5686401128769
 	},
 	{
@@ -5181,7 +5181,7 @@ Font[1]["Lone Ranger"] = {
 		pitch = -2.7645044610836e-005,
 		roll = 1.5899823904037,
 		scale = 0.74999994039536,
-		type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+		type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
 		yaw = -1.5686680078506
 	},
 	{
@@ -5205,7 +5205,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5216,7 +5216,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5227,7 +5227,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5238,7 +5238,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5260,7 +5260,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5271,7 +5271,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5282,7 +5282,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5293,7 +5293,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -5307,7 +5307,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -5.6005490478128e-005,
             	roll = 1.5900074243546,
             	scale = 0.75000017881393,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -5329,7 +5329,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -5.6005490478128e-005,
             	roll = 1.5900074243546,
             	scale = 0.75000017881393,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -5340,7 +5340,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5846884250641,
             	roll = 0.0056268675252795,
             	scale = 0.75000017881393,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.1781224012375
             },
             {
@@ -5351,7 +5351,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.587733745575,
             	roll = 0.0030458443798125,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0.78542578220367
             },
             {
@@ -5384,7 +5384,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -1.5495498180389,
             	roll = 3.1385440826416,
             	scale = 0.75000023841858,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0.78534346818924
             },
             {
@@ -5395,7 +5395,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -1.5465041399002,
             	roll = 3.1359610557556,
             	scale = 0.75000017881393,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.1780395507813
             },
             {
@@ -5406,7 +5406,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -5.6005490478128e-005,
             	roll = 1.5900074243546,
             	scale = 0.75000017881393,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -5417,7 +5417,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -5.6005490478128e-005,
             	roll = 1.5900074243546,
             	scale = 0.75000017881393,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             }
 
@@ -5431,7 +5431,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5442,7 +5442,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5453,7 +5453,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5486,7 +5486,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5497,7 +5497,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5508,7 +5508,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -5522,7 +5522,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5533,7 +5533,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5544,7 +5544,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5577,7 +5577,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -5591,7 +5591,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5602,7 +5602,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5613,7 +5613,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5624,7 +5624,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5646,7 +5646,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5657,7 +5657,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5668,7 +5668,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5679,7 +5679,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5690,7 +5690,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5701,7 +5701,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5712,7 +5712,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -5726,7 +5726,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5737,7 +5737,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5781,7 +5781,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5792,7 +5792,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -5806,7 +5806,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5828,7 +5828,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -5842,7 +5842,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 2.8001961254631e-005,
             	roll = 1.5899511575699,
             	scale = 0.75,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -5853,7 +5853,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -2.7645044610836e-005,
             	roll = 1.5899823904037,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -5864,7 +5864,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 2.8001961254631e-005,
             	roll = 1.5899511575699,
             	scale = 0.75,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -5886,7 +5886,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -2.7645044610836e-005,
             	roll = 1.5899823904037,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -5897,7 +5897,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -2.7645044610836e-005,
             	roll = 1.5899823904037,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -5908,7 +5908,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 4.1459545172984e-005,
             	roll = 1.5899242162704,
             	scale = 0.75000005960464,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5919,7 +5919,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -1.3820230378769e-005,
             	roll = 1.5899794101715,
             	scale = 0.75000005960464,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             }
 
@@ -5933,7 +5933,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5944,7 +5944,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5988,7 +5988,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -5999,7 +5999,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -6013,7 +6013,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6035,7 +6035,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6046,7 +6046,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6057,7 +6057,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -6071,7 +6071,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6082,7 +6082,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6137,7 +6137,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6148,7 +6148,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6159,7 +6159,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -6173,7 +6173,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -2.7645044610836e-005,
             	roll = 1.5899823904037,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -6184,7 +6184,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -2.7645044610836e-005,
             	roll = 1.5899823904037,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -6228,7 +6228,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -2.7645044610836e-005,
             	roll = 1.5899823904037,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -6239,7 +6239,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -2.7645044610836e-005,
             	roll = 1.5899823904037,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             }
 
@@ -6253,7 +6253,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 2.8001961254631e-005,
             	roll = 1.5899511575699,
             	scale = 0.75,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -6264,7 +6264,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 2.8001961254631e-005,
             	roll = 1.5899511575699,
             	scale = 0.75,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -6275,7 +6275,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 2.8001961254631e-005,
             	roll = 1.5899511575699,
             	scale = 0.75,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -6308,7 +6308,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 2.8001961254631e-005,
             	roll = 1.5899511575699,
             	scale = 0.75,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -6319,7 +6319,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 2.8001961254631e-005,
             	roll = 1.5899511575699,
             	scale = 0.75,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -6330,7 +6330,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 2.8001961254631e-005,
             	roll = 1.5899511575699,
             	scale = 0.75,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             }
 
@@ -6344,7 +6344,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6355,7 +6355,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6366,7 +6366,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6377,7 +6377,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5877363681793,
             	roll = 0.0030461822170764,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0.78542602062225
             },
             {
@@ -6388,7 +6388,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6399,7 +6399,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6410,7 +6410,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5877363681793,
             	roll = 0.0030461822170764,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0.78542602062225
             },
             {
@@ -6421,7 +6421,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6432,7 +6432,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6443,7 +6443,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6465,7 +6465,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -6479,7 +6479,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6490,7 +6490,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6501,7 +6501,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6545,7 +6545,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6556,7 +6556,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6567,7 +6567,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -6581,7 +6581,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 4.1469858842902e-005,
             	roll = 1.5898730754852,
             	scale = 0.75000005960464,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -6592,7 +6592,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6603,7 +6603,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6614,7 +6614,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5877363681793,
             	roll = 0.0030461822170764,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0.78542602062225
             },
             {
@@ -6625,7 +6625,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6636,7 +6636,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6647,7 +6647,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 1.5877363681793,
             	roll = 0.0030461822170764,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -0.78542602062225
             },
             {
@@ -6658,7 +6658,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6669,7 +6669,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6680,7 +6680,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6713,7 +6713,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6724,7 +6724,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -6738,7 +6738,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.570796251297,
                 	roll = -0,
                 	scale = 0.75000005960464,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -6749,7 +6749,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.570796251297,
                 	roll = -0,
                 	scale = 0.75000005960464,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -6760,7 +6760,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.6023135185242,
                 	roll = -0,
                 	scale = 0.75000017881393,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -6771,7 +6771,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.570796251297,
                 	roll = -0,
                 	scale = 0.75000005960464,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -6848,7 +6848,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.570796251297,
                 	roll = -0,
                 	scale = 0.75000005960464,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -6859,7 +6859,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.570796251297,
                 	roll = -0,
                 	scale = 0.75000005960464,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -6870,7 +6870,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.570796251297,
                 	roll = -0,
                 	scale = 0.75000005960464,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 },
                 {
@@ -6881,7 +6881,7 @@ Font[1]["Lone Ranger"] = {
                 	pitch = 1.570796251297,
                 	roll = -0,
                 	scale = 0.75000005960464,
-                	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+                	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
                 	yaw = -0
                 }
 
@@ -6895,7 +6895,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6906,7 +6906,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6917,7 +6917,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6939,7 +6939,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -6953,7 +6953,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6964,7 +6964,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -6997,7 +6997,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -7008,7 +7008,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -7019,7 +7019,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -7033,7 +7033,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 2.8001961254631e-005,
             	roll = 1.5899511575699,
             	scale = 0.75,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -7044,7 +7044,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -2.7645044610836e-005,
             	roll = 1.5899823904037,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -7077,7 +7077,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 2.8001961254631e-005,
             	roll = 1.5899511575699,
             	scale = 0.75,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             }
 
@@ -7091,7 +7091,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -7113,7 +7113,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 2.8001961254631e-005,
             	roll = 1.5899511575699,
             	scale = 0.75,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -7135,7 +7135,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = 2.8001961254631e-005,
             	roll = 1.5899511575699,
             	scale = 0.75,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -7157,7 +7157,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -7179,7 +7179,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -7193,7 +7193,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -2.7645044610836e-005,
             	roll = 1.5899823904037,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -7215,7 +7215,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -2.7645044610836e-005,
             	roll = 1.5899823904037,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -7237,7 +7237,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -2.7645044610836e-005,
             	roll = 1.5899823904037,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             },
             {
@@ -7248,7 +7248,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -2.7645044610836e-005,
             	roll = 1.5899823904037,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686680078506
             }
 
@@ -7262,7 +7262,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -7284,7 +7284,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -7306,7 +7306,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
@@ -7320,7 +7320,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -7331,7 +7331,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -7342,7 +7342,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -7364,7 +7364,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -7375,7 +7375,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             },
             {
@@ -7386,7 +7386,7 @@ Font[1]["Lone Ranger"] = {
             	pitch = -0,
             	roll = 1.5899275541306,
             	scale = 0.74999994039536,
-            	type = "I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,",
+            	type = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,",
             	yaw = -1.5686401128769
             }
 
