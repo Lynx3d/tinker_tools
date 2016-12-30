@@ -171,7 +171,9 @@ function Dta.ui.createCheckbox(name, parent, x, y, text, checked, fontColor, che
 	checkbox.CBSetEnabled = Dta.ui.checkboxSetEnabled
 
 	function checkbox.textFrame.Event:LeftClick()
-		checkbox:SetChecked(not checkbox:GetChecked())
+		if checkbox:GetEnabled() then
+			checkbox:SetChecked(not checkbox:GetChecked())
+		end
 	end
 
 	if type(checkChangedCallback) == "function" then
