@@ -17,6 +17,7 @@ function Dta.rotate.modifyRotationModeAbsChanged()
 	if rotate_ui.modeAbs:GetChecked() and rotate_ui.modeRel:GetChecked() then
 		rotate_ui.modeRel:SetChecked(false)
 		rotate_ui.modeAsGrp:CBSetEnabled(false)
+		rotate_ui.modeLocal:CBSetEnabled(false)
 		Dta.rotate.ModeSwapped(rotate_ui)
 	elseif not rotate_ui.modeRel:GetChecked() then
 		rotate_ui.modeAbs:SetChecked(true)
@@ -29,23 +30,39 @@ function Dta.rotate.modifyRotationModeRelChanged()
 	if rotate_ui.modeRel:GetChecked() and rotate_ui.modeAbs:GetChecked() then
 		rotate_ui.modeAbs:SetChecked(false)
 		rotate_ui.modeAsGrp:CBSetEnabled(true)
+		rotate_ui.modeLocal:CBSetEnabled(true)
 		Dta.rotate.ModeSwapped(rotate_ui)
 	elseif not rotate_ui.modeAbs:GetChecked() then
 		rotate_ui.modeRel:SetChecked(true)
 	end
 end
 
+function Dta.rotate.ModeAsGroupChanged()
+	local rotate_ui = Dta.Tools.Rotate.window.modifyRotation
+	if rotate_ui.modeAsGrp:GetChecked() and rotate_ui.modeLocal:GetChecked() then
+		rotate_ui.modeLocal:SetChecked(false)
+	end
+end
+
+function Dta.rotate.ModeLocalAxesChanged()
+	local rotate_ui = Dta.Tools.Rotate.window.modifyRotation
+	if rotate_ui.modeAsGrp:GetChecked() and rotate_ui.modeLocal:GetChecked() then
+		rotate_ui.modeAsGrp:SetChecked(false)
+	end
+end
+
 function Dta.rotate.modifyRotationButtonClicked()
-	local pitch, pitch_ok = Dta.ui.checkNumber(Dta.Tools.Rotate.window.modifyRotation.pitch:GetText())
-	local yaw, yaw_ok = Dta.ui.checkNumber(Dta.Tools.Rotate.window.modifyRotation.yaw:GetText())
-	local roll, roll_ok = Dta.ui.checkNumber(Dta.Tools.Rotate.window.modifyRotation.roll:GetText())
+	local rotate_ui = Dta.Tools.Rotate.window.modifyRotation
+	local pitch, pitch_ok = Dta.ui.checkNumber(rotate_ui.pitch:GetText())
+	local yaw, yaw_ok = Dta.ui.checkNumber(rotate_ui.yaw:GetText())
+	local roll, roll_ok = Dta.ui.checkNumber(rotate_ui.roll:GetText())
 	if not (pitch_ok and yaw_ok and roll_ok) then
 		Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
 		return
 	end
 	Dta.rotate.setItemRotations(yaw, pitch, roll,
-								Dta.Tools.Rotate.window.modifyRotation.modeRel:GetChecked(),
-								Dta.Tools.Rotate.window.modifyRotation.modeAsGrp:GetChecked())
+								rotate_ui.modeRel:GetChecked(),
+								rotate_ui.modeAsGrp:GetChecked(), rotate_ui.modeLocal:GetChecked())
 end
 
 function Dta.rotate.modifyRotationResetButtonClicked()
@@ -86,19 +103,23 @@ function Dta.rotate.fetchAllButtonClicked()
 end
 
 --------------------------------------
---ROTATE ITEMS (NO GROUP ROTATION YET)
+--ROTATE ITEMS
 --------------------------------------
 
-function Dta.rotate.setItemRotations(yaw, pitch, roll, relative, grouped)
+function Dta.rotate.setItemRotations(yaw, pitch, roll, relative, grouped, local_axes)
 	if Dta.selectionCount > 0 then
 		Dta.rotate.Co_RotateItem = coroutine.create(function ()
-			if relative and grouped then
+			if relative and (grouped or local_axes) then
 				yaw = math.rad(yaw or 0)
 				pitch = math.rad(pitch or 0)
 				roll = math.rad(roll or 0)
 				local m_rot = Dta.Matrix.createZYX(pitch, yaw, roll, true)
 				for k, details in pairs(Dta.selectedItems) do
-					Dta.rotate.rotateRelative(details, m_rot, Dta.selectionCount > 1)
+					if grouped then
+						Dta.rotate.rotateRelative(details, m_rot, Dta.selectionCount > 1)
+					else
+						Dta.rotate.rotateLocal(details, m_rot)
+					end
 				end
 			else
 				for k, details in pairs(Dta.selectedItems) do
@@ -180,4 +201,11 @@ function Dta.rotate.rotateRelative(details, m_rot, selection_pivot)
 	else
 		Dta.items.QueueRotate(details.id, r.pitch, r.roll, r.yaw)
 	end
+end
+
+function Dta.rotate.rotateLocal(details, m_rot)
+	local m_item = Dta.Matrix.createZYX(details.pitch, details.yaw, details.roll, true)
+	local m_final = Dta.Matrix.Multiply(m_item, m_rot)
+	local rx, ry, rz = Dta.Matrix.ToZYX(m_final, true)
+	Dta.items.QueueRotate(details.id, rx, rz, ry)
 end
