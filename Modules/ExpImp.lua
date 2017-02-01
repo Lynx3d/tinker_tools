@@ -168,6 +168,7 @@ function Dta.expimp.ImportLoadAttributes(name, new_name)
 	if name and name ~= "" then
 		if Dta.ExportImport_Sets[name] ~= nil then
 			local new_set = Dta.expimp.ImportGroupItemAttributes(Dta.ExportImport_Sets[name])
+			Dta.settings.ConvertOldItems(new_set)
 			saved_sets[new_name] = new_set
 			Dta.settings.set_savedsets("SavedSets", saved_sets)
 			Dta.CPrint(string.format(Dta.Locale.Prints.Imported, name))
@@ -226,6 +227,7 @@ function Dta.expimp.ImportSerializedSet(name, data)
 		end
 	end
 	if deserialized and #deserialized > 0 then
+		Dta.settings.ConvertOldItems(deserialized)
 		saved_sets[name] = deserialized
 		Dta.settings.set_savedsets("SavedSets", saved_sets) -- in case it we didn't have any yet
 		Dta.CPrint(string.format(Dta.Locale.Prints.Imported, name))

@@ -62,7 +62,8 @@ Dta.settings.defaults = {
 }
 
 Dta.settings.revisions = {
-	[1] = "v1.9.10"
+	[1] = "DT v1.9.10",
+	[2] = "v1.2.7"
 }
 
 function Dta.settings.main()
@@ -90,6 +91,15 @@ function Dta.settings.loadEnd(hEvent, addonID)
 	if Dta.settings.settings["SavedSets"] then
 		Dta.settings.settings["SavedSets"] = nil
 	end
+	-- check if outdated item type IDs need to be replaced
+	local revision = Dta.settings.get("Revision")
+	if not revision or revision < Dta.SettingsRevision then
+		local replaced = 0
+		for name, set in pairs(Dta.settings.savedsets.SavedSets) do
+			replaced = replaced + Dta.settings.ConvertOldItems(set)
+		end
+		print(string.format("Converted %i outdated items", replaced))
+	end
 end
 
 --Save the settings table
@@ -99,6 +109,18 @@ function Dta.settings.saveBegin(hEvent, addonID)
 	Dta.settings.set("Revision", Dta.SettingsRevision)
 	TinkerT_Settings = Dta.settings.settings
 	TinkerT_Sets = Dta.settings.savedsets
+end
+
+function Dta.settings.ConvertOldItems(set)
+	local outdated_IDs = Dta.Defaults.ItemDB_outdated
+	local replaced = 0
+	for idx, item in pairs(set) do
+		if outdated_IDs[item.type] then
+			item.type = outdated_IDs[item.type]
+			replaced = replaced + 1
+		end
+	end
+	return replaced
 end
 
 --------------------------------------

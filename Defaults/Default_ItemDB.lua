@@ -2733,3 +2733,9 @@ Dta.Defaults.ItemDB =
 for key, details in pairs(Dta.Defaults.ItemDB) do
 	details.type = key
 end
+
+-- Sometimes item type IDs change. This maps [old_ID] = new ID
+Dta.Defaults.ItemDB_outdated =
+{
+	["I3818BAD112E22261,DC1C64A4763AFE8C,,,,,,"] = "I3818BAD162A76C77,DC1C64A4763AFE8C,,,,,,"
+}
