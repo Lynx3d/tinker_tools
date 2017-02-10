@@ -18,8 +18,6 @@ Dta.notifyThreshold = 10
 Dta.constructionsdefaults = {}
 Dta.constructionstbx = {}
 Dta.SelectionQueue = {}
-Dta.ItemsToPlace = 0
-Dta.ItemsPlaced = 1
 
 --Import & Export
 Dta.ExportTbx = {}
