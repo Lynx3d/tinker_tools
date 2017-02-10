@@ -27,16 +27,33 @@ end
 -- FOCUS CYCLING WITH [<Shift>]<Tab>
 -------------------------------
 
-function Dta.ui.ShiftKeyDownCallback(frame, hEvent, key)
-	if key == "Shift" then Dta.ui.isShiftPressed = true end
+function Dta.ui.ModifierKeyDownCallback(frame, hEvent, key)
+	if key == "Shift" then
+		Dta.ui.isShiftPressed = true
+	elseif key == "Control" then
+		Dta.ui.isControlPressed = true
+	end
 end
 
-function Dta.ui.ShiftKeyUpCallback(frame, hEvent, key)
-	if key == "Shift" then Dta.ui.isShiftPressed = false end
+function Dta.ui.ModifierKeyUpCallback(frame, hEvent, key)
+	if key == "Shift" then
+		Dta.ui.isShiftPressed = false
+	elseif key == "Control" then
+		Dta.ui.isControlPressed = false
+	end
 end
 
-UIParent:EventAttach(Event.UI.Input.Key.Down.Dive, Dta.ui.ShiftKeyDownCallback, "ShiftKeyDownSensor")
-UIParent:EventAttach(Event.UI.Input.Key.Up.Dive, Dta.ui.ShiftKeyUpCallback, "ShiftKeyUpSensor")
+function Dta.ui.KeyFocusLossCallback(frame, hEvent)
+	if not Dta.ui.keyFocusTransfer then
+		Dta.ui.isShiftPressed = false
+		Dta.ui.isControlPressed = false
+	end
+end
+
+-- Note: attaching to UIParent will trigger for any addon
+UIParent:EventAttach(Event.UI.Input.Key.Down.Dive, Dta.ui.ModifierKeyDownCallback, "ShiftKeyDownSensor")
+UIParent:EventAttach(Event.UI.Input.Key.Up.Dive, Dta.ui.ModifierKeyUpCallback, "ShiftKeyUpSensor")
+UIParent:EventAttach(Event.UI.Input.Key.Focus.Loss.Dive, Dta.ui.KeyFocusLossCallback, "KeyFocusSensor")
 
 function Dta.ui.AddFocusCycleElement(owner, frame)
 	if not owner.focusCycleList then
@@ -76,7 +93,9 @@ function Dta.ui.FocusCycleCallback(frame, hEvent, key)
 			idx = 1
 		end
 	end
+	Dta.ui.keyFocusTransfer = true
 	frame.focusCycleList[idx]:SetKeyFocus(true)
+	Dta.ui.keyFocusTransfer = false
 	if type(target.TabFocusCycled) == "function" then
 		target.TabFocusCycled(target)
 	end
