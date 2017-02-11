@@ -462,6 +462,47 @@ Dta.Defaults.ItemDB =
 	-------------
 	-- Glowing --
 	-------------
+	-- Blue Blinking
+	["I0D6091F5577FC9B8,8977F2BBF1622B54,,,,,,"] =
+	{
+		name = "Building Block: Blue Blinking Square",
+		shape = "tile"
+	},
+	["I7EBC874326381067,3B0EDC1C5693A3FB,,,,,,"] =
+	{
+		name = "Building Block: Blue Blinking Rectangle",
+		shape = "rectangle"
+	},
+	["I4FBE4CF0733E92F0,C5F0EBF4D4FCBFEC,,,,,,"] =
+	{
+		name = "Building Block: Blue Blinking Plank",
+		shape = "plank"
+	},
+	["I6B9DC370498E8EB2,4FDCA10043707C39,,,,,,"] =
+	{
+		name = "Building Block: Blue Blinking Cube",
+		shape = "cube"
+	},
+	["I0C052D7247239F80,0336FE69220F5566,,,,,,"] =
+	{
+		name = "Building Block: Blue Blinking Triangle",
+		shape = "triangle"
+	},
+	["I6A44ED9E0555B4E2,E679382E3439EDEE,,,,,,"] =
+	{
+		name = "Building Block: Blue Blinking Pole",
+		shape = "pole"
+	},
+	["I781D026B30CE59D7,19E5906064D12846,,,,,,"] =
+	{
+		name = "Building Block: Blue Blinking Sphere",
+		shape = "sphere"
+	},
+	["I7EC0A8891FB9CA89,39D2723A905B0FD4,,,,,,"] =
+	{
+		name = "Building Block: Blue Blinking Disc",
+		shape = "disc"
+	},
 	-- Blue Glowing
 	["I0F301FDE75740C8C,4D7CC1D2D79CF639,,,,,,"] =
 	{
@@ -501,6 +542,47 @@ Dta.Defaults.ItemDB =
 	["I4318097900591EE2,B7D8ABB503901AC9,,,,,,"] =
 	{
 		name = "Building Block: Blue Glowing Disc",
+		shape = "disc"
+	},
+	-- Green Blinking
+	["I3D894F0A4F34D392,4CBDB65FD4BFF026,,,,,,"] =
+	{
+		name = "Building Block: Green Blinking Square",
+		shape = "tile"
+	},
+	["I62EE36C607F9D626,279F8F713919DD5D,,,,,,"] =
+	{
+		name = "Building Block: Green Blinking Rectangle",
+		shape = "rectangle"
+	},
+	["IFE425AA173F0FEC9,3AD9A40A1D03F74A,,,,,,"] =
+	{
+		name = "Building Block: Green Blinking Plank",
+		shape = "plank"
+	},
+	["IFF4EEEFD05C7D7F3,4269532B8248E1BB,,,,,,"] =
+	{
+		name = "Building Block: Green Blinking Cube",
+		shape = "cube"
+	},
+	["I4464D8CA7270231A,7F2655A16FC47860,,,,,,"] =
+	{
+		name = "Building Block: Green Blinking Triangle",
+		shape = "triangle"
+	},
+	["IFCBDC97B0A89DAB2,218B6DA4AD5CD426,,,,,,"] =
+	{
+		name = "Building Block: Green Blinking Pole",
+		shape = "pole"
+	},
+	["I4EE83B3C1B96F2E9,41020CA651D0697C,,,,,,"] =
+	{
+		name = "Building Block: Green Blinking Sphere",
+		shape = "sphere"
+	},
+	["I3BCB898555FC3FCD,5EB855D9F49B6328,,,,,,"] =
+	{
+		name = "Building Block: Green Blinking Disc",
 		shape = "disc"
 	},
 	-- Green Glowing
@@ -544,6 +626,47 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Green Glowing Disc",
 		shape = "disc"
 	},
+	-- Grey Blinking
+	["I2056207661F6B98E,EAD6A204D53698D4,,,,,,"] =
+	{
+		name = "Building Block: Grey Blinking Square",
+		shape = "tile"
+	},
+	["I216336C30E5F76DF,372CBF334B163552,,,,,,"] =
+	{
+		name = "Building Block: Grey Blinking Rectangle",
+		shape = "rectangle"
+	},
+	["I1E20DAAA0A8D0316,09855856C8CC454E,,,,,,"] =
+	{
+		name = "Building Block: Grey Blinking Plank",
+		shape = "plank"
+	},
+	["I351E7C0202FF4871,FD63CF4E23B8ABA2,,,,,,"] =
+	{
+		name = "Building Block: Grey Blinking Cube",
+		shape = "cube"
+	},
+	["I324F27DE71B4886F,03F115321D49EF2B,,,,,,"] =
+	{
+		name = "Building Block: Grey Blinking Triangle",
+		shape = "triangle"
+	},
+	["I670D3C670041E799,0EC0D800F73DB740,,,,,,"] =
+	{
+		name = "Building Block: Grey Blinking Pole",
+		shape = "pole"
+	},
+	["I38B6AAD129669C8A,ECE776B13B30C2C8,,,,,,"] =
+	{
+		name = "Building Block: Grey Blinking Sphere",
+		shape = "sphere"
+	},
+	["I1E797E770D36EC1A,166E1C4C5A251E96,,,,,,"] =
+	{
+		name = "Building Block: Grey Blinking Disc",
+		shape = "disc"
+	},
 	-- Grey Glowing
 	["I1133F573658C7042,EAD57D83CDFAC855,,,,,,"] =
 	{
@@ -583,6 +706,47 @@ Dta.Defaults.ItemDB =
 	["I363B83DD6F7F1F98,257185F7E7598CFB,,,,,,"] =
 	{
 		name = "Building Block: Grey Glowing Disc",
+		shape = "disc"
+	},
+	-- Light Blue Blinking
+	["IFDDA850F7EE67CDA,5BF62C5DF610315A,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Blinking Square",
+		shape = "tile"
+	},
+	["I52F9E29F40C03D42,0164025B6FDD0989,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Blinking Rectangle",
+		shape = "rectangle"
+	},
+	["I6665547154F0663E,55231A6F68926F38,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Blinking Plank",
+		shape = "plank"
+	},
+	["I06C410615F1ED45D,3D906D2A4D2DE884,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Blinking Cube",
+		shape = "cube"
+	},
+	["I48C331DD6220FD55,F0FD835EF1DC9AD8,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Blinking Triangle",
+		shape = "triangle"
+	},
+	["IFE6ABD131F3B92DE,4AC699C87CC3BB90,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Blinking Pole",
+		shape = "pole"
+	},
+	["I5886DB2F0B52972F,07C3C67BE0CE9C21,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Blinking Sphere",
+		shape = "sphere"
+	},
+	["I3F5E551118C3663E,C8F4645610FA0287,,,,,,"] =
+	{
+		name = "Building Block: Light Blue Blinking Disc",
 		shape = "disc"
 	},
 	-- Light Blue Glowing
@@ -626,6 +790,47 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Light Blue Glowing Disc",
 		shape = "disc"
 	},
+	-- Light Green Blinking
+	["I4183B58D5A9F406D,1B06F3F7F44B9DEA,,,,,,"] =
+	{
+		name = "Building Block: Light Green Blinking Square",
+		shape = "tile"
+	},
+	["I779D1F4912AA9548,E2CD0DA699990FBE,,,,,,"] =
+	{
+		name = "Building Block: Light Green Blinking Rectangle",
+		shape = "rectangle"
+	},
+	["I1AE9C27106FEB712,DCCE1D0125D93153,,,,,,"] =
+	{
+		name = "Building Block: Light Green Blinking Plank",
+		shape = "plank"
+	},
+	["I7E23ADA305709BEB,09F56EA25CE57F6E,,,,,,"] =
+	{
+		name = "Building Block: Light Green Blinking Cube",
+		shape = "cube"
+	},
+	["I0A3BD2AA24FBB529,B389D1E59D40472D,,,,,,"] =
+	{
+		name = "Building Block: Light Green Blinking Triangle",
+		shape = "triangle"
+	},
+	["I4BDABE1C54D68B5F,4D97258EFBD4D414,,,,,,"] =
+	{
+		name = "Building Block: Light Green Blinking Pole",
+		shape = "pole"
+	},
+	["I6B353EAF78334EB9,E930999D429F2E75,,,,,,"] =
+	{
+		name = "Building Block: Light Green Blinking Sphere",
+		shape = "sphere"
+	},
+	["I02375D80238E8983,40110850134A17C7,,,,,,"] =
+	{
+		name = "Building Block: Light Green Blinking Disc",
+		shape = "disc"
+	},
 	-- Light Green Glowing
 	["I5D90EDDD78815EBC,BB3CA2044F4E9391,,,,,,"] =
 	{
@@ -665,6 +870,47 @@ Dta.Defaults.ItemDB =
 	["I755601CD669846EC,11B984DF2B0D02DC,,,,,,"] =
 	{
 		name = "Building Block: Light Green Glowing Disc",
+		shape = "disc"
+	},
+	-- Orange Blinking
+	["I6673DEC7215643B2,7F73B94815406BA1,,,,,,"] =
+	{
+		name = "Building Block: Orange Blinking Square",
+		shape = "tile"
+	},
+	["I6B9BA8657F49E91F,89C3A5A621AF82FA,,,,,,"] =
+	{
+		name = "Building Block: Orange Blinking Rectangle",
+		shape = "rectangle"
+	},
+	["IFB43FEC519F61110,3D08CB4C98BE59BF,,,,,,"] =
+	{
+		name = "Building Block: Orange Blinking Plank",
+		shape = "plank"
+	},
+	["I3CF82F593244B155,A0B65A5573FF2CAA,,,,,,"] =
+	{
+		name = "Building Block: Orange Blinking Cube",
+		shape = "cube"
+	},
+	["I5457081251242A63,4C283678D213BA48,,,,,,"] =
+	{
+		name = "Building Block: Orange Blinking Triangle",
+		shape = "triangle"
+	},
+	["I49C66518037D5570,49CAE3B63FC43AA6,,,,,,"] =
+	{
+		name = "Building Block: Orange Blinking Pole",
+		shape = "pole"
+	},
+	["I5A7F7B4E5352C4C5,2740907B62A97B9C,,,,,,"] =
+	{
+		name = "Building Block: Orange Blinking Sphere",
+		shape = "sphere"
+	},
+	["I5C1DA0622AD03111,F6D9F19C4A4AF9B9,,,,,,"] =
+	{
+		name = "Building Block: Orange Blinking Disc",
 		shape = "disc"
 	},
 	-- Orange Glowing
@@ -708,6 +954,47 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Orange Glowing Disc",
 		shape = "disc"
 	},
+	-- Pink Blinking
+	["I184AF45E36549923,1E562EC96CF2A820,,,,,,"] =
+	{
+		name = "Building Block: Pink Blinking Square",
+		shape = "tile"
+	},
+	["I6E9CA5A55D55EBB7,3143E0F418E04249,,,,,,"] =
+	{
+		name = "Building Block: Pink Blinking Rectangle",
+		shape = "rectangle"
+	},
+	["I4DCF714E7537E072,16AC96BFA378DD20,,,,,,"] =
+	{
+		name = "Building Block: Pink Blinking Plank",
+		shape = "plank"
+	},
+	["I4FEC176A3A9A44F5,43FDCC49256F39C4,,,,,,"] =
+	{
+		name = "Building Block: Pink Blinking Cube",
+		shape = "cube"
+	},
+	["I6BE1788C6BA850D8,FFBC9DD366233130,,,,,,"] =
+	{
+		name = "Building Block: Pink Blinking Triangle",
+		shape = "triangle"
+	},
+	["I4C1B42B30E64851C,F39AB88164883124,,,,,,"] =
+	{
+		name = "Building Block: Pink Blinking Pole",
+		shape = "pole"
+	},
+	["I6DCEC53B5B66F42A,53A4501105049C06,,,,,,"] =
+	{
+		name = "Building Block: Pink Blinking Sphere",
+		shape = "sphere"
+	},
+	["I65910DA26663DF8D,382CBE7C0F6FE86C,,,,,,"] =
+	{
+		name = "Building Block: Pink Blinking Disc",
+		shape = "disc"
+	},
 	-- Pink Glowing
 	["I457B916B34A1ADBE,21E234B5FBDAB077,,,,,,"] =
 	{
@@ -747,6 +1034,47 @@ Dta.Defaults.ItemDB =
 	["I0120B56228F16079,5A1674DE818F8390,,,,,,"] =
 	{
 		name = "Building Block: Pink Glowing Disc",
+		shape = "disc"
+	},
+	-- Purple Blinking
+	["I1A9341BA27CD0B6D,107CAE013B2421F1,,,,,,"] =
+	{
+		name = "Building Block: Purple Blinking Square",
+		shape = "tile"
+	},
+	["I71D3721D70012D0B,0634AF37651A268D,,,,,,"] =
+	{
+		name = "Building Block: Purple Blinking Rectangle",
+		shape = "rectangle"
+	},
+	["I50D2C1175408C992,2B9BA8D26D835587,,,,,,"] =
+	{
+		name = "Building Block: Purple Blinking Plank",
+		shape = "plank"
+	},
+	["I654C92BB6A42B46A,59EDBEC22A7A2DDF,,,,,,"] =
+	{
+		name = "Building Block: Purple Blinking Cube",
+		shape = "cube"
+	},
+	["I7D10C4E4029D0CEE,29C68FCB28FE215A,,,,,,"] =
+	{
+		name = "Building Block: Purple Blinking Triangle",
+		shape = "triangle"
+	},
+	["I5B1C55EF15337E20,F70D932A4E52ADCF,,,,,,"] =
+	{
+		name = "Building Block: Purple Blinking Pole",
+		shape = "pole"
+	},
+	["I0C96462806E72126,E585E07CB90132F4,,,,,,"] =
+	{
+		name = "Building Block: Purple Blinking Sphere",
+		shape = "sphere"
+	},
+	["I707EF7577021F1D1,280C4E1CFED08473,,,,,,"] =
+	{
+		name = "Building Block: Purple Blinking Disc",
 		shape = "disc"
 	},
 	-- Purple Glowing
@@ -790,6 +1118,42 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Purple Glowing Disc",
 		shape = "disc"
 	},
+	-- Red Blinking
+	["I1EDCD3EB034426D0,823142F3C08E10E8,,,,,,"] =
+	{
+		name = "Building Block: Red Blinking Square",
+		shape = "tile"
+	},
+	["I2030D4AE5B379522,C5293DDCEF953FBB,,,,,,"] =
+	{
+		name = "Building Block: Red Blinking Rectangle",
+		shape = "rectangle"
+	},
+	["I5D2A3BAB26070AA2,37301EEE8D4D2052,,,,,,"] =
+	{
+		name = "Building Block: Red Blinking Plank",
+		shape = "plank"
+	},
+	["I1A73997539D0628D,F198964320F42578,,,,,,"] =
+	{
+		name = "Building Block: Red Blinking Cube",
+		shape = "cube"
+	},
+	["I226176EB1CC35509,15267D963B83D75E,,,,,,"] =
+	{
+		name = "Building Block: Red Blinking Triangle",
+		shape = "triangle"
+	},
+	["I746013632BFD453C,01E015EAD95FCDBF,,,,,,"] =
+	{
+		name = "Building Block: Red Blinking Pole",
+		shape = "pole"
+	},
+	["I16D0E97F574AEE21,2CC76CF412015214,,,,,,"] =
+	{
+		name = "Building Block: Red Blinking Sphere",
+		shape = "sphere"
+	},
 	-- Red Glowing
 	["I4E2EE8C656C56F88,349CB0F4ABC52A58,,,,,,"] =
 	{
@@ -831,6 +1195,47 @@ Dta.Defaults.ItemDB =
 		name = "Building Block: Red Glowing Disc",
 		shape = "disc"
 	},
+	-- White Blinking
+	["I309E2EED0186DE07,EFDF39AD144EB66D,,,,,,"] =
+	{
+		name = "Building Block: White Blinking Square",
+		shape = "tile"
+	},
+	["I233E882A73CB075D,BECD299B804D28C8,,,,,,"] =
+	{
+		name = "Building Block: White Blinking Rectangle",
+		shape = "rectangle"
+	},
+	["I68DE237765D15DE1,DD11C99FDD6F8E33,,,,,,"] =
+	{
+		name = "Building Block: White Blinking Plank",
+		shape = "plank"
+	},
+	["I2004C4BA6EAD0B98,FB69070549F5D711,,,,,,"] =
+	{
+		name = "Building Block: White Blinking Cube",
+		shape = "cube"
+	},
+	["I2AEEBA0D525B66CD,60CAB03663593179,,,,,,"] =
+	{
+		name = "Building Block: White Blinking Triangle",
+		shape = "triangle"
+	},
+	["I7DCE348601CABA39,39C84F9D931650DB,,,,,,"] =
+	{
+		name = "Building Block: White Blinking Pole",
+		shape = "pole"
+	},
+	["I00575AC6550382DD,243437D7E9F91090,,,,,,"] =
+	{
+		name = "Building Block: White Blinking Sphere",
+		shape = "sphere"
+	},
+	["I13206FE311C1FFD4,2F4C1F607EAB605D,,,,,,"] =
+	{
+		name = "Building Block: White Blinking Disc",
+		shape = "disc"
+	},
 	-- White Glowing
 	["I6DB7D52C0E831124,16E67D5755EF86F1,,,,,,"] =
 	{
@@ -870,6 +1275,47 @@ Dta.Defaults.ItemDB =
 	["I272B3D145CAA9A90,0BD9FFFB97550D19,,,,,,"] =
 	{
 		name = "Building Block: White Glowing Disc",
+		shape = "disc"
+	},
+	-- Yellow Blinking
+	["I39967D51230A6850,BDBC8F795BB28879,,,,,,"] =
+	{
+		name = "Building Block: Yellow Blinking Square",
+		shape = "tile"
+	},
+	["I2DBA5310209F1926,2708041A5064EFF6,,,,,,"] =
+	{
+		name = "Building Block: Yellow Blinking Rectangle",
+		shape = "rectangle"
+	},
+	["I1A2D7006241007F3,53CC43307EBFD435,,,,,,"] =
+	{
+		name = "Building Block: Yellow Blinking Plank",
+		shape = "plank"
+	},
+	["I042593D34A3D2217,6282EB972A4CF826,,,,,,"] =
+	{
+		name = "Building Block: Yellow Blinking Cube",
+		shape = "cube"
+	},
+	["I05C92C7C1BFC0E3A,1061B0D6BF76EC84,,,,,,"] =
+	{
+		name = "Building Block: Yellow Blinking Triangle",
+		shape = "triangle"
+	},
+	["I262C6A7F40940A95,5808FACCE2EE6885,,,,,,"] =
+	{
+		name = "Building Block: Yellow Blinking Pole",
+		shape = "pole"
+	},
+	["I2AD4F6B17513D658,23560B31D5BFDC3E,,,,,,"] =
+	{
+		name = "Building Block: Yellow Blinking Sphere",
+		shape = "sphere"
+	},
+	["I1697133059D3D138,F46A01FF0B282EDD,,,,,,"] =
+	{
+		name = "Building Block: Yellow Blinking Disc",
 		shape = "disc"
 	},
 	-- Yellow Glowing

@@ -74,6 +74,19 @@ skin["Red Brick"] = {
 -------------
 -- Glowing --
 -------------
+skin["Blue Blinking"] = {
+	German    = "Blau Blinkend",
+	French    = "Bleu Clignotante",
+	category  = "Glowing",
+	tile      = itemDB["I0D6091F5577FC9B8,8977F2BBF1622B54,,,,,,"],
+	rectangle = itemDB["I7EBC874326381067,3B0EDC1C5693A3FB,,,,,,"],
+	plank     = itemDB["I4FBE4CF0733E92F0,C5F0EBF4D4FCBFEC,,,,,,"],
+	cube      = itemDB["I6B9DC370498E8EB2,4FDCA10043707C39,,,,,,"],
+	triangle  = itemDB["I0C052D7247239F80,0336FE69220F5566,,,,,,"],
+	pole      = itemDB["I6A44ED9E0555B4E2,E679382E3439EDEE,,,,,,"],
+	sphere    = itemDB["I781D026B30CE59D7,19E5906064D12846,,,,,,"],
+	disc      = itemDB["I7EC0A8891FB9CA89,39D2723A905B0FD4,,,,,,"]
+}
 skin["Blue Glowing"] = {
 	German    = "Blau Leuchtend",
 	French    = "Bleu Luminescent",
@@ -85,7 +98,20 @@ skin["Blue Glowing"] = {
 	triangle  = itemDB["I5A895ECA0E92CE54,D3BEDC46951A8F96,,,,,,"],
 	pole      = itemDB["I2925B2AB735F274A,F6C679C8F808BF91,,,,,,"],
 	sphere    = itemDB["I13512B0645333C92,1E0BCE6CE4BF87D9,,,,,,"],
-	disc      = itemDB["I4318097900591EE2,B7D8ABB503901AC9,,,,,,"],
+	disc      = itemDB["I4318097900591EE2,B7D8ABB503901AC9,,,,,,"]
+}
+skin["Green Blinking"] = {
+	German    = "Grün Blinkend",
+	French    = "Vert Clignotante",
+	category  = "Glowing",
+	tile      = itemDB["I3D894F0A4F34D392,4CBDB65FD4BFF026,,,,,,"],
+	rectangle = itemDB["I62EE36C607F9D626,279F8F713919DD5D,,,,,,"],
+	plank     = itemDB["IFE425AA173F0FEC9,3AD9A40A1D03F74A,,,,,,"],
+	cube      = itemDB["IFF4EEEFD05C7D7F3,4269532B8248E1BB,,,,,,"],
+	triangle  = itemDB["I4464D8CA7270231A,7F2655A16FC47860,,,,,,"],
+	pole      = itemDB["IFCBDC97B0A89DAB2,218B6DA4AD5CD426,,,,,,"],
+	sphere    = itemDB["I4EE83B3C1B96F2E9,41020CA651D0697C,,,,,,"],
+	disc      = itemDB["I3BCB898555FC3FCD,5EB855D9F49B6328,,,,,,"]
 }
 skin["Green Glowing"] = {
 	German    = "Grün Leuchtend",
@@ -98,7 +124,20 @@ skin["Green Glowing"] = {
 	triangle  = itemDB["IFF670DFC2956C5AC,060A3EC7E3ACFE7F,,,,,,"],
 	pole      = itemDB["I409EB7630D748B70,187A5AC75D32A32A,,,,,,"],
 	sphere    = itemDB["I46A4B9414754A0C5,E13E3D4D99C611F0,,,,,,"],
-	disc      = itemDB["I6843A7E24EDB2CF8,7C0A779B593EF447,,,,,,"],
+	disc      = itemDB["I6843A7E24EDB2CF8,7C0A779B593EF447,,,,,,"]
+}
+skin["Grey Blinking"] = {
+	German    = "Grau Blinkend",
+	French    = "Gris Clignotante",
+	category  = "Glowing",
+	tile      = itemDB["I2056207661F6B98E,EAD6A204D53698D4,,,,,,"],
+	rectangle = itemDB["I216336C30E5F76DF,372CBF334B163552,,,,,,"],
+	plank     = itemDB["I1E20DAAA0A8D0316,09855856C8CC454E,,,,,,"],
+	cube      = itemDB["I351E7C0202FF4871,FD63CF4E23B8ABA2,,,,,,"],
+	triangle  = itemDB["I324F27DE71B4886F,03F115321D49EF2B,,,,,,"],
+	pole      = itemDB["I670D3C670041E799,0EC0D800F73DB740,,,,,,"],
+	sphere    = itemDB["I38B6AAD129669C8A,ECE776B13B30C2C8,,,,,,"],
+	disc      = itemDB["I1E797E770D36EC1A,166E1C4C5A251E96,,,,,,"]
 }
 skin["Grey Glowing"] = {
 	German    = "Grau Leuchtend",
@@ -111,7 +150,20 @@ skin["Grey Glowing"] = {
 	triangle  = itemDB["I2BA2E3431CBF8446,FA8E8F2851F732EF,,,,,,"],
 	pole      = itemDB["I2F33BFB877DCAA8D,168BEFA63998388C,,,,,,"],
 	sphere    = itemDB["I1C4344E0223D3750,29A738CF2EC16BEB,,,,,,"],
-	disc      = itemDB["I363B83DD6F7F1F98,257185F7E7598CFB,,,,,,"],
+	disc      = itemDB["I363B83DD6F7F1F98,257185F7E7598CFB,,,,,,"]
+}
+skin["Light Blue Blinking"] = {
+	German    = "Hellblau Blinkend",
+	French    = "Bleu clair Clignotante",
+	category  = "Glowing",
+	tile      = itemDB["IFDDA850F7EE67CDA,5BF62C5DF610315A,,,,,,"],
+	rectangle = itemDB["I52F9E29F40C03D42,0164025B6FDD0989,,,,,,"],
+	plank     = itemDB["I6665547154F0663E,55231A6F68926F38,,,,,,"],
+	cube      = itemDB["I06C410615F1ED45D,3D906D2A4D2DE884,,,,,,"],
+	triangle  = itemDB["I48C331DD6220FD55,F0FD835EF1DC9AD8,,,,,,"],
+	pole      = itemDB["IFE6ABD131F3B92DE,4AC699C87CC3BB90,,,,,,"],
+	sphere    = itemDB["I5886DB2F0B52972F,07C3C67BE0CE9C21,,,,,,"],
+	disc      = itemDB["I3F5E551118C3663E,C8F4645610FA0287,,,,,,"]
 }
 skin["Light Blue Glowing"] = {
 	German    = "Hellblau Leuchtend",
@@ -124,7 +176,20 @@ skin["Light Blue Glowing"] = {
 	triangle  = itemDB["I6D562CCE7875D9B3,7C2073F97E5F9EEB,,,,,,"],
 	pole      = itemDB["I4EE95681567E9523,53945A0C93A97CE0,,,,,,"],
 	sphere    = itemDB["I5013CB0D60F06E9E,0210DC1562C03151,,,,,,"],
-	disc      = itemDB["I468BA9EB46F13843,EBEBF22226578D44,,,,,,"],
+	disc      = itemDB["I468BA9EB46F13843,EBEBF22226578D44,,,,,,"]
+}
+skin["Light Green Blinking"] = {
+	German    = "Hellgrün Blinkend",
+	French    = "Vert clair Clignotante",
+	category  = "Glowing",
+	tile      = itemDB["I4183B58D5A9F406D,1B06F3F7F44B9DEA,,,,,,"],
+	rectangle = itemDB["I779D1F4912AA9548,E2CD0DA699990FBE,,,,,,"],
+	plank     = itemDB["I1AE9C27106FEB712,DCCE1D0125D93153,,,,,,"],
+	cube      = itemDB["I7E23ADA305709BEB,09F56EA25CE57F6E,,,,,,"],
+	triangle  = itemDB["I0A3BD2AA24FBB529,B389D1E59D40472D,,,,,,"],
+	pole      = itemDB["I4BDABE1C54D68B5F,4D97258EFBD4D414,,,,,,"],
+	sphere    = itemDB["I6B353EAF78334EB9,E930999D429F2E75,,,,,,"],
+	disc      = itemDB["I02375D80238E8983,40110850134A17C7,,,,,,"]
 }
 skin["Light Green Glowing"] = {
 	German    = "Hellgrün Leuchtend",
@@ -137,7 +202,20 @@ skin["Light Green Glowing"] = {
 	triangle  = itemDB["I7B82FFA365D68CFA,D8579512A532BE10,,,,,,"],
 	pole      = itemDB["I56E8F74861E6AD62,F22486B041B5B794,,,,,,"],
 	sphere    = itemDB["I66BE88BD3601DCC2,D72E021D1C130327,,,,,,"],
-	disc      = itemDB["I755601CD669846EC,11B984DF2B0D02DC,,,,,,"],
+	disc      = itemDB["I755601CD669846EC,11B984DF2B0D02DC,,,,,,"]
+}
+skin["Orange Blinking"] = {
+	German    = "Orange Blinkend",
+	French    = "Orange Clignotante",
+	category  = "Glowing",
+	tile      = itemDB["I6673DEC7215643B2,7F73B94815406BA1,,,,,,"],
+	rectangle = itemDB["I6B9BA8657F49E91F,89C3A5A621AF82FA,,,,,,"],
+	plank     = itemDB["IFB43FEC519F61110,3D08CB4C98BE59BF,,,,,,"],
+	cube      = itemDB["I3CF82F593244B155,A0B65A5573FF2CAA,,,,,,"],
+	triangle  = itemDB["I5457081251242A63,4C283678D213BA48,,,,,,"],
+	pole      = itemDB["I49C66518037D5570,49CAE3B63FC43AA6,,,,,,"],
+	sphere    = itemDB["I5A7F7B4E5352C4C5,2740907B62A97B9C,,,,,,"],
+	disc      = itemDB["I5C1DA0622AD03111,F6D9F19C4A4AF9B9,,,,,,"]
 }
 skin["Orange Glowing"] = {
 	German    = "Orange Leuchtend",
@@ -150,7 +228,20 @@ skin["Orange Glowing"] = {
 	triangle  = itemDB["IFFAF08D542524202,3CDB9A5B38ADE780,,,,,,"],
 	pole      = itemDB["I411FC18B368D9A10,E1E5EFD99F2DCFF9,,,,,,"],
 	sphere    = itemDB["I4D61F6CF7829FC5D,E64C2E4B8C118FCD,,,,,,"],
-	disc      = itemDB["I70929DB31A289BA0,1EDBEA3561D21540,,,,,,"],
+	disc      = itemDB["I70929DB31A289BA0,1EDBEA3561D21540,,,,,,"]
+}
+skin["Pink Blinking"] = {
+	German    = "Pink Blinkend",
+	French    = "Rose Clignotante",
+	category  = "Glowing",
+	tile      = itemDB["I184AF45E36549923,1E562EC96CF2A820,,,,,,"],
+	rectangle = itemDB["I6E9CA5A55D55EBB7,3143E0F418E04249,,,,,,"],
+	plank     = itemDB["I4DCF714E7537E072,16AC96BFA378DD20,,,,,,"],
+	cube      = itemDB["I4FEC176A3A9A44F5,43FDCC49256F39C4,,,,,,"],
+	triangle  = itemDB["I6BE1788C6BA850D8,FFBC9DD366233130,,,,,,"],
+	pole      = itemDB["I4C1B42B30E64851C,F39AB88164883124,,,,,,"],
+	sphere    = itemDB["I6DCEC53B5B66F42A,53A4501105049C06,,,,,,"],
+	disc      = itemDB["I65910DA26663DF8D,382CBE7C0F6FE86C,,,,,,"]
 }
 skin["Pink Glowing"] = {
 	German    = "Pink Leuchtend",
@@ -163,7 +254,20 @@ skin["Pink Glowing"] = {
 	triangle  = itemDB["I62CC51BA41AE4D0E,13D19D21F18CF3AD,,,,,,"],
 	pole      = itemDB["I5019D244446BFA4C,0952EAAD6FEBBDA3,,,,,,"],
 	sphere    = itemDB["I597ACF2004B15A6D,4B0C4868E2C14193,,,,,,"],
-	disc      = itemDB["I0120B56228F16079,5A1674DE818F8390,,,,,,"],
+	disc      = itemDB["I0120B56228F16079,5A1674DE818F8390,,,,,,"]
+}
+skin["Purple Blinking"] = {
+	German    = "Violett Blinkend",
+	French    = "Violet Clignotante",
+	category  = "Glowing",
+	tile      = itemDB["I1A9341BA27CD0B6D,107CAE013B2421F1,,,,,,"],
+	rectangle = itemDB["I71D3721D70012D0B,0634AF37651A268D,,,,,,"],
+	plank     = itemDB["I50D2C1175408C992,2B9BA8D26D835587,,,,,,"],
+	cube      = itemDB["I654C92BB6A42B46A,59EDBEC22A7A2DDF,,,,,,"],
+	triangle  = itemDB["I7D10C4E4029D0CEE,29C68FCB28FE215A,,,,,,"],
+	pole      = itemDB["I5B1C55EF15337E20,F70D932A4E52ADCF,,,,,,"],
+	sphere    = itemDB["I0C96462806E72126,E585E07CB90132F4,,,,,,"],
+	disc      = itemDB["I707EF7577021F1D1,280C4E1CFED08473,,,,,,"]
 }
 skin["Purple Glowing"] = {
 	German    = "Violett Leuchtend",
@@ -176,7 +280,20 @@ skin["Purple Glowing"] = {
 	triangle  = itemDB["I72E5F3974CCB8A35,D5FE34E0B313EBA9,,,,,,"],
 	pole      = itemDB["I66BC01E50CF6A841,3D752F626738C5D5,,,,,,"],
 	sphere    = itemDB["I11C947F44F5B3EEF,84A41B7F9E583788,,,,,,"],
-	disc      = itemDB["I7669FF194E55E5D2,491FE391890854AD,,,,,,"],
+	disc      = itemDB["I7669FF194E55E5D2,491FE391890854AD,,,,,,"]
+}
+skin["Red Blinking"] = {
+	German    = "Rot Blinkend",
+	French    = "Rouge Clignotante",
+	category  = "Glowing",
+	tile      = itemDB["I1EDCD3EB034426D0,823142F3C08E10E8,,,,,,"],
+	rectangle = itemDB["I2030D4AE5B379522,C5293DDCEF953FBB,,,,,,"],
+	plank     = itemDB["I5D2A3BAB26070AA2,37301EEE8D4D2052,,,,,,"],
+	cube      = itemDB["I1A73997539D0628D,F198964320F42578,,,,,,"],
+	triangle  = itemDB["I226176EB1CC35509,15267D963B83D75E,,,,,,"],
+	pole      = itemDB["I746013632BFD453C,01E015EAD95FCDBF,,,,,,"],
+	sphere    = itemDB["I16D0E97F574AEE21,2CC76CF412015214,,,,,,"],
+	disc      = itemDB["I0E5B3BAA43DF0579,E4117C9E11887A25,,,,,,"]
 }
 skin["Red Glowing"] = {
 	German    = "Rot Leuchtend",
@@ -189,7 +306,20 @@ skin["Red Glowing"] = {
 	triangle  = itemDB["I1429C29A5BA24624,7887B356A5C73010,,,,,,"],
 	pole      = itemDB["I79ACF21101478C5A,0AF6644FF4C92C3F,,,,,,"],
 	sphere    = itemDB["I1B4E52FD5C9B53F5,7D72C5B170D57B3B,,,,,,"],
-	disc      = itemDB["I23FB3ADD34715732,E846058002715BFD,,,,,,"],
+	disc      = itemDB["I23FB3ADD34715732,E846058002715BFD,,,,,,"]
+}
+skin["White Blinking"] = {
+	German    = "Weiß Blinkend",
+	French    = "Blanc Clignotante",
+	category  = "Glowing",
+	tile      = itemDB["I309E2EED0186DE07,EFDF39AD144EB66D,,,,,,"],
+	rectangle = itemDB["I233E882A73CB075D,BECD299B804D28C8,,,,,,"],
+	plank     = itemDB["I68DE237765D15DE1,DD11C99FDD6F8E33,,,,,,"],
+	cube      = itemDB["I2004C4BA6EAD0B98,FB69070549F5D711,,,,,,"],
+	triangle  = itemDB["I2AEEBA0D525B66CD,60CAB03663593179,,,,,,"],
+	pole      = itemDB["I7DCE348601CABA39,39C84F9D931650DB,,,,,,"],
+	sphere    = itemDB["I00575AC6550382DD,243437D7E9F91090,,,,,,"],
+	disc      = itemDB["I13206FE311C1FFD4,2F4C1F607EAB605D,,,,,,"]
 }
 skin["White Glowing"] = {
 	German    = "Weiß Leuchtend",
@@ -202,7 +332,20 @@ skin["White Glowing"] = {
 	triangle  = itemDB["I1A9DBA1B11134E76,EF19D60C052BAE4A,,,,,,"],
 	pole      = itemDB["I1D1AB70F2BD642DF,B37ECC9FC0D078F0,,,,,,"],
 	sphere    = itemDB["I1DA6C13A701DA513,4F2CF9F211F8FC03,,,,,,"],
-	disc      = itemDB["I272B3D145CAA9A90,0BD9FFFB97550D19,,,,,,"],
+	disc      = itemDB["I272B3D145CAA9A90,0BD9FFFB97550D19,,,,,,"]
+}
+skin["Yellow Blinking"] = {
+	German    = "Gelb Blinkend",
+	French    = "Jaune Clignotante",
+	category  = "Glowing",
+	tile      = itemDB["I39967D51230A6850,BDBC8F795BB28879,,,,,,"],
+	rectangle = itemDB["I2DBA5310209F1926,2708041A5064EFF6,,,,,,"],
+	plank     = itemDB["I1A2D7006241007F3,53CC43307EBFD435,,,,,,"],
+	cube      = itemDB["I042593D34A3D2217,6282EB972A4CF826,,,,,,"],
+	triangle  = itemDB["I05C92C7C1BFC0E3A,1061B0D6BF76EC84,,,,,,"],
+	pole      = itemDB["I262C6A7F40940A95,5808FACCE2EE6885,,,,,,"],
+	sphere    = itemDB["I2AD4F6B17513D658,23560B31D5BFDC3E,,,,,,"],
+	disc      = itemDB["I1697133059D3D138,F46A01FF0B282EDD,,,,,,"]
 }
 skin["Yellow Glowing"] = {
 	German    = "Gelb Leuchtend",
@@ -215,7 +358,7 @@ skin["Yellow Glowing"] = {
 	triangle  = itemDB["I1CACF4DE266F0A1C,592C560510CDEC04,,,,,,"],
 	pole      = itemDB["I032659B732D44B5A,2070ACA5D19C4EC5,,,,,,"],
 	sphere    = itemDB["I3B8D641C6FFA5D04,775D9699650976B1,,,,,,"],
-	disc      = itemDB["I2B2B50943821BABB,1150AD0529D15040,,,,,,"],
+	disc      = itemDB["I2B2B50943821BABB,1150AD0529D15040,,,,,,"]
 }
 ---------------
 -- Limestone --
