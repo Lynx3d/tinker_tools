@@ -16,7 +16,7 @@ function Dta.ui.buildSelectionWindow()
 
 	local newWindow = Dta.ui.Window.Create("SelectionWindow",
 							Dta.ui.context,
-							"<Selections>", -- Locale.Titles.Selections,
+							Locale.Titles.Selection,
 							SelectionWindowSettings.WIDTH,
 							SelectionWindowSettings.HEIGHT,
 							x, y,
@@ -30,16 +30,16 @@ function Dta.ui.buildSelectionWindow()
 
 	newWindow.name = Dta.ui.createTextfield("selectionsName", selWindow, 55, 0, 245)
 	newWindow.saveBtn = Dta.ui.createButton("selectionsSaveBtn", selWindow, 10, 25, nil, nil,
-											"<Save Selection>", nil, Dta.Selections.SaveSelectionClicked)
+											Locale.Buttons.SaveSelection, nil, Dta.Selections.SaveSelectionClicked)
 	newWindow.nameList = Dta.ui.createDropdown("selectionsNameSelect", selWindow, 55, 60, 245)
 	newWindow.loadBtn = Dta.ui.createButton("selectionsLoadBtn", selWindow, 10, 130, nil, nil,
-											"<Load Selection>", nil, Dta.Selections.LoadSelectionClicked)
+											Locale.Buttons.LoadSelection, nil, Dta.Selections.LoadSelectionClicked)
 	newWindow.deleteBtn = Dta.ui.createButton("selectionsDeleteBtn", selWindow, 160, 130, nil, nil,
-											"<Delete Selection>", nil, Dta.Selections.DeleteSelectionClicked)
+											  Locale.Buttons.DeleteSelection, nil, Dta.Selections.DeleteSelectionClicked)
 	newWindow.invertBtn = Dta.ui.createButton("selectionsInvertBtn", selWindow, 10, 160, nil, nil,
-											"<Invert Selection>", nil, Dta.Selections.InvertSelectionClicked)
+											  Locale.Buttons.InvertSelection, nil, Dta.Selections.InvertSelectionClicked)
 	newWindow.pickupBtn = Dta.ui.createButton("PickupBtn", selWindow, 160, 160, nil, nil,
-											  "<Pick Up>", nil, Dta.Selections.PickupClicked)
+											  Locale.Buttons.Pickup, nil, Dta.Selections.PickupClicked)
 
 	function newWindow:RefreshNameList()
 		local nameList = {}

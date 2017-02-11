@@ -467,6 +467,7 @@ Lang["English"].Buttons.ImportExport = "Import / Export"
 Lang["English"].Buttons.TribalMagic = "Tribal Magic"
 Lang["English"].Buttons.OffsetCalc = "Offset Calc."
 Lang["English"].Buttons.Reskin = "Reskin"
+Lang["English"].Buttons.Selection = "Selection"
 Lang["English"].Buttons.Copy = "Copy"
 Lang["English"].Buttons.Paste = "Paste"
 Lang["English"].Buttons.Pick = "Pick"
@@ -496,6 +497,11 @@ Lang["English"].Buttons.Cancel = "CANCEL"
 Lang["English"].Buttons.Apply = "Apply"
 Lang["English"].Buttons.More = "More..."
 Lang["English"].Buttons.Less = "Less..."
+Lang["English"].Buttons.SaveSelection = "Save Selection"
+Lang["English"].Buttons.LoadSelection = "Load Selection"
+Lang["English"].Buttons.DeleteSelection = "Delete Selection"
+Lang["English"].Buttons.InvertSelection = "Invert Selection"
+Lang["English"].Buttons.Pickup = "Pick up"
 
 ----------------------------------------
 --Menus
@@ -542,7 +548,7 @@ Lang["English"].Titles.Help = "Tinker Tools Help"
 Lang["English"].Titles.Settings = "Settings"
 Lang["English"].Titles.TransferValues = "Transfer Values to:"
 Lang["English"].Titles.Reskin = "Replace Skins"
-
+Lang["English"].Titles.Selection = "Selection"
 
 ----------------------------------------
 --Text
@@ -590,6 +596,7 @@ Lang["English"].Text.RestoreTools = "Remember opened Tools when closing\nMain Wi
 Lang["English"].Text.NotIdleNotification = "Previous operation has not finished yet.\nAbort currently running operation now?"
 Lang["English"].Text.ConfirmDeleteSet = "Delete item set '%s'?"
 Lang["English"].Text.ConfirmUsePosition = "The original position of this set is %.1fm away.\nContinue operation?"
+Lang["English"].Text.ConfirmPickup = "Are you sure you want to pick up all selected items?"
 Lang["English"].Text.Invert = "Inverse Direction"
 Lang["English"].Text.OldSkin = "Old Skin"
 Lang["English"].Text.NewSkin = "New Skin"

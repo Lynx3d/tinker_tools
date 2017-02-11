@@ -4,7 +4,7 @@ Dta.Selections = {}
 Dta.Selections.saved = {}
 
 function Dta.Selections.PickupClicked()
-	Dta.ui.showConfirmation("<Are you sure you want to pickup all selected items?", Dta.Selections.PickupSelection, nil, nil)
+	Dta.ui.showConfirmation(Dta.Locale.Text.ConfirmPickup, Dta.Selections.PickupSelection, nil, nil)
 end
 
 function Dta.Selections.PickupSelection()
