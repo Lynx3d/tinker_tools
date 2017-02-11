@@ -386,7 +386,7 @@ function Dta.ui.buildMainWindow()
 	-- Expanded
 	Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow, 157, 214, 160, nil, "Alfiebet", nil, Dta.Tools.Alfiebet.Toggle)
 	Mainwindow.itemDetails.ReskinBtn = Dta.ui.createButton("itemDetailReskinBtn", Mainwindow, 8, 241, 160, nil, Dta.Locale.Buttons.Reskin, nil, Dta.Tools.Reskin.Toggle)
-	Mainwindow.itemDetails.SelectionsBtn = Dta.ui.createButton("itemDetailSelectionBtn", Mainwindow, 157, 241, 160, nil, "<Selections>", nil, Dta.Tools.Select.Toggle)
+	Mainwindow.itemDetails.SelectionsBtn = Dta.ui.createButton("itemDetailSelectionBtn", Mainwindow, 157, 241, 160, nil, Dta.Locale.Buttons.Selection, nil, Dta.Tools.Select.Toggle)
 	Mainwindow.itemDetails.LessBtn = Dta.ui.createButton("itemDetailLessBtn", Mainwindow, 8, 268, 160, nil, Dta.Locale.Buttons.Less, nil, Dta.ui.lessBtnClicked)
 	Mainwindow.itemDetails.Alphabet:SetVisible(false)
 	Mainwindow.itemDetails.ReskinBtn:SetVisible(false)
