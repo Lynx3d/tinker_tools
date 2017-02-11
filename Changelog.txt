@@ -1,8 +1,20 @@
+Version 1.2.7
+- Fix update issue of main window when clearing bugged selection.
+  NOTE: This does not fix the selection bugs within the Rift API that cause
+  sync errors, it merely fixes a missing display update AFTER it got bugged.
+- Fix Lone Ranger font; it uses Limestone squares whose type ID was changed.
+- Prevent toggling disabled checkboxes when clicking on the label.
+- Implement local axis rotation mode.
+- Take care of outdated item type IDs in saved sets and when importing.
+  Currently the only known affected item is "Building Block: Limestone Square"
+- Reset modifier key status when key focus is lost.
+- Add blinking building blocks to item and skin database.
+
 Version 1.2.6
 - Update French localization
-- Update included LibSimpleWidget to fix drop-down wheel scrolling bug
+- Update included LibSimpleWidgets to fix drop-down wheel scrolling bug
 - Fix item type ID of Limestone Squares
-- Remove debug output that accidentally got commited
+- Remove debug output that accidentally got committed
 
 Version 1.2.5
 - Fix lua errors in Copy & Paste

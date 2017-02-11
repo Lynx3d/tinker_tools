@@ -68,9 +68,9 @@ et pour le travail de traduction effectué.
 }
 Author = "Lynx3d"
 Website = "https://github.com/Lynx3d"
-Version = "v1.2.6"
+Version = "v1.2.7"
 Email = "lynx (dot) mw (at) gmail (dot) com"
-Environment = "2.5"
+Environment = "4.0"
 
 RunOnStartup = {
   "Main.lua",
