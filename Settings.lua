@@ -93,9 +93,10 @@ function Dta.settings.loadEnd(hEvent, addonID)
 	end
 	-- check if outdated item type IDs need to be replaced
 	local revision = Dta.settings.get("Revision")
-	if not revision or revision < Dta.SettingsRevision then
+	local savedSets = Dta.settings.savedsets and Dta.settings.savedsets.SavedSets
+	if savedSets and (not revision or revision < Dta.SettingsRevision) then
 		local replaced = 0
-		for name, set in pairs(Dta.settings.savedsets.SavedSets) do
+		for name, set in pairs(savedSets) do
 			replaced = replaced + Dta.settings.ConvertOldItems(set)
 		end
 		print(string.format("Converted %i outdated items", replaced))
