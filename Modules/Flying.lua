@@ -71,6 +71,11 @@ function Dta.flying.UpdateCarpet()
 		return
 	end
 
+	local currentFrameTime = Inspect.Time.Frame()
+	if currentFrameTime < Dta.nextCarpetMove then
+		return
+	end
+
 	-- don't move carpet if we're less than 2cm from old pos in all directions
 	if not Dta.lastPlayerPos or
 		math.abs(Dta.lastPlayerPos.coordX - playerDetails.coordX) > 0.02 or
@@ -113,6 +118,8 @@ function Dta.flying.UpdateCarpet()
 		Dta.lastPlayerPos.coordX = playerDetails.coordX
 		Dta.lastPlayerPos.coordY = playerDetails.coordY
 		Dta.lastPlayerPos.coordZ = playerDetails.coordZ
+		-- aim for ~60 updates/s max or we might run into issues with the command queue throttling
+		Dta.nextCarpetMove = math.max(currentFrameTime, Dta.nextCarpetMove + 0.0167) -- currentFrameTime
 
 		-- if we moved more than <spacing> horizontally, save new position
 		if hDiff > spacing then

@@ -26,7 +26,6 @@ Dta.ExportImport_Sets = {}
 
 --Move, Rotate and Scale
 Dta.pendingActions = {}
-Dta.lastFrameTime = 0
 
 --Copy & Paste
 Dta.FlickerOffset = true
@@ -37,7 +36,6 @@ Dta.InDimension = false
 
 --Flying
 Dta.desiredPitch = 0
-Dta.pitchButtons = {}
 Dta.waitingForCarpet = false
 Dta.FlyingType = "IFEC11D174272F87C,3E1F104FE8C67224,,,,,,"
 Dta.magicYOffset = 0.4755 -- height of Tribal Table
@@ -45,8 +43,7 @@ Dta.carpetId = false
 Dta.lastPlayerPos = {coordX = 0, coordY = 0, coordZ = 0}
 Dta.savePosNew = {coordX = 0, coordY = 0, coordZ = 0}
 Dta.savePosOld = {coordX = -0.2, coordY = 0, coordZ = 0}
-Dta.lastCarpetMove = 0
-Dta.lastYaw = 0
+Dta.nextCarpetMove = 0
 
 ---------------------------------
 --CATCH COROUTINES
@@ -142,6 +139,7 @@ function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a
 			if data ~= nil then
 				if data.type == Dta.FlyingType then
 					Dta.carpetId = id
+					Dta.nextCarpetMove = Inspect.Time.Frame()
 					Dta.waitingForCarpet = false
 				end
 			end
@@ -296,11 +294,6 @@ end
 --------------------------------------
 
 function Dta.tick(handle)
-	local currentFrameTime = Inspect.Time.Frame()
-	local deltaT = 	currentFrameTime - Dta.lastFrameTime
-
-	Dta.lastFrameTime = currentFrameTime
-
 	if #Dta.pendingActions > 0 and not Dta.pending_add then
 		-- Rift (3.6) has a global command queue with a depth of 100 and throttling (25/sec ?).
 		-- We don't want to completely cram the queue, but keep 20 command slots for other addons;
