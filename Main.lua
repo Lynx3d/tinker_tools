@@ -33,6 +33,7 @@ Dta.FlickerOffset = true
 --Others
 Dta.PlayerID = Inspect.Unit.Lookup("player")
 Dta.InDimension = false
+Dta.debugVerbosity = 0
 
 --Flying
 Dta.desiredPitch = 0
@@ -76,6 +77,24 @@ function Dta.CPrint(text, html)
 		if open_consoles[console_id] then
 			Command.Console.Display(console_id, false, text, html == true)
 		end
+	end
+end
+
+function Dta.DebugPrint(level, text, html)
+	if Dta.debugVerbosity >= level then
+		Dta.CPrint(text, html)
+	end
+end
+
+function Dta.DebugDump(level, ...)
+	if Dta.debugVerbosity >= level then
+		local arg_table = { ... }
+		for i, val in pairs(arg_table) do
+			if type(val) ~= "string" then
+				arg_table[i] = Utility.Serialize.Inline(val)
+			end
+		end
+		Dta.CPrint(table.concat(arg_table, " | "), false)
 	end
 end
 
@@ -255,8 +274,9 @@ function Dta.Event_Unit_Availability_Full(hEvent, t)
 	end
 end
 
-function Dta.commandHandler(hEvent, command)
-
+function Dta.commandHandler(hEvent, command_string)
+	local args = command_string:split(" +", true)
+	local command = args[1]
 	if command == "reset" then
 		for name, val in pairs(Dta.settings.defaults) do
 			if string.sub(name, -4, -2) == "Pos" then
@@ -277,6 +297,9 @@ function Dta.commandHandler(hEvent, command)
 		Dta.settings.import_dimtools()
 	elseif command == "config" then
 		Dta.config_ui.showConfigWindow()
+	elseif command == "debug" then
+		Dta.debugVerbosity = tonumber(args[2]) or 0
+		Dta.CPrint("Debug verbosity set to " .. Dta.debugVerbosity)
 	elseif command == "force" then
 		EnterDimension()
 	elseif command == "check_lang" then
