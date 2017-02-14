@@ -1,3 +1,9 @@
+Version 1.2.8
+- Fix Lua error on addon loading when no sets have been saved yet.
+- Fix several text fields not clearing key focus on 'return'.
+- Fix Alfiebet window not clearing key focus when closed.
+- Limit Tribal Magic update frequency to ~60 per second.
+
 Version 1.2.7
 - Fix update issue of main window when clearing bugged selection.
   NOTE: This does not fix the selection bugs within the Rift API that cause
