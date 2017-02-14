@@ -102,6 +102,8 @@ function Dta.losa_ui.buildLoSaWindow()
 	LoSawindow.constructions.z = Dta.ui.createTextfield("mconstructionsZ", LoSawindow.constructions, 260, 315, 40)
 	LoSawindow.constructions.z:SetVisible(false)
 
+	-- "abuse" cycle function for clearing input focus on 'return' key
+	LoSawindow.constructions.name:EventAttach(Event.UI.Input.Key.Down, Dta.ui.FocusCycleCallback, "Losa_TabFocusCycle")
 	-- TODO: temp fix for new window hierarchy
 	newWindow.constructions = LoSawindow.constructions
 	return newWindow

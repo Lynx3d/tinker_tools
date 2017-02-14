@@ -80,6 +80,9 @@ function Dta.measurements_ui.buildWindow()
 	Measurementswindow.Measurements.y = Dta.ui.createText("MeasurementsY", Measurementswindow.Measurements, 125, 120, "-", 16)
 	Measurementswindow.Measurements.z = Dta.ui.createText("MeasurementsZ", Measurementswindow.Measurements, 225, 120, "-", 16)
 
+	-- "abuse" cycle function for clearing input focus on 'return' key
+	Measurementswindow:EventAttach(Event.UI.Input.Key.Down.Dive, Dta.ui.FocusCycleCallback, "Measurementswindow_TabFocusCycle")
+
 	-- TODO: temp fix for new window hierarchy
 	newWindow.Measurements = Measurementswindow.Measurements
 	newWindow.TransferPopup = Dta.measurements_ui.buildTransferPopup(Measurementswindow)

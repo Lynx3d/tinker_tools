@@ -89,6 +89,9 @@ function Dta.expimp_ui.buildExpImpWindow()
 
 	textView:EventAttach(Event.UI.Input.Key.Focus.Gain, KeyFocusGain, "TextHintHide")
 	textView:EventAttach(Event.UI.Input.Key.Focus.Loss, KeyFocusLoss, "TextHintShow")
+
+	-- "abuse" cycle function for clearing input focus on 'return' key
+	expImp.NewName:EventAttach(Event.UI.Input.Key.Down, Dta.ui.FocusCycleCallback, "ExpImp_TabFocusCycle")
 	-- TODO: temp fix for new window hierarchy
 	newWindow.ImportExport = expImp
 

@@ -76,6 +76,9 @@ function Dta.alphabet_ui.buildWindow()
 	alphabet.load = Dta.ui.createButton("AlphabetLoad", alphabet, 0, 150, nil, nil, Dta.Locale.Buttons.LoadWord, nil, Dta.alphabet.AlphabetLoadClicked)
 	alphabet.printReqs = Dta.ui.createButton("AlphabetPrintReqs", alphabet, 165, 150, nil, nil, Dta.Locale.Buttons.PrintMaterials, nil, Dta.alphabet.AlphabetPrintMaterials)
 
+	-- "abuse" cycle function for clearing input focus on 'return' key
+	alphabet:EventAttach(Event.UI.Input.Key.Down.Dive, Dta.ui.FocusCycleCallback, "Alphabet_TabFocusCycle")
+
 	newWindow.Alphabet = alphabet
 	return newWindow
 end
@@ -92,6 +95,7 @@ end
 -- Hide the toolbox window
 function Dta.alphabet_ui.hideWindow(ab_window)
 	ab_window:SetVisible(false)
+	ab_window:ClearKeyFocus()
 	ab_window.Alphabet.FontLoad:SetEnabled(false)
 	ab_window.Alphabet.SizeLoad:SetEnabled(false)
 	ab_window.Alphabet.FilterSelect:SetEnabled(false)
