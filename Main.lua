@@ -159,6 +159,7 @@ end
 -------------------------
 
 function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a dimension
+	Dta.DebugDump(2, "Add", dimensionItem)
 	if Dta.pending_add then
 		local id, _ = next(dimensionItem)
 		Dta.items.QueueSelection(id)
@@ -185,9 +186,7 @@ function Dta.addEventHandler(hEvent, dimensionItem) --executed all the time in a
 end
 
 function Dta.removeEventHandler(hEvent, dimensionItem) --Executed when item is removed
-	--if #Dta.pendingActions == 1 then
-	--	Dta.CPrint(Dta.Locale.Prints.ProcessFinished)
-	--end
+	Dta.DebugDump(2, "Remove", dimensionItem)
 	if Dta.carpetId and dimensionItem[Dta.carpetId] then
 		Dta.flying.FlyingRemoved()
 	end
@@ -198,9 +197,7 @@ function Dta.removeEventHandler(hEvent, dimensionItem) --Executed when item is r
 end
 
 function Dta.updateEventHandler(hEvent, dimensionItem) --Executed on every select/ deselect or change of an dimension item
-	--if #Dta.pendingActions == 1 then
-	--	print(Dta.Locale.Prints.ProcessFinished)
-	--end
+	Dta.DebugDump(2, "Update", dimensionItem)
 	Dta.items.updateSelection(dimensionItem, false)
 end
 
