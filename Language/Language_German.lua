@@ -155,6 +155,7 @@ LangG.Text.Pole = "Pfosten"
 LangG.Text.Disc = "Scheibe"
 LangG.Text.NewName = "Neuer Name"
 LangG.Text.Category = "Kategorie"
+LangG.Text.Multiplier = "Multiplikator"
 
 ----------------------------------------
 --Prints

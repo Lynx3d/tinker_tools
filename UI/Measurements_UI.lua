@@ -49,15 +49,18 @@ function Dta.measurements_ui.buildWindow()
 	--Measurementswindow.modifyRotation:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
 	Measurementswindow.Measurements.TypeLabel = Dta.ui.createText("MeasurementsTypeLabel", Measurementswindow.Measurements, 0, 0, Dta.Locale.Text.Type, 14)
-	Measurementswindow.Measurements.TypeLoad = Dta.ui.createDropdown("MeasurementsTypeLoad", Measurementswindow.Measurements, 80, 0, 150)
+	Measurementswindow.Measurements.TypeLoad = Dta.ui.createDropdown("MeasurementsTypeLoad", Measurementswindow.Measurements, 90, 0, 150)
 	Measurementswindow.Measurements.TypeLoad:SetItems(Dta.Locale.Menus.ItemType)
 
-	Measurementswindow.Measurements.OrientationLabel = Dta.ui.createText("MeasurementsOrientationLabel", Measurementswindow.Measurements, 0, 30, Dta.Locale.Text.Orientation, 14)
-	Measurementswindow.Measurements.OrientationLoad = Dta.ui.createDropdown("MeasurementsOrientationLoad", Measurementswindow.Measurements, 80, 30, 150)
+	Measurementswindow.Measurements.OrientationLabel = Dta.ui.createText("MeasurementsOrientationLabel", Measurementswindow.Measurements, 0, 25, Dta.Locale.Text.Orientation, 14)
+	Measurementswindow.Measurements.OrientationLoad = Dta.ui.createDropdown("MeasurementsOrientationLoad", Measurementswindow.Measurements, 90, 25, 150)
 	Measurementswindow.Measurements.OrientationLoad:SetItems(Dta.Locale.Menus.Orientation)
 
-	Measurementswindow.Measurements.SizeLabel = Dta.ui.createText("MeasurementsSizeLabel", Measurementswindow.Measurements, 0, 60, Dta.Locale.Text.Scale, 14)
-	Measurementswindow.Measurements.Size = Dta.ui.createTextfield("MeasurementsSize", Measurementswindow.Measurements, 80, 60, 50)
+	Measurementswindow.Measurements.SizeLabel = Dta.ui.createText("MeasurementsSizeLabel", Measurementswindow.Measurements, 0, 50, Dta.Locale.Text.Scale, 14)
+	Measurementswindow.Measurements.Size = Dta.ui.createTextfield("MeasurementsSize", Measurementswindow.Measurements, 90, 50, 50)
+
+	Measurementswindow.Measurements.MultiLabel = Dta.ui.createText("MeasurementsMultiLabel", Measurementswindow.Measurements, 0, 75, Dta.Locale.Text.Multiplier, 14)
+	Measurementswindow.Measurements.Multi = Dta.ui.createTextfield("MeasurementsMulti", Measurementswindow.Measurements, 90, 75, 50)
 
 	Measurementswindow.Measurements.Calculate = Dta.ui.createButton("MeasurementsCalculate", Measurementswindow.Measurements, 0, 145, nil, nil, Dta.Locale.Buttons.Calculate, nil, Dta.measurements.CalculationsClicked)
 	Measurementswindow.Measurements.Detect = Dta.ui.createButton("MeasurementsDetect", Measurementswindow.Measurements, 135, 145, nil, nil, Dta.Locale.Buttons.Detect, nil, Dta.measurements.DetectClicked)
@@ -69,7 +72,7 @@ function Dta.measurements_ui.buildWindow()
 	Measurementswindow.Measurements.TransferBtn:SetHeight(32)
 	Measurementswindow.Measurements.TransferBtn:SetPoint("TOPLEFT", Measurementswindow.Measurements, "TOPLEFT", 275, 145)
 
-	Measurementswindow.Divider1 = Dta.ui.createTexture("MeasurementsDivider1", Measurementswindow, Dta.AddonID, "textures/divider.png", 20, 100, Measurementswindow:GetWidth()-40)
+	Measurementswindow.Divider1 = Dta.ui.createTexture("MeasurementsDivider1", Measurementswindow.Measurements, "Rift", "divider_06.png.dds", 0, 100, Measurementswindow.Measurements:GetWidth())
 	Measurementswindow.Divider1:SetLayer(29)
 
 	Measurementswindow.Measurements.xLabel = Dta.ui.createText("MeasurementsXLabel", Measurementswindow.Measurements, 0, 120, "X", 16, {1, 0, 0, 1})

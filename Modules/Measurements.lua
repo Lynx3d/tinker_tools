@@ -29,10 +29,14 @@ function Dta.measurements.CalculationsClicked()
 	local shape = Measurement_UI.TypeLoad:GetSelectedIndex()
 	local orientation = Measurement_UI.OrientationLoad:GetSelectedIndex()
 	local scale, scale_ok = Dta.ui.checkNumber(size, nil)
+	local multi, multi_ok = Dta.ui.checkNumber(Measurement_UI.Multi:GetText(), 1)
 	local dims
 
 	if not orientation then
 		return Dta.CPrint(Dta.Locale.Prints.SelectOrientation)
+	end
+	if not multi_ok then
+		return Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
 	end
 
 	if not shape then
@@ -53,29 +57,29 @@ function Dta.measurements.CalculationsClicked()
 		end
 	end
 
-	if orientation == 7 then
+	if orientation == 7 then -- selection delta
 		if Dta.selectionCount ~= 2 then
 			return Dta.CPrint(Dta.Locale.Prints.Selection2)
 		end
 		local id, details1 = next(Dta.selectedItems)
 		local _, details2 = next(Dta.selectedItems, id)
-		Dta.measurements.result = { details1.coordX - details2.coordX,
-									details1.coordY - details2.coordY,
-									details1.coordZ - details2.coordZ }
+		Dta.measurements.result = { (details1.coordX - details2.coordX) * multi,
+									(details1.coordY - details2.coordY) * multi,
+									(details1.coordZ - details2.coordZ) * multi }
 	elseif orientation < 7 then
 		local axisMap = Dta.measurements.OrientationAxisMap[orientation]
-		Dta.measurements.result = { scale * dims[axisMap[1]],
-									scale * dims[axisMap[2]],
-									scale * dims[axisMap[3]] }
+		Dta.measurements.result = { scale * multi * dims[axisMap[1]],
+									scale * multi * dims[axisMap[2]],
+									scale * multi * dims[axisMap[3]] }
 	else
 		local _, details = next(Dta.selectedItems)
 		local vec = { 0, 0, 0 }
 		if orientation == 8 then
-			vec[1] = dims.x * scale
+			vec[1] = dims.x * scale * multi
 		elseif orientation == 9 then
-			vec[2] = dims.y * scale
+			vec[2] = dims.y * scale * multi
 		else
-			vec[3] = dims.z * scale
+			vec[3] = dims.z * scale * multi
 		end
 		local m_rot = Dta.Matrix.createZYX(details.pitch, details.yaw, details.roll, true)
 		Dta.measurements.result = Dta.Matrix.Transform(m_rot, vec)
