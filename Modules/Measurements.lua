@@ -133,6 +133,8 @@ function Dta.measurements.DetectClicked()
 			Measurement_UI.TypeLoad:SetSelectedIndex(8)
 		end
 		-- orientation
+		-- default to transformed X if no axis alignment found below:
+		Measurement_UI.OrientationLoad:SetSelectedIndex(8)
 		if Dta.measurements.IsAxisAligned(details.yaw) then
 			if Dta.measurements.IsAxisAligned(details.pitch) then
 				if Dta.measurements.IsAxisAligned(details.roll) then

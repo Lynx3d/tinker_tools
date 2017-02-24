@@ -49,15 +49,18 @@ function Dta.measurements_ui.buildWindow()
 	--Measurementswindow.modifyRotation:SetBackgroundColor(1, 0, 0, 0.5) --Debug
 
 	measure.TypeLabel = Dta.ui.createText("MeasurementsTypeLabel", measure, 0, 0, Dta.Locale.Text.Type, 14)
-	measure.TypeLoad = Dta.ui.createDropdown("MeasurementsTypeLoad", measure, 90, 0, 150)
+	measure.TypeLoad = Dta.ui.createDropdown("MeasurementsTypeLoad", measure, 90, 0, 180)
 	measure.TypeLoad:SetItems(Dta.Locale.Menus.ItemType)
+	measure.TypeLoad.Event.ItemSelect = Dta.measurements_ui.ShapeChanged
 
 	measure.OrientationLabel = Dta.ui.createText("MeasurementsOrientationLabel", measure, 0, 25, Dta.Locale.Text.Orientation, 14)
-	measure.OrientationLoad = Dta.ui.createDropdown("MeasurementsOrientationLoad", measure, 90, 25, 150)
+	measure.OrientationLoad = Dta.ui.createDropdown("MeasurementsOrientationLoad", measure, 90, 25, 180)
 	measure.OrientationLoad:SetItems(Dta.Locale.Menus.Orientation)
+	measure.OrientationLoad.Event.ItemSelect = Dta.measurements_ui.OrientationChanged
 
 	measure.SizeLabel = Dta.ui.createText("MeasurementsSizeLabel", measure, 0, 50, Dta.Locale.Text.Scale, 14)
 	measure.Size = Dta.ui.createTextfield("MeasurementsSize", measure, 90, 50, 50)
+	measure.SizeHint = Dta.ui.createText("MeasurementsSizeHint", measure, 150, 50, "", 14)
 
 	measure.MultiLabel = Dta.ui.createText("MeasurementsMultiLabel", measure, 0, 75, Dta.Locale.Text.Multiplier, 14)
 	measure.Multi = Dta.ui.createTextfield("MeasurementsMulti", measure, 90, 75, 50)
@@ -106,6 +109,34 @@ function Dta.measurements_ui.buildTransferPopup(parent)
 	popup.Transfer = Dta.ui.createButton("Transfer", popup, 30, 140, nil, nil, Dta.Locale.Buttons.Transfer, nil, Dta.measurements.TransferClicked)
 	return popup
 end
+
+function Dta.measurements_ui.OrientationChanged(self, entry, value, index)
+	local Measurement_UI = Dta.Tools.Offset.window.Measurements
+	if index == 7 then -- Selection Delta
+		Measurement_UI.TypeLabel:SetAlpha(0.5)
+		Measurement_UI.TypeLoad:SetEnabled(false)
+		Measurement_UI.SizeLabel:SetAlpha(0.5)
+		Measurement_UI.SizeHint:SetAlpha(0.5)
+		--TODO: implement a Measurement_UI.Size:SetEnabled(false)
+	else
+		Measurement_UI.TypeLabel:SetAlpha(1)
+		Measurement_UI.TypeLoad:SetEnabled(true)
+		Measurement_UI.SizeLabel:SetAlpha(1)
+		Measurement_UI.SizeHint:SetAlpha(1)
+		--TODO: implement a Measurement_UI.Size:SetEnabled(true)
+	end
+end
+
+function Dta.measurements_ui.ShapeChanged(self, entry, value, index)
+	local Measurement_UI = Dta.Tools.Offset.window.Measurements
+	if not index then
+		Measurement_UI.SizeHint:SetText("")
+	else
+		local sizes = Dta.measurements.Dimensions[index]
+		Measurement_UI.SizeHint:SetText(string.format("(%g ... %g)", sizes.minScale, sizes.maxScale))
+	end
+end
+
 -- Show the toolbox window
 function Dta.measurements_ui.showWindow(mm_window)
 	mm_window:SetVisible(true)
