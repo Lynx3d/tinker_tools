@@ -370,8 +370,6 @@ function Dta.ui.buildMainWindow()
 	Mainwindow.itemDetails.scaleLabel = Dta.ui.createText("itemDetailsScaleLabel", Mainwindow.itemDetails, 0, 90, Dta.Locale.Text.Scale, 14)
 	Mainwindow.itemDetails.scale = Dta.ui.createText("itemDetailsScale", Mainwindow.itemDetails, 50, 90, "-", 14)
 
-	Mainwindow.itemDetails.nrItemsLabel = Dta.ui.createText("itemDetailsnrItemsLabel", Mainwindow.itemDetails, 125, 90, Dta.Locale.Text.NrSelectItems, 14)
-	Mainwindow.itemDetails.nrItems = Dta.ui.createText("itemDetailsnrItems", Mainwindow.itemDetails, 265, 90, "-", 14)
 
 	-- Tool Buttons
 	Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow, 8, 133, 160, nil, Dta.Locale.Buttons.MoveWindow, nil, Dta.Tools.Move.Toggle)
