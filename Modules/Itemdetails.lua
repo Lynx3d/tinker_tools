@@ -10,7 +10,7 @@ Dta.items.textColor =
 	rare = 			{ hexcol = "#2681fe", r = 38/255, g = 129/255, b = 254/255 },
 	epic = 			{ hexcol = "#b049ff", r = 176/255, g = 73/255, b =  1.0},
 	relic = 		{ hexcol = "#ff9900", r = 1.0, g = 153/255, b = 0 },
-	transcendant = 	{ hexcol = "#cf1313", r = 207/255, g = 19/255, b = 19/255 },
+	transcendent = 	{ hexcol = "#cf1313", r = 207/255, g = 19/255, b = 19/255 },
 	eternal = 		{ hexcol = "#6bd3f7", r = 107/255, g = 211/255, b = 247/255 },
 	ascended =		{ hexcol = "#ffaaff", r = 1.0, g = 170/255, b = 1.0 },
 	quest = 		{ hexcol = "#fff600", r = 1.0, g = 246/255, b = 0 }
