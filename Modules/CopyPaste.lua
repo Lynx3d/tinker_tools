@@ -205,8 +205,9 @@ end
 
 function Dta.copa.copyItemAttributes()
 	if Dta.selectionCount > 0 then
+		local copy_selection = {}
 		Dta.clipboard = { itemCount = Dta.selectionCount, items = {} }
-		for k, details in pairs(Dta.selectedItems) do
+		for id, details in pairs(Dta.selectedItems) do
 			table.insert(Dta.clipboard.items, {
 				name = details.name,
 				type = details.type,
@@ -218,7 +219,9 @@ function Dta.copa.copyItemAttributes()
 				roll = details.roll,
 				scale = details.scale
 			})
+			copy_selection[id] = true
 		end
+		Dta.Selections.SaveSelection("<last copy>", copy_selection)
 	else
 		Dta.CPrint(Dta.Locale.Prints.Copy_SelectItem)
 	end
