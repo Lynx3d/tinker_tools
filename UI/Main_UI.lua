@@ -318,7 +318,7 @@ function Dta.ui.buildMainWindow()
 							Dta.ui.WindowMoved
 							)
 	newWindow.settings = MainWindowSettings
-	newWindow.versionText = Dta.ui.createText("versionText", newWindow, 20, 10, Dta.Version, 12, {0.3, 0.6, 0.6, 1})
+	newWindow.versionText = Dta.ui.createText("versionText", newWindow, 20, 16, Dta.Version, 12, {0.3, 0.6, 0.6, 1})
 	newWindow.versionText:SetLayer(15)
 	local Mainwindow = newWindow.content
 

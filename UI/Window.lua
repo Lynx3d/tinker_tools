@@ -37,7 +37,7 @@ end
 -- with title, drag functionality and close button
 -------------------------------------------------
 
-local Window = { headerSize = 30, classicHeaderSize = 40 }
+local Window = { headerSize = 30, classicHeaderSize = 40, borderWidth = 6 }
 Window.rectPath = {	{xProportional = 0, yProportional = 0},
 					{xProportional = 0, yProportional = 1},
 					{xProportional = 1, yProportional = 1},
@@ -188,26 +188,26 @@ end
 
 function Window.createFramedWindow(name, parent, title, width, height, x, y, closable, movable, closeCallback, moveCallback)
 	local newWindow = UI.CreateFrame("Frame", name, parent)
-	newWindow:SetHeight(height + ((title or movable) and Window.headerSize or 0))
-	newWindow:SetWidth(width)
+	newWindow:SetHeight(height + 2*Window.borderWidth + ((title or movable) and Window.headerSize or 0))
+	newWindow:SetWidth(width + 2*Window.borderWidth)
 	newWindow:SetPoint("TOPLEFT", UIParent, "TOPLEFT", x, y)
 
 	newWindow:EventAttach(Event.UI.Input.Mouse.Left.Click, Dta.ui.clickCallback, "WindowBackgroundClicked")
 
 	newWindow.background = UI.CreateFrame("Canvas", name .. "Background", newWindow)
-	newWindow.background:SetPoint("TOPLEFT", newWindow, "TOPLEFT", 0, 0)
-	newWindow.background:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT", 0, 0)
+	newWindow.background:SetPoint("TOPLEFT", newWindow, "TOPLEFT",  Window.borderWidth, Window.borderWidth)
+	newWindow.background:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT", -Window.borderWidth, -Window.borderWidth)
 	Window.SetBackground(newWindow, "Rift", "dimension_window_bg_right_large.png.dds", {6, 6, 1018, 506}, 1)
 	newWindow.background:SetLayer(1)
 	newWindow.background:EventAttach(Event.UI.Layout.Size, Window.drawBackground, "redrawBackground")
 
-	Window.createWindowBorder(newWindow)
+	Window.createWindowBorder(newWindow.background)
 
 	if closable then
 		-- rift close button defaults to 36x36
 		newWindow.closeBtn = UI.CreateFrame("RiftButton", name, newWindow)
 		newWindow.closeBtn:SetSkin("close")
-		newWindow.closeBtn:SetPoint("TOPRIGHT", newWindow, "TOPRIGHT", 4, -4)
+		newWindow.closeBtn:SetPoint("TOPRIGHT", newWindow, "TOPRIGHT", 4 - Window.borderWidth, Window.borderWidth - 4)
 		newWindow.closeBtn:EventAttach(Event.UI.Input.Mouse.Left.Click, Window.defaultCloseCallback, "WindowCloseButtonClicked")
 		newWindow.closeBtn.closeCallback = closeCallback
 		newWindow.closeBtn:SetLayer(11)
@@ -217,7 +217,7 @@ function Window.createFramedWindow(name, parent, title, width, height, x, y, clo
 	if movable then
 		newWindow.moveFrame = UI.CreateFrame("Frame", name .. "WindowMover", newWindow)
 		newWindow.moveFrame:SetPoint("TOPLEFT", newWindow, "TOPLEFT", 0, 0)
-		newWindow.moveFrame:SetPoint("BOTTOMRIGHT", newWindow, "TOPRIGHT", 0, Window.headerSize)
+		newWindow.moveFrame:SetPoint("BOTTOMRIGHT", newWindow, "TOPRIGHT", 0, Window.headerSize + Window.borderWidth)
 		newWindow.moveFrame:SetLayer(4)
 
 		DraggableFrame.Setup(newWindow.moveFrame, newWindow, moveCallback)
@@ -239,17 +239,17 @@ function Window.createFramedWindow(name, parent, title, width, height, x, y, clo
 				colorG = 1,
 				colorB = 0.85,
 				strength = 3})
-		newWindow.header:SetPoint("TOPCENTER", newWindow, "TOPCENTER", 0, 2)
+		newWindow.header:SetPoint("TOPCENTER", newWindow, "TOPCENTER", 0, Window.borderWidth + 2)
 		newWindow.header:SetLayer(9)
 	end
 
 	newWindow.content = UI.CreateFrame("Frame", name .. "WindowContent", newWindow)
 	if title or movable then
-		newWindow.content:SetPoint("TOPLEFT", newWindow, "TOPLEFT", 0, Window.headerSize)
+		newWindow.content:SetPoint("TOPLEFT", newWindow, "TOPLEFT", Window.borderWidth, Window.borderWidth + Window.headerSize)
 	else
-		newWindow.content:SetPoint("TOPLEFT", newWindow, "TOPLEFT")
+		newWindow.content:SetPoint("TOPLEFT", newWindow, "TOPLEFT", Window.borderWidth, Window.borderWidth)
 	end
-	newWindow.content:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT")
+	newWindow.content:SetPoint("BOTTOMRIGHT", newWindow, "BOTTOMRIGHT", -Window.borderWidth, -Window.borderWidth)
 	newWindow.content:SetLayer(4)
 	newWindow.SetContentHeight = Window.SetContentHeight
 	newWindow.SetBackground = Window.SetBackground
