@@ -96,7 +96,8 @@ function Dta.losa.constructionLoadMultipleSetsChanged()
 end
 
 function Dta.losa.constructionSaveClicked()
-	Dta.losa.saveGroupItemAttributes(Dta.Tools.LoSa.window.constructions.name:GetText())
+	local cr = coroutine.wrap(Dta.losa.saveGroupItemAttributes)
+	cr(Dta.Tools.LoSa.window.constructions.name:GetText())
 	Dta.losa.refreshLoadSelect()
 end
 
@@ -241,28 +242,36 @@ end
 --------------------------------------
 
 function Dta.losa.saveGroupItemAttributes(name)
-	if name ~= nil and name ~= "" then
-		if Dta.selectionCount > 0 then
-
-			local groupDetails = {}
-			for _, item in pairs(Dta.selectedItems) do
-				table.insert(groupDetails, {name = item.name,
-											type = item.type,
-											coordX = item.coordX,
-											coordY = item.coordY,
-											coordZ = item.coordZ,
-											yaw = item.yaw,
-											pitch = item.pitch,
-											roll = item.roll,
-											scale = item.scale})
+	if Dta.selectionCount < 1 then
+		Dta.CPrint(Dta.Locale.Prints.MinOneItem)
+		return
+	end
+	if name and name ~= "" then
+		local constructions = Dta.settings.get_savedsets("SavedSets") or {}
+		if constructions[name] then
+			Dta.ui.showConfirmation(string.format(Dta.Locale.Text.ConfirmOverwrite, name),
+									true, false, coroutine.running())
+			local overwrite = coroutine.yield()
+			if not overwrite then
+				return
 			end
-			local constructions = Dta.settings.get_savedsets("SavedSets") or {}
-			constructions[name] = groupDetails
-			Dta.settings.set_savedsets("SavedSets", constructions)
-			Dta.CPrint(string.format(Dta.Locale.Prints.Saved, name))
-		else
-			Dta.CPrint(Dta.Locale.Prints.MinOneItem)
 		end
+
+		local groupDetails = {}
+		for _, item in pairs(Dta.selectedItems) do
+			table.insert(groupDetails, {name = item.name,
+										type = item.type,
+										coordX = item.coordX,
+										coordY = item.coordY,
+										coordZ = item.coordZ,
+										yaw = item.yaw,
+										pitch = item.pitch,
+										roll = item.roll,
+										scale = item.scale})
+		end
+		constructions[name] = groupDetails
+		Dta.settings.set_savedsets("SavedSets", constructions)
+		Dta.CPrint(string.format(Dta.Locale.Prints.Saved, name))
 	else
 		Dta.CPrint(Dta.Locale.Prints.EnterName)
 	end
