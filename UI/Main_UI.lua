@@ -520,6 +520,9 @@ function Dta.ui.buildNotificationWindow()
 	newWindow.Message = Dta.ui.createText("confirmationDialogueMessage", newWindow, 10, 0, "-", 16)
 	newWindow.Message:ClearPoint("TOPLEFT")
 	newWindow.Message:SetPoint("TOPCENTER", newWindow, "TOPCENTER", 0, 10)
+	newWindow.Message2 = Dta.ui.createText("confirmationDialogueMessage", newWindow, 10, 0, "-", 16)
+	newWindow.Message2:ClearPoint("TOPLEFT")
+	newWindow.Message2:SetPoint("TOPCENTER", newWindow.Message, "BOTTOMCENTER")
 	newWindow.YesBtn = Dta.ui.createButton("errorBtn_Yes", newWindow, 80, 70, 160, nil, Dta.Locale.Buttons.Yes, nil, Dta.ui.notificationWindowButtonClicked)
 	newWindow.NoBtn = Dta.ui.createButton("errorBtn_No", newWindow, 260, 70, 160, nil, Dta.Locale.Buttons.No, nil, Dta.ui.notificationWindowButtonClicked)
 	return newWindow
@@ -531,7 +534,14 @@ function Dta.ui.showNotification(message, btn1_callback, btn2_callback, userdata
 	if Dta.ui.notificationWindow == nil then
 		Dta.ui.notificationWindow = Dta.ui.buildNotificationWindow()
 	end
-	Dta.ui.notificationWindow.Message:SetText(message)
+	local newline = message:find("\n")
+	if newline then
+		Dta.ui.notificationWindow.Message:SetText(message:sub(1, newline-1))
+		Dta.ui.notificationWindow.Message2:SetText(message:sub(newline+1))
+	else
+		Dta.ui.notificationWindow.Message:SetText(message)
+		Dta.ui.notificationWindow.Message2:SetText("")
+	end
 	Dta.ui.notificationWindow.YesBtn:SetText(btn1_text or Dta.Locale.Buttons.Yes)
 	Dta.ui.notificationWindow.NoBtn:SetText(btn2_text or Dta.Locale.Buttons.No)
 	Dta.ui.notificationWindow.YesBtn.click_callback = btn1_callback
