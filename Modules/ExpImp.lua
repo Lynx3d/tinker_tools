@@ -158,18 +158,20 @@ end
 -- IMPORT
 -------------------------------
 
-function Dta.expimp.ImportLoadAttributes(name, new_name)
+function Dta.expimp.ImportLoadAttributes(name, new_name, overwrite)
 	if not new_name or new_name == "" then
 		new_name = name
 	end
 	local saved_sets = Dta.settings.get_savedsets("SavedSets") or {}
-	if saved_sets[new_name] then
+	if saved_sets[new_name] and not overwrite then
 		Dta.ui.showConfirmation(string.format(Dta.Locale.Text.ConfirmOverwrite, new_name),
 								true, false, coroutine.running())
-		local overwrite = coroutine.yield()
-		if not overwrite then
-			return
+		local ok = coroutine.yield()
+		if ok then
+			-- recurse to re-run previous checks
+			Dta.expimp.ImportLoadAttributes(name, new_name, true)
 		end
+		return
 	end
 	if name and name ~= "" then
 		if Dta.ExportImport_Sets[name] ~= nil then
@@ -211,19 +213,21 @@ end
 -- STRING IMPORT
 ----------------------------------
 
-function Dta.expimp.ImportSerializedSet(name, data)
+function Dta.expimp.ImportSerializedSet(name, data, overwrite)
 	local saved_sets = Dta.settings.get_savedsets("SavedSets") or {}
 	if not name or name == "" then
 		Dta.CPrint(Dta.Locale.Prints.EnterName)
 		return
 	end
-	if saved_sets[name] then
+	if saved_sets[name] and not overwrite then
 		Dta.ui.showConfirmation(string.format(Dta.Locale.Text.ConfirmOverwrite, name),
 								true, false, coroutine.running())
-		local overwrite = coroutine.yield()
-		if not overwrite then
-			return
+		local ok = coroutine.yield()
+		if ok then
+			-- recurse to re-run previous checks
+			Dta.expimp.ImportSerializedSet(name, data, true)
 		end
+		return
 	end
 	local ok, deserialized
 	-- search for semi-colon delimited item string to detect Toolbox data

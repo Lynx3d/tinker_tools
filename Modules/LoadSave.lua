@@ -241,20 +241,22 @@ end
 --SAVESET
 --------------------------------------
 
-function Dta.losa.saveGroupItemAttributes(name)
+function Dta.losa.saveGroupItemAttributes(name, overwrite)
 	if Dta.selectionCount < 1 then
 		Dta.CPrint(Dta.Locale.Prints.MinOneItem)
 		return
 	end
 	if name and name ~= "" then
 		local constructions = Dta.settings.get_savedsets("SavedSets") or {}
-		if constructions[name] then
+		if constructions[name] and not overwrite then
 			Dta.ui.showConfirmation(string.format(Dta.Locale.Text.ConfirmOverwrite, name),
 									true, false, coroutine.running())
-			local overwrite = coroutine.yield()
-			if not overwrite then
-				return
+			local ok = coroutine.yield()
+			if ok then
+				-- recurse to re-run previous checks
+				Dta.losa.saveGroupItemAttributes(name, true)
 			end
+			return
 		end
 
 		local groupDetails = {}
