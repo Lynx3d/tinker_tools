@@ -2,7 +2,7 @@ local Dta = select(2, ...)
 
 local SelectionWindowSettings = {
 	WIDTH = 315,
-	HEIGHT = 200,
+	HEIGHT = 185,
 	CLOSABLE = true,
 	MOVABLE = true,
 	POS_X = "SelectionwindowPosX",
@@ -30,16 +30,22 @@ function Dta.ui.buildSelectionWindow()
 
 	newWindow.name = Dta.ui.createTextfield("selectionsName", selWindow, 55, 0, 245)
 	newWindow.saveBtn = Dta.ui.createButton("selectionsSaveBtn", selWindow, 10, 25, nil, nil,
-											Locale.Buttons.SaveSelection, nil, Dta.Selections.SaveSelectionClicked)
-	newWindow.nameList = Dta.ui.createDropdown("selectionsNameSelect", selWindow, 55, 60, 245)
-	newWindow.loadBtn = Dta.ui.createButton("selectionsLoadBtn", selWindow, 10, 130, nil, nil,
-											Locale.Buttons.LoadSelection, nil, Dta.Selections.LoadSelectionClicked)
-	newWindow.deleteBtn = Dta.ui.createButton("selectionsDeleteBtn", selWindow, 160, 130, nil, nil,
-											  Locale.Buttons.DeleteSelection, nil, Dta.Selections.DeleteSelectionClicked)
-	newWindow.invertBtn = Dta.ui.createButton("selectionsInvertBtn", selWindow, 10, 160, nil, nil,
+											Locale.Buttons.SaveSet, nil, Dta.Selections.SaveSelectionClicked)
+
+	newWindow.divider1 = Dta.ui.createTexture("slectionDivider1", selWindow, "Rift", "divider_06.png.dds", 0, 55, selWindow:GetWidth())
+
+	newWindow.nameList = Dta.ui.createDropdown("selectionsNameSelect", selWindow, 55, 75, 245)
+	newWindow.loadBtn = Dta.ui.createButton("selectionsLoadBtn", selWindow, 10, 100, nil, nil,
+											Locale.Buttons.LoadSet, nil, Dta.Selections.LoadSelectionClicked)
+	newWindow.deleteBtn = Dta.ui.createButton("selectionsDeleteBtn", selWindow, 160, 100, nil, nil,
+											  Locale.Buttons.RemoveSet, nil, Dta.Selections.DeleteSelectionClicked)
+
+	newWindow.divider2 = Dta.ui.createTexture("slectionDivider2", selWindow, "Rift", "divider_06.png.dds", 0, 130, selWindow:GetWidth())
+
+	newWindow.invertBtn = Dta.ui.createButton("selectionsInvertBtn", selWindow, 10, 145, nil, nil,
 											  Locale.Buttons.InvertSelection, nil, Dta.Selections.InvertSelectionClicked)
-	newWindow.pickupBtn = Dta.ui.createButton("PickupBtn", selWindow, 160, 160, nil, nil,
-											  Locale.Buttons.Pickup, nil, Dta.Selections.PickupClicked)
+	newWindow.pickupBtn = Dta.ui.createButton("PickupBtn", selWindow, 160, 145, nil, nil,
+											  Locale.Buttons.PickUp, nil, Dta.Selections.PickupClicked)
 
 	function newWindow:RefreshNameList()
 		local nameList = {}
@@ -50,6 +56,8 @@ function Dta.ui.buildSelectionWindow()
 		self.nameList:SetItems(nameList)
 	end
 
+	-- "abuse" cycle function for clearing input focus on 'return' key
+	newWindow:EventAttach(Event.UI.Input.Key.Down.Dive, Dta.ui.FocusCycleCallback, "Selection_TabFocusCycle")
 	-- other tools can already have created selection sets
 	newWindow:RefreshNameList()
 

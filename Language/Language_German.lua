@@ -50,6 +50,8 @@ LangG.Buttons.Cancel = "ABBRECHEN"
 LangG.Buttons.Apply = "Anwenden"
 LangG.Buttons.More = "Mehr..."
 LangG.Buttons.Less = "Weniger..."
+LangG.Buttons.Selection = "Auswahl"
+LangG.Buttons.InvertSelection = "Invertieren"
 
 ----------------------------------------
 --Menus
@@ -95,6 +97,7 @@ LangG.Titles.Help = "Tinker Tools Hilfe"
 LangG.Titles.Settings = "Einstellungen"
 LangG.Titles.TransferValues = "Werte übergeben an:"
 LangG.Titles.Reskin = "Oberfläche Ersetzen"
+LangG.Titles.Selection = "Auswahl"
 
 ----------------------------------------
 --Text
@@ -143,6 +146,8 @@ LangG.Text.NotIdleNotification = "Der vorherige Vorgan wurde noch nicht beendet.
 LangG.Text.ConfirmDeleteSet = "Gegenstands-Set '%s' löschen?"
 LangG.Text.ConfirmOverwrite = "Das Set '%s' existiert bereits.\nDieses Set überschreiben?"
 LangG.Text.ConfirmUsePosition = "Die ursprüngliche Position dieses Sets ist %.1fm entfernt.\nDen Vorgang fortsetzen?"
+LangG.Text.ConfirmPickup = "Sollen alle ausgewählten Gegenstände eingesammelt werden?"
+LangG.Text.ConfirmInvSelect = "Bearbeitung zu vieler Gegenstände kann Verbindung unterbrechen.\n%d Gegenstände auswählen?"
 LangG.Text.Invert = "Umgekehrte Richtung"
 LangG.Text.OldSkin = "Alte Oberfläche"
 LangG.Text.NewSkin = "Neue Oberfläche"
