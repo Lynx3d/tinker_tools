@@ -202,7 +202,6 @@ LangG.Prints.LoadPrintMats = "Wähle ein Set um dessen Materialliste auszugeben.
 LangG.Prints.LoadSelectSet = "Wähle ein Set um es zu laden."
 LangG.Prints.NotLoadedBags = "Set kann nicht geladen werden - folgende Gegenstände fehlen im Inventar:"
 LangG.Prints.NotLoadedSelection = "Set kann nicht geladen werden - folgende Gegenstände fehlen in der Auswahl:"
-LangG.Prints.SetExists = "Item set \"%s\" existiert bereits. Bitte wähle einen anderen Namen."
 LangG.Prints.SetLoaded = "Item set \"%s\" geladen."
 LangG.Prints.SetRemoved = "Item set \"%s\" gelöscht."
 LangG.Prints.NotRemoved = "\"%s\" konnte nicht gelöscht werden - kein Set mit diesem Namen vorhanden."

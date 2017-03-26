@@ -639,7 +639,6 @@ Lang["French"].Prints.LoadPrintMats = "Vous devez sélectionner un set pour affi
 Lang["French"].Prints.LoadSelectSet = "Vous devez sélectionner un set pour le charger"
 Lang["French"].Prints.NotLoadedBags = "Impossible de charger le set - les objets suivants ne sont pas dans vos sacs:"
 Lang["French"].Prints.NotLoadedSelection = "Impossible de charger le set - les objets suivants ne sont pas sélectionnés:"
-Lang["French"].Prints.SetExists = "Le set \"%s\" existe déjà. Veuillez choisir un nom différent."
 Lang["French"].Prints.SetLoaded = "Set d'objets \"%s\" chargé"
 Lang["French"].Prints.SetRemoved = "Set d'objets \"%s\" supprimé"
 Lang["French"].Prints.NotRemoved = "Impossible de supprimer \"%s\" - Ce set est introuvable"

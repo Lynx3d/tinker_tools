@@ -32,7 +32,8 @@ end
 
 function Dta.expimp.ImportClicked ()
 	local expimpUI = Dta.Tools.ExpImp.window.ImportExport
-	Dta.expimp.ImportLoadAttributes(expimpUI.ImportLoad:GetSelectedItem(), expimpUI.NewName:GetText())
+	local cr = coroutine.wrap(Dta.expimp.ImportLoadAttributes)
+	cr(expimpUI.ImportLoad:GetSelectedItem(), expimpUI.NewName:GetText())
 	Dta.expimp.refreshImportSelect()
 	Dta.expimp.refreshExportSelect()
 end
@@ -71,7 +72,8 @@ end
 
 function Dta.expimp.ImportTextClicked()
 	local expimpUI = Dta.Tools.ExpImp.window.ImportExport
-	Dta.expimp.ImportSerializedSet(expimpUI.NewName:GetText(), expimpUI.TextView:GetText())
+	local cr = coroutine.wrap(Dta.expimp.ImportSerializedSet)
+	cr(expimpUI.NewName:GetText(), expimpUI.TextView:GetText())
 end
 
 -------------------------------
@@ -162,8 +164,12 @@ function Dta.expimp.ImportLoadAttributes(name, new_name)
 	end
 	local saved_sets = Dta.settings.get_savedsets("SavedSets") or {}
 	if saved_sets[new_name] then
-		Dta.CPrint(string.format(Dta.Locale.Prints.SetExists, new_name))
-		return
+		Dta.ui.showConfirmation(string.format(Dta.Locale.Text.ConfirmOverwrite, new_name),
+								true, false, coroutine.running())
+		local overwrite = coroutine.yield()
+		if not overwrite then
+			return
+		end
 	end
 	if name and name ~= "" then
 		if Dta.ExportImport_Sets[name] ~= nil then
@@ -212,8 +218,12 @@ function Dta.expimp.ImportSerializedSet(name, data)
 		return
 	end
 	if saved_sets[name] then
-		Dta.CPrint(string.format(Dta.Locale.Prints.SetExists, name))
-		return
+		Dta.ui.showConfirmation(string.format(Dta.Locale.Text.ConfirmOverwrite, name),
+								true, false, coroutine.running())
+		local overwrite = coroutine.yield()
+		if not overwrite then
+			return
+		end
 	end
 	local ok, deserialized
 	-- search for semi-colon delimited item string to detect Toolbox data

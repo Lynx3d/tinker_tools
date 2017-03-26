@@ -657,7 +657,6 @@ Lang["English"].Prints.LoadPrintMats = "You must select a set in order to print 
 Lang["English"].Prints.LoadSelectSet = "You must select a set in order to load it"
 Lang["English"].Prints.NotLoadedBags = "Cannot load set - the following items are missing from your bags:"
 Lang["English"].Prints.NotLoadedSelection = "Cannot load set - the following items are missing from your selection:"
-Lang["English"].Prints.SetExists = "Item set \"%s\" already exists. Please choose a different name."
 Lang["English"].Prints.SetLoaded = "Item set \"%s\" loaded"
 Lang["English"].Prints.SetRemoved = "Item set \"%s\" removed"
 Lang["English"].Prints.NotRemoved = "Could not remove \"%s\" - no such set found"
