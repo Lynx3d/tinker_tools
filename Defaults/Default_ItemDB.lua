@@ -1652,6 +1652,129 @@ Dta.Defaults.ItemDB =
 	-----------
 	-- Metal --
 	-----------
+	-- Ahnkite
+	["I539425A144DED843,0AF5A2257EAFFA09,,,,,,"] =
+	{
+		name = "Building Block: Ahnkite Square",
+		shape = "tile"
+	},
+	["I755733C038C2BB04,077E6A15B73EE19B,,,,,,"] =
+	{
+		name = "Building Block: Ahnkite Rectangle",
+		shape = "rectangle"
+	},
+	["I0DA2D2A61680D5B9,346E017C8C99FF2A,,,,,,"] =
+	{
+		name = "Building Block: Ahnkite Plank",
+		shape = "plank"
+	},
+	["I6F3859DB36BB2709,DCC9EB93D05BEB46,,,,,,"] =
+	{
+		name = "Building Block: Ahnkite Cube",
+		shape = "cube"
+	},
+	["I2188DCEE03B23356,05D897A27E577FD7,,,,,,"] =
+	{
+		name = "Building Block: Ahnkite Triangle",
+		shape = "triangle"
+	},
+	["I268EB710194B8C15,0A36BD61D9F7C405,,,,,,"] =
+	{
+		name = "Building Block: Ahnkite Pole",
+		shape = "pole"
+	},
+	["I1956045928BEF4F7,0DEC38CA57054E7F,,,,,,"] =
+	{
+		name = "Building Block: Ahnkite Sphere",
+		shape = "sphere"
+	},
+	["I763DA1413EC98992,AC41D8816514F954,,,,,,"] =
+	{
+		name = "Building Block: Ahnkite Disc",
+		shape = "disc"
+	},
+	-- Atramentium
+	["I4EFA084E0F8304AF,56A5FC7032C68D88,,,,,,"] =
+	{
+		name = "Building Block: Atramentium Square",
+		shape = "tile"
+	},
+	["I505A72820F11C784,07A4F7DC5865CF18,,,,,,"] =
+	{
+		name = "Building Block: Atramentium Rectangle",
+		shape = "rectangle"
+	},
+	["I77E1A3AE09E25662,3290E79D3121E2C4,,,,,,"] =
+	{
+		name = "Building Block: Atramentium Plank",
+		shape = "plank"
+	},
+	["I5E0D72991E46E7AC,B95B674BB0D4B7AD,,,,,,"] =
+	{
+		name = "Building Block: Atramentium Cube",
+		shape = "cube"
+	},
+	["I125A25A30B02815E,B3A2AFCC6022A46B,,,,,,"] =
+	{
+		name = "Building Block: Atramentium Triangle",
+		shape = "triangle"
+	},
+	["I576B7FBE7265F50D,D4F63A563059327C,,,,,,"] =
+	{
+		name = "Building Block: Atramentium Pole",
+		shape = "pole"
+	},
+	["I08D1F68773CBDDA3,2B5E53B22485AF68,,,,,,"] =
+	{
+		name = "Building Block: Atramentium Sphere",
+		shape = "sphere"
+	},
+	["I6ACAD3F6581320B6,6F7F58EEEF661CE0,,,,,,"] =
+	{
+		name = "Building Block: Atramentium Disc",
+		shape = "disc"
+	},
+	-- Bolidium
+	["I46C77D9476FC6915,EAEB857B5EE75F83,,,,,,"] =
+	{
+		name = "Building Block: Bolidium Square",
+		shape = "tile"
+	},
+	["I07091771366C0825,058832207FB3EA62,,,,,,"] =
+	{
+		name = "Building Block: Bolidium Rectangle",
+		shape = "rectangle"
+	},
+	["I57EBB1970270779A,25325CF23C0AD7D7,,,,,,"] =
+	{
+		name = "Building Block: Bolidium Plank",
+		shape = "plank"
+	},
+	["I52C2009C35093DC6,84F1964D1C210F6F,,,,,,"] =
+	{
+		name = "Building Block: Bolidium Cube",
+		shape = "cube"
+	},
+	["I65B066F74E00D904,4093EFCDF25876BC,,,,,,"] =
+	{
+		name = "Building Block: Bolidium Triangle",
+		shape = "triangle"
+	},
+	["I510561264F1AC8E1,3B1CD9125467538E,,,,,,"] =
+	{
+		name = "Building Block: Bolidium Pole",
+		shape = "pole"
+	},
+	["IFE05A0D245C05443,015BB603C278AA0B,,,,,,"] =
+	{
+		name = "Building Block: Bolidium Sphere",
+		shape = "sphere"
+	},
+	["I4D02DC18267AEF9C,FAC549A32169368B,,,,,,"] =
+	{
+		name = "Building Block: Bolidium Disc",
+		shape = "disc"
+	},
 	-- Bronze
 	["I5302F994283375AC,FCD4610995B98CBD,,,,,,"] =
 	{
@@ -1899,6 +2022,47 @@ Dta.Defaults.ItemDB =
 	["I471E8BFC0EA98298,334F6B4E0F979E19,,,,,,"] =
 	{
 		name = "Building Block: Black Marble Disc",
+		shape = "disc"
+	},
+	-- Brimstone
+	["I7C7CB5B52D30D014,F12AEE2144535EB9,,,,,,"] =
+	{
+		name = "Building Block: Brimstone Square",
+		shape = "tile"
+	},
+	["I1A295402638F4681,567983771AF82DF8,,,,,,"] =
+	{
+		name = "Building Block: Brimstone Rectangle",
+		shape = "rectangle"
+	},
+	["I138D39CE296827F1,110784229FDD7732,,,,,,"] =
+	{
+		name = "Building Block: Brimstone Plank",
+		shape = "plank"
+	},
+	["I431E018E3C63C152,DECC88168602FDF7,,,,,,"] =
+	{
+		name = "Building Block: Brimstone Cube",
+		shape = "cube"
+	},
+	["I1D145A951FB687F2,3C96582F541042D6,,,,,,"] =
+	{
+		name = "Building Block: Brimstone Triangle",
+		shape = "triangle"
+	},
+	["I767ED0A52510D841,3F86E38F6F5298F8,,,,,,"] =
+	{
+		name = "Building Block: Brimstone Pole",
+		shape = "pole"
+	},
+	["I6A3D08EF22F07D38,1FBCE085DC4D9188,,,,,,"] =
+	{
+		name = "Building Block: Brimstone Sphere",
+		shape = "sphere"
+	},
+	["I7A05F8E16906F813,34D59A9C571DDD4A,,,,,,"] =
+	{
+		name = "Building Block: Brimstone Disc",
 		shape = "disc"
 	},
 	-- Granite
@@ -2195,6 +2359,129 @@ Dta.Defaults.ItemDB =
 	["I28CB06FA7E88F136,3B9939D780AA925B,,,,,,"] =
 	{
 		name = "Building Block: Stone Disc",
+		shape = "disc"
+	},
+	-- Tenebrean Sandstone
+	["I2323CE7A628C486E,FEE278F0CD768E03,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Sandstone Square",
+		shape = "tile"
+	},
+	["I12E712C272394A17,3657F6113CFE0632,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Sandstone Rectangle",
+		shape = "rectangle"
+	},
+	["I3134244129A76F5E,CECA1285064F29C4,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Sandstone Plank",
+		shape = "plank"
+	},
+	["I29B854A41A0B551F,F31AE64B10EAF1E8,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Sandstone Cube",
+		shape = "cube"
+	},
+	["I35F62B284902A864,6ED54694DD1918FA,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Sandstone Triangle",
+		shape = "triangle"
+	},
+	["I279635117C093ADD,0F50AD392EF072EF,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Sandstone Pole",
+		shape = "pole"
+	},
+	["I29D0A9A075AC2DD5,46BC0CBB407E7042,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Sandstone Sphere",
+		shape = "sphere"
+	},
+	["I2AC3ED744F9F36AA,59A3B2B1823C7A23,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Sandstone Disc",
+		shape = "disc"
+	},
+	-- Tenebrean Slate
+	["I10B1E45F18AFEA75,053DCDADA36D4077,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Slate Square",
+		shape = "tile"
+	},
+	["IFDBE806422C1AA66,CFABBA55AED77940,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Slate Rectangle",
+		shape = "rectangle"
+	},
+	["I738752287EEC5560,7C3E3D5EE8401D86,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Slate Plank",
+		shape = "plank"
+	},
+	["IFD5F53F97C1FC7A2,10E154919495BC50,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Slate Cube",
+		shape = "cube"
+	},
+	["I441BA26A64E7FF3D,F8C05C6D38144115,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Slate Triangle",
+		shape = "triangle"
+	},
+	["I0FC5973452A1EF23,15D057950680E89D,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Slate Pole",
+		shape = "pole"
+	},
+	["I06F20AC82FEB5DE6,35F069DB9DE6220D,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Slate Sphere",
+		shape = "sphere"
+	},
+	["I47B27F9416A476D2,3530A347FE1A3A50,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Slate Disc",
+		shape = "disc"
+	},
+	-- Tenebrean Stone
+	["I2A38D13C3B04261E,00CC3D795E860D1A,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Stone Square",
+		shape = "tile"
+	},
+	["I0E65F685676C8DEA,BD32BE4948157793,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Stone Rectangle",
+		shape = "rectangle"
+	},
+	["I031A19E3131D6CD0,1FFC2285D9293CE0,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Stone Plank",
+		shape = "plank"
+	},
+	["IFC3AE4BF06AAD56B,247A59D29C57E080,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Stone Cube",
+		shape = "cube"
+	},
+	["I70B62B3F510C7059,C795D40445AB988A,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Stone Triangle",
+		shape = "triangle"
+	},
+	["I340B2C6D7D6FE929,C930AE3EAA8C03C6,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Stone Pole",
+		shape = "pole"
+	},
+	["I265819494FD57C7D,2BAA5E6FBEAA432A,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Stone Sphere",
+		shape = "sphere"
+	},
+	["I4FFFE9DE259B3B55,4B6BCE9C74D70B41,,,,,,"] =
+	{
+		name = "Building Block: Tenebrean Stone Disc",
 		shape = "disc"
 	},
 	------------------

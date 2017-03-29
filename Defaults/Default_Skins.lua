@@ -457,6 +457,42 @@ skin["Tangerine Limestone"] = {
 -----------
 -- Metal --
 -----------
+skin["Ahnkite"] = {
+	German    = "Ahnkite",
+	category  = "Metal",
+	tile      = itemDB["I539425A144DED843,0AF5A2257EAFFA09,,,,,,"],
+	rectangle = itemDB["I755733C038C2BB04,077E6A15B73EE19B,,,,,,"],
+	plank     = itemDB["I0DA2D2A61680D5B9,346E017C8C99FF2A,,,,,,"],
+	cube      = itemDB["I6F3859DB36BB2709,DCC9EB93D05BEB46,,,,,,"],
+	triangle  = itemDB["I2188DCEE03B23356,05D897A27E577FD7,,,,,,"],
+	pole      = itemDB["I268EB710194B8C15,0A36BD61D9F7C405,,,,,,"],
+	sphere    = itemDB["I1956045928BEF4F7,0DEC38CA57054E7F,,,,,,"],
+	disc      = itemDB["I763DA1413EC98992,AC41D8816514F954,,,,,,"],
+}
+skin["Atramentium"] = {
+	German    = "Atramentium",
+	category  = "Metal",
+	tile      = itemDB["I4EFA084E0F8304AF,56A5FC7032C68D88,,,,,,"],
+	rectangle = itemDB["I505A72820F11C784,07A4F7DC5865CF18,,,,,,"],
+	plank     = itemDB["I77E1A3AE09E25662,3290E79D3121E2C4,,,,,,"],
+	cube      = itemDB["I5E0D72991E46E7AC,B95B674BB0D4B7AD,,,,,,"],
+	triangle  = itemDB["I125A25A30B02815E,B3A2AFCC6022A46B,,,,,,"],
+	pole      = itemDB["I576B7FBE7265F50D,D4F63A563059327C,,,,,,"],
+	sphere    = itemDB["I08D1F68773CBDDA3,2B5E53B22485AF68,,,,,,"],
+	disc      = itemDB["I6ACAD3F6581320B6,6F7F58EEEF661CE0,,,,,,"],
+}
+skin["Bolidium"] = {
+	German    = "Bolidium",
+	category  = "Metal",
+	tile      = itemDB["I46C77D9476FC6915,EAEB857B5EE75F83,,,,,,"],
+	rectangle = itemDB["I07091771366C0825,058832207FB3EA62,,,,,,"],
+	plank     = itemDB["I57EBB1970270779A,25325CF23C0AD7D7,,,,,,"],
+	cube      = itemDB["I52C2009C35093DC6,84F1964D1C210F6F,,,,,,"],
+	triangle  = itemDB["I65B066F74E00D904,4093EFCDF25876BC,,,,,,"],
+	pole      = itemDB["I510561264F1AC8E1,3B1CD9125467538E,,,,,,"],
+	sphere    = itemDB["IFE05A0D245C05443,015BB603C278AA0B,,,,,,"],
+	disc      = itemDB["I4D02DC18267AEF9C,FAC549A32169368B,,,,,,"],
+}
 skin["Bronze"] = {
 	German    = "Bronze",
 	French    = "Bronze",
@@ -538,6 +574,18 @@ skin["Black Marble"] = {
 	sphere    = itemDB["I073E1B4404FD78A3,EECA186F0B7BEA75,,,,,,"],
 	disc      = itemDB["I471E8BFC0EA98298,334F6B4E0F979E19,,,,,,"]
 }
+skin["Brimstone"] = {
+	German    = "Schwefel",
+	category  = "Stone",
+	tile      = itemDB["I7C7CB5B52D30D014,F12AEE2144535EB9,,,,,,"],
+	rectangle = itemDB["I1A295402638F4681,567983771AF82DF8,,,,,,"],
+	plank     = itemDB["I138D39CE296827F1,110784229FDD7732,,,,,,"],
+	cube      = itemDB["I431E018E3C63C152,DECC88168602FDF7,,,,,,"],
+	triangle  = itemDB["I1D145A951FB687F2,3C96582F541042D6,,,,,,"],
+	pole      = itemDB["I767ED0A52510D841,3F86E38F6F5298F8,,,,,,"],
+	sphere    = itemDB["I6A3D08EF22F07D38,1FBCE085DC4D9188,,,,,,"],
+	disc      = itemDB["I7A05F8E16906F813,34D59A9C571DDD4A,,,,,,"],
+}
 skin["Granite"] = {
 	German    = "Granit",
 	French    = "Granite",
@@ -602,6 +650,42 @@ skin["Plain Stone"] = {
 	pole      = itemDB["IFC27A5362A2868B0,FA284ACA471A28AC,,,,,,"],
 	sphere    = itemDB["I40AC238718345605,D83A9430A4B46758,,,,,,"],
 	disc      = itemDB["I28CB06FA7E88F136,3B9939D780AA925B,,,,,,"]
+}
+skin["Tenebrean Sandstone"] = {
+	German    = "Tenebrischer  Sandstein",
+	category  = "Stone",
+	tile      = itemDB["I2323CE7A628C486E,FEE278F0CD768E03,,,,,,"],
+	rectangle = itemDB["I12E712C272394A17,3657F6113CFE0632,,,,,,"],
+	plank     = itemDB["I3134244129A76F5E,CECA1285064F29C4,,,,,,"],
+	cube      = itemDB["I29B854A41A0B551F,F31AE64B10EAF1E8,,,,,,"],
+	triangle  = itemDB["I35F62B284902A864,6ED54694DD1918FA,,,,,,"],
+	pole      = itemDB["I279635117C093ADD,0F50AD392EF072EF,,,,,,"],
+	sphere    = itemDB["I29D0A9A075AC2DD5,46BC0CBB407E7042,,,,,,"],
+	disc      = itemDB["I2AC3ED744F9F36AA,59A3B2B1823C7A23,,,,,,"],
+}
+skin["Tenebrean Slate"] = {
+	German    = "Tenebrischer  Schiefer",
+	category  = "Stone",
+	tile      = itemDB["I10B1E45F18AFEA75,053DCDADA36D4077,,,,,,"],
+	rectangle = itemDB["IFDBE806422C1AA66,CFABBA55AED77940,,,,,,"],
+	plank     = itemDB["I738752287EEC5560,7C3E3D5EE8401D86,,,,,,"],
+	cube      = itemDB["IFD5F53F97C1FC7A2,10E154919495BC50,,,,,,"],
+	triangle  = itemDB["I441BA26A64E7FF3D,F8C05C6D38144115,,,,,,"],
+	pole      = itemDB["I0FC5973452A1EF23,15D057950680E89D,,,,,,"],
+	sphere    = itemDB["I06F20AC82FEB5DE6,35F069DB9DE6220D,,,,,,"],
+	disc      = itemDB["I47B27F9416A476D2,3530A347FE1A3A50,,,,,,"],
+}
+skin["Tenebrean Stone"] = {
+	German    = "Tenebrischer  Stein",
+	category  = "Stone",
+	tile      = itemDB["I2A38D13C3B04261E,00CC3D795E860D1A,,,,,,"],
+	rectangle = itemDB["I0E65F685676C8DEA,BD32BE4948157793,,,,,,"],
+	plank     = itemDB["I031A19E3131D6CD0,1FFC2285D9293CE0,,,,,,"],
+	cube      = itemDB["IFC3AE4BF06AAD56B,247A59D29C57E080,,,,,,"],
+	triangle  = itemDB["I70B62B3F510C7059,C795D40445AB988A,,,,,,"],
+	pole      = itemDB["I340B2C6D7D6FE929,C930AE3EAA8C03C6,,,,,,"],
+	sphere    = itemDB["I265819494FD57C7D,2BAA5E6FBEAA432A,,,,,,"],
+	disc      = itemDB["I4FFFE9DE259B3B55,4B6BCE9C74D70B41,,,,,,"],
 }
 ------------------
 -- Painted Wood --
