@@ -315,8 +315,12 @@ function Dta.commandHandler(hEvent, command_string)
 				end
 			end
 		end
-		checkLang(Dta.Lang.English, Dta.Lang.French, {"French"})
-		checkLang(Dta.Lang.English, Dta.Lang.German, {"German"})
+		local lang = args[2] or Dta.Language
+		if not Dta.Lang[lang] then
+			Dta.CPrint("Language '" .. lang .. "' not available")
+			return
+		end
+		checkLang(Dta.Lang.English, Dta.Lang[lang], {lang})
 	else
 		if Dta.InDimension == true then
 			Dta.ui.toggleMainWindow()
