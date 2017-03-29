@@ -319,8 +319,15 @@ function Dta.commandHandler(hEvent, command_string)
 		if not Dta.Lang[lang] then
 			Dta.CPrint("Language '" .. lang .. "' not available")
 			return
+		elseif lang == "English" then -- nothing to do for "master" language
+			return
 		end
 		checkLang(Dta.Lang.English, Dta.Lang[lang], {lang})
+		for name, skin_def in pairs(Dta.Defaults.Skins) do
+			if not skin_def[lang] then
+				Dta.CPrint("Missing skin name: " .. name)
+			end
+		end
 	else
 		if Dta.InDimension == true then
 			Dta.ui.toggleMainWindow()
