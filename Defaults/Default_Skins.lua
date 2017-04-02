@@ -76,7 +76,7 @@ skin["Red Brick"] = {
 -------------
 skin["Blue Blinking"] = {
 	German    = "Blau Blinkend",
-	French    = "Bleu Clignotante",
+	French    = "Bleu Clignotant",
 	category  = "Glowing",
 	tile      = itemDB["I0D6091F5577FC9B8,8977F2BBF1622B54,,,,,,"],
 	rectangle = itemDB["I7EBC874326381067,3B0EDC1C5693A3FB,,,,,,"],
@@ -102,7 +102,7 @@ skin["Blue Glowing"] = {
 }
 skin["Green Blinking"] = {
 	German    = "Grün Blinkend",
-	French    = "Vert Clignotante",
+	French    = "Vert Clignotant",
 	category  = "Glowing",
 	tile      = itemDB["I3D894F0A4F34D392,4CBDB65FD4BFF026,,,,,,"],
 	rectangle = itemDB["I62EE36C607F9D626,279F8F713919DD5D,,,,,,"],
@@ -128,7 +128,7 @@ skin["Green Glowing"] = {
 }
 skin["Grey Blinking"] = {
 	German    = "Grau Blinkend",
-	French    = "Gris Clignotante",
+	French    = "Gris Clignotant",
 	category  = "Glowing",
 	tile      = itemDB["I2056207661F6B98E,EAD6A204D53698D4,,,,,,"],
 	rectangle = itemDB["I216336C30E5F76DF,372CBF334B163552,,,,,,"],
@@ -154,7 +154,7 @@ skin["Grey Glowing"] = {
 }
 skin["Light Blue Blinking"] = {
 	German    = "Hellblau Blinkend",
-	French    = "Bleu clair Clignotante",
+	French    = "Bleu clair Clignotant",
 	category  = "Glowing",
 	tile      = itemDB["IFDDA850F7EE67CDA,5BF62C5DF610315A,,,,,,"],
 	rectangle = itemDB["I52F9E29F40C03D42,0164025B6FDD0989,,,,,,"],
@@ -180,7 +180,7 @@ skin["Light Blue Glowing"] = {
 }
 skin["Light Green Blinking"] = {
 	German    = "Hellgrün Blinkend",
-	French    = "Vert clair Clignotante",
+	French    = "Vert clair Clignotant",
 	category  = "Glowing",
 	tile      = itemDB["I4183B58D5A9F406D,1B06F3F7F44B9DEA,,,,,,"],
 	rectangle = itemDB["I779D1F4912AA9548,E2CD0DA699990FBE,,,,,,"],
@@ -206,7 +206,7 @@ skin["Light Green Glowing"] = {
 }
 skin["Orange Blinking"] = {
 	German    = "Orange Blinkend",
-	French    = "Orange Clignotante",
+	French    = "Orange Clignotant",
 	category  = "Glowing",
 	tile      = itemDB["I6673DEC7215643B2,7F73B94815406BA1,,,,,,"],
 	rectangle = itemDB["I6B9BA8657F49E91F,89C3A5A621AF82FA,,,,,,"],
@@ -232,7 +232,7 @@ skin["Orange Glowing"] = {
 }
 skin["Pink Blinking"] = {
 	German    = "Pink Blinkend",
-	French    = "Rose Clignotante",
+	French    = "Rose Clignotant",
 	category  = "Glowing",
 	tile      = itemDB["I184AF45E36549923,1E562EC96CF2A820,,,,,,"],
 	rectangle = itemDB["I6E9CA5A55D55EBB7,3143E0F418E04249,,,,,,"],
@@ -258,7 +258,7 @@ skin["Pink Glowing"] = {
 }
 skin["Purple Blinking"] = {
 	German    = "Violett Blinkend",
-	French    = "Violet Clignotante",
+	French    = "Violet Clignotant",
 	category  = "Glowing",
 	tile      = itemDB["I1A9341BA27CD0B6D,107CAE013B2421F1,,,,,,"],
 	rectangle = itemDB["I71D3721D70012D0B,0634AF37651A268D,,,,,,"],
@@ -284,7 +284,7 @@ skin["Purple Glowing"] = {
 }
 skin["Red Blinking"] = {
 	German    = "Rot Blinkend",
-	French    = "Rouge Clignotante",
+	French    = "Rouge Clignotant",
 	category  = "Glowing",
 	tile      = itemDB["I1EDCD3EB034426D0,823142F3C08E10E8,,,,,,"],
 	rectangle = itemDB["I2030D4AE5B379522,C5293DDCEF953FBB,,,,,,"],
@@ -310,7 +310,7 @@ skin["Red Glowing"] = {
 }
 skin["White Blinking"] = {
 	German    = "Weiß Blinkend",
-	French    = "Blanc Clignotante",
+	French    = "Blanc Clignotant",
 	category  = "Glowing",
 	tile      = itemDB["I309E2EED0186DE07,EFDF39AD144EB66D,,,,,,"],
 	rectangle = itemDB["I233E882A73CB075D,BECD299B804D28C8,,,,,,"],
@@ -336,7 +336,7 @@ skin["White Glowing"] = {
 }
 skin["Yellow Blinking"] = {
 	German    = "Gelb Blinkend",
-	French    = "Jaune Clignotante",
+	French    = "Jaune Clignotant",
 	category  = "Glowing",
 	tile      = itemDB["I39967D51230A6850,BDBC8F795BB28879,,,,,,"],
 	rectangle = itemDB["I2DBA5310209F1926,2708041A5064EFF6,,,,,,"],
@@ -459,6 +459,7 @@ skin["Tangerine Limestone"] = {
 -----------
 skin["Ahnkite"] = {
 	German    = "Ahnkite",
+	French    = "Ahnkite",
 	category  = "Metal",
 	tile      = itemDB["I539425A144DED843,0AF5A2257EAFFA09,,,,,,"],
 	rectangle = itemDB["I755733C038C2BB04,077E6A15B73EE19B,,,,,,"],
@@ -471,6 +472,7 @@ skin["Ahnkite"] = {
 }
 skin["Atramentium"] = {
 	German    = "Atramentium",
+	French    = "Atramentium",
 	category  = "Metal",
 	tile      = itemDB["I4EFA084E0F8304AF,56A5FC7032C68D88,,,,,,"],
 	rectangle = itemDB["I505A72820F11C784,07A4F7DC5865CF18,,,,,,"],
@@ -483,6 +485,7 @@ skin["Atramentium"] = {
 }
 skin["Bolidium"] = {
 	German    = "Bolidium",
+	French    = "Bolidium",
 	category  = "Metal",
 	tile      = itemDB["I46C77D9476FC6915,EAEB857B5EE75F83,,,,,,"],
 	rectangle = itemDB["I07091771366C0825,058832207FB3EA62,,,,,,"],
@@ -576,6 +579,7 @@ skin["Black Marble"] = {
 }
 skin["Brimstone"] = {
 	German    = "Schwefel",
+	French    = "Soufre",
 	category  = "Stone",
 	tile      = itemDB["I7C7CB5B52D30D014,F12AEE2144535EB9,,,,,,"],
 	rectangle = itemDB["I1A295402638F4681,567983771AF82DF8,,,,,,"],
@@ -653,6 +657,7 @@ skin["Plain Stone"] = {
 }
 skin["Tenebrean Sandstone"] = {
 	German    = "Tenebrischer  Sandstein",
+	French    = "Grès ténébréen",
 	category  = "Stone",
 	tile      = itemDB["I2323CE7A628C486E,FEE278F0CD768E03,,,,,,"],
 	rectangle = itemDB["I12E712C272394A17,3657F6113CFE0632,,,,,,"],
@@ -665,6 +670,7 @@ skin["Tenebrean Sandstone"] = {
 }
 skin["Tenebrean Slate"] = {
 	German    = "Tenebrischer  Schiefer",
+	French    = "Ardoise ténébréenne",
 	category  = "Stone",
 	tile      = itemDB["I10B1E45F18AFEA75,053DCDADA36D4077,,,,,,"],
 	rectangle = itemDB["IFDBE806422C1AA66,CFABBA55AED77940,,,,,,"],
@@ -677,6 +683,7 @@ skin["Tenebrean Slate"] = {
 }
 skin["Tenebrean Stone"] = {
 	German    = "Tenebrischer  Stein",
+	French    = "Pierre Ténébréenne",
 	category  = "Stone",
 	tile      = itemDB["I2A38D13C3B04261E,00CC3D795E860D1A,,,,,,"],
 	rectangle = itemDB["I0E65F685676C8DEA,BD32BE4948157793,,,,,,"],

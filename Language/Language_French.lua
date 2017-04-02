@@ -458,6 +458,7 @@ Lang["French"].Buttons.ImportExport = "Import / Export"
 Lang["French"].Buttons.TribalMagic = "Tribal Magic"
 Lang["French"].Buttons.OffsetCalc = "Calc. Align."
 Lang["French"].Buttons.Reskin = "Reskin"
+Lang["French"].Buttons.Selection = "Sélection"
 Lang["French"].Buttons.Copy = "Copier"
 Lang["French"].Buttons.Paste = "Coller"
 Lang["French"].Buttons.Pick = "Choisir"
@@ -487,6 +488,7 @@ Lang["French"].Buttons.Cancel = "ANNULER"
 Lang["French"].Buttons.Apply = "Appliquer"
 Lang["French"].Buttons.More = "Plus..."
 Lang["French"].Buttons.Less = "Moins..."
+Lang["French"].Buttons.InvertSelection = "Inverser"
 
 ----------------------------------------
 --Menus
@@ -533,6 +535,7 @@ Lang["French"].Titles.Help = " Aide Tinker Tools"
 Lang["French"].Titles.Settings = "Paramètres"
 Lang["French"].Titles.TransferValues = "Valeurs de transfert à:"
 Lang["French"].Titles.Reskin = "Module Reskin"
+Lang["French"].Titles.Selection = "Sélection"
 
 
 ----------------------------------------
@@ -580,7 +583,10 @@ Lang["French"].Text.WindowStyle = "Style de fenêtre"
 Lang["French"].Text.RestoreTools = "Se souvenir des modules ouverts\nlors de la fermeture du module principal"
 Lang["French"].Text.NotIdleNotification = "L'opération précédente n'est pas terminée.\n Abandonner l'opération en cours d'éxécution?"
 Lang["French"].Text.ConfirmDeleteSet = "Effacer l'ensemble d'objet '%s'?"
+Lang["French"].Text.ConfirmOverwrite = "L'ensemble '%s' existe déjà.\n Voulez-vous le remplacer?"
 Lang["French"].Text.ConfirmUsePosition = "Le positionnement d'origine du set est à %.1fm .\nContinuer l'opération?"
+Lang["French"].Text.ConfirmPickup = "Etes-vous sûr de vouloir ramasser tous les objets sélectionnés?"
+Lang["French"].Text.ConfirmInvSelect = "Sélectionner un grand nombre d'objets peut entrainer une déconnexion.\nSélectionner %d objets?"
 Lang["French"].Text.Invert = "Inverser Direction"
 Lang["French"].Text.OldSkin = "Ancien Skin"
 Lang["French"].Text.NewSkin = "Nouveau Skin"
@@ -594,6 +600,7 @@ Lang["French"].Text.Pole = "Poteau"
 Lang["French"].Text.Disc = "Disque"
 Lang["French"].Text.NewName = "Nouv. nom"
 Lang["French"].Text.Category = "Catégorie"
+Lang["French"].Text.Multiplier = "Multiplicateur"
 
 ----------------------------------------
 --Prints
