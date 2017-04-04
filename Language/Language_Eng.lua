@@ -417,8 +417,10 @@ Lang["English"].OffsetCalc.Text2 = "\
   vector that represents the item's local X, Y or Z vector respectively.\
   A special case is 'Selection Delta', this does not work on the\
   shape of an item, but calculates the differences between two\
-  selected items, and hence ignores the Shape setting.\
+  selected items, and hence ignores the Shape and Scale setting.\
 - Scale: Here you set the scale of the item.\
+- Multiplier: Optional input. If present, the result will be multiplied\
+  by this value.\
 - Calculate: Calculates the offsets for you.\
 - X: The offset on the X axis.\
 - Y: The offset on the Y axis.\
