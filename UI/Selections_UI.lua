@@ -28,13 +28,15 @@ function Dta.ui.buildSelectionWindow()
 	local selWindow = newWindow.content
 	newWindow.settings = SelectionWindowSettings
 
-	newWindow.name = Dta.ui.createTextfield("selectionsName", selWindow, 55, 0, 245)
+	newWindow.nameLabel = Dta.ui.createText("selectionsNameLabel", selWindow, 10, 0, Dta.Locale.Text.Name, 14)
+	newWindow.name = Dta.ui.createTextfield("selectionsName", selWindow, 65, 0, 235)
 	newWindow.saveBtn = Dta.ui.createButton("selectionsSaveBtn", selWindow, 10, 25, nil, nil,
 											Locale.Buttons.SaveSet, nil, Dta.Selections.SaveSelectionClicked)
 
 	newWindow.divider1 = Dta.ui.createTexture("slectionDivider1", selWindow, "Rift", "divider_06.png.dds", 0, 55, selWindow:GetWidth())
 
-	newWindow.nameList = Dta.ui.createDropdown("selectionsNameSelect", selWindow, 55, 75, 245)
+	newWindow.nameLabel2 = Dta.ui.createText("selectionsNameLabel2", selWindow, 10, 75, Dta.Locale.Text.Name, 14)
+	newWindow.nameList = Dta.ui.createDropdown("selectionsNameSelect", selWindow, 65, 75, 235)
 	newWindow.loadBtn = Dta.ui.createButton("selectionsLoadBtn", selWindow, 10, 100, nil, nil,
 											Locale.Buttons.LoadSet, nil, Dta.Selections.LoadSelectionClicked)
 	newWindow.deleteBtn = Dta.ui.createButton("selectionsDeleteBtn", selWindow, 160, 100, nil, nil,
