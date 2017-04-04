@@ -1,3 +1,19 @@
+Version 1.3.0
+- New Selection Tool:
+  * Temporarily save sets of items for easy reselection during a building session
+  * Copy and Paste operations automatically save a set of the last used items
+  * Pick up large amounts of items without getting disconnected
+- Offset Calculator improvements:
+  * Add an optional multiplier field
+  * Grey out inputs when they have no effect
+  * Prevent detection keeping 'Selection Delta' mode when it's not applicable
+    anymore, default to 'Transformed X-Offset' instead
+- Added new Tenebrean building blocks to skin database
+- Display the number of selected items in the item name field instead of as stat
+- Include window borders for the clickable area
+- Ask for confirmation before overwriting a saved set
+- Fixed transcendent items displaying as common items
+
 Version 1.2.8
 - Fix Lua error on addon loading when no sets have been saved yet.
 - Fix several text fields not clearing key focus on 'return'.
