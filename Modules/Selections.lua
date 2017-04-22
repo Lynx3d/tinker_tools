@@ -13,7 +13,8 @@ function Dta.Selections.PickupSelection()
 	end
 end
 
-function Dta.Selections.SaveSelection(name, overwrite)
+-- Note: overwrite must be true when called from inside a coroutine
+function Dta.Selections.SaveSelection(name, new_set, overwrite)
 	if Dta.selectionCount < 1 then
 		Dta.CPrint(Dta.Locale.Prints.MinOneItem)
 		return
@@ -26,14 +27,11 @@ function Dta.Selections.SaveSelection(name, overwrite)
 		local ok = coroutine.yield()
 		if ok then
 			-- recurse to re-run previous checks
-			Dta.Selections.SaveSelection(name, true)
+			Dta.Selections.SaveSelection(name, new_set, true)
 		end
 		return
 	end
-	local new_set = {}
-	for id, _ in pairs(Dta.selectedItems) do
-		new_set[id] = true
-	end
+
 	Dta.Selections.saved[name] = new_set
 	Dta.Selections.RefreshList()
 end
@@ -41,8 +39,12 @@ end
 function Dta.Selections.SaveSelectionClicked()
 	local selUI = Dta.Tools.Select.window
 	local name = selUI.name:GetText()
+	local new_set = {}
+	for id, _ in pairs(Dta.selectedItems) do
+		new_set[id] = true
+	end
 	local cr = coroutine.wrap(Dta.Selections.SaveSelection)
-	cr(name)
+	cr(name, new_set)
 end
 
 function Dta.Selections.RefreshList()

@@ -221,7 +221,7 @@ function Dta.copa.copyItemAttributes()
 			})
 			copy_selection[id] = true
 		end
-		Dta.Selections.SaveSelection("<last copy>", copy_selection)
+		Dta.Selections.SaveSelection("<last copy>", copy_selection, true)
 	else
 		Dta.CPrint(Dta.Locale.Prints.Copy_SelectItem)
 	end
@@ -439,6 +439,6 @@ function Dta.copa.pasteClipboard(shoppingList, settings)
 	end
 	if settings.new_items then
 		local paste_selection = Dta.FinishRecordingAdds()
-		Dta.Selections.SaveSelection("<last paste>", paste_selection)
+		Dta.Selections.SaveSelection("<last paste>", paste_selection, true)
 	end
 end
