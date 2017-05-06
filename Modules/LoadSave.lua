@@ -396,6 +396,9 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 end
 
 function Dta.losa.pasteGroup(itemSet, shoppingList, settings, new_items, atOriginalLoc)
+	if new_items then
+		Dta.StartRecordingAdds()
+	end
 	-- determine new position unless at pasting at original position
 	local newPlacement = { coordX = 0, coordY = 0, coordZ = 0 }
 	if not atOriginalLoc then
@@ -410,6 +413,10 @@ function Dta.losa.pasteGroup(itemSet, shoppingList, settings, new_items, atOrigi
 						coordY = newPlacement.coordY + k * settings.coordY,
 						coordZ = newPlacement.coordZ + k * settings.coordZ }
 		Dta.copa.pasteSet(itemSet, shoppingList, offset, new_items)
+	end
+	if new_items then
+		local paste_selection = Dta.FinishRecordingAdds()
+		Dta.Selections.SaveSelection("<last set load>", paste_selection, true)
 	end
 end
 
