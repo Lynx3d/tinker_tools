@@ -35,7 +35,7 @@ function Dta.ui.buildReskinWindow()
 	newWindow.oldFilterSelect.Event.ItemSelect = Dta.Replacement.FilterOldChanged
 	newWindow.oldSkinLabel = Dta.ui.createText("OldSkinLabel", reskinWindow, 10, 30, Locale.Text.OldSkin, 14)
 	newWindow.oldSkinSelect = Dta.ui.createDropdown("OldSkinSelect", reskinWindow, 120, 30, 180)
-	newWindow.oldSkinSelect:SetItems(Dta.Replacement.loadSkins())
+	newWindow.oldSkinSelect:SetItems(Dta.Replacement.loadSkins(nil, true))
 
 	newWindow.newFilterLabel = Dta.ui.createText("NewSkinFilter", reskinWindow, 10, 55, Locale.Text.Category, 14)
 	newWindow.newFilterSelect = Dta.ui.createDropdown("OldCategorySelect", reskinWindow, 120, 55, 180)

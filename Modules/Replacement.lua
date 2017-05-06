@@ -19,7 +19,7 @@ local function sortSkins(skins, translation)
 	return skins, value_table
 end
 
-function Dta.Replacement.loadSkins(category)
+function Dta.Replacement.loadSkins(category, add_wildcard)
 	local skins, translation = {}, {}
 	local skin_table = category and Dta.Defaults.Skin_Category_Index[category] or Dta.Defaults.Skins
 	for name, data in pairs(skin_table) do
@@ -27,7 +27,12 @@ function Dta.Replacement.loadSkins(category)
 		table.insert(skins, name_local)
 		translation[name_local] = name
 	end
-	return sortSkins(skins, translation)
+	local sorted, values = sortSkins(skins, translation)
+	if add_wildcard then
+		table.insert(sorted, 1, "<Any Skin>")
+		table.insert(values, 1, "wildcard")
+	end
+	return sorted, values
 end
 
 -- fonts need plank, tile and pole, not all skins have them:
@@ -56,7 +61,7 @@ end
 function Dta.Replacement.FilterOldChanged()
 	local reskinWindow = Dta.Tools.Reskin.window
 	local category = reskinWindow.oldFilterSelect:GetSelectedValue()
-	reskinWindow.oldSkinSelect:SetItems(Dta.Replacement.loadSkins(category))
+	reskinWindow.oldSkinSelect:SetItems(Dta.Replacement.loadSkins(category, true))
 end
 
 function Dta.Replacement.FilterNewChanged()
@@ -71,15 +76,19 @@ function Dta.Replacement.ReplaceClicked()
 	local old_skin = reskinWindow.oldSkinSelect:GetSelectedValue()
 	local new_skin = reskinWindow.newSkinSelect:GetSelectedValue()
 
-	if not old_skin or not Dta.Defaults.Skins[old_skin] or
+	settings.ignore_skin = old_skin == "wildcard"
+
+	if not (old_skin and Dta.Defaults.Skins[old_skin] or settings.ignore_skin) or
 	   not new_skin or not Dta.Defaults.Skins[new_skin] then
 		Dta.CPrint(Dta.Locale.Prints.SelectSkin)
 		return
 	end
-	settings.old_skin_lookup = {}
-	for shape, details in pairs(Dta.Defaults.Skins[old_skin]) do
-		if type(details) == "table" then -- skip the language entries
-			settings.old_skin_lookup[details.type] = shape
+	if not settings.ignore_skin then
+		settings.old_skin_lookup = {}
+		for shape, details in pairs(Dta.Defaults.Skins[old_skin]) do
+			if type(details) == "table" then -- skip the language entries
+				settings.old_skin_lookup[details.type] = shape
+			end
 		end
 	end
 	--dump(settings.old_skin_lookup) -- TEMP
@@ -105,13 +114,27 @@ function Dta.Replacement.ReplaceClipboard(settings)
 		return
 	end
 	local stats = {}
-	for i, details in pairs(Dta.clipboard.items) do
-		local shape = settings.old_skin_lookup[details.type]
-		if shape and settings.replace_shape[shape] and settings.skin_data[shape] then
-			details.type = settings.skin_data[shape].type
-			details.name = settings.skin_data[shape].name
-			stats[shape] = (stats[shape] or 0) + 1
-			--Dta.CPrint("replaced:" .. details.name)
+	if settings.ignore_skin then
+		local item_db = Dta.Defaults.ItemDB
+		for i, details in pairs(Dta.clipboard.items) do
+			local entry = item_db[details.type]
+			local shape = entry and entry.shape
+			if shape and settings.replace_shape[shape] and settings.skin_data[shape] then
+				details.type = settings.skin_data[shape].type
+				details.name = settings.skin_data[shape].name
+				stats[shape] = (stats[shape] or 0) + 1
+				--Dta.CPrint("replaced:" .. details.name)
+			end
+		end
+	else
+		for i, details in pairs(Dta.clipboard.items) do
+			local shape = settings.old_skin_lookup[details.type]
+			if shape and settings.replace_shape[shape] and settings.skin_data[shape] then
+				details.type = settings.skin_data[shape].type
+				details.name = settings.skin_data[shape].name
+				stats[shape] = (stats[shape] or 0) + 1
+				--Dta.CPrint("replaced:" .. details.name)
+			end
 		end
 	end
 	-- print statistics:
