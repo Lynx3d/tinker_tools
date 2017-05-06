@@ -416,7 +416,7 @@ function Dta.losa.pasteGroup(itemSet, shoppingList, settings, new_items, atOrigi
 	end
 	if new_items then
 		local paste_selection = Dta.FinishRecordingAdds()
-		Dta.Selections.SaveSelection("<last set load>", paste_selection, true)
+		Dta.Selections.SaveSelection("<last loaded set>", paste_selection, true)
 	end
 end
 
