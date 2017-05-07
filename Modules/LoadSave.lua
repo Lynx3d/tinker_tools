@@ -14,8 +14,6 @@ function Dta.losa.constructionLoadDeafaultSetsChanged()
 		losa_ui.loadTbxSets:SetChecked(false)
 		losa_ui.remove:SetVisible(false)
 		losa_ui.loadAtOriginalLoc:SetVisible(false)
-		losa_ui.loadAtOriginalLoc:SetChecked(false)
-		Dta.losa.constructionLoadNewItemsChanged()
 		Dta.losa.refreshLoadSelect()
 	elseif not losa_ui.loadSavedSets:GetChecked() and not losa_ui.loadTbxSets:GetChecked()then
 		losa_ui.loadDeafaultSets:SetChecked(true)
@@ -30,8 +28,6 @@ function Dta.losa.constructionLoadSavedSetsChanged()
 		losa_ui.loadTbxSets:SetChecked(false)
 		losa_ui.remove:SetVisible(true)
 		losa_ui.loadAtOriginalLoc:SetVisible(true)
-		losa_ui.loadAtOriginalLoc:SetChecked(false)
-		Dta.losa.constructionLoadNewItemsChanged()
 		Dta.losa.refreshLoadSelect()
 	elseif not losa_ui.loadDeafaultSets:GetChecked() and not losa_ui.loadTbxSets:GetChecked()then
 		losa_ui.loadSavedSets:SetChecked(true)
@@ -46,52 +42,9 @@ function Dta.losa.constructionLoadTbxSetsChanged()
 		losa_ui.loadDeafaultSets:SetChecked(false)
 		losa_ui.remove:SetVisible(false)
 		losa_ui.loadAtOriginalLoc:SetVisible(true)
-		losa_ui.loadAtOriginalLoc:SetChecked(false)
-		Dta.losa.constructionLoadNewItemsChanged()
 		Dta.losa.refreshLoadSelect()
 	elseif not losa_ui.loadSavedSets:GetChecked() and not losa_ui.loadDeafaultSets:GetChecked()then
 		losa_ui.loadTbxSets:SetChecked(true)
-	end
-end
-
-function Dta.losa.constructionLoadNewItemsChanged()
-	local losa_ui = Dta.Tools.LoSa.window.constructions
-	if losa_ui.LoadNewItems:GetChecked() and losa_ui.loadSavedSets:GetChecked() then
-		losa_ui.LoadMultipleSets:SetVisible(true)
-	elseif losa_ui.LoadNewItems:GetChecked() and losa_ui.loadTbxSets:GetChecked() then
-		losa_ui.LoadMultipleSets:SetVisible(true)
-	else
-		losa_ui.LoadMultipleSets:SetVisible(false)
-		losa_ui.LoadMultipleSets:SetChecked(false)
-	end
-end
-
-function Dta.losa.constructionLoadMultipleSetsChanged()
-	local losa_ui = Dta.Tools.LoSa.window.constructions
-	if losa_ui.LoadMultipleSets:GetChecked() then
-		losa_ui.NrCopiesLabel:SetVisible(true)
-		losa_ui.OffsetLabel:SetVisible(true)
-		losa_ui.xLabel:SetVisible(true)
-		losa_ui.yLabel:SetVisible(true)
-		losa_ui.zLabel:SetVisible(true)
-		losa_ui.NrCopies:SetVisible(true)
-		losa_ui.x:SetVisible(true)
-		losa_ui.y:SetVisible(true)
-		losa_ui.z:SetVisible(true)
-	elseif not losa_ui.LoadMultipleSets:GetChecked() then
-		losa_ui.NrCopiesLabel:SetVisible(false)
-		losa_ui.OffsetLabel:SetVisible(false)
-		losa_ui.xLabel:SetVisible(false)
-		losa_ui.yLabel:SetVisible(false)
-		losa_ui.zLabel:SetVisible(false)
-		losa_ui.NrCopies:SetVisible(false)
-		losa_ui.NrCopies:SetText("")
-		losa_ui.x:SetVisible(false)
-		losa_ui.x:SetText("")
-		losa_ui.y:SetVisible(false)
-		losa_ui.y:SetText("")
-		losa_ui.z:SetVisible(false)
-		losa_ui.z:SetText("")
 	end
 end
 
@@ -345,20 +298,9 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 	local settings = {}
 	local success = {}
 	local losa_ui = Dta.Tools.LoSa.window.constructions
-	settings.coordX, success.x = Dta.ui.checkNumber(losa_ui.x:GetText(), 0)
-	settings.coordY, success.y = Dta.ui.checkNumber(losa_ui.y:GetText(), 0)
-	settings.coordZ, success.z = Dta.ui.checkNumber(losa_ui.z:GetText(), 0)
-	settings.n_copies, success.n_copies = Dta.ui.checkNumber(losa_ui.NrCopies:GetText(), 1)
 
-	if not success.x or
-		not success.y or
-		not success.z or
-		not success.n_copies then
-		Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
-		return
-	end
-
-	local constructionSet = Dta.losa.getConstructionSet()
+	local constructionSet, allowOriginalLoc = Dta.losa.getConstructionSet()
+	atOriginalLoc = allowOriginalLoc and atOriginalLoc
 
 	if constructionSet and constructionSet[name] ~= nil then
 		settings.cp = Dta.items.getCentralPoint(constructionSet[name])
@@ -371,7 +313,7 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 		local shoppingList = Dta.losa.getGroupShoppingList(constructionSet[name])
 		if newItems then
 			Dta.losa.ScanInventory(shoppingList, true, false) -- settings.include_bags, settings.include_bank)
-			local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
+			local missing = Dta.losa.checkShoppingList(shoppingList)
 			if missing then
 				Dta.losa.printMissingItems(missing, shoppingList, Dta.Locale.Prints.NotLoadedBags)
 				return
@@ -383,7 +325,7 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 			if not ok then dump(err) end
 		else
 			Dta.losa.ScanSelection(shoppingList)
-			local missing = Dta.losa.checkShoppingList(shoppingList, settings.n_copies)
+			local missing = Dta.losa.checkShoppingList(shoppingList)
 			if missing then
 				Dta.losa.printMissingItems(missing, shoppingList, Dta.Locale.Prints.NotLoadedSelection)
 				return
@@ -407,13 +349,9 @@ function Dta.losa.pasteGroup(itemSet, shoppingList, settings, new_items, atOrigi
 		newPlacement.coordY = player.coordY - settings.cp.minValuaY + 0.05
 		newPlacement.coordZ = player.coordZ - settings.cp.z
 	end
-	-- paste the requested number of copies
-	for k = 0, settings.n_copies - 1, 1 do
-		local offset = { coordX = newPlacement.coordX + k * settings.coordX,
-						coordY = newPlacement.coordY + k * settings.coordY,
-						coordZ = newPlacement.coordZ + k * settings.coordZ }
-		Dta.copa.pasteSet(itemSet, shoppingList, offset, new_items)
-	end
+	-- paste the set at final location
+	Dta.copa.pasteSet(itemSet, shoppingList, newPlacement, new_items)
+
 	if new_items then
 		local paste_selection = Dta.FinishRecordingAdds()
 		Dta.Selections.SaveSelection("<last loaded set>", paste_selection, true)

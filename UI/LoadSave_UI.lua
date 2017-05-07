@@ -75,31 +75,10 @@ function Dta.losa_ui.buildLoSaWindow()
 
 	loadSave.loadAtOriginalLoc = Dta.ui.createCheckbox("constructionLoadAtOriginalLoc", loadSave, 135, 170, Dta.Locale.Text.LoadOrigionalLocation, false)
 	loadSave.loadAtOriginalLoc:SetVisible(false)
-	loadSave.LoadNewItems = Dta.ui.createCheckbox("constructionLoadNewItems", loadSave, 0, 170, Dta.Locale.Text.UseNewItems, false, nil, Dta.losa.constructionLoadNewItemsChanged)
+	loadSave.LoadNewItems = Dta.ui.createCheckbox("constructionLoadNewItems", loadSave, 0, 170, Dta.Locale.Text.UseNewItems, false, nil)
 	loadSave.LoadNewItems:SetVisible(true)
 
-	loadSave.LoadMultipleSets = Dta.ui.createCheckbox("constructionLoadMultipleSets", loadSave, 0, 265, Dta.Locale.Text.MultiCopies, false, nil, Dta.losa.constructionLoadMultipleSetsChanged)
-	loadSave.LoadMultipleSets:SetVisible(false)
-
-	loadSave.NrCopiesLabel = Dta.ui.createText("constructionsNrCopiesLabel", loadSave, 0, 290, Dta.Locale.Text.NrCopies, 14)
-	loadSave.NrCopiesLabel:SetVisible(false)
-	loadSave.OffsetLabel = Dta.ui.createText("constructionsOffsetLabel", loadSave, 0, 315, Dta.Locale.Text.Offset, 14)
-	loadSave.OffsetLabel:SetVisible(false)
-	loadSave.xLabel = Dta.ui.createText("constructionsXLabel", loadSave, 70, 315, "X", 14, {1, 0, 0, 1})
-	loadSave.xLabel:SetVisible(false)
-	loadSave.yLabel = Dta.ui.createText("constructionsYLabel", loadSave, 155, 315, "Y", 14, {0, 1, 0, 1})
-	loadSave.yLabel:SetVisible(false)
-	loadSave.zLabel = Dta.ui.createText("constructionsZLabel", loadSave, 240, 315, "Z", 14, {0, 1, 1, 1})
-	loadSave.zLabel:SetVisible(false)
-
-	loadSave.NrCopies = Dta.ui.createTextfield("constructionsNrCopies", loadSave, 90, 290, 40)
-	loadSave.NrCopies:SetVisible(false)
-	loadSave.x = Dta.ui.createTextfield("constructionsX", loadSave, 90, 315, 40)
-	loadSave.x:SetVisible(false)
-	loadSave.y = Dta.ui.createTextfield("constructionsY", loadSave, 175, 315, 40)
-	loadSave.y:SetVisible(false)
-	loadSave.z = Dta.ui.createTextfield("mconstructionsZ", loadSave, 260, 315, 40)
-	loadSave.z:SetVisible(false)
+	--loadSave.NrCopiesLabel = Dta.ui.createText("constructionsNrCopiesLabel", loadSave, 0, 290, Dta.Locale.Text.NrCopies, 14)
 
 	-- "abuse" cycle function for clearing input focus on 'return' key
 	loadSave.name:EventAttach(Event.UI.Input.Key.Down, Dta.ui.FocusCycleCallback, "Losa_TabFocusCycle")
