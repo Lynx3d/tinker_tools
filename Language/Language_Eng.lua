@@ -227,40 +227,44 @@ Lang["English"].LoadandSave.Text2 = "\
 <u>Descriptions:</u>\
 - Name (Textbox):  Here you set the name for the set you want to save.\
 - Save Set: Saves the set to file.\
+- Import/Export: Opens the Import/Export dialog (see next help topic)\
+\
 - Default Sets: Gives you the possibility to load the default sets provided\
-  by me and the rest of the RiftDreamDimensions team. These sets are tools\
-  created to aid you in your creativity.\
+  by the RiftDreamDimensions team.\
+  These sets are tools created to aid you in your creativity.\
 \
   For a detailed guide on how to use these tools you can go to\
   http://RiftDreamDimensions.com and take a look at the\
   Dimension Tools PDF file.\
 \
-- Saved Sets : Gives you the possibility to load your own made sets into your\
+- Saved Sets: Gives you the possibility to load your own made sets into your\
   Dimensions.\
 - Tbx Sets: Gives you the possibility to load your old Toolbox Sets, explanation\
   on how that works you find later in this help.\
-- Name (Drop box): A list of all the saved items. Depending on if you have\
+\
+- Search: Filters the drop-down below, refreshes when hitting 'return'.\
+- Name (Drop-down): A list of all available set. Depending on if you have\
   chosen Default Sets or Saved Sets the drop box will go to different lists.\
 - Load Set: Loads the selected set into your dimension using items you have\
   selected in your dimension or using items from your bags.\
 - Print Materials: Print out a list of items needed for the selected set.\
-- Load New Items: Makes it possible to load the set using items from your bags.\
+- Delete Set: Removes the selected set from your saved list (only Saved Sets).\
+- To Clipboard: This copies the set to the Copy&Paste clipboard, so you can paste\
+  it with that tool. This gives you more options, for example pasting multiple\
+  copies, but also allows using the Reskin tool to change materials before pasting.\
+- Use New Items: This places new items from your inventory. Otherwise you need\
+  to have the required items placed and selected.\
+- Load at original location: If this is selected, the set will be loaded with\
+  the coordinates it was originally saved with. Otherwise it will be loaded close\
+  to your current position, or if enabled, at your reference point.\
+  Only advisable when dimension keys of load and save match.\
 \
-The following items will only be active when Saved Sets or Tbx Sets are activated.\
-- Delete Set: Removes the selected set from your saved list (only Saved Sets) .\
-- Load at original location: If this is selected the set will be loaded with\
-  the stats it was originally saved with. Otherwise the set will be loaded close\
-  to your current position.\
-- Place Multiple Copies Of Set: This activates the possibility to load multiple\
-  copies of your set into your dimension and set a X, Y or Z offset between\
-  the placed sets.\
-\
-The options used for this are shown in the picture below here.\
-- Nr. Copies: Lets you set how many copies of the set you want to place in\
-  your dimension.\
--X: Sets the X offset.\
--Y: Sets the Y offset.\
--Z: Sets the Z offset."
+- Use Reference Point: This option allows for more control over the placement of\
+  loaded sets. When saving a set, the picked point is simply saved along with the\
+  items of the set. When you later load this set, the set will be moved so that\
+  the saved reference point aligns with your current pick. If the set has no\
+  reference point, the center point of the set will be used instead.\
+- Pick: This sets your current selection center as reference point."
 
 Lang["English"].LoadandSave.Text3 = "\
 Tbx Sets is somewhat special. By default that set is empty, but for old Dimension\
@@ -574,8 +578,7 @@ Lang["English"].Text.TbxSets = "Tbx Sets"
 Lang["English"].Text.Name = "Name"
 Lang["English"].Text.Search = "Search"
 Lang["English"].Text.LoadOrigionalLocation = "Load at original location"
-Lang["English"].Text.MultiCopies = "Place Multiple Copies of Set"
-Lang["English"].Text.NrCopies = "Nr. Copies"
+Lang["English"].Text.UseRefPoint = "Use reference point"
 Lang["English"].Text.Absolute = "Absolute"
 Lang["English"].Text.Relative = "Relative"
 Lang["English"].Text.MoveAsGroup = "As group"
@@ -610,6 +613,7 @@ Lang["English"].Text.Pole = "Pole"
 Lang["English"].Text.Disc = "Disc"
 Lang["English"].Text.NewName = "New Name"
 Lang["English"].Text.Category = "Category"
+Lang["English"].Text.AnySkin = "<Any Skin>"
 Lang["English"].Text.Multiplier = "Multiplier"
 
 ----------------------------------------
@@ -661,6 +665,8 @@ Lang["English"].Prints.SetRemoved = "Item set \"%s\" removed"
 Lang["English"].Prints.NotRemoved = "Could not remove \"%s\" - no such set found"
 Lang["English"].Prints.RemoveSelectSet = "You must select a set in order to remove it"
 Lang["English"].Prints.CopiedClipboard =  "Item set \"%s\" has been copied to the Copy & Paste tool's clipboard."
+Lang["English"].Prints.PickRefPoint =  "Please pick a reference point first."
+Lang["English"].Prints.NoRefPointWarn =  "This item set has no reference point. Using center point instead."
 --Measurements
 Lang["English"].Prints.SelectType = "Select a Type"
 Lang["English"].Prints.SelectOrientation = "Select an Orientation"

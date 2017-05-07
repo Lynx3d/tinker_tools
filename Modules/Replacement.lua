@@ -29,7 +29,7 @@ function Dta.Replacement.loadSkins(category, add_wildcard)
 	end
 	local sorted, values = sortSkins(skins, translation)
 	if add_wildcard then
-		table.insert(sorted, 1, "<Any Skin>")
+		table.insert(sorted, 1, Dta.Locale.Text.AnySkin)
 		table.insert(values, 1, "wildcard")
 	end
 	return sorted, values

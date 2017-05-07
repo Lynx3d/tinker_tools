@@ -80,7 +80,7 @@ function Dta.losa_ui.buildLoSaWindow()
 
 	loadSave.divider2 = Dta.ui.createTexture("LoSa_divider2", loadSave, "Rift", "divider_06.png.dds", 0, 250, loadSave:GetWidth())
 
-	loadSave.useReferencePoint = Dta.ui.createCheckbox("LoSaUseReference", loadSave, 0, 270, "<use reference point>", false, nil, Dta.losa.useReferencePointChanged)
+	loadSave.useReferencePoint = Dta.ui.createCheckbox("LoSaUseReference", loadSave, 0, 270, Dta.Locale.Text.UseRefPoint, false, nil, Dta.losa.useReferencePointChanged)
 
 	loadSave.referencePick = Dta.ui.createButton("pickRefPointBtn", loadSave, 165, 265, nil, nil, Dta.Locale.Buttons.Pick, nil, Dta.losa.pickButtonClicked)
 	loadSave.referencePick:SetVisible(false)

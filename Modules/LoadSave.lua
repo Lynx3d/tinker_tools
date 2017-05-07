@@ -173,10 +173,10 @@ function Dta.losa.calculateOffset(itemSet, useRefPoint, centerPoint, player)
 	local offset = {}
 	if useRefPoint then
 		if not Dta.losa.referencePoint then
-			Dta.CPrint("<No Reference Point has been picked yet.>")
+			Dta.CPrint(Dta.Locale.Prints.PickRefPoint)
 			return nil
 		elseif not itemSet.referencePoint then
-			Dta.CPrint("<This item set has no reference point, using center.>")
+			Dta.CPrint(Dta.Locale.Prints.NoRefPointWarn)
 		end
 		local savedRefPoint = itemSet.referencePoint or centerPoint
 		offset.coordX = Dta.losa.referencePoint.x - savedRefPoint.x
@@ -202,15 +202,6 @@ function Dta.losa.copyToClipboard(name)
 
 	local itemSet = constructionSet and constructionSet[name]
 	if not itemSet then return end
-
-	if useRefPoint then
-		if not Dta.losa.referencePoint then
-			Dta.CPrint("<No Reference Point has been picked yet.>")
-			return
-		elseif not itemSet.referencePoint then
-			Dta.CPrint("<This item set has no reference point, using center.>")
-		end
-	end
 
 	local cp = Dta.items.getCentralPoint(constructionSet[name])
 	local player = Inspect.Unit.Detail("player")
@@ -249,7 +240,7 @@ function Dta.losa.saveGroupItemAttributes(name, useRefPoint, overwrite)
 		Dta.CPrint(Dta.Locale.Prints.MinOneItem)
 		return
 	elseif useRefPoint and not Dta.losa.referencePoint then
-		Dta.CPrint("<No Reference Point has been picked yet.>")
+		Dta.CPrint(Dta.Locale.Prints.PickRefPoint)
 		return
 	end
 	if name and name ~= "" then
