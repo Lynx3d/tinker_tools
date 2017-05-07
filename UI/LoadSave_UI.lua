@@ -53,32 +53,37 @@ function Dta.losa_ui.buildLoSaWindow()
 	loadSave.save = Dta.ui.createButton("constructionsSave", loadSave, 0, 25, nil, nil, Dta.Locale.Buttons.SaveSet, nil, Dta.losa.constructionSaveClicked)
 	loadSave.ImpExpBtn = Dta.ui.createButton("constructionsImpExpBtn", loadSave, 145, 25, 160, nil, Dta.Locale.Buttons.ImportExport, nil, Dta.Tools.ExpImp.Toggle)
 
-	loadSave.divider1 = Dta.ui.createTexture("LoSa_divider1", loadSave, "Rift", "divider_06.png.dds", 0, 55, LoSawindow:GetWidth())
+	loadSave.divider1 = Dta.ui.createTexture("LoSa_divider1", loadSave, "Rift", "divider_06.png.dds", 0, 55, loadSave:GetWidth())
 
-	loadSave.loadDeafaultSets = Dta.ui.createCheckbox("constructionLoadDeafaultSets", loadSave, 0, 85, Dta.Locale.Text.DefaultSets, true, nil, Dta.losa.constructionLoadDeafaultSetsChanged)
-	loadSave.loadSavedSets = Dta.ui.createCheckbox("constructionLoadSavedSets", loadSave, 100, 85, Dta.Locale.Text.SavedSets, false, nil, Dta.losa.constructionLoadSavedSetsChanged)
-	loadSave.loadTbxSets = Dta.ui.createCheckbox("constructionLoadTbxSets", loadSave, 210, 85, Dta.Locale.Text.TbxSets, false, nil, Dta.losa.constructionLoadTbxSetsChanged)
+	loadSave.loadDeafaultSets = Dta.ui.createCheckbox("constructionLoadDeafaultSets", loadSave, 0, 75, Dta.Locale.Text.DefaultSets, true, nil, Dta.losa.constructionLoadDeafaultSetsChanged)
+	loadSave.loadSavedSets = Dta.ui.createCheckbox("constructionLoadSavedSets", loadSave, 100, 75, Dta.Locale.Text.SavedSets, false, nil, Dta.losa.constructionLoadSavedSetsChanged)
+	loadSave.loadTbxSets = Dta.ui.createCheckbox("constructionLoadTbxSets", loadSave, 210, 75, Dta.Locale.Text.TbxSets, false, nil, Dta.losa.constructionLoadTbxSetsChanged)
 
-	loadSave.searchLabel = Dta.ui.createText("constructionsSearchLabel", loadSave, 0, 115, Dta.Locale.Text.Search, 14)
-	loadSave.search = Dta.ui.createTextfield("constructionsSearch", loadSave, 55, 115, 245)
+	loadSave.searchLabel = Dta.ui.createText("constructionsSearchLabel", loadSave, 0, 105, Dta.Locale.Text.Search, 14)
+	loadSave.search = Dta.ui.createTextfield("constructionsSearch", loadSave, 55, 105, 245)
 	loadSave.search:EventAttach(Event.UI.Input.Key.Up, Dta.losa.constructionSearchKeyUp, "LoSa_SearchApply")
 
-	loadSave.nameLabel2 = Dta.ui.createText("constructionsNameLabel2", loadSave, 0, 140, Dta.Locale.Text.Name, 14)
-	loadSave.nameLoad = Dta.ui.createDropdown("constructionsNameSelect", loadSave, 55, 140, 245)
+	loadSave.nameLabel2 = Dta.ui.createText("constructionsNameLabel2", loadSave, 0, 130, Dta.Locale.Text.Name, 14)
+	loadSave.nameLoad = Dta.ui.createDropdown("constructionsNameSelect", loadSave, 55, 130, 245)
 	loadSave.nameLoad:SetItems(Dta.losa.loadConstructions())
 
-	loadSave.load = Dta.ui.createButton("constructionsLoad", loadSave, 0, 195, nil, nil, Dta.Locale.Buttons.LoadSet, nil, Dta.losa.constructionLoadClicked)
-	loadSave.remove = Dta.ui.createButton("constructionsRemove", loadSave, 0, 230, nil, nil, Dta.Locale.Buttons.RemoveSet, nil, Dta.losa.constructionRemoveClicked)
+	loadSave.load = Dta.ui.createButton("constructionsLoad", loadSave, 0, 185, nil, nil, Dta.Locale.Buttons.LoadSet, nil, Dta.losa.constructionLoadClicked)
+	loadSave.remove = Dta.ui.createButton("constructionsRemove", loadSave, 0, 220, nil, nil, Dta.Locale.Buttons.RemoveSet, nil, Dta.losa.constructionRemoveClicked)
 	loadSave.remove:SetVisible(false)
-	loadSave.printReqs = Dta.ui.createButton("constructionsPrintReqs", loadSave, 165, 195, nil, nil, Dta.Locale.Buttons.PrintMaterials, nil, Dta.losa.constructionPrintMaterials)
-	loadSave.toClipboard = Dta.ui.createButton("constructionsToClipboard", loadSave, 165, 230, nil, nil, Dta.Locale.Buttons.ToClipboard, nil, Dta.losa.constructionToClipboard)
+	loadSave.printReqs = Dta.ui.createButton("constructionsPrintReqs", loadSave, 165, 185, nil, nil, Dta.Locale.Buttons.PrintMaterials, nil, Dta.losa.constructionPrintMaterials)
+	loadSave.toClipboard = Dta.ui.createButton("constructionsToClipboard", loadSave, 165, 220, nil, nil, Dta.Locale.Buttons.ToClipboard, nil, Dta.losa.constructionToClipboard)
 
-	loadSave.loadAtOriginalLoc = Dta.ui.createCheckbox("constructionLoadAtOriginalLoc", loadSave, 135, 170, Dta.Locale.Text.LoadOrigionalLocation, false)
+	loadSave.loadAtOriginalLoc = Dta.ui.createCheckbox("constructionLoadAtOriginalLoc", loadSave, 135, 160, Dta.Locale.Text.LoadOrigionalLocation, false)
 	loadSave.loadAtOriginalLoc:SetVisible(false)
-	loadSave.LoadNewItems = Dta.ui.createCheckbox("constructionLoadNewItems", loadSave, 0, 170, Dta.Locale.Text.UseNewItems, false, nil)
+	loadSave.LoadNewItems = Dta.ui.createCheckbox("constructionLoadNewItems", loadSave, 0, 160, Dta.Locale.Text.UseNewItems, false, nil)
 	loadSave.LoadNewItems:SetVisible(true)
 
-	--loadSave.NrCopiesLabel = Dta.ui.createText("constructionsNrCopiesLabel", loadSave, 0, 290, Dta.Locale.Text.NrCopies, 14)
+	loadSave.divider2 = Dta.ui.createTexture("LoSa_divider2", loadSave, "Rift", "divider_06.png.dds", 0, 250, loadSave:GetWidth())
+
+	loadSave.useReferencePoint = Dta.ui.createCheckbox("LoSaUseReference", loadSave, 0, 270, "<use reference point>", false, nil, Dta.losa.useReferencePointChanged)
+
+	loadSave.referencePick = Dta.ui.createButton("pickRefPointBtn", loadSave, 165, 265, nil, nil, Dta.Locale.Buttons.Pick, nil, Dta.losa.pickButtonClicked)
+	loadSave.referencePick:SetVisible(false)
 
 	-- "abuse" cycle function for clearing input focus on 'return' key
 	loadSave.name:EventAttach(Event.UI.Input.Key.Down, Dta.ui.FocusCycleCallback, "Losa_TabFocusCycle")

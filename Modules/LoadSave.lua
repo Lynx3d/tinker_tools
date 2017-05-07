@@ -48,9 +48,15 @@ function Dta.losa.constructionLoadTbxSetsChanged()
 	end
 end
 
+function Dta.losa.useReferencePointChanged(self)
+	local losa_ui = Dta.Tools.LoSa.window.constructions
+	losa_ui.referencePick:SetVisible(self:GetChecked())
+end
+
 function Dta.losa.constructionSaveClicked()
+	local losa_ui = Dta.Tools.LoSa.window.constructions
 	local cr = coroutine.wrap(Dta.losa.saveGroupItemAttributes)
-	cr(Dta.Tools.LoSa.window.constructions.name:GetText())
+	cr(losa_ui.name:GetText(), losa_ui.useReferencePoint:GetChecked())
 	Dta.losa.refreshLoadSelect()
 end
 
@@ -73,6 +79,12 @@ function Dta.losa.refreshLoadSelect()
 		Dta.Tools.ExpImp.window.ImportExport.ExportLoad:SetItems(Dta.expimp.loadExport())
 		Dta.Tools.ExpImp.window.ImportExport.ExportLoad:ResizeToFit()
 		Dta.Tools.ExpImp.window.ImportExport.ExportLoad:SetWidth(245)
+	end
+end
+
+function Dta.losa.pickButtonClicked()
+	if Dta.selectionCenter then
+		Dta.losa.referencePoint = Dta.copyTable(Dta.selectionCenter)
 	end
 end
 
@@ -157,6 +169,27 @@ function Dta.losa.confirmPlayerDistance(player, cp)
 	return true
 end
 
+function Dta.losa.calculateOffset(itemSet, useRefPoint, centerPoint, player)
+	local offset = {}
+	if useRefPoint then
+		if not Dta.losa.referencePoint then
+			Dta.CPrint("<No Reference Point has been picked yet.>")
+			return nil
+		elseif not itemSet.referencePoint then
+			Dta.CPrint("<This item set has no reference point, using center.>")
+		end
+		local savedRefPoint = itemSet.referencePoint or centerPoint
+		offset.coordX = Dta.losa.referencePoint.x - savedRefPoint.x
+		offset.coordY = Dta.losa.referencePoint.y - savedRefPoint.y
+		offset.coordZ = Dta.losa.referencePoint.z - savedRefPoint.z
+	else
+		offset.coordX = player.coordX - centerPoint.x + 15
+		offset.coordY = player.coordY - centerPoint.minValuaY + 0.05
+		offset.coordZ = player.coordZ - centerPoint.z
+	end
+	return offset
+end
+
 --------------------------------------
 -- COPY SET TO CLIPBOARD
 --------------------------------------
@@ -165,38 +198,58 @@ function Dta.losa.copyToClipboard(name)
 	local losa_ui = Dta.Tools.LoSa.window.constructions
 	local constructionSet, atOriginalLoc = Dta.losa.getConstructionSet()
 	atOriginalLoc = atOriginalLoc and losa_ui.loadAtOriginalLoc:GetChecked()
+	local useRefPoint = losa_ui.useReferencePoint:GetChecked()
 
-	if constructionSet and constructionSet[name] ~= nil then
-		local cp = Dta.items.getCentralPoint(constructionSet[name])
-		local player = Inspect.Unit.Detail("player")
+	local itemSet = constructionSet and constructionSet[name]
+	if not itemSet then return end
+
+	if useRefPoint then
+		if not Dta.losa.referencePoint then
+			Dta.CPrint("<No Reference Point has been picked yet.>")
+			return
+		elseif not itemSet.referencePoint then
+			Dta.CPrint("<This item set has no reference point, using center.>")
+		end
+	end
+
+	local cp = Dta.items.getCentralPoint(constructionSet[name])
+	local player = Inspect.Unit.Detail("player")
+	local offset = false
+
+	if atOriginalLoc then
 		-- check if set location is reasonably near
-		if atOriginalLoc and not Dta.losa.confirmPlayerDistance(player, cp) then
+		if not Dta.losa.confirmPlayerDistance(player, cp) then
 			return
 		end
-		-- TODO: check if clipboard empty
-		Dta.clipboard.items = Dta.copyTable(constructionSet[name], true)
-		Dta.clipboard.itemCount = #Dta.clipboard.items
-		if not atOriginalLoc then
-			local offset_x = player.coordX - cp.x + 15
-			local offset_y = player.coordY - cp.minValuaY + 0.05
-			local offset_z = player.coordZ - cp.z
-			for _, item in pairs(Dta.clipboard.items) do
-				item.coordX = item.coordX + offset_x
-				item.coordY = item.coordY + offset_y
-				item.coordZ = item.coordZ + offset_z
-			end
+	else
+		offset = Dta.losa.calculateOffset(itemSet, useRefPoint, cp, player)
+		if not offset then
+			return
 		end
-		Dta.CPrint(string.format(Dta.Locale.Prints.CopiedClipboard, name))
 	end
+	-- TODO: check if clipboard empty
+	Dta.clipboard.items = Dta.copyTable(constructionSet[name], true)
+	Dta.clipboard.itemCount = #Dta.clipboard.items
+	if offset then
+		for _, item in ipairs(Dta.clipboard.items) do
+			item.coordX = item.coordX + offset.coordX
+			item.coordY = item.coordY + offset.coordY
+			item.coordZ = item.coordZ + offset.coordZ
+		end
+	end
+	Dta.CPrint(string.format(Dta.Locale.Prints.CopiedClipboard, name))
 end
 
 --------------------------------------
 --SAVESET
 --------------------------------------
 
-function Dta.losa.saveGroupItemAttributes(name, overwrite)
+function Dta.losa.saveGroupItemAttributes(name, useRefPoint, overwrite)
 	if Dta.selectionCount < 1 then
 		Dta.CPrint(Dta.Locale.Prints.MinOneItem)
+		return
+	elseif useRefPoint and not Dta.losa.referencePoint then
+		Dta.CPrint("<No Reference Point has been picked yet.>")
 		return
 	end
 	if name and name ~= "" then
@@ -207,7 +260,7 @@ function Dta.losa.saveGroupItemAttributes(name, overwrite)
 			local ok = coroutine.yield()
 			if ok then
 				-- recurse to re-run previous checks
-				Dta.losa.saveGroupItemAttributes(name, true)
+				Dta.losa.saveGroupItemAttributes(name, useRefPoint, true)
 			end
 			return
 		end
@@ -223,6 +276,9 @@ function Dta.losa.saveGroupItemAttributes(name, overwrite)
 										pitch = item.pitch,
 										roll = item.roll,
 										scale = item.scale})
+		end
+		if useRefPoint then
+			groupDetails.referencePoint = Dta.copyTable(Dta.losa.referencePoint)
 		end
 		constructions[name] = groupDetails
 		Dta.settings.set_savedsets("SavedSets", constructions)
@@ -271,7 +327,7 @@ end
 function Dta.losa.getGroupShoppingList(itemlist)
 	if #itemlist > 0 then
 		local shoppingList = {}
-		for k, details in pairs(itemlist) do
+		for k, details in ipairs(itemlist) do
 			if shoppingList[details.type] == nil then
 				shoppingList[details.type] = {name = details.name, amount = 1}
 			else
@@ -296,61 +352,72 @@ function Dta.losa.loadItemSet(name, atOriginalLoc, newItems)
 		return
 	end
 	local settings = {}
-	local success = {}
 	local losa_ui = Dta.Tools.LoSa.window.constructions
 
 	local constructionSet, allowOriginalLoc = Dta.losa.getConstructionSet()
+	local itemSet = constructionSet and constructionSet[name]
+	if not itemSet then
+		Dta.CPrint(string.format(Dta.Locale.Prints.SetNotFound, name))
+		return
+	end
+
 	atOriginalLoc = allowOriginalLoc and atOriginalLoc
 
-	if constructionSet and constructionSet[name] ~= nil then
-		settings.cp = Dta.items.getCentralPoint(constructionSet[name])
-		settings.player = Inspect.Unit.Detail("player")
+	settings.cp = Dta.items.getCentralPoint(itemSet)
+	settings.player = Inspect.Unit.Detail("player")
+	if atOriginalLoc then
 		-- check if set location is reasonably near
-		if atOriginalLoc and not Dta.losa.confirmPlayerDistance(settings.player, settings.cp) then
+		if not Dta.losa.confirmPlayerDistance(settings.player, settings.cp) then
 			return
 		end
-		-- check available items
-		local shoppingList = Dta.losa.getGroupShoppingList(constructionSet[name])
-		if newItems then
-			Dta.losa.ScanInventory(shoppingList, true, false) -- settings.include_bags, settings.include_bank)
-			local missing = Dta.losa.checkShoppingList(shoppingList)
-			if missing then
-				Dta.losa.printMissingItems(missing, shoppingList, Dta.Locale.Prints.NotLoadedBags)
-				return
-			end
-			Dta.items.DeselectAll()
-			Dta.Co_DoneMessage = string.format(Dta.Locale.Prints.SetLoaded, name)
-			Dta.AddItem_Co = coroutine.create(Dta.losa.pasteGroup)
-			local ok, err = coroutine.resume(Dta.AddItem_Co, constructionSet[name], shoppingList, settings, newItems, atOriginalLoc)
-			if not ok then dump(err) end
-		else
-			Dta.losa.ScanSelection(shoppingList)
-			local missing = Dta.losa.checkShoppingList(shoppingList)
-			if missing then
-				Dta.losa.printMissingItems(missing, shoppingList, Dta.Locale.Prints.NotLoadedSelection)
-				return
-			end
-			Dta.losa.pasteGroup(constructionSet[name], shoppingList, settings, newItems, atOriginalLoc)
-		end
+		settings.offset = { coordX = 0, coordY = 0, coordZ = 0 }
 	else
-		Dta.CPrint(string.format(Dta.Locale.Prints.SetNotFound, name))
+		-- check we can calculate the offset
+		local useRefPoint = losa_ui.useReferencePoint:GetChecked()
+		settings.offset = Dta.losa.calculateOffset(itemSet, useRefPoint, settings.cp, settings.player)
+		if not settings.offset then
+			return
+		end
+	end
+	-- check available items
+	local shoppingList = Dta.losa.getGroupShoppingList(itemSet)
+	if newItems then
+		Dta.losa.ScanInventory(shoppingList, true, false) -- settings.include_bags, settings.include_bank)
+		local missing = Dta.losa.checkShoppingList(shoppingList)
+		if missing then
+			Dta.losa.printMissingItems(missing, shoppingList, Dta.Locale.Prints.NotLoadedBags)
+			return
+		end
+		Dta.items.DeselectAll()
+		Dta.Co_DoneMessage = string.format(Dta.Locale.Prints.SetLoaded, name)
+		Dta.AddItem_Co = coroutine.create(Dta.losa.pasteGroup)
+		local ok, err = coroutine.resume(Dta.AddItem_Co, itemSet, shoppingList, settings, newItems)
+		if not ok then dump(err) end
+	else
+		Dta.losa.ScanSelection(shoppingList)
+		local missing = Dta.losa.checkShoppingList(shoppingList)
+		if missing then
+			Dta.losa.printMissingItems(missing, shoppingList, Dta.Locale.Prints.NotLoadedSelection)
+			return
+		end
+		Dta.losa.pasteGroup(itemSet, shoppingList, settings, newItems)
 	end
 end
 
-function Dta.losa.pasteGroup(itemSet, shoppingList, settings, new_items, atOriginalLoc)
+function Dta.losa.pasteGroup(itemSet, shoppingList, settings, new_items)
 	if new_items then
 		Dta.StartRecordingAdds()
 	end
 	-- determine new position unless at pasting at original position
-	local newPlacement = { coordX = 0, coordY = 0, coordZ = 0 }
+	--[[local newPlacement = settings.offset or { coordX = 0, coordY = 0, coordZ = 0 }
 	if not atOriginalLoc then
 		local player = settings.player
 		newPlacement.coordX = player.coordX - settings.cp.x + 15
 		newPlacement.coordY = player.coordY - settings.cp.minValuaY + 0.05
 		newPlacement.coordZ = player.coordZ - settings.cp.z
-	end
+	end]]
 	-- paste the set at final location
-	Dta.copa.pasteSet(itemSet, shoppingList, newPlacement, new_items)
+	Dta.copa.pasteSet(itemSet, shoppingList, settings.offset, new_items)
 
 	if new_items then
 		local paste_selection = Dta.FinishRecordingAdds()

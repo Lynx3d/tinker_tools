@@ -319,7 +319,7 @@ function Dta.copa.pasteSet(itemSet, shoppingList, offset, newItems)
 		rot_matrix = Dta.Matrix.createZYX(offset.pitch, offset.yaw, offset.roll, true)
 	end
 
-	for k, details in pairs(itemSet) do
+	for k, details in ipairs(itemSet) do
 		local new_details = Dta.copyTable(details)
 		--TEST: apply move offset before rotate/scale
 		new_details.coordX = new_details.coordX + offset.coordX
