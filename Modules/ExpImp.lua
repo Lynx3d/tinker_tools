@@ -65,6 +65,10 @@ function Dta.expimp.ExportTextClicked()
 		end
 		text = text .. Utility.Serialize.Inline(item)
 	end
+	local rp = savedSets[name].referencePoint
+	if rp then
+		text = text .. ",\nreferencePoint = { " .. rp.x .. ", " .. rp.y .. ", " .. rp.z .. "}"
+	end
 	text = text .. "\n}"
 	Dta.Tools.ExpImp.window.ImportExport.TextView:SetText(text)
 	Dta.Tools.ExpImp.window.ImportExport.TextView.hint_active = false
@@ -270,6 +274,11 @@ function Dta.expimp.DeserializeSet(data)
 		new_set[i] = { name = item[1], type = item[2],
 					  coordX = item[3], coordY = item[4], coordZ = item[5],
 					  pitch = item[6], yaw = item[7], roll = item[8], scale = item[9] }
+	end
+	local rp = env_tbl.set.referencePoint
+	if type(rp) == "table" then
+		assert(type(rp[1]) == "number" and type(rp[2]) == "number" and type(rp[3]) == "number")
+		new_set.referencePoint = { x = rp[1], y = rp[2], z = rp[3] }
 	end
 	return new_set
 end
