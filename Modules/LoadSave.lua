@@ -51,6 +51,7 @@ end
 function Dta.losa.useReferencePointChanged(self)
 	local losa_ui = Dta.Tools.LoSa.window.constructions
 	losa_ui.referencePick:SetVisible(self:GetChecked())
+	losa_ui.refPointCoords:SetAlpha(self:GetChecked() and 1.0 or 0.5)
 end
 
 function Dta.losa.constructionSaveClicked()
@@ -84,7 +85,24 @@ end
 
 function Dta.losa.pickButtonClicked()
 	if Dta.selectionCenter then
+		Dta.losa.updateRefPoint(Dta.selectionCenter)
+	end
+end
+
+function Dta.losa.updateRefPoint(refPoint)
+	if refPoint then
 		Dta.losa.referencePoint = Dta.copyTable(Dta.selectionCenter)
+	else
+		Dta.losa.referencePoint = nil
+	end
+	local losa_ui = Dta.Tools.LoSa.window
+	if losa_ui then
+		if refPoint then
+			losa_ui.constructions.refPointCoords:SetText(string.format("x: %.3f  y: %.3f  z: %.3f",
+														 refPoint.x, refPoint.y, refPoint.z))
+		else
+			losa_ui.constructions.refPointCoords:SetText("x: - y: - z: -")
+		end
 	end
 end
 

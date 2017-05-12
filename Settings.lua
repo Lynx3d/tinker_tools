@@ -65,7 +65,8 @@ Dta.settings.defaults = {
 
 Dta.settings.revisions = {
 	[1] = "DT v1.9.10",
-	[2] = "v1.2.7"
+	[2] = "v1.2.7",
+	[3] = "v1.3.1" -- sets w. reference points
 }
 
 function Dta.settings.main()

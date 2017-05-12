@@ -3,7 +3,7 @@ local addon, Dta = ...
 --Addon information
 Dta.Version = addon.toc.Version --Inspect.Addon.Detail(Inspect.Addon.Current()).toc.Version
 Dta.AddonID = addon.toc.Identifier
-Dta.SettingsRevision = 2
+Dta.SettingsRevision = 3
 Dta.Language = Inspect.System.Language()
 Dta.Lang = {}
 Dta.Tools = {}
@@ -204,6 +204,7 @@ end
 local function EnterDimension()
 	-- reset copy&paste pivot, because it may be off-limit
 	Dta.copa.pivot = nil
+	Dta.losa.updateRefPoint(nil)
 
 	if Dta.InDimension then return end
 	Dta.ui.showMainButton()

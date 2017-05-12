@@ -8,7 +8,7 @@ Dta.losa_ui = {}
 
 local LoSaWindowSettings = {
 	WIDTH = 325,
-	HEIGHT = 345,
+	HEIGHT = 330,
 	CLOSABLE = true,
 	MOVABLE = true,
 	POS_X = "LoSawindowPosX",
@@ -82,8 +82,11 @@ function Dta.losa_ui.buildLoSaWindow()
 
 	loadSave.useReferencePoint = Dta.ui.createCheckbox("LoSaUseReference", loadSave, 0, 270, Dta.Locale.Text.UseRefPoint, false, nil, Dta.losa.useReferencePointChanged)
 
-	loadSave.referencePick = Dta.ui.createButton("pickRefPointBtn", loadSave, 165, 265, nil, nil, Dta.Locale.Buttons.Pick, nil, Dta.losa.pickButtonClicked)
+	loadSave.referencePick = Dta.ui.createButton("pickRefPointBtn", loadSave, 165, 262, nil, nil, Dta.Locale.Buttons.Pick, nil, Dta.losa.pickButtonClicked)
 	loadSave.referencePick:SetVisible(false)
+
+	loadSave.refPointCoords = Dta.ui.createText("constructionsNameLabel", loadSave, 15, 295, "x: - y: - z: -", 14)
+	loadSave.refPointCoords:SetAlpha(0.5)
 
 	-- "abuse" cycle function for clearing input focus on 'return' key
 	loadSave.name:EventAttach(Event.UI.Input.Key.Down, Dta.ui.FocusCycleCallback, "Losa_TabFocusCycle")
