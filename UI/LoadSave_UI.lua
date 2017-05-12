@@ -18,7 +18,7 @@ local LoSaWindowSettings = {
 function Dta.losa_ui.buildLoSaWindow()
 	local x = Dta.settings.get("LoSawindowPosX")
 	local y = Dta.settings.get("LoSawindowPosY")
-	newWindow = Dta.ui.Window.Create("LoSaWindow",
+	local newWindow = Dta.ui.Window.Create("LoSaWindow",
 							Dta.ui.context,
 							Dta.Locale.Titles.LoadSave,
 							LoSaWindowSettings.WIDTH,

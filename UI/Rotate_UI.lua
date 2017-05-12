@@ -18,7 +18,7 @@ local RotateWindowSettings = {
 function Dta.rotate_ui.buildRotateWindow()
 	local x = Dta.settings.get("RotatewindowPosX")
 	local y = Dta.settings.get("RotatewindowPosY")
-	newWindow = Dta.ui.Window.Create("RotateWindow",
+	local newWindow = Dta.ui.Window.Create("RotateWindow",
 							Dta.ui.context,
 							Dta.Locale.Titles.Rotate,
 							RotateWindowSettings.WIDTH,
