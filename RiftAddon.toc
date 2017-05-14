@@ -101,6 +101,7 @@ RunOnStartup = {
   "UI/Replacement_UI.lua",
   "UI/Selections_UI.lua",
   "UI/Window.lua",
+  "UI/ItemList.lua",
 
   "Modules/Itemdetails.lua",
   "Modules/Matrix.lua",

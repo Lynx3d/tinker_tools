@@ -98,6 +98,7 @@ LangG.Titles.Settings = "Einstellungen"
 LangG.Titles.TransferValues = "Werte übergeben an:"
 LangG.Titles.Reskin = "Oberfläche Ersetzen"
 LangG.Titles.Selection = "Auswahl"
+LangG.Titles.MaterialList = "Materialliste"
 
 ----------------------------------------
 --Text

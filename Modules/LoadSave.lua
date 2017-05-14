@@ -304,14 +304,11 @@ end
 function Dta.losa.printShoppingList(name)
 	local constructionSet = Dta.losa.getConstructionSet()
 
-	if name ~= nil and name ~= "" then
-		if constructionSet and constructionSet[name] ~= nil then
+	if name then
+		if constructionSet and constructionSet[name] then
 			local list = Dta.losa.getGroupShoppingList(constructionSet[name])
-			if list ~= nil and Dta.losa.tableLength(list) > 0 then
-				Dta.CPrint(string.format(Dta.Locale.Prints.LoadNeededItems, name))
-				for id, details in pairs(list) do
-					Dta.CPrint(string.format("%s: %d", details.name, details.amount))
-				end
+			if list then
+				Dta.ui.ShowMaterialList(list)
 			else
 				Dta.CPrint(Dta.Locale.Prints.WordCouldNotPrint)
 			end
