@@ -372,24 +372,16 @@ function Dta.ui.buildMainWindow()
 
 
 	-- Tool Buttons
-	Mainwindow.itemDetails.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow, 8, 133, 160, nil, Dta.Locale.Buttons.MoveWindow, nil, Dta.Tools.Move.Toggle)
-	Mainwindow.itemDetails.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow, 157, 133, 160, nil, Dta.Locale.Buttons.RotateWindow, nil, Dta.Tools.Rotate.Toggle)
-	Mainwindow.itemDetails.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow, 8, 160, 160, nil, Dta.Locale.Buttons.ScaleWindow, nil, Dta.Tools.Scale.Toggle)
-	Mainwindow.itemDetails.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow, 157, 160, 160, nil, Dta.Locale.Buttons.OffsetCalc, nil, Dta.Tools.Offset.Toggle)
-	Mainwindow.itemDetails.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow, 8, 187, 160, nil, Dta.Locale.Buttons.CopyPaste, nil, Dta.Tools.CoPa.Toggle)
-	Mainwindow.itemDetails.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow, 157, 187, 160, nil, Dta.Locale.Buttons.LoadSave, nil, Dta.Tools.LoSa.Toggle)
+	Mainwindow.MoveBtn = Dta.ui.createButton("itemDetailMoveBtn", Mainwindow, 8, 133, 160, nil, Dta.Locale.Buttons.MoveWindow, nil, Dta.Tools.Move.Toggle)
+	Mainwindow.RotateBtn = Dta.ui.createButton("itemDetailRotateBtn", Mainwindow, 157, 133, 160, nil, Dta.Locale.Buttons.RotateWindow, nil, Dta.Tools.Rotate.Toggle)
+	Mainwindow.ScaleBtn = Dta.ui.createButton("mitemDetailScaleBtn", Mainwindow, 8, 160, 160, nil, Dta.Locale.Buttons.ScaleWindow, nil, Dta.Tools.Scale.Toggle)
+	Mainwindow.Measurements = Dta.ui.createButton("itemDetailMeasurementsBtn", Mainwindow, 157, 160, 160, nil, Dta.Locale.Buttons.OffsetCalc, nil, Dta.Tools.Offset.Toggle)
+	Mainwindow.CoPaBtn = Dta.ui.createButton("itemDetailCoPaBtn", Mainwindow, 8, 187, 160, nil, Dta.Locale.Buttons.CopyPaste, nil, Dta.Tools.CoPa.Toggle)
+	Mainwindow.SaveBtn = Dta.ui.createButton("itemDetailSaveBtn", Mainwindow, 157, 187, 160, nil, Dta.Locale.Buttons.LoadSave, nil, Dta.Tools.LoSa.Toggle)
 	--Mainwindow.itemDetails.ImpExpBtn = Dta.ui.createButton("itemDetailImpExpBtn", Mainwindow.itemDetails, 290, 150, 160, nil, Dta.Locale.Buttons.ImportExport, nil, Dta.Tools.ExpImp.Toggle)
-	Mainwindow.itemDetails.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow, 8, 214, 160, nil, Dta.Locale.Buttons.TribalMagic, nil, Dta.Tools.Flying.Toggle)
-	Mainwindow.itemDetails.MoreBtn = Dta.ui.createButton("itemDetailMoreBtn", Mainwindow, 157, 214, 160, nil, Dta.Locale.Buttons.More, nil, Dta.ui.moreBtnClicked)
-	-- Expanded
-	Mainwindow.itemDetails.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", Mainwindow, 157, 214, 160, nil, "Alfiebet", nil, Dta.Tools.Alfiebet.Toggle)
-	Mainwindow.itemDetails.ReskinBtn = Dta.ui.createButton("itemDetailReskinBtn", Mainwindow, 8, 241, 160, nil, Dta.Locale.Buttons.Reskin, nil, Dta.Tools.Reskin.Toggle)
-	Mainwindow.itemDetails.SelectionsBtn = Dta.ui.createButton("itemDetailSelectionBtn", Mainwindow, 157, 241, 160, nil, Dta.Locale.Buttons.Selection, nil, Dta.Tools.Select.Toggle)
-	Mainwindow.itemDetails.LessBtn = Dta.ui.createButton("itemDetailLessBtn", Mainwindow, 8, 268, 160, nil, Dta.Locale.Buttons.Less, nil, Dta.ui.lessBtnClicked)
-	Mainwindow.itemDetails.Alphabet:SetVisible(false)
-	Mainwindow.itemDetails.ReskinBtn:SetVisible(false)
-	Mainwindow.itemDetails.SelectionsBtn:SetVisible(false)
-	Mainwindow.itemDetails.LessBtn:SetVisible(false)
+	Mainwindow.DFlying = Dta.ui.createButton("itemDetailDFlyingBtn", Mainwindow, 8, 214, 160, nil, Dta.Locale.Buttons.TribalMagic, nil, Dta.Tools.Flying.Toggle)
+	Mainwindow.MoreBtn = Dta.ui.createButton("itemDetailMoreBtn", Mainwindow, 157, 214, 160, nil, Dta.Locale.Buttons.More, nil, Dta.ui.moreBtnClicked)
+	-- Expanded: see Dta.ui.moreBtnClicked()
 
 	-- help button
 	newWindow.help = Dta.ui.Button.Create("mainwindow_help", newWindow, Dta.help_ui.toggleHelpWindow,
@@ -470,22 +462,29 @@ end
 -------------------------------
 
 function Dta.ui.moreBtnClicked()
-	local itemDetails = Dta.ui.windowtest.itemDetails
-	itemDetails.Alphabet:SetVisible(true)
-	itemDetails.ReskinBtn:SetVisible(true)
-	itemDetails.SelectionsBtn:SetVisible(true)
-	itemDetails.LessBtn:SetVisible(true)
-	itemDetails.MoreBtn:SetVisible(false)
+	local mainWindow = Dta.ui.windowtest.content
+	mainWindow.MoreBtn:SetVisible(false)
+	if not mainWindow.Alphabet then
+		mainWindow.Alphabet = Dta.ui.createButton("itemDetailAlphabetBtn", mainWindow, 157, 214, 160, nil, "Alfiebet", nil, Dta.Tools.Alfiebet.Toggle)
+		mainWindow.ReskinBtn = Dta.ui.createButton("itemDetailReskinBtn", mainWindow, 8, 241, 160, nil, Dta.Locale.Buttons.Reskin, nil, Dta.Tools.Reskin.Toggle)
+		mainWindow.SelectionsBtn = Dta.ui.createButton("itemDetailSelectionBtn", mainWindow, 157, 241, 160, nil, Dta.Locale.Buttons.Selection, nil, Dta.Tools.Select.Toggle)
+		mainWindow.LessBtn = Dta.ui.createButton("itemDetailLessBtn", mainWindow, 8, 268, 160, nil, Dta.Locale.Buttons.Less, nil, Dta.ui.lessBtnClicked)
+	else
+		mainWindow.Alphabet:SetVisible(true)
+		mainWindow.ReskinBtn:SetVisible(true)
+		mainWindow.SelectionsBtn:SetVisible(true)
+		mainWindow.LessBtn:SetVisible(true)
+	end
 	Dta.ui.windowtest:SetContentHeight(MainWindowSettings.HEIGHT + 2*27)
 end
 
 function Dta.ui.lessBtnClicked()
-	local itemDetails = Dta.ui.windowtest.itemDetails
-	itemDetails.Alphabet:SetVisible(false)
-	itemDetails.ReskinBtn:SetVisible(false)
-	itemDetails.SelectionsBtn:SetVisible(false)
-	itemDetails.LessBtn:SetVisible(false)
-	itemDetails.MoreBtn:SetVisible(true)
+	local mainWindow = Dta.ui.windowtest.content
+	mainWindow.Alphabet:SetVisible(false)
+	mainWindow.ReskinBtn:SetVisible(false)
+	mainWindow.SelectionsBtn:SetVisible(false)
+	mainWindow.LessBtn:SetVisible(false)
+	mainWindow.MoreBtn:SetVisible(true)
 	Dta.ui.windowtest:SetContentHeight(MainWindowSettings.HEIGHT)
 end
 
