@@ -71,6 +71,7 @@ function Dta.Help.Init()
 		Dta.Locale.OffsetCalc.Label,
 		Dta.Locale.Alfiebet.Label,
 		Dta.Locale.Reskin.Label,
+		Dta.Locale.Selection.Label,
 		Dta.Locale.Afterword.Label
 	}
 
@@ -198,6 +199,16 @@ function Dta.Help.Init()
 	}
 
 	helpTopic[13] = {
+		label = Dta.Locale.Selection.Label,
+		text01 = Dta.Locale.Selection.Text1,
+		text02 = Dta.Locale.Selection.Text2,
+		text03 = Dta.Locale.Selection.Text3,
+		pic01 = "",
+		pic02 = "",
+		pic03 = ""
+	}
+
+	helpTopic[14] = {
 		label = Dta.Locale.Afterword.Label,
 		text01 = Dta.Locale.Afterword.Text1,
 		text02 = Dta.Locale.Afterword.Text2,
