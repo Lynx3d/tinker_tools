@@ -203,7 +203,7 @@ function Dta.Help.Init()
 		text01 = Dta.Locale.Selection.Text1,
 		text02 = Dta.Locale.Selection.Text2,
 		text03 = Dta.Locale.Selection.Text3,
-		pic01 = "",
+		pic01 = "Selection_Window.jpg",
 		pic02 = "",
 		pic03 = ""
 	}
