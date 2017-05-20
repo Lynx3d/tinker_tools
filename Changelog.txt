@@ -1,3 +1,14 @@
+Version 1.3.1
+- Fix issue with automatic saving of selections
+- Automatically save the selection of last loaded set too
+- Add a "wildcard" skin to Reskin to replace all building blocks of matching shape
+- Load&Save:
+  * Remove rather redundant option to load multiple copies, use copy&paste instead
+  * Add a reference point option that allows precise placement of sets
+  * Display required items for sets in a window instead of printing them to chat;
+    this way item names for the current client language can be loaded.
+- Add '/tt settings' as synonym for '/tt config'
+
 Version 1.3.0
 - New Selection Tool:
   * Temporarily save sets of items for easy reselection during a building session
