@@ -293,7 +293,8 @@ function Dta.commandHandler(hEvent, command_string)
 		Dta.help_ui.toggleHelpWindow()
 	elseif command == "import_dt" then
 		Dta.settings.import_dimtools()
-	elseif command == "config" then
+	elseif command == "config" or
+		   command == "settings" then
 		Dta.config_ui.showConfigWindow()
 	elseif command == "debug" then
 		Dta.debugVerbosity = tonumber(args[2]) or 0
