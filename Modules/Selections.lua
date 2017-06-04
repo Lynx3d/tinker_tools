@@ -15,10 +15,7 @@ end
 
 -- Note: overwrite must be true when called from inside a coroutine
 function Dta.Selections.SaveSelection(name, new_set, overwrite)
-	if Dta.selectionCount < 1 then
-		Dta.CPrint(Dta.Locale.Prints.MinOneItem)
-		return
-	elseif not name or #name == 0 then
+	if not name or #name == 0 then
 		Dta.CPrint(Dta.Locale.Prints.EnterName)
 		return
 	elseif Dta.Selections.saved[name] and not overwrite then
@@ -39,6 +36,12 @@ end
 function Dta.Selections.SaveSelectionClicked()
 	local selUI = Dta.Tools.Select.window
 	local name = selUI.name:GetText()
+
+	if Dta.selectionCount < 1 then
+		Dta.CPrint(Dta.Locale.Prints.MinOneItem)
+		return
+	end
+
 	local new_set = {}
 	for id, _ in pairs(Dta.selectedItems) do
 		new_set[id] = true
