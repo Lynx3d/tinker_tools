@@ -57,6 +57,8 @@ Dta.settings.defaults = {
 	ReskinwindowPosY = 400,
 	SelectionwindowPosX = 320,
 	SelectionwindowPosY = 100,
+	ConnectorwindowPosX = 320,
+	ConnectorwindowPosY = 200,
 	Language = "Auto",
 	WindowStyle = "default",
 	ConsoleOutput = { [1] = true },
