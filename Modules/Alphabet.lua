@@ -110,7 +110,7 @@ function Dta.alphabet.AlphabetPrintMaterials()
 	for c in settings.word:gmatch"." do
 		Dta.alphabet.AddLetterToList(c, settings, shoppingList)
 	end
-	Dta.alphabet.PrintShoppingList(shoppingList, settings.word)
+	Dta.ui.ShowMaterialList(shoppingList)
 end
 
 function Dta.alphabet.AlphabetLoadClicked()
@@ -167,17 +167,6 @@ function Dta.alphabet.AddLetterToList(letter, settings, shoppingList)
 		else
 			shoppingList[item.type].amount = shoppingList[item.type].amount + 1
 		end
-	end
-end
-
-function Dta.alphabet.PrintShoppingList(list, word)
-	if list ~= nil and Dta.losa.tableLength(list) > 0 then
-		Dta.CPrint(string.format(Dta.Locale.Prints.WordNeededItems, word))
-		for id, details in pairs(list) do
-			Dta.CPrint(string.format("%s: %d", details.name, details.amount))
-		end
-	else
-		Dta.CPrint(Dta.Locale.Prints.WordCouldNotPrint)
 	end
 end
 
