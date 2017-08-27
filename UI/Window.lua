@@ -4,7 +4,7 @@ local DraggableFrame = {}
 
 DraggableFrame.MouseDownCallback = function(self, handle)
 	self.dragging = true
-	mouse = Inspect.Mouse()
+	local mouse = Inspect.Mouse()
 	self.dragStartX = mouse.x - self.window:GetLeft()
 	self.dragStartY = mouse.y - self.window:GetTop()
 	self:EventAttach(Event.UI.Input.Mouse.Cursor.Move, DraggableFrame.MouseMoveCallback, "dragFrameMover")
