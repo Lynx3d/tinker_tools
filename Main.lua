@@ -60,7 +60,6 @@ function Dta.main()
 	Command.Event.Attach(Command.Slash.Register("tt"), Dta.commandHandler, "Tinker Tools Command")
 	Command.Event.Attach(Event.Unit.Availability.Full, Dta.Event_Unit_Availability_Full, "Event_Unit_Availability_Full")
 	Command.Event.Attach(Event.Unit.Detail.Zone, Dta.Event_Unit_Detail_Zone, "Event_Unit_Detail_Zone")
-	Command.Event.Attach(Event.System.Update.Begin, Dta.tick, "refresh")
 	Command.Event.Attach(Event.Dimension.Layout.Add, Dta.addEventHandler, "Update selection")
 	Command.Event.Attach(Event.Dimension.Layout.Remove, Dta.removeEventHandler, "Update selection")
 	Command.Event.Attach(Event.Dimension.Layout.Update, Dta.updateEventHandler, "Update selection")
@@ -208,14 +207,14 @@ local function EnterDimension()
 
 	if Dta.InDimension then return end
 	Dta.ui.showMainButton()
-	-- TODO: attach tick callback
+	Command.Event.Attach(Event.System.Update.Begin, Dta.tick, "TT_Update")
 	Dta.InDimension = true
 end
 
 local function LeaveDimension()
 	if not Dta.InDimension then return end
 	Dta.ui.hideMainButton()
-	-- TODO: detatch tick callback
+	Command.Event.Detach(Event.System.Update.Begin, Dta.tick, "TT_Update")
 	if Dta.ui.active then Dta.ui.hideMainWindow() end
 	Dta.InDimension = false
 end
