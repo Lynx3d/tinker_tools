@@ -40,7 +40,7 @@ function Dta.Connector.LinkChanged(checkbox)
 end
 
 -- TODO: move shape index to Measurements.lua and use for detection
-local lShapeIndex = {
+Dta.Connector.ShapeIndex = {
 	cube = 1,
 	plank = 2,
 	pole = 3,
@@ -56,7 +56,7 @@ Dta.Connector.Center = {
 	{ x = 1.125, y = 0, z = 0.125 }, -- Plank
 	{ x = 0.0625, y = 0, z = 0.0625 }, -- Pole
 	{ x = 0.5625, y = 0, z = 0.375 }, -- Rectangle
-	{ x = 0.375, y = 0, z = 0.375, minScale }, -- Tile
+	{ x = 0.375, y = 0, z = 0.375 }, -- Tile
 --	{ x = 4, y = 0.25, z = 4, minScale = 0.25, maxScale = 2 }, -- Floor
 --	{ x = 4, y = 0.25, z = 8, minScale = 0.25, maxScale = 2 }, -- Hall Floor
 --	{ x = 8, y = 0.25, z = 8, minScale = 0.25, maxScale = 2 } -- Large Floor
@@ -64,13 +64,14 @@ Dta.Connector.Center = {
 --	{ x = 4, y = 0.05, z = 4, minScale = 0.25, maxScale = 2 } -- Carpet Tile
 }
 
-local lCornerDirH = { -1, 0, 1, 1, 1, 0, -1, -1 }
-local lCornerDirV = { 1, 1, 1, 0, -1, -1, -1, 0 } -- 90° CCW
-local lAxisMap = {
-	{ "x", "y", "z" },
+Dta.Connector.AxisMap = {
+	{ "x", "z", "y" },
 	{ "y", "x", "z" },
 	{ "z", "x", "y" }
 }
+
+local lCornerDirH = { -1, 0, 1, 1, 1, 0, -1, -1 }
+local lCornerDirV = { 1, 1, 1, 0, -1, -1, -1, 0 } -- 90° CCW
 
 function Dta.Connector.ConnectClicked()
 	if not Dta.checkIdle() then
@@ -116,11 +117,11 @@ function Dta.Connector.GetExtent(dimensions, center, axis, dir)
 end
 
 function Dta.Connector.GetVector(shape, corner, axis, scale)
-	local shapeIdx = lShapeIndex[shape]
+	local shapeIdx = Dta.Connector.ShapeIndex[shape]
 	if not shapeIdx then return end
 	local dimensions = Dta.measurements.Dimensions[shapeIdx]
 	local center = Dta.Connector.Center[shapeIdx]
-	local axisMap = lAxisMap[axis]
+	local axisMap = Dta.Connector.AxisMap[axis]
 	local vec = {}
 	vec[axisMap[1]] = 0
 	vec[axisMap[2]] = scale * Dta.Connector.GetExtent(dimensions, center, axisMap[2], lCornerDirH[corner]) --dimensions[lAxisMap[axis][2]] * lCornerDirH[corner]

@@ -13,6 +13,7 @@ Dta.selectedItems = {}
 Dta.selectionCount = 0
 Dta.clipboard = {}
 Dta.notifyThreshold = 10
+Dta.selectionChanged = false
 
 --Load & Save
 Dta.constructionsdefaults = {}
@@ -407,6 +408,12 @@ function Dta.tick(handle)
 			end
 			count = count + 1
 		end
+	end
+	-- Update Connector when active
+	-- TODO: Look into custom event for selection changes
+	if Dta.selectionChanged and Dta.Tools.Connector:IsActive() then
+		Dta.ui.ConnectorUpdateUI()
+		Dta.selectionChanged = false
 	end
 
 	if Dta.carpetId then

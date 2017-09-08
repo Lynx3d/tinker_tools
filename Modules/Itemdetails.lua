@@ -155,10 +155,12 @@ function Dta.items.updateSelection(dimensionItem, delete)
 	for id,details in pairs(dimensionItem) do
 		-- the is no update event when a selected item gets removed from a dimension
 		if delete then
+			Dta.selectionChanged = Dta.selectionChanged or Dta.selectedItems[id] ~= nil
 			Dta.selectedItems[id] = nil
 		else
 			local detail = Inspect.Dimension.Layout.Detail(id)
 			if detail ~= nil then
+				Dta.selectionChanged = Dta.selectionChanged or (detail.selected == not Dta.selectedItems[id])
 				if detail.selected then
 					Dta.items.fixRotation(detail)
 					Dta.selectedItems[id] = detail
