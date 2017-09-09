@@ -411,8 +411,10 @@ function Dta.tick(handle)
 	end
 	-- Update Connector when active
 	-- TODO: Look into custom event for selection changes
-	if Dta.selectionChanged and Dta.Tools.Connector:IsActive() then
-		Dta.ui.ConnectorUpdateUI()
+	if Dta.selectionChanged then
+		if Dta.Tools.Connector:IsActive() then
+			Dta.ui.ConnectorUpdateUI()
+		end
 		Dta.selectionChanged = false
 	end
 

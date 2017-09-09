@@ -40,24 +40,28 @@ function Dta.ui.buildConnectorWindow()
 	newWindow.shapeDisplay:SetPoint("BOTTOMRIGHT", winContent, "TOPLEFT", 10+137, 139)
 	newWindow.shapeDisplay:SetBackgroundColor(0, 0, 1, 0.3) -- test
 	--
-	newWindow.angle = Dta.ui.createTextfield("ConnectorAngle", winContent, 170, 15, 50)
-	newWindow.axis = Dta.ui.createDropdown("ConnectorAxisSelect", winContent, 170, 40, 60)
+	newWindow.angleLabel = Dta.ui.createText("ConnectorAngleLabel", winContent, 170, 15, "<angle>", 14)
+	newWindow.angle = Dta.ui.createTextfield("ConnectorAngle", winContent, 245, 15, 50)
+	newWindow.angleLabel = Dta.ui.createText("ConnectorAxisLabel", winContent, 170, 40, "<axis>", 14)
+	newWindow.axis = Dta.ui.createDropdown("ConnectorAxisSelect", winContent, 245, 40, 50)
 	newWindow.axis:SetItems({"x", "y", "z"})
+	newWindow.axis:SetSelectedIndex(1)
+	newWindow.axis.Event.ItemSelect = Dta.ui.ConnectorUpdateUI
 
 	newWindow.pasteBtn = Dta.ui.createButton("connectorApplyBtn", winContent, 10, 210, nil, nil,
 											"<paste>", nil, Dta.Connector.ConnectClicked)
-	--TODO: TEMP, replace with selection event trigger
-	newWindow.updateBtn = Dta.ui.createButton("connectorApplyBtn", winContent, 170, 210, nil, nil,
-											"<update>", nil, Dta.ui.ConnectorUpdateUI)
 	return newWindow
 end
 
 function Dta.ui.showConnectorWindow(conWindow)
 	conWindow:SetVisible(true)
+	conWindow.axis:SetEnabled(true)
+	Dta.ui.ConnectorUpdateUI()
 end
 
 function Dta.ui.hideConnectorWindow(conWindow)
 	conWindow:SetVisible(false)
+	conWindow.axis:SetEnabled(false)
 end
 
 function Dta.ui.ConnectorDrawShape(canvas, shape, axis)
@@ -104,6 +108,7 @@ function Dta.ui.ConnectorUpdateUI()
 		local _, details = next(Dta.selectedItems)
 		local entry = Dta.Defaults.ItemDB[details.type]
 		if entry and entry.shape then
+			-- TODO: make sure we support the shape (check shapeIdx here already?)
 			shape = entry.shape
 			available = true
 		end
