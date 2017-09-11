@@ -57,16 +57,16 @@ function Dta.ui.showConnectorWindow(conWindow)
 	conWindow:SetVisible(true)
 	conWindow.axis:SetEnabled(true)
 	Dta.ui.ConnectorUpdateUI()
+	Command.Event.Attach(Event[Dta.AddonID].Selection, Dta.ui.ConnectorUpdateUI, "TT_Connector_Update")
 end
 
 function Dta.ui.hideConnectorWindow(conWindow)
 	conWindow:SetVisible(false)
 	conWindow.axis:SetEnabled(false)
+	Command.Event.Detach(Event[Dta.AddonID].Selection, Dta.ui.ConnectorUpdateUI, "TT_Connector_Update")
 end
 
-function Dta.ui.ConnectorDrawShape(canvas, shape, axis)
-	local shapeIdx = Dta.Connector.ShapeIndex[shape]
-	if not shapeIdx then return end
+function Dta.ui.ConnectorDrawShape(canvas, shapeIdx, axis)
 	local dimensions = Dta.measurements.Dimensions[shapeIdx]
 	local center = Dta.Connector.Center[shapeIdx]
 	local axisMap = Dta.Connector.AxisMap[axis]
@@ -101,21 +101,22 @@ end
 function Dta.ui.ConnectorUpdateUI()
 	local con_ui = Dta.Tools.Connector.window
 	local available = false
-	local shape, axis
+	local shapeIdx, axis
 	if Dta.selectionCount == 1 then
 		-- TODO: make sure an axis is selected
 		axis = con_ui.axis:GetSelectedIndex() or 1
 		local _, details = next(Dta.selectedItems)
 		local entry = Dta.Defaults.ItemDB[details.type]
 		if entry and entry.shape then
-			-- TODO: make sure we support the shape (check shapeIdx here already?)
-			shape = entry.shape
-			available = true
+			shapeIdx = Dta.Connector.ShapeIndex[entry.shape]
+			if shapeIdx then
+				available = true
+			end
 		end
 	end
 	con_ui.pasteBtn:SetEnabled(available)
 	if available then
-		Dta.ui.ConnectorDrawShape(con_ui.shapeDisplay, shape, axis)
+		Dta.ui.ConnectorDrawShape(con_ui.shapeDisplay, shapeIdx, axis)
 	else
 		con_ui.shapeDisplay:SetShape(nil, nil, nil)
 	end

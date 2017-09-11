@@ -160,7 +160,7 @@ function Dta.items.updateSelection(dimensionItem, delete)
 		else
 			local detail = Inspect.Dimension.Layout.Detail(id)
 			if detail ~= nil then
-				Dta.selectionChanged = Dta.selectionChanged or (detail.selected == not Dta.selectedItems[id])
+				Dta.selectionChanged = Dta.selectionChanged or (not detail.selected ~= not Dta.selectedItems[id])
 				if detail.selected then
 					Dta.items.fixRotation(detail)
 					Dta.selectedItems[id] = detail

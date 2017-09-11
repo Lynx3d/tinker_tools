@@ -64,6 +64,7 @@ function Dta.main()
 	Command.Event.Attach(Event.Dimension.Layout.Add, Dta.addEventHandler, "Update selection")
 	Command.Event.Attach(Event.Dimension.Layout.Remove, Dta.removeEventHandler, "Update selection")
 	Command.Event.Attach(Event.Dimension.Layout.Update, Dta.updateEventHandler, "Update selection")
+	Dta.triggerSelectionChange, Dta.selectionChangeHandle = Utility.Event.Create(Dta.AddonID, "Selection")
 end
 
 -- print text to all consoles (chat windows/tabs) enabled in settings
@@ -111,6 +112,8 @@ local function toolToggle(self)
 		end
 	else
 		self.window = self.CreateUI()
+		-- give window a chance to update with current selection after being installed
+		self.Show(self.window)
 	end
 end
 
@@ -409,12 +412,10 @@ function Dta.tick(handle)
 			count = count + 1
 		end
 	end
-	-- Update Connector when active
-	-- TODO: Look into custom event for selection changes
+
+	-- Trigger selection change to update Connector UI etc.
 	if Dta.selectionChanged then
-		if Dta.Tools.Connector:IsActive() then
-			Dta.ui.ConnectorUpdateUI()
-		end
+		Dta.triggerSelectionChange()
 		Dta.selectionChanged = false
 	end
 
