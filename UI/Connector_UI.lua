@@ -37,8 +37,20 @@ function Dta.ui.buildConnectorWindow()
 	newWindow.corner[Dta.Connector.link]:SetChecked(true)
 	newWindow.shapeDisplay = UI.CreateFrame("Canvas", "ConShapeDisplay", winContent)
 	newWindow.shapeDisplay:SetPoint("TOPLEFT", winContent, "TOPLEFT", 10+17, 19)
-	newWindow.shapeDisplay:SetPoint("BOTTOMRIGHT", winContent, "TOPLEFT", 10+137, 139)
+	newWindow.shapeDisplay:SetPoint("BOTTOMRIGHT", winContent, "TOPLEFT", 10+138, 140)
 	newWindow.shapeDisplay:SetBackgroundColor(0, 0, 1, 0.3) -- test
+	--
+	newWindow.shapeAxisH = UI.CreateFrame("Frame", "ConShapeXAxis", winContent)
+	newWindow.shapeAxisH:SetPoint("TOPLEFT", winContent, "TOPLEFT", 10+17, 19+60)
+	newWindow.shapeAxisH:SetPoint("BOTTOMRIGHT", winContent, "TOPLEFT", 10+138, 19+61)
+	newWindow.shapeAxisH:SetBackgroundColor(0, 0, 0, 0.8)
+	newWindow.shapeAxisH:SetLayer(10)
+
+	newWindow.shapeAxisV = UI.CreateFrame("Frame", "ConShapeXAxis", winContent)
+	newWindow.shapeAxisV:SetPoint("TOPLEFT", winContent, "TOPLEFT", 10+17+60, 19)
+	newWindow.shapeAxisV:SetPoint("BOTTOMRIGHT", winContent, "TOPLEFT", 10+17+61, 140)
+	newWindow.shapeAxisV:SetBackgroundColor(0, 0, 0, 0.8)
+	newWindow.shapeAxisV:SetLayer(10)
 	--
 	newWindow.angleLabel = Dta.ui.createText("ConnectorAngleLabel", winContent, 170, 15, "<angle>", 14)
 	newWindow.angle = Dta.ui.createTextfield("ConnectorAngle", winContent, 245, 15, 50)
@@ -70,30 +82,36 @@ function Dta.ui.ConnectorDrawShape(canvas, shapeIdx, axis)
 	local dimensions = Dta.measurements.Dimensions[shapeIdx]
 	local center = Dta.Connector.Center[shapeIdx]
 	local axisMap = Dta.Connector.AxisMap[axis]
+	local z_down = Dta.Connector.GetExtent(dimensions, center, axisMap[1], -1)
+	local z_up = Dta.Connector.GetExtent(dimensions, center, axisMap[1], 1)
 	local left = Dta.Connector.GetExtent(dimensions, center, axisMap[2], -1)
 	local right = Dta.Connector.GetExtent(dimensions, center, axisMap[2], 1)
 	local bottom = Dta.Connector.GetExtent(dimensions, center, axisMap[3], -1)
 	local top = Dta.Connector.GetExtent(dimensions, center, axisMap[3], 1)
-	local scale = 0.475 / math.max(-left, -bottom, right, top)
-	local shapePath = {	{xProportional = 0.5 + left * scale, yProportional = 0.5 - top * scale},
-						{xProportional = 0.5 + right * scale, yProportional = 0.5 - top * scale},
-						{xProportional = 0.5 + right * scale, yProportional = 0.5 - bottom * scale},
-						{xProportional = 0.5 + left* scale, yProportional = 0.5 - bottom * scale},
-						{xProportional = 0.5 + left * scale, yProportional = 0.5 - top * scale} }
-	--test
-	if shape == "pole" and axis == 2 then
-		shapePath = { {xProportional = 0.5 + left * scale, yProportional = 0.5},
-					  {xProportional = 0.5, yProportional = 0.5 - top * scale,
-						xControlProportional = 0.5 + left * scale, yControlProportional = 0.5 - top * scale},
-					  {xProportional = 0.5 + right * scale, yProportional = 0.5,
-						xControlProportional = 0.5 + right * scale, yControlProportional = 0.5 - top * scale},
-					  {xProportional = 0.5, yProportional = 0.5 - bottom * scale,
-						xControlProportional = 0.5 + right * scale, yControlProportional = 0.5 - bottom * scale},
-					  {xProportional = 0.5 + left * scale, yProportional = 0.5,
-						xControlProportional = 0.5 + left* scale, yControlProportional = 0.5 - bottom * scale},
+
+	local cRad = 0.5 * canvas:GetWidth()
+	local scale =  cRad * 0.95 / math.max(-left, -bottom, -z_down, right, top, z_up)
+	local shapePath
+
+	if shapeIdx == 3 and axis == 2 then -- pole, y axis
+		shapePath = { {x = math.floor(cRad + left * scale), y = math.floor(cRad)},
+					  {x = math.floor(cRad), y = math.floor(cRad - top * scale),
+						xControl = math.floor(cRad + left * scale), yControl = math.floor(cRad - top * scale)},
+					  {x = math.floor(cRad + right * scale), y = math.floor(cRad),
+						xControl = math.floor(cRad + right * scale), yControl = math.floor(cRad - top * scale)},
+					  {x = math.floor(cRad), y = math.floor(cRad - bottom * scale),
+						xControl = math.floor(cRad + right * scale), yControl = math.floor(cRad - bottom * scale)},
+					  {x = math.floor(cRad + left * scale), y = math.floor(cRad),
+						xControl = math.floor(cRad + left* scale), yControl = math.floor(cRad - bottom * scale)},
 					}
+	else
+		shapePath = {	{x = math.floor(cRad + left * scale), y = math.floor(cRad - top * scale)},
+						{x = math.floor(cRad + right * scale), y = math.floor(cRad - top * scale)},
+						{x = math.floor(cRad + right * scale), y = math.floor(cRad - bottom * scale)},
+						{x = math.floor(cRad + left * scale), y = math.floor(cRad - bottom * scale)},
+						{x = math.floor(cRad + left * scale), y = math.floor(cRad - top * scale)} }
 	end
-	--
+
 	canvas:SetShape(shapePath, {type = "solid", r=0.07, g=0.01, b=0, a=0.6}, {r=0, g=0, b=0, a=1, thickness=1})
 end
 
