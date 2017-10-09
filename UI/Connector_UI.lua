@@ -38,27 +38,30 @@ function Dta.ui.buildConnectorWindow()
 	newWindow.shapeDisplay = UI.CreateFrame("Canvas", "ConShapeDisplay", winContent)
 	newWindow.shapeDisplay:SetPoint("TOPLEFT", winContent, "TOPLEFT", 10+17, 19)
 	newWindow.shapeDisplay:SetPoint("BOTTOMRIGHT", winContent, "TOPLEFT", 10+138, 140)
-	newWindow.shapeDisplay:SetBackgroundColor(0, 0, 1, 0.3) -- test
+	newWindow.shapeDisplay:SetBackgroundColor(0.07, 0.01, 0, 0.5) -- test
 	--
 	newWindow.shapeAxisH = UI.CreateFrame("Frame", "ConShapeXAxis", winContent)
 	newWindow.shapeAxisH:SetPoint("TOPLEFT", winContent, "TOPLEFT", 10+17, 19+60)
 	newWindow.shapeAxisH:SetPoint("BOTTOMRIGHT", winContent, "TOPLEFT", 10+138, 19+61)
-	newWindow.shapeAxisH:SetBackgroundColor(0, 0, 0, 0.8)
+	newWindow.shapeAxisH:SetBackgroundColor(0.9, 0.9, 0.9, 0.4)
 	newWindow.shapeAxisH:SetLayer(10)
 
 	newWindow.shapeAxisV = UI.CreateFrame("Frame", "ConShapeXAxis", winContent)
 	newWindow.shapeAxisV:SetPoint("TOPLEFT", winContent, "TOPLEFT", 10+17+60, 19)
 	newWindow.shapeAxisV:SetPoint("BOTTOMRIGHT", winContent, "TOPLEFT", 10+17+61, 140)
-	newWindow.shapeAxisV:SetBackgroundColor(0, 0, 0, 0.8)
+	newWindow.shapeAxisV:SetBackgroundColor(0.9, 0.9, 0.9, 0.4)
 	newWindow.shapeAxisV:SetLayer(10)
 	--
+	newWindow.axisLabelH = Dta.ui.createText("ConnectorAxisLabelH", newWindow.shapeAxisH, 107, 3, "-", 14)
+	newWindow.axisLabelV = Dta.ui.createText("ConnectorAxisLabelV", newWindow.shapeAxisV, 5, 3, "-", 14)
 	newWindow.angleLabel = Dta.ui.createText("ConnectorAngleLabel", winContent, 170, 15, "<angle>", 14)
 	newWindow.angle = Dta.ui.createTextfield("ConnectorAngle", winContent, 245, 15, 50)
 	newWindow.angleLabel = Dta.ui.createText("ConnectorAxisLabel", winContent, 170, 40, "<axis>", 14)
 	newWindow.axis = Dta.ui.createDropdown("ConnectorAxisSelect", winContent, 245, 40, 50)
 	newWindow.axis:SetItems({"x", "y", "z"})
 	newWindow.axis:SetSelectedIndex(1)
-	newWindow.axis.Event.ItemSelect = Dta.ui.ConnectorUpdateUI
+	newWindow.axis.Event.ItemSelect = Dta.ui.ConnectorAxisChanged
+	Dta.ui.ConnectorSetAxis(newWindow, 1)
 
 	newWindow.pasteBtn = Dta.ui.createButton("connectorApplyBtn", winContent, 10, 210, nil, nil,
 											"<paste>", nil, Dta.Connector.ConnectClicked)
@@ -112,7 +115,7 @@ function Dta.ui.ConnectorDrawShape(canvas, shapeIdx, axis)
 						{x = math.floor(cRad + left * scale), y = math.floor(cRad - top * scale)} }
 	end
 
-	canvas:SetShape(shapePath, {type = "solid", r=0.07, g=0.01, b=0, a=0.6}, {r=0, g=0, b=0, a=1, thickness=1})
+	canvas:SetShape(shapePath, {type = "solid", r=0.07, g=0.01, b=0, a=0.6}, {r=0.65, g=0.58, b=0.4, a=1, thickness=1})
 end
 
 -- TODO: turn into event handler when temp button is gone
@@ -134,10 +137,37 @@ function Dta.ui.ConnectorUpdateUI()
 	end
 	con_ui.pasteBtn:SetEnabled(available)
 	if available then
+		Dta.Connector.currentShapeIdx = shapeIdx
 		Dta.ui.ConnectorDrawShape(con_ui.shapeDisplay, shapeIdx, axis)
 	else
+		Dta.Connector.currentShapeIdx = nil
 		con_ui.shapeDisplay:SetShape(nil, nil, nil)
 	end
+end
+
+local axisColor = {
+	x = {1, 0, 0},
+	y = {0, 1, 0},
+	z = {0, 0.75, 1}
+}
+
+function Dta.ui.ConnectorSetAxis(con_ui, axis)
+	local axisMap = Dta.Connector.AxisMap[axis]
+	con_ui.axisLabelH:SetText(axisMap[2]:upper())
+	con_ui.axisLabelH:SetFontColor(unpack(axisColor[axisMap[2]]))
+	con_ui.axisLabelV:SetText(axisMap[3]:upper())
+	con_ui.axisLabelV:SetFontColor(unpack(axisColor[axisMap[3]]))
+
+	if Dta.Connector.currentShapeIdx then
+		Dta.ui.ConnectorDrawShape(con_ui.shapeDisplay, Dta.Connector.currentShapeIdx, axis)
+	end
+end
+
+function Dta.ui.ConnectorAxisChanged(self, axisName, _, axis)
+	if not axis then return end
+
+	local con_ui = Dta.Tools.Connector.window
+	Dta.ui.ConnectorSetAxis(con_ui, axis)
 end
 
 Dta.RegisterTool("Connector", Dta.ui.buildConnectorWindow, Dta.ui.showConnectorWindow, Dta.ui.hideConnectorWindow)
