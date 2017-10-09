@@ -63,6 +63,10 @@ function Dta.ui.buildConnectorWindow()
 	newWindow.axis.Event.ItemSelect = Dta.ui.ConnectorAxisChanged
 	Dta.ui.ConnectorSetAxis(newWindow, 1)
 
+	newWindow.repeatToggle = Dta.ui.createCheckbox("ConnectorRepeatCbx", winContent, 10, 165, "<repeat>", false, nil, Dta.ui.ConnectorRepeatChanged)
+	newWindow.repeatCount = Dta.ui.createTextfield("ConnectorRepeatCount", winContent, 170, 165, 40)
+	newWindow.repeatCount:SetVisible(false)
+
 	newWindow.pasteBtn = Dta.ui.createButton("connectorApplyBtn", winContent, 10, 210, nil, nil,
 											"<paste>", nil, Dta.Connector.ConnectClicked)
 	return newWindow
@@ -168,6 +172,11 @@ function Dta.ui.ConnectorAxisChanged(self, axisName, _, axis)
 
 	local con_ui = Dta.Tools.Connector.window
 	Dta.ui.ConnectorSetAxis(con_ui, axis)
+end
+
+function Dta.ui.ConnectorRepeatChanged(self)
+	local con_ui = Dta.Tools.Connector.window
+	con_ui.repeatCount:SetVisible(self:GetChecked())
 end
 
 Dta.RegisterTool("Connector", Dta.ui.buildConnectorWindow, Dta.ui.showConnectorWindow, Dta.ui.hideConnectorWindow)

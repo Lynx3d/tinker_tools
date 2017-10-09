@@ -89,6 +89,13 @@ function Dta.Connector.ConnectClicked()
 		Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
 		return
 	end
+	if con_ui.repeatToggle:GetEnabled() then
+		settings.repetitions, success = Dta.ui.checkNumber(con_ui.repeatCount:GetText(), nil)
+		if not success then
+			Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
+			return
+		end
+	end
 	-- TODO: make sure an axis is selected
 	settings.axis = con_ui.axis:GetSelectedIndex() or 1
 
@@ -136,38 +143,42 @@ function Dta.Connector.Connect(details, settings)
 	local minorAxis = math.floor(linkVal / 3) -- range 0-3
 	local corner = (linkVal - minorAxis) % 8 -- range 0-8
 	local corner2 = (2*((minorAxis + 2) % 4 + minorAxis + 1) - corner) % 8
-	local vec1 = Dta.Connector.GetVector(shape, corner + 1, majorAxis, details.scale)
-	local vec2 = Dta.Connector.GetVector(shape, corner2 + 1, majorAxis, details.scale)
-	local m_rot = Dta.Matrix.createZYX(details.pitch, details.yaw, details.roll, true)
-	local new_details = {}
+	local repetitions = settings.repetitions or 1
 	-- rotate connection vector 2 by input angle
-	if settings.angle and settings.angle ~= 0 then
-		local m_rot2
-		if majorAxis == 1 then
-			m_rot2 = Dta.Matrix.createZYX(settings.angle, 0, 0, true)
-		elseif majorAxis == 2 then
-			m_rot2 = Dta.Matrix.createZYX(0, settings.angle, 0, true)
+	for i = 1, repetitions do
+		local new_details = {}
+		local vec1 = Dta.Connector.GetVector(shape, corner + 1, majorAxis, details.scale)
+		local vec2 = Dta.Connector.GetVector(shape, corner2 + 1, majorAxis, details.scale)
+		local m_rot = Dta.Matrix.createZYX(details.pitch, details.yaw, details.roll, true)
+		if settings.angle and settings.angle ~= 0 then
+			local m_rot2
+			if majorAxis == 1 then
+				m_rot2 = Dta.Matrix.createZYX(settings.angle, 0, 0, true)
+			elseif majorAxis == 2 then
+				m_rot2 = Dta.Matrix.createZYX(0, settings.angle, 0, true)
+			else
+				m_rot2 = Dta.Matrix.createZYX(0, 0, settings.angle, true)
+			end
+			local temp = Dta.Matrix.Transform(m_rot2, {vec2.x, vec2.y, vec2.z})
+			vec2 = { x = temp[1], y = temp[2], z = temp[3] }
+			local m_final = Dta.Matrix.Multiply(m_rot, m_rot2)
+			new_details.pitch, new_details.yaw, new_details.roll = Dta.Matrix.ToZYX(m_final, true)
 		else
-			m_rot2 = Dta.Matrix.createZYX(0, 0, settings.angle, true)
+			new_details.pitch = details.pitch
+			new_details.yaw = details.yaw
+			new_details.roll = details.roll
 		end
-		local temp = Dta.Matrix.Transform(m_rot2, {vec2.x, vec2.y, vec2.z})
-		vec2 = { x = temp[1], y = temp[2], z = temp[3] }
-		local m_final = Dta.Matrix.Multiply(m_rot, m_rot2)
-		new_details.pitch, new_details.yaw, new_details.roll = Dta.Matrix.ToZYX(m_final, true)
-	else
-		new_details.pitch = details.pitch
-		new_details.yaw = details.yaw
-		new_details.roll = details.roll
-	end
-	--
-	local vec1_vec2 = { vec1.x - vec2.x, vec1.y - vec2.y, vec1.z - vec2.z }
-	-- transform vec1_vec2 into object_1 space
-	local vec_final = Dta.Matrix.Transform(m_rot, vec1_vec2)
+		--
+		local vec1_vec2 = { vec1.x - vec2.x, vec1.y - vec2.y, vec1.z - vec2.z }
+		-- transform vec1_vec2 into object_1 space
+		local vec_final = Dta.Matrix.Transform(m_rot, vec1_vec2)
 
-	new_details.type = details.type
-	new_details.coordX = details.coordX + vec_final[1]
-	new_details.coordY = details.coordY + vec_final[2]
-	new_details.coordZ = details.coordZ + vec_final[3]
-	new_details.scale = details.scale
-	Dta.copa.pasteSingleItem(new_details, settings.shoppingList, true)
+		new_details.type = details.type
+		new_details.coordX = details.coordX + vec_final[1]
+		new_details.coordY = details.coordY + vec_final[2]
+		new_details.coordZ = details.coordZ + vec_final[3]
+		new_details.scale = details.scale
+		Dta.copa.pasteSingleItem(new_details, settings.shoppingList, true)
+		details = new_details
+	end
 end
