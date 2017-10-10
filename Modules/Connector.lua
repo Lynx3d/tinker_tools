@@ -138,6 +138,7 @@ function Dta.Connector.GetVector(shape, corner, axis, scale)
 end
 
 function Dta.Connector.Connect(details, settings)
+	Dta.items.DeselectAll()
 	local shape = settings.entry.shape
 	local linkVal = Dta.Connector.link - 1
 	local majorAxis = settings.axis
