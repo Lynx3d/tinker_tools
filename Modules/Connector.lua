@@ -40,15 +40,16 @@ function Dta.Connector.LinkChanged(checkbox)
 end
 
 -- TODO: move shape index to Measurements.lua and use for detection
+-- TODO: remove spaces from shape names
 Dta.Connector.ShapeIndex = {
 	cube = 1,
 	plank = 2,
 	pole = 3,
 	rectangle = 4,
 	tile = 5,
---	floor = 6,
---	["hall floor"] = 7,
---	["large floor"] = 8
+	floor = 6,
+	["hall floor"] = 7,
+	["large floor"] = 8
 }
 
 Dta.Connector.Center = {
@@ -57,16 +58,16 @@ Dta.Connector.Center = {
 	{ x = 0.0625, y = 0, z = 0.0625 }, -- Pole
 	{ x = 0.5625, y = 0, z = 0.375 }, -- Rectangle
 	{ x = 0.375, y = 0, z = 0.375 }, -- Tile
---	{ x = 4, y = 0.25, z = 4, minScale = 0.25, maxScale = 2 }, -- Floor
---	{ x = 4, y = 0.25, z = 8, minScale = 0.25, maxScale = 2 }, -- Hall Floor
---	{ x = 8, y = 0.25, z = 8, minScale = 0.25, maxScale = 2 } -- Large Floor
+	{ x = 2, y = 0, z = 2 }, -- Floor
+	{ x = 2, y = 0, z = 4 }, -- Hall Floor
+	{ x = 4, y = 0, z = 4 } -- Large Floor
 --	{ x = 0.371, y = 5, z = 0.3725, minScale = 0.25, maxScale = 2 } -- Corner Post
 --	{ x = 4, y = 0.05, z = 4, minScale = 0.25, maxScale = 2 } -- Carpet Tile
 }
 
 Dta.Connector.AxisMap = {
 	{ "x", "z", "y" },
-	{ "y", "x", "z" },
+	{ "y", "z", "x" },
 	{ "z", "x", "y" }
 }
 
