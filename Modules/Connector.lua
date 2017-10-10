@@ -89,7 +89,7 @@ function Dta.Connector.ConnectClicked()
 		Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
 		return
 	end
-	if con_ui.repeatToggle:GetEnabled() then
+	if con_ui.repeatToggle:GetChecked() then
 		settings.repetitions, success = Dta.ui.checkNumber(con_ui.repeatCount:GetText(), nil)
 		if not success then
 			Dta.CPrint(Dta.Locale.Prints.NumbersOnly)
